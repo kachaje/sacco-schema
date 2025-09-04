@@ -16,11 +16,17 @@ date:
   type: text
   order: 3
   default: CURRENT_TIMESTAMP
-read:
-  type: int
+messageRead:
+  type: text
   order: 4
-  default: 0
-delivered:
-  type: int
+  options:
+    - Yes
+    - No
+  default: "No"
+messageDelivered:
+  type: text
   order: 5
-  default: 0
+  options:
+    - Yes
+    - No
+  default: "No"

@@ -126,22 +126,39 @@ func Yml2Sql(model, content string) (*string, error) {
 				}
 			}
 
+			fieldData := fieldType
+
 			if val["required"] != nil {
 				if vReq, ok := val["required"].(bool); ok && vReq {
-					fieldType = fmt.Sprintf(`%s NOT NULL`, fieldType)
+					fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
 				}
 			}
 			if val["primaryKey"] != nil {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {
-					fieldType = fmt.Sprintf(`%s PRIMARY KEY`, fieldType)
+					fieldData = fmt.Sprintf(`%s PRIMARY KEY`, fieldData)
 				}
-			}
-			if val["default"] != nil {
-				fieldType = fmt.Sprintf(`%s DEFAULT %v`, fieldType, val["default"])
 			}
 			if val["autoIncrement"] != nil {
 				if vAutInc, ok := val["autoIncrement"].(bool); ok && vAutInc {
-					fieldType = strings.TrimSpace(fmt.Sprintf(`%s AUTOINCREMENT`, fieldType))
+					fieldData = strings.TrimSpace(fmt.Sprintf(`%s AUTOINCREMENT`, fieldData))
+				}
+			}
+			if val["options"] != nil {
+				if v, ok := val["options"].([]any); ok {
+					opts := []string{}
+
+					for _, k := range v {
+						opts = append(opts, fmt.Sprintf(`'%v'`, k))
+					}
+
+					fieldData = strings.TrimSpace(fmt.Sprintf(`%s CHECK (%s IN (%s))`, fieldData, key, strings.Join(opts, ", ")))
+				}
+			}
+			if val["default"] != nil {
+				if fieldType == "TEXT" {
+					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
+				} else {
+					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
 				}
 			}
 			if val["referenceTable"] != nil {
@@ -150,7 +167,7 @@ func Yml2Sql(model, content string) (*string, error) {
 				footers = append(footers, footer)
 			}
 
-			row := fmt.Sprintf(`%s %s,`, key, strings.TrimSpace(fieldType))
+			row := fmt.Sprintf(`%s %s,`, key, strings.TrimSpace(fieldData))
 
 			rows = append(rows, row)
 		}
