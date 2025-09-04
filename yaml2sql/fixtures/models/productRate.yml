@@ -1,0 +1,16 @@
+id:
+  primaryKey: true
+  type: int
+  autoIncrement: true
+loanTypeId:
+  type: int
+  referenceTable: loanType
+savingsTypeId:
+  type: int
+  referenceTable: savingsType
+name:
+  required: true
+  type: text
+monthlyRate:
+  required: true
+  type: real

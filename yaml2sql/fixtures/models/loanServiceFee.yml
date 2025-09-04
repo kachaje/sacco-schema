@@ -1,0 +1,10 @@
+id:
+  primaryKey: true
+  type: int
+  autoIncrement: true
+name:
+  required: true
+  type: text
+monthlyRate:
+  required: true
+  type: real
