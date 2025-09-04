@@ -154,6 +154,9 @@ func Yml2Sql(model, content string) (*string, error) {
 					fieldData = strings.TrimSpace(fmt.Sprintf(`%s CHECK (%s IN (%s))`, fieldData, key, strings.Join(opts, ", ")))
 				}
 			}
+			if val["unique"] != nil {
+				fieldData = fmt.Sprintf(`%s UNIQUE`, fieldData)
+			}
 			if val["default"] != nil {
 				if fieldType == "TEXT" {
 					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])

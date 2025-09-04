@@ -1,0 +1,23 @@
+id:
+  primaryKey: true
+  type: int
+  autoIncrement: true
+  order: 0
+name:
+  type: text
+  order: 1
+  required: true
+username:
+  type: text
+  order: 2
+  required: true
+  unique: true
+password:
+  type: text
+  order: 3
+  required: true
+userRole:
+  type: text
+  required: true
+  default: member
+  order: 4
