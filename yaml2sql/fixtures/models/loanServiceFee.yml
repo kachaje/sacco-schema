@@ -2,9 +2,12 @@ id:
   primaryKey: true
   type: int
   autoIncrement: true
+  order: 0
 name:
   required: true
   type: text
+  order: 1
 monthlyRate:
   required: true
   type: real
+  order: 2

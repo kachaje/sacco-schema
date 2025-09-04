@@ -2,15 +2,20 @@ id:
   primaryKey: true
   type: int
   autoIncrement: true
+  order: 0
 loanTypeId:
   type: int
   referenceTable: loanType
+  order: 1
 savingsTypeId:
   type: int
   referenceTable: savingsType
+  order: 2
 name:
   required: true
   type: text
+  order: 3
 monthlyRate:
   required: true
   type: real
+  order: 4
