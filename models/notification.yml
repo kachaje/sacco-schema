@@ -1,0 +1,26 @@
+id:
+  primaryKey: true
+  type: int
+  autoIncrement: true
+  order: 0
+memberId:
+  type: int
+  required: true
+  referenceTable: member
+  order: 1
+message:
+  required: true
+  type: text
+  order: 2
+date:
+  type: text
+  order: 3
+  default: CURRENT_TIMESTAMP
+read:
+  type: int
+  order: 4
+  default: 0
+delivered:
+  type: int
+  order: 5
+  default: 0

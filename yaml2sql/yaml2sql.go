@@ -136,6 +136,9 @@ func Yml2Sql(model, content string) (*string, error) {
 					fieldType = fmt.Sprintf(`%s PRIMARY KEY`, fieldType)
 				}
 			}
+			if val["default"] != nil {
+				fieldType = fmt.Sprintf(`%s DEFAULT %v`, fieldType, val["default"])
+			}
 			if val["autoIncrement"] != nil {
 				if vAutInc, ok := val["autoIncrement"].(bool); ok && vAutInc {
 					fieldType = strings.TrimSpace(fmt.Sprintf(`%s AUTOINCREMENT`, fieldType))
@@ -167,7 +170,7 @@ CREATE TRIGGER IF NOT EXISTS %sUpdated AFTER
 UPDATE ON %s FOR EACH ROW BEGIN
 UPDATE %s
 SET
-  updated_at = CURRENT_TIMESTAMP
+  updatedAt = CURRENT_TIMESTAMP
 WHERE
   id = OLD.id;
 
