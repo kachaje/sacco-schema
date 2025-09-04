@@ -1,7 +1,6 @@
 package yaml2sql_test
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/utils"
@@ -10,12 +9,12 @@ import (
 )
 
 func TestYml2Sql(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "models", "loanServiceFee.yml"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "models", "productRate.yml"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	result, err := yaml2sql.Yml2Sql("loanServiceFee", string(content))
+	result, err := yaml2sql.Yml2Sql("productRate", string(content))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,14 +23,30 @@ func TestYml2Sql(t *testing.T) {
 		t.Fatal("Test failed")
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "models", "loanServiceFee.sql"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "models", "productRate.sql"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	target := string(content)
 
-	fmt.Println(*result)
+	if utils.CleanString(target) != utils.CleanString((*result)) {
+		t.Fatal("Test failed")
+	}
+}
+
+func TestLoadModels(t *testing.T) {
+	result, err := yaml2sql.LoadModels(filepath.Join(".", "fixtures", "models"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "schema.sql"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
 
 	if utils.CleanString(target) != utils.CleanString((*result)) {
 		t.Fatal("Test failed")

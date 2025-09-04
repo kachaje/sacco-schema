@@ -1,0 +1,23 @@
+CREATE TABLE
+  IF NOT EXISTS productRate (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    loanTypeId INTEGER,
+    savingsTypeId INTEGER,
+    name TEXT NOT NULL,
+    monthlyRate REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (loanTypeId) REFERENCES loanType (id) ON DELETE CASCADE,
+    FOREIGN KEY (savingsTypeId) REFERENCES savingsType (id) ON DELETE CASCADE
+  );
+
+CREATE TRIGGER IF NOT EXISTS productRateUpdated AFTER
+UPDATE ON productRate FOR EACH ROW BEGIN
+UPDATE productRate
+SET
+  updated_at = CURRENT_TIMESTAMP
+WHERE
+  id = OLD.id;
+
+END;

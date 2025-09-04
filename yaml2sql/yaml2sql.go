@@ -2,13 +2,83 @@ package yaml2sql
 
 import (
 	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
 	"sacco/utils"
 	"strconv"
 	"strings"
 )
 
-func Main() {
+func Main(folder, targetFile *string) error {
+	workingFolder := filepath.Join(".", "models")
+	schemaFilename := filepath.Join(".", "schema.sql")
 
+	if folder != nil {
+		workingFolder = *folder
+	}
+	if targetFile != nil {
+		schemaFilename = *targetFile
+	}
+
+	if _, err := os.Stat(workingFolder); os.IsNotExist(err) {
+		return fmt.Errorf("folder %s not found", workingFolder)
+	}
+
+	result, err := LoadModels(workingFolder)
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(schemaFilename, []byte(*result), 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func LoadModels(folder string) (*string, error) {
+	models := []string{}
+
+	err := filepath.WalkDir(folder, func(file string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			return nil
+		}
+
+		basename := filepath.Base(file)
+
+		if !strings.HasSuffix(basename, ".yml") {
+			return nil
+		}
+
+		model := strings.TrimSuffix(basename, ".yml")
+
+		content, err := os.ReadFile(file)
+		if err != nil {
+			return err
+		}
+
+		result, err := Yml2Sql(model, string(content))
+		if err != nil {
+			return err
+		}
+
+		models = append(models, *result)
+
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	result := strings.Join(models, "\n\n")
+
+	return &result, nil
 }
 
 func Yml2Sql(model, content string) (*string, error) {
@@ -16,6 +86,10 @@ func Yml2Sql(model, content string) (*string, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	footers := []string{`active INTEGER DEFAULT 1,`,
+		`createdAt TEXT DEFAULT CURRENT_TIMESTAMP,`,
+		`updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,`}
 
 	rows := []string{fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s (`, model)}
 
@@ -40,7 +114,6 @@ func Yml2Sql(model, content string) (*string, error) {
 
 		if val, ok := value.(map[string]any); ok {
 			var fieldType string
-			var extras string
 
 			if vType, ok := val["type"]; ok {
 				switch vType {
@@ -55,30 +128,40 @@ func Yml2Sql(model, content string) (*string, error) {
 
 			if val["required"] != nil {
 				if vReq, ok := val["required"].(bool); ok && vReq {
-					extras = strings.TrimSpace(fmt.Sprintf(`%s NOT NULL`, extras))
+					fieldType = fmt.Sprintf(`%s NOT NULL`, fieldType)
 				}
 			}
 			if val["primaryKey"] != nil {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {
-					extras = strings.TrimSpace(fmt.Sprintf(`%s PRIMARY KEY`, extras))
+					fieldType = fmt.Sprintf(`%s PRIMARY KEY`, fieldType)
 				}
 			}
 			if val["autoIncrement"] != nil {
 				if vAutInc, ok := val["autoIncrement"].(bool); ok && vAutInc {
-					extras = strings.TrimSpace(fmt.Sprintf(`%s AUTOINCREMENT`, extras))
+					fieldType = strings.TrimSpace(fmt.Sprintf(`%s AUTOINCREMENT`, fieldType))
 				}
 			}
+			if val["referenceTable"] != nil {
+				footer := fmt.Sprintf(`FOREIGN KEY (%s) REFERENCES %v (id) ON DELETE CASCADE,`, key, val["referenceTable"])
 
-			row := strings.TrimSpace(fmt.Sprintf(`%s %s %s,`, key, fieldType, extras))
+				footers = append(footers, footer)
+			}
+
+			row := fmt.Sprintf(`%s %s,`, key, strings.TrimSpace(fieldType))
 
 			rows = append(rows, row)
 		}
 	}
 
-	rows = append(rows, fmt.Sprintf(`active INTEGER DEFAULT 1,
-createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
-);
+	if len(footers) > 0 {
+		lastFooter := strings.TrimSuffix(footers[len(footers)-1], ",")
+
+		footers[len(footers)-1] = lastFooter
+	}
+
+	rows = append(rows, footers...)
+
+	rows = append(rows, fmt.Sprintf(`);
 
 CREATE TRIGGER IF NOT EXISTS %sUpdated AFTER
 UPDATE ON %s FOR EACH ROW BEGIN
