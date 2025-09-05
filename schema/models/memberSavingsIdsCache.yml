@@ -1,0 +1,19 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+memberSavingsId:
+  order: 1
+  referenceTable: memberSavings
+  type: int
+
+idNumber:
+  order: 2
+  type: text
+
+claimed:
+  default: "0"
+  order: 3
+  type: int

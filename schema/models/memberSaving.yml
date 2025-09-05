@@ -9,12 +9,16 @@ memberId:
   referenceTable: member
   type: int
 
+memberSavingsIdNumber:
+  order: 2
+  type: text
+
 savingsTypeId:
   many: true
-  order: 2
+  order: 3
   referenceTable: savingsType
   type: int
 
 balance:
-  order: 3
+  order: 4
   type: real
