@@ -23,11 +23,11 @@ func main() {
 	}
 
 	if schemaFilename == "" {
-		schemaFilename = filepath.Join(".", "schema.sql")
+		schemaFilename = filepath.Join(".", "schema", "schema.sql")
 	}
 
 	if targetFolder == "" {
-		targetFolder = filepath.Join(".", "models")
+		targetFolder = filepath.Join(".", "schema", "models")
 	}
 
 	err := drawio2json.Main(filename, targetFolder)
