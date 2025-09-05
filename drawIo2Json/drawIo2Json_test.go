@@ -155,3 +155,36 @@ func TestCreateYmlFiles(t *testing.T) {
 		}
 	}
 }
+
+func TestDefault(t *testing.T) {
+	folder := filepath.Join(".", "tmpMain")
+
+	err := drawio2json.Main(filepath.Join(".", "fixtures", "sacco.drawio"), folder)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	defer func() {
+		if _, err := os.Stat(folder); !os.IsNotExist(err) {
+			os.RemoveAll(folder)
+		}
+	}()
+
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for key := range data {
+		if _, err := os.Stat(filepath.Join(folder, fmt.Sprintf("%s.yml", key))); os.IsNotExist(err) {
+			t.Fatalf("Test failed on %s", key)
+		}
+	}
+}

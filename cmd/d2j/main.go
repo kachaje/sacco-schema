@@ -1,17 +1,16 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
-	"fmt"
 	"log"
 	drawio2json "sacco/drawIo2Json"
 )
 
 func main() {
-	var filename string
+	var filename, targetFolder string
 
 	flag.StringVar(&filename, "f", filename, "draw.io file to process")
+	flag.StringVar(&targetFolder, "t", targetFolder, "target destination folder")
 
 	flag.Parse()
 
@@ -20,15 +19,8 @@ func main() {
 		return
 	}
 
-	result, err := drawio2json.Main(filename)
+	err := drawio2json.Main(filename, targetFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	payload, err := json.MarshalIndent(result, "", "  ")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(string(payload))
 }
