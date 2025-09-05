@@ -129,6 +129,9 @@ func ValueMapFromString(value string) (map[string]any, error) {
 									if err == nil {
 										attributes[key] = vl
 									}
+									if key == "many" {
+										data["many"] = true
+									}
 								} else if key == "options" {
 									attributes[key] = strings.Split(opt[1], ",")
 								} else {

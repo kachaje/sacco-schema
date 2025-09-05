@@ -12,7 +12,7 @@ import (
 )
 
 func TestValueMapFromString(t *testing.T) {
-	value := "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003enotification\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT;default:CURRENT_TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003emessage (TEXT)\u003cbr\u003emsgDelivered (TEXT;options:Yes,No;default:No;optional:true)\u003cbr\u003emsgRead (TEXT;options:Yes,No;default:No;optional:true)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+	value := "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003enotification\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003ememberId (INT;many:true)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT;default:CURRENT_TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003emessage (TEXT)\u003cbr\u003emsgDelivered (TEXT;options:Yes,No;default:No;optional:true)\u003cbr\u003emsgRead (TEXT;options:Yes,No;default:No;optional:true)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
 
 	result, err := drawio2json.ValueMapFromString(value)
 	if err != nil {
@@ -33,6 +33,7 @@ func TestValueMapFromString(t *testing.T) {
 				"type":          "int",
 			},
 			"memberId": map[string]any{
+				"many":           true,
 				"order":          1,
 				"referenceTable": "member",
 				"type":           "int",
@@ -62,6 +63,7 @@ func TestValueMapFromString(t *testing.T) {
 				"type":  "text",
 			},
 		},
+		"many":    true,
 		"model":   "notification",
 		"parents": []string{"member"},
 	}
