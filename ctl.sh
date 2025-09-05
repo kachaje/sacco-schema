@@ -14,4 +14,8 @@ elif [[ "$1" == "-lm" ]]; then
 
   ./loadModels 
 
+elif [[ "$1" == "-c" ]]; then
+
+  rm *.db loadModels dio2json
+
 fi
