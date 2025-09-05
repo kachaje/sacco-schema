@@ -26,11 +26,13 @@
   "accountJournal": {
     "fields": {
       "accountId": {
+        "many": true,
         "order": 1,
         "referenceTable": "account",
         "type": "int"
       },
       "accountTransactionId": {
+        "many": true,
         "order": 2,
         "referenceTable": "accountTransaction",
         "type": "int"
@@ -55,14 +57,18 @@
         "type": "int"
       }
     },
+    "many": true,
     "model": "accountJournal",
-    "parents": ["account", "accountTransaction"]
+    "parents": [
+      "account",
+      "accountTransaction"
+    ]
   },
   "accountStatement": {
     "fields": {
-      "account": {
-        "autoIncrement": true,
+      "accountId": {
         "order": 0,
+        "referenceTable": "account",
         "type": "int"
       },
       "closingBalance": {
@@ -84,7 +90,9 @@
       }
     },
     "model": "accountStatement",
-    "parents": []
+    "parents": [
+      "account"
+    ]
   },
   "accountTransaction": {
     "fields": {
@@ -125,13 +133,17 @@
         "type": "int"
       },
       "memberId": {
+        "many": true,
         "order": 1,
         "referenceTable": "member",
         "type": "int"
       }
     },
+    "many": true,
     "model": "dividends",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "insuranceProvider": {
     "fields": {
@@ -180,7 +192,9 @@
       }
     },
     "model": "loanRate",
-    "parents": ["loanType"]
+    "parents": [
+      "loanType"
+    ]
   },
   "loanType": {
     "fields": {
@@ -189,7 +203,12 @@
         "type": "real"
       },
       "category": {
-        "options": ["Personal", "Business", "Agricultural", "Emergency"],
+        "options": [
+          "Personal",
+          "Business",
+          "Agricultural",
+          "Emergency"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -219,11 +238,11 @@
     "fields": {
       "dateJoined": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 12,
+        "order": 13,
         "type": "text"
       },
       "dateOfBirth": {
-        "order": 8,
+        "order": 9,
         "type": "text",
         "validationRule": "\\^d{4}-\\d{2}-\\d{2}$"
       },
@@ -232,7 +251,10 @@
         "type": "text"
       },
       "gender": {
-        "options": ["Female", "Male"],
+        "options": [
+          "Female",
+          "Male"
+        ],
         "order": 5,
         "type": "text"
       },
@@ -247,16 +269,22 @@
         "type": "text"
       },
       "maritalStatus": {
-        "options": ["Married", "Single", "Widowed", "Divorced"],
-        "order": 7,
+        "options": [
+          "Married",
+          "Single",
+          "Widowed",
+          "Divorced"
+        ],
+        "order": 8,
         "type": "text"
       },
       "memberIdNumber": {
+        "optional": true,
         "order": 1,
         "type": "text"
       },
       "nationalId": {
-        "order": 9,
+        "order": 10,
         "referenceTable": "national",
         "type": "text"
       },
@@ -265,23 +293,40 @@
         "order": 4,
         "type": "text"
       },
-      "title": {
-        "options": ["Mr", "Mrs", "Miss", "Dr", "Prof", "Rev", "Other"],
+      "phoneNumber": {
         "order": 6,
         "type": "text"
       },
-      "utilityBillType": {
-        "options": ["ESCOM", "Water Board"],
-        "order": 10,
+      "title": {
+        "options": [
+          "Mr",
+          "Mrs",
+          "Miss",
+          "Dr",
+          "Prof",
+          "Rev",
+          "Other"
+        ],
+        "order": 7,
         "type": "text"
       },
-      "utilityBillTypeNumber": {
+      "utilityBillNumber": {
+        "order": 12,
+        "type": "text"
+      },
+      "utilityBillType": {
+        "options": [
+          "ESCOM",
+          "Water Board"
+        ],
         "order": 11,
         "type": "text"
       }
     },
     "model": "member",
-    "parents": ["national"]
+    "parents": [
+      "national"
+    ]
   },
   "memberBusiness": {
     "fields": {
@@ -314,19 +359,27 @@
       }
     },
     "model": "memberBusiness",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberBusinessVerification": {
     "fields": {
       "businessVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 2,
         "type": "text"
       },
       "grossIncomeVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 3,
         "type": "text"
       },
@@ -347,7 +400,9 @@
       }
     },
     "model": "memberBusinessVerification",
-    "parents": ["memberBusiness"]
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberContact": {
     "fields": {
@@ -389,7 +444,9 @@
       }
     },
     "model": "memberContact",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "memberDependant": {
     "fields": {
@@ -405,11 +462,15 @@
       },
       "isNominee": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 6,
         "type": "text"
       },
       "memberId": {
+        "many": true,
         "order": 1,
         "referenceTable": "member",
         "type": "int"
@@ -427,13 +488,21 @@
         "type": "text"
       },
       "relationship": {
-        "options": ["Spouse", "Child", "Sibling", "Other"],
+        "options": [
+          "Spouse",
+          "Child",
+          "Sibling",
+          "Other"
+        ],
         "order": 7,
         "type": "text"
       }
     },
+    "many": true,
     "model": "memberDependant",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "memberIdsCache": {
     "fields": {
@@ -453,13 +522,16 @@
         "type": "text"
       },
       "memberId": {
+        "optional": true,
         "order": 1,
         "referenceTable": "member",
         "type": "int"
       }
     },
     "model": "memberIdsCache",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "memberLastYearBusinessHistory": {
     "fields": {
@@ -524,7 +596,9 @@
       }
     },
     "model": "memberLastYearBusinessHistory",
-    "parents": ["memberBusiness"]
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberLoan": {
     "fields": {
@@ -586,7 +660,10 @@
       }
     },
     "model": "memberLoan",
-    "parents": ["member", "memberSaving"]
+    "parents": [
+      "member",
+      "memberSaving"
+    ]
   },
   "memberLoanApproval": {
     "fields": {
@@ -618,7 +695,11 @@
       },
       "loanStatus": {
         "default": "PENDING",
-        "options": ["PENDING", "APPROVED", "REJECTED"],
+        "options": [
+          "PENDING",
+          "APPROVED",
+          "REJECTED"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -633,7 +714,9 @@
       }
     },
     "model": "memberLoanApproval",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanDisbursement": {
     "fields": {
@@ -663,7 +746,9 @@
       }
     },
     "model": "memberLoanDisbursement",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanInsurance": {
     "fields": {
@@ -683,18 +768,24 @@
         "type": "int"
       },
       "insuranceProviderId": {
+        "many": true,
         "order": 2,
         "referenceTable": "insuranceProvider",
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberLoanInsurance",
-    "parents": ["memberLoan", "insuranceProvider"]
+    "parents": [
+      "memberLoan",
+      "insuranceProvider"
+    ]
   },
   "memberLoanLiability": {
     "fields": {
@@ -709,6 +800,7 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
@@ -718,8 +810,11 @@
         "type": "real"
       }
     },
+    "many": true,
     "model": "memberLoanLiability",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanPaymentSchedule": {
     "fields": {
@@ -738,19 +833,26 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
       },
       "paid": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 4,
         "type": "text"
       }
     },
+    "many": true,
     "model": "memberLoanPaymentSchedule",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanProcessingFee": {
     "fields": {
@@ -770,13 +872,17 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberLoanProcessingFee",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanReceipt": {
     "fields": {
@@ -806,7 +912,9 @@
       }
     },
     "model": "memberLoanReceipt",
-    "parents": ["memberLoanPaymentSchedule"]
+    "parents": [
+      "memberLoanPaymentSchedule"
+    ]
   },
   "memberLoanSecurity": {
     "fields": {
@@ -821,6 +929,7 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
@@ -834,8 +943,11 @@
         "type": "real"
       }
     },
+    "many": true,
     "model": "memberLoanSecurity",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanTax": {
     "fields": {
@@ -859,13 +971,17 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberLoanTax",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanWitness": {
     "fields": {
@@ -885,6 +1001,7 @@
         "type": "int"
       },
       "memberLoanId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
@@ -898,8 +1015,11 @@
         "type": "text"
       }
     },
+    "many": true,
     "model": "memberLoanWitness",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberNextYearBusinessProjection": {
     "fields": {
@@ -964,7 +1084,9 @@
       }
     },
     "model": "memberNextYearBusinessProjection",
-    "parents": ["memberBusiness"]
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberOccupation": {
     "fields": {
@@ -985,7 +1107,12 @@
         "type": "real"
       },
       "highestQualification": {
-        "options": ["Tertiary", "Secondary", "Primary", "None"],
+        "options": [
+          "Tertiary",
+          "Secondary",
+          "Primary",
+          "None"
+        ],
         "order": 9,
         "type": "text"
       },
@@ -1014,18 +1141,12 @@
       }
     },
     "model": "memberOccupation",
-    "parents": ["memberLoan"]
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberOccupationVerification": {
     "fields": {
-      "active": {
-        "order": 5,
-        "type": "int"
-      },
-      "createdAt": {
-        "order": 6,
-        "type": "timestamp"
-      },
       "grossVerified": {
         "order": 3,
         "type": "text"
@@ -1038,7 +1159,10 @@
       },
       "jobVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -1050,19 +1174,17 @@
       "netVerified": {
         "order": 4,
         "type": "text"
-      },
-      "updatedAt": {
-        "order": 7,
-        "type": "timestamp"
       }
     },
     "model": "memberOccupationVerification",
-    "parents": ["memberOccupation"]
+    "parents": [
+      "memberOccupation"
+    ]
   },
   "memberSaving": {
     "fields": {
       "balance": {
-        "order": 3,
+        "order": 4,
         "type": "real"
       },
       "id": {
@@ -1076,14 +1198,24 @@
         "referenceTable": "member",
         "type": "int"
       },
-      "savingsTypeId": {
+      "memberSavingsIdNumber": {
+        "optional": true,
         "order": 2,
+        "type": "text"
+      },
+      "savingsTypeId": {
+        "many": true,
+        "order": 3,
         "referenceTable": "savingsType",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberSaving",
-    "parents": ["member", "savingsType"]
+    "parents": [
+      "member",
+      "savingsType"
+    ]
   },
   "memberSavingDeposit": {
     "fields": {
@@ -1107,13 +1239,17 @@
         "type": "int"
       },
       "memberSavingId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberSavingDeposit",
-    "parents": ["memberSaving"]
+    "parents": [
+      "memberSaving"
+    ]
   },
   "memberSavingInterest": {
     "fields": {
@@ -1137,13 +1273,17 @@
         "type": "int"
       },
       "memberSavingId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberSavingInterest",
-    "parents": ["memberSaving"]
+    "parents": [
+      "memberSaving"
+    ]
   },
   "memberSavingWithdrawal": {
     "fields": {
@@ -1167,13 +1307,46 @@
         "type": "int"
       },
       "memberSavingId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberSavingWithdrawal",
-    "parents": ["memberSaving"]
+    "parents": [
+      "memberSaving"
+    ]
+  },
+  "memberSavingsIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberSavingsId": {
+        "optional": true,
+        "order": 1,
+        "referenceTable": "memberSavings",
+        "type": "int"
+      }
+    },
+    "model": "memberSavingsIdsCache",
+    "parents": [
+      "memberSavings"
+    ]
   },
   "memberShares": {
     "fields": {
@@ -1189,6 +1362,7 @@
         "type": "int"
       },
       "memberSharesIdNumber": {
+        "optional": true,
         "order": 2,
         "type": "text"
       },
@@ -1206,7 +1380,9 @@
       }
     },
     "model": "memberShares",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "memberSharesIdsCache": {
     "fields": {
@@ -1226,13 +1402,16 @@
         "type": "text"
       },
       "memberSharesId": {
+        "optional": true,
         "order": 1,
         "referenceTable": "memberShares",
         "type": "int"
       }
     },
     "model": "memberSharesIdsCache",
-    "parents": ["memberShares"]
+    "parents": [
+      "memberShares"
+    ]
   },
   "notification": {
     "fields": {
@@ -1259,20 +1438,28 @@
       "msgDelivered": {
         "default": "No",
         "optional": true,
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 4,
         "type": "text"
       },
       "msgRead": {
         "default": "No",
         "optional": true,
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 5,
         "type": "text"
       }
     },
     "model": "notification",
-    "parents": ["member"]
+    "parents": [
+      "member"
+    ]
   },
   "savingsRate": {
     "fields": {
@@ -1287,13 +1474,17 @@
         "type": "real"
       },
       "savingsId": {
+        "many": true,
         "order": 1,
         "referenceTable": "savings",
         "type": "int"
       }
     },
+    "many": true,
     "model": "savingsRate",
-    "parents": ["savings"]
+    "parents": [
+      "savings"
+    ]
   },
   "savingsType": {
     "fields": {
@@ -1349,13 +1540,17 @@
         "type": "int"
       },
       "memberSavingId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
       }
     },
+    "many": true,
     "model": "sharesDepositReceipt",
-    "parents": ["memberSaving"]
+    "parents": [
+      "memberSaving"
+    ]
   },
   "sharesDepositWithdraw": {
     "fields": {
@@ -1379,13 +1574,17 @@
         "type": "int"
       },
       "memberSavingId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
       }
     },
+    "many": true,
     "model": "sharesDepositWithdraw",
-    "parents": ["memberSaving"]
+    "parents": [
+      "memberSaving"
+    ]
   },
   "user": {
     "fields": {
