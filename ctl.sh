@@ -2,20 +2,14 @@
 
 if [[ "$1" == "-b" ]]; then
 
-  go build -o loadModels ./cmd/gen/*.go
-
-  go build -o dio2json ./cmd/d2j/*.go
-
-elif [[ "$1" == "-dj" ]]; then
-
-  ./dio2json -f designs/sacco.drawio
+  go build -o convert ./cmd/gen/*.go
 
 elif [[ "$1" == "-lm" ]]; then
 
-  ./loadModels 
+  ./convert -f designs/sacco.drawio
 
 elif [[ "$1" == "-c" ]]; then
 
-  rm -rf *.db loadModels dio2json
+  rm -rf *.db loadModels dio2json convert
 
 fi
