@@ -38,8 +38,23 @@ type MxGraphModel struct {
 	Root DiagramRoot `xml:"root"`
 }
 
-func Main(filename string) (map[string]any, error) {
-	return nil, nil
+func Main(filename, targetFolder string) error {
+	data, err := D2J(filename)
+	if err != nil {
+		return err
+	}
+
+	modelsData, err := ExtractJsonModels(data)
+	if err != nil {
+		return err
+	}
+
+	err = CreateYmlFiles(modelsData, targetFolder)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func D2J(filename string) (map[string]any, error) {
