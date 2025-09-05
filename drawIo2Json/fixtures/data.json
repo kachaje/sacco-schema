@@ -1,0 +1,352 @@
+{
+  "cells": {
+    "0": {
+      "parent": "",
+      "value": ""
+    },
+    "1": {
+      "parent": "0",
+      "value": ""
+    },
+    "c4MbC-2BtWymoVEZBqPx-2": {
+      "parent": "1",
+      "value": ""
+    },
+    "c4MbC-2BtWymoVEZBqPx-3": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003edividends\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003cbr\u003eamount (REAL)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "c4MbC-2BtWymoVEZBqPx-4": {
+      "parent": "1",
+      "value": ""
+    },
+    "c4MbC-2BtWymoVEZBqPx-5": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003esavingsRate\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003esavingsId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003emonthlyRate (REAL)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "c4MbC-2BtWymoVEZBqPx-6": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-1": {
+      "parent": "1",
+      "value": "\u003cb\u003e\u003cfont style=\"font-size: 20px; color: rgb(0, 92, 185);\"\u003eKaso SACCO\u003c/font\u003e\u003c/b\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-10": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountJournal\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK2\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003eaccount (INT)\u003cbr\u003eaccountTransactionId (INT)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003cbr\u003eamount (REAL)\u003cbr\u003edirection (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-101": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-102": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-103": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-106": {
+      "parent": "1",
+      "value": "others"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-12": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003euser\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eusername (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003epassword (TEXT)\u003cbr\u003ename (TEXT)\u003cbr\u003euserRole (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-13": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberIdsCache\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eidNumber (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eclaimed (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-14": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberSharesIdsCache\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSharesId (INT)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eidNumber (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eclaimed (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-15": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003emember\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberIdNumber (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003efirstName (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003elastName (TEXT)\u003cbr\u003eotherName (TEXT)\u003cbr\u003egender (TEXT)\u003cbr\u003etitle (TEXT)\u003cbr\u003emaritalStatus (TEXT)\u003cbr\u003edateOfBirth (TEXT)\u003cbr\u003enationalId (TEXT)\u003cbr\u003eutilityBillType (TEXT)\u003cbr\u003eutilityBillTypeNumber (TEXT)\u003cbr\u003edateJoined (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-17": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberContact\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003epostalAddress (TEXT)\u003cbr\u003eresidentialAddress (TEXT)\u003cbr\u003eemail (TEXT)\u003cbr\u003ehomeVillage (TEXT)\u003cbr\u003ehomeTraditionalAuthority (TEXT)\u003cbr\u003ehomeDistrict (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-19": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberDependant\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003cbr\u003ephoneNumber (TEXT)\u003cbr\u003eaddress (TEXT)\u003cbr\u003epercentage (REAL)\u003cbr\u003eisNominee (INT)\u003cbr\u003erelationship (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-20": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberShares\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK2\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003cbr\u003ememberSharesIdNumber (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003emonthlyPremium (REAL)\u003cbr\u003etotalValue (REAL)\u003cbr\u003enumberOfShares (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-21": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoan\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK2\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eloanAmount (REAL)\u003cbr\u003erepaymentPeriodInMonths (INT)\u003cbr\u003eloanPurpose (TEXT)\u003cbr\u003eloanType (TEXT)\u003cbr\u003eloanStartDate (TEXT)\u003cbr\u003eloanDueDate (TEXT)\u003cbr\u003emonthlyInstalments (REAL)\u003cbr\u003einterestRate (REAL)\u003cbr\u003eamountPaid (REAL)\u003cbr\u003ebalanceAmount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-22": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberBusiness\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eyearsInBusiness (INT)\u003cbr\u003ebusinessNature (TEXT)\u003cbr\u003ebusinessName (TEXT)\u003cbr\u003etradingArea (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-23": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLastYearBusinessHistory\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberBusinessId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003efinancialYear (INT)\u003cbr\u003etotalIncome (REAL)\u003cbr\u003etotalCostOfGoods (REAL)\u003cbr\u003eemployeeWages (REAL)\u003cbr\u003eownSalary (REAL)\u003cbr\u003etransport (REAL)\u003cbr\u003eloanInterest (REAL)\u003cbr\u003eutilities (REAL)\u003cbr\u003erentals (REAL)\u003cbr\u003eotherCosts (REAL)\u003cbr\u003etotalCosts (REAL)\u003cbr\u003enetProfitLoss (REAL)\u003cbr\u003edescription (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-24": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberNextYearBusinessProjection\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberBusinessId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003efinancialYear (INT)\u003cbr\u003etotalIncome (REAL)\u003cbr\u003etotalCostOfGoods (REAL)\u003cbr\u003eemployeeWages (REAL)\u003cbr\u003eownSalary (REAL)\u003cbr\u003etransport (REAL)\u003cbr\u003eloanInterest (REAL)\u003cbr\u003eutilities (REAL)\u003cbr\u003erentals (REAL)\u003cbr\u003eotherCosts (REAL)\u003cbr\u003etotalCosts (REAL)\u003cbr\u003enetProfitLoss (REAL)\u003cbr\u003edescription (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-26": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberOccupation\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eemployeeName (TEXT)\u003cbr\u003eemployerAddress (TEXT)\u003cbr\u003eemployerPhone (TEXT)\u003cbr\u003ejobTitle (TEXT)\u003cbr\u003eperiodEmploymentInMonths (INT)\u003cbr\u003egrossPay (REAL)\u003cbr\u003enetPay (REAL)\u003cbr\u003ehighestQualification (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-28": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanApproval\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eloanStatus (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamountRecommended (REAL)\u003cbr\u003eapprovedBy (TEXT)\u003cbr\u003edateOfApproval (TEXT)\u003cbr\u003everifiedBy (TEXT)\u003cbr\u003edateVerified (TEXT)\u003cbr\u003edenialOrPartialReason (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-29": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanLiability\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003evalue (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-30": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanSecurity\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003evalue (REAL)\u003cbr\u003eserialNumber (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-31": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanWitness\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ewitnessName (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003etelephone (TEXT)\u003cbr\u003eaddress (TEXT)\u003cbr\u003edate (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-32": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberOccupationVerification\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberOccupationId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ejobVerified (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003egrossVerified (TEXT)\u003cbr\u003enetVerified (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-33": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberBusinessVerification\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberBusinessId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ebusinessVerified (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003egrossIncomeVerified (TEXT)\u003cbr\u003enetIncomeVerified (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-34": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003einsuranceProvider\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eaddress (TEXT)\u003cbr\u003ephoneNumber (TEXT)\u003cbr\u003econtactPerson (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-35": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanInsurance\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK2\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003cbr\u003einsuranceProviderId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-37": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanPaymentSchedule\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edueDate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamountDue (REAL)\u003cbr\u003epaid (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-38": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003enotification\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003emessage (REAL)\u003cbr\u003edelivered (INT)\u003cbr\u003eread (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-39": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanProcessingFee\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-41": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eloanRate\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003eloanTypeId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003emonthlyRate (REAL)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-42": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eloanType\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003cbr\u003ecategory (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eamountLimit (REAL)\u003cbr\u003eperiodLimitInMonths (INT)\u003cbr\u003emaxInstalmentMonths (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-43": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanTax\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-44": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanReceipt\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanPaymentScheduleId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-45": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanDisbursement\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberLoanId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-46": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003esharesDepositReceipt\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-47": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003esavingsType\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamountSize (REAL)\u003cbr\u003ewithdrawPattern (TEXT)\u003cbr\u003eminWithdrawMonths (INT)\u003cbr\u003emaxWithdrawMonths (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-48": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberSaving\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK3\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberId (INT)\u003cbr\u003esavingsTypeId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ebalance (REAL)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-49": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberSavingInterest\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-50": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberSavingDeposit\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-51": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberSavingWithdrawal\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-54": {
+      "parent": "1",
+      "value": "loan"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-57": {
+      "parent": "1",
+      "value": "member"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-58": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-59": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-60": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-61": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-62": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-63": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-64": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-65": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-66": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-67": {
+      "parent": "1",
+      "value": "shares"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-68": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-69": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-7": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003euserRole\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-70": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003esharesDepositWithdraw\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT)\u003cbr\u003ememberSavingId (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edescription (TEXT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamount (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-71": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-72": {
+      "parent": "1",
+      "value": "savings"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-73": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-74": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-75": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-76": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-79": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-8": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccount\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003enumber (INT)\u003cbr\u003enormal (INT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-80": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-85": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-86": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-88": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-89": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-9": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountTransaction\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT)\u003cbr\u003edescription (TEXT)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-90": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-91": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-92": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-93": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-94": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-95": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-96": {
+      "parent": "1",
+      "value": ""
+    },
+    "sz-M_Azw0uYvEaWHzbE8-97": {
+      "parent": "1",
+      "value": "user"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-98": {
+      "parent": "1",
+      "value": "finance"
+    },
+    "sz-M_Azw0uYvEaWHzbE8-99": {
+      "parent": "1",
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountStatement\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eaccount (INT)\u003cbr\u003edate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eclosingBalance (REAL)\u003cbr\u003etotalCredit (REAL)\u003cbr\u003etotalDebit (REAL)\u003cbr\u003eactive (INT)\u003cbr\u003ecreatedAt (TIMESTAMP)\u003cbr\u003eupdatedAt (TIMESTAMP)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+    }
+  }
+}
