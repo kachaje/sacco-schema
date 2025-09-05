@@ -207,14 +207,18 @@ func CreateYmlFiles(data map[string]any, targetFolder string) error {
 						}
 					}
 
+					fmt.Println(keyOrder)
+
 					var content string
 
 					for i := range len(keyOrder) {
 						key := keyOrder[i]
 
-						rowContent, err := utils.DumpYaml(fields[key].(map[string]any))
+						rowContent, err := utils.DumpYaml(map[string]any{
+							key: fields[key].(map[string]any),
+						})
 						if err == nil {
-							content = fmt.Sprintf(`%s\n%s`, content, *rowContent)
+							content = fmt.Sprintf("%s\n%s", content, *rowContent)
 						}
 					}
 

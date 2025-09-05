@@ -16,6 +16,6 @@ elif [[ "$1" == "-lm" ]]; then
 
 elif [[ "$1" == "-c" ]]; then
 
-  rm *.db loadModels dio2json
+  rm -rf *.db loadModels dio2json
 
 fi
