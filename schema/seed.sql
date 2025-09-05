@@ -10,7 +10,7 @@ VALUES
   ("Manager");
 
 INSERT
-OR IGNORE INTO user (username, password, name, role)
+OR IGNORE INTO user (username, password, name, userRole)
 VALUES
   (
     "default",

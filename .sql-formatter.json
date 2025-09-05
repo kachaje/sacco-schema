@@ -1,7 +1,6 @@
 {
   "language": "sql",
   "tabWidth": 4,
-  "keywordCase": "upper",
   "linesBetweenQueries": 1,
   "logicalOperatorNewline": "after",
   "denseOperators": true
