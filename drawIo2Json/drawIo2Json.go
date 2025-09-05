@@ -2,6 +2,8 @@ package drawio2json
 
 import (
 	"regexp"
+	"slices"
+	"strconv"
 	"strings"
 
 	"github.com/joselitofilho/drawio-parser-go/pkg/parser/xml"
@@ -89,19 +91,36 @@ func ValueMapFromString(value string) (map[string]any, error) {
 
 					if re.MatchString(c.Data) {
 						var field string
-						var attributes string
+						attributes := map[string]any{"order": i}
 
 						parts := re.FindAllStringSubmatch(c.Data, -1)
 
 						if len(parts[0]) > 2 {
 							field = parts[0][1]
-							attributes = strings.TrimRight(strings.TrimLeft(parts[0][2], "("), ")")
+							attrs := strings.Split(strings.TrimRight(strings.TrimLeft(parts[0][2], "("), ")"), ";")
+
+							attributes["type"] = strings.ToLower(attrs[0])
+
+							for _, v := range attrs[1:] {
+								opt := strings.Split(v, ":")
+
+								key := opt[0]
+
+								if slices.Contains([]string{"true", "false"}, opt[1]) {
+									vl, err := strconv.ParseBool(opt[1])
+									if err == nil {
+										attributes[key] = vl
+									}
+								} else if key == "options" {
+									attributes[key] = strings.Split(opt[1], ",")
+								} else {
+									attributes[key] = opt[1]
+								}
+							}
+
 						}
 
-						data["fields"].(map[string]any)[field] = map[string]any{
-							"type":  attributes,
-							"order": i,
-						}
+						data["fields"].(map[string]any)[field] = attributes
 
 						if strings.HasSuffix(field, "Id") {
 							model := strings.TrimRight(field, "Id")
