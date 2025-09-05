@@ -28,6 +28,10 @@ gender:
   order: 5
   type: text
 
+phoneNumber:
+  order: 6
+  type: text
+
 title:
   options:
     - Mr
@@ -37,7 +41,7 @@ title:
     - Prof
     - Rev
     - Other
-  order: 6
+  order: 7
   type: text
 
 maritalStatus:
@@ -46,16 +50,16 @@ maritalStatus:
     - Single
     - Widowed
     - Divorced
-  order: 7
+  order: 8
   type: text
 
 dateOfBirth:
-  order: 8
+  order: 9
   type: text
   validationRule: \^d{4}-\d{2}-\d{2}$
 
 nationalId:
-  order: 9
+  order: 10
   referenceTable: national
   type: text
 
@@ -63,14 +67,14 @@ utilityBillType:
   options:
     - ESCOM
     - Water Board
-  order: 10
+  order: 11
   type: text
 
 utilityBillTypeNumber:
-  order: 11
+  order: 12
   type: text
 
 dateJoined:
   default: CURRENT_TIMESTAMP
-  order: 12
+  order: 13
   type: text

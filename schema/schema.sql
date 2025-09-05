@@ -181,6 +181,7 @@ CREATE TABLE IF NOT EXISTS member (
     lastName TEXT NOT NULL,
     otherName TEXT,
     gender TEXT NOT NULL CHECK (gender IN ('Female', 'Male')),
+    phoneNumber TEXT NOT NULL,
     title TEXT NOT NULL CHECK (
         title IN ('Mr', 'Mrs', 'Miss', 'Dr', 'Prof', 'Rev', 'Other')
     ),
