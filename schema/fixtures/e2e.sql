@@ -1,3 +1,5 @@
+PRAGMA journal_mode=WAL;
+
 INSERT INTO
   member (
     firstName,
@@ -25,14 +27,15 @@ VALUES
     "949488473"
   );
 
-CREATE TEMP TABLE IF NOT EXISTS sharedVar (value TEXT);
+CREATE TEMP TABLE IF NOT EXISTS memberIdVar (value TEXT);
 
 INSERT INTO
-  sharedVar
+  memberIdVar
 SELECT
   last_insert_rowid ();
 
 SELECT
   value
 FROM
-  sharedVar;
+  memberIdVar;
+

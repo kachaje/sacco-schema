@@ -16,6 +16,6 @@ elif [[ "$1" == "-g" ]]; then
 
 elif [[ "$1" == "-c" ]]; then
 
-  rm -rf *.db **/*.db
+  rm -rf *.db* **/*.db*
 
 fi

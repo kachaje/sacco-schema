@@ -1,6 +1,6 @@
 *.bkp
 *.dtmp
-*.db
+*.db*
 loadModels
 dio2json
 .vscode
