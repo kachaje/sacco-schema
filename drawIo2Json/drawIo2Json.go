@@ -54,13 +54,6 @@ func Main(filename string) (map[string]any, error) {
 	return diagramMap, nil
 }
 
-func extractText(n *html.Node) string {
-	if n.FirstChild != nil && n.FirstChild.Type == html.TextNode {
-		return n.FirstChild.Data
-	}
-	return ""
-}
-
 func ValueMapFromString(value string) (map[string]any, error) {
 	reLt := regexp.MustCompile("\u003c")
 	reGt := regexp.MustCompile("\u003e")
@@ -84,7 +77,7 @@ func ValueMapFromString(value string) (map[string]any, error) {
 		if n.Type == html.ElementNode {
 			switch n.Data {
 			case "div":
-				data["model"] = extractText(n)
+				data["model"] = n.FirstChild.Data
 			case "td":
 				for c := n.FirstChild; c != nil; c = c.NextSibling {
 					re := regexp.MustCompile(`([A-Za-z]+)\s*(\([^\)]+\))`)
