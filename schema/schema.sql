@@ -1,997 +1,997 @@
 CREATE TABLE IF NOT EXISTS account (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  number INTEGER NOT NULL,
-  normal INTEGER NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    number INTEGER NOT NULL,
+    normal INTEGER NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS accountUpdated AFTER
 UPDATE ON account FOR EACH ROW BEGIN
 UPDATE account
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS accountJournal (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  accountId INTEGER NOT NULL,
-  accountTransactionId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  direction INTEGER NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE,
-  FOREIGN KEY (accountTransactionId) REFERENCES accountTransaction (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    accountId INTEGER NOT NULL,
+    accountTransactionId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    direction INTEGER NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE,
+    FOREIGN KEY (accountTransactionId) REFERENCES accountTransaction (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS accountJournalUpdated AFTER
 UPDATE ON accountJournal FOR EACH ROW BEGIN
 UPDATE accountJournal
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS accountStatement (
-  accountId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  closingBalance REAL NOT NULL,
-  totalCredit REAL NOT NULL,
-  totalDebit REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE
+    accountId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    closingBalance REAL NOT NULL,
+    totalCredit REAL NOT NULL,
+    totalDebit REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS accountStatementUpdated AFTER
 UPDATE ON accountStatement FOR EACH ROW BEGIN
 UPDATE accountStatement
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS accountTransaction (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  description TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    description TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS accountTransactionUpdated AFTER
 UPDATE ON accountTransaction FOR EACH ROW BEGIN
 UPDATE accountTransaction
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS dividends (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS dividendsUpdated AFTER
 UPDATE ON dividends FOR EACH ROW BEGIN
 UPDATE dividends
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS insuranceProvider (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  address TEXT NOT NULL,
-  phoneNumber TEXT NOT NULL,
-  contactPerson TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    address TEXT NOT NULL,
+    phoneNumber TEXT NOT NULL,
+    contactPerson TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS insuranceProviderUpdated AFTER
 UPDATE ON insuranceProvider FOR EACH ROW BEGIN
 UPDATE insuranceProvider
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS loanRate (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  loanTypeId INTEGER NOT NULL,
-  monthlyRate REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (loanTypeId) REFERENCES loanType (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    loanTypeId INTEGER NOT NULL,
+    monthlyRate REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (loanTypeId) REFERENCES loanType (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS loanRateUpdated AFTER
 UPDATE ON loanRate FOR EACH ROW BEGIN
 UPDATE loanRate
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS loanType (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  category TEXT NOT NULL CHECK (
-    category IN (
-      'Personal',
-      'Business',
-      'Agricultural',
-      'Emergency'
-    )
-  ),
-  amountLimit REAL NOT NULL,
-  periodLimitInMonths INTEGER NOT NULL,
-  maxInstalmentMonths INTEGER NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL CHECK (
+        category IN (
+            'Personal',
+            'Business',
+            'Agricultural',
+            'Emergency'
+        )
+    ),
+    amountLimit REAL NOT NULL,
+    periodLimitInMonths INTEGER NOT NULL,
+    maxInstalmentMonths INTEGER NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS loanTypeUpdated AFTER
 UPDATE ON loanType FOR EACH ROW BEGIN
 UPDATE loanType
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
-CREATE TABLE IF NOT EXISTS member (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberIdNumber TEXT NOT NULL,
-  firstName TEXT NOT NULL,
-  lastName TEXT NOT NULL,
-  otherName TEXT,
-  gender TEXT NOT NULL CHECK (gender IN ('Female', 'Male')),
-  title TEXT NOT NULL CHECK (
-    title IN ('Mr', 'Mrs', 'Miss', 'Dr', 'Prof', 'Rev', 'Other')
-  ),
-  maritalStatus TEXT NOT NULL CHECK (
-    maritalStatus IN ('Married', 'Single', 'Widowed', 'Divorced')
-  ),
-  dateOfBirth TEXT NOT NULL,
-  nationalId TEXT NOT NULL,
-  utilityBillType TEXT NOT NULL CHECK (utilityBillType IN ('ESCOM', 'Water Board')),
-  utilityBillTypeNumber TEXT NOT NULL,
-  dateJoined TEXT DEFAULT CURRENT_TIMESTAMP,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (nationalId) REFERENCES national (id) ON DELETE CASCADE
+CREATE TABLE IF NOT EXISTS MEMBER (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberIdNumber TEXT NOT NULL,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
+    otherName TEXT,
+    gender TEXT NOT NULL CHECK (gender IN ('Female', 'Male')),
+    title TEXT NOT NULL CHECK (
+        title IN ('Mr', 'Mrs', 'Miss', 'Dr', 'Prof', 'Rev', 'Other')
+    ),
+    maritalStatus TEXT NOT NULL CHECK (
+        maritalStatus IN ('Married', 'Single', 'Widowed', 'Divorced')
+    ),
+    dateOfBirth TEXT NOT NULL,
+    nationalId TEXT NOT NULL,
+    utilityBillType TEXT NOT NULL CHECK (utilityBillType IN ('ESCOM', 'Water Board')),
+    utilityBillTypeNumber TEXT NOT NULL,
+    dateJoined TEXT DEFAULT CURRENT_TIMESTAMP,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (nationalId) REFERENCES national (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberUpdated AFTER
-UPDATE ON member FOR EACH ROW BEGIN
-UPDATE member
+UPDATE ON MEMBER FOR EACH ROW BEGIN
+UPDATE MEMBER
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberBusiness (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  yearsInBusiness INTEGER NOT NULL,
-  businessNature TEXT NOT NULL,
-  businessName TEXT NOT NULL,
-  tradingArea TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    yearsInBusiness INTEGER NOT NULL,
+    businessNature TEXT NOT NULL,
+    businessName TEXT NOT NULL,
+    tradingArea TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberBusinessUpdated AFTER
 UPDATE ON memberBusiness FOR EACH ROW BEGIN
 UPDATE memberBusiness
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberBusinessVerification (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberBusinessId INTEGER NOT NULL,
-  businessVerified TEXT DEFAULT 'No' CHECK (businessVerified IN ('Yes', 'No')),
-  grossIncomeVerified TEXT DEFAULT 'No' CHECK (grossIncomeVerified IN ('Yes', 'No')),
-  netIncomeVerified TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberBusinessId INTEGER NOT NULL,
+    businessVerified TEXT DEFAULT 'No' CHECK (businessVerified IN ('Yes', 'No')),
+    grossIncomeVerified TEXT DEFAULT 'No' CHECK (grossIncomeVerified IN ('Yes', 'No')),
+    netIncomeVerified TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberBusinessVerificationUpdated AFTER
 UPDATE ON memberBusinessVerification FOR EACH ROW BEGIN
 UPDATE memberBusinessVerification
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberContact (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  postalAddress TEXT NOT NULL,
-  residentialAddress TEXT NOT NULL,
-  email TEXT,
-  homeVillage TEXT NOT NULL,
-  homeTraditionalAuthority TEXT NOT NULL,
-  homeDistrict TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    postalAddress TEXT NOT NULL,
+    residentialAddress TEXT NOT NULL,
+    email TEXT,
+    homeVillage TEXT NOT NULL,
+    homeTraditionalAuthority TEXT NOT NULL,
+    homeDistrict TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberContactUpdated AFTER
 UPDATE ON memberContact FOR EACH ROW BEGIN
 UPDATE memberContact
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberDependant (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  name TEXT NOT NULL,
-  phoneNumber TEXT NOT NULL,
-  address TEXT NOT NULL,
-  percentage REAL NOT NULL,
-  isNominee TEXT DEFAULT 'No' CHECK (isNominee IN ('Yes', 'No')),
-  relationship TEXT NOT NULL CHECK (
-    relationship IN ('Spouse', 'Child', 'Sibling', 'Other')
-  ),
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    phoneNumber TEXT NOT NULL,
+    address TEXT NOT NULL,
+    percentage REAL NOT NULL,
+    isNominee TEXT DEFAULT 'No' CHECK (isNominee IN ('Yes', 'No')),
+    relationship TEXT NOT NULL CHECK (
+        relationship IN ('Spouse', 'Child', 'Sibling', 'Other')
+    ),
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberDependantUpdated AFTER
 UPDATE ON memberDependant FOR EACH ROW BEGIN
 UPDATE memberDependant
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberIdsCache (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  idNumber TEXT NOT NULL,
-  claimed INTEGER DEFAULT 0,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberIdsCacheUpdated AFTER
 UPDATE ON memberIdsCache FOR EACH ROW BEGIN
 UPDATE memberIdsCache
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLastYearBusinessHistory (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberBusinessId INTEGER NOT NULL,
-  financialYear INTEGER NOT NULL,
-  totalIncome REAL NOT NULL,
-  totalCostOfGoods REAL NOT NULL,
-  employeeWages REAL NOT NULL,
-  ownSalary REAL NOT NULL,
-  transport REAL NOT NULL,
-  loanInterest REAL NOT NULL,
-  utilities REAL NOT NULL,
-  rentals REAL NOT NULL,
-  otherCosts REAL NOT NULL,
-  totalCosts REAL NOT NULL,
-  netProfitLoss REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberBusinessId INTEGER NOT NULL,
+    financialYear INTEGER NOT NULL,
+    totalIncome REAL NOT NULL,
+    totalCostOfGoods REAL NOT NULL,
+    employeeWages REAL NOT NULL,
+    ownSalary REAL NOT NULL,
+    transport REAL NOT NULL,
+    loanInterest REAL NOT NULL,
+    utilities REAL NOT NULL,
+    rentals REAL NOT NULL,
+    otherCosts REAL NOT NULL,
+    totalCosts REAL NOT NULL,
+    netProfitLoss REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLastYearBusinessHistoryUpdated AFTER
 UPDATE ON memberLastYearBusinessHistory FOR EACH ROW BEGIN
 UPDATE memberLastYearBusinessHistory
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoan (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  memberSavingId INTEGER NOT NULL,
-  loanAmount REAL NOT NULL,
-  repaymentPeriodInMonths INTEGER NOT NULL,
-  loanPurpose TEXT NOT NULL,
-  loanType TEXT NOT NULL,
-  loanStartDate TEXT NOT NULL,
-  loanDueDate TEXT NOT NULL,
-  monthlyInstalments REAL NOT NULL,
-  interestRate REAL NOT NULL,
-  amountPaid REAL NOT NULL,
-  balanceAmount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    memberSavingId INTEGER NOT NULL,
+    loanAmount REAL NOT NULL,
+    repaymentPeriodInMonths INTEGER NOT NULL,
+    loanPurpose TEXT NOT NULL,
+    loanType TEXT NOT NULL,
+    loanStartDate TEXT NOT NULL,
+    loanDueDate TEXT NOT NULL,
+    monthlyInstalments REAL NOT NULL,
+    interestRate REAL NOT NULL,
+    amountPaid REAL NOT NULL,
+    balanceAmount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanUpdated AFTER
 UPDATE ON memberLoan FOR EACH ROW BEGIN
 UPDATE memberLoan
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanApproval (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  loanStatus TEXT DEFAULT 'PENDING' CHECK (loanStatus IN ('PENDING', 'APPROVED', 'REJECTED')),
-  amountRecommended REAL NOT NULL,
-  approvedBy TEXT NOT NULL,
-  dateOfApproval TEXT NOT NULL,
-  verifiedBy TEXT NOT NULL,
-  dateVerified TEXT NOT NULL,
-  denialOrPartialReason TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    loanStatus TEXT DEFAULT 'PENDING' CHECK (loanStatus IN ('PENDING', 'APPROVED', 'REJECTED')),
+    amountRecommended REAL NOT NULL,
+    approvedBy TEXT NOT NULL,
+    dateOfApproval TEXT NOT NULL,
+    verifiedBy TEXT NOT NULL,
+    dateVerified TEXT NOT NULL,
+    denialOrPartialReason TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanApprovalUpdated AFTER
 UPDATE ON memberLoanApproval FOR EACH ROW BEGIN
 UPDATE memberLoanApproval
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanDisbursement (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanDisbursementUpdated AFTER
 UPDATE ON memberLoanDisbursement FOR EACH ROW BEGIN
 UPDATE memberLoanDisbursement
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanInsurance (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  insuranceProviderId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE,
-  FOREIGN KEY (insuranceProviderId) REFERENCES insuranceProvider (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    insuranceProviderId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE,
+    FOREIGN KEY (insuranceProviderId) REFERENCES insuranceProvider (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanInsuranceUpdated AFTER
 UPDATE ON memberLoanInsurance FOR EACH ROW BEGIN
 UPDATE memberLoanInsurance
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanLiability (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  value REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    VALUE REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanLiabilityUpdated AFTER
 UPDATE ON memberLoanLiability FOR EACH ROW BEGIN
 UPDATE memberLoanLiability
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanPaymentSchedule (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  dueDate TEXT NOT NULL,
-  amountDue REAL NOT NULL,
-  paid TEXT DEFAULT 'No' CHECK (paid IN ('Yes', 'No')),
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    dueDate TEXT NOT NULL,
+    amountDue REAL NOT NULL,
+    paid TEXT DEFAULT 'No' CHECK (paid IN ('Yes', 'No')),
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanPaymentScheduleUpdated AFTER
 UPDATE ON memberLoanPaymentSchedule FOR EACH ROW BEGIN
 UPDATE memberLoanPaymentSchedule
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanProcessingFee (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanProcessingFeeUpdated AFTER
 UPDATE ON memberLoanProcessingFee FOR EACH ROW BEGIN
 UPDATE memberLoanProcessingFee
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanReceipt (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanPaymentScheduleId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanPaymentScheduleId) REFERENCES memberLoanPaymentSchedule (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanPaymentScheduleId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanPaymentScheduleId) REFERENCES memberLoanPaymentSchedule (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanReceiptUpdated AFTER
 UPDATE ON memberLoanReceipt FOR EACH ROW BEGIN
 UPDATE memberLoanReceipt
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanSecurity (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  value REAL NOT NULL,
-  serialNumber TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    VALUE REAL NOT NULL,
+    serialNumber TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanSecurityUpdated AFTER
 UPDATE ON memberLoanSecurity FOR EACH ROW BEGIN
 UPDATE memberLoanSecurity
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanTax (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanTaxUpdated AFTER
 UPDATE ON memberLoanTax FOR EACH ROW BEGIN
 UPDATE memberLoanTax
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberLoanWitness (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  witnessName TEXT NOT NULL,
-  telephone TEXT NOT NULL,
-  address TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    witnessName TEXT NOT NULL,
+    telephone TEXT NOT NULL,
+    address TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanWitnessUpdated AFTER
 UPDATE ON memberLoanWitness FOR EACH ROW BEGIN
 UPDATE memberLoanWitness
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberNextYearBusinessProjection (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberBusinessId INTEGER NOT NULL,
-  financialYear INTEGER NOT NULL,
-  totalIncome REAL NOT NULL,
-  totalCostOfGoods REAL NOT NULL,
-  employeeWages REAL NOT NULL,
-  ownSalary REAL NOT NULL,
-  transport REAL NOT NULL,
-  loanInterest REAL NOT NULL,
-  utilities REAL NOT NULL,
-  rentals REAL NOT NULL,
-  otherCosts REAL NOT NULL,
-  totalCosts REAL NOT NULL,
-  netProfitLoss REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberBusinessId INTEGER NOT NULL,
+    financialYear INTEGER NOT NULL,
+    totalIncome REAL NOT NULL,
+    totalCostOfGoods REAL NOT NULL,
+    employeeWages REAL NOT NULL,
+    ownSalary REAL NOT NULL,
+    transport REAL NOT NULL,
+    loanInterest REAL NOT NULL,
+    utilities REAL NOT NULL,
+    rentals REAL NOT NULL,
+    otherCosts REAL NOT NULL,
+    totalCosts REAL NOT NULL,
+    netProfitLoss REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberBusinessId) REFERENCES memberBusiness (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberNextYearBusinessProjectionUpdated AFTER
 UPDATE ON memberNextYearBusinessProjection FOR EACH ROW BEGIN
 UPDATE memberNextYearBusinessProjection
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberOccupation (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberLoanId INTEGER NOT NULL,
-  employeeName TEXT NOT NULL,
-  employerAddress TEXT NOT NULL,
-  employerPhone TEXT NOT NULL,
-  jobTitle TEXT NOT NULL,
-  periodEmploymentInMonths INTEGER NOT NULL,
-  grossPay REAL NOT NULL,
-  netPay REAL NOT NULL,
-  highestQualification TEXT NOT NULL CHECK (
-    highestQualification IN ('Tertiary', 'Secondary', 'Primary', 'None')
-  ),
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    employeeName TEXT NOT NULL,
+    employerAddress TEXT NOT NULL,
+    employerPhone TEXT NOT NULL,
+    jobTitle TEXT NOT NULL,
+    periodEmploymentInMonths INTEGER NOT NULL,
+    grossPay REAL NOT NULL,
+    netPay REAL NOT NULL,
+    highestQualification TEXT NOT NULL CHECK (
+        highestQualification IN ('Tertiary', 'Secondary', 'Primary', 'None')
+    ),
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberOccupationUpdated AFTER
 UPDATE ON memberOccupation FOR EACH ROW BEGIN
 UPDATE memberOccupation
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberOccupationVerification (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberOccupationId INTEGER NOT NULL,
-  jobVerified TEXT DEFAULT 'No' CHECK (jobVerified IN ('Yes', 'No')),
-  grossVerified TEXT NOT NULL,
-  netVerified TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberOccupationId) REFERENCES memberOccupation (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberOccupationId INTEGER NOT NULL,
+    jobVerified TEXT DEFAULT 'No' CHECK (jobVerified IN ('Yes', 'No')),
+    grossVerified TEXT NOT NULL,
+    netVerified TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberOccupationId) REFERENCES memberOccupation (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberOccupationVerificationUpdated AFTER
 UPDATE ON memberOccupationVerification FOR EACH ROW BEGIN
 UPDATE memberOccupationVerification
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSaving (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  memberSavingsIdNumber TEXT NOT NULL,
-  savingsTypeId INTEGER NOT NULL,
-  balance REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE,
-  FOREIGN KEY (savingsTypeId) REFERENCES savingsType (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    memberSavingsIdNumber TEXT NOT NULL,
+    savingsTypeId INTEGER NOT NULL,
+    balance REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE,
+    FOREIGN KEY (savingsTypeId) REFERENCES savingsType (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingUpdated AFTER
 UPDATE ON memberSaving FOR EACH ROW BEGIN
 UPDATE memberSaving
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSavingDeposit (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingDepositUpdated AFTER
 UPDATE ON memberSavingDeposit FOR EACH ROW BEGIN
 UPDATE memberSavingDeposit
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSavingInterest (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingInterestUpdated AFTER
 UPDATE ON memberSavingInterest FOR EACH ROW BEGIN
 UPDATE memberSavingInterest
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSavingWithdrawal (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingWithdrawalUpdated AFTER
 UPDATE ON memberSavingWithdrawal FOR EACH ROW BEGIN
 UPDATE memberSavingWithdrawal
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSavingsIdsCache (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingsId INTEGER NOT NULL,
-  idNumber TEXT NOT NULL,
-  claimed INTEGER DEFAULT 0,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingsId) REFERENCES memberSavings (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingsId INTEGER NOT NULL,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingsId) REFERENCES memberSavings (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingsIdsCacheUpdated AFTER
 UPDATE ON memberSavingsIdsCache FOR EACH ROW BEGIN
 UPDATE memberSavingsIdsCache
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberShares (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  memberSharesIdNumber TEXT NOT NULL,
-  monthlyPremium REAL NOT NULL,
-  totalValue REAL NOT NULL,
-  numberOfShares INTEGER NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    memberSharesIdNumber TEXT NOT NULL,
+    monthlyPremium REAL NOT NULL,
+    totalValue REAL NOT NULL,
+    numberOfShares INTEGER NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSharesUpdated AFTER
 UPDATE ON memberShares FOR EACH ROW BEGIN
 UPDATE memberShares
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS memberSharesIdsCache (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSharesId INTEGER NOT NULL,
-  idNumber TEXT NOT NULL,
-  claimed INTEGER DEFAULT 0,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSharesId) REFERENCES memberShares (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSharesId INTEGER NOT NULL,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSharesId) REFERENCES memberShares (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSharesIdsCacheUpdated AFTER
 UPDATE ON memberSharesIdsCache FOR EACH ROW BEGIN
 UPDATE memberSharesIdsCache
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS notification (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberId INTEGER NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  message TEXT NOT NULL,
-  msgDelivered TEXT DEFAULT 'No' CHECK (msgDelivered IN ('Yes', 'No')),
-  msgRead TEXT DEFAULT 'No' CHECK (msgRead IN ('Yes', 'No')),
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    message TEXT NOT NULL,
+    msgDelivered TEXT DEFAULT 'No' CHECK (msgDelivered IN ('Yes', 'No')),
+    msgRead TEXT DEFAULT 'No' CHECK (msgRead IN ('Yes', 'No')),
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES MEMBER (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS notificationUpdated AFTER
 UPDATE ON notification FOR EACH ROW BEGIN
 UPDATE notification
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS savingsRate (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  savingsId INTEGER NOT NULL,
-  monthlyRate REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (savingsId) REFERENCES savings (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    savingsId INTEGER NOT NULL,
+    monthlyRate REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (savingsId) REFERENCES savings (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS savingsRateUpdated AFTER
 UPDATE ON savingsRate FOR EACH ROW BEGIN
 UPDATE savingsRate
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS savingsType (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  amountSize REAL NOT NULL,
-  withdrawPattern TEXT NOT NULL,
-  minWithdrawMonths INTEGER NOT NULL,
-  maxWithdrawMonths INTEGER NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    amountSize REAL NOT NULL,
+    withdrawPattern TEXT NOT NULL,
+    minWithdrawMonths INTEGER NOT NULL,
+    maxWithdrawMonths INTEGER NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS savingsTypeUpdated AFTER
 UPDATE ON savingsType FOR EACH ROW BEGIN
 UPDATE savingsType
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS sharesDepositReceipt (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS sharesDepositReceiptUpdated AFTER
 UPDATE ON sharesDepositReceipt FOR EACH ROW BEGIN
 UPDATE sharesDepositReceipt
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS sharesDepositWithdraw (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  memberSavingId INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  date TEXT DEFAULT CURRENT_TIMESTAMP,
-  amount REAL NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS sharesDepositWithdrawUpdated AFTER
 UPDATE ON sharesDepositWithdraw FOR EACH ROW BEGIN
 UPDATE sharesDepositWithdraw
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
-CREATE TABLE IF NOT EXISTS user (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT NOT NULL UNIQUE,
-  password TEXT NOT NULL,
-  name TEXT NOT NULL,
-  userRole TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE IF NOT EXISTS USER (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    name TEXT NOT NULL,
+    userRole TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS userUpdated AFTER
-UPDATE ON user FOR EACH ROW BEGIN
-UPDATE user
+UPDATE ON USER FOR EACH ROW BEGIN
+UPDATE USER
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
 
 CREATE TABLE IF NOT EXISTS userRole (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  active INTEGER DEFAULT 1,
-  createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS userRoleUpdated AFTER
 UPDATE ON userRole FOR EACH ROW BEGIN
 UPDATE userRole
 SET
-  updatedAt = CURRENT_TIMESTAMP
+    updatedAt=CURRENT_TIMESTAMP
 WHERE
-  id = OLD.id;
+    id=OLD.id;
 
 END;
