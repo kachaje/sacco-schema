@@ -29,6 +29,7 @@ func TestValueMapFromString(t *testing.T) {
 			"id": map[string]any{
 				"autoIncrement": true,
 				"order":         0,
+				"primaryKey":    true,
 				"type":          "int",
 			},
 			"memberId": map[string]any{

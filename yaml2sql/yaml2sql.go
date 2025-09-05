@@ -128,10 +128,8 @@ func Yml2Sql(model, content string) (*string, error) {
 
 			fieldData := fieldType
 
-			if val["required"] != nil {
-				if vReq, ok := val["required"].(bool); ok && vReq {
-					fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
-				}
+			if val["optional"] == nil {
+				fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
 			}
 			if val["primaryKey"] != nil {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {

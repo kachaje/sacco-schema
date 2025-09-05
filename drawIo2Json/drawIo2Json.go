@@ -145,6 +145,10 @@ func ValueMapFromString(value string) (map[string]any, error) {
 							data["fields"].(map[string]any)[field].(map[string]any)["referenceTable"] = model
 						}
 
+						if field == "id" {
+							attributes["primaryKey"] = true
+						}
+
 						i++
 					}
 					f(c)
