@@ -1,8 +1,12 @@
 package drawio2json
 
 import (
+	"fmt"
+	"log"
 	"os"
+	"path/filepath"
 	"regexp"
+	"sacco/utils"
 	"slices"
 	"strconv"
 	"strings"
@@ -142,14 +146,7 @@ func ValueMapFromString(value string) (map[string]any, error) {
 	return data, nil
 }
 
-func ExtractJsonModels(rawData map[string]any, folder string) (map[string]any, error) {
-	if _, err := os.Stat(folder); os.IsNotExist(err) {
-		err := os.MkdirAll(folder, 0755)
-		if err != nil {
-			return nil, err
-		}
-	}
-
+func ExtractJsonModels(rawData map[string]any) (map[string]any, error) {
 	models := map[string]any{}
 
 	if cells, ok := rawData["cells"].(map[string]any); ok {
@@ -170,4 +167,35 @@ func ExtractJsonModels(rawData map[string]any, folder string) (map[string]any, e
 	}
 
 	return models, nil
+}
+
+func CreateYmlFiles(data map[string]any, targetFolder string) error {
+	if _, err := os.Stat(targetFolder); os.IsNotExist(err) {
+		err := os.MkdirAll(targetFolder, 0755)
+		if err != nil {
+			return err
+		}
+	}
+
+	for model, value := range data {
+		if val, ok := value.(map[string]any); ok {
+			if val["fields"] != nil {
+				if fields, ok := val["fields"].(map[string]any); ok {
+					content, err := utils.DumpYaml(fields)
+					if err != nil {
+						log.Println(err)
+						continue
+					}
+
+					err = os.WriteFile(filepath.Join(targetFolder, fmt.Sprintf("%s.yml", model)), []byte(*content), 0644)
+					if err != nil {
+						log.Println(err)
+						continue
+					}
+				}
+			}
+		}
+	}
+
+	return nil
 }

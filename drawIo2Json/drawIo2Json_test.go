@@ -2,6 +2,7 @@ package drawio2json_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -89,8 +90,6 @@ func TestD2J(t *testing.T) {
 }
 
 func TestExtractJsonModels(t *testing.T) {
-	folder := filepath.Join(".", "tmp")
-
 	data := map[string]any{}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "data.json"))
@@ -103,15 +102,10 @@ func TestExtractJsonModels(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result, err := drawio2json.ExtractJsonModels(data, folder)
+	result, err := drawio2json.ExtractJsonModels(data)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		if _, err := os.Stat(folder); !os.IsNotExist(err) {
-			os.RemoveAll(folder)
-		}
-	}()
 
 	target := map[string]any{}
 
@@ -127,5 +121,37 @@ func TestExtractJsonModels(t *testing.T) {
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
+	}
+}
+
+func TestCreateYmlFiles(t *testing.T) {
+	folder := filepath.Join(".", "tmp")
+
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = drawio2json.CreateYmlFiles(data, folder)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer func() {
+		if _, err := os.Stat(folder); !os.IsNotExist(err) {
+			os.RemoveAll(folder)
+		}
+	}()
+
+	for key := range data {
+		if _, err := os.Stat(filepath.Join(folder, fmt.Sprintf("%s.yml", key))); os.IsNotExist(err) {
+			t.Fatalf("Test failed on %s", key)
+		}
 	}
 }

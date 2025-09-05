@@ -4,3 +4,4 @@
 loadModels
 dio2json
 .vscode
+tmp/
