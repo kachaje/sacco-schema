@@ -142,7 +142,7 @@ func ValueMapFromString(value string) (map[string]any, error) {
 	return data, nil
 }
 
-func ExtractJsonModels(rawData map[string]any, folder string) ([]map[string]any, error) {
+func ExtractJsonModels(rawData map[string]any, folder string) (map[string]any, error) {
 	if _, err := os.Stat(folder); os.IsNotExist(err) {
 		err := os.MkdirAll(folder, 0755)
 		if err != nil {
@@ -150,7 +150,7 @@ func ExtractJsonModels(rawData map[string]any, folder string) ([]map[string]any,
 		}
 	}
 
-	models := []map[string]any{}
+	models := map[string]any{}
 
 	if cells, ok := rawData["cells"].(map[string]any); ok {
 		for _, row := range cells {
@@ -159,7 +159,9 @@ func ExtractJsonModels(rawData map[string]any, folder string) ([]map[string]any,
 					if vs, ok := value.(string); ok && strings.HasPrefix(vs, "<div") {
 						modelData, err := ValueMapFromString(vs)
 						if err == nil {
-							models = append(models, modelData)
+							if model, ok := modelData["model"].(string); ok {
+								models[model] = modelData
+							}
 						}
 					}
 				}

@@ -1,0 +1,1411 @@
+{
+  "account": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "name": {
+        "order": 1,
+        "type": "text"
+      },
+      "normal": {
+        "order": 3,
+        "type": "int"
+      },
+      "number": {
+        "order": 2,
+        "type": "int"
+      }
+    },
+    "model": "account"
+  },
+  "accountJournal": {
+    "fields": {
+      "accountId": {
+        "order": 1,
+        "referenceTable": "account",
+        "type": "int"
+      },
+      "accountTransactionId": {
+        "order": 2,
+        "referenceTable": "accountTransaction",
+        "type": "int"
+      },
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "direction": {
+        "order": 5,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      }
+    },
+    "model": "accountJournal"
+  },
+  "accountStatement": {
+    "fields": {
+      "account": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "closingBalance": {
+        "order": 2,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 1,
+        "type": "text"
+      },
+      "totalCredit": {
+        "order": 3,
+        "type": "real"
+      },
+      "totalDebit": {
+        "order": 4,
+        "type": "real"
+      }
+    },
+    "model": "accountStatement"
+  },
+  "accountTransaction": {
+    "fields": {
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 1,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      }
+    },
+    "model": "accountTransaction"
+  },
+  "dividends": {
+    "fields": {
+      "amount": {
+        "order": 3,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      }
+    },
+    "model": "dividends"
+  },
+  "insuranceProvider": {
+    "fields": {
+      "address": {
+        "order": 2,
+        "type": "text"
+      },
+      "contactPerson": {
+        "order": 4,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "name": {
+        "order": 1,
+        "type": "text"
+      },
+      "phoneNumber": {
+        "order": 3,
+        "type": "text"
+      }
+    },
+    "model": "insuranceProvider"
+  },
+  "loanRate": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "loanTypeId": {
+        "order": 1,
+        "referenceTable": "loanType",
+        "type": "int"
+      },
+      "monthlyRate": {
+        "order": 2,
+        "type": "real"
+      }
+    },
+    "model": "loanRate"
+  },
+  "loanType": {
+    "fields": {
+      "amountLimit": {
+        "order": 3,
+        "type": "real"
+      },
+      "category": {
+        "options": [
+          "Personal",
+          "Business",
+          "Agricultural",
+          "Emergency"
+        ],
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "maxInstalmentMonths": {
+        "order": 5,
+        "type": "int"
+      },
+      "name": {
+        "order": 1,
+        "type": "text"
+      },
+      "periodLimitInMonths": {
+        "order": 4,
+        "type": "int"
+      }
+    },
+    "model": "loanType"
+  },
+  "member": {
+    "fields": {
+      "dateJoined": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 12,
+        "type": "text"
+      },
+      "dateOfBirth": {
+        "order": 8,
+        "type": "text",
+        "validationRule": "\\^d{4}-\\d{2}-\\d{2}$"
+      },
+      "firstName": {
+        "order": 2,
+        "type": "text"
+      },
+      "gender": {
+        "options": [
+          "Female",
+          "Male"
+        ],
+        "order": 5,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "lastName": {
+        "order": 3,
+        "type": "text"
+      },
+      "maritalStatus": {
+        "options": [
+          "Married",
+          "Single",
+          "Widowed",
+          "Divorced"
+        ],
+        "order": 7,
+        "type": "text"
+      },
+      "memberIdNumber": {
+        "order": 1,
+        "type": "text"
+      },
+      "nationalId": {
+        "order": 9,
+        "referenceTable": "national",
+        "type": "text"
+      },
+      "otherName": {
+        "optional": true,
+        "order": 4,
+        "type": "text"
+      },
+      "title": {
+        "options": [
+          "Mr",
+          "Mrs",
+          "Miss",
+          "Dr",
+          "Prof",
+          "Rev",
+          "Other"
+        ],
+        "order": 6,
+        "type": "text"
+      },
+      "utilityBillType": {
+        "options": [
+          "ESCOM",
+          "Water Board"
+        ],
+        "order": 10,
+        "type": "text"
+      },
+      "utilityBillTypeNumber": {
+        "order": 11,
+        "type": "text"
+      }
+    },
+    "model": "member"
+  },
+  "memberBusiness": {
+    "fields": {
+      "businessName": {
+        "order": 4,
+        "type": "text"
+      },
+      "businessNature": {
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "tradingArea": {
+        "order": 5,
+        "type": "text"
+      },
+      "yearsInBusiness": {
+        "order": 2,
+        "type": "int"
+      }
+    },
+    "model": "memberBusiness"
+  },
+  "memberBusinessVerification": {
+    "fields": {
+      "businessVerified": {
+        "default": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 2,
+        "type": "text"
+      },
+      "grossIncomeVerified": {
+        "default": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberBusinessId": {
+        "order": 1,
+        "referenceTable": "memberBusiness",
+        "type": "int"
+      },
+      "netIncomeVerified": {
+        "order": 4,
+        "type": "text"
+      }
+    },
+    "model": "memberBusinessVerification"
+  },
+  "memberContact": {
+    "fields": {
+      "email": {
+        "optional": true,
+        "order": 4,
+        "type": "text"
+      },
+      "homeDistrict": {
+        "order": 7,
+        "type": "text"
+      },
+      "homeTraditionalAuthority": {
+        "order": 6,
+        "type": "text"
+      },
+      "homeVillage": {
+        "order": 5,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "postalAddress": {
+        "order": 2,
+        "type": "text"
+      },
+      "residentialAddress": {
+        "order": 3,
+        "type": "text"
+      }
+    },
+    "model": "memberContact"
+  },
+  "memberDependant": {
+    "fields": {
+      "address": {
+        "order": 4,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "isNominee": {
+        "default": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 6,
+        "type": "text"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "name": {
+        "order": 2,
+        "type": "text"
+      },
+      "percentage": {
+        "order": 5,
+        "type": "real"
+      },
+      "phoneNumber": {
+        "order": 3,
+        "type": "text"
+      },
+      "relationship": {
+        "options": [
+          "Spouse",
+          "Child",
+          "Sibling",
+          "Other"
+        ],
+        "order": 7,
+        "type": "text"
+      }
+    },
+    "model": "memberDependant"
+  },
+  "memberIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      }
+    },
+    "model": "memberIdsCache"
+  },
+  "memberLastYearBusinessHistory": {
+    "fields": {
+      "employeeWages": {
+        "order": 5,
+        "type": "real"
+      },
+      "financialYear": {
+        "order": 2,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "loanInterest": {
+        "order": 8,
+        "type": "real"
+      },
+      "memberBusinessId": {
+        "order": 1,
+        "referenceTable": "memberBusiness",
+        "type": "int"
+      },
+      "netProfitLoss": {
+        "order": 13,
+        "type": "real"
+      },
+      "otherCosts": {
+        "order": 11,
+        "type": "real"
+      },
+      "ownSalary": {
+        "order": 6,
+        "type": "real"
+      },
+      "rentals": {
+        "order": 10,
+        "type": "real"
+      },
+      "totalCostOfGoods": {
+        "order": 4,
+        "type": "real"
+      },
+      "totalCosts": {
+        "order": 12,
+        "type": "real"
+      },
+      "totalIncome": {
+        "order": 3,
+        "type": "real"
+      },
+      "transport": {
+        "order": 7,
+        "type": "real"
+      },
+      "utilities": {
+        "order": 9,
+        "type": "real"
+      }
+    },
+    "model": "memberLastYearBusinessHistory"
+  },
+  "memberLoan": {
+    "fields": {
+      "amountPaid": {
+        "order": 11,
+        "type": "real"
+      },
+      "balanceAmount": {
+        "order": 12,
+        "type": "real"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "interestRate": {
+        "order": 10,
+        "type": "real"
+      },
+      "loanAmount": {
+        "order": 3,
+        "type": "real"
+      },
+      "loanDueDate": {
+        "order": 8,
+        "type": "text"
+      },
+      "loanPurpose": {
+        "order": 5,
+        "type": "text"
+      },
+      "loanStartDate": {
+        "order": 7,
+        "type": "text"
+      },
+      "loanType": {
+        "order": 6,
+        "type": "text"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 2,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      },
+      "monthlyInstalments": {
+        "order": 9,
+        "type": "real"
+      },
+      "repaymentPeriodInMonths": {
+        "order": 4,
+        "type": "int"
+      }
+    },
+    "model": "memberLoan"
+  },
+  "memberLoanApproval": {
+    "fields": {
+      "amountRecommended": {
+        "order": 3,
+        "type": "real"
+      },
+      "approvedBy": {
+        "order": 4,
+        "type": "text"
+      },
+      "dateOfApproval": {
+        "order": 5,
+        "type": "text"
+      },
+      "dateVerified": {
+        "order": 7,
+        "type": "text"
+      },
+      "denialOrPartialReason": {
+        "order": 8,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "loanStatus": {
+        "default": "PENDING",
+        "options": [
+          "PENDING",
+          "APPROVED",
+          "REJECTED"
+        ],
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "verifiedBy": {
+        "order": 6,
+        "type": "text"
+      }
+    },
+    "model": "memberLoanApproval"
+  },
+  "memberLoanDisbursement": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      }
+    },
+    "model": "memberLoanDisbursement"
+  },
+  "memberLoanInsurance": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "insuranceProviderId": {
+        "order": 2,
+        "referenceTable": "insuranceProvider",
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      }
+    },
+    "model": "memberLoanInsurance"
+  },
+  "memberLoanLiability": {
+    "fields": {
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "value": {
+        "order": 3,
+        "type": "real"
+      }
+    },
+    "model": "memberLoanLiability"
+  },
+  "memberLoanPaymentSchedule": {
+    "fields": {
+      "amountDue": {
+        "order": 3,
+        "type": "real"
+      },
+      "dueDate": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "paid": {
+        "default": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 4,
+        "type": "text"
+      }
+    },
+    "model": "memberLoanPaymentSchedule"
+  },
+  "memberLoanProcessingFee": {
+    "fields": {
+      "amount": {
+        "order": 3,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      }
+    },
+    "model": "memberLoanProcessingFee"
+  },
+  "memberLoanReceipt": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanPaymentScheduleId": {
+        "order": 1,
+        "referenceTable": "memberLoanPaymentSchedule",
+        "type": "int"
+      }
+    },
+    "model": "memberLoanReceipt"
+  },
+  "memberLoanSecurity": {
+    "fields": {
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "serialNumber": {
+        "order": 4,
+        "type": "text"
+      },
+      "value": {
+        "order": 3,
+        "type": "real"
+      }
+    },
+    "model": "memberLoanSecurity"
+  },
+  "memberLoanTax": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      }
+    },
+    "model": "memberLoanTax"
+  },
+  "memberLoanWitness": {
+    "fields": {
+      "address": {
+        "order": 4,
+        "type": "text"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 5,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "telephone": {
+        "order": 3,
+        "type": "text"
+      },
+      "witnessName": {
+        "order": 2,
+        "type": "text"
+      }
+    },
+    "model": "memberLoanWitness"
+  },
+  "memberNextYearBusinessProjection": {
+    "fields": {
+      "employeeWages": {
+        "order": 5,
+        "type": "real"
+      },
+      "financialYear": {
+        "order": 2,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "loanInterest": {
+        "order": 8,
+        "type": "real"
+      },
+      "memberBusinessId": {
+        "order": 1,
+        "referenceTable": "memberBusiness",
+        "type": "int"
+      },
+      "netProfitLoss": {
+        "order": 13,
+        "type": "real"
+      },
+      "otherCosts": {
+        "order": 11,
+        "type": "real"
+      },
+      "ownSalary": {
+        "order": 6,
+        "type": "real"
+      },
+      "rentals": {
+        "order": 10,
+        "type": "real"
+      },
+      "totalCostOfGoods": {
+        "order": 4,
+        "type": "real"
+      },
+      "totalCosts": {
+        "order": 12,
+        "type": "real"
+      },
+      "totalIncome": {
+        "order": 3,
+        "type": "real"
+      },
+      "transport": {
+        "order": 7,
+        "type": "real"
+      },
+      "utilities": {
+        "order": 9,
+        "type": "real"
+      }
+    },
+    "model": "memberNextYearBusinessProjection"
+  },
+  "memberOccupation": {
+    "fields": {
+      "employeeName": {
+        "order": 2,
+        "type": "text"
+      },
+      "employerAddress": {
+        "order": 3,
+        "type": "text"
+      },
+      "employerPhone": {
+        "order": 4,
+        "type": "text"
+      },
+      "grossPay": {
+        "order": 7,
+        "type": "real"
+      },
+      "highestQualification": {
+        "options": [
+          "Tertiary",
+          "Secondary",
+          "Primary",
+          "None"
+        ],
+        "order": 9,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "jobTitle": {
+        "order": 5,
+        "type": "text"
+      },
+      "memberLoanId": {
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "netPay": {
+        "order": 8,
+        "type": "real"
+      },
+      "periodEmploymentInMonths": {
+        "order": 6,
+        "type": "int"
+      }
+    },
+    "model": "memberOccupation"
+  },
+  "memberOccupationVerification": {
+    "fields": {
+      "active": {
+        "order": 5,
+        "type": "int"
+      },
+      "createdAt": {
+        "order": 6,
+        "type": "timestamp"
+      },
+      "grossVerified": {
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "jobVerified": {
+        "default": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 2,
+        "type": "text"
+      },
+      "memberOccupationId": {
+        "order": 1,
+        "referenceTable": "memberOccupation",
+        "type": "int"
+      },
+      "netVerified": {
+        "order": 4,
+        "type": "text"
+      },
+      "updatedAt": {
+        "order": 7,
+        "type": "timestamp"
+      }
+    },
+    "model": "memberOccupationVerification"
+  },
+  "memberSaving": {
+    "fields": {
+      "balance": {
+        "order": 3,
+        "type": "real"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "savingsTypeId": {
+        "order": 2,
+        "referenceTable": "savingsType",
+        "type": "int"
+      }
+    },
+    "model": "memberSaving"
+  },
+  "memberSavingDeposit": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "memberSavingDeposit"
+  },
+  "memberSavingInterest": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "memberSavingInterest"
+  },
+  "memberSavingWithdrawal": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "memberSavingWithdrawal"
+  },
+  "memberShares": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "memberSharesIdNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "monthlyPremium": {
+        "order": 3,
+        "type": "real"
+      },
+      "numberOfShares": {
+        "order": 5,
+        "type": "int"
+      },
+      "totalValue": {
+        "order": 4,
+        "type": "real"
+      }
+    },
+    "model": "memberShares"
+  },
+  "memberSharesIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberSharesId": {
+        "order": 1,
+        "referenceTable": "memberShares",
+        "type": "int"
+      }
+    },
+    "model": "memberSharesIdsCache"
+  },
+  "notification": {
+    "fields": {
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberId": {
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "message": {
+        "order": 3,
+        "type": "text"
+      },
+      "msgDelivered": {
+        "default": "No",
+        "optional": true,
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 4,
+        "type": "text"
+      },
+      "msgRead": {
+        "default": "No",
+        "optional": true,
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "order": 5,
+        "type": "text"
+      }
+    },
+    "model": "notification"
+  },
+  "savingsRate": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "monthlyRate": {
+        "order": 2,
+        "type": "real"
+      },
+      "savingsId": {
+        "order": 1,
+        "referenceTable": "savings",
+        "type": "int"
+      }
+    },
+    "model": "savingsRate"
+  },
+  "savingsType": {
+    "fields": {
+      "amountSize": {
+        "order": 2,
+        "type": "real"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "maxWithdrawMonths": {
+        "order": 5,
+        "type": "int"
+      },
+      "minWithdrawMonths": {
+        "order": 4,
+        "type": "int"
+      },
+      "name": {
+        "order": 1,
+        "type": "text"
+      },
+      "withdrawPattern": {
+        "order": 3,
+        "type": "text"
+      }
+    },
+    "model": "savingsType"
+  },
+  "sharesDepositReceipt": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "sharesDepositReceipt"
+  },
+  "sharesDepositWithdraw": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "sharesDepositWithdraw"
+  },
+  "user": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "name": {
+        "order": 3,
+        "type": "text"
+      },
+      "password": {
+        "order": 2,
+        "type": "text"
+      },
+      "userRole": {
+        "order": 4,
+        "type": "text"
+      },
+      "username": {
+        "order": 1,
+        "type": "text",
+        "unique": true
+      }
+    },
+    "model": "user"
+  },
+  "userRole": {
+    "fields": {
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "type": "int"
+      },
+      "name": {
+        "order": 1,
+        "type": "text"
+      }
+    },
+    "model": "userRole"
+  }
+}

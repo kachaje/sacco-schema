@@ -2,11 +2,11 @@ package drawio2json_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
 	drawio2json "sacco/drawIo2Json"
+	"sacco/utils"
 	"testing"
 )
 
@@ -113,7 +113,19 @@ func TestExtractJsonModels(t *testing.T) {
 		}
 	}()
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
+	target := map[string]any{}
 
-	fmt.Println(string(payload))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !utils.MapsEqual(target, result) {
+		t.Fatal("Test failed")
+	}
 }
