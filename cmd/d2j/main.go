@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"path/filepath"
 	drawio2json "sacco/drawIo2Json"
 )
 
@@ -17,6 +18,10 @@ func main() {
 	if filename == "" {
 		flag.Usage()
 		return
+	}
+
+	if targetFolder == "" {
+		targetFolder = filepath.Join(".", "models")
 	}
 
 	err := drawio2json.Main(filename, targetFolder)
