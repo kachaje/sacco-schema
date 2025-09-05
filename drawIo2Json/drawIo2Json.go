@@ -91,8 +91,9 @@ func ValueMapFromString(value string) (map[string]any, error) {
 	}
 
 	data := map[string]any{
-		"model":  "",
-		"fields": map[string]any{},
+		"model":   "",
+		"fields":  map[string]any{},
+		"parents": []string{},
 	}
 
 	i := 0
@@ -143,6 +144,8 @@ func ValueMapFromString(value string) (map[string]any, error) {
 							model := strings.TrimRight(field, "Id")
 
 							data["fields"].(map[string]any)[field].(map[string]any)["referenceTable"] = model
+
+							data["parents"] = append(data["parents"].([]string), model)
 						}
 
 						if field == "id" {

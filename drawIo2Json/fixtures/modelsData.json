@@ -20,7 +20,8 @@
         "type": "int"
       }
     },
-    "model": "account"
+    "model": "account",
+    "parents": []
   },
   "accountJournal": {
     "fields": {
@@ -54,7 +55,11 @@
         "type": "int"
       }
     },
-    "model": "accountJournal"
+    "model": "accountJournal",
+    "parents": [
+      "account",
+      "accountTransaction"
+    ]
   },
   "accountStatement": {
     "fields": {
@@ -81,7 +86,8 @@
         "type": "real"
       }
     },
-    "model": "accountStatement"
+    "model": "accountStatement",
+    "parents": []
   },
   "accountTransaction": {
     "fields": {
@@ -101,7 +107,8 @@
         "type": "int"
       }
     },
-    "model": "accountTransaction"
+    "model": "accountTransaction",
+    "parents": []
   },
   "dividends": {
     "fields": {
@@ -126,7 +133,10 @@
         "type": "int"
       }
     },
-    "model": "dividends"
+    "model": "dividends",
+    "parents": [
+      "member"
+    ]
   },
   "insuranceProvider": {
     "fields": {
@@ -153,7 +163,8 @@
         "type": "text"
       }
     },
-    "model": "insuranceProvider"
+    "model": "insuranceProvider",
+    "parents": []
   },
   "loanRate": {
     "fields": {
@@ -173,7 +184,10 @@
         "type": "real"
       }
     },
-    "model": "loanRate"
+    "model": "loanRate",
+    "parents": [
+      "loanType"
+    ]
   },
   "loanType": {
     "fields": {
@@ -182,7 +196,12 @@
         "type": "real"
       },
       "category": {
-        "options": ["Personal", "Business", "Agricultural", "Emergency"],
+        "options": [
+          "Personal",
+          "Business",
+          "Agricultural",
+          "Emergency"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -205,7 +224,8 @@
         "type": "int"
       }
     },
-    "model": "loanType"
+    "model": "loanType",
+    "parents": []
   },
   "member": {
     "fields": {
@@ -224,7 +244,10 @@
         "type": "text"
       },
       "gender": {
-        "options": ["Female", "Male"],
+        "options": [
+          "Female",
+          "Male"
+        ],
         "order": 5,
         "type": "text"
       },
@@ -239,7 +262,12 @@
         "type": "text"
       },
       "maritalStatus": {
-        "options": ["Married", "Single", "Widowed", "Divorced"],
+        "options": [
+          "Married",
+          "Single",
+          "Widowed",
+          "Divorced"
+        ],
         "order": 7,
         "type": "text"
       },
@@ -258,12 +286,23 @@
         "type": "text"
       },
       "title": {
-        "options": ["Mr", "Mrs", "Miss", "Dr", "Prof", "Rev", "Other"],
+        "options": [
+          "Mr",
+          "Mrs",
+          "Miss",
+          "Dr",
+          "Prof",
+          "Rev",
+          "Other"
+        ],
         "order": 6,
         "type": "text"
       },
       "utilityBillType": {
-        "options": ["ESCOM", "Water Board"],
+        "options": [
+          "ESCOM",
+          "Water Board"
+        ],
         "order": 10,
         "type": "text"
       },
@@ -272,7 +311,10 @@
         "type": "text"
       }
     },
-    "model": "member"
+    "model": "member",
+    "parents": [
+      "national"
+    ]
   },
   "memberBusiness": {
     "fields": {
@@ -304,19 +346,28 @@
         "type": "int"
       }
     },
-    "model": "memberBusiness"
+    "model": "memberBusiness",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberBusinessVerification": {
     "fields": {
       "businessVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 2,
         "type": "text"
       },
       "grossIncomeVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 3,
         "type": "text"
       },
@@ -336,7 +387,10 @@
         "type": "text"
       }
     },
-    "model": "memberBusinessVerification"
+    "model": "memberBusinessVerification",
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberContact": {
     "fields": {
@@ -377,7 +431,10 @@
         "type": "text"
       }
     },
-    "model": "memberContact"
+    "model": "memberContact",
+    "parents": [
+      "member"
+    ]
   },
   "memberDependant": {
     "fields": {
@@ -393,7 +450,10 @@
       },
       "isNominee": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 6,
         "type": "text"
       },
@@ -415,12 +475,20 @@
         "type": "text"
       },
       "relationship": {
-        "options": ["Spouse", "Child", "Sibling", "Other"],
+        "options": [
+          "Spouse",
+          "Child",
+          "Sibling",
+          "Other"
+        ],
         "order": 7,
         "type": "text"
       }
     },
-    "model": "memberDependant"
+    "model": "memberDependant",
+    "parents": [
+      "member"
+    ]
   },
   "memberIdsCache": {
     "fields": {
@@ -445,7 +513,10 @@
         "type": "int"
       }
     },
-    "model": "memberIdsCache"
+    "model": "memberIdsCache",
+    "parents": [
+      "member"
+    ]
   },
   "memberLastYearBusinessHistory": {
     "fields": {
@@ -509,7 +580,10 @@
         "type": "real"
       }
     },
-    "model": "memberLastYearBusinessHistory"
+    "model": "memberLastYearBusinessHistory",
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberLoan": {
     "fields": {
@@ -570,7 +644,11 @@
         "type": "int"
       }
     },
-    "model": "memberLoan"
+    "model": "memberLoan",
+    "parents": [
+      "member",
+      "memberSaving"
+    ]
   },
   "memberLoanApproval": {
     "fields": {
@@ -602,7 +680,11 @@
       },
       "loanStatus": {
         "default": "PENDING",
-        "options": ["PENDING", "APPROVED", "REJECTED"],
+        "options": [
+          "PENDING",
+          "APPROVED",
+          "REJECTED"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -616,7 +698,10 @@
         "type": "text"
       }
     },
-    "model": "memberLoanApproval"
+    "model": "memberLoanApproval",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanDisbursement": {
     "fields": {
@@ -645,7 +730,10 @@
         "type": "int"
       }
     },
-    "model": "memberLoanDisbursement"
+    "model": "memberLoanDisbursement",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanInsurance": {
     "fields": {
@@ -675,7 +763,11 @@
         "type": "int"
       }
     },
-    "model": "memberLoanInsurance"
+    "model": "memberLoanInsurance",
+    "parents": [
+      "memberLoan",
+      "insuranceProvider"
+    ]
   },
   "memberLoanLiability": {
     "fields": {
@@ -699,7 +791,10 @@
         "type": "real"
       }
     },
-    "model": "memberLoanLiability"
+    "model": "memberLoanLiability",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanPaymentSchedule": {
     "fields": {
@@ -724,12 +819,18 @@
       },
       "paid": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 4,
         "type": "text"
       }
     },
-    "model": "memberLoanPaymentSchedule"
+    "model": "memberLoanPaymentSchedule",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanProcessingFee": {
     "fields": {
@@ -754,7 +855,10 @@
         "type": "int"
       }
     },
-    "model": "memberLoanProcessingFee"
+    "model": "memberLoanProcessingFee",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanReceipt": {
     "fields": {
@@ -783,7 +887,10 @@
         "type": "int"
       }
     },
-    "model": "memberLoanReceipt"
+    "model": "memberLoanReceipt",
+    "parents": [
+      "memberLoanPaymentSchedule"
+    ]
   },
   "memberLoanSecurity": {
     "fields": {
@@ -811,7 +918,10 @@
         "type": "real"
       }
     },
-    "model": "memberLoanSecurity"
+    "model": "memberLoanSecurity",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanTax": {
     "fields": {
@@ -840,7 +950,10 @@
         "type": "int"
       }
     },
-    "model": "memberLoanTax"
+    "model": "memberLoanTax",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberLoanWitness": {
     "fields": {
@@ -873,7 +986,10 @@
         "type": "text"
       }
     },
-    "model": "memberLoanWitness"
+    "model": "memberLoanWitness",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberNextYearBusinessProjection": {
     "fields": {
@@ -937,7 +1053,10 @@
         "type": "real"
       }
     },
-    "model": "memberNextYearBusinessProjection"
+    "model": "memberNextYearBusinessProjection",
+    "parents": [
+      "memberBusiness"
+    ]
   },
   "memberOccupation": {
     "fields": {
@@ -958,7 +1077,12 @@
         "type": "real"
       },
       "highestQualification": {
-        "options": ["Tertiary", "Secondary", "Primary", "None"],
+        "options": [
+          "Tertiary",
+          "Secondary",
+          "Primary",
+          "None"
+        ],
         "order": 9,
         "type": "text"
       },
@@ -986,7 +1110,10 @@
         "type": "int"
       }
     },
-    "model": "memberOccupation"
+    "model": "memberOccupation",
+    "parents": [
+      "memberLoan"
+    ]
   },
   "memberOccupationVerification": {
     "fields": {
@@ -1010,7 +1137,10 @@
       },
       "jobVerified": {
         "default": "No",
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 2,
         "type": "text"
       },
@@ -1028,7 +1158,10 @@
         "type": "timestamp"
       }
     },
-    "model": "memberOccupationVerification"
+    "model": "memberOccupationVerification",
+    "parents": [
+      "memberOccupation"
+    ]
   },
   "memberSaving": {
     "fields": {
@@ -1053,7 +1186,11 @@
         "type": "int"
       }
     },
-    "model": "memberSaving"
+    "model": "memberSaving",
+    "parents": [
+      "member",
+      "savingsType"
+    ]
   },
   "memberSavingDeposit": {
     "fields": {
@@ -1082,7 +1219,10 @@
         "type": "int"
       }
     },
-    "model": "memberSavingDeposit"
+    "model": "memberSavingDeposit",
+    "parents": [
+      "memberSaving"
+    ]
   },
   "memberSavingInterest": {
     "fields": {
@@ -1111,7 +1251,10 @@
         "type": "int"
       }
     },
-    "model": "memberSavingInterest"
+    "model": "memberSavingInterest",
+    "parents": [
+      "memberSaving"
+    ]
   },
   "memberSavingWithdrawal": {
     "fields": {
@@ -1140,7 +1283,10 @@
         "type": "int"
       }
     },
-    "model": "memberSavingWithdrawal"
+    "model": "memberSavingWithdrawal",
+    "parents": [
+      "memberSaving"
+    ]
   },
   "memberShares": {
     "fields": {
@@ -1172,7 +1318,10 @@
         "type": "real"
       }
     },
-    "model": "memberShares"
+    "model": "memberShares",
+    "parents": [
+      "member"
+    ]
   },
   "memberSharesIdsCache": {
     "fields": {
@@ -1197,7 +1346,10 @@
         "type": "int"
       }
     },
-    "model": "memberSharesIdsCache"
+    "model": "memberSharesIdsCache",
+    "parents": [
+      "memberShares"
+    ]
   },
   "notification": {
     "fields": {
@@ -1224,19 +1376,28 @@
       "msgDelivered": {
         "default": "No",
         "optional": true,
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 4,
         "type": "text"
       },
       "msgRead": {
         "default": "No",
         "optional": true,
-        "options": ["Yes", "No"],
+        "options": [
+          "Yes",
+          "No"
+        ],
         "order": 5,
         "type": "text"
       }
     },
-    "model": "notification"
+    "model": "notification",
+    "parents": [
+      "member"
+    ]
   },
   "savingsRate": {
     "fields": {
@@ -1256,7 +1417,10 @@
         "type": "int"
       }
     },
-    "model": "savingsRate"
+    "model": "savingsRate",
+    "parents": [
+      "savings"
+    ]
   },
   "savingsType": {
     "fields": {
@@ -1287,7 +1451,8 @@
         "type": "text"
       }
     },
-    "model": "savingsType"
+    "model": "savingsType",
+    "parents": []
   },
   "sharesDepositReceipt": {
     "fields": {
@@ -1316,7 +1481,10 @@
         "type": "int"
       }
     },
-    "model": "sharesDepositReceipt"
+    "model": "sharesDepositReceipt",
+    "parents": [
+      "memberSaving"
+    ]
   },
   "sharesDepositWithdraw": {
     "fields": {
@@ -1345,7 +1513,10 @@
         "type": "int"
       }
     },
-    "model": "sharesDepositWithdraw"
+    "model": "sharesDepositWithdraw",
+    "parents": [
+      "memberSaving"
+    ]
   },
   "user": {
     "fields": {
@@ -1373,7 +1544,8 @@
         "unique": true
       }
     },
-    "model": "user"
+    "model": "user",
+    "parents": []
   },
   "userRole": {
     "fields": {
@@ -1388,6 +1560,7 @@
         "type": "text"
       }
     },
-    "model": "userRole"
+    "model": "userRole",
+    "parents": []
   }
 }

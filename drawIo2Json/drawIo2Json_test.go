@@ -62,7 +62,8 @@ func TestValueMapFromString(t *testing.T) {
 				"type":  "text",
 			},
 		},
-		"model": "notification",
+		"model":   "notification",
+		"parents": []string{"member"},
 	}
 
 	if !reflect.DeepEqual(target, result) {
