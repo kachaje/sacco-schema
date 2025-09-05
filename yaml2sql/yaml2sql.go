@@ -128,13 +128,12 @@ func Yml2Sql(model, content string) (*string, error) {
 
 			fieldData := fieldType
 
-			if val["optional"] == nil {
-				fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
-			}
 			if val["primaryKey"] != nil {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {
 					fieldData = fmt.Sprintf(`%s PRIMARY KEY`, fieldData)
 				}
+			} else if val["optional"] == nil {
+				fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
 			}
 			if val["autoIncrement"] != nil {
 				if vAutInc, ok := val["autoIncrement"].(bool); ok && vAutInc {

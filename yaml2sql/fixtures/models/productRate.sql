@@ -1,8 +1,8 @@
 CREATE TABLE
   IF NOT EXISTS productRate (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    loanTypeId INTEGER,
-    savingsTypeId INTEGER,
+    loanTypeId INTEGER NOT NULL,
+    savingsTypeId INTEGER NOT NULL,
     name TEXT NOT NULL,
     monthlyRate REAL NOT NULL,
     active INTEGER DEFAULT 1,
