@@ -34,6 +34,10 @@ type MxGraphModel struct {
 }
 
 func Main(filename string) (map[string]any, error) {
+	return nil, nil
+}
+
+func D2J(filename string) (map[string]any, error) {
 	diagram, err := xml.Parse(filename)
 	if err != nil {
 		return nil, err
