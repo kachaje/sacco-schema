@@ -10,6 +10,7 @@ memberId:
   type: int
 
 memberSharesIdNumber:
+  optional: true
   order: 2
   type: text
 

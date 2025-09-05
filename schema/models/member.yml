@@ -5,6 +5,7 @@ id:
   type: int
 
 memberIdNumber:
+  optional: true
   order: 1
   type: text
 
@@ -70,7 +71,7 @@ utilityBillType:
   order: 11
   type: text
 
-utilityBillTypeNumber:
+utilityBillNumber:
   order: 12
   type: text
 

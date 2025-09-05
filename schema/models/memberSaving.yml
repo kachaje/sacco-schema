@@ -10,6 +10,7 @@ memberId:
   type: int
 
 memberSavingsIdNumber:
+  optional: true
   order: 2
   type: text
 

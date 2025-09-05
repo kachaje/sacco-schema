@@ -176,7 +176,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS member (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberIdNumber TEXT NOT NULL,
+    memberIdNumber TEXT,
     firstName TEXT NOT NULL,
     lastName TEXT NOT NULL,
     otherName TEXT,
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS member (
     dateOfBirth TEXT NOT NULL,
     nationalId TEXT NOT NULL,
     utilityBillType TEXT NOT NULL CHECK (utilityBillType IN ('ESCOM', 'Water Board')),
-    utilityBillTypeNumber TEXT NOT NULL,
+    utilityBillNumber TEXT NOT NULL,
     dateJoined TEXT DEFAULT CURRENT_TIMESTAMP,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -698,7 +698,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberSaving (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
-    memberSavingsIdNumber TEXT NOT NULL,
+    memberSavingsIdNumber TEXT,
     savingsTypeId INTEGER NOT NULL,
     balance REAL NOT NULL,
     active INTEGER DEFAULT 1,
@@ -808,7 +808,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberShares (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
-    memberSharesIdNumber TEXT NOT NULL,
+    memberSharesIdNumber TEXT,
     monthlyPremium REAL NOT NULL,
     totalValue REAL NOT NULL,
     numberOfShares INTEGER NOT NULL,
