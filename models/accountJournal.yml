@@ -5,11 +5,13 @@ id:
   type: int
 
 accountId:
+  many: true
   order: 1
   referenceTable: account
   type: int
 
 accountTransactionId:
+  many: true
   order: 2
   referenceTable: accountTransaction
   type: int

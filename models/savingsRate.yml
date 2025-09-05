@@ -5,6 +5,7 @@ id:
   type: int
 
 savingsId:
+  many: true
   order: 1
   referenceTable: savings
   type: int

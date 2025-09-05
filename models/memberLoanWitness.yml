@@ -5,6 +5,7 @@ id:
   type: int
 
 memberLoanId:
+  many: true
   order: 1
   referenceTable: memberLoan
   type: int

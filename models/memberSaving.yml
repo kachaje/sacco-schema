@@ -10,6 +10,7 @@ memberId:
   type: int
 
 savingsTypeId:
+  many: true
   order: 2
   referenceTable: savingsType
   type: int
