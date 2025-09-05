@@ -132,6 +132,12 @@ func Yml2Sql(model, content string) (*string, error) {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {
 					fieldData = fmt.Sprintf(`%s PRIMARY KEY`, fieldData)
 				}
+			} else if val["default"] != nil {
+				if fieldType == "TEXT" && fmt.Sprintf(`%v`, val["default"]) != "CURRENT_TIMESTAMP" {
+					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
+				} else {
+					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
+				}
 			} else if val["optional"] == nil {
 				fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)
 			}
@@ -153,13 +159,6 @@ func Yml2Sql(model, content string) (*string, error) {
 			}
 			if val["unique"] != nil {
 				fieldData = fmt.Sprintf(`%s UNIQUE`, fieldData)
-			}
-			if val["default"] != nil {
-				if fieldType == "TEXT" {
-					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
-				} else {
-					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
-				}
 			}
 			if val["referenceTable"] != nil {
 				footer := fmt.Sprintf(`FOREIGN KEY (%s) REFERENCES %v (id) ON DELETE CASCADE,`, key, val["referenceTable"])
