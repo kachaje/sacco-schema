@@ -16,7 +16,7 @@ CREATE TRIGGER IF NOT EXISTS productRateUpdated AFTER
 UPDATE ON productRate FOR EACH ROW BEGIN
 UPDATE productRate
 SET
-  updated_at = CURRENT_TIMESTAMP
+  updatedAt = CURRENT_TIMESTAMP
 WHERE
   id = OLD.id;
 

@@ -12,7 +12,7 @@ CREATE TRIGGER IF NOT EXISTS loanServiceFeeUpdated AFTER
 UPDATE ON loanServiceFee FOR EACH ROW BEGIN
 UPDATE loanServiceFee
 SET
-  updated_at = CURRENT_TIMESTAMP
+  updatedAt = CURRENT_TIMESTAMP
 WHERE
   id = OLD.id;
 
