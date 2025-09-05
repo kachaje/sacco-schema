@@ -5,6 +5,7 @@ id:
   type: int
 
 memberSharesId:
+  optional: true
   order: 1
   referenceTable: memberShares
   type: int

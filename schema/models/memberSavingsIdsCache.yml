@@ -5,6 +5,7 @@ id:
   type: int
 
 memberSavingsId:
+  optional: true
   order: 1
   referenceTable: memberSavings
   type: int

@@ -308,7 +308,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberIdsCache (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberId INTEGER NOT NULL,
+    memberId INTEGER,
     idNumber TEXT NOT NULL,
     claimed INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
@@ -786,7 +786,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberSavingsIdsCache (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingsId INTEGER NOT NULL,
+    memberSavingsId INTEGER,
     idNumber TEXT NOT NULL,
     claimed INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
@@ -830,7 +830,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberSharesIdsCache (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSharesId INTEGER NOT NULL,
+    memberSharesId INTEGER,
     idNumber TEXT NOT NULL,
     claimed INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
