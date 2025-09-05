@@ -46,14 +46,15 @@ END;
 
 CREATE TABLE
   IF NOT EXISTS accountStatement (
-    account INTEGER NOT NULL AUTOINCREMENT,
+    accountId INTEGER NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     closingBalance REAL NOT NULL,
     totalCredit REAL NOT NULL,
     totalDebit REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE
   );
 
 CREATE TRIGGER IF NOT EXISTS accountStatementUpdated AFTER
@@ -706,9 +707,6 @@ CREATE TABLE
     jobVerified TEXT DEFAULT 'No' CHECK (jobVerified IN ('Yes', 'No')),
     grossVerified TEXT NOT NULL,
     netVerified TEXT NOT NULL,
-    active INTEGER NOT NULL,
-    createdAt TEXT NOT NULL,
-    updatedAt TEXT NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

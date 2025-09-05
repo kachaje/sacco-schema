@@ -24,15 +24,3 @@ grossVerified:
 netVerified:
   order: 4
   type: text
-
-active:
-  order: 5
-  type: int
-
-createdAt:
-  order: 6
-  type: timestamp
-
-updatedAt:
-  order: 7
-  type: timestamp

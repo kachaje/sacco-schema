@@ -1,6 +1,6 @@
-account:
-  autoIncrement: true
+accountId:
   order: 0
+  referenceTable: account
   type: int
 
 date:
