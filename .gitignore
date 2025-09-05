@@ -1,4 +1,5 @@
 *.bkp
+*.dtmp
 *.db
 loadModels
 dio2json
