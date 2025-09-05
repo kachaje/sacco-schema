@@ -1,0 +1,75 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberIdNumber:
+  order: 1
+  type: text
+
+firstName:
+  order: 2
+  type: text
+
+lastName:
+  order: 3
+  type: text
+
+otherName:
+  optional: true
+  order: 4
+  type: text
+
+gender:
+  options:
+    - Female
+    - Male
+  order: 5
+  type: text
+
+title:
+  options:
+    - Mr
+    - Mrs
+    - Miss
+    - Dr
+    - Prof
+    - Rev
+    - Other
+  order: 6
+  type: text
+
+maritalStatus:
+  options:
+    - Married
+    - Single
+    - Widowed
+    - Divorced
+  order: 7
+  type: text
+
+dateOfBirth:
+  order: 8
+  type: text
+  validationRule: \^d{4}-\d{2}-\d{2}$
+
+nationalId:
+  order: 9
+  referenceTable: national
+  type: text
+
+utilityBillType:
+  options:
+    - ESCOM
+    - Water Board
+  order: 10
+  type: text
+
+utilityBillTypeNumber:
+  order: 11
+  type: text
+
+dateJoined:
+  default: CURRENT_TIMESTAMP
+  order: 12
+  type: text

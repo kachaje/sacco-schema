@@ -1,0 +1,46 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberLoanId:
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+employeeName:
+  order: 2
+  type: text
+
+employerAddress:
+  order: 3
+  type: text
+
+employerPhone:
+  order: 4
+  type: text
+
+jobTitle:
+  order: 5
+  type: text
+
+periodEmploymentInMonths:
+  order: 6
+  type: int
+
+grossPay:
+  order: 7
+  type: real
+
+netPay:
+  order: 8
+  type: real
+
+highestQualification:
+  options:
+    - Tertiary
+    - Secondary
+    - Primary
+    - None
+  order: 9
+  type: text

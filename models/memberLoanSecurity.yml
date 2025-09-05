@@ -3,19 +3,19 @@ id:
   order: 0
   type: int
 
-username:
+memberLoanId:
   order: 1
-  type: text
-  unique: true
+  referenceTable: memberLoan
+  type: int
 
-password:
+description:
   order: 2
   type: text
 
-name:
+value:
   order: 3
-  type: text
+  type: real
 
-userRole:
+serialNumber:
   order: 4
   type: text

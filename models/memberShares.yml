@@ -1,0 +1,25 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberId:
+  order: 1
+  referenceTable: member
+  type: int
+
+memberSharesIdNumber:
+  order: 2
+  type: text
+
+monthlyPremium:
+  order: 3
+  type: real
+
+totalValue:
+  order: 4
+  type: real
+
+numberOfShares:
+  order: 5
+  type: int

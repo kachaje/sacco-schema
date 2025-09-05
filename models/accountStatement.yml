@@ -1,0 +1,21 @@
+account:
+  autoIncrement: true
+  order: 0
+  type: int
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 1
+  type: text
+
+closingBalance:
+  order: 2
+  type: real
+
+totalCredit:
+  order: 3
+  type: real
+
+totalDebit:
+  order: 4
+  type: real

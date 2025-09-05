@@ -1,0 +1,42 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberLoanId:
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+loanStatus:
+  default: PENDING
+  options:
+    - PENDING
+    - APPROVED
+    - REJECTED
+  order: 2
+  type: text
+
+amountRecommended:
+  order: 3
+  type: real
+
+approvedBy:
+  order: 4
+  type: text
+
+dateOfApproval:
+  order: 5
+  type: text
+
+verifiedBy:
+  order: 6
+  type: text
+
+dateVerified:
+  order: 7
+  type: text
+
+denialOrPartialReason:
+  order: 8
+  type: text

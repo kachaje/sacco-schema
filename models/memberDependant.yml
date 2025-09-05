@@ -8,29 +8,35 @@ memberId:
   referenceTable: member
   type: int
 
-date:
-  default: CURRENT_TIMESTAMP
+name:
   order: 2
   type: text
 
-message:
+phoneNumber:
   order: 3
   type: text
 
-msgDelivered:
-  default: "No"
-  optional: true
-  options:
-    - "Yes"
-    - "No"
+address:
   order: 4
   type: text
 
-msgRead:
+percentage:
+  order: 5
+  type: real
+
+isNominee:
   default: "No"
-  optional: true
   options:
     - "Yes"
     - "No"
-  order: 5
+  order: 6
+  type: text
+
+relationship:
+  options:
+    - Spouse
+    - Child
+    - Sibling
+    - Other
+  order: 7
   type: text

@@ -3,19 +3,18 @@ id:
   order: 0
   type: int
 
-username:
+name:
   order: 1
   type: text
-  unique: true
 
-password:
+address:
   order: 2
   type: text
 
-name:
+phoneNumber:
   order: 3
   type: text
 
-userRole:
+contactPerson:
   order: 4
   type: text

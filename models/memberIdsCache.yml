@@ -1,0 +1,18 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberId:
+  order: 1
+  referenceTable: member
+  type: int
+
+idNumber:
+  order: 2
+  type: text
+
+claimed:
+  default: "0"
+  order: 3
+  type: int

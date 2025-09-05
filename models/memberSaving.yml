@@ -1,0 +1,18 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberId:
+  order: 1
+  referenceTable: member
+  type: int
+
+savingsTypeId:
+  order: 2
+  referenceTable: savingsType
+  type: int
+
+balance:
+  order: 3
+  type: real

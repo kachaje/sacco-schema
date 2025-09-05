@@ -1,0 +1,25 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberLoanId:
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+yearsInBusiness:
+  order: 2
+  type: int
+
+businessNature:
+  order: 3
+  type: text
+
+businessName:
+  order: 4
+  type: text
+
+tradingArea:
+  order: 5
+  type: text

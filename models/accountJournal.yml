@@ -1,0 +1,27 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+accountId:
+  order: 1
+  referenceTable: account
+  type: int
+
+accountTransactionId:
+  order: 2
+  referenceTable: accountTransaction
+  type: int
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 3
+  type: text
+
+amount:
+  order: 4
+  type: real
+
+direction:
+  order: 5
+  type: int

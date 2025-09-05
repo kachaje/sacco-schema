@@ -1,0 +1,37 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberOccupationId:
+  order: 1
+  referenceTable: memberOccupation
+  type: int
+
+jobVerified:
+  default: "No"
+  options:
+    - "Yes"
+    - "No"
+  order: 2
+  type: text
+
+grossVerified:
+  order: 3
+  type: text
+
+netVerified:
+  order: 4
+  type: text
+
+active:
+  order: 5
+  type: int
+
+createdAt:
+  order: 6
+  type: timestamp
+
+updatedAt:
+  order: 7
+  type: timestamp

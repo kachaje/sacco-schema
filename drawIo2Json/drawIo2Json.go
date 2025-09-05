@@ -207,8 +207,6 @@ func CreateYmlFiles(data map[string]any, targetFolder string) error {
 						}
 					}
 
-					fmt.Println(keyOrder)
-
 					var content string
 
 					for i := range len(keyOrder) {

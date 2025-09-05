@@ -8,29 +8,27 @@ memberId:
   referenceTable: member
   type: int
 
-date:
-  default: CURRENT_TIMESTAMP
+postalAddress:
   order: 2
   type: text
 
-message:
+residentialAddress:
   order: 3
   type: text
 
-msgDelivered:
-  default: "No"
+email:
   optional: true
-  options:
-    - "Yes"
-    - "No"
   order: 4
   type: text
 
-msgRead:
-  default: "No"
-  optional: true
-  options:
-    - "Yes"
-    - "No"
+homeVillage:
   order: 5
+  type: text
+
+homeTraditionalAuthority:
+  order: 6
+  type: text
+
+homeDistrict:
+  order: 7
   type: text

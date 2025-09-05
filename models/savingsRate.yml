@@ -1,0 +1,13 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+savingsId:
+  order: 1
+  referenceTable: savings
+  type: int
+
+monthlyRate:
+  order: 2
+  type: real

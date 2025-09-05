@@ -1,0 +1,13 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 1
+  type: text
+
+description:
+  order: 2
+  type: text

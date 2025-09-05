@@ -1,0 +1,17 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberLoanId:
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+description:
+  order: 2
+  type: text
+
+value:
+  order: 3
+  type: real

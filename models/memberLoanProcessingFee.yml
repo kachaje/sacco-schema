@@ -1,0 +1,18 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberLoanId:
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 2
+  type: text
+
+amount:
+  order: 3
+  type: real

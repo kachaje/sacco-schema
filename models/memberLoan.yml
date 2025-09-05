@@ -1,0 +1,54 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberId:
+  order: 1
+  referenceTable: member
+  type: int
+
+memberSavingId:
+  order: 2
+  referenceTable: memberSaving
+  type: int
+
+loanAmount:
+  order: 3
+  type: real
+
+repaymentPeriodInMonths:
+  order: 4
+  type: int
+
+loanPurpose:
+  order: 5
+  type: text
+
+loanType:
+  order: 6
+  type: text
+
+loanStartDate:
+  order: 7
+  type: text
+
+loanDueDate:
+  order: 8
+  type: text
+
+monthlyInstalments:
+  order: 9
+  type: real
+
+interestRate:
+  order: 10
+  type: real
+
+amountPaid:
+  order: 11
+  type: real
+
+balanceAmount:
+  order: 12
+  type: real

@@ -1,0 +1,8 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+name:
+  order: 1
+  type: text

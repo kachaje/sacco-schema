@@ -1,0 +1,57 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+memberBusinessId:
+  order: 1
+  referenceTable: memberBusiness
+  type: int
+
+financialYear:
+  order: 2
+  type: int
+
+totalIncome:
+  order: 3
+  type: real
+
+totalCostOfGoods:
+  order: 4
+  type: real
+
+employeeWages:
+  order: 5
+  type: real
+
+ownSalary:
+  order: 6
+  type: real
+
+transport:
+  order: 7
+  type: real
+
+loanInterest:
+  order: 8
+  type: real
+
+utilities:
+  order: 9
+  type: real
+
+rentals:
+  order: 10
+  type: real
+
+otherCosts:
+  order: 11
+  type: real
+
+totalCosts:
+  order: 12
+  type: real
+
+netProfitLoss:
+  order: 13
+  type: real

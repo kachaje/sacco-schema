@@ -3,19 +3,22 @@ id:
   order: 0
   type: int
 
-username:
+name:
   order: 1
   type: text
-  unique: true
 
-password:
+amountSize:
   order: 2
-  type: text
+  type: real
 
-name:
+withdrawPattern:
   order: 3
   type: text
 
-userRole:
+minWithdrawMonths:
   order: 4
-  type: text
+  type: int
+
+maxWithdrawMonths:
+  order: 5
+  type: int

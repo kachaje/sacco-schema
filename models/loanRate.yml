@@ -1,0 +1,13 @@
+id:
+  autoIncrement: true
+  order: 0
+  type: int
+
+loanTypeId:
+  order: 1
+  referenceTable: loanType
+  type: int
+
+monthlyRate:
+  order: 2
+  type: real
