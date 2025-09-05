@@ -1,6 +1,7 @@
 package drawio2json
 
 import (
+	"os"
 	"regexp"
 	"slices"
 	"strconv"
@@ -139,4 +140,32 @@ func ValueMapFromString(value string) (map[string]any, error) {
 	f(doc)
 
 	return data, nil
+}
+
+func ExtractJsonModels(rawData map[string]any, folder string) ([]map[string]any, error) {
+	if _, err := os.Stat(folder); os.IsNotExist(err) {
+		err := os.MkdirAll(folder, 0755)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	models := []map[string]any{}
+
+	if cells, ok := rawData["cells"].(map[string]any); ok {
+		for _, row := range cells {
+			if val, ok := row.(map[string]any); ok {
+				if value, ok := val["value"]; ok {
+					if vs, ok := value.(string); ok && strings.HasPrefix(vs, "<div") {
+						modelData, err := ValueMapFromString(vs)
+						if err == nil {
+							models = append(models, modelData)
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return models, nil
 }

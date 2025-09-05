@@ -1,7 +1,9 @@
 package drawio2json_test
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 	"path/filepath"
 	"reflect"
 	drawio2json "sacco/drawIo2Json"
@@ -86,11 +88,32 @@ func TestD2J(t *testing.T) {
 	}
 }
 
-func TestDefault(t *testing.T) {
-	result, err := drawio2json.Main(filepath.Join(".", "fixtures", "data.json"))
+func TestExtractJsonModels(t *testing.T) {
+	folder := filepath.Join(".", "tmp")
+
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "data.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	fmt.Println(result)
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result, err := drawio2json.ExtractJsonModels(data, folder)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer func() {
+		if _, err := os.Stat(folder); !os.IsNotExist(err) {
+			os.RemoveAll(folder)
+		}
+	}()
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 }
