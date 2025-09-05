@@ -8,7 +8,7 @@ if [[ "$1" == "-b" ]]; then
 
 elif [[ "$1" == "-dj" ]]; then
 
-  ./dio2json -f designs/sacco.drawio > schema.json 
+  ./dio2json -f designs/sacco.drawio
 
 elif [[ "$1" == "-lm" ]]; then
 

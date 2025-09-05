@@ -196,13 +196,29 @@ func CreateYmlFiles(data map[string]any, targetFolder string) error {
 		if val, ok := value.(map[string]any); ok {
 			if val["fields"] != nil {
 				if fields, ok := val["fields"].(map[string]any); ok {
-					content, err := utils.DumpYaml(fields)
-					if err != nil {
-						log.Println(err)
-						continue
+					keyOrder := map[int]string{}
+
+					for k, v := range fields {
+						if vv, ok := v.(map[string]any); ok && vv["order"] != nil {
+							index, err := strconv.Atoi(fmt.Sprintf("%v", vv["order"]))
+							if err == nil {
+								keyOrder[index] = k
+							}
+						}
 					}
 
-					err = os.WriteFile(filepath.Join(targetFolder, fmt.Sprintf("%s.yml", model)), []byte(*content), 0644)
+					var content string
+
+					for i := range len(keyOrder) {
+						key := keyOrder[i]
+
+						rowContent, err := utils.DumpYaml(fields[key].(map[string]any))
+						if err == nil {
+							content = fmt.Sprintf(`%s\n%s`, content, *rowContent)
+						}
+					}
+
+					err := os.WriteFile(filepath.Join(targetFolder, fmt.Sprintf("%s.yml", model)), []byte(content), 0644)
 					if err != nil {
 						log.Println(err)
 						continue
