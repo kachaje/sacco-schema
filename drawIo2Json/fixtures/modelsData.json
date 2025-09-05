@@ -182,12 +182,7 @@
         "type": "real"
       },
       "category": {
-        "options": [
-          "Personal",
-          "Business",
-          "Agricultural",
-          "Emergency"
-        ],
+        "options": ["Personal", "Business", "Agricultural", "Emergency"],
         "order": 2,
         "type": "text"
       },
@@ -229,10 +224,7 @@
         "type": "text"
       },
       "gender": {
-        "options": [
-          "Female",
-          "Male"
-        ],
+        "options": ["Female", "Male"],
         "order": 5,
         "type": "text"
       },
@@ -247,12 +239,7 @@
         "type": "text"
       },
       "maritalStatus": {
-        "options": [
-          "Married",
-          "Single",
-          "Widowed",
-          "Divorced"
-        ],
+        "options": ["Married", "Single", "Widowed", "Divorced"],
         "order": 7,
         "type": "text"
       },
@@ -271,23 +258,12 @@
         "type": "text"
       },
       "title": {
-        "options": [
-          "Mr",
-          "Mrs",
-          "Miss",
-          "Dr",
-          "Prof",
-          "Rev",
-          "Other"
-        ],
+        "options": ["Mr", "Mrs", "Miss", "Dr", "Prof", "Rev", "Other"],
         "order": 6,
         "type": "text"
       },
       "utilityBillType": {
-        "options": [
-          "ESCOM",
-          "Water Board"
-        ],
+        "options": ["ESCOM", "Water Board"],
         "order": 10,
         "type": "text"
       },
@@ -334,19 +310,13 @@
     "fields": {
       "businessVerified": {
         "default": "No",
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 2,
         "type": "text"
       },
       "grossIncomeVerified": {
         "default": "No",
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 3,
         "type": "text"
       },
@@ -423,10 +393,7 @@
       },
       "isNominee": {
         "default": "No",
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 6,
         "type": "text"
       },
@@ -448,12 +415,7 @@
         "type": "text"
       },
       "relationship": {
-        "options": [
-          "Spouse",
-          "Child",
-          "Sibling",
-          "Other"
-        ],
+        "options": ["Spouse", "Child", "Sibling", "Other"],
         "order": 7,
         "type": "text"
       }
@@ -640,11 +602,7 @@
       },
       "loanStatus": {
         "default": "PENDING",
-        "options": [
-          "PENDING",
-          "APPROVED",
-          "REJECTED"
-        ],
+        "options": ["PENDING", "APPROVED", "REJECTED"],
         "order": 2,
         "type": "text"
       },
@@ -766,10 +724,7 @@
       },
       "paid": {
         "default": "No",
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 4,
         "type": "text"
       }
@@ -1003,12 +958,7 @@
         "type": "real"
       },
       "highestQualification": {
-        "options": [
-          "Tertiary",
-          "Secondary",
-          "Primary",
-          "None"
-        ],
+        "options": ["Tertiary", "Secondary", "Primary", "None"],
         "order": 9,
         "type": "text"
       },
@@ -1060,10 +1010,7 @@
       },
       "jobVerified": {
         "default": "No",
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 2,
         "type": "text"
       },
@@ -1277,20 +1224,14 @@
       "msgDelivered": {
         "default": "No",
         "optional": true,
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 4,
         "type": "text"
       },
       "msgRead": {
         "default": "No",
         "optional": true,
-        "options": [
-          "Yes",
-          "No"
-        ],
+        "options": ["Yes", "No"],
         "order": 5,
         "type": "text"
       }

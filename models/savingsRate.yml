@@ -1,6 +1,7 @@
 id:
   autoIncrement: true
   order: 0
+  primaryKey: true
   type: int
 
 savingsId:
