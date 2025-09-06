@@ -6,28 +6,18 @@ account:
     - name:
         order: 1
         type: text
-    - normal:
-        numericField: true
-        order: 3
     - number:
         numericField: true
         order: 2
+    - normal:
+        numericField: true
+        order: 3
   hasMany:
     - accountJournal
     - accountStatement
   rootQuery: account
 accountJournal:
   fields:
-    - amount:
-        numericField: true
-        order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - direction:
-        numericField: true
-        order: 5
     - id:
         hidden: true
         order: 0
@@ -37,19 +27,29 @@ accountJournal:
     - accountTransactionId:
         hidden: true
         order: 2
+    - date:
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
+    - direction:
+        numericField: true
+        order: 5
   rootQuery: accountJournal
 accountStatement:
   fields:
     - accountId:
         hidden: true
         order: 0
-    - closingBalance:
-        numericField: true
-        order: 2
     - date:
         optional: true
         order: 1
         type: text
+    - closingBalance:
+        numericField: true
+        order: 2
     - totalCredit:
         numericField: true
         order: 3
@@ -59,6 +59,9 @@ accountStatement:
   rootQuery: accountStatement
 accountTransaction:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - date:
         optional: true
         order: 1
@@ -66,45 +69,42 @@ accountTransaction:
     - description:
         order: 2
         type: text
-    - id:
-        hidden: true
-        order: 0
   hasMany:
     - accountJournal
   rootQuery: accountTransaction
 dividends:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - memberId:
         hidden: true
         order: 1
-    - amount:
-        numericField: true
-        order: 3
     - date:
         optional: true
         order: 2
         type: text
-    - id:
-        hidden: true
-        order: 0
+    - amount:
+        numericField: true
+        order: 3
   rootQuery: dividends
 insuranceProvider:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - name:
         order: 1
-        type: text
-    - phoneNumber:
-        order: 3
         type: text
     - address:
         order: 2
         type: text
+    - phoneNumber:
+        order: 3
+        type: text
     - contactPerson:
         order: 4
         type: text
-    - id:
-        hidden: true
-        order: 0
   hasMany:
     - memberLoanInsurance
   rootQuery: insuranceProvider
@@ -122,9 +122,12 @@ loanRate:
   rootQuery: loanRate
 loanType:
   fields:
-    - amountLimit:
-        numericField: true
-        order: 3
+    - id:
+        hidden: true
+        order: 0
+    - name:
+        order: 1
+        type: text
     - category:
         options:
           - Personal
@@ -133,59 +136,42 @@ loanType:
           - Emergency
         order: 2
         type: text
-    - id:
-        hidden: true
-        order: 0
-    - maxInstalmentMonths:
+    - amountLimit:
         numericField: true
-        order: 5
-    - name:
-        order: 1
-        type: text
+        order: 3
     - periodLimitInMonths:
         numericField: true
         order: 4
+    - maxInstalmentMonths:
+        numericField: true
+        order: 5
   hasOne:
     - loanRate
   rootQuery: loanType
 member:
   fields:
-    - dateOfBirth:
-        order: 9
+    - id:
+        hidden: true
+        order: 0
+    - memberIdNumber:
+        optional: true
+        order: 1
         type: text
     - firstName:
         order: 2
+        type: text
+    - lastName:
+        order: 3
+        type: text
+    - otherName:
+        optional: true
+        order: 4
         type: text
     - gender:
         options:
           - Female
           - Male
         order: 5
-        type: text
-    - id:
-        hidden: true
-        order: 0
-    - lastName:
-        order: 3
-        type: text
-    - memberIdNumber:
-        optional: true
-        order: 1
-        type: text
-    - nationalIdentifier:
-        order: 10
-        type: text
-    - maritalStatus:
-        options:
-          - Married
-          - Single
-          - Widowed
-          - Divorced
-        order: 8
-        type: text
-    - otherName:
-        optional: true
-        order: 4
         type: text
     - phoneNumber:
         order: 6
@@ -201,14 +187,28 @@ member:
           - Other
         order: 7
         type: text
-    - utilityBillNumber:
-        order: 12
+    - maritalStatus:
+        options:
+          - Married
+          - Single
+          - Widowed
+          - Divorced
+        order: 8
+        type: text
+    - dateOfBirth:
+        order: 9
+        type: text
+    - nationalIdentifier:
+        order: 10
         type: text
     - utilityBillType:
         options:
           - ESCOM
           - Water Board
         order: 11
+        type: text
+    - utilityBillNumber:
+        order: 12
         type: text
     - dateJoined:
         optional: true
@@ -226,24 +226,24 @@ member:
   rootQuery: member
 memberBusiness:
   fields:
-    - memberLoanId:
-        hidden: true
-        order: 1
-    - tradingArea:
-        order: 5
-        type: text
-    - yearsInBusiness:
-        numericField: true
-        order: 2
-    - businessName:
-        order: 4
-        type: text
-    - businessNature:
-        order: 3
-        type: text
     - id:
         hidden: true
         order: 0
+    - memberLoanId:
+        hidden: true
+        order: 1
+    - yearsInBusiness:
+        numericField: true
+        order: 2
+    - businessNature:
+        order: 3
+        type: text
+    - businessName:
+        order: 4
+        type: text
+    - tradingArea:
+        order: 5
+        type: text
   hasOne:
     - memberBusinessVerification
     - memberLastYearBusinessHistory
@@ -251,6 +251,12 @@ memberBusiness:
   rootQuery: memberBusiness
 memberBusinessVerification:
   fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberBusinessId:
+        hidden: true
+        order: 1
     - businessVerified:
         optional: true
         options:
@@ -265,31 +271,12 @@ memberBusinessVerification:
           - "No"
         order: 3
         type: text
-    - id:
-        hidden: true
-        order: 0
-    - memberBusinessId:
-        hidden: true
-        order: 1
     - netIncomeVerified:
         order: 4
         type: text
   rootQuery: memberBusinessVerification
 memberContact:
   fields:
-    - email:
-        optional: true
-        order: 4
-        type: text
-    - homeDistrict:
-        order: 7
-        type: text
-    - homeTraditionalAuthority:
-        order: 6
-        type: text
-    - homeVillage:
-        order: 5
-        type: text
     - id:
         hidden: true
         order: 0
@@ -302,30 +289,46 @@ memberContact:
     - residentialAddress:
         order: 3
         type: text
+    - email:
+        optional: true
+        order: 4
+        type: text
+    - homeVillage:
+        order: 5
+        type: text
+    - homeTraditionalAuthority:
+        order: 6
+        type: text
+    - homeDistrict:
+        order: 7
+        type: text
   rootQuery: memberContact
 memberDependant:
   fields:
     - id:
         hidden: true
         order: 0
-    - isNominee:
-        optional: true
-        options:
-          - "Yes"
-          - "No"
-        order: 6
-        type: text
     - memberId:
         hidden: true
         order: 1
     - name:
         order: 2
         type: text
+    - phoneNumber:
+        order: 3
+        type: text
+    - address:
+        order: 4
+        type: text
     - percentage:
         numericField: true
         order: 5
-    - phoneNumber:
-        order: 3
+    - isNominee:
+        optional: true
+        options:
+          - "Yes"
+          - "No"
+        order: 6
         type: text
     - relationship:
         options:
@@ -335,114 +338,111 @@ memberDependant:
           - Other
         order: 7
         type: text
-    - address:
-        order: 4
-        type: text
   rootQuery: memberDependant
 memberIdsCache:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - memberId:
         hidden: true
         order: 1
+    - idNumber:
+        order: 2
+        type: text
     - claimed:
         numericField: true
         optional: true
         order: 3
-    - id:
-        hidden: true
-        order: 0
-    - idNumber:
-        order: 2
-        type: text
   hasOne:
     - member
   rootQuery: memberIdsCache
 memberLastYearBusinessHistory:
   fields:
-    - rentals:
-        numericField: true
-        order: 10
-    - totalCosts:
-        numericField: true
-        order: 12
-    - utilities:
-        numericField: true
-        order: 9
-    - employeeWages:
-        numericField: true
-        order: 5
-    - financialYear:
-        numericField: true
-        order: 2
     - id:
         hidden: true
         order: 0
     - memberBusinessId:
         hidden: true
         order: 1
-    - netProfitLoss:
+    - financialYear:
         numericField: true
-        order: 13
-    - totalCostOfGoods:
-        numericField: true
-        order: 4
+        order: 2
     - totalIncome:
         numericField: true
         order: 3
+    - totalCostOfGoods:
+        numericField: true
+        order: 4
+    - employeeWages:
+        numericField: true
+        order: 5
+    - ownSalary:
+        numericField: true
+        order: 6
     - transport:
         numericField: true
         order: 7
     - loanInterest:
         numericField: true
         order: 8
+    - utilities:
+        numericField: true
+        order: 9
+    - rentals:
+        numericField: true
+        order: 10
     - otherCosts:
         numericField: true
         order: 11
-    - ownSalary:
+    - totalCosts:
         numericField: true
-        order: 6
+        order: 12
+    - netProfitLoss:
+        numericField: true
+        order: 13
   rootQuery: memberLastYearBusinessHistory
 memberLoan:
   fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberId:
+        hidden: true
+        order: 1
+    - memberSavingId:
+        hidden: true
+        order: 2
+    - loanAmount:
+        numericField: true
+        order: 3
+    - repaymentPeriodInMonths:
+        numericField: true
+        order: 4
+    - loanPurpose:
+        order: 5
+        type: text
+    - loanType:
+        order: 6
+        type: text
+    - loanStartDate:
+        order: 7
+        type: text
+    - loanDueDate:
+        order: 8
+        type: text
+    - monthlyInstalments:
+        numericField: true
+        order: 9
+    - interestRate:
+        numericField: true
+        order: 10
     - amountPaid:
         hidden: true
         order: 11
     - balanceAmount:
         numericField: true
         order: 12
-    - id:
-        hidden: true
-        order: 0
-    - interestRate:
-        numericField: true
-        order: 10
-    - loanStartDate:
-        order: 7
-        type: text
-    - loanType:
-        order: 6
-        type: text
-    - memberId:
-        hidden: true
-        order: 1
-    - repaymentPeriodInMonths:
-        numericField: true
-        order: 4
-    - loanAmount:
-        numericField: true
-        order: 3
-    - loanDueDate:
-        order: 8
-        type: text
-    - loanPurpose:
-        order: 5
-        type: text
-    - memberSavingId:
-        hidden: true
-        order: 2
-    - monthlyInstalments:
-        numericField: true
-        order: 9
   hasMany:
     - memberLoanInsurance
     - memberLoanLiability
@@ -459,18 +459,12 @@ memberLoan:
   rootQuery: memberLoan
 memberLoanApproval:
   fields:
-    - amountRecommended:
-        numericField: true
-        order: 3
-    - dateOfApproval:
-        order: 5
-        type: text
-    - denialOrPartialReason:
-        order: 8
-        type: text
     - id:
         hidden: true
         order: 0
+    - memberLoanId:
+        hidden: true
+        order: 1
     - loanStatus:
         optional: true
         options:
@@ -479,86 +473,92 @@ memberLoanApproval:
           - REJECTED
         order: 2
         type: text
+    - amountRecommended:
+        numericField: true
+        order: 3
     - approvedBy:
         order: 4
+        type: text
+    - dateOfApproval:
+        order: 5
+        type: text
+    - verifiedBy:
+        order: 6
         type: text
     - dateVerified:
         order: 7
         type: text
-    - memberLoanId:
-        hidden: true
-        order: 1
-    - verifiedBy:
-        order: 6
+    - denialOrPartialReason:
+        order: 8
         type: text
   rootQuery: memberLoanApproval
 memberLoanDisbursement:
   fields:
-    - amount:
-        numericField: true
-        order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: memberLoanDisbursement
 memberLoanInsurance:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - memberLoanId:
         hidden: true
         order: 1
-    - amount:
-        numericField: true
-        order: 4
+    - insuranceProviderId:
+        hidden: true
+        order: 2
     - date:
         optional: true
         order: 3
         type: text
-    - id:
-        hidden: true
-        order: 0
-    - insuranceProviderId:
-        hidden: true
-        order: 2
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: memberLoanInsurance
 memberLoanLiability:
   fields:
+    - id:
+        hidden: true
+        order: 0
     - memberLoanId:
         hidden: true
         order: 1
-    - value:
-        numericField: true
-        order: 3
     - description:
         order: 2
         type: text
-    - id:
-        hidden: true
-        order: 0
+    - value:
+        numericField: true
+        order: 3
   rootQuery: memberLoanLiability
 memberLoanPaymentSchedule:
   fields:
-    - amountDue:
-        numericField: true
-        order: 3
-    - dueDate:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
+    - dueDate:
+        order: 2
+        type: text
+    - amountDue:
+        numericField: true
+        order: 3
     - paid:
         hidden: true
         order: 4
@@ -567,78 +567,90 @@ memberLoanPaymentSchedule:
   rootQuery: memberLoanPaymentSchedule
 memberLoanProcessingFee:
   fields:
-    - amount:
-        numericField: true
-        order: 3
-    - date:
-        optional: true
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
+    - date:
+        optional: true
+        order: 2
+        type: text
+    - amount:
+        numericField: true
+        order: 3
   rootQuery: memberLoanProcessingFee
 memberLoanReceipt:
   fields:
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanPaymentScheduleId:
         hidden: true
         order: 1
-    - amount:
-        numericField: true
-        order: 4
+    - description:
+        order: 2
+        type: text
     - date:
         optional: true
         order: 3
         type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: memberLoanReceipt
 memberLoanSecurity:
   fields:
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
-    - serialNumber:
-        order: 4
+    - description:
+        order: 2
         type: text
     - value:
         numericField: true
         order: 3
+    - serialNumber:
+        order: 4
+        type: text
   rootQuery: memberLoanSecurity
 memberLoanTax:
   fields:
-    - amount:
-        numericField: true
-        order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: memberLoanTax
 memberLoanWitness:
   fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberLoanId:
+        hidden: true
+        order: 1
+    - witnessName:
+        order: 2
+        type: text
+    - telephone:
+        order: 3
+        type: text
     - address:
         order: 4
         type: text
@@ -646,84 +658,81 @@ memberLoanWitness:
         optional: true
         order: 5
         type: text
+  rootQuery: memberLoanWitness
+memberNextYearBusinessProjection:
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberBusinessId:
+        hidden: true
+        order: 1
+    - financialYear:
+        numericField: true
+        order: 2
+    - totalIncome:
+        numericField: true
+        order: 3
+    - totalCostOfGoods:
+        numericField: true
+        order: 4
+    - employeeWages:
+        numericField: true
+        order: 5
+    - ownSalary:
+        numericField: true
+        order: 6
+    - transport:
+        numericField: true
+        order: 7
+    - loanInterest:
+        numericField: true
+        order: 8
+    - utilities:
+        numericField: true
+        order: 9
+    - rentals:
+        numericField: true
+        order: 10
+    - otherCosts:
+        numericField: true
+        order: 11
+    - totalCosts:
+        numericField: true
+        order: 12
+    - netProfitLoss:
+        numericField: true
+        order: 13
+  rootQuery: memberNextYearBusinessProjection
+memberOccupation:
+  fields:
     - id:
         hidden: true
         order: 0
     - memberLoanId:
         hidden: true
         order: 1
-    - telephone:
-        order: 3
-        type: text
-    - witnessName:
-        order: 2
-        type: text
-  rootQuery: memberLoanWitness
-memberNextYearBusinessProjection:
-  fields:
-    - transport:
-        numericField: true
-        order: 7
-    - financialYear:
-        numericField: true
-        order: 2
-    - rentals:
-        numericField: true
-        order: 10
-    - totalCostOfGoods:
-        numericField: true
-        order: 4
-    - totalCosts:
-        numericField: true
-        order: 12
-    - totalIncome:
-        numericField: true
-        order: 3
-    - utilities:
-        numericField: true
-        order: 9
-    - employeeWages:
-        numericField: true
-        order: 5
-    - id:
-        hidden: true
-        order: 0
-    - loanInterest:
-        numericField: true
-        order: 8
-    - memberBusinessId:
-        hidden: true
-        order: 1
-    - netProfitLoss:
-        numericField: true
-        order: 13
-    - otherCosts:
-        numericField: true
-        order: 11
-    - ownSalary:
-        numericField: true
-        order: 6
-  rootQuery: memberNextYearBusinessProjection
-memberOccupation:
-  fields:
     - employeeName:
         order: 2
+        type: text
+    - employerAddress:
+        order: 3
         type: text
     - employerPhone:
         order: 4
         type: text
-    - memberLoanId:
-        hidden: true
-        order: 1
+    - jobTitle:
+        order: 5
+        type: text
     - periodEmploymentInMonths:
         numericField: true
         order: 6
-    - employerAddress:
-        order: 3
-        type: text
     - grossPay:
         numericField: true
         order: 7
+    - netPay:
+        numericField: true
+        order: 8
     - highestQualification:
         options:
           - Tertiary
@@ -732,15 +741,6 @@ memberOccupation:
           - None
         order: 9
         type: text
-    - id:
-        hidden: true
-        order: 0
-    - jobTitle:
-        order: 5
-        type: text
-    - netPay:
-        numericField: true
-        order: 8
   hasOne:
     - memberOccupationVerification
   rootQuery: memberOccupation
@@ -749,6 +749,9 @@ memberOccupationVerification:
     - id:
         hidden: true
         order: 0
+    - memberOccupationId:
+        hidden: true
+        order: 1
     - jobVerified:
         optional: true
         options:
@@ -756,24 +759,15 @@ memberOccupationVerification:
           - "No"
         order: 2
         type: text
-    - memberOccupationId:
-        hidden: true
-        order: 1
-    - netVerified:
-        order: 4
-        type: text
     - grossVerified:
         order: 3
+        type: text
+    - netVerified:
+        order: 4
         type: text
   rootQuery: memberOccupationVerification
 memberSaving:
   fields:
-    - savingsTypeId:
-        hidden: true
-        order: 3
-    - balance:
-        numericField: true
-        order: 4
     - id:
         hidden: true
         order: 0
@@ -784,6 +778,12 @@ memberSaving:
         optional: true
         order: 2
         type: text
+    - savingsTypeId:
+        hidden: true
+        order: 3
+    - balance:
+        numericField: true
+        order: 4
   hasMany:
     - memberLoan
     - memberSavingDeposit
@@ -794,22 +794,22 @@ memberSaving:
   rootQuery: memberSaving
 memberSavingDeposit:
   fields:
-    - amount:
-        numericField: true
-        order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberSavingId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: memberSavingDeposit
 memberSavingInterest:
   fields:
@@ -819,62 +819,56 @@ memberSavingInterest:
     - memberSavingId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
     - amount:
         numericField: true
         order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
   rootQuery: memberSavingInterest
 memberSavingWithdrawal:
   fields:
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberSavingId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
     - amount:
         numericField: true
         order: 4
   rootQuery: memberSavingWithdrawal
 memberSavingsIdsCache:
   fields:
-    - idNumber:
-        order: 2
-        type: text
+    - id:
+        hidden: true
+        order: 0
     - memberSavingId:
         hidden: true
         order: 1
+    - idNumber:
+        order: 2
+        type: text
     - claimed:
         numericField: true
         optional: true
         order: 3
-    - id:
-        hidden: true
-        order: 0
   hasOne:
     - memberSaving
   rootQuery: memberSavingsIdsCache
 memberShares:
   fields:
-    - numberOfShares:
-        numericField: true
-        order: 5
-    - totalValue:
-        numericField: true
-        order: 4
     - id:
         hidden: true
         order: 0
@@ -888,18 +882,24 @@ memberShares:
     - monthlyPremium:
         numericField: true
         order: 3
+    - totalValue:
+        numericField: true
+        order: 4
+    - numberOfShares:
+        numericField: true
+        order: 5
   rootQuery: memberShares
 memberSharesIdsCache:
   fields:
     - id:
         hidden: true
         order: 0
-    - idNumber:
-        order: 2
-        type: text
     - memberSharesId:
         hidden: true
         order: 1
+    - idNumber:
+        order: 2
+        type: text
     - claimed:
         numericField: true
         optional: true
@@ -909,16 +909,16 @@ memberSharesIdsCache:
   rootQuery: memberSharesIdsCache
 notification:
   fields:
-    - date:
-        optional: true
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberId:
         hidden: true
         order: 1
+    - date:
+        optional: true
+        order: 2
+        type: text
     - message:
         order: 3
         type: text
@@ -942,33 +942,33 @@ savingsRate:
     - id:
         hidden: true
         order: 0
-    - monthlyRate:
-        numericField: true
-        order: 2
     - savingsTypeId:
         hidden: true
         order: 1
+    - monthlyRate:
+        numericField: true
+        order: 2
   rootQuery: savingsRate
 savingsType:
   fields:
     - id:
         hidden: true
         order: 0
-    - maxWithdrawMonths:
-        numericField: true
-        order: 5
-    - minWithdrawMonths:
-        numericField: true
-        order: 4
     - name:
         order: 1
-        type: text
-    - withdrawPattern:
-        order: 3
         type: text
     - amountSize:
         numericField: true
         order: 2
+    - withdrawPattern:
+        order: 3
+        type: text
+    - minWithdrawMonths:
+        numericField: true
+        order: 4
+    - maxWithdrawMonths:
+        numericField: true
+        order: 5
   hasMany:
     - memberSaving
     - savingsRate
@@ -981,60 +981,60 @@ sharesDepositReceipt:
     - memberSavingId:
         hidden: true
         order: 1
-    - amount:
-        numericField: true
-        order: 4
+    - description:
+        order: 2
+        type: text
     - date:
         optional: true
         order: 3
         type: text
-    - description:
-        order: 2
-        type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: sharesDepositReceipt
 sharesDepositWithdraw:
   fields:
-    - amount:
-        numericField: true
-        order: 4
-    - date:
-        optional: true
-        order: 3
-        type: text
-    - description:
-        order: 2
-        type: text
     - id:
         hidden: true
         order: 0
     - memberSavingId:
         hidden: true
         order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
   rootQuery: sharesDepositWithdraw
 user:
   fields:
     - id:
         hidden: true
         order: 0
-    - name:
-        order: 3
+    - username:
+        order: 1
         type: text
     - password:
         order: 2
         type: text
+    - name:
+        order: 3
+        type: text
     - userRole:
         order: 4
-        type: text
-    - username:
-        order: 1
         type: text
   rootQuery: user
 userRole:
   fields:
-    - name:
-        order: 1
-        type: text
     - id:
         hidden: true
         order: 0
+    - name:
+        order: 1
+        type: text
   rootQuery: userRole
