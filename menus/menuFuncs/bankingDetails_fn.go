@@ -2,7 +2,7 @@ package menufuncs
 
 import (
 	"fmt"
-	"sacco/server/parser"
+	"sacco/parser"
 )
 
 func BankingDetails(

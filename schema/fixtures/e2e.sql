@@ -9,7 +9,7 @@ INSERT INTO
     title,
     maritalStatus,
     dateOfBirth,
-    nationalId,
+    nationalIdentifier,
     utilityBillType,
     utilityBillNumber
   )

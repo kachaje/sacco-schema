@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	menufuncs "sacco/server/menus/menuFuncs"
+	menufuncs "sacco/menus/menuFuncs"
 	"sacco/utils"
 	"strings"
 	"testing"

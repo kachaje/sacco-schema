@@ -16,7 +16,7 @@ var (
 	tableName = "person"
 )
 
-func setupDb(dbname string) (*sql.DB, *database.Model, error) {
+func setupModelDb(dbname string) (*sql.DB, *database.Model, error) {
 	db, err := sql.Open("sqlite", dbname)
 	if err != nil {
 		return nil, nil, err
@@ -51,7 +51,7 @@ func setupDb(dbname string) (*sql.DB, *database.Model, error) {
 func TestNewModel(t *testing.T) {
 	dbname := "test.db"
 
-	db, model, err := setupDb(dbname)
+	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -65,7 +65,7 @@ func TestNewModel(t *testing.T) {
 func TestAddRecord(t *testing.T) {
 	dbname := "testAdd.db"
 
-	db, model, err := setupDb(dbname)
+	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -136,7 +136,7 @@ func TestAddRecord(t *testing.T) {
 func TestUpdateRecord(t *testing.T) {
 	dbname := "testUpdate.db"
 
-	db, model, err := setupDb(dbname)
+	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -225,7 +225,7 @@ func TestUpdateRecord(t *testing.T) {
 func TestFetchById(t *testing.T) {
 	dbname := "testFetchById.db"
 
-	db, model, err := setupDb(dbname)
+	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -294,7 +294,7 @@ func TestFetchById(t *testing.T) {
 func TestFilterBy(t *testing.T) {
 	dbname := "testFilterBy.db"
 
-	db, model, err := setupDb(dbname)
+	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -3,7 +3,7 @@ package menufuncs
 import (
 	"fmt"
 	"regexp"
-	"sacco/server/parser"
+	"sacco/parser"
 	"slices"
 )
 

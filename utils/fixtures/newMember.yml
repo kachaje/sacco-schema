@@ -154,7 +154,7 @@ enterNationalId:
   text:
     en: National ID
     ny: Nambala Yaunzika
-  inputIdentifier: nationalId
+  inputIdentifier: nationalIdentifier
   nextScreen: enterUtilityBillType
 
 enterUtilityBillType:

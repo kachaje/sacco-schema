@@ -11,8 +11,6 @@ INSERT INTO
     nationalIdentifier,
     utilityBillType,
     utilityBillNumber,
-    fileNumber,
-    oldFileNumber,
     phoneNumber
   )
 VALUES
@@ -28,8 +26,6 @@ VALUES
     "DHFYR8475",
     "ESCOM",
     "29383746",
-    "",
-    "",
     "09999999999"
   );
 
@@ -70,17 +66,6 @@ VALUES
     "Kyungu",
     "Karonga"
   );
-
-INSERT INTO
-  memberDependant (memberId, name, phoneNumber, address)
-VALUES
-  (1, "John Banda", "0888888888", "Same as member");
-
-INSERT INTO
-  memberBeneficiary (memberId, name, percentage, contact)
-VALUES
-  (1, "Benefator 1", 10, "P.O. Box 1"),
-  (1, "Benefator 2", 8, "P.O. Box 2");
 
 INSERT INTO
   memberLoan (

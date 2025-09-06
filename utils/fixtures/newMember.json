@@ -145,7 +145,7 @@
     "type": "inputScreen"
   },
   "enterNationalId": {
-    "inputIdentifier": "nationalId",
+    "inputIdentifier": "nationalIdentifier",
     "nextScreen": "enterUtilityBillType",
     "order": 9,
     "text": {

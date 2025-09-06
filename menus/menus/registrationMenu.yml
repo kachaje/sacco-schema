@@ -11,7 +11,7 @@ fields:
       - gender
       - lastName
       - maritalStatus
-      - nationalId
+      - nationalIdentifier
       - otherName
       - title
       - utilityBillNumber
@@ -36,7 +36,7 @@ fields:
     id: registration.3
     label:
       en: Next of Kin Details
-    workflow: memberNominee
+    workflow: memberDependant
     targetKeys:
       - id
       - memberId

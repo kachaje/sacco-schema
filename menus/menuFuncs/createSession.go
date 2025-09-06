@@ -1,8 +1,8 @@
 package menufuncs
 
 import (
-	filehandling "sacco/server/fileHandling"
-	"sacco/server/parser"
+	filehandling "sacco/fileHandling"
+	"sacco/parser"
 )
 
 func CreateNewSession(phoneNumber, sessionId, preferencesFolder, preferredLanguage string, demoMode bool) *parser.Session {

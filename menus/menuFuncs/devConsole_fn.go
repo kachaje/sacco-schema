@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
-	"sacco/server/parser"
+	"sacco/parser"
 )
 
 func DevConsole(

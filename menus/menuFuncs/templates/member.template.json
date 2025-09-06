@@ -63,10 +63,10 @@
         "label": "Date of Birth",
         "cachQuery": "member.dateOfBirth"
       },
-      "nationalId": {
+      "nationalIdentifier": {
         "order": 9,
         "label": "National ID",
-        "cachQuery": "member.nationalId"
+        "cachQuery": "member.nationalIdentifier"
       },
       "utilityBillNumber": {
         "order": 10,
@@ -146,22 +146,22 @@
     }
   },
   "D. NOMINEE (NEXT OF KIN) DETAILS": {
-    "level": "memberNominee",
+    "level": "memberDependant",
     "data": {
       "name": {
         "order": 1,
         "label": "Name",
-        "cachQuery": "member.memberNominee.name"
+        "cachQuery": "member.memberDependant.name"
       },
       "phoneNumber": {
         "order": 2,
         "label": "Cell Phone Number",
-        "cachQuery": "member.memberNominee.phoneNumber"
+        "cachQuery": "member.memberDependant.phoneNumber"
       },
       "address": {
         "order": 3,
         "label": "Postal Address/Email",
-        "cachQuery": "member.memberNominee.address"
+        "cachQuery": "member.memberDependant.address"
       }
     }
   },

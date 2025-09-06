@@ -57,7 +57,7 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 			"value": "1",
 		},
 		"memberNomineeId": map[string]any{
-			"key":   "member.memberNominee.id",
+			"key":   "member.memberDependant.id",
 			"value": "1",
 		},
 		"memberOccupationId": map[string]any{
@@ -110,7 +110,7 @@ func TestSetNestedValue(t *testing.T) {
 		"memberLoanApprovalId":               "member.memberLoan.0.memberLoanApproval.id",
 		"memberLoanId":                       "member.memberLoan.0.id",
 		"memberNextYearBusinessProjectionId": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.id",
-		"memberNomineeId":                    "member.memberNominee.id",
+		"memberNomineeId":                    "member.memberDependant.id",
 		"memberOccupationId":                 "member.memberLoan.0.memberOccupation.id",
 		"memberOccupationVerificationId":     "member.memberLoan.0.memberOccupation.memberOccupationVerification.id",
 	}
@@ -169,7 +169,7 @@ func TestSetNestedValue(t *testing.T) {
 					},
 				},
 			},
-			"memberNominee": map[string]any{
+			"memberDependant": map[string]any{
 				"id": 9,
 			},
 		},

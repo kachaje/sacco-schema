@@ -1,7 +1,7 @@
 package menufuncs
 
 import (
-	"sacco/server/parser"
+	"sacco/parser"
 )
 
 func MemberLoansSummary(

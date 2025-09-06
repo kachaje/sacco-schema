@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"regexp"
-	"sacco/server/parser"
+	"sacco/parser"
 )
 
 func SetPhoneNumber(

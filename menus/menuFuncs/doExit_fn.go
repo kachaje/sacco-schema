@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sacco/server/parser"
+	"sacco/parser"
 	"sync"
 )
 
