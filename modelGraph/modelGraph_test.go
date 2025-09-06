@@ -28,15 +28,6 @@ func TestCreateGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if false {
-		payload, err := json.MarshalIndent(result, "", "  ")
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		os.WriteFile(filepath.Join(".", "fixtures", "graph.json"), payload, 0644)
-	}
-
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "graph.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -49,5 +40,27 @@ func TestCreateGraph(t *testing.T) {
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
+	}
+
+	models := map[string]bool{}
+	for key, vp := range result {
+		models[key] = true
+		if vc, ok := vp.(map[string]any); ok {
+			for _, v := range vc {
+				if vi, ok := v.([]any); ok {
+					for _, k := range vi {
+						models[k.(string)] = true
+					}
+				} else if vi, ok := v.([]string); ok {
+					for _, k := range vi {
+						models[k] = true
+					}
+				}
+			}
+		}
+	}
+
+	if len(models) != len(data) {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", len(data), len(models))
 	}
 }

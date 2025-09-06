@@ -1,6 +1,6 @@
 {
   "account": {
-    "arrayChildren": ["accountStatement", "accountJournal"]
+    "arrayChildren": ["accountJournal", "accountStatement"]
   },
   "accountTransaction": {
     "arrayChildren": ["accountJournal"]
@@ -13,20 +13,20 @@
   },
   "member": {
     "arrayChildren": [
-      "memberSaving",
+      "dividends",
       "memberDependant",
       "memberLoan",
+      "memberSaving",
       "memberShares",
-      "notification",
-      "dividends"
+      "notification"
     ],
     "singleChildren": ["memberContact"]
   },
   "memberBusiness": {
     "singleChildren": [
-      "memberNextYearBusinessProjection",
       "memberBusinessVerification",
-      "memberLastYearBusinessHistory"
+      "memberLastYearBusinessHistory",
+      "memberNextYearBusinessProjection"
     ]
   },
   "memberIdsCache": {
@@ -34,19 +34,19 @@
   },
   "memberLoan": {
     "arrayChildren": [
+      "memberLoanInsurance",
       "memberLoanLiability",
-      "memberLoanTax",
-      "memberLoanWitness",
+      "memberLoanPaymentSchedule",
       "memberLoanProcessingFee",
       "memberLoanSecurity",
-      "memberLoanPaymentSchedule",
-      "memberLoanInsurance"
+      "memberLoanTax",
+      "memberLoanWitness"
     ],
     "singleChildren": [
       "memberBusiness",
-      "memberOccupation",
       "memberLoanApproval",
-      "memberLoanDisbursement"
+      "memberLoanDisbursement",
+      "memberOccupation"
     ]
   },
   "memberLoanPaymentSchedule": {
@@ -57,12 +57,12 @@
   },
   "memberSaving": {
     "arrayChildren": [
-      "memberSavingInterest",
-      "sharesDepositWithdraw",
       "memberLoan",
-      "sharesDepositReceipt",
       "memberSavingDeposit",
-      "memberSavingWithdrawal"
+      "memberSavingInterest",
+      "memberSavingWithdrawal",
+      "sharesDepositReceipt",
+      "sharesDepositWithdraw"
     ]
   },
   "memberSavingsIdsCache": {

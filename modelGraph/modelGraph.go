@@ -2,6 +2,7 @@ package modelgraph
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
@@ -61,6 +62,8 @@ func CreateGraph(rawData map[string]any) (map[string]any, error) {
 					delete(relationMaps[model].(map[string]any), key)
 				} else if vl, ok := val.([]string); ok && len(vl) <= 0 {
 					delete(relationMaps[model].(map[string]any), key)
+				} else {
+					sort.Strings(relationMaps[model].(map[string]any)[key].([]string))
 				}
 			}
 		}
