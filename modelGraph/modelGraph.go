@@ -3,6 +3,7 @@ package modelgraph
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -69,4 +70,68 @@ func CreateGraph(rawData map[string]any) (map[string]any, error) {
 	}
 
 	return relationMaps, nil
+}
+
+func CreateModelQuery(model string, modelsData, seedData map[string]any) (*string, error) {
+	var query string
+
+	if modelsData != nil && modelsData[model] != nil {
+		if val, ok := modelsData[model].(map[string]any); ok {
+			if val["fields"] != nil {
+				if data, ok := val["fields"].(map[string]any); ok {
+					seed := map[string]any{}
+
+					if seedData != nil {
+						seed = seedData
+					}
+
+					_ = seed
+
+					orderMap := map[int]string{}
+
+					for key, value := range data {
+						if v, ok := value.(map[string]any); ok {
+							if v["order"] != nil {
+								index, err := strconv.Atoi(fmt.Sprintf("%v", v["order"]))
+								if err == nil {
+									orderMap[index] = key
+								}
+							}
+						}
+					}
+
+					fields := []string{}
+					values := []string{}
+
+					for i := range len(orderMap) {
+						key := orderMap[i]
+
+						if vv, ok := data[key].(map[string]any); ok &&
+							vv["autoIncrement"] == nil &&
+							vv["optional"] == nil && vv["default"] == nil {
+							var entry string
+
+							if seed[key] != nil {
+								entry = fmt.Sprintf("%v", seed[key])
+							} else {
+								entry = key
+							}
+
+							fields = append(fields, key)
+
+							if vv["type"] != nil && fmt.Sprintf("%v", vv["type"]) == "text" {
+								values = append(values, fmt.Sprintf(`"%s"`, entry))
+							} else {
+								values = append(values, entry)
+							}
+						}
+					}
+
+					query = fmt.Sprintf(`INSERT INTO %s (%s) VALUES (%s);`, model, strings.Join(fields, ", "), strings.Join(values, ", "))
+				}
+			}
+		}
+	}
+
+	return &query, nil
 }

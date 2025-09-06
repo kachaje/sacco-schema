@@ -2,6 +2,7 @@ package modelgraph_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	modelgraph "sacco/modelGraph"
@@ -83,5 +84,69 @@ func TestCreateGraph(t *testing.T) {
 
 	if refCount != dataCount {
 		t.Fatalf("Test failed. Expected: %v; Actual: %v", refCount, dataCount)
+	}
+}
+
+func TestCreateModelQuerySimple(t *testing.T) {
+	data := map[string]any{
+		"user": map[string]any{
+			"fields": map[string]any{
+				"id": map[string]any{
+					"autoIncrement": true,
+					"order":         0,
+					"primaryKey":    true,
+					"type":          "int",
+				},
+				"name": map[string]any{
+					"order": 3,
+					"type":  "text",
+				},
+				"password": map[string]any{
+					"order": 2,
+					"type":  "text",
+				},
+				"userRole": map[string]any{
+					"order": 4,
+					"type":  "text",
+				},
+				"username": map[string]any{
+					"order":  1,
+					"type":   "text",
+					"unique": true,
+				},
+			},
+			"model":   "user",
+			"parents": []map[string]any{},
+		},
+	}
+
+	seed := map[string]any{
+		"username": "sample",
+		"password": "123456789",
+		"name":     "Sample User",
+		"userRole": "default",
+	}
+
+	result, err := modelgraph.CreateModelQuery("user", data, seed)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target := fmt.Sprintf(`
+INSERT INTO 
+	user (username, password, name, userRole) 
+VALUES 
+	("%v", "%v", "%v", "%v");`,
+		seed["username"], seed["password"], seed["name"], seed["userRole"],
+	)
+
+	if utils.CleanString(*result) != utils.CleanString(target) {
+		t.Fatalf(`Test failed.
+Expected: %s
+Actual: %s`, target, *result)
 	}
 }
