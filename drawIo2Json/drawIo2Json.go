@@ -1,6 +1,7 @@
 package drawio2json
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -44,7 +45,27 @@ func Main(filename, targetFolder string) error {
 		return err
 	}
 
+	payload, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(filepath.Join(targetFolder, "rawData.json"), payload, 0644)
+	if err != nil {
+		return err
+	}
+
 	modelsData, err := ExtractJsonModels(data)
+	if err != nil {
+		return err
+	}
+
+	payload, err = json.MarshalIndent(modelsData, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(filepath.Join(targetFolder, "modelsData.json"), payload, 0644)
 	if err != nil {
 		return err
 	}
