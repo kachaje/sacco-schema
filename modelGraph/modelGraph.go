@@ -85,8 +85,6 @@ func CreateModelQuery(model string, modelsData, seedData map[string]any) (*strin
 						seed = seedData
 					}
 
-					_ = seed
-
 					orderMap := map[int]string{}
 
 					for key, value := range data {

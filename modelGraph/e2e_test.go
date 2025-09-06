@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	modelgraph "sacco/modelGraph"
 	"slices"
 	"testing"
 	"time"
@@ -93,6 +94,24 @@ func TestSchemaE2E(t *testing.T) {
 			time.Sleep(1 * time.Second)
 		} else {
 			break
+		}
+	}
+
+	for model, value := range graphData {
+		if val, ok := value.(map[string]any); ok {
+			if len(val) > 0 {
+
+			} else {
+				query, err := modelgraph.CreateModelQuery(model, modelsData, nil)
+				if err != nil {
+					t.Fatal(err)
+				}
+
+				_, err = db.Exec(*query)
+				if err != nil {
+					t.Fatal(err)
+				}
+			}
 		}
 	}
 }
