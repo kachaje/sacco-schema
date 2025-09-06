@@ -303,7 +303,7 @@ func TestCreateWorkflowGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "models.json"))
+	content, err = os.ReadFile(filepath.Join("..", "schema", "configs", "models.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

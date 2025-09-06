@@ -25,14 +25,21 @@
         }
       }
     ],
-    "hasMany": [
-      "accountJournal",
-      "accountStatement"
-    ],
+    "hasMany": ["accountJournal", "accountStatement"],
     "rootQuery": "account"
   },
   "accountJournal": {
     "fields": [
+      {
+        "accountId": {
+          "hidden": true
+        }
+      },
+      {
+        "accountTransactionId": {
+          "hidden": true
+        }
+      },
       {
         "amount": {
           "numericField": true,
@@ -56,28 +63,12 @@
         "id": {
           "hidden": true
         }
-      },
-      {
-        "accountId": {
-          "hidden": true
-        }
-      },
-      {
-        "accountTransactionId": {
-          "hidden": true
-        }
       }
     ],
     "rootQuery": "accountJournal"
   },
   "accountStatement": {
     "fields": [
-      {
-        "closingBalance": {
-          "numericField": true,
-          "order": 2
-        }
-      },
       {
         "date": {
           "optional": true,
@@ -100,6 +91,12 @@
       {
         "accountId": {
           "hidden": true
+        }
+      },
+      {
+        "closingBalance": {
+          "numericField": true,
+          "order": 2
         }
       }
     ],
@@ -126,18 +123,11 @@
         }
       }
     ],
-    "hasMany": [
-      "accountJournal"
-    ],
+    "hasMany": ["accountJournal"],
     "rootQuery": "accountTransaction"
   },
   "dividends": {
     "fields": [
-      {
-        "memberId": {
-          "hidden": true
-        }
-      },
       {
         "amount": {
           "numericField": true,
@@ -155,12 +145,29 @@
         "id": {
           "hidden": true
         }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
       }
     ],
     "rootQuery": "dividends"
   },
   "insuranceProvider": {
     "fields": [
+      {
+        "address": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "contactPerson": {
+          "order": 4,
+          "type": "text"
+        }
+      },
       {
         "id": {
           "hidden": true
@@ -177,27 +184,19 @@
           "order": 3,
           "type": "text"
         }
-      },
-      {
-        "address": {
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "contactPerson": {
-          "order": 4,
-          "type": "text"
-        }
       }
     ],
-    "hasMany": [
-      "memberLoanInsurance"
-    ],
+    "hasMany": ["memberLoanInsurance"],
     "rootQuery": "insuranceProvider"
   },
   "loanRate": {
     "fields": [
+      {
+        "monthlyRate": {
+          "numericField": true,
+          "order": 2
+        }
+      },
       {
         "id": {
           "hidden": true
@@ -207,18 +206,30 @@
         "loanTypeId": {
           "hidden": true
         }
-      },
-      {
-        "monthlyRate": {
-          "numericField": true,
-          "order": 2
-        }
       }
     ],
     "rootQuery": "loanRate"
   },
   "loanType": {
     "fields": [
+      {
+        "amountLimit": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "category": {
+          "options": ["Personal", "Business", "Agricultural", "Emergency"],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
       {
         "maxInstalmentMonths": {
           "numericField": true,
@@ -236,38 +247,24 @@
           "numericField": true,
           "order": 4
         }
-      },
-      {
-        "amountLimit": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "category": {
-          "options": [
-            "Personal",
-            "Business",
-            "Agricultural",
-            "Emergency"
-          ],
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
       }
     ],
-    "hasOne": [
-      "loanRate"
-    ],
+    "hasOne": ["loanRate"],
     "rootQuery": "loanType"
   },
   "member": {
     "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "lastName": {
+          "order": 3,
+          "type": "text"
+        }
+      },
       {
         "phoneNumber": {
           "order": 6,
@@ -276,26 +273,28 @@
       },
       {
         "title": {
-          "options": [
-            "Mr",
-            "Mrs",
-            "Miss",
-            "Dr",
-            "Prof",
-            "Rev",
-            "Other"
-          ],
+          "options": ["Mr", "Mrs", "Miss", "Dr", "Prof", "Rev", "Other"],
           "order": 7,
           "type": "text"
         }
       },
       {
+        "utilityBillNumber": {
+          "order": 12,
+          "type": "text"
+        }
+      },
+      {
         "utilityBillType": {
-          "options": [
-            "ESCOM",
-            "Water Board"
-          ],
+          "options": ["ESCOM", "Water Board"],
           "order": 11,
+          "type": "text"
+        }
+      },
+      {
+        "dateJoined": {
+          "optional": true,
+          "order": 13,
           "type": "text"
         }
       },
@@ -312,8 +311,16 @@
         }
       },
       {
-        "lastName": {
-          "order": 3,
+        "gender": {
+          "options": ["Female", "Male"],
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "maritalStatus": {
+          "options": ["Married", "Single", "Widowed", "Divorced"],
+          "order": 8,
           "type": "text"
         }
       },
@@ -325,55 +332,15 @@
         }
       },
       {
+        "nationalIdentifier": {
+          "order": 10,
+          "type": "text"
+        }
+      },
+      {
         "otherName": {
           "optional": true,
           "order": 4,
-          "type": "text"
-        }
-      },
-      {
-        "utilityBillNumber": {
-          "order": 12,
-          "type": "text"
-        }
-      },
-      {
-        "dateJoined": {
-          "optional": true,
-          "order": 13,
-          "type": "text"
-        }
-      },
-      {
-        "gender": {
-          "options": [
-            "Female",
-            "Male"
-          ],
-          "order": 5,
-          "type": "text"
-        }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
-        "maritalStatus": {
-          "options": [
-            "Married",
-            "Single",
-            "Widowed",
-            "Divorced"
-          ],
-          "order": 8,
-          "type": "text"
-        }
-      },
-      {
-        "nationalIdentifier": {
-          "order": 10,
           "type": "text"
         }
       }
@@ -386,30 +353,11 @@
       "memberShares",
       "notification"
     ],
-    "hasOne": [
-      "memberContact"
-    ],
+    "hasOne": ["memberContact"],
     "rootQuery": "member"
   },
   "memberBusiness": {
     "fields": [
-      {
-        "memberLoanId": {
-          "hidden": true
-        }
-      },
-      {
-        "tradingArea": {
-          "order": 5,
-          "type": "text"
-        }
-      },
-      {
-        "yearsInBusiness": {
-          "numericField": true,
-          "order": 2
-        }
-      },
       {
         "businessName": {
           "order": 4,
@@ -425,6 +373,23 @@
       {
         "id": {
           "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "tradingArea": {
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "yearsInBusiness": {
+          "numericField": true,
+          "order": 2
         }
       }
     ],
@@ -451,10 +416,7 @@
       {
         "businessVerified": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 2,
           "type": "text"
         }
@@ -462,10 +424,7 @@
       {
         "grossIncomeVerified": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 3,
           "type": "text"
         }
@@ -480,16 +439,6 @@
   },
   "memberContact": {
     "fields": [
-      {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
-        "memberId": {
-          "hidden": true
-        }
-      },
       {
         "postalAddress": {
           "order": 2,
@@ -526,36 +475,22 @@
           "order": 5,
           "type": "text"
         }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
       }
     ],
     "rootQuery": "memberContact"
   },
   "memberDependant": {
     "fields": [
-      {
-        "percentage": {
-          "numericField": true,
-          "order": 5
-        }
-      },
-      {
-        "phoneNumber": {
-          "order": 3,
-          "type": "text"
-        }
-      },
-      {
-        "relationship": {
-          "options": [
-            "Spouse",
-            "Child",
-            "Sibling",
-            "Other"
-          ],
-          "order": 7,
-          "type": "text"
-        }
-      },
       {
         "address": {
           "order": 4,
@@ -570,10 +505,7 @@
       {
         "isNominee": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 6,
           "type": "text"
         }
@@ -588,19 +520,31 @@
           "order": 2,
           "type": "text"
         }
+      },
+      {
+        "percentage": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "phoneNumber": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "relationship": {
+          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "order": 7,
+          "type": "text"
+        }
       }
     ],
     "rootQuery": "memberDependant"
   },
   "memberIdsCache": {
     "fields": [
-      {
-        "claimed": {
-          "numericField": true,
-          "optional": true,
-          "order": 3
-        }
-      },
       {
         "id": {
           "hidden": true
@@ -616,77 +560,24 @@
         "memberId": {
           "hidden": true
         }
+      },
+      {
+        "claimed": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
       }
     ],
-    "hasOne": [
-      "member"
-    ],
+    "hasOne": ["member"],
     "rootQuery": "memberIdsCache"
   },
   "memberLastYearBusinessHistory": {
     "fields": [
       {
-        "utilities": {
-          "numericField": true,
-          "order": 9
-        }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
         "loanInterest": {
           "numericField": true,
           "order": 8
-        }
-      },
-      {
-        "rentals": {
-          "numericField": true,
-          "order": 10
-        }
-      },
-      {
-        "totalCostOfGoods": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "totalCosts": {
-          "numericField": true,
-          "order": 12
-        }
-      },
-      {
-        "totalIncome": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "transport": {
-          "numericField": true,
-          "order": 7
-        }
-      },
-      {
-        "employeeWages": {
-          "numericField": true,
-          "order": 5
-        }
-      },
-      {
-        "financialYear": {
-          "numericField": true,
-          "order": 2
-        }
-      },
-      {
-        "memberBusinessId": {
-          "hidden": true
         }
       },
       {
@@ -706,21 +597,41 @@
           "numericField": true,
           "order": 6
         }
-      }
-    ],
-    "rootQuery": "memberLastYearBusinessHistory"
-  },
-  "memberLoan": {
-    "fields": [
+      },
       {
-        "repaymentPeriodInMonths": {
+        "rentals": {
           "numericField": true,
-          "order": 4
+          "order": 10
         }
       },
       {
-        "amountPaid": {
-          "hidden": true
+        "totalIncome": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "transport": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "utilities": {
+          "numericField": true,
+          "order": 9
+        }
+      },
+      {
+        "employeeWages": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "financialYear": {
+          "numericField": true,
+          "order": 2
         }
       },
       {
@@ -729,9 +640,31 @@
         }
       },
       {
-        "interestRate": {
+        "memberBusinessId": {
+          "hidden": true
+        }
+      },
+      {
+        "totalCostOfGoods": {
           "numericField": true,
-          "order": 10
+          "order": 4
+        }
+      },
+      {
+        "totalCosts": {
+          "numericField": true,
+          "order": 12
+        }
+      }
+    ],
+    "rootQuery": "memberLastYearBusinessHistory"
+  },
+  "memberLoan": {
+    "fields": [
+      {
+        "balanceAmount": {
+          "numericField": true,
+          "order": 12
         }
       },
       {
@@ -747,6 +680,33 @@
         }
       },
       {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "monthlyInstalments": {
+          "numericField": true,
+          "order": 9
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "interestRate": {
+          "numericField": true,
+          "order": 10
+        }
+      },
+      {
         "loanPurpose": {
           "order": 5,
           "type": "text"
@@ -759,31 +719,20 @@
         }
       },
       {
-        "memberSavingId": {
-          "hidden": true
-        }
-      },
-      {
-        "balanceAmount": {
-          "numericField": true,
-          "order": 12
-        }
-      },
-      {
         "loanType": {
           "order": 6,
           "type": "text"
         }
       },
       {
-        "memberId": {
-          "hidden": true
+        "repaymentPeriodInMonths": {
+          "numericField": true,
+          "order": 4
         }
       },
       {
-        "monthlyInstalments": {
-          "numericField": true,
-          "order": 9
+        "amountPaid": {
+          "hidden": true
         }
       }
     ],
@@ -807,6 +756,42 @@
   "memberLoanApproval": {
     "fields": [
       {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "amountRecommended": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "loanStatus": {
+          "optional": true,
+          "options": ["PENDING", "APPROVED", "REJECTED"],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "verifiedBy": {
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "approvedBy": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
         "dateOfApproval": {
           "order": 5,
           "type": "text"
@@ -823,52 +808,17 @@
           "order": 8,
           "type": "text"
         }
-      },
-      {
-        "loanStatus": {
-          "optional": true,
-          "options": [
-            "PENDING",
-            "APPROVED",
-            "REJECTED"
-          ],
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "memberLoanId": {
-          "hidden": true
-        }
-      },
-      {
-        "verifiedBy": {
-          "order": 6,
-          "type": "text"
-        }
-      },
-      {
-        "amountRecommended": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
-        "approvedBy": {
-          "order": 4,
-          "type": "text"
-        }
       }
     ],
     "rootQuery": "memberLoanApproval"
   },
   "memberLoanDisbursement": {
     "fields": [
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
       {
         "amount": {
           "numericField": true,
@@ -892,23 +842,12 @@
         "id": {
           "hidden": true
         }
-      },
-      {
-        "memberLoanId": {
-          "hidden": true
-        }
       }
     ],
     "rootQuery": "memberLoanDisbursement"
   },
   "memberLoanInsurance": {
     "fields": [
-      {
-        "amount": {
-          "numericField": true,
-          "order": 4
-        }
-      },
       {
         "date": {
           "optional": true,
@@ -929,6 +868,12 @@
       {
         "memberLoanId": {
           "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
         }
       }
     ],
@@ -991,13 +936,17 @@
         }
       }
     ],
-    "hasMany": [
-      "memberLoanReceipt"
-    ],
+    "hasMany": ["memberLoanReceipt"],
     "rootQuery": "memberLoanPaymentSchedule"
   },
   "memberLoanProcessingFee": {
     "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 3
+        }
+      },
       {
         "date": {
           "optional": true,
@@ -1014,28 +963,12 @@
         "memberLoanId": {
           "hidden": true
         }
-      },
-      {
-        "amount": {
-          "numericField": true,
-          "order": 3
-        }
       }
     ],
     "rootQuery": "memberLoanProcessingFee"
   },
   "memberLoanReceipt": {
     "fields": [
-      {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
-        "memberLoanPaymentScheduleId": {
-          "hidden": true
-        }
-      },
       {
         "amount": {
           "numericField": true,
@@ -1053,6 +986,16 @@
         "description": {
           "order": 2,
           "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanPaymentScheduleId": {
+          "hidden": true
         }
       }
     ],
@@ -1128,6 +1071,18 @@
   "memberLoanWitness": {
     "fields": [
       {
+        "date": {
+          "optional": true,
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
         "memberLoanId": {
           "hidden": true
         }
@@ -1149,24 +1104,29 @@
           "order": 4,
           "type": "text"
         }
-      },
-      {
-        "date": {
-          "optional": true,
-          "order": 5,
-          "type": "text"
-        }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
       }
     ],
     "rootQuery": "memberLoanWitness"
   },
   "memberNextYearBusinessProjection": {
     "fields": [
+      {
+        "memberBusinessId": {
+          "hidden": true
+        }
+      },
+      {
+        "netProfitLoss": {
+          "numericField": true,
+          "order": 13
+        }
+      },
+      {
+        "otherCosts": {
+          "numericField": true,
+          "order": 11
+        }
+      },
       {
         "ownSalary": {
           "numericField": true,
@@ -1186,27 +1146,20 @@
         }
       },
       {
-        "totalCosts": {
-          "numericField": true,
-          "order": 12
-        }
-      },
-      {
-        "employeeWages": {
-          "numericField": true,
-          "order": 5
-        }
-      },
-      {
-        "financialYear": {
-          "numericField": true,
-          "order": 2
+        "id": {
+          "hidden": true
         }
       },
       {
         "loanInterest": {
           "numericField": true,
           "order": 8
+        }
+      },
+      {
+        "totalCosts": {
+          "numericField": true,
+          "order": 12
         }
       },
       {
@@ -1228,25 +1181,15 @@
         }
       },
       {
-        "id": {
-          "hidden": true
-        }
-      },
-      {
-        "memberBusinessId": {
-          "hidden": true
-        }
-      },
-      {
-        "netProfitLoss": {
+        "employeeWages": {
           "numericField": true,
-          "order": 13
+          "order": 5
         }
       },
       {
-        "otherCosts": {
+        "financialYear": {
           "numericField": true,
-          "order": 11
+          "order": 2
         }
       }
     ],
@@ -1255,33 +1198,8 @@
   "memberOccupation": {
     "fields": [
       {
-        "grossPay": {
-          "numericField": true,
-          "order": 7
-        }
-      },
-      {
-        "highestQualification": {
-          "options": [
-            "Tertiary",
-            "Secondary",
-            "Primary",
-            "None"
-          ],
-          "order": 9,
-          "type": "text"
-        }
-      },
-      {
-        "jobTitle": {
-          "order": 5,
-          "type": "text"
-        }
-      },
-      {
-        "netPay": {
-          "numericField": true,
-          "order": 8
+        "memberLoanId": {
+          "hidden": true
         }
       },
       {
@@ -1308,8 +1226,9 @@
         }
       },
       {
-        "memberLoanId": {
-          "hidden": true
+        "netPay": {
+          "numericField": true,
+          "order": 8
         }
       },
       {
@@ -1317,21 +1236,32 @@
           "numericField": true,
           "order": 6
         }
+      },
+      {
+        "grossPay": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "highestQualification": {
+          "options": ["Tertiary", "Secondary", "Primary", "None"],
+          "order": 9,
+          "type": "text"
+        }
+      },
+      {
+        "jobTitle": {
+          "order": 5,
+          "type": "text"
+        }
       }
     ],
-    "hasOne": [
-      "memberOccupationVerification"
-    ],
+    "hasOne": ["memberOccupationVerification"],
     "rootQuery": "memberOccupation"
   },
   "memberOccupationVerification": {
     "fields": [
-      {
-        "netVerified": {
-          "order": 4,
-          "type": "text"
-        }
-      },
       {
         "grossVerified": {
           "order": 3,
@@ -1346,10 +1276,7 @@
       {
         "jobVerified": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 2,
           "type": "text"
         }
@@ -1357,6 +1284,12 @@
       {
         "memberOccupationId": {
           "hidden": true
+        }
+      },
+      {
+        "netVerified": {
+          "order": 4,
+          "type": "text"
         }
       }
     ],
@@ -1440,6 +1373,13 @@
   "memberSavingInterest": {
     "fields": [
       {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
         "description": {
           "order": 2,
           "type": "text"
@@ -1459,13 +1399,6 @@
         "amount": {
           "numericField": true,
           "order": 4
-        }
-      },
-      {
-        "date": {
-          "optional": true,
-          "order": 3,
-          "type": "text"
         }
       }
     ],
@@ -1474,6 +1407,19 @@
   "memberSavingWithdrawal": {
     "fields": [
       {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
         "description": {
           "order": 2,
           "type": "text"
@@ -1487,19 +1433,6 @@
       {
         "memberSavingId": {
           "hidden": true
-        }
-      },
-      {
-        "amount": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "date": {
-          "optional": true,
-          "order": 3,
-          "type": "text"
         }
       }
     ],
@@ -1531,9 +1464,7 @@
         }
       }
     ],
-    "hasOne": [
-      "memberSaving"
-    ],
+    "hasOne": ["memberSaving"],
     "rootQuery": "memberSavingsIdsCache"
   },
   "memberShares": {
@@ -1602,9 +1533,7 @@
         }
       }
     ],
-    "hasOne": [
-      "memberShares"
-    ],
+    "hasOne": ["memberShares"],
     "rootQuery": "memberSharesIdsCache"
   },
   "notification": {
@@ -1635,10 +1564,7 @@
       {
         "msgDelivered": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 4,
           "type": "text"
         }
@@ -1646,10 +1572,7 @@
       {
         "msgRead": {
           "optional": true,
-          "options": [
-            "Yes",
-            "No"
-          ],
+          "options": ["Yes", "No"],
           "order": 5,
           "type": "text"
         }
@@ -1660,6 +1583,11 @@
   "savingsRate": {
     "fields": [
       {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
         "monthlyRate": {
           "numericField": true,
           "order": 2
@@ -1669,17 +1597,24 @@
         "savingsTypeId": {
           "hidden": true
         }
-      },
-      {
-        "id": {
-          "hidden": true
-        }
       }
     ],
     "rootQuery": "savingsRate"
   },
   "savingsType": {
     "fields": [
+      {
+        "withdrawPattern": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "amountSize": {
+          "numericField": true,
+          "order": 2
+        }
+      },
       {
         "id": {
           "hidden": true
@@ -1702,28 +1637,26 @@
           "order": 1,
           "type": "text"
         }
-      },
-      {
-        "withdrawPattern": {
-          "order": 3,
-          "type": "text"
-        }
-      },
-      {
-        "amountSize": {
-          "numericField": true,
-          "order": 2
-        }
       }
     ],
-    "hasMany": [
-      "memberSaving",
-      "savingsRate"
-    ],
+    "hasMany": ["memberSaving", "savingsRate"],
     "rootQuery": "savingsType"
   },
   "sharesDepositReceipt": {
     "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
       {
         "description": {
           "order": 2,
@@ -1738,19 +1671,6 @@
       {
         "memberSavingId": {
           "hidden": true
-        }
-      },
-      {
-        "amount": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "date": {
-          "optional": true,
-          "order": 3,
-          "type": "text"
         }
       }
     ],
@@ -1793,18 +1713,6 @@
   "user": {
     "fields": [
       {
-        "userRole": {
-          "order": 4,
-          "type": "text"
-        }
-      },
-      {
-        "username": {
-          "order": 1,
-          "type": "text"
-        }
-      },
-      {
         "id": {
           "hidden": true
         }
@@ -1818,6 +1726,18 @@
       {
         "password": {
           "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "userRole": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "username": {
+          "order": 1,
           "type": "text"
         }
       }
