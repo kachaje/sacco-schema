@@ -6,10 +6,6 @@ import (
 	"strings"
 )
 
-func Main() {
-
-}
-
 func checkParent(relationMaps map[string]any, model string) map[string]any {
 	if _, ok := relationMaps[model]; !ok {
 		relationMaps[model] = map[string]any{
