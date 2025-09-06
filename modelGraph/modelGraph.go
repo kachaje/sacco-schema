@@ -35,17 +35,32 @@ func Main(folder *string) error {
 		return err
 	}
 
-	result, err := CreateGraph(modelsData)
+	graphsData, err := CreateGraph(modelsData)
 	if err != nil {
 		return err
 	}
 
-	payload, err := json.MarshalIndent(result, "", "  ")
+	payload, err := json.MarshalIndent(graphsData, "", "  ")
 	if err != nil {
 		return err
 	}
 
 	err = os.WriteFile(filepath.Join(workingFolder, "graph.json"), payload, 0644)
+	if err != nil {
+		return err
+	}
+
+	modelsWorkflowData, err := CreateWorkflowGraph(modelsData, graphsData)
+	if err != nil {
+		return err
+	}
+
+	payload, err = json.MarshalIndent(modelsWorkflowData, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(filepath.Join(workingFolder, "models.json"), payload, 0644)
 	if err != nil {
 		return err
 	}
