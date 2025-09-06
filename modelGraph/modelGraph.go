@@ -1,6 +1,9 @@
 package modelgraph
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func Main() {
 
@@ -9,7 +12,8 @@ func Main() {
 func checkParent(relationMaps map[string]any, model string) map[string]any {
 	if _, ok := relationMaps[model]; !ok {
 		relationMaps[model] = map[string]any{
-			"children": []string{},
+			"singleChildren": []string{},
+			"arrayChildren":  []string{},
 		}
 	}
 
@@ -21,8 +25,6 @@ func CreateGraph(rawData map[string]any) (map[string]any, error) {
 
 	for model, value := range rawData {
 		if data, ok := value.(map[string]any); ok {
-			checkParent(relationMaps, model)
-
 			parents := []string{}
 
 			if val, ok := data["parents"].([]string); ok {
@@ -34,11 +36,33 @@ func CreateGraph(rawData map[string]any) (map[string]any, error) {
 			}
 
 			for _, key := range parents {
-				checkParent(relationMaps, key)
+				if strings.HasSuffix(model, "IdsCache") {
+					checkParent(relationMaps, model)
 
-				relationMaps[key].(map[string]any)["children"] = append(relationMaps[key].(map[string]any)["children"].([]string), model)
+					relationMaps[model].(map[string]any)["singleChildren"] = append(relationMaps[model].(map[string]any)["singleChildren"].([]string), key)
+				} else {
+					checkParent(relationMaps, key)
+
+					if data["many"] != nil {
+						relationMaps[key].(map[string]any)["arrayChildren"] = append(relationMaps[key].(map[string]any)["arrayChildren"].([]string), model)
+					} else {
+						relationMaps[key].(map[string]any)["singleChildren"] = append(relationMaps[key].(map[string]any)["singleChildren"].([]string), model)
+					}
+				}
 			}
 
+		}
+	}
+
+	for model, value := range relationMaps {
+		if data, ok := value.(map[string]any); ok {
+			for key, val := range data {
+				if vl, ok := val.([]any); ok && len(vl) <= 0 {
+					delete(relationMaps[model].(map[string]any), key)
+				} else if vl, ok := val.([]string); ok && len(vl) <= 0 {
+					delete(relationMaps[model].(map[string]any), key)
+				}
+			}
 		}
 	}
 
