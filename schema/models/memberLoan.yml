@@ -11,6 +11,7 @@ memberId:
   type: int
 
 memberSavingId:
+  optional: true
   order: 2
   referenceTable: memberSaving
   type: int
@@ -32,25 +33,31 @@ loanType:
   type: text
 
 loanStartDate:
+  default: CURRENT_TIMESTAMP
   order: 7
   type: text
 
 loanDueDate:
+  default: CURRENT_TIMESTAMP
   order: 8
   type: text
 
 monthlyInstalments:
+  default: "0"
   order: 9
   type: real
 
 interestRate:
+  default: "0"
   order: 10
   type: real
 
 amountPaid:
+  default: "0"
   order: 11
   type: real
 
 balanceAmount:
+  default: "0"
   order: 12
   type: real

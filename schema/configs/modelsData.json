@@ -543,10 +543,12 @@
   "memberLoan": {
     "fields": {
       "amountPaid": {
+        "default": "0",
         "order": 11,
         "type": "real"
       },
       "balanceAmount": {
+        "default": "0",
         "order": 12,
         "type": "real"
       },
@@ -557,6 +559,7 @@
         "type": "int"
       },
       "interestRate": {
+        "default": "0",
         "order": 10,
         "type": "real"
       },
@@ -565,6 +568,7 @@
         "type": "real"
       },
       "loanDueDate": {
+        "default": "CURRENT_TIMESTAMP",
         "order": 8,
         "type": "text"
       },
@@ -573,6 +577,7 @@
         "type": "text"
       },
       "loanStartDate": {
+        "default": "CURRENT_TIMESTAMP",
         "order": 7,
         "type": "text"
       },
@@ -587,11 +592,13 @@
         "type": "int"
       },
       "memberSavingId": {
+        "optional": true,
         "order": 2,
         "referenceTable": "memberSaving",
         "type": "int"
       },
       "monthlyInstalments": {
+        "default": "0",
         "order": 9,
         "type": "real"
       },

@@ -730,12 +730,14 @@
       },
       {
         "loanStartDate": {
+          "optional": true,
           "order": 7,
           "type": "text"
         }
       },
       {
         "loanDueDate": {
+          "optional": true,
           "order": 8,
           "type": "text"
         }
@@ -743,12 +745,14 @@
       {
         "monthlyInstalments": {
           "numericField": true,
+          "optional": true,
           "order": 9
         }
       },
       {
         "interestRate": {
           "numericField": true,
+          "optional": true,
           "order": 10
         }
       },
@@ -761,6 +765,7 @@
       {
         "balanceAmount": {
           "numericField": true,
+          "optional": true,
           "order": 12
         }
       }
