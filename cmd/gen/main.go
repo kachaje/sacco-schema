@@ -5,6 +5,7 @@ import (
 	"log"
 	"path/filepath"
 	drawio2json "sacco/drawIo2Json"
+	modelgraph "sacco/modelGraph"
 	"sacco/yaml2sql"
 )
 
@@ -36,6 +37,11 @@ func main() {
 	}
 
 	err = yaml2sql.Main(&targetFolder, &schemaFilename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = modelgraph.Main(&targetFolder)
 	if err != nil {
 		log.Fatal(err)
 	}

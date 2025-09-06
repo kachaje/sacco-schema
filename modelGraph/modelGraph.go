@@ -1,11 +1,55 @@
 package modelgraph
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
+	"path/filepath"
 	"sort"
 	"strconv"
 	"strings"
 )
+
+func Main(folder *string) error {
+	workingFolder := filepath.Join(".", "schema", "models")
+
+	if folder != nil {
+		workingFolder = *folder
+	}
+
+	if _, err := os.Stat(workingFolder); os.IsNotExist(err) {
+		return fmt.Errorf("folder %s not found", workingFolder)
+	}
+
+	modelsData := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(workingFolder, "modelsData.json"))
+	if err != nil {
+		return err
+	}
+
+	err = json.Unmarshal(content, &modelsData)
+	if err != nil {
+		return err
+	}
+
+	result, err := CreateGraph(modelsData)
+	if err != nil {
+		return err
+	}
+
+	payload, err := json.MarshalIndent(result, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(filepath.Join(workingFolder, "graph.json"), payload, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 
 func checkParent(relationMaps map[string]any, model string) map[string]any {
 	if _, ok := relationMaps[model]; !ok {
