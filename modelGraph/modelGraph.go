@@ -113,8 +113,10 @@ func CreateModelQuery(model string, modelsData, seedData map[string]any) (*strin
 
 							if seed[key] != nil {
 								entry = fmt.Sprintf("%v", seed[key])
-							} else {
+							} else if vv["type"] != nil && fmt.Sprintf("%v", vv["type"]) == "text" {
 								entry = key
+							} else {
+								entry = "10"
 							}
 
 							fields = append(fields, key)

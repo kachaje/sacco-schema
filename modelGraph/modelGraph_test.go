@@ -87,7 +87,7 @@ func TestCreateGraph(t *testing.T) {
 	}
 }
 
-func TestCreateModelQuerySimple(t *testing.T) {
+func TestCreateModelQueryTextOnly(t *testing.T) {
 	data := map[string]any{
 		"user": map[string]any{
 			"fields": map[string]any{
@@ -142,6 +142,88 @@ INSERT INTO
 VALUES 
 	("%v", "%v", "%v", "%v");`,
 		seed["username"], seed["password"], seed["name"], seed["userRole"],
+	)
+
+	if utils.CleanString(*result) != utils.CleanString(target) {
+		t.Fatalf(`Test failed.
+Expected: %s
+Actual: %s`, target, *result)
+	}
+}
+
+func TestCreateModelQueryNumbersOnly(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	seed := map[string]any{
+		"savingsTypeId": 13,
+	}
+
+	result, err := modelgraph.CreateModelQuery("savingsRate", data, seed)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target := fmt.Sprintf(`
+INSERT INTO 
+	savingsRate (savingsTypeId, monthlyRate) 
+VALUES 
+	(%v, 10);`,
+		seed["savingsTypeId"],
+	)
+
+	if utils.CleanString(*result) != utils.CleanString(target) {
+		t.Fatalf(`Test failed.
+Expected: %s
+Actual: %s`, target, *result)
+	}
+}
+
+func TestCreateModelQueryCombined(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	seed := map[string]any{
+		"memberSavingId": 13,
+	}
+
+	result, err := modelgraph.CreateModelQuery("memberSavingWithdrawal", data, seed)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target := fmt.Sprintf(`
+INSERT INTO 
+	memberSavingWithdrawal (memberSavingId, description, amount) 
+VALUES 
+	(%v, "description", 10);`,
+		seed["memberSavingId"],
 	)
 
 	if utils.CleanString(*result) != utils.CleanString(target) {
