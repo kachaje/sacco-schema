@@ -841,6 +841,7 @@
       },
       {
         "denialOrPartialReason": {
+          "optional": true,
           "order": 8,
           "type": "text"
         }
@@ -1268,7 +1269,7 @@
         }
       },
       {
-        "employeeName": {
+        "employerName": {
           "order": 2,
           "type": "text"
         }
@@ -1292,7 +1293,7 @@
         }
       },
       {
-        "periodEmploymentInMonths": {
+        "periodEmployedInMonths": {
           "numericField": true,
           "order": 6
         }

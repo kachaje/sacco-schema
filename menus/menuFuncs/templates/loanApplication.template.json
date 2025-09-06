@@ -218,10 +218,10 @@
               "label": "Total Cost of Goods",
               "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalCostOfGoods"
             },
-            "employeesWages": {
+            "employeeWages": {
               "order": 3,
               "label": "Employees Wages",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.employeesWages"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.employeeWages"
             },
             "ownSalary": {
               "order": 4,
@@ -277,10 +277,10 @@
               "label": "Total Cost of Gooods",
               "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalCostOfGoods"
             },
-            "employeesWages": {
+            "employeeWages": {
               "order": 3,
               "label": "Employees Wages",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.employeesWages"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.employeeWages"
             },
             "ownSalary": {
               "order": 4,

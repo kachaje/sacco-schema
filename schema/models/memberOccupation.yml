@@ -9,7 +9,7 @@ memberLoanId:
   referenceTable: memberLoan
   type: int
 
-employeeName:
+employerName:
   order: 2
   type: text
 
@@ -25,7 +25,7 @@ jobTitle:
   order: 5
   type: text
 
-periodEmploymentInMonths:
+periodEmployedInMonths:
   order: 6
   type: int
 

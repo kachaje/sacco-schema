@@ -45,7 +45,7 @@
           "id": 1,
           "memberLastYearBusinessHistory": [
             {
-              "employeesWages": 50000,
+              "employeeWages": 50000,
               "financialYear": "2024",
               "id": 1,
               "loanInterest": 0,
@@ -64,7 +64,7 @@
           "memberLoanId": 1,
           "memberNextYearBusinessProjection": [
             {
-              "employeesWages": 50000,
+              "employeeWages": 50000,
               "financialYear": "2025",
               "id": 1,
               "loanInterest": 0,
@@ -85,9 +85,9 @@
         },
         "memberId": 1,
         "memberLoanApproval": {
-          "amountApproved": 200000,
           "amountRecommended": 200000,
-          "approvalDate": "2025-08-30",
+          "amountRecommended": 200000,
+          "dateOfApproval": "2025-08-30",
           "approvedBy": "me",
           "dateVerified": "2025-08-30",
           "denialOrPartialReason": null,

@@ -148,7 +148,7 @@
   "E BUSINESS INFORMATION": {
     "Profit and Loss": {
       "Next 12 Months Projections": {
-        "employeesWages": {
+        "employeeWages": {
           "label": "Employees Wages",
           "order": 3,
           "value": 50000

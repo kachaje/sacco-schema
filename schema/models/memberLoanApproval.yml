@@ -39,5 +39,6 @@ dateVerified:
   type: text
 
 denialOrPartialReason:
+  optional: true
   order: 8
   type: text

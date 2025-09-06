@@ -25,7 +25,7 @@ fields:
       - financialYear
       - totalIncome
       - totalCostOfGoods
-      - employeesWages
+      - employeeWages
       - ownSalary
       - transport
       - loanInterest
@@ -47,7 +47,7 @@ fields:
       - financialYear
       - totalIncome
       - totalCostOfGoods
-      - employeesWages
+      - employeeWages
       - ownSalary
       - transport
       - loanInterest

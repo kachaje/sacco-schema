@@ -47,12 +47,12 @@ var (
 		"MemberLoanArrayChildren":         MemberLoanArrayChildren,
 	}
 	FloatFields = []string{
-		"amountApproved",
+		"amountRecommended",
 		"amountRecommended",
 		"credit",
 		"debit",
-		"employeesWages",
-		"employeesWages",
+		"employeeWages",
+		"employeeWages",
 		"financialYear",
 		"financialYear",
 		"grossPay",

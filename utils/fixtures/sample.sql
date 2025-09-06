@@ -110,7 +110,7 @@ INSERT INTO
     financialYear,
     totalIncome,
     totalCostOfGoods,
-    employeesWages,
+    employeeWages,
     ownSalary,
     transport,
     loanInterest,
@@ -143,7 +143,7 @@ INSERT INTO
     financialYear,
     totalIncome,
     totalCostOfGoods,
-    employeesWages,
+    employeeWages,
     ownSalary,
     transport,
     loanInterest,
@@ -176,8 +176,8 @@ INSERT INTO
     loanStatus,
     amountRecommended,
     approvedBy,
-    approvalDate,
-    amountApproved,
+    dateOfApproval,
+    amountRecommended,
     verifiedBy,
     dateVerified
   )

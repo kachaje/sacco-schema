@@ -13,7 +13,7 @@ func TestGetTokens(t *testing.T) {
 		"op": "SUM",
 		"terms": []any{
 			"totalCostOfGoods",
-			"employeesWages",
+			"employeeWages",
 			"ownSalary",
 			"transport",
 			"loanInterest",
@@ -23,7 +23,7 @@ func TestGetTokens(t *testing.T) {
 		},
 	}
 
-	result := parser.GetTokens("SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})")
+	result := parser.GetTokens("SUM({{totalCostOfGoods}}, {{employeeWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})")
 
 	if reflect.DeepEqual(target, result) {
 		t.Fatal("Test failed")
@@ -35,7 +35,7 @@ func TestResultFromFormulaeSUM(t *testing.T) {
 		"op": "SUM",
 		"terms": []any{
 			"totalCostOfGoods",
-			"employeesWages",
+			"employeeWages",
 			"ownSalary",
 			"transport",
 			"loanInterest",
@@ -46,7 +46,7 @@ func TestResultFromFormulaeSUM(t *testing.T) {
 	}
 	data := map[string]any{
 		"totalCostOfGoods": "1000000",
-		"employeesWages":   "500000",
+		"employeeWages":    "500000",
 		"ownSalary":        "100000",
 		"transport":        "50000",
 		"loanInterest":     "0",
@@ -97,7 +97,7 @@ func TestCalculateFormulae(t *testing.T) {
 
 	wf.Data = map[string]any{
 		"totalCostOfGoods": "1000000",
-		"employeesWages":   "500000",
+		"employeeWages":    "500000",
 		"ownSalary":        "100000",
 		"transport":        "50000",
 		"loanInterest":     "0",
@@ -107,15 +107,15 @@ func TestCalculateFormulae(t *testing.T) {
 		"totalIncome":      "2000000",
 	}
 
-	wf.FormulaFields["totalCosts"] = "SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})"
-	wf.FormulaFields["netProfitLoss"] = "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})"
+	wf.FormulaFields["totalCosts"] = "SUM({{totalCostOfGoods}}, {{employeeWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})"
+	wf.FormulaFields["netProfitLoss"] = "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeeWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})"
 
 	wait := make(chan bool, 1)
 
 	wf.CalculateFormulae(wait)
 
 	target := map[string]any{
-		"employeesWages":   "500000",
+		"employeeWages":    "500000",
 		"loanInterest":     "0",
 		"netProfitLoss":    "265000.00",
 		"otherCosts":       "0",

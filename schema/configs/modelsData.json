@@ -630,6 +630,7 @@
         "type": "text"
       },
       "denialOrPartialReason": {
+        "optional": true,
         "order": 8,
         "type": "text"
       },
@@ -1008,12 +1009,12 @@
   },
   "memberOccupation": {
     "fields": {
-      "employeeName": {
-        "order": 2,
-        "type": "text"
-      },
       "employerAddress": {
         "order": 3,
+        "type": "text"
+      },
+      "employerName": {
+        "order": 2,
         "type": "text"
       },
       "employerPhone": {
@@ -1048,7 +1049,7 @@
         "order": 8,
         "type": "real"
       },
-      "periodEmploymentInMonths": {
+      "periodEmployedInMonths": {
         "order": 6,
         "type": "int"
       }

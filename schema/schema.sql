@@ -397,7 +397,7 @@ CREATE TABLE IF NOT EXISTS memberLoanApproval (
     dateOfApproval TEXT NOT NULL,
     verifiedBy TEXT NOT NULL,
     dateVerified TEXT NOT NULL,
-    denialOrPartialReason TEXT NOT NULL,
+    denialOrPartialReason TEXT,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -646,11 +646,11 @@ END;
 CREATE TABLE IF NOT EXISTS memberOccupation (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
-    employeeName TEXT NOT NULL,
+    employerName TEXT NOT NULL,
     employerAddress TEXT NOT NULL,
     employerPhone TEXT NOT NULL,
     jobTitle TEXT NOT NULL,
-    periodEmploymentInMonths INTEGER NOT NULL,
+    periodEmployedInMonths INTEGER NOT NULL,
     grossPay REAL NOT NULL,
     netPay REAL NOT NULL,
     highestQualification TEXT NOT NULL CHECK (

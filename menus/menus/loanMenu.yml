@@ -70,8 +70,8 @@ fields:
       - loanStatus
       - amountRecommended
       - approvedBy
-      - approvalDate
-      - amountApproved
+      - dateOfApproval
+      - amountRecommended
       - verifiedBy
       - dateVerified
       - denialOrPartialReason

@@ -494,6 +494,7 @@ memberLoanApproval:
         order: 7
         type: text
     - denialOrPartialReason:
+        optional: true
         order: 8
         type: text
   rootQuery: memberLoanApproval
@@ -717,7 +718,7 @@ memberOccupation:
     - memberLoanId:
         hidden: true
         order: 1
-    - employeeName:
+    - employerName:
         order: 2
         type: text
     - employerAddress:
@@ -729,7 +730,7 @@ memberOccupation:
     - jobTitle:
         order: 5
         type: text
-    - periodEmploymentInMonths:
+    - periodEmployedInMonths:
         numericField: true
         order: 6
     - grossPay:
