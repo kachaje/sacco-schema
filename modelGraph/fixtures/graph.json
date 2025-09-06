@@ -1,0 +1,109 @@
+{
+  "account": {
+    "arrayChildren": [
+      "accountJournal"
+    ],
+    "singleChildren": [
+      "accountStatement"
+    ]
+  },
+  "accountTransaction": {
+    "arrayChildren": [
+      "accountJournal"
+    ]
+  },
+  "insuranceProvider": {
+    "arrayChildren": [
+      "memberLoanInsurance"
+    ]
+  },
+  "loanType": {
+    "singleChildren": [
+      "loanRate"
+    ]
+  },
+  "member": {
+    "arrayChildren": [
+      "memberSaving",
+      "memberDependant",
+      "dividends"
+    ],
+    "singleChildren": [
+      "notification",
+      "memberContact",
+      "memberLoan",
+      "memberShares"
+    ]
+  },
+  "memberBusiness": {
+    "singleChildren": [
+      "memberNextYearBusinessProjection",
+      "memberBusinessVerification",
+      "memberLastYearBusinessHistory"
+    ]
+  },
+  "memberIdsCache": {
+    "singleChildren": [
+      "member"
+    ]
+  },
+  "memberLoan": {
+    "arrayChildren": [
+      "memberLoanProcessingFee",
+      "memberLoanWitness",
+      "memberLoanSecurity",
+      "memberLoanTax",
+      "memberLoanInsurance",
+      "memberLoanLiability",
+      "memberLoanPaymentSchedule"
+    ],
+    "singleChildren": [
+      "memberLoanApproval",
+      "memberLoanDisbursement",
+      "memberOccupation",
+      "memberBusiness"
+    ]
+  },
+  "memberLoanPaymentSchedule": {
+    "singleChildren": [
+      "memberLoanReceipt"
+    ]
+  },
+  "memberOccupation": {
+    "singleChildren": [
+      "memberOccupationVerification"
+    ]
+  },
+  "memberSaving": {
+    "arrayChildren": [
+      "sharesDepositReceipt",
+      "sharesDepositWithdraw",
+      "memberSavingDeposit",
+      "memberSavingWithdrawal",
+      "memberSavingInterest"
+    ],
+    "singleChildren": [
+      "memberLoan"
+    ]
+  },
+  "memberSavingsIdsCache": {
+    "singleChildren": [
+      "memberSavings"
+    ]
+  },
+  "memberSharesIdsCache": {
+    "singleChildren": [
+      "memberShares"
+    ]
+  },
+  "savings": {
+    "arrayChildren": [
+      "savingsRate"
+    ]
+  },
+  "savingsType": {
+    "arrayChildren": [
+      "memberSaving"
+    ]
+  }
+}
