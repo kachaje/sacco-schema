@@ -1,0 +1,180 @@
+initialScreen: enterLanguage
+
+enterLanguage:
+  order: 0
+  type: inputScreen
+  text: Language
+  options:
+    - position: 1
+      label:
+        all: English
+    - position: 2
+      label:
+        all: Chichewa
+  inputIdentifier: language
+  nextScreen: enterFirstName
+
+enterFirstName:
+  order: 1
+  type: inputScreen
+  text:
+    en: First Name
+    ny: Dzina Loyamba
+  inputIdentifier: firstName
+  nextScreen: enterLastName
+
+enterLastName:
+  order: 2
+  type: inputScreen
+  text:
+    en: Last Name
+    ny: Dzina La Abambo
+  inputIdentifier: lastName
+  nextScreen: enterAskOtherName
+
+enterAskOtherName:
+  order: 3
+  type: inputScreen
+  text:
+    en: Other Name?
+    ny: Dzina Lina?
+  options:
+    - position: 1
+      label:
+        en: Yes
+        ny: Inde
+      nextScreen: enterOtherName
+    - position: 2
+      label:
+        en: No
+        ny: Ayi
+  inputIdentifier: askOtherName
+  nextScreen: enterGender
+
+enterOtherName:
+  order: 4
+  type: inputScreen
+  text:
+    en: Other Name
+    ny: Dzina Lina
+  inputIdentifier: otherName
+  nextScreen: enterGender
+
+enterGender:
+  order: 5
+  type: inputScreen
+  text:
+    en: Gender
+    ny: Amuna/Akazi
+  options:
+    - position: 1
+      label:
+        en: Female
+        ny: Akazi
+    - position: 2
+      label:
+        en: Male
+        ny: Amuna
+  inputIdentifier: gender
+  nextScreen: enterTitle
+
+enterTitle:
+  order: 6
+  type: inputScreen
+  text:
+    en: Title
+    ny: Udindo
+  options:
+    - position: 1
+      label:
+        all: Mr
+    - position: 2
+      label:
+        en: Mrs
+        ny: Mayi
+    - position: 3
+      label:
+        all: Miss
+    - position: 4
+      label:
+        all: Dr
+    - position: 5
+      label:
+        all: Prof
+    - position: 6
+      label:
+        en: Rev
+        ny: Abusa
+    - position: 7
+      label:
+        en: Other
+        ny: Ena
+  inputIdentifier: title
+  nextScreen: enterMaritalStatus
+
+enterMaritalStatus:
+  order: 7
+  type: inputScreen
+  text:
+    en: Marital Status
+    ny: Muli M'banja
+  options:
+    - position: 1
+      label:
+        en: Married
+        ny: Inde
+    - position: 2
+      label:
+        en: Single
+        ny: Ayi
+    - position: 3
+      label:
+        en: Widowed
+        ny: Woferedwa
+    - position: 4
+      label:
+        en: Divorced
+        ny: Osudzulidwa
+  inputIdentifier: maritalStatus
+  nextScreen: enterDateOfBirth
+
+enterDateOfBirth:
+  order: 8
+  type: inputScreen
+  text:
+    en: Date of Birth
+    ny: Tsiku Lobadwa
+  validationRule: "^\\d{4}-\\d{2}-\\d{2}$"
+  inputIdentifier: dateOfBirth
+  nextScreen: enterNationalId
+
+enterNationalId:
+  order: 9
+  type: inputScreen
+  text:
+    en: National ID
+    ny: Nambala Yaunzika
+  inputIdentifier: nationalId
+  nextScreen: enterUtilityBillType
+
+enterUtilityBillType:
+  order: 10
+  type: inputScreen
+  text:
+    en: Utility Bill Type
+    ny: Mtundu Waumboni
+  inputIdentifier: utilityBillType
+  nextScreen: enterUtilityBillNo
+
+enterUtilityBillNo:
+  order: 11
+  type: inputScreen
+  text:
+    en: Utility Bill Number
+    ny: Nambala ya Umboni
+  inputIdentifier: utilityBillNumber
+  nextScreen: formSummary
+
+formSummary:
+  order: 12
+  type: quitScreen

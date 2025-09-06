@@ -1,0 +1,241 @@
+{
+  "1. OFFICIAL DETAILS": {
+    "employerNumber": {
+      "label": "Employment Number",
+      "order": 3
+    },
+    "loanNumber": {
+      "label": "Loan Number",
+      "order": 2
+    },
+    "memberIdNumber": {
+      "label": "Member ID No.",
+      "order": 1
+    }
+  },
+  "A. PERSONAL INFORMATION": {
+    "dateOfBirth": {
+      "label": "Age",
+      "order": 4
+    },
+    "email": {
+      "label": "Email",
+      "order": 12,
+      "value": null
+    },
+    "firstName": {
+      "label": "First Name",
+      "order": 2,
+      "value": "Mary"
+    },
+    "gender": {
+      "label": "Gender",
+      "order": 5,
+      "value": "Female"
+    },
+    "homeDistrict": {
+      "label": "Home District",
+      "order": 10,
+      "value": "Lilongwe"
+    },
+    "homeTraditionalAuthority": {
+      "label": "Home T/A",
+      "order": 9,
+      "value": "Kabudula"
+    },
+    "homeVillage": {
+      "label": "Home Village",
+      "order": 8,
+      "value": "Thumba"
+    },
+    "lastName": {
+      "label": "Surname",
+      "order": 1,
+      "value": "Banda"
+    },
+    "phoneNumber": {
+      "label": "Phone Number",
+      "order": 11,
+      "value": "09999999999"
+    },
+    "postalAddress": {
+      "label": "Mailing Address",
+      "order": 7,
+      "value": "P.O. Box 3200, Blantyre"
+    },
+    "residentialAddress": {
+      "label": "Physical Address",
+      "order": 6,
+      "value": "Chilomoni, Blantrye"
+    },
+    "title": {
+      "label": "Title",
+      "order": 3,
+      "value": "Miss"
+    }
+  },
+  "B. TYPE OF LOAN": {
+    "loanType": {
+      "label": "Loan Type",
+      "order": 1,
+      "value": "PERSONAL"
+    }
+  },
+  "C. LOAN INFORMATION": {
+    "loanAmount": {
+      "label": "Loan Amount",
+      "order": 1,
+      "value": 200000
+    },
+    "loanPurpose": {
+      "label": "Purpose of Loan",
+      "order": 2,
+      "value": "School fees"
+    },
+    "repaymentPeriodInMonths": {
+      "label": "Repayment Period (months)",
+      "order": 3,
+      "value": 12
+    }
+  },
+  "D. EMPLOYMENT INFORMATION": {
+    "employerAddress": {
+      "label": "Employer's Address",
+      "order": 2,
+      "value": "Kanengo"
+    },
+    "employerName": {
+      "label": "Name of Employer",
+      "order": 1,
+      "value": "SOBO"
+    },
+    "employerPhone": {
+      "label": "Employer's Phone Number",
+      "order": 3,
+      "value": "0999888474"
+    },
+    "grossPay": {
+      "label": "Gross Salary",
+      "order": 6,
+      "value": 100000
+    },
+    "grossVerified": {
+      "label": "Gross Verified",
+      "order": 7,
+      "value": "Yes"
+    },
+    "jobTitle": {
+      "label": "Job Title",
+      "order": 4,
+      "value": "Driver"
+    },
+    "jobVerified": {
+      "label": "Job Verified",
+      "order": 5,
+      "value": "Yes"
+    },
+    "netPay": {
+      "label": "Net Income",
+      "order": 8,
+      "value": 90000
+    },
+    "netVerified": {
+      "label": "Net Verified",
+      "order": 9,
+      "value": "Yes"
+    }
+  },
+  "E BUSINESS INFORMATION": {
+    "Profit and Loss": {
+      "Next 12 Months Projections": {
+        "employeesWages": {
+          "label": "Employees Wages",
+          "order": 3,
+          "value": 50000
+        },
+        "loanInterest": {
+          "label": "Loan Interest",
+          "order": 6,
+          "value": 0
+        },
+        "netProfitLoss": {
+          "label": "Net Profit",
+          "order": 11,
+          "value": 715000
+        },
+        "otherCosts": {
+          "label": "Other Costs",
+          "order": 9,
+          "value": 0
+        },
+        "ownSalary": {
+          "label": "Own Salary",
+          "order": 4,
+          "value": 100000
+        },
+        "rentals": {
+          "label": "Rentals",
+          "order": 8,
+          "value": 50000
+        },
+        "totalCostOfGoods": {
+          "label": "Total Cost of Gooods",
+          "order": 2,
+          "value": 1500000
+        },
+        "totalCosts": {
+          "label": "Total Costs",
+          "order": 10,
+          "value": 1285000
+        },
+        "totalIncome": {
+          "label": "Total Sales/Income",
+          "order": 1,
+          "value": 2500000
+        },
+        "transport": {
+          "label": "Transport",
+          "order": 5,
+          "value": 50000
+        },
+        "utilities": {
+          "label": "Electricity/Water",
+          "order": 7,
+          "value": 35000
+        }
+      }
+    },
+    "businessName": {
+      "label": "Name of Business",
+      "order": 1,
+      "value": "Vendors Galore"
+    },
+    "businessNature": {
+      "label": "Nature of Business",
+      "order": 2,
+      "value": "Vendor"
+    },
+    "businessVerified": {
+      "label": "Business Verified",
+      "order": 5
+    },
+    "grossIncomeVerified": {
+      "label": "Gross Income Verified",
+      "order": 6
+    },
+    "netIncomeVerified": {
+      "label": "Net Income Verified",
+      "order": 7
+    },
+    "tradingArea": {
+      "label": "Trading Area",
+      "order": 3,
+      "value": "Mtandire"
+    },
+    "yearsInBusiness": {
+      "label": "Number of Years in Business",
+      "order": 4,
+      "value": 3
+    }
+  }
+}

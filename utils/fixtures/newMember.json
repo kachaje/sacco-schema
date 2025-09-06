@@ -1,0 +1,249 @@
+{
+  "enterAskOtherName": {
+    "inputIdentifier": "askOtherName",
+    "nextScreen": "enterGender",
+    "options": [
+      {
+        "label": {
+          "en": "Yes",
+          "ny": "Inde"
+        },
+        "nextScreen": "enterOtherName",
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No",
+          "ny": "Ayi"
+        },
+        "position": 2
+      }
+    ],
+    "order": 3,
+    "text": {
+      "en": "Other Name?",
+      "ny": "Dzina Lina?"
+    },
+    "type": "inputScreen"
+  },
+  "enterDateOfBirth": {
+    "inputIdentifier": "dateOfBirth",
+    "nextScreen": "enterNationalId",
+    "order": 8,
+    "text": {
+      "en": "Date of Birth",
+      "ny": "Tsiku Lobadwa"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "enterFirstName": {
+    "inputIdentifier": "firstName",
+    "nextScreen": "enterLastName",
+    "order": 1,
+    "text": {
+      "en": "First Name",
+      "ny": "Dzina Loyamba"
+    },
+    "type": "inputScreen"
+  },
+  "enterGender": {
+    "inputIdentifier": "gender",
+    "nextScreen": "enterTitle",
+    "options": [
+      {
+        "label": {
+          "en": "Female",
+          "ny": "Akazi"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Male",
+          "ny": "Amuna"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Gender",
+      "ny": "Amuna/Akazi"
+    },
+    "type": "inputScreen"
+  },
+  "enterLanguage": {
+    "inputIdentifier": "language",
+    "nextScreen": "enterFirstName",
+    "options": [
+      {
+        "label": {
+          "all": "English"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "all": "Chichewa"
+        },
+        "position": 2
+      }
+    ],
+    "order": 0,
+    "text": "Language",
+    "type": "inputScreen"
+  },
+  "enterLastName": {
+    "inputIdentifier": "lastName",
+    "nextScreen": "enterAskOtherName",
+    "order": 2,
+    "text": {
+      "en": "Last Name",
+      "ny": "Dzina La Abambo"
+    },
+    "type": "inputScreen"
+  },
+  "enterMaritalStatus": {
+    "inputIdentifier": "maritalStatus",
+    "nextScreen": "enterDateOfBirth",
+    "options": [
+      {
+        "label": {
+          "en": "Married",
+          "ny": "Inde"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Single",
+          "ny": "Ayi"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Widowed",
+          "ny": "Woferedwa"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Divorced",
+          "ny": "Osudzulidwa"
+        },
+        "position": 4
+      }
+    ],
+    "order": 7,
+    "text": {
+      "en": "Marital Status",
+      "ny": "Muli M'banja"
+    },
+    "type": "inputScreen"
+  },
+  "enterNationalId": {
+    "inputIdentifier": "nationalId",
+    "nextScreen": "enterUtilityBillType",
+    "order": 9,
+    "text": {
+      "en": "National ID",
+      "ny": "Nambala Yaunzika"
+    },
+    "type": "inputScreen"
+  },
+  "enterOtherName": {
+    "inputIdentifier": "otherName",
+    "nextScreen": "enterGender",
+    "order": 4,
+    "text": {
+      "en": "Other Name",
+      "ny": "Dzina Lina"
+    },
+    "type": "inputScreen"
+  },
+  "enterTitle": {
+    "inputIdentifier": "title",
+    "nextScreen": "enterMaritalStatus",
+    "options": [
+      {
+        "label": {
+          "all": "Mr"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Mrs",
+          "ny": "Mayi"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "all": "Miss"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "all": "Dr"
+        },
+        "position": 4
+      },
+      {
+        "label": {
+          "all": "Prof"
+        },
+        "position": 5
+      },
+      {
+        "label": {
+          "en": "Rev",
+          "ny": "Abusa"
+        },
+        "position": 6
+      },
+      {
+        "label": {
+          "en": "Other",
+          "ny": "Ena"
+        },
+        "position": 7
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Title",
+      "ny": "Udindo"
+    },
+    "type": "inputScreen"
+  },
+  "enterUtilityBillNo": {
+    "inputIdentifier": "utilityBillNumber",
+    "nextScreen": "formSummary",
+    "order": 11,
+    "text": {
+      "en": "Utility Bill Number",
+      "ny": "Nambala ya Umboni"
+    },
+    "type": "inputScreen"
+  },
+  "enterUtilityBillType": {
+    "inputIdentifier": "utilityBillType",
+    "nextScreen": "enterUtilityBillNo",
+    "order": 10,
+    "text": {
+      "en": "Utility Bill Type",
+      "ny": "Mtundu Waumboni"
+    },
+    "type": "inputScreen"
+  },
+  "formSummary": {
+    "order": 12,
+    "type": "quitScreen"
+  },
+  "initialScreen": "enterLanguage"
+}

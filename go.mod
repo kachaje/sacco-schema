@@ -5,14 +5,15 @@ go 1.24.3
 require gopkg.in/yaml.v3 v3.0.1
 
 require (
+	github.com/google/uuid v1.6.0
 	github.com/joselitofilho/drawio-parser-go v0.3.2
+	golang.org/x/crypto v0.41.0
 	golang.org/x/net v0.43.0
 	modernc.org/sqlite v1.38.2
 )
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
