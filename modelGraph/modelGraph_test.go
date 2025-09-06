@@ -303,7 +303,29 @@ func TestCreateWorkflowGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "models.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
 
-	fmt.Println(string(payload))
+	target := map[string]any{}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for key, value := range target {
+		if result[key] == nil {
+			t.Fatalf("Test failed. Missing %v", key)
+		}
+
+		if val, ok := value.(map[string]any); ok {
+			for k := range val {
+				if result[key].(map[string]any)[k] == nil {
+					t.Fatalf("Test failed. Missing %v.%v", key, k)
+				}
+			}
+		}
+	}
 }

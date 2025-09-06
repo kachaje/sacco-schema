@@ -1,0 +1,1843 @@
+{
+  "account": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "name": {
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "normal": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "number": {
+          "numericField": true,
+          "order": 2
+        }
+      }
+    ],
+    "hasMany": [
+      "accountJournal",
+      "accountStatement"
+    ],
+    "rootQuery": "account"
+  },
+  "accountJournal": {
+    "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "direction": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "accountId": {
+          "hidden": true
+        }
+      },
+      {
+        "accountTransactionId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "accountJournal"
+  },
+  "accountStatement": {
+    "fields": [
+      {
+        "closingBalance": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "totalCredit": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "totalDebit": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "accountId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "accountStatement"
+  },
+  "accountTransaction": {
+    "fields": [
+      {
+        "date": {
+          "optional": true,
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasMany": [
+      "accountJournal"
+    ],
+    "rootQuery": "accountTransaction"
+  },
+  "dividends": {
+    "fields": [
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "dividends"
+  },
+  "insuranceProvider": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "name": {
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "phoneNumber": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "address": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "contactPerson": {
+          "order": 4,
+          "type": "text"
+        }
+      }
+    ],
+    "hasMany": [
+      "memberLoanInsurance"
+    ],
+    "rootQuery": "insuranceProvider"
+  },
+  "loanRate": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "loanTypeId": {
+          "hidden": true
+        }
+      },
+      {
+        "monthlyRate": {
+          "numericField": true,
+          "order": 2
+        }
+      }
+    ],
+    "rootQuery": "loanRate"
+  },
+  "loanType": {
+    "fields": [
+      {
+        "maxInstalmentMonths": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "name": {
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "periodLimitInMonths": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "amountLimit": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "category": {
+          "options": [
+            "Personal",
+            "Business",
+            "Agricultural",
+            "Emergency"
+          ],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasOne": [
+      "loanRate"
+    ],
+    "rootQuery": "loanType"
+  },
+  "member": {
+    "fields": [
+      {
+        "phoneNumber": {
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "title": {
+          "options": [
+            "Mr",
+            "Mrs",
+            "Miss",
+            "Dr",
+            "Prof",
+            "Rev",
+            "Other"
+          ],
+          "order": 7,
+          "type": "text"
+        }
+      },
+      {
+        "utilityBillType": {
+          "options": [
+            "ESCOM",
+            "Water Board"
+          ],
+          "order": 11,
+          "type": "text"
+        }
+      },
+      {
+        "dateOfBirth": {
+          "order": 9,
+          "type": "text"
+        }
+      },
+      {
+        "firstName": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "lastName": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "memberIdNumber": {
+          "optional": true,
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "otherName": {
+          "optional": true,
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "utilityBillNumber": {
+          "order": 12,
+          "type": "text"
+        }
+      },
+      {
+        "dateJoined": {
+          "optional": true,
+          "order": 13,
+          "type": "text"
+        }
+      },
+      {
+        "gender": {
+          "options": [
+            "Female",
+            "Male"
+          ],
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "maritalStatus": {
+          "options": [
+            "Married",
+            "Single",
+            "Widowed",
+            "Divorced"
+          ],
+          "order": 8,
+          "type": "text"
+        }
+      },
+      {
+        "nationalIdentifier": {
+          "order": 10,
+          "type": "text"
+        }
+      }
+    ],
+    "hasMany": [
+      "dividends",
+      "memberDependant",
+      "memberLoan",
+      "memberSaving",
+      "memberShares",
+      "notification"
+    ],
+    "hasOne": [
+      "memberContact"
+    ],
+    "rootQuery": "member"
+  },
+  "memberBusiness": {
+    "fields": [
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "tradingArea": {
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "yearsInBusiness": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "businessName": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "businessNature": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasOne": [
+      "memberBusinessVerification",
+      "memberLastYearBusinessHistory",
+      "memberNextYearBusinessProjection"
+    ],
+    "rootQuery": "memberBusiness"
+  },
+  "memberBusinessVerification": {
+    "fields": [
+      {
+        "memberBusinessId": {
+          "hidden": true
+        }
+      },
+      {
+        "netIncomeVerified": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "businessVerified": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "grossIncomeVerified": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberBusinessVerification"
+  },
+  "memberContact": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "postalAddress": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "residentialAddress": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "email": {
+          "optional": true,
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "homeDistrict": {
+          "order": 7,
+          "type": "text"
+        }
+      },
+      {
+        "homeTraditionalAuthority": {
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "homeVillage": {
+          "order": 5,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberContact"
+  },
+  "memberDependant": {
+    "fields": [
+      {
+        "percentage": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "phoneNumber": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "relationship": {
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
+          "order": 7,
+          "type": "text"
+        }
+      },
+      {
+        "address": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "isNominee": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "name": {
+          "order": 2,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberDependant"
+  },
+  "memberIdsCache": {
+    "fields": [
+      {
+        "claimed": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "idNumber": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasOne": [
+      "member"
+    ],
+    "rootQuery": "memberIdsCache"
+  },
+  "memberLastYearBusinessHistory": {
+    "fields": [
+      {
+        "utilities": {
+          "numericField": true,
+          "order": 9
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "loanInterest": {
+          "numericField": true,
+          "order": 8
+        }
+      },
+      {
+        "rentals": {
+          "numericField": true,
+          "order": 10
+        }
+      },
+      {
+        "totalCostOfGoods": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "totalCosts": {
+          "numericField": true,
+          "order": 12
+        }
+      },
+      {
+        "totalIncome": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "transport": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "employeeWages": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "financialYear": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "memberBusinessId": {
+          "hidden": true
+        }
+      },
+      {
+        "netProfitLoss": {
+          "numericField": true,
+          "order": 13
+        }
+      },
+      {
+        "otherCosts": {
+          "numericField": true,
+          "order": 11
+        }
+      },
+      {
+        "ownSalary": {
+          "numericField": true,
+          "order": 6
+        }
+      }
+    ],
+    "rootQuery": "memberLastYearBusinessHistory"
+  },
+  "memberLoan": {
+    "fields": [
+      {
+        "repaymentPeriodInMonths": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "amountPaid": {
+          "hidden": true
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "interestRate": {
+          "numericField": true,
+          "order": 10
+        }
+      },
+      {
+        "loanAmount": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "loanDueDate": {
+          "order": 8,
+          "type": "text"
+        }
+      },
+      {
+        "loanPurpose": {
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "loanStartDate": {
+          "order": 7,
+          "type": "text"
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "balanceAmount": {
+          "numericField": true,
+          "order": 12
+        }
+      },
+      {
+        "loanType": {
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "monthlyInstalments": {
+          "numericField": true,
+          "order": 9
+        }
+      }
+    ],
+    "hasMany": [
+      "memberLoanInsurance",
+      "memberLoanLiability",
+      "memberLoanPaymentSchedule",
+      "memberLoanProcessingFee",
+      "memberLoanSecurity",
+      "memberLoanTax",
+      "memberLoanWitness"
+    ],
+    "hasOne": [
+      "memberBusiness",
+      "memberLoanApproval",
+      "memberLoanDisbursement",
+      "memberOccupation"
+    ],
+    "rootQuery": "memberLoan"
+  },
+  "memberLoanApproval": {
+    "fields": [
+      {
+        "dateOfApproval": {
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "dateVerified": {
+          "order": 7,
+          "type": "text"
+        }
+      },
+      {
+        "denialOrPartialReason": {
+          "order": 8,
+          "type": "text"
+        }
+      },
+      {
+        "loanStatus": {
+          "optional": true,
+          "options": [
+            "PENDING",
+            "APPROVED",
+            "REJECTED"
+          ],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "verifiedBy": {
+          "order": 6,
+          "type": "text"
+        }
+      },
+      {
+        "amountRecommended": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "approvedBy": {
+          "order": 4,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberLoanApproval"
+  },
+  "memberLoanDisbursement": {
+    "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberLoanDisbursement"
+  },
+  "memberLoanInsurance": {
+    "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "insuranceProviderId": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberLoanInsurance"
+  },
+  "memberLoanLiability": {
+    "fields": [
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "value": {
+          "numericField": true,
+          "order": 3
+        }
+      }
+    ],
+    "rootQuery": "memberLoanLiability"
+  },
+  "memberLoanPaymentSchedule": {
+    "fields": [
+      {
+        "amountDue": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "dueDate": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "paid": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasMany": [
+      "memberLoanReceipt"
+    ],
+    "rootQuery": "memberLoanPaymentSchedule"
+  },
+  "memberLoanProcessingFee": {
+    "fields": [
+      {
+        "date": {
+          "optional": true,
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 3
+        }
+      }
+    ],
+    "rootQuery": "memberLoanProcessingFee"
+  },
+  "memberLoanReceipt": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanPaymentScheduleId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberLoanReceipt"
+  },
+  "memberLoanSecurity": {
+    "fields": [
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "serialNumber": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "value": {
+          "numericField": true,
+          "order": 3
+        }
+      }
+    ],
+    "rootQuery": "memberLoanSecurity"
+  },
+  "memberLoanTax": {
+    "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberLoanTax"
+  },
+  "memberLoanWitness": {
+    "fields": [
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "telephone": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "witnessName": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "address": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberLoanWitness"
+  },
+  "memberNextYearBusinessProjection": {
+    "fields": [
+      {
+        "ownSalary": {
+          "numericField": true,
+          "order": 6
+        }
+      },
+      {
+        "rentals": {
+          "numericField": true,
+          "order": 10
+        }
+      },
+      {
+        "totalCostOfGoods": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "totalCosts": {
+          "numericField": true,
+          "order": 12
+        }
+      },
+      {
+        "employeeWages": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "financialYear": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "loanInterest": {
+          "numericField": true,
+          "order": 8
+        }
+      },
+      {
+        "totalIncome": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "transport": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "utilities": {
+          "numericField": true,
+          "order": 9
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberBusinessId": {
+          "hidden": true
+        }
+      },
+      {
+        "netProfitLoss": {
+          "numericField": true,
+          "order": 13
+        }
+      },
+      {
+        "otherCosts": {
+          "numericField": true,
+          "order": 11
+        }
+      }
+    ],
+    "rootQuery": "memberNextYearBusinessProjection"
+  },
+  "memberOccupation": {
+    "fields": [
+      {
+        "grossPay": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "highestQualification": {
+          "options": [
+            "Tertiary",
+            "Secondary",
+            "Primary",
+            "None"
+          ],
+          "order": 9,
+          "type": "text"
+        }
+      },
+      {
+        "jobTitle": {
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "netPay": {
+          "numericField": true,
+          "order": 8
+        }
+      },
+      {
+        "employeeName": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "employerAddress": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "employerPhone": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberLoanId": {
+          "hidden": true
+        }
+      },
+      {
+        "periodEmploymentInMonths": {
+          "numericField": true,
+          "order": 6
+        }
+      }
+    ],
+    "hasOne": [
+      "memberOccupationVerification"
+    ],
+    "rootQuery": "memberOccupation"
+  },
+  "memberOccupationVerification": {
+    "fields": [
+      {
+        "netVerified": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "grossVerified": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "jobVerified": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "memberOccupationId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberOccupationVerification"
+  },
+  "memberSaving": {
+    "fields": [
+      {
+        "balance": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingsIdNumber": {
+          "optional": true,
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "savingsTypeId": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasMany": [
+      "memberLoan",
+      "memberSavingDeposit",
+      "memberSavingInterest",
+      "memberSavingWithdrawal",
+      "sharesDepositReceipt",
+      "sharesDepositWithdraw"
+    ],
+    "rootQuery": "memberSaving"
+  },
+  "memberSavingDeposit": {
+    "fields": [
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "memberSavingDeposit"
+  },
+  "memberSavingInterest": {
+    "fields": [
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberSavingInterest"
+  },
+  "memberSavingWithdrawal": {
+    "fields": [
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "memberSavingWithdrawal"
+  },
+  "memberSavingsIdsCache": {
+    "fields": [
+      {
+        "claimed": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "idNumber": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasOne": [
+      "memberSaving"
+    ],
+    "rootQuery": "memberSavingsIdsCache"
+  },
+  "memberShares": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSharesIdNumber": {
+          "optional": true,
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "monthlyPremium": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "numberOfShares": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "totalValue": {
+          "numericField": true,
+          "order": 4
+        }
+      }
+    ],
+    "rootQuery": "memberShares"
+  },
+  "memberSharesIdsCache": {
+    "fields": [
+      {
+        "claimed": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "idNumber": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "memberSharesId": {
+          "hidden": true
+        }
+      }
+    ],
+    "hasOne": [
+      "memberShares"
+    ],
+    "rootQuery": "memberSharesIdsCache"
+  },
+  "notification": {
+    "fields": [
+      {
+        "date": {
+          "optional": true,
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true
+        }
+      },
+      {
+        "message": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "msgDelivered": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "msgRead": {
+          "optional": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "order": 5,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "notification"
+  },
+  "savingsRate": {
+    "fields": [
+      {
+        "monthlyRate": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "savingsTypeId": {
+          "hidden": true
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      }
+    ],
+    "rootQuery": "savingsRate"
+  },
+  "savingsType": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "maxWithdrawMonths": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "minWithdrawMonths": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "name": {
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "withdrawPattern": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "amountSize": {
+          "numericField": true,
+          "order": 2
+        }
+      }
+    ],
+    "hasMany": [
+      "memberSaving",
+      "savingsRate"
+    ],
+    "rootQuery": "savingsType"
+  },
+  "sharesDepositReceipt": {
+    "fields": [
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "sharesDepositReceipt"
+  },
+  "sharesDepositWithdraw": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "memberSavingId": {
+          "hidden": true
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "date": {
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "sharesDepositWithdraw"
+  },
+  "user": {
+    "fields": [
+      {
+        "userRole": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "username": {
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "name": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "password": {
+          "order": 2,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "user"
+  },
+  "userRole": {
+    "fields": [
+      {
+        "id": {
+          "hidden": true
+        }
+      },
+      {
+        "name": {
+          "order": 1,
+          "type": "text"
+        }
+      }
+    ],
+    "rootQuery": "userRole"
+  }
+}
