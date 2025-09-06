@@ -251,15 +251,20 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 			if val["fields"] != nil {
 				if vv, ok := val["fields"].(map[string]any); ok {
 					for k, v := range vv {
-						if regexp.MustCompile("id$").MatchString(strings.ToLower(k)) {
-							result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
-								k: map[string]any{
-									"hidden": true,
-								},
-							})
-						} else {
-							row := map[string]any{}
+						row := map[string]any{}
 
+						if regexp.MustCompile("id$").MatchString(strings.ToLower(k)) {
+							row["hidden"] = true
+
+							if vf, ok := v.(map[string]any); ok {
+								if vf["order"] != nil {
+									vi, err := strconv.Atoi(fmt.Sprintf("%v", vf["order"]))
+									if err == nil {
+										row["order"] = vi
+									}
+								}
+							}
+						} else {
 							if vf, ok := v.(map[string]any); ok {
 								for kf, vf := range vf {
 									switch kf {
@@ -280,11 +285,11 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 									}
 								}
 							}
-
-							result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
-								k: row,
-							})
 						}
+
+						result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+							k: row,
+						})
 					}
 				}
 			}
