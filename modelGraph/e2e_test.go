@@ -3,10 +3,12 @@ package modelgraph_test
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	modelgraph "sacco/modelGraph"
 	"slices"
+	"strings"
 	"testing"
 	"time"
 
@@ -97,20 +99,44 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
+	records := map[string]int64{}
+
+	addRecord := func(model string, data map[string]any) (*int64, error) {
+		query, err := modelgraph.CreateModelQuery(model, modelsData, nil)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		result, err := db.Exec(*query)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		parentId, err := result.LastInsertId()
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		records[model] = parentId
+
+		fmt.Println(model, parentId)
+
+		if len(data) > 0 {
+
+		}
+
+		return &parentId, nil
+	}
+
 	for model, value := range graphData {
+		if strings.HasSuffix(model, "IdsCache") {
+			continue
+		}
+
 		if val, ok := value.(map[string]any); ok {
-			if len(val) > 0 {
-
-			} else {
-				query, err := modelgraph.CreateModelQuery(model, modelsData, nil)
-				if err != nil {
-					t.Fatal(err)
-				}
-
-				_, err = db.Exec(*query)
-				if err != nil {
-					t.Fatal(err)
-				}
+			_, err := addRecord(model, val)
+			if err != nil {
+				t.Fatal(err)
 			}
 		}
 	}
