@@ -1,0 +1,20 @@
+{
+  "memberId": "member.id",
+  "memberBeneficiaryId": "member.memberBeneficiary.0.id",
+  "memberSharesId": "member.memberShares.0.id",
+  "memberContactId": "member.memberContact.id",
+  "memberNomineeId": "member.memberNominee.id",
+
+  "memberLoanId": "member.memberLoan.0.id",
+  "memberLoanLiabilityId": "member.memberLoan.0.memberLoanLiability.id",
+  "memberLoanSecurityId": "member.memberLoan.0.memberLoanSecurity.id",
+  "memberLoanWitnessId": "member.memberLoan.0.memberLoanWitness.id",
+  "memberLoanApprovalId": "member.memberLoan.0.memberLoanApproval.id",
+
+  "memberOccupationId": "member.memberLoan.0.memberOccupation.id",
+  "memberOccupationVerificationId": "member.memberLoan.0.memberOccupation.memberOccupationVerification.id",
+
+  "memberBusinessId": "member.memberLoan.0.memberBusiness.id",
+  "memberLastYearBusinessHistoryId": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.id",
+  "memberNextYearBusinessProjectionId": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.id"
+}
