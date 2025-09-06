@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -195,8 +197,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 
 	for model, value := range modelsData {
 		result[model] = map[string]any{
-			"rootQuery": "",
-			"fields":    map[string]any{},
+			"rootQuery": model,
+			"fields":    []map[string]any{},
 		}
 
 		if graphData[model] != nil {
@@ -219,7 +221,48 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 			}
 		}
 
-		_ = value
+		if val, ok := value.(map[string]any); ok {
+			if val["fields"] != nil {
+				if vv, ok := val["fields"].(map[string]any); ok {
+					for k, v := range vv {
+						if regexp.MustCompile("id$").MatchString(strings.ToLower(k)) {
+							result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+								k: map[string]any{
+									"hidden": true,
+								},
+							})
+						} else {
+							row := map[string]any{}
+
+							if vf, ok := v.(map[string]any); ok {
+								for kf, vf := range vf {
+									switch kf {
+									case "default", "optional":
+										row["optional"] = true
+									case "type", "order":
+										if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
+											row["numericField"] = true
+										} else {
+											row[kf] = vf
+										}
+									case "options":
+										if vo, ok := vf.([]any); ok {
+											row[kf] = vo
+										} else if vo, ok := vf.([]string); ok {
+											row[kf] = vo
+										}
+									}
+								}
+							}
+
+							result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+								k: row,
+							})
+						}
+					}
+				}
+			}
+		}
 	}
 
 	return result, nil
