@@ -99,9 +99,11 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
-	records := map[string]int64{}
+	records := map[string][]int64{}
 
-	addRecord := func(model string, data map[string]any) (*int64, error) {
+	var addRecord func(model string, data map[string]any) (*int64, error)
+
+	addRecord = func(model string, data map[string]any) (*int64, error) {
 		query, err := modelgraph.CreateModelQuery(model, modelsData, nil)
 		if err != nil {
 			t.Fatal(err)
@@ -114,15 +116,33 @@ func TestSchemaE2E(t *testing.T) {
 
 		parentId, err := result.LastInsertId()
 		if err != nil {
-			t.Fatal(err)
+			return nil, err
 		}
 
-		records[model] = parentId
-
-		fmt.Println(model, parentId)
+		if records[model] == nil {
+			records[model] = []int64{}
+		}
+		records[model] = append(records[model], parentId)
 
 		if len(data) > 0 {
+			for _, value := range data {
+				models := []string{}
 
+				if val, ok := value.([]any); ok {
+					for _, v := range val {
+						models = append(models, fmt.Sprintf("%v", v))
+					}
+				} else if val, ok := value.([]string); ok {
+					models = append(models, val...)
+				}
+
+				for _, key := range models {
+					_, err = addRecord(key, map[string]any{})
+					if err != nil {
+						return nil, err
+					}
+				}
+			}
 		}
 
 		return &parentId, nil
@@ -137,6 +157,43 @@ func TestSchemaE2E(t *testing.T) {
 			_, err := addRecord(model, val)
 			if err != nil {
 				t.Fatal(err)
+			}
+		}
+	}
+
+	payload, _ := json.MarshalIndent(records, "", "  ")
+
+	os.WriteFile(filepath.Join(".", "fixtures", "records.json"), payload, 0644)
+
+	targetRecords := map[string]any{}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "records.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &targetRecords)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for key, value := range targetRecords {
+		if records[key] == nil {
+			t.Fatalf("Test failed. Missing %v", key)
+		}
+
+		targetCount := 0
+		if val, ok := value.([]any); ok {
+			targetCount = len(val)
+		} else if val, ok := value.([]string); ok {
+			targetCount = len(val)
+		}
+
+		if child, ok := records[key]; ok {
+			resultCount := len(child)
+
+			if resultCount != targetCount {
+				t.Fatalf("Test failed. Expected: %v; Actual: %v", targetCount, resultCount)
 			}
 		}
 	}
