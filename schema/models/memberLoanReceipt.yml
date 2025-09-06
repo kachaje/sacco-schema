@@ -5,6 +5,7 @@ id:
   type: int
 
 memberLoanPaymentScheduleId:
+  many: true
   order: 1
   referenceTable: memberLoanPaymentSchedule
   type: int

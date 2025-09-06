@@ -1,107 +1,80 @@
 {
   "account": {
-    "arrayChildren": [
-      "accountJournal"
-    ],
-    "singleChildren": [
-      "accountStatement"
-    ]
+    "arrayChildren": ["accountStatement", "accountJournal"]
   },
   "accountTransaction": {
-    "arrayChildren": [
-      "accountJournal"
-    ]
+    "arrayChildren": ["accountJournal"]
   },
   "insuranceProvider": {
-    "arrayChildren": [
-      "memberLoanInsurance"
-    ]
+    "arrayChildren": ["memberLoanInsurance"]
   },
   "loanType": {
-    "singleChildren": [
-      "loanRate"
-    ]
+    "singleChildren": ["loanRate"]
   },
   "member": {
     "arrayChildren": [
       "memberSaving",
-      "memberShares",
+      "memberDependant",
       "memberLoan",
+      "memberShares",
       "notification",
-      "dividends",
-      "memberDependant"
+      "dividends"
     ],
-    "singleChildren": [
-      "memberContact"
-    ]
+    "singleChildren": ["memberContact"]
   },
   "memberBusiness": {
     "singleChildren": [
       "memberNextYearBusinessProjection",
-      "memberLastYearBusinessHistory",
-      "memberBusinessVerification"
+      "memberBusinessVerification",
+      "memberLastYearBusinessHistory"
     ]
   },
   "memberIdsCache": {
-    "singleChildren": [
-      "member"
-    ]
+    "singleChildren": ["member"]
   },
   "memberLoan": {
     "arrayChildren": [
-      "memberLoanWitness",
       "memberLoanLiability",
+      "memberLoanTax",
+      "memberLoanWitness",
+      "memberLoanProcessingFee",
       "memberLoanSecurity",
       "memberLoanPaymentSchedule",
-      "memberLoanTax",
-      "memberLoanProcessingFee",
       "memberLoanInsurance"
     ],
     "singleChildren": [
       "memberBusiness",
+      "memberOccupation",
       "memberLoanApproval",
-      "memberLoanDisbursement",
-      "memberOccupation"
+      "memberLoanDisbursement"
     ]
   },
   "memberLoanPaymentSchedule": {
-    "singleChildren": [
-      "memberLoanReceipt"
-    ]
+    "arrayChildren": ["memberLoanReceipt"]
   },
   "memberOccupation": {
-    "singleChildren": [
-      "memberOccupationVerification"
-    ]
+    "singleChildren": ["memberOccupationVerification"]
   },
   "memberSaving": {
     "arrayChildren": [
-      "memberSavingWithdrawal",
+      "memberSavingInterest",
       "sharesDepositWithdraw",
       "memberLoan",
+      "sharesDepositReceipt",
       "memberSavingDeposit",
-      "memberSavingInterest",
-      "sharesDepositReceipt"
+      "memberSavingWithdrawal"
     ]
   },
   "memberSavingsIdsCache": {
-    "singleChildren": [
-      "memberSavings"
-    ]
+    "singleChildren": ["memberSavings"]
   },
   "memberSharesIdsCache": {
-    "singleChildren": [
-      "memberShares"
-    ]
+    "singleChildren": ["memberShares"]
   },
   "savings": {
-    "arrayChildren": [
-      "savingsRate"
-    ]
+    "arrayChildren": ["savingsRate"]
   },
   "savingsType": {
-    "arrayChildren": [
-      "memberSaving"
-    ]
+    "arrayChildren": ["memberSaving"]
   }
 }

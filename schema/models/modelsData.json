@@ -64,6 +64,7 @@
   "accountStatement": {
     "fields": {
       "accountId": {
+        "many": true,
         "order": 0,
         "referenceTable": "account",
         "type": "int"
@@ -86,6 +87,7 @@
         "type": "real"
       }
     },
+    "many": true,
     "model": "accountStatement",
     "parents": ["account"]
   },
@@ -823,11 +825,13 @@
         "type": "int"
       },
       "memberLoanPaymentScheduleId": {
+        "many": true,
         "order": 1,
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
       }
     },
+    "many": true,
     "model": "memberLoanReceipt",
     "parents": ["memberLoanPaymentSchedule"]
   },

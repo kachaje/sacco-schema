@@ -1,4 +1,5 @@
 accountId:
+  many: true
   order: 0
   referenceTable: account
   type: int
