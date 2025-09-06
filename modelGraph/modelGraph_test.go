@@ -15,7 +15,7 @@ func TestCreateGraph(t *testing.T) {
 	data := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -30,7 +30,7 @@ func TestCreateGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "schema", "models", "graph.json"))
+	content, err = os.ReadFile(filepath.Join("..", "schema", "configs", "graph.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -154,7 +154,7 @@ Actual: %s`, target, *result)
 func TestCreateModelQueryNumbersOnly(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -195,7 +195,7 @@ Actual: %s`, target, *result)
 func TestCreateModelQueryWithOptions(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -236,7 +236,7 @@ Actual: %s`, target, *result)
 func TestCreateModelQueryCombined(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

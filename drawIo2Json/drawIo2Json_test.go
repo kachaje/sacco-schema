@@ -97,7 +97,7 @@ func TestD2J(t *testing.T) {
 func TestExtractJsonModels(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "rawData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "rawData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -114,7 +114,7 @@ func TestExtractJsonModels(t *testing.T) {
 
 	target := map[string]any{}
 
-	content, err = os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err = os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -134,7 +134,7 @@ func TestCreateYmlFiles(t *testing.T) {
 
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -169,7 +169,7 @@ func TestDefault(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	srcFile, err := os.Open(filepath.Join("..", "schema", "models", "rawData.json"))
+	srcFile, err := os.Open(filepath.Join("..", "schema", "configs", "rawData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -199,7 +199,7 @@ func TestDefault(t *testing.T) {
 
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
