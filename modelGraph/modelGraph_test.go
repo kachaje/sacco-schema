@@ -30,7 +30,7 @@ func TestCreateGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "graph.json"))
+	content, err = os.ReadFile(filepath.Join("..", "schema", "models", "graph.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
