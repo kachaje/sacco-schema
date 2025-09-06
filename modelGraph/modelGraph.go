@@ -185,3 +185,42 @@ func CreateModelQuery(model string, modelsData, seedData map[string]any) (*strin
 
 	return &query, nil
 }
+
+func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, error) {
+	if modelsData == nil || graphData == nil {
+		return nil, fmt.Errorf("all inputs required")
+	}
+
+	result := map[string]any{}
+
+	for model, value := range modelsData {
+		result[model] = map[string]any{
+			"rootQuery": "",
+			"fields":    map[string]any{},
+		}
+
+		if graphData[model] != nil {
+			if val, ok := graphData[model].(map[string]any); ok {
+				if val["singleChildren"] != nil {
+					if v, ok := val["singleChildren"].([]any); ok {
+						result[model].(map[string]any)["hasOne"] = v
+					} else if v, ok := val["singleChildren"].([]string); ok {
+						result[model].(map[string]any)["hasOne"] = v
+					}
+				}
+
+				if val["arrayChildren"] != nil {
+					if v, ok := val["arrayChildren"].([]any); ok {
+						result[model].(map[string]any)["hasMany"] = v
+					} else if v, ok := val["arrayChildren"].([]string); ok {
+						result[model].(map[string]any)["hasMany"] = v
+					}
+				}
+			}
+		}
+
+		_ = value
+	}
+
+	return result, nil
+}

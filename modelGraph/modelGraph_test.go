@@ -273,3 +273,37 @@ Expected: %s
 Actual: %s`, target, *result)
 	}
 }
+
+func TestCreateWorkflowGraph(t *testing.T) {
+	graphData := map[string]any{}
+	modelsData := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &modelsData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join("..", "schema", "configs", "graph.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &graphData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result, err := modelgraph.CreateWorkflowGraph(modelsData, graphData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
+}
