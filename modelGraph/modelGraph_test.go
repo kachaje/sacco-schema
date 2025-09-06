@@ -192,6 +192,47 @@ Actual: %s`, target, *result)
 	}
 }
 
+func TestCreateModelQueryWithOptions(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	seed := map[string]any{
+		"memberId": 16,
+	}
+
+	result, err := modelgraph.CreateModelQuery("memberDependant", data, seed)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target := fmt.Sprintf(`
+INSERT INTO 
+	memberDependant (memberId, name, phoneNumber, address, percentage, relationship) 
+VALUES 
+	(%v, "name", "phoneNumber", "address", 10, "Spouse");`,
+		seed["memberId"],
+	)
+
+	if utils.CleanString(*result) != utils.CleanString(target) {
+		t.Fatalf(`Test failed.
+Expected: %s
+Actual: %s`, target, *result)
+	}
+}
+
 func TestCreateModelQueryCombined(t *testing.T) {
 	data := map[string]any{}
 

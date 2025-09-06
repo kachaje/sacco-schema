@@ -119,7 +119,13 @@ func CreateModelQuery(model string, modelsData, seedData map[string]any) (*strin
 
 							fields = append(fields, key)
 
-							if vv["type"] != nil && fmt.Sprintf("%v", vv["type"]) == "text" {
+							if vv["options"] != nil {
+								if vo, ok := vv["options"].([]any); ok && len(vo) > 0 {
+									values = append(values, fmt.Sprintf(`"%s"`, vo[0]))
+								} else if vo, ok := vv["options"].([]string); ok && len(vo) > 0 {
+									values = append(values, fmt.Sprintf(`"%s"`, vo[0]))
+								}
+							} else if vv["type"] != nil && fmt.Sprintf("%v", vv["type"]) == "text" {
 								values = append(values, fmt.Sprintf(`"%s"`, entry))
 							} else {
 								values = append(values, entry)
