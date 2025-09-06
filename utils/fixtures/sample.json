@@ -86,7 +86,6 @@
         "memberId": 1,
         "memberLoanApproval": {
           "amountRecommended": 200000,
-          "amountRecommended": 200000,
           "dateOfApproval": "2025-08-30",
           "approvedBy": "me",
           "dateVerified": "2025-08-30",

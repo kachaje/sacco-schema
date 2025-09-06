@@ -1,0 +1,41 @@
+A. PERSONAL INFORMATION
+   Surname:                 | Banda
+   First Name:              | Mary
+   Other Name(s):           | 
+   Gender:                  | Female
+   Phone Number:            | 09999999999
+   Title:                   | Miss
+   Marital Status:          | Single
+   Date of Birth:           | 1999-09-01
+   National ID:             | DHFYR8475
+   Utility Bill No:         | 29383746
+   Utility Bill Type:       | ESCOM
+
+B. OCCUPATION DETAILS
+   Name of Employer:        | Sunseed Oil
+   Net Pay:                 | 72000
+   Job Title:               | Driver
+   Employer Address:        | Kanengo, Lilongwe
+   Highest Qualification:   | Secondary
+
+C. CONTACT DETAILS
+   Postal Address:          | P.O. Box 1000, Lilongwe
+   Residential Address:     | Area 2, Lilongwe
+   Email:                   | 
+   Village:                 | Songwe
+   Traditional Authority:   | Kyungu
+   District:                | Karonga
+
+D. NOMINEE (NEXT OF KIN) DETAILS
+   Name:                    | John Banda
+   Cell Phone Number:       | 0888888888
+   Postal Address/Email:    | Same as member
+
+E. BENEFICIARIES DETAILS
+--- --------------------- --------- ------------
+No | Name of Beneficiary | Percent | Contact
+--- --------------------- --------- ------------
+1  | Benefator 1         |    10.0 | P.O. Box 1
+2  | Benefator 2         |     8.0 | P.O. Box 2
+3  | Benefator 3         |     5.0 | P.O. Box 3
+4  | Benefator 4         |     2.0 | P.O. Box 4

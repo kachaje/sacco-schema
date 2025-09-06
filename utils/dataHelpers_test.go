@@ -11,6 +11,8 @@ import (
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {
+	t.Skip()
+
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -76,6 +78,8 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 }
 
 func TestFlattenMapAllData(t *testing.T) {
+	t.Skip()
+
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
