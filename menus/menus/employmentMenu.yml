@@ -1,0 +1,42 @@
+title: Employement
+fields:
+  "1":
+    id: employment.1
+    label:
+      en: Employement Details
+    workflow: memberOccupation
+    targetKeys:
+      - employerAddress
+      - employerName
+      - employerPhone
+      - grossPay
+      - highestQualification
+      - jobTitle
+      - netPay
+      - periodEmployedInMonths
+      - memberLoanId
+      - id
+  "2":
+    id: employment.2
+    label:
+      en: Employement Verification
+    workflow: memberOccupationVerification
+    targetKeys:
+      - id
+      - memberOccupationId
+      - jobVerified
+      - grossVerified
+      - netVerified
+  "3":
+    id: employment.3
+    label:
+      en: Employement Summary
+    function: employmentSummary
+  "99":
+    id: loan
+    label:
+      en: Cancel
+  "00":
+    id: main
+    label:
+      en: Main Menu

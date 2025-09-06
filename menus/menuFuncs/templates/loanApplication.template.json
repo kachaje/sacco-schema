@@ -1,0 +1,330 @@
+{
+  "1. OFFICIAL DETAILS": {
+    "level": "root",
+    "label": "INDIVIDUAL LOAN APPLICATION FORM",
+    "data": {
+      "memberIdNumber": {
+        "order": 1,
+        "label": "Member ID No.",
+        "cachQuery": "member.memberIdNumber"
+      },
+      "loanNumber": {
+        "order": 2,
+        "label": "Loan Number"
+      },
+      "employerNumber": {
+        "order": 3,
+        "label": "Employment Number"
+      }
+    }
+  },
+  "A. PERSONAL INFORMATION": {
+    "level": "root",
+    "data": {
+      "lastName": {
+        "order": 1,
+        "label": "Surname",
+        "cachQuery": "member.lastName"
+      },
+      "firstName": {
+        "order": 2,
+        "label": "First Name",
+        "cachQuery": "member.firstName"
+      },
+      "title": {
+        "order": 3,
+        "label": "Title",
+        "cachQuery": "member.title"
+      },
+      "dateOfBirth": {
+        "order": 4,
+        "label": "Age",
+        "cachQuery": "member.dateOfBirth",
+        "formula": "DATE_DIFF_YEARS({{TODAY}}-{{dateOfBirth}})"
+      },
+      "gender": {
+        "order": 5,
+        "label": "Gender",
+        "cachQuery": "member.gender"
+      },
+      "residentialAddress": {
+        "order": 6,
+        "label": "Physical Address",
+        "cachQuery": "member.memberContact.residentialAddress"
+      },
+      "postalAddress": {
+        "order": 7,
+        "label": "Mailing Address",
+        "cachQuery": "member.memberContact.postalAddress"
+      },
+      "homeVillage": {
+        "order": 8,
+        "label": "Home Village",
+        "cachQuery": "member.memberContact.homeVillage"
+      },
+      "homeTraditionalAuthority": {
+        "order": 9,
+        "label": "Home T/A",
+        "cachQuery": "member.memberContact.homeTraditionalAuthority"
+      },
+      "homeDistrict": {
+        "order": 10,
+        "label": "Home District",
+        "cachQuery": "member.memberContact.homeDistrict"
+      },
+      "phoneNumber": {
+        "order": 11,
+        "label": "Phone Number",
+        "cachQuery": "member.phoneNumber"
+      },
+      "email": {
+        "order": 12,
+        "label": "Email",
+        "cachQuery": "member.memberContact.email"
+      }
+    }
+  },
+  "B. TYPE OF LOAN": {
+    "level": "root",
+    "data": {
+      "loanType": {
+        "order": 1,
+        "label": "Loan Type",
+        "cachQuery": "member.memberLoan.0.loanType"
+      }
+    }
+  },
+  "C. LOAN INFORMATION": {
+    "level": "root",
+    "data": {
+      "loanAmount": {
+        "order": 1,
+        "label": "Loan Amount",
+        "cachQuery": "member.memberLoan.0.loanAmount"
+      },
+      "loanPurpose": {
+        "order": 2,
+        "label": "Purpose of Loan",
+        "cachQuery": "member.memberLoan.0.loanPurpose"
+      },
+      "repaymentPeriodInMonths": {
+        "order": 3,
+        "label": "Repayment Period (months)",
+        "cachQuery": "member.memberLoan.0.repaymentPeriodInMonths"
+      }
+    }
+  },
+  "D. EMPLOYMENT INFORMATION": {
+    "level": "root",
+    "data": {
+      "employerName": {
+        "order": 1,
+        "label": "Name of Employer",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerName"
+      },
+      "employerAddress": {
+        "order": 2,
+        "label": "Employer's Address",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerAddress"
+      },
+      "employerPhone": {
+        "order": 3,
+        "label": "Employer's Phone Number",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerPhone"
+      },
+      "jobTitle": {
+        "order": 4,
+        "label": "Job Title",
+        "cachQuery": "member.memberLoan.0.memberOccupation.jobTitle"
+      },
+      "jobVerified": {
+        "order": 5,
+        "label": "Job Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.jobVerified"
+      },
+      "grossPay": {
+        "order": 6,
+        "label": "Gross Salary",
+        "cachQuery": "member.memberLoan.0.memberOccupation.grossPay"
+      },
+      "grossVerified": {
+        "order": 7,
+        "label": "Gross Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.grossVerified"
+      },
+      "netPay": {
+        "order": 8,
+        "label": "Net Income",
+        "cachQuery": "member.memberLoan.0.memberOccupation.netPay"
+      },
+      "netVerified": {
+        "order": 9,
+        "label": "Net Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.netVerified"
+      }
+    }
+  },
+  "E BUSINESS INFORMATION": {
+    "level": "root",
+    "data": {
+      "businessName": {
+        "order": 1,
+        "label": "Name of Business",
+        "cachQuery": "member.memberLoan.0.memberBusiness.businessName"
+      },
+      "businessNature": {
+        "order": 2,
+        "label": "Nature of Business",
+        "cachQuery": "member.memberLoan.0.memberBusiness.businessNature"
+      },
+      "tradingArea": {
+        "order": 3,
+        "label": "Trading Area",
+        "cachQuery": "member.memberLoan.0.memberBusiness.tradingArea"
+      },
+      "yearsInBusiness": {
+        "order": 4,
+        "label": "Number of Years in Business",
+        "cachQuery": "member.memberLoan.0.memberBusiness.yearsInBusiness"
+      },
+      "businessVerified": {
+        "order": 5,
+        "label": "Business Verified",
+        "cachQuery": "member.memberLoan.0.memberBusiness.memberBusinessVerification.businessVerified"
+      },
+      "grossIncomeVerified": {
+        "order": 6,
+        "label": "Gross Income Verified",
+        "cachQuery": "member.memberLoan.0.memberBusiness.memberBusinessVerification.grossIncomeVerified"
+      },
+      "netIncomeVerified": {
+        "order": 7,
+        "label": "Net Income Verified",
+        "cachQuery": "member.memberLoan.0.memberBusiness.memberBusinessVerification.netIncomeVerified"
+      }
+    },
+    "tables": {
+      "label": "Profit and Loss",
+      "sections": {
+        "Previous 12 Months": {
+          "data": {
+            "totalIncome": {
+              "order": 1,
+              "label": "Total Sales/Income",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalIncome"
+            },
+            "totalCostOfGoods": {
+              "order": 2,
+              "label": "Total Cost of Goods",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalCostOfGoods"
+            },
+            "employeesWages": {
+              "order": 3,
+              "label": "Employees Wages",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.employeesWages"
+            },
+            "ownSalary": {
+              "order": 4,
+              "label": "Own Salary",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.ownSalary"
+            },
+            "transport": {
+              "order": 5,
+              "label": "Transport",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.transport"
+            },
+            "loanInterest": {
+              "order": 6,
+              "label": "Loan Interest",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.loanInterest"
+            },
+            "utilities": {
+              "order": 7,
+              "label": "Electricity/Water",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.utilities"
+            },
+            "rentals": {
+              "order": 8,
+              "label": "Rentals",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.rentals"
+            },
+            "otherCosts": {
+              "order": 9,
+              "label": "Other Costs",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.otherCosts"
+            },
+            "totalCosts": {
+              "order": 10,
+              "label": "Total Costs",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalCosts"
+            },
+            "netProfitLoss": {
+              "order": 11,
+              "label": "Net Profit",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.netProfitLoss"
+            }
+          }
+        },
+        "Next 12 Months Projections": {
+          "data": {
+            "totalIncome": {
+              "order": 1,
+              "label": "Total Sales/Income",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalIncome"
+            },
+            "totalCostOfGoods": {
+              "order": 2,
+              "label": "Total Cost of Gooods",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalCostOfGoods"
+            },
+            "employeesWages": {
+              "order": 3,
+              "label": "Employees Wages",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.employeesWages"
+            },
+            "ownSalary": {
+              "order": 4,
+              "label": "Own Salary",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.ownSalary"
+            },
+            "transport": {
+              "order": 5,
+              "label": "Transport",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.transport"
+            },
+            "loanInterest": {
+              "order": 6,
+              "label": "Loan Interest",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.loanInterest"
+            },
+            "utilities": {
+              "order": 7,
+              "label": "Electricity/Water",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.utilities"
+            },
+            "rentals": {
+              "order": 8,
+              "label": "Rentals",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.rentals"
+            },
+            "otherCosts": {
+              "order": 9,
+              "label": "Other Costs",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.otherCosts"
+            },
+            "totalCosts": {
+              "order": 10,
+              "label": "Total Costs",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalCosts"
+            },
+            "netProfitLoss": {
+              "order": 11,
+              "label": "Net Profit",
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.netProfitLoss"
+            }
+          }
+        }
+      }
+    }
+  }
+}

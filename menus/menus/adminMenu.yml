@@ -1,0 +1,39 @@
+title: System Administration
+fields:
+  "1":
+    id: addUser
+    label:
+      en: Add User
+    workflow: user
+  "2":
+    id: editUser
+    label:
+      en: Edit User
+    targetKeys:
+      - name
+      - id
+      - username
+      - role
+    function: editUser
+  "3":
+    id: blockUser
+    label:
+      en: Block User
+    targetKeys:
+      - id
+      - username
+    function: blockUser
+  "4":
+    id: changePassword
+    label:
+      en: Change Password
+    function: changePassword
+  "5":
+    id: listUser
+    label:
+      en: Users List
+    function: listUsers
+  "00":
+    id: main
+    label:
+      en: Main Menu

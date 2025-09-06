@@ -1,0 +1,71 @@
+title: Business
+fields:
+  "1":
+    id: business.1
+    label:
+      en: Business Details
+    workflow: memberBusiness
+    targetKeys:
+      - id
+      - memberId
+      - yearsInBusiness
+      - businessNature
+      - businessName
+      - tradingArea
+  "2":
+    id: business.2
+    label:
+      en: Previous Year History
+    workflow: memberLastYearBusinessHistory
+    targetKeys:
+      - id
+      - memberId
+      - memberBusinessId
+      - memberLoanId
+      - financialYear
+      - totalIncome
+      - totalCostOfGoods
+      - employeesWages
+      - ownSalary
+      - transport
+      - loanInterest
+      - utilities
+      - rentals
+      - otherCosts
+      - totalCosts
+      - netProfitLoss
+  "3":
+    id: business.3
+    label:
+      en: Next Year Projection
+    workflow: memberNextYearBusinessProjection
+    targetKeys:
+      - id
+      - memberId
+      - memberBusinessId
+      - memberLoanId
+      - financialYear
+      - totalIncome
+      - totalCostOfGoods
+      - employeesWages
+      - ownSalary
+      - transport
+      - loanInterest
+      - utilities
+      - rentals
+      - otherCosts
+      - totalCosts
+      - netProfitLoss
+  "4":
+    id: business.4
+    label:
+      en: Business Summary
+    function: businessSummary
+  "99":
+    id: loan
+    label:
+      en: Cancel
+  "00":
+    id: main
+    label:
+      en: Main Menu

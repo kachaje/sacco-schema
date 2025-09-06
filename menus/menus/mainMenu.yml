@@ -1,0 +1,51 @@
+title: Welcome to Kaso SACCO
+fields:
+  "1":
+    id: registration
+    label:
+      en: Membership Application
+  "2":
+    id: loan
+    label:
+      en: Loans
+  "3":
+    id: balance
+    label:
+      en: Check Balance
+    function: checkBalance
+  "4":
+    id: banking
+    label:
+      en: Banking Details
+    function: bankingDetails
+  "5":
+    id: language
+    label:
+      en: Preferred Language
+    workflow: language
+  "6":
+    id: admin
+    label:
+      en: Administration
+    allowedRoles:
+      - admin
+      - dev
+  "7":
+    id: exit
+    label:
+      en: Exit
+    function: doExit
+  "8":
+    id: console
+    allowedRoles:
+      - admin
+      - dev
+    label:
+      en: Dev Console
+    function: devConsole
+    devOnly: true
+  "9":
+    id: setPhoneNumber
+    label:
+      en: Set PhoneNumber
+    function: setPhoneNumber

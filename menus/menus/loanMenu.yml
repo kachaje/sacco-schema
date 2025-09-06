@@ -1,0 +1,94 @@
+title: Loans
+fields:
+  "1":
+    id: loan.1
+    label:
+      en: Loan Application
+    workflow: memberLoan
+    targetKeys:
+      - id
+      - memberId
+      - memberLoanId
+      - phoneNumber
+      - loanAmount
+      - repaymentPeriodInMonths
+      - loanPurpose
+      - loanType
+  "2":
+    id: loan.2
+    label:
+      en: Loan Liability
+    workflow: memberLoanLiability
+    allowedRoles:
+      - admin
+    targetKeys:
+      - id
+      - memberId
+      - memberLoanId
+      - description
+      - value
+  "3":
+    id: loan.3
+    label:
+      en: Loan Security
+    workflow: memberLoanSecurity
+    allowedRoles:
+      - admin
+    targetKeys:
+      - id
+      - memberId
+      - memberLoanId
+      - description
+      - value
+      - serialNumber
+  "4":
+    id: loan.4
+    label:
+      en: Loan Witness
+    workflow: memberLoanWitness
+    allowedRoles:
+      - admin
+    targetKeys:
+      - id
+      - memberId
+      - memberLoanId
+      - name
+      - telephone
+      - address
+      - date
+  "5":
+    id: loan.5
+    label:
+      en: Loan Approvals
+    workflow: loanApproval
+    allowedRoles:
+      - admin
+    targetKeys:
+      - id
+      - memberId
+      - memberLoanId
+      - loanStatus
+      - amountRecommended
+      - approvedBy
+      - approvalDate
+      - amountApproved
+      - verifiedBy
+      - dateVerified
+      - denialOrPartialReason
+  "6":
+    id: employment
+    label:
+      en: Employment Details
+  "7":
+    id: business
+    label:
+      en: Business Details
+  "8":
+    id: memberLoansSummary
+    label:
+      en: Member Loans Summary
+    function: memberLoansSummary
+  "00":
+    id: main
+    label:
+      en: Main Menu
