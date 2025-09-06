@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	modelgraph "sacco/modelGraph"
 	"sacco/utils"
+	"sort"
 	"testing"
 )
 
@@ -60,7 +61,27 @@ func TestCreateGraph(t *testing.T) {
 		}
 	}
 
-	if len(models) != len(data) {
-		t.Fatalf("Test failed. Expected: %v; Actual: %v", len(data), len(models))
+	keys := []string{}
+
+	for key := range models {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	dataCount := len(keys)
+
+	keys = []string{}
+
+	for key := range data {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	refCount := len(keys)
+
+	if refCount != dataCount {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", refCount, dataCount)
 	}
 }

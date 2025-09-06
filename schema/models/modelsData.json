@@ -1227,15 +1227,15 @@
         "order": 2,
         "type": "text"
       },
-      "memberSavingsId": {
+      "memberSavingId": {
         "optional": true,
         "order": 1,
-        "referenceTable": "memberSavings",
+        "referenceTable": "memberSaving",
         "type": "int"
       }
     },
     "model": "memberSavingsIdsCache",
-    "parents": ["memberSavings"]
+    "parents": ["memberSaving"]
   },
   "memberShares": {
     "fields": {
@@ -1354,16 +1354,16 @@
         "order": 2,
         "type": "real"
       },
-      "savingsId": {
+      "savingsTypeId": {
         "many": true,
         "order": 1,
-        "referenceTable": "savings",
+        "referenceTable": "savingsType",
         "type": "int"
       }
     },
     "many": true,
     "model": "savingsRate",
-    "parents": ["savings"]
+    "parents": ["savingsType"]
   },
   "savingsType": {
     "fields": {

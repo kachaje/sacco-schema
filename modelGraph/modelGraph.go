@@ -36,22 +36,25 @@ func CreateGraph(rawData map[string]any) (map[string]any, error) {
 				}
 			}
 
-			for _, key := range parents {
-				if strings.HasSuffix(model, "IdsCache") {
-					checkParent(relationMaps, model)
+			if len(parents) > 0 {
+				for _, key := range parents {
+					if strings.HasSuffix(model, "IdsCache") {
+						checkParent(relationMaps, model)
 
-					relationMaps[model].(map[string]any)["singleChildren"] = append(relationMaps[model].(map[string]any)["singleChildren"].([]string), key)
-				} else {
-					checkParent(relationMaps, key)
-
-					if data["many"] != nil {
-						relationMaps[key].(map[string]any)["arrayChildren"] = append(relationMaps[key].(map[string]any)["arrayChildren"].([]string), model)
+						relationMaps[model].(map[string]any)["singleChildren"] = append(relationMaps[model].(map[string]any)["singleChildren"].([]string), key)
 					} else {
-						relationMaps[key].(map[string]any)["singleChildren"] = append(relationMaps[key].(map[string]any)["singleChildren"].([]string), model)
+						checkParent(relationMaps, key)
+
+						if data["many"] != nil {
+							relationMaps[key].(map[string]any)["arrayChildren"] = append(relationMaps[key].(map[string]any)["arrayChildren"].([]string), model)
+						} else {
+							relationMaps[key].(map[string]any)["singleChildren"] = append(relationMaps[key].(map[string]any)["singleChildren"].([]string), model)
+						}
 					}
 				}
+			} else {
+				checkParent(relationMaps, model)
 			}
-
 		}
 	}
 

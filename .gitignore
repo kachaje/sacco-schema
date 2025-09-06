@@ -6,3 +6,4 @@ dio2json
 .vscode
 tmp/
 convert
+group*.json

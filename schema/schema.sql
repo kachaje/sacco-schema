@@ -785,13 +785,13 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberSavingsIdsCache (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingsId INTEGER,
+    memberSavingId INTEGER,
     idNumber TEXT NOT NULL,
     claimed INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSavingsId) REFERENCES memberSavings (id) ON DELETE CASCADE
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberSavingsIdsCacheUpdated AFTER
@@ -873,12 +873,12 @@ END;
 
 CREATE TABLE IF NOT EXISTS savingsRate (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    savingsId INTEGER NOT NULL,
+    savingsTypeId INTEGER NOT NULL,
     monthlyRate REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (savingsId) REFERENCES savings (id) ON DELETE CASCADE
+    FOREIGN KEY (savingsTypeId) REFERENCES savingsType (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS savingsRateUpdated AFTER

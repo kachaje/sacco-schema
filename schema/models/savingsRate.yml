@@ -4,10 +4,10 @@ id:
   primaryKey: true
   type: int
 
-savingsId:
+savingsTypeId:
   many: true
   order: 1
-  referenceTable: savings
+  referenceTable: savingsType
   type: int
 
 monthlyRate:

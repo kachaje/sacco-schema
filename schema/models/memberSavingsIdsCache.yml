@@ -4,10 +4,10 @@ id:
   primaryKey: true
   type: int
 
-memberSavingsId:
+memberSavingId:
   optional: true
   order: 1
-  referenceTable: memberSavings
+  referenceTable: memberSaving
   type: int
 
 idNumber:

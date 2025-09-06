@@ -1,15 +1,24 @@
 {
   "account": {
-    "arrayChildren": ["accountJournal", "accountStatement"]
+    "arrayChildren": [
+      "accountJournal",
+      "accountStatement"
+    ]
   },
   "accountTransaction": {
-    "arrayChildren": ["accountJournal"]
+    "arrayChildren": [
+      "accountJournal"
+    ]
   },
   "insuranceProvider": {
-    "arrayChildren": ["memberLoanInsurance"]
+    "arrayChildren": [
+      "memberLoanInsurance"
+    ]
   },
   "loanType": {
-    "singleChildren": ["loanRate"]
+    "singleChildren": [
+      "loanRate"
+    ]
   },
   "member": {
     "arrayChildren": [
@@ -20,7 +29,9 @@
       "memberShares",
       "notification"
     ],
-    "singleChildren": ["memberContact"]
+    "singleChildren": [
+      "memberContact"
+    ]
   },
   "memberBusiness": {
     "singleChildren": [
@@ -30,7 +41,9 @@
     ]
   },
   "memberIdsCache": {
-    "singleChildren": ["member"]
+    "singleChildren": [
+      "member"
+    ]
   },
   "memberLoan": {
     "arrayChildren": [
@@ -50,10 +63,14 @@
     ]
   },
   "memberLoanPaymentSchedule": {
-    "arrayChildren": ["memberLoanReceipt"]
+    "arrayChildren": [
+      "memberLoanReceipt"
+    ]
   },
   "memberOccupation": {
-    "singleChildren": ["memberOccupationVerification"]
+    "singleChildren": [
+      "memberOccupationVerification"
+    ]
   },
   "memberSaving": {
     "arrayChildren": [
@@ -66,15 +83,21 @@
     ]
   },
   "memberSavingsIdsCache": {
-    "singleChildren": ["memberSavings"]
+    "singleChildren": [
+      "memberSaving"
+    ]
   },
   "memberSharesIdsCache": {
-    "singleChildren": ["memberShares"]
-  },
-  "savings": {
-    "arrayChildren": ["savingsRate"]
+    "singleChildren": [
+      "memberShares"
+    ]
   },
   "savingsType": {
-    "arrayChildren": ["memberSaving"]
-  }
+    "arrayChildren": [
+      "memberSaving",
+      "savingsRate"
+    ]
+  },
+  "user": {},
+  "userRole": {}
 }
