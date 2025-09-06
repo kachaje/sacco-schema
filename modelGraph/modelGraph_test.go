@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	modelgraph "sacco/modelGraph"
+	"sacco/utils"
 	"testing"
 )
 
@@ -46,4 +47,7 @@ func TestCreateGraph(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	if !utils.MapsEqual(target, result) {
+		t.Fatal("Test failed")
+	}
 }

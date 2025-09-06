@@ -5,6 +5,7 @@ id:
   type: int
 
 memberId:
+  many: true
   order: 1
   referenceTable: member
   type: int
