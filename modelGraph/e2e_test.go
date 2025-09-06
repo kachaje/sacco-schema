@@ -161,10 +161,6 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
-	payload, _ := json.MarshalIndent(records, "", "  ")
-
-	os.WriteFile(filepath.Join(".", "fixtures", "records.json"), payload, 0644)
-
 	targetRecords := map[string]any{}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "records.json"))
