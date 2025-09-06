@@ -7,3 +7,5 @@ dio2json
 tmp/
 convert
 group*.json
+cli
+svr

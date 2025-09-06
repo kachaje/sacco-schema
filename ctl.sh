@@ -6,6 +6,10 @@ if [[ "$1" == "-b" ]]; then
 
   go build -o convert ./cmd/gen/*.go
 
+  go build -o cli cmd/wscli/*.go
+
+  go build -o svr cmd/server/*.go
+
 elif [[ "$1" == "-g" ]]; then
 
   ./convert -f designs/sacco.drawio
@@ -16,6 +20,6 @@ elif [[ "$1" == "-g" ]]; then
 
 elif [[ "$1" == "-c" ]]; then
 
-  rm -rf *.db* **/*.db*
+  rm -rf *.db* **/*.db* settings/ **/**/settings/ **/**/data/ **/**/*.db* **/tmp*/ *.out
 
 fi

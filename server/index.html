@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/png; base64; " />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaso SACCO</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #main {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      #content {
+        display: inline-block;
+        padding: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        color: #303591;
+        text-shadow: 2px 2px #ccc;
+      }
+      .messages {
+        font-size: x-large;
+        line-height: 1.5;
+      }
+      #messageInput {
+        width: calc(100% - 85px);
+        padding: 8px;
+        float: left;
+        font-size: large;
+      }
+      #sendButton {
+        width: 60px;
+        padding: 8px;
+        float: right;
+        font-size: large;
+      }
+      #wrapper {
+        display: flex;
+        overflow: auto;
+        height: calc(60vh);
+        min-width: calc(40vw);
+        flex-direction: column;
+        justify-content: start;
+        margin-bottom: 5px;
+        padding: 8px 20px;
+        border-radius: 8px;
+        border: 1px solid #303591;
+        box-shadow: 2px 2px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="content">
+        <h1>Kaso SACCO</h1>
+        <div id="wrapper">
+          <pre id="messages" class="messages"></pre>
+        </div>
+        <input type="text" id="messageInput" />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+
+    <script>
+      const messageInput = document.getElementById("messageInput");
+      const sendButton = document.getElementById("sendButton");
+      const messagesDiv = document.getElementById("messages");
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+        /[xy]/g,
+        function (c) {
+          const r = (Math.random() * 16) | 0;
+          const v = c === "x" ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        },
+      );
+
+      let phoneNumber = "";
+      let serviceCode = "";
+
+      if (urlParams.get("phoneNumber")) {
+        phoneNumber = urlParams.get("phoneNumber");
+      }
+
+      if (urlParams.get("serviceCode")) {
+        serviceCode = urlParams.get("serviceCode");
+      }
+
+      function handleKeydown(e) {
+        if (e.key == "Enter") {
+          sendButton.click();
+        }
+      }
+
+      messageInput.addEventListener("keydown", handleKeydown);
+
+      const socket = new WebSocket(
+        `ws://localhost:8080/ws?sessionId=${sessionId}&phoneNumber=${phoneNumber}&serviceCode=${serviceCode}`,
+      );
+
+      socket.onopen = function (event) {
+        console.log("WebSocket connection established.");
+        messagesDiv.innerHTML = "<p>Connected to server.</p>";
+      };
+
+      socket.onmessage = function (event) {
+        const message = event.data;
+        console.log("Received message:", message);
+        messagesDiv.innerHTML = `<p>${message}</p>`;
+      };
+
+      socket.onerror = function (event) {
+        console.error("WebSocket error:", event);
+        messagesDiv.innerHTML = `<p style="color: red;">Error: ${event.message}</p>`;
+      };
+
+      socket.onclose = function (event) {
+        console.log("WebSocket connection closed.");
+      };
+
+      sendButton.onclick = function () {
+        const message = messageInput.value;
+        if (message) {
+          socket.send(message);
+          messagesDiv.innerHTML = `<p>Client: ${message}</p>`;
+          messageInput.value = "";
+        } else {
+          window.location.reload();
+        }
+      };
+    </script>
+  </body>
+</html>
