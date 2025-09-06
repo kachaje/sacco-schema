@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sacco/utils"
 	"slices"
 	"sort"
 	"strconv"
@@ -61,6 +62,16 @@ func Main(folder *string) error {
 	}
 
 	err = os.WriteFile(filepath.Join(workingFolder, "models.json"), payload, 0644)
+	if err != nil {
+		return err
+	}
+
+	yamlData, err := utils.DumpYaml(modelsWorkflowData)
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(filepath.Join(workingFolder, "models.yml"), []byte(*yamlData), 0644)
 	if err != nil {
 		return err
 	}
