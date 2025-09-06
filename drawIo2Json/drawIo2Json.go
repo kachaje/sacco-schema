@@ -39,7 +39,7 @@ type MxGraphModel struct {
 	Root DiagramRoot `xml:"root"`
 }
 
-func Main(filename, targetFolder string) error {
+func Main(filename, configsFolder, targetFolder string) error {
 	data, err := D2J(filename)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func Main(filename, targetFolder string) error {
 		return err
 	}
 
-	err = os.WriteFile(filepath.Join(targetFolder, "rawData.json"), payload, 0644)
+	err = os.WriteFile(filepath.Join(configsFolder, "rawData.json"), payload, 0644)
 	if err != nil {
 		return err
 	}
@@ -65,7 +65,7 @@ func Main(filename, targetFolder string) error {
 		return err
 	}
 
-	err = os.WriteFile(filepath.Join(targetFolder, "modelsData.json"), payload, 0644)
+	err = os.WriteFile(filepath.Join(configsFolder, "modelsData.json"), payload, 0644)
 	if err != nil {
 		return err
 	}

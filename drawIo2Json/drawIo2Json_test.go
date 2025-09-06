@@ -186,7 +186,7 @@ func TestDefault(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = drawio2json.Main(filepath.Join("..", "designs", "sacco.drawio"), folder)
+	err = drawio2json.Main(filepath.Join("..", "designs", "sacco.drawio"), folder, folder)
 	if err != nil {
 		t.Fatal(err)
 	}

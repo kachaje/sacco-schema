@@ -10,10 +10,11 @@ import (
 )
 
 func main() {
-	var filename, targetFolder, schemaFilename string
+	var filename, targetFolder, configsFolder, schemaFilename string
 
 	flag.StringVar(&filename, "f", filename, "draw.io file to process")
 	flag.StringVar(&targetFolder, "t", targetFolder, "target destination folder")
+	flag.StringVar(&configsFolder, "c", configsFolder, "configs destination folder")
 	flag.StringVar(&schemaFilename, "s", schemaFilename, "schema filename")
 
 	flag.Parse()
@@ -27,11 +28,15 @@ func main() {
 		schemaFilename = filepath.Join(".", "schema", "schema.sql")
 	}
 
+	if configsFolder == "" {
+		configsFolder = filepath.Join(".", "schema", "configs")
+	}
+
 	if targetFolder == "" {
 		targetFolder = filepath.Join(".", "schema", "models")
 	}
 
-	err := drawio2json.Main(filename, targetFolder)
+	err := drawio2json.Main(filename, configsFolder, targetFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -41,7 +46,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = modelgraph.Main(&targetFolder)
+	err = modelgraph.Main(&configsFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
