@@ -59,9 +59,8 @@ dateOfBirth:
   type: text
   validationRule: \^d{4}-\d{2}-\d{2}$
 
-nationalId:
+nationalIdentifier:
   order: 10
-  referenceTable: national
   type: text
 
 utilityBillType:

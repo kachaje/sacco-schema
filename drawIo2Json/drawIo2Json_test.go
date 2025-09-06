@@ -3,6 +3,7 @@ package drawio2json_test
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -96,7 +97,7 @@ func TestD2J(t *testing.T) {
 func TestExtractJsonModels(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "data.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "rawData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -113,7 +114,7 @@ func TestExtractJsonModels(t *testing.T) {
 
 	target := map[string]any{}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	content, err = os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -133,7 +134,7 @@ func TestCreateYmlFiles(t *testing.T) {
 
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -163,7 +164,29 @@ func TestCreateYmlFiles(t *testing.T) {
 func TestDefault(t *testing.T) {
 	folder := filepath.Join(".", "tmpMain")
 
-	err := drawio2json.Main(filepath.Join(".", "fixtures", "sacco.drawio"), folder)
+	err := os.MkdirAll(folder, 0755)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	srcFile, err := os.Open(filepath.Join("..", "schema", "models", "rawData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer srcFile.Close()
+
+	dstFile, err := os.Create(filepath.Join(folder, "rawData.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = drawio2json.Main(filepath.Join("..", "designs", "sacco.drawio"), folder)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -176,7 +199,7 @@ func TestDefault(t *testing.T) {
 
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

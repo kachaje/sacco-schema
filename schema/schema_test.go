@@ -44,7 +44,7 @@ func TestSchema(t *testing.T) {
 		title,
 		maritalStatus,
 		dateOfBirth,
-		nationalId,
+		nationalIdentifier,
 		utilityBillType,
 		utilityBillNumber
 	) 

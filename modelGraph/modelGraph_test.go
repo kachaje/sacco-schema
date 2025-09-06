@@ -12,7 +12,7 @@ import (
 func TestCreateGraph(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "..", "drawIo2Json", "fixtures", "modelsData.json"))
+	content, err := os.ReadFile(filepath.Join("..", "schema", "models", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

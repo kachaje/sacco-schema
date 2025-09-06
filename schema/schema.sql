@@ -189,14 +189,13 @@ CREATE TABLE IF NOT EXISTS member (
         maritalStatus IN ('Married', 'Single', 'Widowed', 'Divorced')
     ),
     dateOfBirth TEXT NOT NULL,
-    nationalId TEXT NOT NULL,
+    nationalIdentifier TEXT NOT NULL,
     utilityBillType TEXT NOT NULL CHECK (utilityBillType IN ('ESCOM', 'Water Board')),
     utilityBillNumber TEXT NOT NULL,
     dateJoined TEXT DEFAULT CURRENT_TIMESTAMP,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (nationalId) REFERENCES national (id) ON DELETE CASCADE
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER IF NOT EXISTS memberUpdated AFTER
