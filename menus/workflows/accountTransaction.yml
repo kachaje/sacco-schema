@@ -1,0 +1,30 @@
+cacheQueries:
+    date: accountTransaction.date
+    description: accountTransaction.description
+    id: accountTransaction.id
+enterDate:
+    cacheQuery: accountTransaction.date
+    inputIdentifier: date
+    nextScreen: enterDescription
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
+enterDescription:
+    cacheQuery: accountTransaction.description
+    inputIdentifier: description
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Description
+    type: inputScreen
+enterId:
+    cacheQuery: accountTransaction.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+formSummary:
+    type: quitScreen
+initialScreen: enterDate
+model: accountTransaction

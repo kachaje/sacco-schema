@@ -1,0 +1,47 @@
+cacheQueries:
+    id: user.id
+    name: user.name
+    password: user.password
+    userRole: user.userRole
+    username: user.username
+enterId:
+    cacheQuery: user.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterName:
+    cacheQuery: user.name
+    inputIdentifier: name
+    nextScreen: enterUserRole
+    order: 3
+    text:
+        en: Name
+    type: inputScreen
+enterPassword:
+    cacheQuery: user.password
+    inputIdentifier: password
+    nextScreen: enterName
+    order: 2
+    text:
+        en: Password
+    type: inputScreen
+enterUserRole:
+    cacheQuery: user.userRole
+    inputIdentifier: userRole
+    nextScreen: formSummary
+    order: 4
+    text:
+        en: User Role
+    type: inputScreen
+enterUsername:
+    cacheQuery: user.username
+    inputIdentifier: username
+    nextScreen: enterPassword
+    order: 1
+    text:
+        en: Username
+    type: inputScreen
+formSummary:
+    type: quitScreen
+initialScreen: enterUsername
+model: user

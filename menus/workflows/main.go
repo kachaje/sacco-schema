@@ -51,8 +51,8 @@ func buildFuncs() {
 	content := fmt.Sprintf(`package menufuncs
 
 import (
-	"sacco/server/database"
-	"sacco/server/parser"
+	"sacco/database"
+	"sacco/parser"
 )
 
 var (

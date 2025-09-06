@@ -1,0 +1,37 @@
+cacheQueries:
+    amount: dividends.amount
+    date: dividends.date
+    id: dividends.id
+    memberId: dividends.memberId
+enterAmount:
+    cacheQuery: dividends.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterDate:
+    cacheQuery: dividends.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
+enterId:
+    cacheQuery: dividends.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterMemberId:
+    cacheQuery: dividends.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
+formSummary:
+    type: quitScreen
+initialScreen: enterDate
+model: dividends

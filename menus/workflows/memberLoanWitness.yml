@@ -1,0 +1,54 @@
+cacheQueries:
+    address: memberLoanWitness.address
+    date: memberLoanWitness.date
+    id: memberLoanWitness.id
+    memberLoanId: memberLoanWitness.memberLoanId
+    telephone: memberLoanWitness.telephone
+    witnessName: memberLoanWitness.witnessName
+enterAddress:
+    cacheQuery: memberLoanWitness.address
+    inputIdentifier: address
+    nextScreen: enterDate
+    order: 3
+    text:
+        en: Address
+    type: inputScreen
+enterDate:
+    cacheQuery: memberLoanWitness.date
+    inputIdentifier: date
+    nextScreen: formSummary
+    optional: true
+    order: 4
+    text:
+        en: Date
+    type: inputScreen
+enterId:
+    cacheQuery: memberLoanWitness.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterMemberLoanId:
+    cacheQuery: memberLoanWitness.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
+enterTelephone:
+    cacheQuery: memberLoanWitness.telephone
+    inputIdentifier: telephone
+    nextScreen: enterAddress
+    order: 2
+    text:
+        en: Telephone
+    type: inputScreen
+enterWitnessName:
+    cacheQuery: memberLoanWitness.witnessName
+    inputIdentifier: witnessName
+    nextScreen: enterTelephone
+    order: 1
+    text:
+        en: Witness Name
+    type: inputScreen
+formSummary:
+    type: quitScreen
+initialScreen: enterWitnessName
+model: memberLoanWitness

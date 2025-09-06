@@ -1,0 +1,46 @@
+cacheQueries:
+    amount: memberSavingDeposit.amount
+    date: memberSavingDeposit.date
+    description: memberSavingDeposit.description
+    id: memberSavingDeposit.id
+    memberSavingId: memberSavingDeposit.memberSavingId
+enterAmount:
+    cacheQuery: memberSavingDeposit.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 3
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterDate:
+    cacheQuery: memberSavingDeposit.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 2
+    text:
+        en: Date
+    type: inputScreen
+enterDescription:
+    cacheQuery: memberSavingDeposit.description
+    inputIdentifier: description
+    nextScreen: enterDate
+    order: 1
+    text:
+        en: Description
+    type: inputScreen
+enterId:
+    cacheQuery: memberSavingDeposit.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterMemberSavingId:
+    cacheQuery: memberSavingDeposit.memberSavingId
+    hidden: true
+    inputIdentifier: memberSavingId
+    type: hiddenField
+formSummary:
+    type: quitScreen
+initialScreen: enterDescription
+model: memberSavingDeposit

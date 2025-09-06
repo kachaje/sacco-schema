@@ -1,0 +1,93 @@
+cacheQueries:
+    address: memberDependant.address
+    id: memberDependant.id
+    isNominee: memberDependant.isNominee
+    memberId: memberDependant.memberId
+    name: memberDependant.name
+    percentage: memberDependant.percentage
+    phoneNumber: memberDependant.phoneNumber
+    relationship: memberDependant.relationship
+enterAddress:
+    cacheQuery: memberDependant.address
+    inputIdentifier: address
+    nextScreen: enterPercentage
+    order: 3
+    text:
+        en: Address
+    type: inputScreen
+enterId:
+    cacheQuery: memberDependant.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterIsNominee:
+    cacheQuery: memberDependant.isNominee
+    inputIdentifier: isNominee
+    nextScreen: enterRelationship
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 5
+    text:
+        en: Is Nominee
+    type: inputScreen
+enterMemberId:
+    cacheQuery: memberDependant.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
+enterName:
+    cacheQuery: memberDependant.name
+    inputIdentifier: name
+    nextScreen: enterPhoneNumber
+    order: 1
+    text:
+        en: Name
+    type: inputScreen
+enterPercentage:
+    cacheQuery: memberDependant.percentage
+    inputIdentifier: percentage
+    nextScreen: enterIsNominee
+    order: 4
+    text:
+        en: Percentage
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterPhoneNumber:
+    cacheQuery: memberDependant.phoneNumber
+    inputIdentifier: phoneNumber
+    nextScreen: enterAddress
+    order: 2
+    text:
+        en: Phone Number
+    type: inputScreen
+enterRelationship:
+    cacheQuery: memberDependant.relationship
+    inputIdentifier: relationship
+    nextScreen: formSummary
+    options:
+        - label:
+            en: Spouse
+          position: 1
+        - label:
+            en: Child
+          position: 2
+        - label:
+            en: Sibling
+          position: 3
+        - label:
+            en: Other
+          position: 4
+    order: 6
+    text:
+        en: Relationship
+    type: inputScreen
+formSummary:
+    type: quitScreen
+initialScreen: enterName
+model: memberDependant

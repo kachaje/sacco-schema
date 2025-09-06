@@ -1,0 +1,45 @@
+cacheQueries:
+    description: memberLoanSecurity.description
+    id: memberLoanSecurity.id
+    memberLoanId: memberLoanSecurity.memberLoanId
+    serialNumber: memberLoanSecurity.serialNumber
+    value: memberLoanSecurity.value
+enterDescription:
+    cacheQuery: memberLoanSecurity.description
+    inputIdentifier: description
+    nextScreen: enterValue
+    order: 1
+    text:
+        en: Description
+    type: inputScreen
+enterId:
+    cacheQuery: memberLoanSecurity.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
+enterMemberLoanId:
+    cacheQuery: memberLoanSecurity.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
+enterSerialNumber:
+    cacheQuery: memberLoanSecurity.serialNumber
+    inputIdentifier: serialNumber
+    nextScreen: formSummary
+    order: 3
+    text:
+        en: Serial Number
+    type: inputScreen
+enterValue:
+    cacheQuery: memberLoanSecurity.value
+    inputIdentifier: value
+    nextScreen: enterSerialNumber
+    order: 2
+    text:
+        en: Value
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+formSummary:
+    type: quitScreen
+initialScreen: enterDescription
+model: memberLoanSecurity
