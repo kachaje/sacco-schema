@@ -70,23 +70,28 @@
   "B. OCCUPATION DETAILS": {
     "employerAddress": {
       "label": "Employer Address",
-      "order": 4
+      "order": 4,
+      "value": "Kanengo"
     },
     "employerName": {
       "label": "Name of Employer",
-      "order": 1
+      "order": 1,
+      "value": "SOBO"
     },
     "highestQualification": {
       "label": "Highest Qualification",
-      "order": 5
+      "order": 5,
+      "value": "Secondary"
     },
     "jobTitle": {
       "label": "Job Title",
-      "order": 3
+      "order": 3,
+      "value": "Driver"
     },
     "netPay": {
       "label": "Net Pay",
-      "order": 2
+      "order": 2,
+      "value": 90000
     }
   },
   "C. CONTACT DETAILS": {

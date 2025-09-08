@@ -169,6 +169,8 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 
 							if vf["cachQuery"] != nil {
 								if query, ok := vf["cachQuery"].(string); ok {
+									query = ResolveNestedQuery(data, query)
+
 									if value, ok := data[query]; ok {
 										result[key].(map[string]any)[field].(map[string]any)["value"] = value
 									}
