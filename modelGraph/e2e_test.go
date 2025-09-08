@@ -19,7 +19,7 @@ func TestSchemaE2E(t *testing.T) {
 	graphData := map[string]any{}
 	modelsData := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "schema", "configs", "graph.json"))
+	content, err := os.ReadFile(filepath.Join("..", "database", "schema", "configs", "graph.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -29,7 +29,7 @@ func TestSchemaE2E(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "schema", "configs", "modelsData.json"))
+	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "configs", "modelsData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -51,9 +51,9 @@ func TestSchemaE2E(t *testing.T) {
 	}
 
 	for _, filename := range []string{
-		filepath.Join("..", "schema", "schema.sql"),
-		filepath.Join("..", "schema", "seed.sql"),
-		filepath.Join("..", "schema", "triggers.sql"),
+		filepath.Join("..", "database", "schema", "schema.sql"),
+		filepath.Join("..", "database", "schema", "seed.sql"),
+		filepath.Join("..", "database", "schema", "triggers.sql"),
 	} {
 		content, err = os.ReadFile(filename)
 		if err != nil {

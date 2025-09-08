@@ -102,9 +102,9 @@ func (d *Database) Close() {
 func (d *Database) initDb() error {
 
 	for _, filename := range []string{
-		filepath.Join("..", "schema", "schema.sql"),
-		filepath.Join("..", "schema", "seed.sql"),
-		filepath.Join("..", "schema", "triggers.sql"),
+		filepath.Join(".", "schema", "schema.sql"),
+		filepath.Join(".", "schema", "seed.sql"),
+		filepath.Join(".", "schema", "triggers.sql"),
 	} {
 		content, err := os.ReadFile(filename)
 		if err != nil {
