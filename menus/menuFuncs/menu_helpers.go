@@ -9,6 +9,7 @@ import (
 	"regexp"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 func CheckPreferredLanguage(phoneNumber, preferencesFolder string) *string {
@@ -267,7 +268,7 @@ func LoadLoanApplicationForm(data map[string]any, template map[string]any) map[s
 									if formula, ok := value["formula"].(string); ok {
 										fmt.Println("######## TODO:", formula, val)
 									}
-								} else {
+								} else if len(strings.TrimSpace(fmt.Sprintf("%v", val))) > 0 {
 									parentMap[key].(map[string]any)[field].(map[string]any)["value"] = val
 								}
 							}

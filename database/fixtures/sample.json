@@ -7,7 +7,6 @@
     "lastName": "Banda",
     "maritalStatus": "Single",
     "memberContact": {
-      "email": null,
       "homeDistrict": "Lilongwe",
       "homeTraditionalAuthority": "Kabudula",
       "homeVillage": "Thumba",
@@ -16,7 +15,7 @@
       "postalAddress": "P.O. Box 3200, Blantyre",
       "residentialAddress": "Chilomoni, Blantrye"
     },
-    "memberIdNumber": "KSM777764",
+    "memberIdNumber": "KSM844347",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -25,7 +24,7 @@
         "interestRate": 0,
         "loanAmount": 200000,
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN049107",
+        "loanNumber": "KLN189753",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "PERSONAL",
@@ -75,7 +74,6 @@
           "approvedBy": "me",
           "dateOfApproval": "2025-08-30",
           "dateVerified": "2025-08-30",
-          "denialOrPartialReason": null,
           "id": 1,
           "loanStatus": "APPROVED",
           "memberLoanId": 1,
@@ -100,7 +98,6 @@
           "netPay": 90000,
           "periodEmployedInMonths": 36
         },
-        "memberSavingId": null,
         "monthlyInstalments": 0,
         "repaymentPeriodInMonths": 12
       }

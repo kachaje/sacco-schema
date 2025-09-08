@@ -11,7 +11,7 @@ import (
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -32,16 +32,20 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 			"key":   "member.memberContact.id",
 			"value": "1",
 		},
-		"memberDependantId": map[string]any{
-			"key":   "member.memberDependant.id",
-			"value": "1",
-		},
 		"memberId": map[string]any{
 			"key":   "member.id",
 			"value": "1",
 		},
+		"memberLastYearBusinessHistoryId": map[string]any{
+			"key":   "member.memberLoan.1.memberBusiness.memberLastYearBusinessHistory.id",
+			"value": "1",
+		},
 		"memberLoanApprovalId": map[string]any{
 			"key":   "member.memberLoan.1.memberLoanApproval.id",
+			"value": "1",
+		},
+		"memberNextYearBusinessProjectionId": map[string]any{
+			"key":   "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
 			"value": "1",
 		},
 		"memberOccupationId": map[string]any{
@@ -60,7 +64,7 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 }
 
 func TestFlattenMapAllData(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
