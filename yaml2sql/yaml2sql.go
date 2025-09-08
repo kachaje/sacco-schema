@@ -11,8 +11,8 @@ import (
 )
 
 func Main(folder, targetFile *string) error {
-	workingFolder := filepath.Join(".", "schema", "models")
-	schemaFilename := filepath.Join(".", "schema", "schema.sql")
+	workingFolder := filepath.Join(".", "database", "schema", "models")
+	schemaFilename := filepath.Join(".", "database", "schema", "schema.sql")
 
 	if folder != nil {
 		workingFolder = *folder

@@ -14,7 +14,7 @@ import (
 )
 
 func Main(folder *string) error {
-	workingFolder := filepath.Join(".", "schema", "models")
+	workingFolder := filepath.Join(".", "database", "schema", "models")
 
 	if folder != nil {
 		workingFolder = *folder
