@@ -60,8 +60,6 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 }
 
 func TestFlattenMapAllData(t *testing.T) {
-	t.Skip()
-
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -74,14 +72,14 @@ func TestFlattenMapAllData(t *testing.T) {
 
 	result := utils.FlattenMap(data, false)
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.flatmap.json"))
+	target, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	payload, _ := json.MarshalIndent(result, "", "  ")
 
-	if utils.CleanScript(payload) != utils.CleanScript(content) {
+	if utils.CleanScript(payload) != utils.CleanScript(target) {
 		t.Fatal("Test failed")
 	}
 }
