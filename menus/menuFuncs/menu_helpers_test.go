@@ -119,7 +119,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	templateData := map[string]any{}
 	targetData := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
