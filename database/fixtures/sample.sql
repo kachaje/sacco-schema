@@ -222,3 +222,51 @@ INSERT INTO
   )
 VALUES
   (1, "Yes", "Yes", "Yes");
+
+INSERT INTO
+  memberDependant (
+    memberId,
+    name,
+    phoneNumber,
+    address,
+    percentage,
+    isNominee,
+    relationship
+  )
+VALUES
+  (
+    1,
+    "Benefator 1",
+    "0888888888",
+    "P.O. Box 1",
+    10,
+    "Yes",
+    "Spouse"
+  ),
+  (
+    1,
+    "Benefator 2",
+    "0888888887",
+    "P.O. Box 2",
+    8,
+    "No",
+    "Child"
+  ),
+  (
+    1,
+    "Benefator 3",
+    "0888888886",
+    "P.O. Box 3",
+    5,
+    "No",
+    "Sibling"
+  ),
+  (
+    1,
+    "Benefator 4",
+    "0888888885",
+    "P.O. Box 4",
+    2,
+    "No",
+    "Other"
+  );

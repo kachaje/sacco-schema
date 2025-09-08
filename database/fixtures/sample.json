@@ -15,7 +15,49 @@
       "postalAddress": "P.O. Box 3200, Blantyre",
       "residentialAddress": "Chilomoni, Blantrye"
     },
-    "memberIdNumber": "KSM844347",
+    "memberDependant": {
+      "1": {
+        "address": "P.O. Box 1",
+        "id": 1,
+        "isNominee": "Yes",
+        "memberId": 1,
+        "name": "Benefator 1",
+        "percentage": 10,
+        "phoneNumber": "0888888888",
+        "relationship": "Spouse"
+      },
+      "2": {
+        "address": "P.O. Box 2",
+        "id": 2,
+        "isNominee": "No",
+        "memberId": 1,
+        "name": "Benefator 2",
+        "percentage": 8,
+        "phoneNumber": "0888888887",
+        "relationship": "Child"
+      },
+      "3": {
+        "address": "P.O. Box 3",
+        "id": 3,
+        "isNominee": "No",
+        "memberId": 1,
+        "name": "Benefator 3",
+        "percentage": 5,
+        "phoneNumber": "0888888886",
+        "relationship": "Sibling"
+      },
+      "4": {
+        "address": "P.O. Box 4",
+        "id": 4,
+        "isNominee": "No",
+        "memberId": 1,
+        "name": "Benefator 4",
+        "percentage": 2,
+        "phoneNumber": "0888888885",
+        "relationship": "Other"
+      }
+    },
+    "memberIdNumber": "KSM251848",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -24,7 +66,7 @@
         "interestRate": 0,
         "loanAmount": 200000,
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN189753",
+        "loanNumber": "KLN686592",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "PERSONAL",
@@ -101,6 +143,16 @@
         "monthlyInstalments": 0,
         "repaymentPeriodInMonths": 12
       }
+    },
+    "memberNominee": {
+      "address": "P.O. Box 1",
+      "id": 1,
+      "isNominee": "Yes",
+      "memberId": 1,
+      "name": "Benefator 1",
+      "percentage": 10,
+      "phoneNumber": "0888888888",
+      "relationship": "Spouse"
     },
     "nationalIdentifier": "DHFYR8475",
     "phoneNumber": "09999999999",

@@ -121,6 +121,19 @@ func (d *Database) LoadModelChildren(model string, id int64) (map[string]any, er
 
 	maps.Copy(data, singleChidren)
 
+	if data["memberDependant"] != nil {
+		if val, ok := data["memberDependant"].(map[string]any); ok {
+			for _, value := range val {
+				if child, ok := value.(map[string]any); ok {
+					if child["isNominee"] != nil && fmt.Sprintf("%v", child["isNominee"]) == "Yes" {
+						data["memberNominee"] = child
+						break
+					}
+				}
+			}
+		}
+	}
+
 	return data, nil
 }
 
