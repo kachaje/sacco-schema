@@ -212,57 +212,57 @@
             "totalIncome": {
               "order": 1,
               "label": "Total Sales/Income",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalIncome"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalIncome"
             },
             "totalCostOfGoods": {
               "order": 2,
               "label": "Total Cost of Goods",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalCostOfGoods"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalCostOfGoods"
             },
             "employeeWages": {
               "order": 3,
               "label": "Employees Wages",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.employeeWages"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.employeeWages"
             },
             "ownSalary": {
               "order": 4,
               "label": "Own Salary",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.ownSalary"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.ownSalary"
             },
             "transport": {
               "order": 5,
               "label": "Transport",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.transport"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.transport"
             },
             "loanInterest": {
               "order": 6,
               "label": "Loan Interest",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.loanInterest"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.loanInterest"
             },
             "utilities": {
               "order": 7,
               "label": "Electricity/Water",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.utilities"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.utilities"
             },
             "rentals": {
               "order": 8,
               "label": "Rentals",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.rentals"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.rentals"
             },
             "otherCosts": {
               "order": 9,
               "label": "Other Costs",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.otherCosts"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.otherCosts"
             },
             "totalCosts": {
               "order": 10,
               "label": "Total Costs",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.totalCosts"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalCosts"
             },
             "netProfitLoss": {
               "order": 11,
               "label": "Net Profit",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.netProfitLoss"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.netProfitLoss"
             }
           }
         },
@@ -271,57 +271,57 @@
             "totalIncome": {
               "order": 1,
               "label": "Total Sales/Income",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalIncome"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalIncome"
             },
             "totalCostOfGoods": {
               "order": 2,
               "label": "Total Cost of Gooods",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalCostOfGoods"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods"
             },
             "employeeWages": {
               "order": 3,
               "label": "Employees Wages",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.employeeWages"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.employeeWages"
             },
             "ownSalary": {
               "order": 4,
               "label": "Own Salary",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.ownSalary"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.ownSalary"
             },
             "transport": {
               "order": 5,
               "label": "Transport",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.transport"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.transport"
             },
             "loanInterest": {
               "order": 6,
               "label": "Loan Interest",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.loanInterest"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.loanInterest"
             },
             "utilities": {
               "order": 7,
               "label": "Electricity/Water",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.utilities"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.utilities"
             },
             "rentals": {
               "order": 8,
               "label": "Rentals",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.rentals"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.rentals"
             },
             "otherCosts": {
               "order": 9,
               "label": "Other Costs",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.otherCosts"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.otherCosts"
             },
             "totalCosts": {
               "order": 10,
               "label": "Total Costs",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.totalCosts"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCosts"
             },
             "netProfitLoss": {
               "order": 11,
               "label": "Net Profit",
-              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.netProfitLoss"
+              "cachQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.netProfitLoss"
             }
           }
         }

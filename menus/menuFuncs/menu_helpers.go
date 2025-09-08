@@ -316,6 +316,8 @@ func LoadLoanApplicationForm(data map[string]any, template map[string]any) map[s
 
 					if value["cachQuery"] != nil {
 						if query, ok := value["cachQuery"].(string); ok {
+							query = ResolveNestedQuery(data, query)
+
 							if val, ok := data[query]; ok {
 								if value["formula"] != nil {
 									if formula, ok := value["formula"].(string); ok {

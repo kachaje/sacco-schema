@@ -2,7 +2,6 @@ package menufuncs_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -127,8 +126,6 @@ func TestTabulateData(t *testing.T) {
 }
 
 func TestLoadLoanApplicationForm(t *testing.T) {
-	t.Skip()
-
 	data := map[string]any{}
 	templateData := map[string]any{}
 	targetData := map[string]any{}
@@ -154,10 +151,6 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	}
 
 	result := menufuncs.LoadLoanApplicationForm(data, templateData)
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	fmt.Println(string(payload))
 
 	content, err = os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
