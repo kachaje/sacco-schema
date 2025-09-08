@@ -2,12 +2,13 @@
   "1. OFFICIAL DETAILS": {
     "dateJoined": {
       "label": "Date Joined",
-      "order": 1
+      "order": 1,
+      "value": "2025-09-08 13:34:07"
     },
     "memberIdNumber": {
       "label": "Full File Number",
       "order": 2,
-      "value": "KSM251848"
+      "value": "KSM161252"
     }
   },
   "A. PERSONAL INFORMATION": {
