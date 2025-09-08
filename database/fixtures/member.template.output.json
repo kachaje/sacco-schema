@@ -1,4 +1,15 @@
 {
+  "1. OFFICIAL DETAILS": {
+    "dateJoined": {
+      "label": "Date Joined",
+      "order": 1
+    },
+    "memberIdNumber": {
+      "label": "Full File Number",
+      "order": 2,
+      "value": "KSM251848"
+    }
+  },
   "A. PERSONAL INFORMATION": {
     "dateOfBirth": {
       "label": "Date of Birth",
@@ -25,7 +36,7 @@
       "order": 7,
       "value": "Single"
     },
-    "nationalId": {
+    "nationalIdentifier": {
       "label": "National ID",
       "order": 9,
       "value": "DHFYR8475"
@@ -58,28 +69,23 @@
   "B. OCCUPATION DETAILS": {
     "employerAddress": {
       "label": "Employer Address",
-      "order": 4,
-      "value": "Kanengo, Lilongwe"
+      "order": 4
     },
     "employerName": {
       "label": "Name of Employer",
-      "order": 1,
-      "value": "Sunseed Oil"
+      "order": 1
     },
     "highestQualification": {
       "label": "Highest Qualification",
-      "order": 5,
-      "value": "Secondary"
+      "order": 5
     },
     "jobTitle": {
       "label": "Job Title",
-      "order": 3,
-      "value": "Driver"
+      "order": 3
     },
     "netPay": {
       "label": "Net Pay",
-      "order": 2,
-      "value": 72000
+      "order": 2
     }
   },
   "C. CONTACT DETAILS": {
@@ -90,27 +96,27 @@
     "homeDistrict": {
       "label": "District",
       "order": 7,
-      "value": "Karonga"
+      "value": "Lilongwe"
     },
     "homeTraditionalAuthority": {
       "label": "Traditional Authority",
       "order": 6,
-      "value": "Kyungu"
+      "value": "Kabudula"
     },
     "homeVillage": {
       "label": "Village",
       "order": 5,
-      "value": "Songwe"
+      "value": "Thumba"
     },
     "postalAddress": {
       "label": "Postal Address",
       "order": 1,
-      "value": "P.O. Box 1000, Lilongwe"
+      "value": "P.O. Box 3200, Blantyre"
     },
     "residentialAddress": {
       "label": "Residential Address",
       "order": 2,
-      "value": "Area 2, Lilongwe"
+      "value": "Chilomoni, Blantrye"
     }
   },
   "D. NOMINEE (NEXT OF KIN) DETAILS": {
@@ -131,65 +137,35 @@
     }
   },
   "E. BENEFICIARIES DETAILS": {
-    "contact1": {
-      "label": "Contact",
-      "order": 1,
-      "value": "P.O. Box 1"
-    },
-    "contact2": {
-      "label": "Contact",
-      "order": 4,
-      "value": "P.O. Box 2"
-    },
-    "contact3": {
-      "label": "Contact",
-      "order": 7,
-      "value": "P.O. Box 3"
-    },
-    "contact4": {
-      "label": "Contact",
-      "order": 10,
-      "value": "P.O. Box 4"
-    },
-    "name1": {
-      "label": "Name of Beneficiary",
-      "order": 2,
-      "value": "Benefator 1"
-    },
     "name2": {
       "label": "Name of Beneficiary",
       "order": 5,
-      "value": "Benefator 2"
+      "value": "Benefator 1"
     },
     "name3": {
       "label": "Name of Beneficiary",
       "order": 8,
-      "value": "Benefator 3"
+      "value": "Benefator 2"
     },
     "name4": {
       "label": "Name of Beneficiary",
       "order": 11,
-      "value": "Benefator 4"
-    },
-    "percentage1": {
-      "label": "Percentage",
-      "order": 3,
-      "value": 10
+      "value": "Benefator 3"
     },
     "percentage2": {
       "label": "Percentage",
       "order": 6,
-      "value": 8
+      "value": 10
     },
     "percentage3": {
       "label": "Percentage",
       "order": 9,
-      "value": 5
+      "value": 8
     },
     "percentage4": {
       "label": "Percentage",
       "order": 12,
-      "value": 2
+      "value": 5
     }
   }
 }
