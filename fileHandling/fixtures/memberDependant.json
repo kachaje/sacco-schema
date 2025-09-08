@@ -1,0 +1,17 @@
+[
+  {
+    "phoneNumber": "0888777444",
+    "name": "John Phiri",
+    "percentage": 10,
+    "address": "P.O. Box 1",
+    "relationship": "Spouse",
+    "isNominee": "Yes"
+  },
+  {
+    "phoneNumber": "07746635653",
+    "name": "Jean Banda",
+    "percentage": 5,
+    "address": "P.O. Box 1",
+    "relationship": "Child"
+  }
+]

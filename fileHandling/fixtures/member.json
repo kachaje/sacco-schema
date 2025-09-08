@@ -1,0 +1,56 @@
+{
+  "member": {
+    "dateOfBirth": "1999-09-01",
+    "firstName": "Mary",
+    "gender": "Female",
+    "id": 1,
+    "lastName": "Banda",
+    "maritalStatus": "Single",
+    "memberContact": {
+      "homeDistrict": "Lilongwe",
+      "homeTraditionalAuthority": "Kalolo",
+      "homeVillage": "Kalulu",
+      "id": 1,
+      "memberId": 1,
+      "postalAddress": "P.O. Box 1",
+      "residentialAddress": "Area 49"
+    },
+    "memberDependant": {
+      "1": {
+        "address": "P.O. Box 1",
+        "id": 1,
+        "isNominee": "Yes",
+        "memberId": 1,
+        "name": "John Phiri",
+        "percentage": 10,
+        "phoneNumber": "0888777444",
+        "relationship": "Spouse"
+      },
+      "2": {
+        "address": "P.O. Box 1",
+        "id": 2,
+        "isNominee": "No",
+        "memberId": 1,
+        "name": "Jean Banda",
+        "percentage": 5,
+        "phoneNumber": "07746635653",
+        "relationship": "Child"
+      }
+    },
+    "memberNominee": {
+      "address": "P.O. Box 1",
+      "id": 1,
+      "isNominee": "Yes",
+      "memberId": 1,
+      "name": "John Phiri",
+      "percentage": 10,
+      "phoneNumber": "0888777444",
+      "relationship": "Spouse"
+    },
+    "nationalIdentifier": "DHFYR8475",
+    "phoneNumber": "0999888777",
+    "title": "Miss",
+    "utilityBillNumber": "29383746",
+    "utilityBillType": "ESCOM"
+  }
+}

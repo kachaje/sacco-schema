@@ -116,8 +116,6 @@ func TestHandleBeneficiaries(t *testing.T) {
 }
 
 func TestHandleMemberDetails(t *testing.T) {
-	t.Skip()
-
 	phoneNumber := "0999888777"
 
 	dbname := ":memory:"
@@ -158,11 +156,10 @@ func TestHandleMemberDetails(t *testing.T) {
 	}
 
 	for _, file := range []string{
-		"memberContact.158a2d54-84f4-11f0-8e0d-1e4d4999250c.json",
-		"memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
-		"memberDependant.1efda9a6-84f4-11f0-8797-1e4d4999250c.json",
+		"memberContact.json",
+		"memberDependant.json",
 	} {
-		content, err := os.ReadFile(filepath.Join(".", "fixtures", "cache", phoneNumber, file))
+		content, err := os.ReadFile(filepath.Join(".", "fixtures", file))
 		if err != nil {
 			t.Fatal(err)
 			continue
@@ -208,62 +205,21 @@ func TestHandleMemberDetails(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	target := map[string]any{
-		"member": map[string]any{
-			"dateOfBirth":   "1999-09-01",
-			"fileNumber":    "",
-			"firstName":     "Mary",
-			"gender":        "Female",
-			"id":            1,
-			"lastName":      "Banda",
-			"maritalStatus": "Single",
-			"memberDependant": map[string]any{
-				"1": map[string]any{
-					"contact":    "0888777444",
-					"id":         1,
-					"memberId":   1,
-					"name":       "John Phiri",
-					"percentage": 10,
-				},
-				"2": map[string]any{
-					"contact":    "07746635653",
-					"id":         2,
-					"memberId":   1,
-					"name":       "Jean Banda",
-					"percentage": 5,
-				},
-			},
-			"memberContact": map[string]any{
-				"email":                    any(nil),
-				"homeDistrict":             "Lilongwe",
-				"homeTraditionalAuthority": "Kalolo",
-				"homeVillage":              "Kalulu",
-				"id":                       1,
-				"memberId":                 1,
-				"postalAddress":            "P.O. Box 1",
-				"residentialAddress":       "Area 49",
-			},
-			"memberNominee": map[string]any{
-				"address":     "P.O. Box 1",
-				"id":          1,
-				"memberId":    1,
-				"name":        "John Phiri",
-				"phoneNumber": "0888444666",
-			},
-			"nationalIdentifier": "DHFYR8475",
-			"oldFileNumber":      "",
-			"otherName":          "",
-			"phoneNumber":        "0999888777",
-			"title":              "Miss",
-			"utilityBillNumber":  "29383746",
-			"utilityBillType":    "ESCOM",
-		},
+	delete(result["member"].(map[string]any), "memberIdNumber")
+
+	target := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "member.json"))
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	payloadResult, _ := json.MarshalIndent(result, "", "  ")
-	payloadTarget, _ := json.MarshalIndent(target, "", "  ")
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
 
-	if utils.CleanScript(payloadResult) != utils.CleanScript(payloadTarget) {
+	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
 	}
 }
@@ -430,9 +386,9 @@ func TestCacheDataByModel(t *testing.T) {
 	}()
 
 	for _, file := range []string{
-		"memberContact.158a2d54-84f4-11f0-8e0d-1e4d4999250c.json",
+		"memberContact.json",
 		"memberOccupation.27395048-84f4-11f0-9d0e-1e4d4999250c.json",
-		"memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+		"memberDependant.json",
 		"memberDependant.1efda9a6-84f4-11f0-8797-1e4d4999250c.json",
 	} {
 		src, err := os.Open(filepath.Join(sourceFolder, file))
@@ -473,7 +429,7 @@ func TestCacheDataByModel(t *testing.T) {
 				"name":       "John Phiri",
 				"percentage": 10.0,
 			},
-			"filename": "memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+			"filename": "memberDependant.json",
 		},
 		{
 			"data": map[string]any{
@@ -481,7 +437,7 @@ func TestCacheDataByModel(t *testing.T) {
 				"name":       "Jean Banda",
 				"percentage": 5.0,
 			},
-			"filename": "memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+			"filename": "memberDependant.json",
 		},
 	}
 
@@ -504,7 +460,7 @@ func TestCacheDataByModel(t *testing.T) {
 				"postalAddress":            "P.O. Box 1",
 				"residentialAddress":       "Area 49",
 			},
-			"filename": "memberContact.158a2d54-84f4-11f0-8e0d-1e4d4999250c.json",
+			"filename": "memberContact.json",
 		},
 	}
 
