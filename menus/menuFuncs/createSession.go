@@ -20,9 +20,9 @@ func CreateNewSession(phoneNumber, sessionId, preferencesFolder, preferredLangua
 		}
 
 		if demoMode {
-			defaultUser := "default"
+			defaultUser := "admin"
 			defaultUserId := int64(1)
-			defaultRole := "Default"
+			defaultRole := "Admin"
 
 			session.SessionUser = &defaultUser
 			session.SessionUserId = &defaultUserId
