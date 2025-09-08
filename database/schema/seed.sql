@@ -13,10 +13,10 @@ INSERT
 OR IGNORE INTO user (username, password, name, userRole)
 VALUES
   (
-    "default",
+    "admin",
     "$2a$10$Xo4x3KiCkB3xGKvaCI4Hn.Be95DEiaIT3lbvHx/kOmyx7IqGY6ILK",
     "Default User",
-    "Default"
+    "Admin"
   );
 
 WITH RECURSIVE
