@@ -61,8 +61,6 @@ func TestSaveDataOne(t *testing.T) {
 }
 
 func TestHandleBeneficiaries(t *testing.T) {
-	t.Skip()
-
 	dbname := ":memory:"
 	db := database.NewDatabase(dbname)
 	defer func() {
@@ -70,16 +68,20 @@ func TestHandleBeneficiaries(t *testing.T) {
 	}()
 
 	data := map[string]any{
-		"contact1":    "P.O. Box 1234",
-		"id1":         1,
-		"memberId1":   1,
-		"name1":       "Benefator 1",
-		"percentage1": 35,
-		"contact2":    "P.O. Box 5678",
-		"id2":         2,
-		"memberId2":   1,
-		"name2":       "Benefator 2",
-		"percentage2": 25,
+		"address1":      "P.O. Box 1234",
+		"id1":           1,
+		"memberId1":     1,
+		"name1":         "Benefator 1",
+		"phoneNumber1":  "0999888777",
+		"percentage1":   35,
+		"relationship1": "Spouse",
+		"address2":      "P.O. Box 5678",
+		"id2":           2,
+		"memberId2":     1,
+		"name2":         "Benefator 2",
+		"phoneNumber2":  "0999777888",
+		"percentage2":   25,
+		"relationship2": "Child",
 	}
 
 	phoneNumber := "0999888777"
@@ -87,23 +89,23 @@ func TestHandleBeneficiaries(t *testing.T) {
 	sessions := map[string]*parser.Session{
 		phoneNumber: {
 			ActiveData:  map[string]any{},
-			AddedModels: map[string]bool{"memberBeneficiary": true},
+			AddedModels: map[string]bool{"memberDependant": true},
 		},
 	}
 
-	model := "memberBeneficiary"
+	model := "memberDependant"
 
 	err := filehandling.SaveModelData(data, &model, &phoneNumber, db.GenericsSaveData, sessions, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if !sessions[phoneNumber].AddedModels["memberBeneficiary"] {
+	if !sessions[phoneNumber].AddedModels["memberDependant"] {
 		t.Fatalf("Test failed. Expected: true; Actual: %v",
-			sessions[phoneNumber].AddedModels["memberBeneficiary"])
+			sessions[phoneNumber].AddedModels["memberDependant"])
 	}
 
-	result, err := db.GenericModels["memberBeneficiary"].FilterBy("WHERE active=1")
+	result, err := db.GenericModels["memberDependant"].FilterBy("WHERE active=1")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -157,7 +159,7 @@ func TestHandleMemberDetails(t *testing.T) {
 
 	for _, file := range []string{
 		"memberContact.158a2d54-84f4-11f0-8e0d-1e4d4999250c.json",
-		"memberBeneficiary.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+		"memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
 		"memberDependant.1efda9a6-84f4-11f0-8797-1e4d4999250c.json",
 	} {
 		content, err := os.ReadFile(filepath.Join(".", "fixtures", "cache", phoneNumber, file))
@@ -168,7 +170,7 @@ func TestHandleMemberDetails(t *testing.T) {
 
 		model := strings.Split(filepath.Base(file), ".")[0]
 
-		if model == "memberBeneficiary" {
+		if model == "memberDependant" {
 			data := []map[string]any{}
 
 			err = json.Unmarshal(content, &data)
@@ -215,15 +217,15 @@ func TestHandleMemberDetails(t *testing.T) {
 			"id":            1,
 			"lastName":      "Banda",
 			"maritalStatus": "Single",
-			"memberBeneficiary": []map[string]any{
-				{
+			"memberDependant": map[string]any{
+				"1": map[string]any{
 					"contact":    "0888777444",
 					"id":         1,
 					"memberId":   1,
 					"name":       "John Phiri",
 					"percentage": 10,
 				},
-				{
+				"2": map[string]any{
 					"contact":    "07746635653",
 					"id":         2,
 					"memberId":   1,
@@ -241,7 +243,7 @@ func TestHandleMemberDetails(t *testing.T) {
 				"postalAddress":            "P.O. Box 1",
 				"residentialAddress":       "Area 49",
 			},
-			"memberDependant": map[string]any{
+			"memberNominee": map[string]any{
 				"address":     "P.O. Box 1",
 				"id":          1,
 				"memberId":    1,
@@ -348,7 +350,7 @@ func TestArrayChildData(t *testing.T) {
 		phoneNumber: {
 			GlobalIds:   map[string]any{},
 			ActiveData:  map[string]any{},
-			AddedModels: map[string]bool{"memberBeneficiary": true},
+			AddedModels: map[string]bool{"memberDependant": true},
 		},
 	}
 
@@ -389,19 +391,19 @@ func TestArrayChildData(t *testing.T) {
 		"percentage2": 25,
 	}
 
-	model = "memberBeneficiary"
+	model = "memberDependant"
 
 	err = filehandling.SaveModelData(data, &model, &phoneNumber, db.GenericsSaveData, sessions, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if !sessions[phoneNumber].AddedModels["memberBeneficiary"] {
+	if !sessions[phoneNumber].AddedModels["memberDependant"] {
 		t.Fatalf("Test failed. Expected: true; Actual: %v",
-			sessions[phoneNumber].AddedModels["memberBeneficiary"])
+			sessions[phoneNumber].AddedModels["memberDependant"])
 	}
 
-	result, err := db.GenericModels["memberBeneficiary"].FilterBy("WHERE active=1")
+	result, err := db.GenericModels["memberDependant"].FilterBy("WHERE active=1")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -430,7 +432,7 @@ func TestCacheDataByModel(t *testing.T) {
 	for _, file := range []string{
 		"memberContact.158a2d54-84f4-11f0-8e0d-1e4d4999250c.json",
 		"memberOccupation.27395048-84f4-11f0-9d0e-1e4d4999250c.json",
-		"memberBeneficiary.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+		"memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
 		"memberDependant.1efda9a6-84f4-11f0-8797-1e4d4999250c.json",
 	} {
 		src, err := os.Open(filepath.Join(sourceFolder, file))
@@ -459,7 +461,7 @@ func TestCacheDataByModel(t *testing.T) {
 		}
 	}
 
-	result, err := utils.CacheDataByModel("memberBeneficiary", sessionFolder)
+	result, err := utils.CacheDataByModel("memberDependant", sessionFolder)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -471,7 +473,7 @@ func TestCacheDataByModel(t *testing.T) {
 				"name":       "John Phiri",
 				"percentage": 10.0,
 			},
-			"filename": "memberBeneficiary.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+			"filename": "memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
 		},
 		{
 			"data": map[string]any{
@@ -479,7 +481,7 @@ func TestCacheDataByModel(t *testing.T) {
 				"name":       "Jean Banda",
 				"percentage": 5.0,
 			},
-			"filename": "memberBeneficiary.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
+			"filename": "memberDependant.fd40d7de-84f3-11f0-9b12-1e4d4999250c.json",
 		},
 	}
 
