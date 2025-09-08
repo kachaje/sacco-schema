@@ -52,7 +52,7 @@ func TestLoadModelChildren(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if !utils.MapsEqual(target, result) {
+	if !utils.MapsEqual(target["member"].(map[string]any), result) {
 		t.Fatal("Test failed")
 	}
 }
