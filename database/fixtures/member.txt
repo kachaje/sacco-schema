@@ -16,11 +16,11 @@ A. PERSONAL INFORMATION
    Utility Bill Type:       | ESCOM
 
 B. OCCUPATION DETAILS
-   Name of Employer:        | 
-   Net Pay:                 | 
-   Job Title:               | 
-   Employer Address:        | 
-   Highest Qualification:   | 
+   Name of Employer:        | SOBO
+   Net Pay:                 | 90000
+   Job Title:               | Driver
+   Employer Address:        | Kanengo
+   Highest Qualification:   | Secondary
 
 C. CONTACT DETAILS
    Postal Address:          | P.O. Box 3200, Blantyre
