@@ -10,7 +10,8 @@
       },
       "loanNumber": {
         "order": 2,
-        "label": "Loan Number"
+        "label": "Loan Number",
+        "cachQuery": "member.memberLoan.0.loanNumber"
       },
       "employerNumber": {
         "order": 3,

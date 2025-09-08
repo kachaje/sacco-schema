@@ -29,13 +29,13 @@ C. CONTACT DETAILS
 D. NOMINEE (NEXT OF KIN) DETAILS
    Name:                    | John Banda
    Cell Phone Number:       | 0888888888
-   Postal Address/Email:    | Same as member
+   Postal Address/Email:    | P.O. Box 1
 
 E. BENEFICIARIES DETAILS
 --- --------------------- --------- ------------
 No | Name of Beneficiary | Percent | Contact
 --- --------------------- --------- ------------
-1  | Benefator 1         |    10.0 | P.O. Box 1
+1  | John Banda          |    10.0 | P.O. Box 1
 2  | Benefator 2         |     8.0 | P.O. Box 2
 3  | Benefator 3         |     5.0 | P.O. Box 3
 4  | Benefator 4         |     2.0 | P.O. Box 4

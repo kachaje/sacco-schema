@@ -12,11 +12,6 @@
         "order": 2,
         "label": "Full File Number",
         "cachQuery": "member.memberIdNumber"
-      },
-      "shortMemberId": {
-        "order": 3,
-        "label": "Short File Number",
-        "cachQuery": "member.shortMemberId"
       }
     }
   },
@@ -151,35 +146,35 @@
       "name": {
         "order": 1,
         "label": "Name",
-        "cachQuery": "member.memberDependant.name"
+        "cachQuery": "member.nominee.name"
       },
       "phoneNumber": {
         "order": 2,
         "label": "Cell Phone Number",
-        "cachQuery": "member.memberDependant.phoneNumber"
+        "cachQuery": "member.nominee.phoneNumber"
       },
       "address": {
         "order": 3,
         "label": "Postal Address/Email",
-        "cachQuery": "member.memberDependant.address"
+        "cachQuery": "member.nominee.address"
       }
     }
   },
   "E. BENEFICIARIES DETAILS": {
-    "level": "memberBeneficiary",
+    "level": "memberDependant",
     "array": true,
     "data": {
       "name": {
         "label": "Name of Beneficiary",
-        "cachQuery": "member.memberBeneficiary.#0#.name"
+        "cachQuery": "member.memberDependant.#0#.name"
       },
       "percentage": {
         "label": "Percentage",
-        "cachQuery": "member.memberBeneficiary.#0#.percentage"
+        "cachQuery": "member.memberDependant.#0#.percentage"
       },
       "contact": {
         "label": "Contact",
-        "cachQuery": "member.memberBeneficiary.#0#.contact"
+        "cachQuery": "member.memberDependant.#0#.contact"
       }
     }
   }

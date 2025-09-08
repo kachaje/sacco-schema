@@ -61,8 +61,6 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 }
 
 func TestLoadTemplateData(t *testing.T) {
-	t.Skip()
-
 	data := map[string]any{}
 	templateData := map[string]any{}
 	targetData := map[string]any{}
