@@ -1,5 +1,6 @@
 {
   "member": {
+    "dateJoined": "2025-09-08 13:34:07",
     "dateOfBirth": "1999-09-01",
     "firstName": "Mary",
     "gender": "Female",
@@ -57,7 +58,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM251848",
+    "memberIdNumber": "KSM161252",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +67,7 @@
         "interestRate": 0,
         "loanAmount": 200000,
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN686592",
+        "loanNumber": "KLN360577",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "PERSONAL",

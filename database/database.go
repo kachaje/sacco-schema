@@ -57,7 +57,7 @@ func NewDatabase(dbname string) *Database {
 		GenericModels: map[string]*Model{},
 		Mu:            &sync.Mutex{},
 		SkipFields: []string{
-			"active", "createdAt", "updatedAt", "dateJoined",
+			"active", "createdAt", "updatedAt",
 		},
 	}
 

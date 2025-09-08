@@ -70,7 +70,10 @@ func TestLoadModelChildren(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	delete(result, "dateJoined")
 	delete(result, "memberIdNumber")
+
+	delete(target["member"].(map[string]any), "dateJoined")
 	delete(target["member"].(map[string]any), "memberIdNumber")
 
 	deleteLoanNumber(map[string]any{
@@ -89,8 +92,6 @@ func TestFullMemberRecord(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer db.Close()
-
-	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt"}...)
 
 	phoneNumber := "09999999999"
 
@@ -111,7 +112,10 @@ func TestFullMemberRecord(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	delete(result["member"].(map[string]any), "dateJoined")
 	delete(result["member"].(map[string]any), "memberIdNumber")
+
+	delete(target["member"].(map[string]any), "dateJoined")
 	delete(target["member"].(map[string]any), "memberIdNumber")
 
 	deleteLoanNumber(result)
