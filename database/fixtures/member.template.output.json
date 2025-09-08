@@ -117,12 +117,12 @@
     "address": {
       "label": "Postal Address/Email",
       "order": 3,
-      "value": "Same as member"
+      "value": "P.O. Box 1"
     },
     "name": {
       "label": "Name",
       "order": 1,
-      "value": "John Banda"
+      "value": "Benefator 1"
     },
     "phoneNumber": {
       "label": "Cell Phone Number",

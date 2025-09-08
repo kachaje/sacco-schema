@@ -141,22 +141,22 @@
     }
   },
   "D. NOMINEE (NEXT OF KIN) DETAILS": {
-    "level": "memberDependant",
+    "level": "memberNominee",
     "data": {
       "name": {
         "order": 1,
         "label": "Name",
-        "cachQuery": "member.nominee.name"
+        "cachQuery": "member.memberNominee.name"
       },
       "phoneNumber": {
         "order": 2,
         "label": "Cell Phone Number",
-        "cachQuery": "member.nominee.phoneNumber"
+        "cachQuery": "member.memberNominee.phoneNumber"
       },
       "address": {
         "order": 3,
         "label": "Postal Address/Email",
-        "cachQuery": "member.nominee.address"
+        "cachQuery": "member.memberNominee.address"
       }
     }
   },

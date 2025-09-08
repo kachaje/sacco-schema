@@ -65,7 +65,7 @@ func TestLoadTemplateData(t *testing.T) {
 	templateData := map[string]any{}
 	targetData := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.json"))
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -98,6 +98,10 @@ func TestLoadTemplateData(t *testing.T) {
 	}
 
 	result := menufuncs.LoadTemplateData(data, templateData)
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 
 	if !reflect.DeepEqual(targetData, result) {
 		t.Fatal("Test failed")

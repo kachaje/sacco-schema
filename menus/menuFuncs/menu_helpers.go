@@ -68,7 +68,7 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 			}
 
 			switch level {
-			case "memberBeneficiary":
+			case "memberDependant":
 				var j float64
 
 				keys := []string{}
