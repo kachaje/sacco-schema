@@ -43,6 +43,20 @@ func TestLoadGroupMembers(t *testing.T) {
 	}
 }
 
+func TestResolveNestedQuery(t *testing.T) {
+	data := map[string]any{
+		"member.memberLoan.3.memberLoanWitness.5.name": "Mary Banda",
+	}
+
+	result := menufuncs.ResolveNestedQuery(data, "member.memberLoan.0.memberLoanWitness.0.name")
+
+	target := "member.memberLoan.3.memberLoanWitness.5.name"
+
+	if target != result {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, result)
+	}
+}
+
 func TestLoadTemplateData(t *testing.T) {
 	data := map[string]any{}
 	templateData := map[string]any{}

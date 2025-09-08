@@ -82,6 +82,28 @@ func LoadGroupMembers(data map[string]any, target string) []map[string]any {
 	return rows
 }
 
+func ResolveNestedQuery(data map[string]any, query string) string {
+	for {
+		reTop := regexp.MustCompile(`^([^0]+)0`)
+		if reTop.MatchString(query) {
+			targetTop := reTop.FindAllStringSubmatch(query, -1)[0][1]
+
+			for key := range data {
+				re := regexp.MustCompile(fmt.Sprintf(`^%s(\d+)`, targetTop))
+				if re.MatchString(key) {
+					targetChild := re.FindAllStringSubmatch(key, -1)[0][1]
+
+					query = reTop.ReplaceAllLiteralString(query, fmt.Sprintf(`%s%v`, targetTop, targetChild))
+				}
+			}
+		} else {
+			break
+		}
+	}
+
+	return query
+}
+
 func LoadTemplateData(data map[string]any, template map[string]any) map[string]any {
 	result := map[string]any{}
 
