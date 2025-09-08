@@ -57,8 +57,8 @@ func NewDatabase(dbname string) *Database {
 		GenericModels: map[string]*Model{},
 		Mu:            &sync.Mutex{},
 		SkipFields: []string{
-			"active", "created_at", "updated_at", "dateJoined",
-			"shortMemberId", "memberIdNumber"},
+			"active", "createdAt", "updatedAt", "dateJoined",
+		},
 	}
 
 	err = instance.initDb()
@@ -202,8 +202,7 @@ func (d *Database) GenericsSaveData(data map[string]any,
 func (d *Database) MemberByPhoneNumber(phoneNumber string, skipFields []string) (map[string]any, error) {
 	if skipFields == nil {
 		skipFields = []string{
-			"active", "created_at", "updated_at", "dateJoined",
-			"shortMemberId", "memberIdNumber",
+			"active", "createdAt", "updatedAt", "dateJoined",
 		}
 	}
 
