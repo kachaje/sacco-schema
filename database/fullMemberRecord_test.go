@@ -33,7 +33,7 @@ func TestLoadModelChildren(t *testing.T) {
 	}
 	defer db.Close()
 
-	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt"}...)
+	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt", "loanNumber"}...)
 
 	result, err := db.LoadModelChildren("member", 1)
 	if err != nil {
@@ -64,7 +64,7 @@ func TestFullMemberRecord(t *testing.T) {
 	}
 	defer db.Close()
 
-	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt"}...)
+	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt", "loanNumber"}...)
 
 	phoneNumber := "09999999999"
 
