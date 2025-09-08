@@ -12,6 +12,37 @@ import (
 	"testing"
 )
 
+func TestLoadGroupMembers(t *testing.T) {
+	data := map[string]any{}
+	targetData := []map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "memberDependants.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &targetData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := menufuncs.LoadGroupMembers(data, "memberDependant")
+
+	if !reflect.DeepEqual(targetData, result) {
+		t.Fatal("Test failed")
+	}
+}
+
 func TestLoadLoanApplicationForm(t *testing.T) {
 	t.Skip()
 
@@ -124,8 +155,9 @@ func TestTabulateData(t *testing.T) {
 
 	result := menufuncs.TabulateData(data)
 
+	fmt.Println(strings.Join(result, "\n"))
+
 	if os.Getenv("DEBUG") == "true" {
-		fmt.Println(strings.Join(result, "\n"))
 
 		os.WriteFile(filepath.Join("..", "..", "database", "models", "fixtures", "member.txt"), []byte(strings.Join(result, "\n")), 0644)
 	}

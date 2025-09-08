@@ -46,6 +46,42 @@ func CheckPreferredLanguage(phoneNumber, preferencesFolder string) *string {
 	return nil
 }
 
+func LoadGroupMembers(data map[string]any, target string) []map[string]any {
+	rows := []map[string]any{}
+
+	filteredRows := map[string]any{}
+	keys := []string{}
+
+	re := regexp.MustCompile(fmt.Sprintf(`^(.+%s\.\d+)\.([^\.]+)`, target))
+
+	for key, value := range data {
+		if re.MatchString(key) {
+			newKey := re.FindAllStringSubmatch(key, -1)[0][1]
+			nodeKey := re.FindAllStringSubmatch(key, -1)[0][2]
+
+			if filteredRows[newKey] == nil {
+				filteredRows[newKey] = map[string]any{}
+
+				keys = append(keys, newKey)
+			}
+
+			filteredRows[newKey].(map[string]any)[nodeKey] = value
+		}
+	}
+
+	sort.Strings(keys)
+
+	for _, key := range keys {
+		row := filteredRows[key]
+
+		if val, ok := row.(map[string]any); ok {
+			rows = append(rows, val)
+		}
+	}
+
+	return rows
+}
+
 func LoadTemplateData(data map[string]any, template map[string]any) map[string]any {
 	result := map[string]any{}
 
@@ -176,6 +212,10 @@ func TabulateData(data map[string]any) []string {
 				result = append(result, row1)
 				result = append(result, row2)
 				result = append(result, row1)
+
+				payload, _ := json.MarshalIndent(childData, "", "  ")
+
+				fmt.Println(string(payload))
 
 				for i := range 4 {
 					index := i + 1
