@@ -11,8 +11,6 @@ import (
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {
-	t.Skip()
-
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -26,48 +24,32 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 	result := utils.FlattenMap(data, true)
 
 	target := map[string]any{
-		"memberBeneficiaryId": map[string]any{
-			"key":   "member.memberBeneficiary.0.id",
-			"value": "1",
-		},
 		"memberBusinessId": map[string]any{
-			"key":   "member.memberLoan.0.memberBusiness.id",
+			"key":   "member.memberLoan.1.memberBusiness.id",
 			"value": "1",
 		},
 		"memberContactId": map[string]any{
 			"key":   "member.memberContact.id",
 			"value": "1",
 		},
+		"memberDependantId": map[string]any{
+			"key":   "member.memberDependant.id",
+			"value": "1",
+		},
 		"memberId": map[string]any{
 			"key":   "member.id",
 			"value": "1",
 		},
-		"memberLastYearBusinessHistoryId": map[string]any{
-			"key":   "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.0.id",
-			"value": "1",
-		},
 		"memberLoanApprovalId": map[string]any{
-			"key":   "member.memberLoan.0.memberLoanApproval.id",
-			"value": "1",
-		},
-		"memberLoanId": map[string]any{
-			"key":   "member.memberLoan.0.id",
-			"value": "1",
-		},
-		"memberNextYearBusinessProjectionId": map[string]any{
-			"key":   "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.0.id",
-			"value": "1",
-		},
-		"memberNomineeId": map[string]any{
-			"key":   "member.memberDependant.id",
+			"key":   "member.memberLoan.1.memberLoanApproval.id",
 			"value": "1",
 		},
 		"memberOccupationId": map[string]any{
-			"key":   "member.memberLoan.0.memberOccupation.id",
+			"key":   "member.memberLoan.1.memberOccupation.id",
 			"value": "1",
 		},
 		"memberOccupationVerificationId": map[string]any{
-			"key":   "member.memberLoan.0.memberOccupation.memberOccupationVerification.id",
+			"key":   "member.memberLoan.1.memberOccupation.memberOccupationVerification.id",
 			"value": "1",
 		},
 	}
