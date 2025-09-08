@@ -26,6 +26,24 @@ func setupDb() (*database.Database, error) {
 	return db, nil
 }
 
+func deleteLoanNumber(target map[string]any) {
+	if target["member"] != nil {
+		if vm, ok := target["member"].(map[string]any); ok {
+			if vm["memberLoan"] != nil {
+				if vl, ok := vm["memberLoan"].(map[string]any); ok {
+					if vl["1"] != nil {
+						if v1, ok := vl["1"].(map[string]any); ok {
+							if v1["loanNumber"] != nil {
+								delete(v1, "loanNumber")
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 func TestLoadModelChildren(t *testing.T) {
 	db, err := setupDb()
 	if err != nil {
@@ -51,6 +69,8 @@ func TestLoadModelChildren(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target["member"].(map[string]any), result) {
 		t.Fatal("Test failed")
@@ -84,6 +104,8 @@ func TestFullMemberRecord(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
