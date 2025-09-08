@@ -6,8 +6,6 @@ import (
 	_ "embed"
 	"fmt"
 	"log"
-	"os"
-	"path/filepath"
 	"regexp"
 	"sacco/utils"
 	"strconv"
@@ -17,6 +15,15 @@ import (
 
 	_ "modernc.org/sqlite"
 )
+
+//go:embed schema/schema.sql
+var schemaString string
+
+//go:embed schema/seed.sql
+var seedString string
+
+//go:embed schema/triggers.sql
+var triggersString string
 
 //go:embed models.yml
 var modelTemplates string
@@ -101,17 +108,12 @@ func (d *Database) Close() {
 
 func (d *Database) initDb() error {
 
-	for _, filename := range []string{
-		filepath.Join(".", "schema", "schema.sql"),
-		filepath.Join(".", "schema", "seed.sql"),
-		filepath.Join(".", "schema", "triggers.sql"),
+	for _, statement := range []string{
+		schemaString,
+		seedString,
+		triggersString,
 	} {
-		content, err := os.ReadFile(filename)
-		if err != nil {
-			return err
-		}
-
-		_, err = d.DB.Exec(string(content))
+		_, err := d.DB.Exec(statement)
 		if err != nil {
 			return err
 		}
