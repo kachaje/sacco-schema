@@ -85,6 +85,33 @@ func TestLoadTemplateData(t *testing.T) {
 	}
 }
 
+func TestTabulateData(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.txt"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
+
+	result := menufuncs.TabulateData(data)
+
+	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
+		t.Fatal("Test failed")
+	}
+}
+
 func TestLoadLoanApplicationForm(t *testing.T) {
 	t.Skip()
 
@@ -129,40 +156,6 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(targetData, result) {
-		t.Fatal("Test failed")
-	}
-}
-
-func TestTabulateData(t *testing.T) {
-	data := map[string]any{}
-
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	err = json.Unmarshal(content, &data)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.txt"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	target := string(content)
-
-	result := menufuncs.TabulateData(data)
-
-	fmt.Println(strings.Join(result, "\n"))
-
-	if os.Getenv("DEBUG") == "true" {
-
-		os.WriteFile(filepath.Join("..", "..", "database", "models", "fixtures", "member.txt"), []byte(strings.Join(result, "\n")), 0644)
-	}
-
-	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
 		t.Fatal("Test failed")
 	}
 }

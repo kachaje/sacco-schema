@@ -206,16 +206,12 @@ func TabulateData(data map[string]any) []string {
 				result = append(result, row2)
 				result = append(result, row1)
 
-				payload, _ := json.MarshalIndent(childData, "", "  ")
-
-				fmt.Println(string(payload))
-
 				for i := range 4 {
 					index := i + 1
 
 					nameLabel := fmt.Sprintf("name%d", index)
 					percentageLabel := fmt.Sprintf("percentage%d", index)
-					contactLabel := fmt.Sprintf("contact%d", index)
+					contactLabel := fmt.Sprintf("address%d", index)
 
 					if childData[nameLabel] == nil {
 						break

@@ -1,3 +1,7 @@
+1. OFFICIAL DETAILS
+   Date Joined:             | 2025-09-08 13:34:07
+   Member ID Number:        | KSM161252
+
 A. PERSONAL INFORMATION
    Surname:                 | Banda
    First Name:              | Mary
@@ -12,22 +16,22 @@ A. PERSONAL INFORMATION
    Utility Bill Type:       | ESCOM
 
 B. OCCUPATION DETAILS
-   Name of Employer:        | Sunseed Oil
-   Net Pay:                 | 72000
-   Job Title:               | Driver
-   Employer Address:        | Kanengo, Lilongwe
-   Highest Qualification:   | Secondary
+   Name of Employer:        | 
+   Net Pay:                 | 
+   Job Title:               | 
+   Employer Address:        | 
+   Highest Qualification:   | 
 
 C. CONTACT DETAILS
-   Postal Address:          | P.O. Box 1000, Lilongwe
-   Residential Address:     | Area 2, Lilongwe
+   Postal Address:          | P.O. Box 3200, Blantyre
+   Residential Address:     | Chilomoni, Blantrye
    Email:                   | 
-   Village:                 | Songwe
-   Traditional Authority:   | Kyungu
-   District:                | Karonga
+   Village:                 | Thumba
+   Traditional Authority:   | Kabudula
+   District:                | Lilongwe
 
 D. NOMINEE (NEXT OF KIN) DETAILS
-   Name:                    | John Banda
+   Name:                    | Benefator 1
    Cell Phone Number:       | 0888888888
    Postal Address/Email:    | P.O. Box 1
 
@@ -35,7 +39,7 @@ E. BENEFICIARIES DETAILS
 --- --------------------- --------- ------------
 No | Name of Beneficiary | Percent | Contact
 --- --------------------- --------- ------------
-1  | John Banda          |    10.0 | P.O. Box 1
+1  | Benefator 1         |    10.0 | P.O. Box 1
 2  | Benefator 2         |     8.0 | P.O. Box 2
 3  | Benefator 3         |     5.0 | P.O. Box 3
 4  | Benefator 4         |     2.0 | P.O. Box 4

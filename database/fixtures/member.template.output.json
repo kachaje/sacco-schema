@@ -6,7 +6,7 @@
       "value": "2025-09-08 13:34:07"
     },
     "memberIdNumber": {
-      "label": "Full File Number",
+      "label": "Member ID Number",
       "order": 2,
       "value": "KSM161252"
     }
@@ -138,21 +138,25 @@
     }
   },
   "E. BENEFICIARIES DETAILS": {
-    "contact1": {
+    "address1": {
       "label": "Contact",
-      "order": 1
+      "order": 1,
+      "value": "P.O. Box 1"
     },
-    "contact2": {
+    "address2": {
       "label": "Contact",
-      "order": 4
+      "order": 4,
+      "value": "P.O. Box 2"
     },
-    "contact3": {
+    "address3": {
       "label": "Contact",
-      "order": 7
+      "order": 7,
+      "value": "P.O. Box 3"
     },
-    "contact4": {
+    "address4": {
       "label": "Contact",
-      "order": 10
+      "order": 10,
+      "value": "P.O. Box 4"
     },
     "name1": {
       "label": "Name of Beneficiary",

@@ -10,7 +10,7 @@
       },
       "memberIdNumber": {
         "order": 2,
-        "label": "Full File Number",
+        "label": "Member ID Number",
         "cachQuery": "member.memberIdNumber"
       }
     }
@@ -172,9 +172,9 @@
         "label": "Percentage",
         "cachQuery": "member.memberDependant.#0#.percentage"
       },
-      "contact": {
+      "address": {
         "label": "Contact",
-        "cachQuery": "member.memberDependant.#0#.contact"
+        "cachQuery": "member.memberDependant.#0#.address"
       }
     }
   }
