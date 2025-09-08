@@ -58,13 +58,13 @@ func TestLoadModelChildren(t *testing.T) {
 }
 
 func TestFullMemberRecord(t *testing.T) {
-	t.Skip()
-
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer db.Close()
+
+	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt"}...)
 
 	phoneNumber := "09999999999"
 
@@ -73,14 +73,19 @@ func TestFullMemberRecord(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	target, err := os.ReadFile(filepath.Join(".", "models", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if utils.CleanScript(payload) != utils.CleanScript(target) {
+	target := map[string]any{}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
 	}
 }
