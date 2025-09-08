@@ -2,7 +2,6 @@ package filehandling_test
 
 import (
 	"encoding/json"
-	"io"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -292,8 +291,6 @@ func TestChildNestedModel(t *testing.T) {
 }
 
 func TestArrayChildData(t *testing.T) {
-	t.Skip()
-
 	dbname := ":memory:"
 	db := database.NewDatabase(dbname)
 	defer func() {
@@ -335,16 +332,20 @@ func TestArrayChildData(t *testing.T) {
 	}
 
 	data = map[string]any{
-		"contact1":    "P.O. Box 1234",
-		"id1":         1,
-		"memberId1":   1,
-		"name1":       "Benefator 1",
-		"percentage1": 35,
-		"contact2":    "P.O. Box 5678",
-		"id2":         2,
-		"memberId2":   1,
-		"name2":       "Benefator 2",
-		"percentage2": 25,
+		"address1":      "P.O. Box 1234",
+		"id1":           1,
+		"memberId1":     1,
+		"name1":         "Benefator 1",
+		"percentage1":   35,
+		"phoneNumber1":  "0999888777",
+		"relationship1": "Spouse",
+		"address2":      "P.O. Box 5678",
+		"id2":           2,
+		"memberId2":     1,
+		"name2":         "Benefator 2",
+		"percentage2":   25,
+		"phoneNumber2":  "0888999777",
+		"relationship2": "Child",
 	}
 
 	model = "memberDependant"
@@ -366,105 +367,5 @@ func TestArrayChildData(t *testing.T) {
 
 	if len(result) != 2 {
 		t.Fatalf("Test failed. Expected: 2; Actual: %v", len(result))
-	}
-}
-
-func TestCacheDataByModel(t *testing.T) {
-	t.Skip()
-
-	phoneNumber := "0999888777"
-	sourceFolder := filepath.Join("..", "database", "models", "fixtures", "cache", phoneNumber)
-	folder := "tmp11"
-	cacheFolder := filepath.Join(".", folder, "cache")
-
-	sessionFolder := filepath.Join(cacheFolder, phoneNumber)
-
-	os.MkdirAll(filepath.Join(cacheFolder, phoneNumber), 0755)
-
-	defer func() {
-		os.RemoveAll(filepath.Join(".", folder))
-	}()
-
-	for _, file := range []string{
-		"memberContact.json",
-		"memberOccupation.27395048-84f4-11f0-9d0e-1e4d4999250c.json",
-		"memberDependant.json",
-		"memberDependant.1efda9a6-84f4-11f0-8797-1e4d4999250c.json",
-	} {
-		src, err := os.Open(filepath.Join(sourceFolder, file))
-		if err != nil {
-			t.Fatal(err)
-			continue
-		}
-		defer src.Close()
-
-		dst, err := os.Create(filepath.Join(cacheFolder, phoneNumber, file))
-		if err != nil {
-			t.Fatal(err)
-			continue
-		}
-		defer dst.Close()
-
-		_, err = io.Copy(dst, src)
-		if err != nil {
-			t.Fatal(err)
-			continue
-		}
-
-		_, err = os.Stat(dst.Name())
-		if os.IsNotExist(err) {
-			t.Fatalf("Test failed. Failed to create %s", dst.Name())
-		}
-	}
-
-	result, err := utils.CacheDataByModel("memberDependant", sessionFolder)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	target := []map[string]any{
-		{
-			"data": map[string]any{
-				"contact":    "0888777444",
-				"name":       "John Phiri",
-				"percentage": 10.0,
-			},
-			"filename": "memberDependant.json",
-		},
-		{
-			"data": map[string]any{
-				"contact":    "07746635653",
-				"name":       "Jean Banda",
-				"percentage": 5.0,
-			},
-			"filename": "memberDependant.json",
-		},
-	}
-
-	if !reflect.DeepEqual(result, target) {
-		t.Fatal("Test failed")
-	}
-
-	result, err = utils.CacheDataByModel("memberContact", sessionFolder)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	target = []map[string]any{
-		{
-			"data": map[string]any{
-				"homeDistrict":             "Lilongwe",
-				"homeTraditionalAuthority": "Kalolo",
-				"homeVillage":              "Kalulu",
-				"phoneNumber":              "0999888777",
-				"postalAddress":            "P.O. Box 1",
-				"residentialAddress":       "Area 49",
-			},
-			"filename": "memberContact.json",
-		},
-	}
-
-	if !reflect.DeepEqual(result, target) {
-		t.Fatal("Test failed")
 	}
 }
