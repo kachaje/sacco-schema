@@ -105,6 +105,8 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 
 			switch level {
 			case "memberDependant":
+				groupData := LoadGroupMembers(data, level)
+
 				var j float64
 
 				keys := []string{}
@@ -115,30 +117,21 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 
 				sort.Strings(keys)
 
-				for i := range 4 {
+				for i, row := range groupData {
 					for _, field := range keys {
 						kids := fieldData[field]
-
 						if vf, ok := kids.(map[string]any); ok {
-							if vf["cachQuery"] != nil {
-								if query, ok := vf["cachQuery"].(string); ok {
-									j++
+							localKey := fmt.Sprintf("%s%v", field, i+1)
 
-									query = regexp.MustCompile("#0#").ReplaceAllLiteralString(query, fmt.Sprint(i))
+							j++
 
-									if value, ok := data[query]; ok {
-										localKey := fmt.Sprintf("%s%v", field, i+1)
+							result[key].(map[string]any)[localKey] = map[string]any{
+								"order": j,
+								"label": fmt.Sprintf("%v", vf["label"]),
+							}
 
-										if result[key].(map[string]any)[localKey] == nil {
-											result[key].(map[string]any)[localKey] = map[string]any{
-												"label": fmt.Sprintf("%v", vf["label"]),
-												"order": j,
-											}
-										}
-
-										result[key].(map[string]any)[localKey].(map[string]any)["value"] = value
-									}
-								}
+							if value, ok := row[field]; ok {
+								result[key].(map[string]any)[localKey].(map[string]any)["value"] = value
 							}
 						}
 					}

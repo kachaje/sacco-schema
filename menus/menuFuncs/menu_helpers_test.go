@@ -43,6 +43,48 @@ func TestLoadGroupMembers(t *testing.T) {
 	}
 }
 
+func TestLoadTemplateData(t *testing.T) {
+	data := map[string]any{}
+	templateData := map[string]any{}
+	targetData := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "templates", "member.template.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &templateData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &targetData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := menufuncs.LoadTemplateData(data, templateData)
+
+	if !reflect.DeepEqual(targetData, result) {
+		t.Fatal("Test failed")
+	}
+}
+
 func TestLoadLoanApplicationForm(t *testing.T) {
 	t.Skip()
 
@@ -85,48 +127,6 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	if !reflect.DeepEqual(targetData, result) {
-		t.Fatal("Test failed")
-	}
-}
-
-func TestLoadTemplateData(t *testing.T) {
-	data := map[string]any{}
-	templateData := map[string]any{}
-	targetData := map[string]any{}
-
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	err = json.Unmarshal(content, &data)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	content, err = os.ReadFile(filepath.Join(".", "templates", "member.template.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	err = json.Unmarshal(content, &templateData)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	err = json.Unmarshal(content, &targetData)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	result := menufuncs.LoadTemplateData(data, templateData)
 
 	if !reflect.DeepEqual(targetData, result) {
 		t.Fatal("Test failed")

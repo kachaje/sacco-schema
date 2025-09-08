@@ -138,35 +138,61 @@
     }
   },
   "E. BENEFICIARIES DETAILS": {
+    "contact1": {
+      "label": "Contact",
+      "order": 1
+    },
+    "contact2": {
+      "label": "Contact",
+      "order": 4
+    },
+    "contact3": {
+      "label": "Contact",
+      "order": 7
+    },
+    "contact4": {
+      "label": "Contact",
+      "order": 10
+    },
+    "name1": {
+      "label": "Name of Beneficiary",
+      "order": 2,
+      "value": "Benefator 1"
+    },
     "name2": {
       "label": "Name of Beneficiary",
       "order": 5,
-      "value": "Benefator 1"
+      "value": "Benefator 2"
     },
     "name3": {
       "label": "Name of Beneficiary",
       "order": 8,
-      "value": "Benefator 2"
+      "value": "Benefator 3"
     },
     "name4": {
       "label": "Name of Beneficiary",
       "order": 11,
-      "value": "Benefator 3"
+      "value": "Benefator 4"
+    },
+    "percentage1": {
+      "label": "Percentage",
+      "order": 3,
+      "value": 10
     },
     "percentage2": {
       "label": "Percentage",
       "order": 6,
-      "value": 10
+      "value": 8
     },
     "percentage3": {
       "label": "Percentage",
       "order": 9,
-      "value": 8
+      "value": 5
     },
     "percentage4": {
       "label": "Percentage",
       "order": 12,
-      "value": 5
+      "value": 2
     }
   }
 }
