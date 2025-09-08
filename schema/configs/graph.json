@@ -8,6 +8,9 @@
   "insuranceProvider": {
     "arrayChildren": ["memberLoanInsurance"]
   },
+  "loanNumberIdsCache": {
+    "singleChildren": ["memberLoan"]
+  },
   "loanType": {
     "singleChildren": ["loanRate"]
   },

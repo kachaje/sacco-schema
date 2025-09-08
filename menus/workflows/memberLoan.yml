@@ -1,120 +1,120 @@
 cacheQueries:
-    amountPaid: memberLoan.amountPaid
-    balanceAmount: memberLoan.balanceAmount
-    id: memberLoan.id
-    interestRate: memberLoan.interestRate
-    loanAmount: memberLoan.loanAmount
-    loanDueDate: memberLoan.loanDueDate
-    loanPurpose: memberLoan.loanPurpose
-    loanStartDate: memberLoan.loanStartDate
-    loanType: memberLoan.loanType
-    memberId: memberLoan.memberId
-    memberSavingId: memberLoan.memberSavingId
-    monthlyInstalments: memberLoan.monthlyInstalments
-    repaymentPeriodInMonths: memberLoan.repaymentPeriodInMonths
+  amountPaid: memberLoan.amountPaid
+  balanceAmount: memberLoan.balanceAmount
+  id: memberLoan.id
+  interestRate: memberLoan.interestRate
+  loanAmount: memberLoan.loanAmount
+  loanDueDate: memberLoan.loanDueDate
+  loanPurpose: memberLoan.loanPurpose
+  loanStartDate: memberLoan.loanStartDate
+  loanType: memberLoan.loanType
+  memberId: memberLoan.memberId
+  memberSavingId: memberLoan.memberSavingId
+  monthlyInstalments: memberLoan.monthlyInstalments
+  repaymentPeriodInMonths: memberLoan.repaymentPeriodInMonths
 enterAmountPaid:
-    cacheQuery: memberLoan.amountPaid
-    hidden: true
-    inputIdentifier: amountPaid
-    type: hiddenField
+  cacheQuery: memberLoan.amountPaid
+  hidden: true
+  inputIdentifier: amountPaid
+  type: hiddenField
 enterBalanceAmount:
-    cacheQuery: memberLoan.balanceAmount
-    inputIdentifier: balanceAmount
-    nextScreen: formSummary
-    optional: true
-    order: 9
-    text:
-        en: Balance Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoan.balanceAmount
+  inputIdentifier: balanceAmount
+  nextScreen: formSummary
+  optional: true
+  order: 9
+  text:
+    en: Balance Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterId:
-    cacheQuery: memberLoan.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberLoan.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterInterestRate:
-    cacheQuery: memberLoan.interestRate
-    inputIdentifier: interestRate
-    nextScreen: enterBalanceAmount
-    optional: true
-    order: 8
-    text:
-        en: Interest Rate
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoan.interestRate
+  inputIdentifier: interestRate
+  nextScreen: enterBalanceAmount
+  optional: true
+  order: 8
+  text:
+    en: Interest Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterLoanAmount:
-    cacheQuery: memberLoan.loanAmount
-    inputIdentifier: loanAmount
-    nextScreen: enterRepaymentPeriodInMonths
-    order: 1
-    text:
-        en: Loan Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoan.loanAmount
+  inputIdentifier: loanAmount
+  nextScreen: enterRepaymentPeriodInMonths
+  order: 1
+  text:
+    en: Loan Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterLoanDueDate:
-    cacheQuery: memberLoan.loanDueDate
-    inputIdentifier: loanDueDate
-    nextScreen: enterMonthlyInstalments
-    optional: true
-    order: 6
-    text:
-        en: Loan Due Date
-    type: inputScreen
+  cacheQuery: memberLoan.loanDueDate
+  inputIdentifier: loanDueDate
+  nextScreen: enterMonthlyInstalments
+  optional: true
+  order: 6
+  text:
+    en: Loan Due Date
+  type: inputScreen
 enterLoanPurpose:
-    cacheQuery: memberLoan.loanPurpose
-    inputIdentifier: loanPurpose
-    nextScreen: enterLoanType
-    order: 3
-    text:
-        en: Loan Purpose
-    type: inputScreen
+  cacheQuery: memberLoan.loanPurpose
+  inputIdentifier: loanPurpose
+  nextScreen: enterLoanType
+  order: 3
+  text:
+    en: Loan Purpose
+  type: inputScreen
 enterLoanStartDate:
-    cacheQuery: memberLoan.loanStartDate
-    inputIdentifier: loanStartDate
-    nextScreen: enterLoanDueDate
-    optional: true
-    order: 5
-    text:
-        en: Loan Start Date
-    type: inputScreen
+  cacheQuery: memberLoan.loanStartDate
+  inputIdentifier: loanStartDate
+  nextScreen: enterLoanDueDate
+  optional: true
+  order: 5
+  text:
+    en: Loan Start Date
+  type: inputScreen
 enterLoanType:
-    cacheQuery: memberLoan.loanType
-    inputIdentifier: loanType
-    nextScreen: enterLoanStartDate
-    order: 4
-    text:
-        en: Loan Type
-    type: inputScreen
+  cacheQuery: memberLoan.loanType
+  inputIdentifier: loanType
+  nextScreen: enterLoanStartDate
+  order: 4
+  text:
+    en: Loan Type
+  type: inputScreen
 enterMemberId:
-    cacheQuery: memberLoan.memberId
-    hidden: true
-    inputIdentifier: memberId
-    type: hiddenField
+  cacheQuery: memberLoan.memberId
+  hidden: true
+  inputIdentifier: memberId
+  type: hiddenField
 enterMemberSavingId:
-    cacheQuery: memberLoan.memberSavingId
-    hidden: true
-    inputIdentifier: memberSavingId
-    type: hiddenField
+  cacheQuery: memberLoan.memberSavingId
+  hidden: true
+  inputIdentifier: memberSavingId
+  type: hiddenField
 enterMonthlyInstalments:
-    cacheQuery: memberLoan.monthlyInstalments
-    inputIdentifier: monthlyInstalments
-    nextScreen: enterInterestRate
-    optional: true
-    order: 7
-    text:
-        en: Monthly Instalments
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoan.monthlyInstalments
+  inputIdentifier: monthlyInstalments
+  nextScreen: enterInterestRate
+  optional: true
+  order: 7
+  text:
+    en: Monthly Instalments
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterRepaymentPeriodInMonths:
-    cacheQuery: memberLoan.repaymentPeriodInMonths
-    inputIdentifier: repaymentPeriodInMonths
-    nextScreen: enterLoanPurpose
-    order: 2
-    text:
-        en: Repayment Period In Months
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoan.repaymentPeriodInMonths
+  inputIdentifier: repaymentPeriodInMonths
+  nextScreen: enterLoanPurpose
+  order: 2
+  text:
+    en: Repayment Period In Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterLoanAmount
 model: memberLoan

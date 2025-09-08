@@ -1,0 +1,20 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+memberLoanId:
+  optional: true
+  order: 1
+  referenceTable: memberLoan
+  type: int
+
+loanNumber:
+  order: 2
+  type: text
+
+claimed:
+  default: "0"
+  order: 3
+  type: int

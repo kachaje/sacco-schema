@@ -125,6 +125,27 @@ WHERE
 
 END;
 
+CREATE TABLE IF NOT EXISTS loanNumberIdsCache (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER,
+    loanNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS loanNumberIdsCacheUpdated AFTER
+UPDATE ON loanNumberIdsCache FOR EACH ROW BEGIN
+UPDATE loanNumberIdsCache
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
 CREATE TABLE IF NOT EXISTS loanRate (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     loanTypeId INTEGER NOT NULL,
@@ -361,6 +382,7 @@ CREATE TABLE IF NOT EXISTS memberLoan (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
     memberSavingId INTEGER,
+    loanNumber TEXT,
     loanAmount REAL NOT NULL,
     repaymentPeriodInMonths INTEGER NOT NULL,
     loanPurpose TEXT NOT NULL,

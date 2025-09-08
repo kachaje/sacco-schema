@@ -168,6 +168,33 @@
     "model": "insuranceProvider",
     "parents": []
   },
+  "loanNumberIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanId": {
+        "optional": true,
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      }
+    },
+    "model": "loanNumberIdsCache",
+    "parents": ["memberLoan"]
+  },
   "loanRate": {
     "fields": {
       "id": {
@@ -544,12 +571,12 @@
     "fields": {
       "amountPaid": {
         "default": "0",
-        "order": 11,
+        "order": 12,
         "type": "real"
       },
       "balanceAmount": {
         "default": "0",
-        "order": 12,
+        "order": 13,
         "type": "real"
       },
       "id": {
@@ -560,29 +587,34 @@
       },
       "interestRate": {
         "default": "0",
-        "order": 10,
+        "order": 11,
         "type": "real"
       },
       "loanAmount": {
-        "order": 3,
+        "order": 4,
         "type": "real"
       },
       "loanDueDate": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 8,
+        "order": 9,
+        "type": "text"
+      },
+      "loanNumber": {
+        "optional": true,
+        "order": 3,
         "type": "text"
       },
       "loanPurpose": {
-        "order": 5,
+        "order": 6,
         "type": "text"
       },
       "loanStartDate": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 7,
+        "order": 8,
         "type": "text"
       },
       "loanType": {
-        "order": 6,
+        "order": 7,
         "type": "text"
       },
       "memberId": {
@@ -599,11 +631,11 @@
       },
       "monthlyInstalments": {
         "default": "0",
-        "order": 9,
+        "order": 10,
         "type": "real"
       },
       "repaymentPeriodInMonths": {
-        "order": 4,
+        "order": 5,
         "type": "int"
       }
     },
