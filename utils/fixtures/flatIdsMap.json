@@ -1,0 +1,58 @@
+{
+  "memberBusinessId": {
+    "key": "member.memberLoan.1.memberBusiness.id",
+    "value": "1"
+  },
+  "memberContactId": {
+    "key": "member.memberContact.id",
+    "value": "1"
+  },
+  "memberDependant.1.Id": {
+    "key": "member.memberDependant.1.id",
+    "value": "1"
+  },
+  "memberDependant.2.Id": {
+    "key": "member.memberDependant.2.id",
+    "value": "2"
+  },
+  "memberDependant.3.Id": {
+    "key": "member.memberDependant.3.id",
+    "value": "3"
+  },
+  "memberDependant.4.Id": {
+    "key": "member.memberDependant.4.id",
+    "value": "4"
+  },
+  "memberId": {
+    "key": "member.id",
+    "value": "1"
+  },
+  "memberLastYearBusinessHistoryId": {
+    "key": "member.memberLoan.1.memberBusiness.memberLastYearBusinessHistory.id",
+    "value": "1"
+  },
+  "memberLoan.1.Id": {
+    "key": "member.memberLoan.1.id",
+    "value": "1"
+  },
+  "memberLoanApprovalId": {
+    "key": "member.memberLoan.1.memberLoanApproval.id",
+    "value": "1"
+  },
+  "memberNextYearBusinessProjectionId": {
+    "key": "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
+    "value": "1"
+  },
+  "memberNomineeId": {
+    "key": "member.memberNominee.id",
+    "value": "1"
+  },
+  "memberOccupationId": {
+    "key": "member.memberLoan.1.memberOccupation.id",
+    "value": "1"
+  },
+  "memberOccupationVerificationId": {
+    "key": "member.memberLoan.1.memberOccupation.memberOccupationVerification.id",
+    "value": "1"
+  }
+}

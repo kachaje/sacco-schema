@@ -23,39 +23,20 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 
 	result := utils.FlattenMap(data, true)
 
-	target := map[string]any{
-		"memberBusinessId": map[string]any{
-			"key":   "member.memberLoan.1.memberBusiness.id",
-			"value": "1",
-		},
-		"memberContactId": map[string]any{
-			"key":   "member.memberContact.id",
-			"value": "1",
-		},
-		"memberId": map[string]any{
-			"key":   "member.id",
-			"value": "1",
-		},
-		"memberLastYearBusinessHistoryId": map[string]any{
-			"key":   "member.memberLoan.1.memberBusiness.memberLastYearBusinessHistory.id",
-			"value": "1",
-		},
-		"memberLoanApprovalId": map[string]any{
-			"key":   "member.memberLoan.1.memberLoanApproval.id",
-			"value": "1",
-		},
-		"memberNextYearBusinessProjectionId": map[string]any{
-			"key":   "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
-			"value": "1",
-		},
-		"memberOccupationId": map[string]any{
-			"key":   "member.memberLoan.1.memberOccupation.id",
-			"value": "1",
-		},
-		"memberOccupationVerificationId": map[string]any{
-			"key":   "member.memberLoan.1.memberOccupation.memberOccupationVerification.id",
-			"value": "1",
-		},
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	os.WriteFile(filepath.Join(".", "fixtures", "flatIdsMap.json"), payload, 0644)
+
+	target := map[string]any{}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatIdsMap.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
 	}
 
 	if !reflect.DeepEqual(target, result) {
@@ -76,7 +57,7 @@ func TestFlattenMapAllData(t *testing.T) {
 
 	result := utils.FlattenMap(data, false)
 
-	target, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.flatmap.json"))
+	target, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -48,6 +48,18 @@ func flattenRecursive(m map[string]any, prefix string, flat map[string]any, idMa
 						"key":   newKey,
 						"value": fmt.Sprintf("%v", v),
 					}
+				} else {
+					re := regexp.MustCompile(`([A-Z-a-z]+)\.(\d+)\.id$`)
+
+					if re.MatchString(newKey) {
+						model := re.FindAllStringSubmatch(newKey, -1)[0][1]
+						childId := re.FindAllStringSubmatch(newKey, -1)[0][2]
+
+						flat[fmt.Sprintf("%s.%v.Id", model, childId)] = map[string]any{
+							"key":   newKey,
+							"value": fmt.Sprintf("%v", v),
+						}
+					}
 				}
 			} else if !idMapOnly {
 				flat[newKey] = v
