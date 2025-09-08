@@ -160,10 +160,12 @@ func (m *Model) loadRows(rows *sql.Rows) ([]map[string]any, error) {
 		rowMap := make(map[string]any)
 		for i, col := range cols {
 			val := values[i]
-			if b, ok := val.([]byte); ok {
-				rowMap[col] = string(b)
-			} else {
-				rowMap[col] = val
+			if val != nil {
+				if b, ok := val.([]byte); ok {
+					rowMap[col] = string(b)
+				} else {
+					rowMap[col] = val
+				}
 			}
 		}
 

@@ -73,10 +73,20 @@ INSERT INTO
     loanAmount,
     repaymentPeriodInMonths,
     loanPurpose,
-    loanType
+    loanType,
+    loanDueDate,
+    loanStartDate
   )
 VALUES
-  (1, 200000, 12, "School fees", "PERSONAL");
+  (
+    1,
+    200000,
+    12,
+    "School fees",
+    "PERSONAL",
+    "2025-09-08 07:09:32",
+    "2025-09-08 07:09:32"
+  );
 
 INSERT INTO
   memberBusiness (

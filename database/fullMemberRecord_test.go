@@ -27,27 +27,32 @@ func setupDb() (*database.Database, error) {
 }
 
 func TestLoadModelChildren(t *testing.T) {
-	t.Skip()
-
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer db.Close()
 
+	db.SkipFields = append(db.SkipFields, []string{"createdAt", "updatedAt"}...)
+
 	result, err := db.LoadModelChildren("member", 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	payload, _ := json.MarshalIndent(map[string]any{"member": result}, "", "  ")
-
-	target, err := os.ReadFile(filepath.Join(".", "models", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if utils.CleanScript(payload) != utils.CleanScript(target) {
+	target := map[string]any{}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
 	}
 }

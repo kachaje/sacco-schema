@@ -17,7 +17,7 @@ func (d *Database) LoadSingleChildren(parentKey, model string, parentId int64) (
 		for _, childModel := range chidren {
 			parentKey := fmt.Sprintf("%sId", model)
 
-			results, err := d.GenericModels[childModel].FilterBy(fmt.Sprintf(`WHERE %s = %v AND active = 1 ORDER by updated_at DESC LIMIT 1`, parentKey, parentId))
+			results, err := d.GenericModels[childModel].FilterBy(fmt.Sprintf(`WHERE %s = %v AND active = 1 ORDER by updatedAt DESC LIMIT 1`, parentKey, parentId))
 			if err != nil {
 				log.Println("LoadSingleChildren 1:", childModel, err)
 				continue
@@ -63,7 +63,7 @@ func (d *Database) LoadArrayChildren(parentKey, model string, parentId int64) (m
 			}
 
 			if len(results) > 0 {
-				rows := []map[string]any{}
+				rows := map[string]any{}
 
 				for _, row := range results {
 
@@ -78,9 +78,9 @@ func (d *Database) LoadArrayChildren(parentKey, model string, parentId int64) (m
 						} else {
 							maps.Copy(row, result)
 						}
-					}
 
-					rows = append(rows, row)
+						rows[fmt.Sprintf("%v", id)] = row
+					}
 				}
 
 				data[childModel] = rows
