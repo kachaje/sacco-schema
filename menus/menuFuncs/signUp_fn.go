@@ -127,7 +127,7 @@ func SignUp(
 						"name":     session.Cache["name"],
 						"username": session.Cache["username"],
 						"password": session.Cache["password"],
-						"role":     "Member",
+						"userRole":     "Member",
 					})
 					if err != nil {
 						content = err.Error()

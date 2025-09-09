@@ -255,7 +255,7 @@ func (d *Database) SQLQuery(query string) ([]map[string]any, error) {
 }
 
 func (d *Database) ValidatePassword(username, password string) (*int64, *string, bool) {
-	result, err := d.SQLQuery(fmt.Sprintf(`SELECT id, password, role FROM user WHERE username = "%v"`, username))
+	result, err := d.SQLQuery(fmt.Sprintf(`SELECT id, password, userRole FROM user WHERE username = "%v"`, username))
 	if err == nil && len(result) > 0 {
 		passHash := fmt.Sprintf("%v", result[0]["password"])
 
@@ -267,9 +267,9 @@ func (d *Database) ValidatePassword(username, password string) (*int64, *string,
 				id = val
 			}
 
-			role := fmt.Sprintf("%v", result[0]["role"])
+			userRole := fmt.Sprintf("%v", result[0]["userRole"])
 
-			return &id, &role, true
+			return &id, &userRole, true
 		}
 	}
 
@@ -277,7 +277,7 @@ func (d *Database) ValidatePassword(username, password string) (*int64, *string,
 }
 
 func (d *Database) UsernameFree(username string) bool {
-	result, err := d.SQLQuery(fmt.Sprintf(`SELECT id, role FROM user WHERE username = "%v"`, username))
+	result, err := d.SQLQuery(fmt.Sprintf(`SELECT id, userRole FROM user WHERE username = "%v"`, username))
 	if err == nil && len(result) > 0 {
 		return false
 	}
