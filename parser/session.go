@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"regexp"
 	"sacco/utils"
 	"sync"
 	"time"
@@ -92,6 +93,8 @@ func (s *Session) updateActiveData(data map[string]any, retries int) {
 
 	for key := range idsData {
 		model := key[:len(key)-2]
+
+		model = regexp.MustCompile(`[^A-Za-z]`).ReplaceAllLiteralString(model, "")
 
 		s.AddedModels[model] = true
 	}
