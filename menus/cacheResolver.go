@@ -16,10 +16,12 @@ func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
 		if cacheQueries, ok := cacheMap["cacheQueries"].(map[string]any); ok {
 			for _, value := range cacheQueries {
 				if groupRoot == "" {
-					reRoot := regexp.MustCompile(`^([^0]+)`)
 					if val, ok := value.(string); ok {
-						if reRoot.MatchString(val) {
-							groupRoot = reRoot.FindString(val)
+						if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
+							groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
+							break
+						} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
+							groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
 							break
 						}
 					}
@@ -34,7 +36,6 @@ func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
 
 	for key, value := range data {
 		re := regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.(.+)`, groupRoot))
-
 		if strings.HasPrefix(key, groupRoot) && re.MatchString(key) {
 			parts := re.FindAllStringSubmatch(key, -1)
 
@@ -50,6 +51,10 @@ func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
 			}
 
 			incomingData[indexKey].(map[string]any)[field] = value
+		} else if regexp.MustCompile(fmt.Sprintf(`^%s[A-Za-z]+$`, groupRoot)).MatchString(key) {
+			field := regexp.MustCompile(groupRoot).ReplaceAllLiteralString(key, "")
+
+			result[field] = value
 		}
 	}
 

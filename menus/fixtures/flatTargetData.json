@@ -1,3 +1,17 @@
 {
-  
+  "createdAt": "2025-09-09 16:43:55",
+  "dNumber": "KSM798395",
+  "dateJoined": "2025-09-09",
+  "dateOfBirth": "1999-09-01",
+  "firstName": "Mary",
+  "gender": "Female",
+  "id": 1,
+  "lastName": "Banda",
+  "maritalStatus": "Single",
+  "nationalIdentifier": "KDJD58473",
+  "phoneNumber": "0999888777",
+  "title": "Miss",
+  "updatedAt": "2025-09-09 16:43:55",
+  "utilityBillNumber": "9304845",
+  "utilityBillType": "ESCOM"
 }

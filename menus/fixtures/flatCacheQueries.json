@@ -1,0 +1,18 @@
+{
+  "cacheQueries": {
+    "createdAt": "member.createdAt",
+    "dateJoined": "member.dateJoined",
+    "dateOfBirth": "member.dateOfBirth",
+    "firstName": "member.firstName",
+    "gender": "member.gender",
+    "id": "member.id",
+    "lastName": "member.lastName",
+    "maritalStatus": "member.maritalStatus",
+    "nationalIdentifier": "member.nationalIdentifier",
+    "phoneNumber": "member.phoneNumber",
+    "title": "member.title",
+    "updatedAt": "member.updatedAt",
+    "utilityBillNumber": "member.utilityBillNumber",
+    "utilityBillType": "member.utilityBillType"
+  }
+}
