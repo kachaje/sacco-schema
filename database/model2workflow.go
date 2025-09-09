@@ -84,7 +84,19 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 				suffix = fmt.Sprint(index + 1)
 			}
 
-			for _, row := range rawData["fields"].([]any) {
+			fields := []any{}
+
+			if rawData["arrayFields"] != nil {
+				if val, ok := rawData["arrayFields"].([]any); ok {
+					fields = val
+				} else if val, ok := rawData["fields"].([]any); ok {
+					fields = val
+				}
+			} else if val, ok := rawData["fields"].([]any); ok {
+				fields = val
+			}
+
+			for _, row := range fields {
 				if val, ok := row.(map[string]any); ok {
 					for key, rawValue := range val {
 						if value, ok := rawValue.(map[string]any); ok {

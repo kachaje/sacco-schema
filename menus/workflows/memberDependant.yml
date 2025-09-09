@@ -1,30 +1,96 @@
 cacheQueries:
-    address: member.memberDependant.0.address
-    id: member.memberDependant.0.id
-    isNominee: member.memberDependant.0.isNominee
-    memberId: member.memberDependant.0.memberId
-    name: member.memberDependant.0.name
-    percentage: member.memberDependant.0.percentage
-    phoneNumber: member.memberDependant.0.phoneNumber
-    relationship: member.memberDependant.0.relationship
-enterAddress:
-    cacheQuery: member.memberDependant.0.address
-    inputIdentifier: address
-    nextScreen: enterPercentage
+    address1: member.memberDependant.0.address1
+    address2: member.memberDependant.0.address2
+    address3: member.memberDependant.0.address3
+    address4: member.memberDependant.0.address4
+    id1: member.memberDependant.0.id1
+    id2: member.memberDependant.0.id2
+    id3: member.memberDependant.0.id3
+    id4: member.memberDependant.0.id4
+    isNominee1: member.memberDependant.0.isNominee1
+    isNominee2: member.memberDependant.0.isNominee2
+    isNominee3: member.memberDependant.0.isNominee3
+    isNominee4: member.memberDependant.0.isNominee4
+    memberId1: member.memberDependant.0.memberId1
+    memberId2: member.memberDependant.0.memberId2
+    memberId3: member.memberDependant.0.memberId3
+    memberId4: member.memberDependant.0.memberId4
+    name1: member.memberDependant.0.name1
+    name2: member.memberDependant.0.name2
+    name3: member.memberDependant.0.name3
+    name4: member.memberDependant.0.name4
+    percentage1: member.memberDependant.0.percentage1
+    percentage2: member.memberDependant.0.percentage2
+    percentage3: member.memberDependant.0.percentage3
+    percentage4: member.memberDependant.0.percentage4
+    phoneNumber1: member.memberDependant.0.phoneNumber1
+    phoneNumber2: member.memberDependant.0.phoneNumber2
+    phoneNumber3: member.memberDependant.0.phoneNumber3
+    phoneNumber4: member.memberDependant.0.phoneNumber4
+    relationship1: member.memberDependant.0.relationship1
+    relationship2: member.memberDependant.0.relationship2
+    relationship3: member.memberDependant.0.relationship3
+    relationship4: member.memberDependant.0.relationship4
+enterAddress1:
+    cacheQuery: member.memberDependant.0.address1
+    inputIdentifier: address1
+    nextScreen: enterPercentage1
     optional: true
     order: 3
     text:
         en: Address
     type: inputScreen
-enterId:
-    cacheQuery: member.memberDependant.0.id
+enterAddress2:
+    cacheQuery: member.memberDependant.0.address2
+    inputIdentifier: address2
+    nextScreen: enterPercentage2
+    optional: true
+    order: 9
+    text:
+        en: Address
+    type: inputScreen
+enterAddress3:
+    cacheQuery: member.memberDependant.0.address3
+    inputIdentifier: address3
+    nextScreen: enterPercentage3
+    optional: true
+    order: 15
+    text:
+        en: Address
+    type: inputScreen
+enterAddress4:
+    cacheQuery: member.memberDependant.0.address4
+    inputIdentifier: address4
+    nextScreen: enterPercentage4
+    optional: true
+    order: 21
+    text:
+        en: Address
+    type: inputScreen
+enterId1:
+    cacheQuery: member.memberDependant.0.id1
     hidden: true
-    inputIdentifier: id
+    inputIdentifier: id1
     type: hiddenField
-enterIsNominee:
-    cacheQuery: member.memberDependant.0.isNominee
-    inputIdentifier: isNominee
-    nextScreen: enterRelationship
+enterId2:
+    cacheQuery: member.memberDependant.0.id2
+    hidden: true
+    inputIdentifier: id2
+    type: hiddenField
+enterId3:
+    cacheQuery: member.memberDependant.0.id3
+    hidden: true
+    inputIdentifier: id3
+    type: hiddenField
+enterId4:
+    cacheQuery: member.memberDependant.0.id4
+    hidden: true
+    inputIdentifier: id4
+    type: hiddenField
+enterIsNominee1:
+    cacheQuery: member.memberDependant.0.isNominee1
+    inputIdentifier: isNominee1
+    nextScreen: enterRelationship1
     optional: true
     options:
         - label:
@@ -37,41 +103,182 @@ enterIsNominee:
     text:
         en: Is Nominee
     type: inputScreen
-enterMemberId:
-    cacheQuery: member.memberDependant.0.memberId
+enterIsNominee2:
+    cacheQuery: member.memberDependant.0.isNominee2
+    inputIdentifier: isNominee2
+    nextScreen: enterRelationship2
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 11
+    text:
+        en: Is Nominee
+    type: inputScreen
+enterIsNominee3:
+    cacheQuery: member.memberDependant.0.isNominee3
+    inputIdentifier: isNominee3
+    nextScreen: enterRelationship3
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 17
+    text:
+        en: Is Nominee
+    type: inputScreen
+enterIsNominee4:
+    cacheQuery: member.memberDependant.0.isNominee4
+    inputIdentifier: isNominee4
+    nextScreen: enterRelationship4
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 23
+    text:
+        en: Is Nominee
+    type: inputScreen
+enterMemberId1:
+    cacheQuery: member.memberDependant.0.memberId1
     hidden: true
-    inputIdentifier: memberId
+    inputIdentifier: memberId1
     type: hiddenField
-enterName:
-    cacheQuery: member.memberDependant.0.name
-    inputIdentifier: name
-    nextScreen: enterPhoneNumber
+enterMemberId2:
+    cacheQuery: member.memberDependant.0.memberId2
+    hidden: true
+    inputIdentifier: memberId2
+    type: hiddenField
+enterMemberId3:
+    cacheQuery: member.memberDependant.0.memberId3
+    hidden: true
+    inputIdentifier: memberId3
+    type: hiddenField
+enterMemberId4:
+    cacheQuery: member.memberDependant.0.memberId4
+    hidden: true
+    inputIdentifier: memberId4
+    type: hiddenField
+enterName1:
+    cacheQuery: member.memberDependant.0.name1
+    inputIdentifier: name1
+    nextScreen: enterPhoneNumber1
     order: 1
     text:
         en: Name
     type: inputScreen
-enterPercentage:
-    cacheQuery: member.memberDependant.0.percentage
-    inputIdentifier: percentage
-    nextScreen: enterIsNominee
+enterName2:
+    cacheQuery: member.memberDependant.0.name2
+    inputIdentifier: name2
+    nextScreen: enterPhoneNumber2
+    order: 7
+    text:
+        en: Name
+    type: inputScreen
+enterName3:
+    cacheQuery: member.memberDependant.0.name3
+    inputIdentifier: name3
+    nextScreen: enterPhoneNumber3
+    order: 13
+    text:
+        en: Name
+    type: inputScreen
+enterName4:
+    cacheQuery: member.memberDependant.0.name4
+    inputIdentifier: name4
+    nextScreen: enterPhoneNumber4
+    order: 19
+    text:
+        en: Name
+    type: inputScreen
+enterPercentage1:
+    cacheQuery: member.memberDependant.0.percentage1
+    inputIdentifier: percentage1
+    nextScreen: enterIsNominee1
     optional: true
     order: 4
     text:
         en: Percentage
     type: inputScreen
     validationRule: ^\d+\.*\d*$
-enterPhoneNumber:
-    cacheQuery: member.memberDependant.0.phoneNumber
-    inputIdentifier: phoneNumber
-    nextScreen: enterAddress
+enterPercentage2:
+    cacheQuery: member.memberDependant.0.percentage2
+    inputIdentifier: percentage2
+    nextScreen: enterIsNominee2
+    optional: true
+    order: 10
+    text:
+        en: Percentage
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterPercentage3:
+    cacheQuery: member.memberDependant.0.percentage3
+    inputIdentifier: percentage3
+    nextScreen: enterIsNominee3
+    optional: true
+    order: 16
+    text:
+        en: Percentage
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterPercentage4:
+    cacheQuery: member.memberDependant.0.percentage4
+    inputIdentifier: percentage4
+    nextScreen: enterIsNominee4
+    optional: true
+    order: 22
+    text:
+        en: Percentage
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
+enterPhoneNumber1:
+    cacheQuery: member.memberDependant.0.phoneNumber1
+    inputIdentifier: phoneNumber1
+    nextScreen: enterAddress1
     order: 2
     text:
         en: Phone Number
     type: inputScreen
-enterRelationship:
-    cacheQuery: member.memberDependant.0.relationship
-    inputIdentifier: relationship
-    nextScreen: formSummary
+enterPhoneNumber2:
+    cacheQuery: member.memberDependant.0.phoneNumber2
+    inputIdentifier: phoneNumber2
+    nextScreen: enterAddress2
+    order: 8
+    text:
+        en: Phone Number
+    type: inputScreen
+enterPhoneNumber3:
+    cacheQuery: member.memberDependant.0.phoneNumber3
+    inputIdentifier: phoneNumber3
+    nextScreen: enterAddress3
+    order: 14
+    text:
+        en: Phone Number
+    type: inputScreen
+enterPhoneNumber4:
+    cacheQuery: member.memberDependant.0.phoneNumber4
+    inputIdentifier: phoneNumber4
+    nextScreen: enterAddress4
+    order: 20
+    text:
+        en: Phone Number
+    type: inputScreen
+enterRelationship1:
+    cacheQuery: member.memberDependant.0.relationship1
+    inputIdentifier: relationship1
+    nextScreen: enterName2
     options:
         - label:
             en: Spouse
@@ -89,9 +296,72 @@ enterRelationship:
     text:
         en: Relationship
     type: inputScreen
+enterRelationship2:
+    cacheQuery: member.memberDependant.0.relationship2
+    inputIdentifier: relationship2
+    nextScreen: enterName3
+    options:
+        - label:
+            en: Spouse
+          position: 1
+        - label:
+            en: Child
+          position: 2
+        - label:
+            en: Sibling
+          position: 3
+        - label:
+            en: Other
+          position: 4
+    order: 12
+    text:
+        en: Relationship
+    type: inputScreen
+enterRelationship3:
+    cacheQuery: member.memberDependant.0.relationship3
+    inputIdentifier: relationship3
+    nextScreen: enterName4
+    options:
+        - label:
+            en: Spouse
+          position: 1
+        - label:
+            en: Child
+          position: 2
+        - label:
+            en: Sibling
+          position: 3
+        - label:
+            en: Other
+          position: 4
+    order: 18
+    text:
+        en: Relationship
+    type: inputScreen
+enterRelationship4:
+    cacheQuery: member.memberDependant.0.relationship4
+    inputIdentifier: relationship4
+    nextScreen: formSummary
+    options:
+        - label:
+            en: Spouse
+          position: 1
+        - label:
+            en: Child
+          position: 2
+        - label:
+            en: Sibling
+          position: 3
+        - label:
+            en: Other
+          position: 4
+    order: 24
+    text:
+        en: Relationship
+    type: inputScreen
 formSummary:
     type: quitScreen
-initialScreen: enterName
+initialScreen: enterName1
 model: memberDependant
 parentIds:
     - memberId
