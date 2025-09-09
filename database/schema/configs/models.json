@@ -646,7 +646,6 @@
       {
         "percentage1": {
           "numericField": true,
-          "optional": true,
           "order": 5
         }
       },
@@ -708,7 +707,6 @@
       {
         "percentage2": {
           "numericField": true,
-          "optional": true,
           "order": 13
         }
       },
@@ -770,7 +768,6 @@
       {
         "percentage3": {
           "numericField": true,
-          "optional": true,
           "order": 21
         }
       },
@@ -832,7 +829,6 @@
       {
         "percentage4": {
           "numericField": true,
-          "optional": true,
           "order": 29
         }
       },
@@ -899,7 +895,6 @@
       {
         "percentage": {
           "numericField": true,
-          "optional": true,
           "order": 5
         }
       },

@@ -211,7 +211,6 @@ enterPercentage1:
     cacheQuery: member.memberDependant.0.percentage1
     inputIdentifier: percentage1
     nextScreen: enterIsNominee1
-    optional: true
     order: 4
     text:
         en: Percentage
@@ -221,7 +220,6 @@ enterPercentage2:
     cacheQuery: member.memberDependant.0.percentage2
     inputIdentifier: percentage2
     nextScreen: enterIsNominee2
-    optional: true
     order: 10
     text:
         en: Percentage
@@ -231,7 +229,6 @@ enterPercentage3:
     cacheQuery: member.memberDependant.0.percentage3
     inputIdentifier: percentage3
     nextScreen: enterIsNominee3
-    optional: true
     order: 16
     text:
         en: Percentage
@@ -241,7 +238,6 @@ enterPercentage4:
     cacheQuery: member.memberDependant.0.percentage4
     inputIdentifier: percentage4
     nextScreen: enterIsNominee4
-    optional: true
     order: 22
     text:
         en: Percentage

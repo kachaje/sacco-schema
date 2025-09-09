@@ -361,7 +361,6 @@ memberDependant:
             type: text
         - percentage1:
             numericField: true
-            optional: true
             order: 5
         - isNominee1:
             optional: true
@@ -397,7 +396,6 @@ memberDependant:
             type: text
         - percentage2:
             numericField: true
-            optional: true
             order: 13
         - isNominee2:
             optional: true
@@ -433,7 +431,6 @@ memberDependant:
             type: text
         - percentage3:
             numericField: true
-            optional: true
             order: 21
         - isNominee3:
             optional: true
@@ -469,7 +466,6 @@ memberDependant:
             type: text
         - percentage4:
             numericField: true
-            optional: true
             order: 29
         - isNominee4:
             optional: true
@@ -508,7 +504,6 @@ memberDependant:
             type: text
         - percentage:
             numericField: true
-            optional: true
             order: 5
         - isNominee:
             optional: true
