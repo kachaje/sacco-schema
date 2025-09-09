@@ -52,3 +52,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterWitnessName
 model: memberLoanWitness
+parentIds:
+  - memberLoanId

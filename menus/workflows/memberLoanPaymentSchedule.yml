@@ -40,3 +40,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDueDate
 model: memberLoanPaymentSchedule
+parentIds:
+  - memberLoanId

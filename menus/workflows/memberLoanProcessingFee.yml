@@ -35,3 +35,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: memberLoanProcessingFee
+parentIds:
+  - memberLoanId

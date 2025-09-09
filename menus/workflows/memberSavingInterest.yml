@@ -44,3 +44,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDescription
 model: memberSavingInterest
+parentIds:
+  - memberSavingId

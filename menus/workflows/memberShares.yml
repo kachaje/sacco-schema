@@ -55,3 +55,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterMemberSharesIdNumber
 model: memberShares
+parentIds:
+  - memberId

@@ -71,4 +71,4 @@ formSummary:
 initialScreen: enterPostalAddress
 model: memberContact
 parentIds:
-    - memberId
+  - memberId

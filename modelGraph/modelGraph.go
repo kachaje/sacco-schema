@@ -248,6 +248,11 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 		}
 
 		if val, ok := value.(map[string]any); ok {
+			if val["parents"] != nil {
+				if v, ok := val["parents"].([]any); ok && len(v) > 0 {
+					result[model].(map[string]any)["belongsTo"] = val["parents"]
+				}
+			}
 			if val["fields"] != nil {
 				if vv, ok := val["fields"].(map[string]any); ok {
 					keysOrder := map[int]string{}

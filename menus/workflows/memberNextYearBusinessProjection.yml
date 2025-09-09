@@ -135,3 +135,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterFinancialYear
 model: memberNextYearBusinessProjection
+parentIds:
+  - memberBusinessId

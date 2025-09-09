@@ -34,3 +34,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDescription
 model: memberLoanLiability
+parentIds:
+  - memberLoanId

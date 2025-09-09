@@ -124,3 +124,6 @@ formSummary:
   type: quitScreen
 initialScreen: enterLoanAmount
 model: memberLoan
+parentIds:
+  - memberId
+  - memberSavingId

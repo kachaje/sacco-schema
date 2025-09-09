@@ -51,3 +51,6 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: accountJournal
+parentIds:
+  - accountId
+  - accountTransactionId

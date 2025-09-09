@@ -41,3 +41,6 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: memberLoanInsurance
+parentIds:
+  - memberLoanId
+  - insuranceProviderId

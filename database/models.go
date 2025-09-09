@@ -170,5 +170,118 @@ var (
 		"value",
 		"yearsInBusiness",
 	}
-	ParentModels = map[string][]string{}
+	ParentModels = map[string][]string{
+		"accountJournal": {
+			"account",
+			"accountTransaction",
+		},
+		"accountStatement": {
+			"account",
+		},
+		"dividends": {
+			"member",
+		},
+		"loanNumberIdsCache": {
+			"memberLoan",
+		},
+		"loanRate": {
+			"loanType",
+		},
+		"memberBusiness": {
+			"memberLoan",
+		},
+		"memberBusinessVerification": {
+			"memberBusiness",
+		},
+		"memberContact": {
+			"member",
+		},
+		"memberDependant": {
+			"member",
+		},
+		"memberIdsCache": {
+			"member",
+		},
+		"memberLastYearBusinessHistory": {
+			"memberBusiness",
+		},
+		"memberLoan": {
+			"member",
+			"memberSaving",
+		},
+		"memberLoanApproval": {
+			"memberLoan",
+		},
+		"memberLoanDisbursement": {
+			"memberLoan",
+		},
+		"memberLoanInsurance": {
+			"memberLoan",
+			"insuranceProvider",
+		},
+		"memberLoanLiability": {
+			"memberLoan",
+		},
+		"memberLoanPaymentSchedule": {
+			"memberLoan",
+		},
+		"memberLoanProcessingFee": {
+			"memberLoan",
+		},
+		"memberLoanReceipt": {
+			"memberLoanPaymentSchedule",
+		},
+		"memberLoanSecurity": {
+			"memberLoan",
+		},
+		"memberLoanTax": {
+			"memberLoan",
+		},
+		"memberLoanWitness": {
+			"memberLoan",
+		},
+		"memberNextYearBusinessProjection": {
+			"memberBusiness",
+		},
+		"memberOccupation": {
+			"memberLoan",
+		},
+		"memberOccupationVerification": {
+			"memberOccupation",
+		},
+		"memberSaving": {
+			"member",
+			"savingsType",
+		},
+		"memberSavingDeposit": {
+			"memberSaving",
+		},
+		"memberSavingInterest": {
+			"memberSaving",
+		},
+		"memberSavingWithdrawal": {
+			"memberSaving",
+		},
+		"memberSavingsIdsCache": {
+			"memberSaving",
+		},
+		"memberShares": {
+			"member",
+		},
+		"memberSharesIdsCache": {
+			"memberShares",
+		},
+		"notification": {
+			"member",
+		},
+		"savingsRate": {
+			"savingsType",
+		},
+		"sharesDepositReceipt": {
+			"memberSaving",
+		},
+		"sharesDepositWithdraw": {
+			"memberSaving",
+		},
+	}
 )

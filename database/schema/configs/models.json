@@ -30,6 +30,7 @@
     "rootQuery": "account"
   },
   "accountJournal": {
+    "belongsTo": ["account", "accountTransaction"],
     "fields": [
       {
         "id": {
@@ -72,6 +73,7 @@
     "rootQuery": "accountJournal"
   },
   "accountStatement": {
+    "belongsTo": ["account"],
     "fields": [
       {
         "accountId": {
@@ -133,6 +135,7 @@
     "rootQuery": "accountTransaction"
   },
   "dividends": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -199,6 +202,7 @@
     "rootQuery": "insuranceProvider"
   },
   "loanNumberIdsCache": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -230,6 +234,7 @@
     "rootQuery": "loanNumberIdsCache"
   },
   "loanRate": {
+    "belongsTo": ["loanType"],
     "fields": [
       {
         "id": {
@@ -403,6 +408,7 @@
     "rootQuery": "member"
   },
   "memberBusiness": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -449,6 +455,7 @@
     "rootQuery": "memberBusiness"
   },
   "memberBusinessVerification": {
+    "belongsTo": ["memberBusiness"],
     "fields": [
       {
         "id": {
@@ -488,6 +495,7 @@
     "rootQuery": "memberBusinessVerification"
   },
   "memberContact": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -542,6 +550,7 @@
     "rootQuery": "memberContact"
   },
   "memberDependant": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -598,6 +607,7 @@
     "rootQuery": "memberDependant"
   },
   "memberIdsCache": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -629,6 +639,7 @@
     "rootQuery": "memberIdsCache"
   },
   "memberLastYearBusinessHistory": {
+    "belongsTo": ["memberBusiness"],
     "fields": [
       {
         "id": {
@@ -718,6 +729,7 @@
     "rootQuery": "memberLastYearBusinessHistory"
   },
   "memberLoan": {
+    "belongsTo": ["member", "memberSaving"],
     "fields": [
       {
         "id": {
@@ -829,6 +841,7 @@
     "rootQuery": "memberLoan"
   },
   "memberLoanApproval": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -895,6 +908,7 @@
     "rootQuery": "memberLoanApproval"
   },
   "memberLoanDisbursement": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -931,6 +945,7 @@
     "rootQuery": "memberLoanDisbursement"
   },
   "memberLoanInsurance": {
+    "belongsTo": ["memberLoan", "insuranceProvider"],
     "fields": [
       {
         "id": {
@@ -967,6 +982,7 @@
     "rootQuery": "memberLoanInsurance"
   },
   "memberLoanLiability": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -996,6 +1012,7 @@
     "rootQuery": "memberLoanLiability"
   },
   "memberLoanPaymentSchedule": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1032,6 +1049,7 @@
     "rootQuery": "memberLoanPaymentSchedule"
   },
   "memberLoanProcessingFee": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1062,6 +1080,7 @@
     "rootQuery": "memberLoanProcessingFee"
   },
   "memberLoanReceipt": {
+    "belongsTo": ["memberLoanPaymentSchedule"],
     "fields": [
       {
         "id": {
@@ -1098,6 +1117,7 @@
     "rootQuery": "memberLoanReceipt"
   },
   "memberLoanSecurity": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1133,6 +1153,7 @@
     "rootQuery": "memberLoanSecurity"
   },
   "memberLoanTax": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1169,6 +1190,7 @@
     "rootQuery": "memberLoanTax"
   },
   "memberLoanWitness": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1211,6 +1233,7 @@
     "rootQuery": "memberLoanWitness"
   },
   "memberNextYearBusinessProjection": {
+    "belongsTo": ["memberBusiness"],
     "fields": [
       {
         "id": {
@@ -1300,6 +1323,7 @@
     "rootQuery": "memberNextYearBusinessProjection"
   },
   "memberOccupation": {
+    "belongsTo": ["memberLoan"],
     "fields": [
       {
         "id": {
@@ -1367,6 +1391,7 @@
     "rootQuery": "memberOccupation"
   },
   "memberOccupationVerification": {
+    "belongsTo": ["memberOccupation"],
     "fields": [
       {
         "id": {
@@ -1404,6 +1429,7 @@
     "rootQuery": "memberOccupationVerification"
   },
   "memberSaving": {
+    "belongsTo": ["member", "savingsType"],
     "fields": [
       {
         "id": {
@@ -1448,6 +1474,7 @@
     "rootQuery": "memberSaving"
   },
   "memberSavingDeposit": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {
@@ -1484,6 +1511,7 @@
     "rootQuery": "memberSavingDeposit"
   },
   "memberSavingInterest": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {
@@ -1520,6 +1548,7 @@
     "rootQuery": "memberSavingInterest"
   },
   "memberSavingWithdrawal": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {
@@ -1556,6 +1585,7 @@
     "rootQuery": "memberSavingWithdrawal"
   },
   "memberSavingsIdsCache": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {
@@ -1587,6 +1617,7 @@
     "rootQuery": "memberSavingsIdsCache"
   },
   "memberShares": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -1629,6 +1660,7 @@
     "rootQuery": "memberShares"
   },
   "memberSharesIdsCache": {
+    "belongsTo": ["memberShares"],
     "fields": [
       {
         "id": {
@@ -1660,6 +1692,7 @@
     "rootQuery": "memberSharesIdsCache"
   },
   "notification": {
+    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -1706,6 +1739,7 @@
     "rootQuery": "notification"
   },
   "savingsRate": {
+    "belongsTo": ["savingsType"],
     "fields": [
       {
         "id": {
@@ -1771,6 +1805,7 @@
     "rootQuery": "savingsType"
   },
   "sharesDepositReceipt": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {
@@ -1807,6 +1842,7 @@
     "rootQuery": "sharesDepositReceipt"
   },
   "sharesDepositWithdraw": {
+    "belongsTo": ["memberSaving"],
     "fields": [
       {
         "id": {

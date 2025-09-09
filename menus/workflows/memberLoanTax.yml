@@ -44,3 +44,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDescription
 model: memberLoanTax
+parentIds:
+  - memberLoanId

@@ -58,3 +58,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterBusinessVerified
 model: memberBusinessVerification
+parentIds:
+  - memberBusinessId

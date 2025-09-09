@@ -91,3 +91,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: memberDependant
+parentIds:
+  - memberId

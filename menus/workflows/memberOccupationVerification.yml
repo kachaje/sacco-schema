@@ -50,3 +50,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterJobVerified
 model: memberOccupationVerification
+parentIds:
+  - memberOccupationId

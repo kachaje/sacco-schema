@@ -49,3 +49,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: accountStatement
+parentIds:
+  - accountId

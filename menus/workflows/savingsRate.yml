@@ -25,3 +25,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterMonthlyRate
 model: savingsRate
+parentIds:
+  - savingsTypeId

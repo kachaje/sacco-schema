@@ -68,3 +68,5 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: notification
+parentIds:
+  - memberId

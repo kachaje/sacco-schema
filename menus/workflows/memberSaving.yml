@@ -41,3 +41,6 @@ formSummary:
   type: quitScreen
 initialScreen: enterMemberSavingsIdNumber
 model: memberSaving
+parentIds:
+  - memberId
+  - savingsTypeId
