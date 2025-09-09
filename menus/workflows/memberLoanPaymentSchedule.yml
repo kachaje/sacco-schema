@@ -1,11 +1,11 @@
 cacheQueries:
-  amountDue: memberLoan.memberLoanPaymentSchedule.amountDue
-  dueDate: memberLoan.memberLoanPaymentSchedule.dueDate
-  id: memberLoan.memberLoanPaymentSchedule.id
-  memberLoanId: memberLoan.memberLoanPaymentSchedule.memberLoanId
-  paid: memberLoan.memberLoanPaymentSchedule.paid
+  amountDue: memberLoan.memberLoanPaymentSchedule.0.amountDue
+  dueDate: memberLoan.memberLoanPaymentSchedule.0.dueDate
+  id: memberLoan.memberLoanPaymentSchedule.0.id
+  memberLoanId: memberLoan.memberLoanPaymentSchedule.0.memberLoanId
+  paid: memberLoan.memberLoanPaymentSchedule.0.paid
 enterAmountDue:
-  cacheQuery: memberLoan.memberLoanPaymentSchedule.amountDue
+  cacheQuery: memberLoan.memberLoanPaymentSchedule.0.amountDue
   inputIdentifier: amountDue
   nextScreen: formSummary
   order: 2
@@ -14,7 +14,7 @@ enterAmountDue:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDueDate:
-  cacheQuery: memberLoan.memberLoanPaymentSchedule.dueDate
+  cacheQuery: memberLoan.memberLoanPaymentSchedule.0.dueDate
   inputIdentifier: dueDate
   nextScreen: enterAmountDue
   order: 1
@@ -22,17 +22,17 @@ enterDueDate:
     en: Due Date
   type: inputScreen
 enterId:
-  cacheQuery: memberLoan.memberLoanPaymentSchedule.id
+  cacheQuery: memberLoan.memberLoanPaymentSchedule.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoan.memberLoanPaymentSchedule.memberLoanId
+  cacheQuery: memberLoan.memberLoanPaymentSchedule.0.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterPaid:
-  cacheQuery: memberLoan.memberLoanPaymentSchedule.paid
+  cacheQuery: memberLoan.memberLoanPaymentSchedule.0.paid
   hidden: true
   inputIdentifier: paid
   type: hiddenField

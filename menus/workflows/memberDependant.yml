@@ -1,14 +1,14 @@
 cacheQueries:
-  address: member.memberDependant.address
-  id: member.memberDependant.id
-  isNominee: member.memberDependant.isNominee
-  memberId: member.memberDependant.memberId
-  name: member.memberDependant.name
-  percentage: member.memberDependant.percentage
-  phoneNumber: member.memberDependant.phoneNumber
-  relationship: member.memberDependant.relationship
+  address: member.memberDependant.0.address
+  id: member.memberDependant.0.id
+  isNominee: member.memberDependant.0.isNominee
+  memberId: member.memberDependant.0.memberId
+  name: member.memberDependant.0.name
+  percentage: member.memberDependant.0.percentage
+  phoneNumber: member.memberDependant.0.phoneNumber
+  relationship: member.memberDependant.0.relationship
 enterAddress:
-  cacheQuery: member.memberDependant.address
+  cacheQuery: member.memberDependant.0.address
   inputIdentifier: address
   nextScreen: enterPercentage
   optional: true
@@ -17,12 +17,12 @@ enterAddress:
     en: Address
   type: inputScreen
 enterId:
-  cacheQuery: member.memberDependant.id
+  cacheQuery: member.memberDependant.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterIsNominee:
-  cacheQuery: member.memberDependant.isNominee
+  cacheQuery: member.memberDependant.0.isNominee
   inputIdentifier: isNominee
   nextScreen: enterRelationship
   optional: true
@@ -38,12 +38,12 @@ enterIsNominee:
     en: Is Nominee
   type: inputScreen
 enterMemberId:
-  cacheQuery: member.memberDependant.memberId
+  cacheQuery: member.memberDependant.0.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterName:
-  cacheQuery: member.memberDependant.name
+  cacheQuery: member.memberDependant.0.name
   inputIdentifier: name
   nextScreen: enterPhoneNumber
   order: 1
@@ -51,7 +51,7 @@ enterName:
     en: Name
   type: inputScreen
 enterPercentage:
-  cacheQuery: member.memberDependant.percentage
+  cacheQuery: member.memberDependant.0.percentage
   inputIdentifier: percentage
   nextScreen: enterIsNominee
   optional: true
@@ -61,7 +61,7 @@ enterPercentage:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPhoneNumber:
-  cacheQuery: member.memberDependant.phoneNumber
+  cacheQuery: member.memberDependant.0.phoneNumber
   inputIdentifier: phoneNumber
   nextScreen: enterAddress
   order: 2
@@ -69,7 +69,7 @@ enterPhoneNumber:
     en: Phone Number
   type: inputScreen
 enterRelationship:
-  cacheQuery: member.memberDependant.relationship
+  cacheQuery: member.memberDependant.0.relationship
   inputIdentifier: relationship
   nextScreen: formSummary
   options:

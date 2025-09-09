@@ -1,11 +1,11 @@
 cacheQueries:
-  amount: memberLoan.memberLoanInsurance.amount
-  date: memberLoan.memberLoanInsurance.date
-  id: memberLoan.memberLoanInsurance.id
-  insuranceProviderId: memberLoan.memberLoanInsurance.insuranceProviderId
-  memberLoanId: memberLoan.memberLoanInsurance.memberLoanId
+  amount: memberLoan.memberLoanInsurance.0.amount
+  date: memberLoan.memberLoanInsurance.0.date
+  id: memberLoan.memberLoanInsurance.0.id
+  insuranceProviderId: memberLoan.memberLoanInsurance.0.insuranceProviderId
+  memberLoanId: memberLoan.memberLoanInsurance.0.memberLoanId
 enterAmount:
-  cacheQuery: memberLoan.memberLoanInsurance.amount
+  cacheQuery: memberLoan.memberLoanInsurance.0.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 2
@@ -14,7 +14,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberLoan.memberLoanInsurance.date
+  cacheQuery: memberLoan.memberLoanInsurance.0.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -23,17 +23,17 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: memberLoan.memberLoanInsurance.id
+  cacheQuery: memberLoan.memberLoanInsurance.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterInsuranceProviderId:
-  cacheQuery: memberLoan.memberLoanInsurance.insuranceProviderId
+  cacheQuery: memberLoan.memberLoanInsurance.0.insuranceProviderId
   hidden: true
   inputIdentifier: insuranceProviderId
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoan.memberLoanInsurance.memberLoanId
+  cacheQuery: memberLoan.memberLoanInsurance.0.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField

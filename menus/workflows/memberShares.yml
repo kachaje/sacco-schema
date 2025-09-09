@@ -1,22 +1,22 @@
 cacheQueries:
-  id: member.memberShares.id
-  memberId: member.memberShares.memberId
-  memberSharesIdNumber: member.memberShares.memberSharesIdNumber
-  monthlyPremium: member.memberShares.monthlyPremium
-  numberOfShares: member.memberShares.numberOfShares
-  totalValue: member.memberShares.totalValue
+  id: member.memberShares.0.id
+  memberId: member.memberShares.0.memberId
+  memberSharesIdNumber: member.memberShares.0.memberSharesIdNumber
+  monthlyPremium: member.memberShares.0.monthlyPremium
+  numberOfShares: member.memberShares.0.numberOfShares
+  totalValue: member.memberShares.0.totalValue
 enterId:
-  cacheQuery: member.memberShares.id
+  cacheQuery: member.memberShares.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: member.memberShares.memberId
+  cacheQuery: member.memberShares.0.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMemberSharesIdNumber:
-  cacheQuery: member.memberShares.memberSharesIdNumber
+  cacheQuery: member.memberShares.0.memberSharesIdNumber
   inputIdentifier: memberSharesIdNumber
   nextScreen: enterMonthlyPremium
   optional: true
@@ -25,7 +25,7 @@ enterMemberSharesIdNumber:
     en: Member Shares Id Number
   type: inputScreen
 enterMonthlyPremium:
-  cacheQuery: member.memberShares.monthlyPremium
+  cacheQuery: member.memberShares.0.monthlyPremium
   inputIdentifier: monthlyPremium
   nextScreen: enterTotalValue
   order: 2
@@ -34,7 +34,7 @@ enterMonthlyPremium:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterNumberOfShares:
-  cacheQuery: member.memberShares.numberOfShares
+  cacheQuery: member.memberShares.0.numberOfShares
   inputIdentifier: numberOfShares
   nextScreen: formSummary
   order: 4
@@ -43,7 +43,7 @@ enterNumberOfShares:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalValue:
-  cacheQuery: member.memberShares.totalValue
+  cacheQuery: member.memberShares.0.totalValue
   inputIdentifier: totalValue
   nextScreen: enterNumberOfShares
   order: 3

@@ -70,7 +70,7 @@
         }
       }
     ],
-    "rootQuery": "account.accountJournal"
+    "rootQuery": "account.accountJournal.0"
   },
   "accountStatement": {
     "belongsTo": ["account"],
@@ -107,7 +107,7 @@
         }
       }
     ],
-    "rootQuery": "account.accountStatement"
+    "rootQuery": "account.accountStatement.0"
   },
   "accountTransaction": {
     "fields": [
@@ -163,7 +163,7 @@
         }
       }
     ],
-    "rootQuery": "member.dividends"
+    "rootQuery": "member.dividends.0"
   },
   "insuranceProvider": {
     "fields": [
@@ -606,7 +606,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberDependant"
+    "rootQuery": "member.memberDependant.0"
   },
   "memberIdsCache": {
     "belongsTo": ["member"],
@@ -834,7 +834,7 @@
       "memberLoanDisbursement",
       "memberOccupation"
     ],
-    "rootQuery": "member.memberLoan"
+    "rootQuery": "member.memberLoan.0"
   },
   "memberLoanApproval": {
     "belongsTo": ["memberLoan"],
@@ -975,7 +975,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanInsurance"
+    "rootQuery": "memberLoan.memberLoanInsurance.0"
   },
   "memberLoanLiability": {
     "belongsTo": ["memberLoan"],
@@ -1005,7 +1005,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanLiability"
+    "rootQuery": "memberLoan.memberLoanLiability.0"
   },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
@@ -1042,7 +1042,7 @@
       }
     ],
     "hasMany": ["memberLoanReceipt"],
-    "rootQuery": "memberLoan.memberLoanPaymentSchedule"
+    "rootQuery": "memberLoan.memberLoanPaymentSchedule.0"
   },
   "memberLoanProcessingFee": {
     "belongsTo": ["memberLoan"],
@@ -1073,7 +1073,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanProcessingFee"
+    "rootQuery": "memberLoan.memberLoanProcessingFee.0"
   },
   "memberLoanReceipt": {
     "belongsTo": ["memberLoanPaymentSchedule"],
@@ -1110,7 +1110,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoanPaymentSchedule.memberLoanReceipt"
+    "rootQuery": "memberLoanPaymentSchedule.memberLoanReceipt.0"
   },
   "memberLoanSecurity": {
     "belongsTo": ["memberLoan"],
@@ -1146,7 +1146,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanSecurity"
+    "rootQuery": "memberLoan.memberLoanSecurity.0"
   },
   "memberLoanTax": {
     "belongsTo": ["memberLoan"],
@@ -1183,7 +1183,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanTax"
+    "rootQuery": "memberLoan.memberLoanTax.0"
   },
   "memberLoanWitness": {
     "belongsTo": ["memberLoan"],
@@ -1226,7 +1226,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoan.memberLoanWitness"
+    "rootQuery": "memberLoan.memberLoanWitness.0"
   },
   "memberNextYearBusinessProjection": {
     "belongsTo": ["memberBusiness"],
@@ -1466,7 +1466,7 @@
       "sharesDepositReceipt",
       "sharesDepositWithdraw"
     ],
-    "rootQuery": "member.memberSaving"
+    "rootQuery": "member.memberSaving.0"
   },
   "memberSavingDeposit": {
     "belongsTo": ["memberSaving"],
@@ -1503,7 +1503,7 @@
         }
       }
     ],
-    "rootQuery": "memberSaving.memberSavingDeposit"
+    "rootQuery": "memberSaving.memberSavingDeposit.0"
   },
   "memberSavingInterest": {
     "belongsTo": ["memberSaving"],
@@ -1540,7 +1540,7 @@
         }
       }
     ],
-    "rootQuery": "memberSaving.memberSavingInterest"
+    "rootQuery": "memberSaving.memberSavingInterest.0"
   },
   "memberSavingWithdrawal": {
     "belongsTo": ["memberSaving"],
@@ -1577,7 +1577,7 @@
         }
       }
     ],
-    "rootQuery": "memberSaving.memberSavingWithdrawal"
+    "rootQuery": "memberSaving.memberSavingWithdrawal.0"
   },
   "memberSavingsIdsCache": {
     "belongsTo": ["memberSaving"],
@@ -1652,7 +1652,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberShares"
+    "rootQuery": "member.memberShares.0"
   },
   "memberSharesIdsCache": {
     "belongsTo": ["memberShares"],
@@ -1731,7 +1731,7 @@
         }
       }
     ],
-    "rootQuery": "member.notification"
+    "rootQuery": "member.notification.0"
   },
   "savingsRate": {
     "belongsTo": ["savingsType"],
@@ -1755,7 +1755,7 @@
         }
       }
     ],
-    "rootQuery": "savingsType.savingsRate"
+    "rootQuery": "savingsType.savingsRate.0"
   },
   "savingsType": {
     "fields": [
@@ -1834,7 +1834,7 @@
         }
       }
     ],
-    "rootQuery": "memberSaving.sharesDepositReceipt"
+    "rootQuery": "memberSaving.sharesDepositReceipt.0"
   },
   "sharesDepositWithdraw": {
     "belongsTo": ["memberSaving"],
@@ -1871,7 +1871,7 @@
         }
       }
     ],
-    "rootQuery": "memberSaving.sharesDepositWithdraw"
+    "rootQuery": "memberSaving.sharesDepositWithdraw.0"
   },
   "user": {
     "fields": [

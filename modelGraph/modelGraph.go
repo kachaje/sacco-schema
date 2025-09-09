@@ -252,7 +252,11 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 				if v, ok := val["parents"].([]any); ok && len(v) > 0 {
 					result[model].(map[string]any)["belongsTo"] = v
 
-					result[model].(map[string]any)["rootQuery"] = fmt.Sprintf("%v.%v", v[0], model)
+					if val["many"] != nil {
+						result[model].(map[string]any)["rootQuery"] = fmt.Sprintf("%v.%v.0", v[0], model)
+					} else {
+						result[model].(map[string]any)["rootQuery"] = fmt.Sprintf("%v.%v", v[0], model)
+					}
 				}
 			}
 			if val["fields"] != nil {

@@ -1,11 +1,11 @@
 cacheQueries:
-  amount: memberSaving.memberSavingWithdrawal.amount
-  date: memberSaving.memberSavingWithdrawal.date
-  description: memberSaving.memberSavingWithdrawal.description
-  id: memberSaving.memberSavingWithdrawal.id
-  memberSavingId: memberSaving.memberSavingWithdrawal.memberSavingId
+  amount: memberSaving.memberSavingWithdrawal.0.amount
+  date: memberSaving.memberSavingWithdrawal.0.date
+  description: memberSaving.memberSavingWithdrawal.0.description
+  id: memberSaving.memberSavingWithdrawal.0.id
+  memberSavingId: memberSaving.memberSavingWithdrawal.0.memberSavingId
 enterAmount:
-  cacheQuery: memberSaving.memberSavingWithdrawal.amount
+  cacheQuery: memberSaving.memberSavingWithdrawal.0.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 3
@@ -14,7 +14,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberSaving.memberSavingWithdrawal.date
+  cacheQuery: memberSaving.memberSavingWithdrawal.0.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -23,7 +23,7 @@ enterDate:
     en: Date
   type: inputScreen
 enterDescription:
-  cacheQuery: memberSaving.memberSavingWithdrawal.description
+  cacheQuery: memberSaving.memberSavingWithdrawal.0.description
   inputIdentifier: description
   nextScreen: enterDate
   order: 1
@@ -31,12 +31,12 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: memberSaving.memberSavingWithdrawal.id
+  cacheQuery: memberSaving.memberSavingWithdrawal.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberSavingId:
-  cacheQuery: memberSaving.memberSavingWithdrawal.memberSavingId
+  cacheQuery: memberSaving.memberSavingWithdrawal.0.memberSavingId
   hidden: true
   inputIdentifier: memberSavingId
   type: hiddenField

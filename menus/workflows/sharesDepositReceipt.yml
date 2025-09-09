@@ -1,11 +1,11 @@
 cacheQueries:
-  amount: memberSaving.sharesDepositReceipt.amount
-  date: memberSaving.sharesDepositReceipt.date
-  description: memberSaving.sharesDepositReceipt.description
-  id: memberSaving.sharesDepositReceipt.id
-  memberSavingId: memberSaving.sharesDepositReceipt.memberSavingId
+  amount: memberSaving.sharesDepositReceipt.0.amount
+  date: memberSaving.sharesDepositReceipt.0.date
+  description: memberSaving.sharesDepositReceipt.0.description
+  id: memberSaving.sharesDepositReceipt.0.id
+  memberSavingId: memberSaving.sharesDepositReceipt.0.memberSavingId
 enterAmount:
-  cacheQuery: memberSaving.sharesDepositReceipt.amount
+  cacheQuery: memberSaving.sharesDepositReceipt.0.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 3
@@ -14,7 +14,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberSaving.sharesDepositReceipt.date
+  cacheQuery: memberSaving.sharesDepositReceipt.0.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -23,7 +23,7 @@ enterDate:
     en: Date
   type: inputScreen
 enterDescription:
-  cacheQuery: memberSaving.sharesDepositReceipt.description
+  cacheQuery: memberSaving.sharesDepositReceipt.0.description
   inputIdentifier: description
   nextScreen: enterDate
   order: 1
@@ -31,12 +31,12 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: memberSaving.sharesDepositReceipt.id
+  cacheQuery: memberSaving.sharesDepositReceipt.0.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberSavingId:
-  cacheQuery: memberSaving.sharesDepositReceipt.memberSavingId
+  cacheQuery: memberSaving.sharesDepositReceipt.0.memberSavingId
   hidden: true
   inputIdentifier: memberSavingId
   type: hiddenField
