@@ -2,7 +2,6 @@ package menus
 
 import (
 	"embed"
-	"encoding/json"
 	"fmt"
 	"io/fs"
 	"log"
@@ -73,12 +72,6 @@ func init() {
 		}
 
 		model := strings.Split(filepath.Base(file), ".")[0]
-
-		if model == "memberDependant" {
-			payload, _ := json.MarshalIndent(data, "", "  ")
-
-			fmt.Println(string(payload))
-		}
 
 		menufuncs.WorkflowsData[model] = data
 
