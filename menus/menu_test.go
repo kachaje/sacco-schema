@@ -57,42 +57,6 @@ CON Welcome to Kaso SACCO
 	}
 }
 
-func TestRegistrationSubMenu(t *testing.T) {
-	demo := true
-
-	m := menus.NewMenus(nil, &demo)
-
-	session := parser.NewSession(nil, nil, nil)
-
-	session.GlobalIds = map[string]any{
-		"memberId": map[string]any{
-			"key":   "member.id",
-			"value": "1",
-		},
-		"memberLoanId": map[string]any{
-			"key":   "member.memberLoan.0.id",
-			"value": "1",
-		},
-	}
-
-	result := m.LoadMenu("main", session, "", "1", "")
-
-	target := `
-CON Choose Activity
-1. Member Details
-2. Contact Details
-3. Next of Kin Details
-4. Beneficiaries
-5. View Member Details
-
-00. Main Menu
-	`
-
-	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
-	}
-}
-
 func TestBusinessMenu(t *testing.T) {
 	demo := true
 

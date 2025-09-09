@@ -35,20 +35,6 @@ fields:
   "3":
     id: registration.3
     label:
-      en: Next of Kin Details
-    workflow: memberDependant
-    data:
-      isNominee: Yes
-    targetKeys:
-      - id
-      - memberId
-      - name
-      - phoneNumber
-      - address
-      - relationship
-  "4":
-    id: registration.4
-    label:
       en: Beneficiaries
     workflow: memberDependant
     settings:
@@ -62,8 +48,9 @@ fields:
       - phoneNumber
       - address
       - relationship
-  "5":
-    id: registration.5
+      - isNominee
+  "4":
+    id: registration.4
     label:
       en: View Member Details
     function: viewMemberDetails
