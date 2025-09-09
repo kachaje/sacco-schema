@@ -1,172 +1,172 @@
 cacheQueries:
-  dateJoined: member.dateJoined
-  dateOfBirth: member.dateOfBirth
-  firstName: member.firstName
-  gender: member.gender
-  id: member.id
-  lastName: member.lastName
-  maritalStatus: member.maritalStatus
-  memberIdNumber: member.memberIdNumber
-  nationalIdentifier: member.nationalIdentifier
-  otherName: member.otherName
-  phoneNumber: member.phoneNumber
-  title: member.title
-  utilityBillNumber: member.utilityBillNumber
-  utilityBillType: member.utilityBillType
+    dateJoined: member.dateJoined
+    dateOfBirth: member.dateOfBirth
+    firstName: member.firstName
+    gender: member.gender
+    id: member.id
+    lastName: member.lastName
+    maritalStatus: member.maritalStatus
+    memberIdNumber: member.memberIdNumber
+    nationalIdentifier: member.nationalIdentifier
+    otherName: member.otherName
+    phoneNumber: member.phoneNumber
+    title: member.title
+    utilityBillNumber: member.utilityBillNumber
+    utilityBillType: member.utilityBillType
 enterDateJoined:
-  cacheQuery: member.dateJoined
-  hidden: true
-  inputIdentifier: dateJoined
-  type: hiddenField
+    cacheQuery: dateJoined
+    hidden: true
+    inputIdentifier: dateJoined
+    type: hiddenField
 enterDateOfBirth:
-  cacheQuery: member.dateOfBirth
-  inputIdentifier: dateOfBirth
-  nextScreen: enterNationalIdentifier
-  order: 8
-  text:
-    en: Date Of Birth
-  type: inputScreen
+    cacheQuery: dateOfBirth
+    inputIdentifier: dateOfBirth
+    nextScreen: enterNationalIdentifier
+    order: 8
+    text:
+        en: Date Of Birth
+    type: inputScreen
 enterFirstName:
-  cacheQuery: member.firstName
-  inputIdentifier: firstName
-  nextScreen: enterLastName
-  order: 1
-  text:
-    en: First Name
-  type: inputScreen
+    cacheQuery: firstName
+    inputIdentifier: firstName
+    nextScreen: enterLastName
+    order: 1
+    text:
+        en: First Name
+    type: inputScreen
 enterGender:
-  cacheQuery: member.gender
-  inputIdentifier: gender
-  nextScreen: enterPhoneNumber
-  options:
-    - label:
-        en: Female
-      position: 1
-    - label:
-        en: Male
-      position: 2
-  order: 4
-  text:
-    en: Gender
-  type: inputScreen
+    cacheQuery: gender
+    inputIdentifier: gender
+    nextScreen: enterPhoneNumber
+    options:
+        - label:
+            en: Female
+          position: 1
+        - label:
+            en: Male
+          position: 2
+    order: 4
+    text:
+        en: Gender
+    type: inputScreen
 enterId:
-  cacheQuery: member.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterLastName:
-  cacheQuery: member.lastName
-  inputIdentifier: lastName
-  nextScreen: enterOtherName
-  order: 2
-  text:
-    en: Last Name
-  type: inputScreen
+    cacheQuery: lastName
+    inputIdentifier: lastName
+    nextScreen: enterOtherName
+    order: 2
+    text:
+        en: Last Name
+    type: inputScreen
 enterMaritalStatus:
-  cacheQuery: member.maritalStatus
-  inputIdentifier: maritalStatus
-  nextScreen: enterDateOfBirth
-  options:
-    - label:
-        en: Married
-      position: 1
-    - label:
-        en: Single
-      position: 2
-    - label:
-        en: Widowed
-      position: 3
-    - label:
-        en: Divorced
-      position: 4
-  order: 7
-  text:
-    en: Marital Status
-  type: inputScreen
+    cacheQuery: maritalStatus
+    inputIdentifier: maritalStatus
+    nextScreen: enterDateOfBirth
+    options:
+        - label:
+            en: Married
+          position: 1
+        - label:
+            en: Single
+          position: 2
+        - label:
+            en: Widowed
+          position: 3
+        - label:
+            en: Divorced
+          position: 4
+    order: 7
+    text:
+        en: Marital Status
+    type: inputScreen
 enterMemberIdNumber:
-  cacheQuery: member.memberIdNumber
-  hidden: true
-  inputIdentifier: memberIdNumber
-  type: hiddenField
+    cacheQuery: memberIdNumber
+    hidden: true
+    inputIdentifier: memberIdNumber
+    type: hiddenField
 enterNationalIdentifier:
-  cacheQuery: member.nationalIdentifier
-  inputIdentifier: nationalIdentifier
-  nextScreen: enterUtilityBillType
-  order: 9
-  text:
-    en: National Identifier
-  type: inputScreen
+    cacheQuery: nationalIdentifier
+    inputIdentifier: nationalIdentifier
+    nextScreen: enterUtilityBillType
+    order: 9
+    text:
+        en: National Identifier
+    type: inputScreen
 enterOtherName:
-  cacheQuery: member.otherName
-  inputIdentifier: otherName
-  nextScreen: enterGender
-  optional: true
-  order: 3
-  text:
-    en: Other Name
-  type: inputScreen
+    cacheQuery: otherName
+    inputIdentifier: otherName
+    nextScreen: enterGender
+    optional: true
+    order: 3
+    text:
+        en: Other Name
+    type: inputScreen
 enterPhoneNumber:
-  cacheQuery: member.phoneNumber
-  inputIdentifier: phoneNumber
-  nextScreen: enterTitle
-  order: 5
-  text:
-    en: Phone Number
-  type: inputScreen
+    cacheQuery: phoneNumber
+    inputIdentifier: phoneNumber
+    nextScreen: enterTitle
+    order: 5
+    text:
+        en: Phone Number
+    type: inputScreen
 enterTitle:
-  cacheQuery: member.title
-  inputIdentifier: title
-  nextScreen: enterMaritalStatus
-  options:
-    - label:
-        en: Mr
-      position: 1
-    - label:
-        en: Mrs
-      position: 2
-    - label:
-        en: Miss
-      position: 3
-    - label:
-        en: Dr
-      position: 4
-    - label:
-        en: Prof
-      position: 5
-    - label:
-        en: Rev
-      position: 6
-    - label:
-        en: Other
-      position: 7
-  order: 6
-  text:
-    en: Title
-  type: inputScreen
+    cacheQuery: title
+    inputIdentifier: title
+    nextScreen: enterMaritalStatus
+    options:
+        - label:
+            en: Mr
+          position: 1
+        - label:
+            en: Mrs
+          position: 2
+        - label:
+            en: Miss
+          position: 3
+        - label:
+            en: Dr
+          position: 4
+        - label:
+            en: Prof
+          position: 5
+        - label:
+            en: Rev
+          position: 6
+        - label:
+            en: Other
+          position: 7
+    order: 6
+    text:
+        en: Title
+    type: inputScreen
 enterUtilityBillNumber:
-  cacheQuery: member.utilityBillNumber
-  inputIdentifier: utilityBillNumber
-  nextScreen: formSummary
-  order: 11
-  text:
-    en: Utility Bill Number
-  type: inputScreen
+    cacheQuery: utilityBillNumber
+    inputIdentifier: utilityBillNumber
+    nextScreen: formSummary
+    order: 11
+    text:
+        en: Utility Bill Number
+    type: inputScreen
 enterUtilityBillType:
-  cacheQuery: member.utilityBillType
-  inputIdentifier: utilityBillType
-  nextScreen: enterUtilityBillNumber
-  options:
-    - label:
-        en: ESCOM
-      position: 1
-    - label:
-        en: Water Board
-      position: 2
-  order: 10
-  text:
-    en: Utility Bill Type
-  type: inputScreen
+    cacheQuery: utilityBillType
+    inputIdentifier: utilityBillType
+    nextScreen: enterUtilityBillNumber
+    options:
+        - label:
+            en: ESCOM
+          position: 1
+        - label:
+            en: Water Board
+          position: 2
+    order: 10
+    text:
+        en: Utility Bill Type
+    type: inputScreen
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterFirstName
 model: member
