@@ -25,7 +25,7 @@ var seedString string
 //go:embed schema/triggers.sql
 var triggersString string
 
-//go:embed models.yml
+//go:embed schema/configs/models.yml
 var modelTemplates string
 
 var modelTemplatesData map[string]any

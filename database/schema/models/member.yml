@@ -5,6 +5,7 @@ id:
   type: int
 
 memberIdNumber:
+  hidden: true
   optional: true
   order: 1
   type: text
@@ -76,5 +77,6 @@ utilityBillNumber:
 
 dateJoined:
   default: CURRENT_TIMESTAMP
+  hidden: true
   order: 13
   type: text

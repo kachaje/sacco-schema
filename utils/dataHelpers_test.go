@@ -23,10 +23,6 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 
 	result := utils.FlattenMap(data, true)
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	os.WriteFile(filepath.Join(".", "fixtures", "flatIdsMap.json"), payload, 0644)
-
 	target := map[string]any{}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatIdsMap.json"))

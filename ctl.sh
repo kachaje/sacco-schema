@@ -16,7 +16,7 @@ elif [[ "$1" == "-g" ]]; then
 
   npx prettier -w .
 
-  npx sql-formatter schema/schema.sql -l sql --output schema/schema.sql
+  npx sql-formatter database/schema/schema.sql -l sql --output database/schema/schema.sql
 
 elif [[ "$1" == "-c" ]]; then
 

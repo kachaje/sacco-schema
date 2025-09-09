@@ -5,6 +5,7 @@ id:
   type: int
 
 memberLoanId:
+  hidden: true
   order: 1
   referenceTable: memberLoan
   type: int
@@ -27,6 +28,7 @@ approvedBy:
   type: text
 
 dateOfApproval:
+  hidden: true
   order: 5
   type: text
 
@@ -35,6 +37,7 @@ verifiedBy:
   type: text
 
 dateVerified:
+  hidden: true
   order: 7
   type: text
 

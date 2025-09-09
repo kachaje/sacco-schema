@@ -5,6 +5,7 @@ id:
   type: int
 
 memberLoanId:
+  hidden: true
   many: true
   order: 1
   referenceTable: memberLoan
