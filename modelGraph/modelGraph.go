@@ -337,6 +337,16 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 								result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
 									localKey: row,
 								})
+
+								if totalLoops > 1 && j == 0 {
+									if result[model].(map[string]any)["rawFields"] == nil {
+										result[model].(map[string]any)["rawFields"] = []map[string]any{}
+									}
+
+									result[model].(map[string]any)["rawFields"] = append(result[model].(map[string]any)["rawFields"].([]map[string]any), map[string]any{
+										k: row,
+									})
+								}
 							}
 						}
 					}
