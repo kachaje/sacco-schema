@@ -37,22 +37,27 @@ fields:
     label:
       en: Next of Kin Details
     workflow: memberDependant
+    data:
+      isNominee: Yes
     targetKeys:
       - id
       - memberId
       - name
       - phoneNumber
       - address
+      - relationship
   "4":
     id: registration.4
     label:
       en: Beneficiaries
-    workflow: memberBeneficiary
+    workflow: memberDependant
     targetKeys:
       - id
       - name
       - percentage
-      - contact
+      - phoneNumber
+      - address
+      - relationship
   "5":
     id: registration.5
     label:
