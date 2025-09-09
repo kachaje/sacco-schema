@@ -123,7 +123,17 @@ func ValueMapFromString(value string) (map[string]any, error) {
 		if n.Type == html.ElementNode {
 			switch n.Data {
 			case "div":
-				data["model"] = n.FirstChild.Data
+				parts := strings.Split(n.FirstChild.Data, ":")
+
+				data["model"] = parts[0]
+
+				if len(parts) > 1 {
+					val, err := strconv.Atoi(fmt.Sprintf("%v", parts[1]))
+					if err == nil {
+						data["totalLoops"] = val
+						data["hasLoops"] = true
+					}
+				}
 			case "td":
 				for c := n.FirstChild; c != nil; c = c.NextSibling {
 					re := regexp.MustCompile(`([A-Za-z]+)\s*(\([^\)]+\))`)
