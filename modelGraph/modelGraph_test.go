@@ -220,9 +220,9 @@ func TestCreateModelQueryWithOptions(t *testing.T) {
 
 	target := fmt.Sprintf(`
 INSERT INTO 
-	memberDependant (memberId, name, phoneNumber, address, percentage, relationship) 
+	memberDependant (memberId, name, phoneNumber, relationship) 
 VALUES 
-	(%v, "name", "phoneNumber", "address", 10, "Spouse");`,
+	(%v, "name", "phoneNumber", "Spouse");`,
 		seed["memberId"],
 	)
 
