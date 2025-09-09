@@ -3,6 +3,8 @@ package menus
 import (
 	"fmt"
 	"regexp"
+	"slices"
+	"sort"
 	"strings"
 )
 
@@ -28,6 +30,8 @@ func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
 
 	incomingData := map[string]any{}
 
+	keys := []string{}
+
 	for key, value := range data {
 		re := regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.(.+)`, groupRoot))
 
@@ -39,19 +43,24 @@ func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
 
 			if incomingData[indexKey] == nil {
 				incomingData[indexKey] = map[string]any{}
+
+				if !slices.Contains(keys, indexKey) {
+					keys = append(keys, indexKey)
+				}
 			}
 
 			incomingData[indexKey].(map[string]any)[field] = value
 		}
 	}
 
-	i := 0
-	for _, value := range incomingData {
-		i++
+	sort.Strings(keys)
+
+	for i, key := range keys {
+		value := incomingData[key]
 
 		if val, ok := value.(map[string]any); ok {
 			for k, v := range val {
-				newKey := fmt.Sprintf("%v%v", k, i)
+				newKey := fmt.Sprintf("%v%v", k, i+1)
 				result[newKey] = v
 			}
 		}
