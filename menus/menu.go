@@ -2,6 +2,7 @@ package menus
 
 import (
 	"embed"
+	"encoding/json"
 	"fmt"
 	"io/fs"
 	"log"
@@ -11,6 +12,7 @@ import (
 	"sacco/parser"
 	"sacco/utils"
 	"slices"
+	"strconv"
 	"strings"
 	"sync"
 )
@@ -73,6 +75,12 @@ func init() {
 
 		model := strings.Split(filepath.Base(file), ".")[0]
 
+		if model == "memberDependant" {
+			payload, _ := json.MarshalIndent(data, "", "  ")
+
+			fmt.Println(string(payload))
+		}
+
 		menufuncs.WorkflowsData[model] = data
 
 		return nil
@@ -120,6 +128,73 @@ func NewMenus(devMode, demoMode *bool) *Menus {
 	}
 
 	return m
+}
+
+func ExpandWorkflow(data, settings map[string]any) map[string]any {
+	var result = map[string]any{}
+	var hasLoops = false
+	var totalLoops = 1
+	var terminateBlockOnEmptyField string
+
+	if settings != nil {
+		if settings["hasLoops"] != nil {
+			if val, ok := settings["hasLoops"].(bool); ok {
+				hasLoops = val
+			}
+		}
+		if settings["totalLoops"] != nil {
+			val, err := strconv.Atoi(fmt.Sprintf("%v", settings["totalLoops"]))
+			if err == nil {
+				totalLoops = val
+			}
+		}
+		if settings["terminateBlockOnEmptyField"] != nil {
+			if val, ok := settings["terminateBlockOnEmptyField"].(string); ok {
+				terminateBlockOnEmptyField = val
+			}
+		}
+	}
+
+	if !hasLoops {
+		result = data
+	} else {
+		excludeFields := []string{"formSummary", "initialScreen", "model", "parentIds"}
+
+		keys := []string{}
+
+		for key := range data {
+			if !slices.Contains(excludeFields, key) {
+				keys = append(keys, key)
+			}
+		}
+
+		for _, key := range excludeFields {
+			result[key] = data[key]
+		}
+
+		for i := range totalLoops {
+			for _, key := range keys {
+				localKey := fmt.Sprintf("%v%v", key, i)
+
+				if val, ok := data[key].(map[string]any); ok {
+					result[localKey] = val
+
+					if data[key].(map[string]any)["order"] != nil {
+						order, err := strconv.Atoi(fmt.Sprintf("%v", data[key].(map[string]any)["order"]))
+						if err == nil {
+							result[localKey].(map[string]any)["order"] = (i * totalLoops) + order
+						}
+					}
+
+					if val["inputIdentifier"] != nil && fmt.Sprintf("%v", val["inputIdentifier"]) == terminateBlockOnEmptyField {
+						result[localKey].(map[string]any)["terminateBlockOnEmpty"] = true
+					}
+				}
+			}
+		}
+	}
+
+	return result
 }
 
 func (m *Menus) populateMenus() error {

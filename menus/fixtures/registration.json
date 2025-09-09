@@ -1,0 +1,136 @@
+{
+  "cacheQueries": {
+    "address": "member.memberDependant.0.address",
+    "id": "member.memberDependant.0.id",
+    "isNominee": "member.memberDependant.0.isNominee",
+    "memberId": "member.memberDependant.0.memberId",
+    "name": "member.memberDependant.0.name",
+    "percentage": "member.memberDependant.0.percentage",
+    "phoneNumber": "member.memberDependant.0.phoneNumber",
+    "relationship": "member.memberDependant.0.relationship"
+  },
+  "enterAddress": {
+    "cacheQuery": "member.memberDependant.0.address",
+    "inputIdentifier": "address",
+    "nextScreen": "enterPercentage",
+    "optional": true,
+    "order": 3,
+    "text": {
+      "en": "Address"
+    },
+    "type": "inputScreen"
+  },
+  "enterId": {
+    "cacheQuery": "member.memberDependant.0.id",
+    "hidden": true,
+    "inputIdentifier": "id",
+    "type": "hiddenField"
+  },
+  "enterIsNominee": {
+    "cacheQuery": "member.memberDependant.0.isNominee",
+    "inputIdentifier": "isNominee",
+    "nextScreen": "enterRelationship",
+    "optional": true,
+    "options": [
+      {
+        "label": {
+          "en": "Yes"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Is Nominee"
+    },
+    "type": "inputScreen"
+  },
+  "enterMemberId": {
+    "cacheQuery": "member.memberDependant.0.memberId",
+    "hidden": true,
+    "inputIdentifier": "memberId",
+    "type": "hiddenField"
+  },
+  "enterName": {
+    "cacheQuery": "member.memberDependant.0.name",
+    "inputIdentifier": "name",
+    "nextScreen": "enterPhoneNumber",
+    "order": 1,
+    "text": {
+      "en": "Name"
+    },
+    "type": "inputScreen"
+  },
+  "enterPercentage": {
+    "cacheQuery": "member.memberDependant.0.percentage",
+    "inputIdentifier": "percentage",
+    "nextScreen": "enterIsNominee",
+    "optional": true,
+    "order": 4,
+    "text": {
+      "en": "Percentage"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d+\\.*\\d*$"
+  },
+  "enterPhoneNumber": {
+    "cacheQuery": "member.memberDependant.0.phoneNumber",
+    "inputIdentifier": "phoneNumber",
+    "nextScreen": "enterAddress",
+    "order": 2,
+    "text": {
+      "en": "Phone Number"
+    },
+    "type": "inputScreen"
+  },
+  "enterRelationship": {
+    "cacheQuery": "member.memberDependant.0.relationship",
+    "inputIdentifier": "relationship",
+    "nextScreen": "formSummary",
+    "options": [
+      {
+        "label": {
+          "en": "Spouse"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Child"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Sibling"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Other"
+        },
+        "position": 4
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Relationship"
+    },
+    "type": "inputScreen"
+  },
+  "formSummary": {
+    "type": "quitScreen"
+  },
+  "initialScreen": "enterName",
+  "model": "memberDependant",
+  "parentIds": [
+    "memberId"
+  ]
+}

@@ -1,0 +1,514 @@
+{
+  "cacheQueries": {
+    "address1": "member.memberDependant.0.address",
+    "id1": "member.memberDependant.0.id",
+    "isNominee1": "member.memberDependant.0.isNominee",
+    "memberId1": "member.memberDependant.0.memberId",
+    "name1": "member.memberDependant.0.name",
+    "percentage1": "member.memberDependant.0.percentage",
+    "phoneNumber1": "member.memberDependant.0.phoneNumber",
+    "relationship1": "member.memberDependant.0.relationship",
+
+    "address2": "member.memberDependant.0.address",
+    "id2": "member.memberDependant.0.id",
+    "isNominee2": "member.memberDependant.0.isNominee",
+    "memberId2": "member.memberDependant.0.memberId",
+    "name2": "member.memberDependant.0.name",
+    "percentage2": "member.memberDependant.0.percentage",
+    "phoneNumber2": "member.memberDependant.0.phoneNumber",
+    "relationship2": "member.memberDependant.0.relationship",
+
+    "address3": "member.memberDependant.0.address",
+    "id3": "member.memberDependant.0.id",
+    "isNominee3": "member.memberDependant.0.isNominee",
+    "memberId3": "member.memberDependant.0.memberId",
+    "name3": "member.memberDependant.0.name",
+    "percentage3": "member.memberDependant.0.percentage",
+    "phoneNumber3": "member.memberDependant.0.phoneNumber",
+    "relationship3": "member.memberDependant.0.relationship",
+
+    "address4": "member.memberDependant.0.address",
+    "id4": "member.memberDependant.0.id",
+    "isNominee4": "member.memberDependant.0.isNominee",
+    "memberId4": "member.memberDependant.0.memberId",
+    "name4": "member.memberDependant.0.name",
+    "percentage4": "member.memberDependant.0.percentage",
+    "phoneNumber4": "member.memberDependant.0.phoneNumber",
+    "relationship4": "member.memberDependant.0.relationship"
+  },
+
+  "enterAddress1": {
+    "cacheQuery": "member.memberDependant.0.address",
+    "inputIdentifier": "address",
+    "nextScreen": "enterPercentage",
+    "optional": true,
+    "order": 3,
+    "text": {
+      "en": "Address"
+    },
+    "type": "inputScreen"
+  },
+  "enterId1": {
+    "cacheQuery": "member.memberDependant.0.id",
+    "hidden": true,
+    "inputIdentifier": "id",
+    "type": "hiddenField"
+  },
+  "enterIsNominee1": {
+    "cacheQuery": "member.memberDependant.0.isNominee",
+    "inputIdentifier": "isNominee",
+    "nextScreen": "enterRelationship",
+    "optional": true,
+    "options": [
+      {
+        "label": {
+          "en": "Yes"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Is Nominee"
+    },
+    "type": "inputScreen"
+  },
+  "enterMemberId1": {
+    "cacheQuery": "member.memberDependant.0.memberId",
+    "hidden": true,
+    "inputIdentifier": "memberId",
+    "type": "hiddenField"
+  },
+  "enterName1": {
+    "cacheQuery": "member.memberDependant.0.name",
+    "inputIdentifier": "name",
+    "nextScreen": "enterPhoneNumber",
+    "order": 1,
+    "text": {
+      "en": "Name"
+    },
+    "type": "inputScreen"
+  },
+  "enterPercentage1": {
+    "cacheQuery": "member.memberDependant.0.percentage",
+    "inputIdentifier": "percentage",
+    "nextScreen": "enterIsNominee",
+    "optional": true,
+    "order": 4,
+    "text": {
+      "en": "Percentage"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d+\\.*\\d*$"
+  },
+  "enterPhoneNumber1": {
+    "cacheQuery": "member.memberDependant.0.phoneNumber",
+    "inputIdentifier": "phoneNumber",
+    "nextScreen": "enterAddress",
+    "order": 2,
+    "text": {
+      "en": "Phone Number"
+    },
+    "type": "inputScreen"
+  },
+  "enterRelationship1": {
+    "cacheQuery": "member.memberDependant.0.relationship",
+    "inputIdentifier": "relationship",
+    "nextScreen": "formSummary",
+    "options": [
+      {
+        "label": {
+          "en": "Spouse"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Child"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Sibling"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Other"
+        },
+        "position": 4
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Relationship"
+    },
+    "type": "inputScreen"
+  },
+  
+  "enterAddress2": {
+    "cacheQuery": "member.memberDependant.0.address",
+    "inputIdentifier": "address",
+    "nextScreen": "enterPercentage",
+    "optional": true,
+    "order": 3,
+    "text": {
+      "en": "Address"
+    },
+    "type": "inputScreen"
+  },
+  "enterId2": {
+    "cacheQuery": "member.memberDependant.0.id",
+    "hidden": true,
+    "inputIdentifier": "id",
+    "type": "hiddenField"
+  },
+  "enterIsNominee2": {
+    "cacheQuery": "member.memberDependant.0.isNominee",
+    "inputIdentifier": "isNominee",
+    "nextScreen": "enterRelationship",
+    "optional": true,
+    "options": [
+      {
+        "label": {
+          "en": "Yes"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Is Nominee"
+    },
+    "type": "inputScreen"
+  },
+  "enterMemberId2": {
+    "cacheQuery": "member.memberDependant.0.memberId",
+    "hidden": true,
+    "inputIdentifier": "memberId",
+    "type": "hiddenField"
+  },
+  "enterName2": {
+    "cacheQuery": "member.memberDependant.0.name",
+    "inputIdentifier": "name",
+    "nextScreen": "enterPhoneNumber",
+    "order": 1,
+    "text": {
+      "en": "Name"
+    },
+    "type": "inputScreen"
+  },
+  "enterPercentage2": {
+    "cacheQuery": "member.memberDependant.0.percentage",
+    "inputIdentifier": "percentage",
+    "nextScreen": "enterIsNominee",
+    "optional": true,
+    "order": 4,
+    "text": {
+      "en": "Percentage"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d+\\.*\\d*$"
+  },
+  "enterPhoneNumber2": {
+    "cacheQuery": "member.memberDependant.0.phoneNumber",
+    "inputIdentifier": "phoneNumber",
+    "nextScreen": "enterAddress",
+    "order": 2,
+    "text": {
+      "en": "Phone Number"
+    },
+    "type": "inputScreen"
+  },
+  "enterRelationship2": {
+    "cacheQuery": "member.memberDependant.0.relationship",
+    "inputIdentifier": "relationship",
+    "nextScreen": "formSummary",
+    "options": [
+      {
+        "label": {
+          "en": "Spouse"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Child"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Sibling"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Other"
+        },
+        "position": 4
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Relationship"
+    },
+    "type": "inputScreen"
+  },
+  
+  "enterAddress3": {
+    "cacheQuery": "member.memberDependant.0.address",
+    "inputIdentifier": "address",
+    "nextScreen": "enterPercentage",
+    "optional": true,
+    "order": 3,
+    "text": {
+      "en": "Address"
+    },
+    "type": "inputScreen"
+  },
+  "enterId3": {
+    "cacheQuery": "member.memberDependant.0.id",
+    "hidden": true,
+    "inputIdentifier": "id",
+    "type": "hiddenField"
+  },
+  "enterIsNominee3": {
+    "cacheQuery": "member.memberDependant.0.isNominee",
+    "inputIdentifier": "isNominee",
+    "nextScreen": "enterRelationship",
+    "optional": true,
+    "options": [
+      {
+        "label": {
+          "en": "Yes"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Is Nominee"
+    },
+    "type": "inputScreen"
+  },
+  "enterMemberId3": {
+    "cacheQuery": "member.memberDependant.0.memberId",
+    "hidden": true,
+    "inputIdentifier": "memberId",
+    "type": "hiddenField"
+  },
+  "enterName3": {
+    "cacheQuery": "member.memberDependant.0.name",
+    "inputIdentifier": "name",
+    "nextScreen": "enterPhoneNumber",
+    "order": 1,
+    "text": {
+      "en": "Name"
+    },
+    "type": "inputScreen"
+  },
+  "enterPercentage3": {
+    "cacheQuery": "member.memberDependant.0.percentage",
+    "inputIdentifier": "percentage",
+    "nextScreen": "enterIsNominee",
+    "optional": true,
+    "order": 4,
+    "text": {
+      "en": "Percentage"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d+\\.*\\d*$"
+  },
+  "enterPhoneNumber3": {
+    "cacheQuery": "member.memberDependant.0.phoneNumber",
+    "inputIdentifier": "phoneNumber",
+    "nextScreen": "enterAddress",
+    "order": 2,
+    "text": {
+      "en": "Phone Number"
+    },
+    "type": "inputScreen"
+  },
+  "enterRelationship3": {
+    "cacheQuery": "member.memberDependant.0.relationship",
+    "inputIdentifier": "relationship",
+    "nextScreen": "formSummary",
+    "options": [
+      {
+        "label": {
+          "en": "Spouse"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Child"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Sibling"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Other"
+        },
+        "position": 4
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Relationship"
+    },
+    "type": "inputScreen"
+  },
+  
+  "enterAddress4": {
+    "cacheQuery": "member.memberDependant.0.address",
+    "inputIdentifier": "address",
+    "nextScreen": "enterPercentage",
+    "optional": true,
+    "order": 3,
+    "text": {
+      "en": "Address"
+    },
+    "type": "inputScreen"
+  },
+  "enterId4": {
+    "cacheQuery": "member.memberDependant.0.id",
+    "hidden": true,
+    "inputIdentifier": "id",
+    "type": "hiddenField"
+  },
+  "enterIsNominee4": {
+    "cacheQuery": "member.memberDependant.0.isNominee",
+    "inputIdentifier": "isNominee",
+    "nextScreen": "enterRelationship",
+    "optional": true,
+    "options": [
+      {
+        "label": {
+          "en": "Yes"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "No"
+        },
+        "position": 2
+      }
+    ],
+    "order": 5,
+    "text": {
+      "en": "Is Nominee"
+    },
+    "type": "inputScreen"
+  },
+  "enterMemberId4": {
+    "cacheQuery": "member.memberDependant.0.memberId",
+    "hidden": true,
+    "inputIdentifier": "memberId",
+    "type": "hiddenField"
+  },
+  "enterName4": {
+    "cacheQuery": "member.memberDependant.0.name",
+    "inputIdentifier": "name",
+    "nextScreen": "enterPhoneNumber",
+    "order": 1,
+    "text": {
+      "en": "Name"
+    },
+    "type": "inputScreen"
+  },
+  "enterPercentage4": {
+    "cacheQuery": "member.memberDependant.0.percentage",
+    "inputIdentifier": "percentage",
+    "nextScreen": "enterIsNominee",
+    "optional": true,
+    "order": 4,
+    "text": {
+      "en": "Percentage"
+    },
+    "type": "inputScreen",
+    "validationRule": "^\\d+\\.*\\d*$"
+  },
+  "enterPhoneNumber4": {
+    "cacheQuery": "member.memberDependant.0.phoneNumber",
+    "inputIdentifier": "phoneNumber",
+    "nextScreen": "enterAddress",
+    "order": 2,
+    "text": {
+      "en": "Phone Number"
+    },
+    "type": "inputScreen"
+  },
+  "enterRelationship4": {
+    "cacheQuery": "member.memberDependant.0.relationship",
+    "inputIdentifier": "relationship",
+    "nextScreen": "formSummary",
+    "options": [
+      {
+        "label": {
+          "en": "Spouse"
+        },
+        "position": 1
+      },
+      {
+        "label": {
+          "en": "Child"
+        },
+        "position": 2
+      },
+      {
+        "label": {
+          "en": "Sibling"
+        },
+        "position": 3
+      },
+      {
+        "label": {
+          "en": "Other"
+        },
+        "position": 4
+      }
+    ],
+    "order": 6,
+    "text": {
+      "en": "Relationship"
+    },
+    "type": "inputScreen"
+  },
+  
+  "formSummary": {
+    "type": "quitScreen"
+  },
+  "initialScreen": "enterName",
+  "model": "memberDependant",
+  "parentIds": ["memberId"]
+}

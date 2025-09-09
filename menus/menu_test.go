@@ -237,3 +237,16 @@ CON Loans
 		t.Fatal("Test failed")
 	}
 }
+
+func TestExpandWorkflow(t *testing.T) {
+	settings := map[string]any{
+		"hasLoops":                   true,
+		"totalLoops":                 4,
+		"terminateBlockOnEmptyField": "name",
+	}
+	data := map[string]any{}
+
+	result := menus.ExpandWorkflow(settings, data)
+
+	fmt.Println(result)
+}
