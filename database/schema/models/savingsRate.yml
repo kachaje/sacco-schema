@@ -1,16 +1,15 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 savingsTypeId:
-    many: true
-    order: 1
-    referenceTable: savingsType
-    type: int
+  many: true
+  order: 1
+  referenceTable: savingsType
+  type: int
 
 monthlyRate:
-    order: 2
-    type: real
+  order: 2
+  type: real

@@ -1,56 +1,56 @@
 cacheQueries:
-    accountId: accountJournal.accountId
-    accountTransactionId: accountJournal.accountTransactionId
-    amount: accountJournal.amount
-    date: accountJournal.date
-    direction: accountJournal.direction
-    id: accountJournal.id
+  accountId: accountJournal.accountId
+  accountTransactionId: accountJournal.accountTransactionId
+  amount: accountJournal.amount
+  date: accountJournal.date
+  direction: accountJournal.direction
+  id: accountJournal.id
 enterAccountId:
-    cacheQuery: accountJournal.accountId
-    hidden: true
-    inputIdentifier: accountId
-    type: hiddenField
+  cacheQuery: accountJournal.accountId
+  hidden: true
+  inputIdentifier: accountId
+  type: hiddenField
 enterAccountTransactionId:
-    cacheQuery: accountJournal.accountTransactionId
-    hidden: true
-    inputIdentifier: accountTransactionId
-    type: hiddenField
+  cacheQuery: accountJournal.accountTransactionId
+  hidden: true
+  inputIdentifier: accountTransactionId
+  type: hiddenField
 enterAmount:
-    cacheQuery: accountJournal.amount
-    inputIdentifier: amount
-    nextScreen: enterDirection
-    order: 2
-    text:
-        en: Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: accountJournal.amount
+  inputIdentifier: amount
+  nextScreen: enterDirection
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDate:
-    cacheQuery: accountJournal.date
-    inputIdentifier: date
-    nextScreen: enterAmount
-    optional: true
-    order: 1
-    text:
-        en: Date
-    type: inputScreen
+  cacheQuery: accountJournal.date
+  inputIdentifier: date
+  nextScreen: enterAmount
+  optional: true
+  order: 1
+  text:
+    en: Date
+  type: inputScreen
 enterDirection:
-    cacheQuery: accountJournal.direction
-    inputIdentifier: direction
-    nextScreen: formSummary
-    order: 3
-    text:
-        en: Direction
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: accountJournal.direction
+  inputIdentifier: direction
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Direction
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterId:
-    cacheQuery: accountJournal.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: accountJournal.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDate
 model: accountJournal
 parentIds:
-    - accountId
-    - accountTransactionId
+  - accountId
+  - accountTransactionId

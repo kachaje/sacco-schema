@@ -1,44 +1,44 @@
 cacheQueries:
-    amountDue: memberLoanPaymentSchedule.amountDue
-    dueDate: memberLoanPaymentSchedule.dueDate
-    id: memberLoanPaymentSchedule.id
-    memberLoanId: memberLoanPaymentSchedule.memberLoanId
-    paid: memberLoanPaymentSchedule.paid
+  amountDue: memberLoanPaymentSchedule.amountDue
+  dueDate: memberLoanPaymentSchedule.dueDate
+  id: memberLoanPaymentSchedule.id
+  memberLoanId: memberLoanPaymentSchedule.memberLoanId
+  paid: memberLoanPaymentSchedule.paid
 enterAmountDue:
-    cacheQuery: memberLoanPaymentSchedule.amountDue
-    inputIdentifier: amountDue
-    nextScreen: formSummary
-    order: 2
-    text:
-        en: Amount Due
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoanPaymentSchedule.amountDue
+  inputIdentifier: amountDue
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Amount Due
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDueDate:
-    cacheQuery: memberLoanPaymentSchedule.dueDate
-    inputIdentifier: dueDate
-    nextScreen: enterAmountDue
-    order: 1
-    text:
-        en: Due Date
-    type: inputScreen
+  cacheQuery: memberLoanPaymentSchedule.dueDate
+  inputIdentifier: dueDate
+  nextScreen: enterAmountDue
+  order: 1
+  text:
+    en: Due Date
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoanPaymentSchedule.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberLoanPaymentSchedule.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoanPaymentSchedule.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanPaymentSchedule.memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 enterPaid:
-    cacheQuery: memberLoanPaymentSchedule.paid
-    hidden: true
-    inputIdentifier: paid
-    type: hiddenField
+  cacheQuery: memberLoanPaymentSchedule.paid
+  hidden: true
+  inputIdentifier: paid
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDueDate
 model: memberLoanPaymentSchedule
 parentIds:
-    - memberLoanId
+  - memberLoanId

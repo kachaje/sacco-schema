@@ -1,23 +1,22 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 username:
-    order: 1
-    type: text
-    unique: true
+  order: 1
+  type: text
+  unique: true
 
 password:
-    order: 2
-    type: text
+  order: 2
+  type: text
 
 name:
-    order: 3
-    type: text
+  order: 3
+  type: text
 
 userRole:
-    order: 4
-    type: text
+  order: 4
+  type: text

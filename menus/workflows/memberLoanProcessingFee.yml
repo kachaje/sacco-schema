@@ -1,39 +1,39 @@
 cacheQueries:
-    amount: memberLoanProcessingFee.amount
-    date: memberLoanProcessingFee.date
-    id: memberLoanProcessingFee.id
-    memberLoanId: memberLoanProcessingFee.memberLoanId
+  amount: memberLoanProcessingFee.amount
+  date: memberLoanProcessingFee.date
+  id: memberLoanProcessingFee.id
+  memberLoanId: memberLoanProcessingFee.memberLoanId
 enterAmount:
-    cacheQuery: memberLoanProcessingFee.amount
-    inputIdentifier: amount
-    nextScreen: formSummary
-    order: 2
-    text:
-        en: Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoanProcessingFee.amount
+  inputIdentifier: amount
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDate:
-    cacheQuery: memberLoanProcessingFee.date
-    inputIdentifier: date
-    nextScreen: enterAmount
-    optional: true
-    order: 1
-    text:
-        en: Date
-    type: inputScreen
+  cacheQuery: memberLoanProcessingFee.date
+  inputIdentifier: date
+  nextScreen: enterAmount
+  optional: true
+  order: 1
+  text:
+    en: Date
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoanProcessingFee.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberLoanProcessingFee.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoanProcessingFee.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanProcessingFee.memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDate
 model: memberLoanProcessingFee
 parentIds:
-    - memberLoanId
+  - memberLoanId

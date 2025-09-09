@@ -1,48 +1,48 @@
 cacheQueries:
-    amount: memberLoanTax.amount
-    date: memberLoanTax.date
-    description: memberLoanTax.description
-    id: memberLoanTax.id
-    memberLoanId: memberLoanTax.memberLoanId
+  amount: memberLoanTax.amount
+  date: memberLoanTax.date
+  description: memberLoanTax.description
+  id: memberLoanTax.id
+  memberLoanId: memberLoanTax.memberLoanId
 enterAmount:
-    cacheQuery: memberLoanTax.amount
-    inputIdentifier: amount
-    nextScreen: formSummary
-    order: 3
-    text:
-        en: Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberLoanTax.amount
+  inputIdentifier: amount
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDate:
-    cacheQuery: memberLoanTax.date
-    inputIdentifier: date
-    nextScreen: enterAmount
-    optional: true
-    order: 2
-    text:
-        en: Date
-    type: inputScreen
+  cacheQuery: memberLoanTax.date
+  inputIdentifier: date
+  nextScreen: enterAmount
+  optional: true
+  order: 2
+  text:
+    en: Date
+  type: inputScreen
 enterDescription:
-    cacheQuery: memberLoanTax.description
-    inputIdentifier: description
-    nextScreen: enterDate
-    order: 1
-    text:
-        en: Description
-    type: inputScreen
+  cacheQuery: memberLoanTax.description
+  inputIdentifier: description
+  nextScreen: enterDate
+  order: 1
+  text:
+    en: Description
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoanTax.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberLoanTax.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoanTax.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanTax.memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDescription
 model: memberLoanTax
 parentIds:
-    - memberLoanId
+  - memberLoanId

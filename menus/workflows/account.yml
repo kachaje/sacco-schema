@@ -1,40 +1,40 @@
 cacheQueries:
-    id: account.id
-    name: account.name
-    normal: account.normal
-    number: account.number
+  id: account.id
+  name: account.name
+  normal: account.normal
+  number: account.number
 enterId:
-    cacheQuery: account.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: account.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterName:
-    cacheQuery: account.name
-    inputIdentifier: name
-    nextScreen: enterNumber
-    order: 1
-    text:
-        en: Name
-    type: inputScreen
+  cacheQuery: account.name
+  inputIdentifier: name
+  nextScreen: enterNumber
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
 enterNormal:
-    cacheQuery: account.normal
-    inputIdentifier: normal
-    nextScreen: formSummary
-    order: 3
-    text:
-        en: Normal
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: account.normal
+  inputIdentifier: normal
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Normal
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterNumber:
-    cacheQuery: account.number
-    inputIdentifier: number
-    nextScreen: enterNormal
-    order: 2
-    text:
-        en: Number
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: account.number
+  inputIdentifier: number
+  nextScreen: enterNormal
+  order: 2
+  text:
+    en: Number
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterName
 model: account

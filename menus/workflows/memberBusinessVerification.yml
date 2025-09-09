@@ -1,62 +1,62 @@
 cacheQueries:
-    businessVerified: memberBusinessVerification.businessVerified
-    grossIncomeVerified: memberBusinessVerification.grossIncomeVerified
-    id: memberBusinessVerification.id
-    memberBusinessId: memberBusinessVerification.memberBusinessId
-    netIncomeVerified: memberBusinessVerification.netIncomeVerified
+  businessVerified: memberBusinessVerification.businessVerified
+  grossIncomeVerified: memberBusinessVerification.grossIncomeVerified
+  id: memberBusinessVerification.id
+  memberBusinessId: memberBusinessVerification.memberBusinessId
+  netIncomeVerified: memberBusinessVerification.netIncomeVerified
 enterBusinessVerified:
-    cacheQuery: memberBusinessVerification.businessVerified
-    inputIdentifier: businessVerified
-    nextScreen: enterGrossIncomeVerified
-    optional: true
-    options:
-        - label:
-            en: "Yes"
-          position: 1
-        - label:
-            en: "No"
-          position: 2
-    order: 1
-    text:
-        en: Business Verified
-    type: inputScreen
+  cacheQuery: memberBusinessVerification.businessVerified
+  inputIdentifier: businessVerified
+  nextScreen: enterGrossIncomeVerified
+  optional: true
+  options:
+    - label:
+        en: "Yes"
+      position: 1
+    - label:
+        en: "No"
+      position: 2
+  order: 1
+  text:
+    en: Business Verified
+  type: inputScreen
 enterGrossIncomeVerified:
-    cacheQuery: memberBusinessVerification.grossIncomeVerified
-    inputIdentifier: grossIncomeVerified
-    nextScreen: enterNetIncomeVerified
-    optional: true
-    options:
-        - label:
-            en: "Yes"
-          position: 1
-        - label:
-            en: "No"
-          position: 2
-    order: 2
-    text:
-        en: Gross Income Verified
-    type: inputScreen
+  cacheQuery: memberBusinessVerification.grossIncomeVerified
+  inputIdentifier: grossIncomeVerified
+  nextScreen: enterNetIncomeVerified
+  optional: true
+  options:
+    - label:
+        en: "Yes"
+      position: 1
+    - label:
+        en: "No"
+      position: 2
+  order: 2
+  text:
+    en: Gross Income Verified
+  type: inputScreen
 enterId:
-    cacheQuery: memberBusinessVerification.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberBusinessVerification.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberBusinessId:
-    cacheQuery: memberBusinessVerification.memberBusinessId
-    hidden: true
-    inputIdentifier: memberBusinessId
-    type: hiddenField
+  cacheQuery: memberBusinessVerification.memberBusinessId
+  hidden: true
+  inputIdentifier: memberBusinessId
+  type: hiddenField
 enterNetIncomeVerified:
-    cacheQuery: memberBusinessVerification.netIncomeVerified
-    inputIdentifier: netIncomeVerified
-    nextScreen: formSummary
-    order: 3
-    text:
-        en: Net Income Verified
-    type: inputScreen
+  cacheQuery: memberBusinessVerification.netIncomeVerified
+  inputIdentifier: netIncomeVerified
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Net Income Verified
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterBusinessVerified
 model: memberBusinessVerification
 parentIds:
-    - memberBusinessId
+  - memberBusinessId

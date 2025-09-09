@@ -1,139 +1,139 @@
 cacheQueries:
-    employeeWages: memberNextYearBusinessProjection.employeeWages
-    financialYear: memberNextYearBusinessProjection.financialYear
-    id: memberNextYearBusinessProjection.id
-    loanInterest: memberNextYearBusinessProjection.loanInterest
-    memberBusinessId: memberNextYearBusinessProjection.memberBusinessId
-    netProfitLoss: memberNextYearBusinessProjection.netProfitLoss
-    otherCosts: memberNextYearBusinessProjection.otherCosts
-    ownSalary: memberNextYearBusinessProjection.ownSalary
-    rentals: memberNextYearBusinessProjection.rentals
-    totalCostOfGoods: memberNextYearBusinessProjection.totalCostOfGoods
-    totalCosts: memberNextYearBusinessProjection.totalCosts
-    totalIncome: memberNextYearBusinessProjection.totalIncome
-    transport: memberNextYearBusinessProjection.transport
-    utilities: memberNextYearBusinessProjection.utilities
+  employeeWages: memberNextYearBusinessProjection.employeeWages
+  financialYear: memberNextYearBusinessProjection.financialYear
+  id: memberNextYearBusinessProjection.id
+  loanInterest: memberNextYearBusinessProjection.loanInterest
+  memberBusinessId: memberNextYearBusinessProjection.memberBusinessId
+  netProfitLoss: memberNextYearBusinessProjection.netProfitLoss
+  otherCosts: memberNextYearBusinessProjection.otherCosts
+  ownSalary: memberNextYearBusinessProjection.ownSalary
+  rentals: memberNextYearBusinessProjection.rentals
+  totalCostOfGoods: memberNextYearBusinessProjection.totalCostOfGoods
+  totalCosts: memberNextYearBusinessProjection.totalCosts
+  totalIncome: memberNextYearBusinessProjection.totalIncome
+  transport: memberNextYearBusinessProjection.transport
+  utilities: memberNextYearBusinessProjection.utilities
 enterEmployeeWages:
-    cacheQuery: memberNextYearBusinessProjection.employeeWages
-    inputIdentifier: employeeWages
-    nextScreen: enterOwnSalary
-    order: 4
-    text:
-        en: Employee Wages
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.employeeWages
+  inputIdentifier: employeeWages
+  nextScreen: enterOwnSalary
+  order: 4
+  text:
+    en: Employee Wages
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterFinancialYear:
-    cacheQuery: memberNextYearBusinessProjection.financialYear
-    inputIdentifier: financialYear
-    nextScreen: enterTotalIncome
-    order: 1
-    text:
-        en: Financial Year
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.financialYear
+  inputIdentifier: financialYear
+  nextScreen: enterTotalIncome
+  order: 1
+  text:
+    en: Financial Year
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterId:
-    cacheQuery: memberNextYearBusinessProjection.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: memberNextYearBusinessProjection.id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterLoanInterest:
-    cacheQuery: memberNextYearBusinessProjection.loanInterest
-    inputIdentifier: loanInterest
-    nextScreen: enterUtilities
-    order: 7
-    text:
-        en: Loan Interest
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.loanInterest
+  inputIdentifier: loanInterest
+  nextScreen: enterUtilities
+  order: 7
+  text:
+    en: Loan Interest
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterMemberBusinessId:
-    cacheQuery: memberNextYearBusinessProjection.memberBusinessId
-    hidden: true
-    inputIdentifier: memberBusinessId
-    type: hiddenField
+  cacheQuery: memberNextYearBusinessProjection.memberBusinessId
+  hidden: true
+  inputIdentifier: memberBusinessId
+  type: hiddenField
 enterNetProfitLoss:
-    cacheQuery: memberNextYearBusinessProjection.netProfitLoss
-    inputIdentifier: netProfitLoss
-    nextScreen: formSummary
-    order: 12
-    text:
-        en: Net Profit Loss
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.netProfitLoss
+  inputIdentifier: netProfitLoss
+  nextScreen: formSummary
+  order: 12
+  text:
+    en: Net Profit Loss
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterOtherCosts:
-    cacheQuery: memberNextYearBusinessProjection.otherCosts
-    inputIdentifier: otherCosts
-    nextScreen: enterTotalCosts
-    order: 10
-    text:
-        en: Other Costs
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.otherCosts
+  inputIdentifier: otherCosts
+  nextScreen: enterTotalCosts
+  order: 10
+  text:
+    en: Other Costs
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterOwnSalary:
-    cacheQuery: memberNextYearBusinessProjection.ownSalary
-    inputIdentifier: ownSalary
-    nextScreen: enterTransport
-    order: 5
-    text:
-        en: Own Salary
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.ownSalary
+  inputIdentifier: ownSalary
+  nextScreen: enterTransport
+  order: 5
+  text:
+    en: Own Salary
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterRentals:
-    cacheQuery: memberNextYearBusinessProjection.rentals
-    inputIdentifier: rentals
-    nextScreen: enterOtherCosts
-    order: 9
-    text:
-        en: Rentals
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.rentals
+  inputIdentifier: rentals
+  nextScreen: enterOtherCosts
+  order: 9
+  text:
+    en: Rentals
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterTotalCostOfGoods:
-    cacheQuery: memberNextYearBusinessProjection.totalCostOfGoods
-    inputIdentifier: totalCostOfGoods
-    nextScreen: enterEmployeeWages
-    order: 3
-    text:
-        en: Total Cost Of Goods
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.totalCostOfGoods
+  inputIdentifier: totalCostOfGoods
+  nextScreen: enterEmployeeWages
+  order: 3
+  text:
+    en: Total Cost Of Goods
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterTotalCosts:
-    cacheQuery: memberNextYearBusinessProjection.totalCosts
-    inputIdentifier: totalCosts
-    nextScreen: enterNetProfitLoss
-    order: 11
-    text:
-        en: Total Costs
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.totalCosts
+  inputIdentifier: totalCosts
+  nextScreen: enterNetProfitLoss
+  order: 11
+  text:
+    en: Total Costs
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterTotalIncome:
-    cacheQuery: memberNextYearBusinessProjection.totalIncome
-    inputIdentifier: totalIncome
-    nextScreen: enterTotalCostOfGoods
-    order: 2
-    text:
-        en: Total Income
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.totalIncome
+  inputIdentifier: totalIncome
+  nextScreen: enterTotalCostOfGoods
+  order: 2
+  text:
+    en: Total Income
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterTransport:
-    cacheQuery: memberNextYearBusinessProjection.transport
-    inputIdentifier: transport
-    nextScreen: enterLoanInterest
-    order: 6
-    text:
-        en: Transport
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.transport
+  inputIdentifier: transport
+  nextScreen: enterLoanInterest
+  order: 6
+  text:
+    en: Transport
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterUtilities:
-    cacheQuery: memberNextYearBusinessProjection.utilities
-    inputIdentifier: utilities
-    nextScreen: enterRentals
-    order: 8
-    text:
-        en: Utilities
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: memberNextYearBusinessProjection.utilities
+  inputIdentifier: utilities
+  nextScreen: enterRentals
+  order: 8
+  text:
+    en: Utilities
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterFinancialYear
 model: memberNextYearBusinessProjection
 parentIds:
-    - memberBusinessId
+  - memberBusinessId

@@ -1,21 +1,20 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 memberLoanId:
-    hidden: true
-    many: true
-    order: 1
-    referenceTable: memberLoan
-    type: int
+  hidden: true
+  many: true
+  order: 1
+  referenceTable: memberLoan
+  type: int
 
 description:
-    order: 2
-    type: text
+  order: 2
+  type: text
 
 value:
-    order: 3
-    type: real
+  order: 3
+  type: real
