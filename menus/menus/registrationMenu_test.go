@@ -1,7 +1,6 @@
 package menus_test
 
 import (
-	"fmt"
 	"sacco/menus"
 	"sacco/parser"
 	"sacco/utils"
@@ -20,17 +19,19 @@ func TestRegistrationSubMenu(t *testing.T) {
 			"key":   "member.id",
 			"value": "1",
 		},
+		"memberContactId": map[string]any{
+			"key":   "member.memberContact.id",
+			"value": "1",
+		},
 	}
 
 	session.AddedModels = map[string]bool{
-		"member":          true,
-		"memberContact":   true,
-		"memberDependant": true,
-		"memberNominee":   true,
+		"member":        true,
+		"memberContact": true,
 	}
 
 	session.ActiveData = map[string]any{
-		"member.createdAt":                              "2025-09-09 11:49:53",
+		"member.createdAt":                              "2025-09-09 12:23:08",
 		"member.dateJoined":                             "2025-09-09",
 		"member.dateOfBirth":                            "1999-09-01",
 		"member.firstName":                              "Mary",
@@ -38,7 +39,7 @@ func TestRegistrationSubMenu(t *testing.T) {
 		"member.id":                                     1,
 		"member.lastName":                               "Banda",
 		"member.maritalStatus":                          "Single",
-		"member.memberContact.createdAt":                "2025-09-09 11:50:36",
+		"member.memberContact.createdAt":                "2025-09-09 12:23:33",
 		"member.memberContact.homeDistrict":             "Karonga",
 		"member.memberContact.homeTraditionalAuthority": "Kyungu",
 		"member.memberContact.homeVillage":              "Songwe",
@@ -46,29 +47,13 @@ func TestRegistrationSubMenu(t *testing.T) {
 		"member.memberContact.memberId":                 1,
 		"member.memberContact.postalAddress":            "P.O. Box 1",
 		"member.memberContact.residentialAddress":       "Area 49",
-		"member.memberContact.updatedAt":                "2025-09-09 11:50:36",
-		"member.memberDependant.1.createdAt":            "2025-09-09 11:52:48",
-		"member.memberDependant.1.id":                   1,
-		"member.memberDependant.1.isNominee":            "Yes",
-		"member.memberDependant.1.memberId":             1,
-		"member.memberDependant.1.name":                 "John Phiri",
-		"member.memberDependant.1.phoneNumber":          "0999888777",
-		"member.memberDependant.1.relationship":         "Spouse",
-		"member.memberDependant.1.updatedAt":            "2025-09-09 11:52:48",
-		"member.memberIdNumber":                         "KSM143579",
-		"member.memberNominee.createdAt":                "2025-09-09 11:52:48",
-		"member.memberNominee.id":                       1,
-		"member.memberNominee.isNominee":                "Yes",
-		"member.memberNominee.memberId":                 1,
-		"member.memberNominee.name":                     "John Phiri",
-		"member.memberNominee.phoneNumber":              "0999888777",
-		"member.memberNominee.relationship":             "Spouse",
-		"member.memberNominee.updatedAt":                "2025-09-09 11:52:48",
-		"member.nationalIdentifier":                     "KDJD47483",
+		"member.memberContact.updatedAt":                "2025-09-09 12:23:33",
+		"member.memberIdNumber":                         "KSM046018",
+		"member.nationalIdentifier":                     "JDKD47483",
 		"member.phoneNumber":                            "1234567890",
 		"member.title":                                  "Miss",
-		"member.updatedAt":                              "2025-09-09 11:49:53",
-		"member.utilityBillNumber":                      "93844763",
+		"member.updatedAt":                              "2025-09-09 12:23:08",
+		"member.utilityBillNumber":                      "948476363",
 		"member.utilityBillType":                        "ESCOM",
 	}
 
@@ -76,12 +61,10 @@ func TestRegistrationSubMenu(t *testing.T) {
 
 	result := m.LoadMenu(session.CurrentMenu, session, "", text, "")
 
-	fmt.Println(result)
-	
 	target := `
 CON Choose Activity
-1. Member Details
-2. Contact Details
+1. Member Details (*)
+2. Contact Details (*)
 3. Beneficiaries
 4. View Member Details
 
@@ -91,10 +74,4 @@ CON Choose Activity
 	if utils.CleanString(result) != utils.CleanString(target) {
 		t.Fatal("Test failed")
 	}
-
-	text = "3"
-
-	result = m.LoadMenu(session.CurrentMenu, session, "", text, "")
-
-	fmt.Println(result)
 }
