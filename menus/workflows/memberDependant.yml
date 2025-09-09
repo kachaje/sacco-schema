@@ -176,6 +176,7 @@ enterName1:
     inputIdentifier: name1
     nextScreen: enterPhoneNumber1
     order: 1
+    terminateBlockOnEmpty: true
     text:
         en: Name
     type: inputScreen
@@ -184,6 +185,7 @@ enterName2:
     inputIdentifier: name2
     nextScreen: enterPhoneNumber2
     order: 7
+    terminateBlockOnEmpty: true
     text:
         en: Name
     type: inputScreen
@@ -192,6 +194,7 @@ enterName3:
     inputIdentifier: name3
     nextScreen: enterPhoneNumber3
     order: 13
+    terminateBlockOnEmpty: true
     text:
         en: Name
     type: inputScreen
@@ -200,6 +203,7 @@ enterName4:
     inputIdentifier: name4
     nextScreen: enterPhoneNumber4
     order: 19
+    terminateBlockOnEmpty: true
     text:
         en: Name
     type: inputScreen

@@ -284,6 +284,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 					}
 
 					for j := range totalLoops {
+						terminateBlockOnEmptySet := false
+
 						for i := range len(keysOrder) {
 							if k, ok := keysOrder[i]; ok {
 								v := vv[k]
@@ -322,6 +324,11 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 													row[kf] = vf
 												}
 											case "order":
+												if totalLoops > 1 && !terminateBlockOnEmptySet {
+													row["terminateBlockOnEmpty"] = true
+													terminateBlockOnEmptySet = true
+												}
+
 												row["order"] = i + (j * len(keysOrder))
 											case "options":
 												if vo, ok := vf.([]any); ok {

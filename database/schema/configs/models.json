@@ -626,6 +626,7 @@
       {
         "name1": {
           "order": 2,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -687,6 +688,7 @@
       {
         "name2": {
           "order": 10,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -748,6 +750,7 @@
       {
         "name3": {
           "order": 18,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -809,6 +812,7 @@
       {
         "name4": {
           "order": 26,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -875,6 +879,7 @@
       {
         "name": {
           "order": 2,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },

@@ -350,6 +350,7 @@ memberDependant:
             order: 1
         - name1:
             order: 2
+            terminateBlockOnEmpty: true
             type: text
         - phoneNumber1:
             order: 3
@@ -385,6 +386,7 @@ memberDependant:
             order: 9
         - name2:
             order: 10
+            terminateBlockOnEmpty: true
             type: text
         - phoneNumber2:
             order: 11
@@ -420,6 +422,7 @@ memberDependant:
             order: 17
         - name3:
             order: 18
+            terminateBlockOnEmpty: true
             type: text
         - phoneNumber3:
             order: 19
@@ -455,6 +458,7 @@ memberDependant:
             order: 25
         - name4:
             order: 26
+            terminateBlockOnEmpty: true
             type: text
         - phoneNumber4:
             order: 27
@@ -493,6 +497,7 @@ memberDependant:
             order: 1
         - name:
             order: 2
+            terminateBlockOnEmpty: true
             type: text
         - phoneNumber:
             order: 3
