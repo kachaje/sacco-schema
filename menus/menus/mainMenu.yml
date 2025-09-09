@@ -31,11 +31,16 @@ fields:
       - admin
       - dev
   "7":
+    id: setPhoneNumber
+    label:
+      en: Set PhoneNumber
+    function: setPhoneNumber
+  "8":
     id: exit
     label:
       en: Exit
     function: doExit
-  "8":
+  "9":
     id: console
     allowedRoles:
       - admin
@@ -44,8 +49,3 @@ fields:
       en: Dev Console
     function: devConsole
     devOnly: true
-  "9":
-    id: setPhoneNumber
-    label:
-      en: Set PhoneNumber
-    function: setPhoneNumber
