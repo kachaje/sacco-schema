@@ -55,7 +55,6 @@ var (
 		"memberOccupationVerification",
 	}
 	MemberSavingArrayChildren = []string{
-		"memberLoan",
 		"memberSavingDeposit",
 		"memberSavingInterest",
 		"memberSavingWithdrawal",
@@ -207,7 +206,6 @@ var (
 		},
 		"memberLoan": {
 			"member",
-			"memberSaving",
 		},
 		"memberLoanApproval": {
 			"memberLoan",

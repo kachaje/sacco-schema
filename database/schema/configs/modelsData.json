@@ -574,13 +574,13 @@
     "fields": {
       "amountPaid": {
         "default": "0",
-        "order": 12,
+        "order": 11,
         "readOnly": true,
         "type": "real"
       },
       "balanceAmount": {
         "default": "0",
-        "order": 13,
+        "order": 12,
         "readOnly": true,
         "type": "real"
       },
@@ -592,36 +592,36 @@
       },
       "interestRate": {
         "default": "0",
-        "order": 11,
+        "order": 10,
         "readOnly": true,
         "type": "real"
       },
       "loanAmount": {
-        "order": 4,
+        "order": 3,
         "type": "real"
       },
       "loanDueDate": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 9,
+        "order": 8,
         "type": "text"
       },
       "loanNumber": {
         "hidden": true,
         "optional": true,
-        "order": 3,
+        "order": 2,
         "type": "text"
       },
       "loanPurpose": {
-        "order": 6,
+        "order": 5,
         "type": "text"
       },
       "loanStartDate": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 8,
+        "order": 7,
         "type": "text"
       },
       "loanType": {
-        "order": 7,
+        "order": 6,
         "type": "text"
       },
       "memberId": {
@@ -631,27 +631,20 @@
         "referenceTable": "member",
         "type": "int"
       },
-      "memberSavingId": {
-        "hidden": true,
-        "optional": true,
-        "order": 2,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      },
       "monthlyInstalments": {
         "default": "0",
-        "order": 10,
+        "order": 9,
         "readOnly": true,
         "type": "real"
       },
       "repaymentPeriodInMonths": {
-        "order": 5,
+        "order": 4,
         "type": "int"
       }
     },
     "many": true,
     "model": "memberLoan",
-    "parents": ["member", "memberSaving"]
+    "parents": ["member"]
   },
   "memberLoanApproval": {
     "fields": {

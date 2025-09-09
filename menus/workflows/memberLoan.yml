@@ -10,7 +10,6 @@ cacheQueries:
   loanStartDate: memberLoan.loanStartDate
   loanType: memberLoan.loanType
   memberId: memberLoan.memberId
-  memberSavingId: memberLoan.memberSavingId
   monthlyInstalments: memberLoan.monthlyInstalments
   repaymentPeriodInMonths: memberLoan.repaymentPeriodInMonths
 enterAmountPaid:
@@ -96,11 +95,6 @@ enterMemberId:
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
-enterMemberSavingId:
-  cacheQuery: memberLoan.memberSavingId
-  hidden: true
-  inputIdentifier: memberSavingId
-  type: hiddenField
 enterMonthlyInstalments:
   cacheQuery: memberLoan.monthlyInstalments
   inputIdentifier: monthlyInstalments
@@ -126,4 +120,3 @@ initialScreen: enterLoanAmount
 model: memberLoan
 parentIds:
   - memberId
-  - memberSavingId

@@ -60,7 +60,6 @@
   },
   "memberSaving": {
     "arrayChildren": [
-      "memberLoan",
       "memberSavingDeposit",
       "memberSavingInterest",
       "memberSavingWithdrawal",

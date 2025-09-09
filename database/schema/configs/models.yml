@@ -448,7 +448,6 @@ memberLastYearBusinessHistory:
 memberLoan:
   belongsTo:
     - member
-    - memberSaving
   fields:
     - id:
         hidden: true
@@ -456,49 +455,46 @@ memberLoan:
     - memberId:
         hidden: true
         order: 1
-    - memberSavingId:
-        hidden: true
-        order: 2
     - loanNumber:
         hidden: true
         optional: true
-        order: 3
+        order: 2
         type: text
     - loanAmount:
         numericField: true
-        order: 4
+        order: 3
     - repaymentPeriodInMonths:
         numericField: true
-        order: 5
+        order: 4
     - loanPurpose:
-        order: 6
+        order: 5
         type: text
     - loanType:
-        order: 7
+        order: 6
         type: text
     - loanStartDate:
         optional: true
-        order: 8
+        order: 7
         type: text
     - loanDueDate:
         optional: true
-        order: 9
+        order: 8
         type: text
     - monthlyInstalments:
         numericField: true
         optional: true
-        order: 10
+        order: 9
     - interestRate:
         numericField: true
         optional: true
-        order: 11
+        order: 10
     - amountPaid:
         hidden: true
-        order: 12
+        order: 11
     - balanceAmount:
         numericField: true
         optional: true
-        order: 13
+        order: 12
   hasMany:
     - memberLoanInsurance
     - memberLoanLiability
@@ -876,7 +872,6 @@ memberSaving:
         numericField: true
         order: 4
   hasMany:
-    - memberLoan
     - memberSavingDeposit
     - memberSavingInterest
     - memberSavingWithdrawal

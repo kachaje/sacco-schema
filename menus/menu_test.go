@@ -1,6 +1,7 @@
 package menus_test
 
 import (
+	"fmt"
 	"sacco/menus"
 	"sacco/parser"
 	"sacco/utils"
@@ -231,6 +232,8 @@ func TestLoanMenu(t *testing.T) {
 	}
 
 	result := m.LoadMenu("loan", session, "", "", "")
+
+	fmt.Println(result)
 
 	target := `
 CON Loans
