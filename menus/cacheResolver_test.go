@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestResolveCacheData(t *testing.T) {
+func TestResolveCacheDataArray(t *testing.T) {
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
