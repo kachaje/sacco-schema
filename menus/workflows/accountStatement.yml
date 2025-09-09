@@ -1,16 +1,16 @@
 cacheQueries:
-  accountId: accountStatement.accountId
-  closingBalance: accountStatement.closingBalance
-  date: accountStatement.date
-  totalCredit: accountStatement.totalCredit
-  totalDebit: accountStatement.totalDebit
+  accountId: account.accountStatement.accountId
+  closingBalance: account.accountStatement.closingBalance
+  date: account.accountStatement.date
+  totalCredit: account.accountStatement.totalCredit
+  totalDebit: account.accountStatement.totalDebit
 enterAccountId:
-  cacheQuery: accountStatement.accountId
+  cacheQuery: account.accountStatement.accountId
   hidden: true
   inputIdentifier: accountId
   type: hiddenField
 enterClosingBalance:
-  cacheQuery: accountStatement.closingBalance
+  cacheQuery: account.accountStatement.closingBalance
   inputIdentifier: closingBalance
   nextScreen: enterTotalCredit
   order: 2
@@ -19,7 +19,7 @@ enterClosingBalance:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: accountStatement.date
+  cacheQuery: account.accountStatement.date
   inputIdentifier: date
   nextScreen: enterClosingBalance
   optional: true
@@ -28,7 +28,7 @@ enterDate:
     en: Date
   type: inputScreen
 enterTotalCredit:
-  cacheQuery: accountStatement.totalCredit
+  cacheQuery: account.accountStatement.totalCredit
   inputIdentifier: totalCredit
   nextScreen: enterTotalDebit
   order: 3
@@ -37,7 +37,7 @@ enterTotalCredit:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalDebit:
-  cacheQuery: accountStatement.totalDebit
+  cacheQuery: account.accountStatement.totalDebit
   inputIdentifier: totalDebit
   nextScreen: formSummary
   order: 4

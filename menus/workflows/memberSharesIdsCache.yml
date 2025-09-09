@@ -1,10 +1,10 @@
 cacheQueries:
-  claimed: memberSharesIdsCache.claimed
-  id: memberSharesIdsCache.id
-  idNumber: memberSharesIdsCache.idNumber
-  memberSharesId: memberSharesIdsCache.memberSharesId
+  claimed: memberShares.memberSharesIdsCache.claimed
+  id: memberShares.memberSharesIdsCache.id
+  idNumber: memberShares.memberSharesIdsCache.idNumber
+  memberSharesId: memberShares.memberSharesIdsCache.memberSharesId
 enterClaimed:
-  cacheQuery: memberSharesIdsCache.claimed
+  cacheQuery: memberShares.memberSharesIdsCache.claimed
   inputIdentifier: claimed
   nextScreen: formSummary
   optional: true
@@ -14,12 +14,12 @@ enterClaimed:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSharesIdsCache.id
+  cacheQuery: memberShares.memberSharesIdsCache.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterIdNumber:
-  cacheQuery: memberSharesIdsCache.idNumber
+  cacheQuery: memberShares.memberSharesIdsCache.idNumber
   inputIdentifier: idNumber
   nextScreen: enterClaimed
   order: 1
@@ -27,7 +27,7 @@ enterIdNumber:
     en: Id Number
   type: inputScreen
 enterMemberSharesId:
-  cacheQuery: memberSharesIdsCache.memberSharesId
+  cacheQuery: memberShares.memberSharesIdsCache.memberSharesId
   hidden: true
   inputIdentifier: memberSharesId
   type: hiddenField

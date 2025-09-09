@@ -1,16 +1,16 @@
 cacheQueries:
-  employerAddress: memberOccupation.employerAddress
-  employerName: memberOccupation.employerName
-  employerPhone: memberOccupation.employerPhone
-  grossPay: memberOccupation.grossPay
-  highestQualification: memberOccupation.highestQualification
-  id: memberOccupation.id
-  jobTitle: memberOccupation.jobTitle
-  memberLoanId: memberOccupation.memberLoanId
-  netPay: memberOccupation.netPay
-  periodEmployedInMonths: memberOccupation.periodEmployedInMonths
+  employerAddress: memberLoan.memberOccupation.employerAddress
+  employerName: memberLoan.memberOccupation.employerName
+  employerPhone: memberLoan.memberOccupation.employerPhone
+  grossPay: memberLoan.memberOccupation.grossPay
+  highestQualification: memberLoan.memberOccupation.highestQualification
+  id: memberLoan.memberOccupation.id
+  jobTitle: memberLoan.memberOccupation.jobTitle
+  memberLoanId: memberLoan.memberOccupation.memberLoanId
+  netPay: memberLoan.memberOccupation.netPay
+  periodEmployedInMonths: memberLoan.memberOccupation.periodEmployedInMonths
 enterEmployerAddress:
-  cacheQuery: memberOccupation.employerAddress
+  cacheQuery: memberLoan.memberOccupation.employerAddress
   inputIdentifier: employerAddress
   nextScreen: enterEmployerPhone
   order: 2
@@ -18,7 +18,7 @@ enterEmployerAddress:
     en: Employer Address
   type: inputScreen
 enterEmployerName:
-  cacheQuery: memberOccupation.employerName
+  cacheQuery: memberLoan.memberOccupation.employerName
   inputIdentifier: employerName
   nextScreen: enterEmployerAddress
   order: 1
@@ -26,7 +26,7 @@ enterEmployerName:
     en: Employer Name
   type: inputScreen
 enterEmployerPhone:
-  cacheQuery: memberOccupation.employerPhone
+  cacheQuery: memberLoan.memberOccupation.employerPhone
   inputIdentifier: employerPhone
   nextScreen: enterJobTitle
   order: 3
@@ -34,7 +34,7 @@ enterEmployerPhone:
     en: Employer Phone
   type: inputScreen
 enterGrossPay:
-  cacheQuery: memberOccupation.grossPay
+  cacheQuery: memberLoan.memberOccupation.grossPay
   inputIdentifier: grossPay
   nextScreen: enterNetPay
   order: 6
@@ -43,7 +43,7 @@ enterGrossPay:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterHighestQualification:
-  cacheQuery: memberOccupation.highestQualification
+  cacheQuery: memberLoan.memberOccupation.highestQualification
   inputIdentifier: highestQualification
   nextScreen: formSummary
   options:
@@ -64,12 +64,12 @@ enterHighestQualification:
     en: Highest Qualification
   type: inputScreen
 enterId:
-  cacheQuery: memberOccupation.id
+  cacheQuery: memberLoan.memberOccupation.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterJobTitle:
-  cacheQuery: memberOccupation.jobTitle
+  cacheQuery: memberLoan.memberOccupation.jobTitle
   inputIdentifier: jobTitle
   nextScreen: enterPeriodEmployedInMonths
   order: 4
@@ -77,12 +77,12 @@ enterJobTitle:
     en: Job Title
   type: inputScreen
 enterMemberLoanId:
-  cacheQuery: memberOccupation.memberLoanId
+  cacheQuery: memberLoan.memberOccupation.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterNetPay:
-  cacheQuery: memberOccupation.netPay
+  cacheQuery: memberLoan.memberOccupation.netPay
   inputIdentifier: netPay
   nextScreen: enterHighestQualification
   order: 7
@@ -91,7 +91,7 @@ enterNetPay:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPeriodEmployedInMonths:
-  cacheQuery: memberOccupation.periodEmployedInMonths
+  cacheQuery: memberLoan.memberOccupation.periodEmployedInMonths
   inputIdentifier: periodEmployedInMonths
   nextScreen: enterGrossPay
   order: 5

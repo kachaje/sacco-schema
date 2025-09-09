@@ -1,10 +1,10 @@
 cacheQueries:
-  amount: dividends.amount
-  date: dividends.date
-  id: dividends.id
-  memberId: dividends.memberId
+  amount: member.dividends.amount
+  date: member.dividends.date
+  id: member.dividends.id
+  memberId: member.dividends.memberId
 enterAmount:
-  cacheQuery: dividends.amount
+  cacheQuery: member.dividends.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 2
@@ -13,7 +13,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: dividends.date
+  cacheQuery: member.dividends.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -22,12 +22,12 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: dividends.id
+  cacheQuery: member.dividends.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: dividends.memberId
+  cacheQuery: member.dividends.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField

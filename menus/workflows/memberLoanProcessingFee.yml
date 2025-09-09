@@ -1,10 +1,10 @@
 cacheQueries:
-  amount: memberLoanProcessingFee.amount
-  date: memberLoanProcessingFee.date
-  id: memberLoanProcessingFee.id
-  memberLoanId: memberLoanProcessingFee.memberLoanId
+  amount: memberLoan.memberLoanProcessingFee.amount
+  date: memberLoan.memberLoanProcessingFee.date
+  id: memberLoan.memberLoanProcessingFee.id
+  memberLoanId: memberLoan.memberLoanProcessingFee.memberLoanId
 enterAmount:
-  cacheQuery: memberLoanProcessingFee.amount
+  cacheQuery: memberLoan.memberLoanProcessingFee.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 2
@@ -13,7 +13,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberLoanProcessingFee.date
+  cacheQuery: memberLoan.memberLoanProcessingFee.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -22,12 +22,12 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: memberLoanProcessingFee.id
+  cacheQuery: memberLoan.memberLoanProcessingFee.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanProcessingFee.memberLoanId
+  cacheQuery: memberLoan.memberLoanProcessingFee.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField

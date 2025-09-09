@@ -1,10 +1,10 @@
 cacheQueries:
-  claimed: memberSavingsIdsCache.claimed
-  id: memberSavingsIdsCache.id
-  idNumber: memberSavingsIdsCache.idNumber
-  memberSavingId: memberSavingsIdsCache.memberSavingId
+  claimed: memberSaving.memberSavingsIdsCache.claimed
+  id: memberSaving.memberSavingsIdsCache.id
+  idNumber: memberSaving.memberSavingsIdsCache.idNumber
+  memberSavingId: memberSaving.memberSavingsIdsCache.memberSavingId
 enterClaimed:
-  cacheQuery: memberSavingsIdsCache.claimed
+  cacheQuery: memberSaving.memberSavingsIdsCache.claimed
   inputIdentifier: claimed
   nextScreen: formSummary
   optional: true
@@ -14,12 +14,12 @@ enterClaimed:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSavingsIdsCache.id
+  cacheQuery: memberSaving.memberSavingsIdsCache.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterIdNumber:
-  cacheQuery: memberSavingsIdsCache.idNumber
+  cacheQuery: memberSaving.memberSavingsIdsCache.idNumber
   inputIdentifier: idNumber
   nextScreen: enterClaimed
   order: 1
@@ -27,7 +27,7 @@ enterIdNumber:
     en: Id Number
   type: inputScreen
 enterMemberSavingId:
-  cacheQuery: memberSavingsIdsCache.memberSavingId
+  cacheQuery: memberSaving.memberSavingsIdsCache.memberSavingId
   hidden: true
   inputIdentifier: memberSavingId
   type: hiddenField

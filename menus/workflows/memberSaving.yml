@@ -1,11 +1,11 @@
 cacheQueries:
-  balance: memberSaving.balance
-  id: memberSaving.id
-  memberId: memberSaving.memberId
-  memberSavingsIdNumber: memberSaving.memberSavingsIdNumber
-  savingsTypeId: memberSaving.savingsTypeId
+  balance: member.memberSaving.balance
+  id: member.memberSaving.id
+  memberId: member.memberSaving.memberId
+  memberSavingsIdNumber: member.memberSaving.memberSavingsIdNumber
+  savingsTypeId: member.memberSaving.savingsTypeId
 enterBalance:
-  cacheQuery: memberSaving.balance
+  cacheQuery: member.memberSaving.balance
   inputIdentifier: balance
   nextScreen: formSummary
   order: 2
@@ -14,17 +14,17 @@ enterBalance:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSaving.id
+  cacheQuery: member.memberSaving.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberSaving.memberId
+  cacheQuery: member.memberSaving.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMemberSavingsIdNumber:
-  cacheQuery: memberSaving.memberSavingsIdNumber
+  cacheQuery: member.memberSaving.memberSavingsIdNumber
   inputIdentifier: memberSavingsIdNumber
   nextScreen: enterBalance
   optional: true
@@ -33,7 +33,7 @@ enterMemberSavingsIdNumber:
     en: Member Savings Id Number
   type: inputScreen
 enterSavingsTypeId:
-  cacheQuery: memberSaving.savingsTypeId
+  cacheQuery: member.memberSaving.savingsTypeId
   hidden: true
   inputIdentifier: savingsTypeId
   type: hiddenField

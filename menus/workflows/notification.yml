@@ -1,12 +1,12 @@
 cacheQueries:
-  date: notification.date
-  id: notification.id
-  memberId: notification.memberId
-  message: notification.message
-  msgDelivered: notification.msgDelivered
-  msgRead: notification.msgRead
+  date: member.notification.date
+  id: member.notification.id
+  memberId: member.notification.memberId
+  message: member.notification.message
+  msgDelivered: member.notification.msgDelivered
+  msgRead: member.notification.msgRead
 enterDate:
-  cacheQuery: notification.date
+  cacheQuery: member.notification.date
   inputIdentifier: date
   nextScreen: enterMessage
   optional: true
@@ -15,17 +15,17 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: notification.id
+  cacheQuery: member.notification.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: notification.memberId
+  cacheQuery: member.notification.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMessage:
-  cacheQuery: notification.message
+  cacheQuery: member.notification.message
   inputIdentifier: message
   nextScreen: enterMsgDelivered
   order: 2
@@ -33,7 +33,7 @@ enterMessage:
     en: Message
   type: inputScreen
 enterMsgDelivered:
-  cacheQuery: notification.msgDelivered
+  cacheQuery: member.notification.msgDelivered
   inputIdentifier: msgDelivered
   nextScreen: enterMsgRead
   optional: true
@@ -49,7 +49,7 @@ enterMsgDelivered:
     en: Msg Delivered
   type: inputScreen
 enterMsgRead:
-  cacheQuery: notification.msgRead
+  cacheQuery: member.notification.msgRead
   inputIdentifier: msgRead
   nextScreen: formSummary
   optional: true

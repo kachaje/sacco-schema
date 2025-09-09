@@ -1,10 +1,10 @@
 cacheQueries:
-  claimed: memberIdsCache.claimed
-  id: memberIdsCache.id
-  idNumber: memberIdsCache.idNumber
-  memberId: memberIdsCache.memberId
+  claimed: member.memberIdsCache.claimed
+  id: member.memberIdsCache.id
+  idNumber: member.memberIdsCache.idNumber
+  memberId: member.memberIdsCache.memberId
 enterClaimed:
-  cacheQuery: memberIdsCache.claimed
+  cacheQuery: member.memberIdsCache.claimed
   inputIdentifier: claimed
   nextScreen: formSummary
   optional: true
@@ -14,12 +14,12 @@ enterClaimed:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberIdsCache.id
+  cacheQuery: member.memberIdsCache.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterIdNumber:
-  cacheQuery: memberIdsCache.idNumber
+  cacheQuery: member.memberIdsCache.idNumber
   inputIdentifier: idNumber
   nextScreen: enterClaimed
   order: 1
@@ -27,7 +27,7 @@ enterIdNumber:
     en: Id Number
   type: inputScreen
 enterMemberId:
-  cacheQuery: memberIdsCache.memberId
+  cacheQuery: member.memberIdsCache.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField

@@ -1,12 +1,12 @@
 cacheQueries:
-  address: memberLoanWitness.address
-  date: memberLoanWitness.date
-  id: memberLoanWitness.id
-  memberLoanId: memberLoanWitness.memberLoanId
-  telephone: memberLoanWitness.telephone
-  witnessName: memberLoanWitness.witnessName
+  address: memberLoan.memberLoanWitness.address
+  date: memberLoan.memberLoanWitness.date
+  id: memberLoan.memberLoanWitness.id
+  memberLoanId: memberLoan.memberLoanWitness.memberLoanId
+  telephone: memberLoan.memberLoanWitness.telephone
+  witnessName: memberLoan.memberLoanWitness.witnessName
 enterAddress:
-  cacheQuery: memberLoanWitness.address
+  cacheQuery: memberLoan.memberLoanWitness.address
   inputIdentifier: address
   nextScreen: enterDate
   order: 3
@@ -14,7 +14,7 @@ enterAddress:
     en: Address
   type: inputScreen
 enterDate:
-  cacheQuery: memberLoanWitness.date
+  cacheQuery: memberLoan.memberLoanWitness.date
   inputIdentifier: date
   nextScreen: formSummary
   optional: true
@@ -23,17 +23,17 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: memberLoanWitness.id
+  cacheQuery: memberLoan.memberLoanWitness.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanWitness.memberLoanId
+  cacheQuery: memberLoan.memberLoanWitness.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterTelephone:
-  cacheQuery: memberLoanWitness.telephone
+  cacheQuery: memberLoan.memberLoanWitness.telephone
   inputIdentifier: telephone
   nextScreen: enterAddress
   order: 2
@@ -41,7 +41,7 @@ enterTelephone:
     en: Telephone
   type: inputScreen
 enterWitnessName:
-  cacheQuery: memberLoanWitness.witnessName
+  cacheQuery: memberLoan.memberLoanWitness.witnessName
   inputIdentifier: witnessName
   nextScreen: enterTelephone
   order: 1

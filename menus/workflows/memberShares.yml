@@ -1,22 +1,22 @@
 cacheQueries:
-  id: memberShares.id
-  memberId: memberShares.memberId
-  memberSharesIdNumber: memberShares.memberSharesIdNumber
-  monthlyPremium: memberShares.monthlyPremium
-  numberOfShares: memberShares.numberOfShares
-  totalValue: memberShares.totalValue
+  id: member.memberShares.id
+  memberId: member.memberShares.memberId
+  memberSharesIdNumber: member.memberShares.memberSharesIdNumber
+  monthlyPremium: member.memberShares.monthlyPremium
+  numberOfShares: member.memberShares.numberOfShares
+  totalValue: member.memberShares.totalValue
 enterId:
-  cacheQuery: memberShares.id
+  cacheQuery: member.memberShares.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberShares.memberId
+  cacheQuery: member.memberShares.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMemberSharesIdNumber:
-  cacheQuery: memberShares.memberSharesIdNumber
+  cacheQuery: member.memberShares.memberSharesIdNumber
   inputIdentifier: memberSharesIdNumber
   nextScreen: enterMonthlyPremium
   optional: true
@@ -25,7 +25,7 @@ enterMemberSharesIdNumber:
     en: Member Shares Id Number
   type: inputScreen
 enterMonthlyPremium:
-  cacheQuery: memberShares.monthlyPremium
+  cacheQuery: member.memberShares.monthlyPremium
   inputIdentifier: monthlyPremium
   nextScreen: enterTotalValue
   order: 2
@@ -34,7 +34,7 @@ enterMonthlyPremium:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterNumberOfShares:
-  cacheQuery: memberShares.numberOfShares
+  cacheQuery: member.memberShares.numberOfShares
   inputIdentifier: numberOfShares
   nextScreen: formSummary
   order: 4
@@ -43,7 +43,7 @@ enterNumberOfShares:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalValue:
-  cacheQuery: memberShares.totalValue
+  cacheQuery: member.memberShares.totalValue
   inputIdentifier: totalValue
   nextScreen: enterNumberOfShares
   order: 3

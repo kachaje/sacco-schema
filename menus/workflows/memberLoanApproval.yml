@@ -1,15 +1,15 @@
 cacheQueries:
-  amountRecommended: memberLoanApproval.amountRecommended
-  approvedBy: memberLoanApproval.approvedBy
-  dateOfApproval: memberLoanApproval.dateOfApproval
-  dateVerified: memberLoanApproval.dateVerified
-  denialOrPartialReason: memberLoanApproval.denialOrPartialReason
-  id: memberLoanApproval.id
-  loanStatus: memberLoanApproval.loanStatus
-  memberLoanId: memberLoanApproval.memberLoanId
-  verifiedBy: memberLoanApproval.verifiedBy
+  amountRecommended: memberLoan.memberLoanApproval.amountRecommended
+  approvedBy: memberLoan.memberLoanApproval.approvedBy
+  dateOfApproval: memberLoan.memberLoanApproval.dateOfApproval
+  dateVerified: memberLoan.memberLoanApproval.dateVerified
+  denialOrPartialReason: memberLoan.memberLoanApproval.denialOrPartialReason
+  id: memberLoan.memberLoanApproval.id
+  loanStatus: memberLoan.memberLoanApproval.loanStatus
+  memberLoanId: memberLoan.memberLoanApproval.memberLoanId
+  verifiedBy: memberLoan.memberLoanApproval.verifiedBy
 enterAmountRecommended:
-  cacheQuery: memberLoanApproval.amountRecommended
+  cacheQuery: memberLoan.memberLoanApproval.amountRecommended
   inputIdentifier: amountRecommended
   nextScreen: enterApprovedBy
   order: 2
@@ -18,7 +18,7 @@ enterAmountRecommended:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterApprovedBy:
-  cacheQuery: memberLoanApproval.approvedBy
+  cacheQuery: memberLoan.memberLoanApproval.approvedBy
   inputIdentifier: approvedBy
   nextScreen: enterVerifiedBy
   order: 3
@@ -26,17 +26,17 @@ enterApprovedBy:
     en: Approved By
   type: inputScreen
 enterDateOfApproval:
-  cacheQuery: memberLoanApproval.dateOfApproval
+  cacheQuery: memberLoan.memberLoanApproval.dateOfApproval
   hidden: true
   inputIdentifier: dateOfApproval
   type: hiddenField
 enterDateVerified:
-  cacheQuery: memberLoanApproval.dateVerified
+  cacheQuery: memberLoan.memberLoanApproval.dateVerified
   hidden: true
   inputIdentifier: dateVerified
   type: hiddenField
 enterDenialOrPartialReason:
-  cacheQuery: memberLoanApproval.denialOrPartialReason
+  cacheQuery: memberLoan.memberLoanApproval.denialOrPartialReason
   inputIdentifier: denialOrPartialReason
   nextScreen: formSummary
   optional: true
@@ -45,12 +45,12 @@ enterDenialOrPartialReason:
     en: Denial Or Partial Reason
   type: inputScreen
 enterId:
-  cacheQuery: memberLoanApproval.id
+  cacheQuery: memberLoan.memberLoanApproval.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanStatus:
-  cacheQuery: memberLoanApproval.loanStatus
+  cacheQuery: memberLoan.memberLoanApproval.loanStatus
   inputIdentifier: loanStatus
   nextScreen: enterAmountRecommended
   optional: true
@@ -69,12 +69,12 @@ enterLoanStatus:
     en: Loan Status
   type: inputScreen
 enterMemberLoanId:
-  cacheQuery: memberLoanApproval.memberLoanId
+  cacheQuery: memberLoan.memberLoanApproval.memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterVerifiedBy:
-  cacheQuery: memberLoanApproval.verifiedBy
+  cacheQuery: memberLoan.memberLoanApproval.verifiedBy
   inputIdentifier: verifiedBy
   nextScreen: enterDenialOrPartialReason
   order: 4

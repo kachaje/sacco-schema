@@ -1,20 +1,20 @@
 cacheQueries:
-  employeeWages: memberLastYearBusinessHistory.employeeWages
-  financialYear: memberLastYearBusinessHistory.financialYear
-  id: memberLastYearBusinessHistory.id
-  loanInterest: memberLastYearBusinessHistory.loanInterest
-  memberBusinessId: memberLastYearBusinessHistory.memberBusinessId
-  netProfitLoss: memberLastYearBusinessHistory.netProfitLoss
-  otherCosts: memberLastYearBusinessHistory.otherCosts
-  ownSalary: memberLastYearBusinessHistory.ownSalary
-  rentals: memberLastYearBusinessHistory.rentals
-  totalCostOfGoods: memberLastYearBusinessHistory.totalCostOfGoods
-  totalCosts: memberLastYearBusinessHistory.totalCosts
-  totalIncome: memberLastYearBusinessHistory.totalIncome
-  transport: memberLastYearBusinessHistory.transport
-  utilities: memberLastYearBusinessHistory.utilities
+  employeeWages: memberBusiness.memberLastYearBusinessHistory.employeeWages
+  financialYear: memberBusiness.memberLastYearBusinessHistory.financialYear
+  id: memberBusiness.memberLastYearBusinessHistory.id
+  loanInterest: memberBusiness.memberLastYearBusinessHistory.loanInterest
+  memberBusinessId: memberBusiness.memberLastYearBusinessHistory.memberBusinessId
+  netProfitLoss: memberBusiness.memberLastYearBusinessHistory.netProfitLoss
+  otherCosts: memberBusiness.memberLastYearBusinessHistory.otherCosts
+  ownSalary: memberBusiness.memberLastYearBusinessHistory.ownSalary
+  rentals: memberBusiness.memberLastYearBusinessHistory.rentals
+  totalCostOfGoods: memberBusiness.memberLastYearBusinessHistory.totalCostOfGoods
+  totalCosts: memberBusiness.memberLastYearBusinessHistory.totalCosts
+  totalIncome: memberBusiness.memberLastYearBusinessHistory.totalIncome
+  transport: memberBusiness.memberLastYearBusinessHistory.transport
+  utilities: memberBusiness.memberLastYearBusinessHistory.utilities
 enterEmployeeWages:
-  cacheQuery: memberLastYearBusinessHistory.employeeWages
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.employeeWages
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary
   order: 4
@@ -23,7 +23,7 @@ enterEmployeeWages:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterFinancialYear:
-  cacheQuery: memberLastYearBusinessHistory.financialYear
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.financialYear
   inputIdentifier: financialYear
   nextScreen: enterTotalIncome
   order: 1
@@ -32,12 +32,12 @@ enterFinancialYear:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberLastYearBusinessHistory.id
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanInterest:
-  cacheQuery: memberLastYearBusinessHistory.loanInterest
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.loanInterest
   inputIdentifier: loanInterest
   nextScreen: enterUtilities
   order: 7
@@ -46,12 +46,12 @@ enterLoanInterest:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterMemberBusinessId:
-  cacheQuery: memberLastYearBusinessHistory.memberBusinessId
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.memberBusinessId
   hidden: true
   inputIdentifier: memberBusinessId
   type: hiddenField
 enterNetProfitLoss:
-  cacheQuery: memberLastYearBusinessHistory.netProfitLoss
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.netProfitLoss
   inputIdentifier: netProfitLoss
   nextScreen: formSummary
   order: 12
@@ -60,7 +60,7 @@ enterNetProfitLoss:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOtherCosts:
-  cacheQuery: memberLastYearBusinessHistory.otherCosts
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.otherCosts
   inputIdentifier: otherCosts
   nextScreen: enterTotalCosts
   order: 10
@@ -69,7 +69,7 @@ enterOtherCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOwnSalary:
-  cacheQuery: memberLastYearBusinessHistory.ownSalary
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.ownSalary
   inputIdentifier: ownSalary
   nextScreen: enterTransport
   order: 5
@@ -78,7 +78,7 @@ enterOwnSalary:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterRentals:
-  cacheQuery: memberLastYearBusinessHistory.rentals
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.rentals
   inputIdentifier: rentals
   nextScreen: enterOtherCosts
   order: 9
@@ -87,7 +87,7 @@ enterRentals:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCostOfGoods:
-  cacheQuery: memberLastYearBusinessHistory.totalCostOfGoods
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.totalCostOfGoods
   inputIdentifier: totalCostOfGoods
   nextScreen: enterEmployeeWages
   order: 3
@@ -96,7 +96,7 @@ enterTotalCostOfGoods:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCosts:
-  cacheQuery: memberLastYearBusinessHistory.totalCosts
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.totalCosts
   inputIdentifier: totalCosts
   nextScreen: enterNetProfitLoss
   order: 11
@@ -105,7 +105,7 @@ enterTotalCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalIncome:
-  cacheQuery: memberLastYearBusinessHistory.totalIncome
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.totalIncome
   inputIdentifier: totalIncome
   nextScreen: enterTotalCostOfGoods
   order: 2
@@ -114,7 +114,7 @@ enterTotalIncome:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTransport:
-  cacheQuery: memberLastYearBusinessHistory.transport
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.transport
   inputIdentifier: transport
   nextScreen: enterLoanInterest
   order: 6
@@ -123,7 +123,7 @@ enterTransport:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterUtilities:
-  cacheQuery: memberLastYearBusinessHistory.utilities
+  cacheQuery: memberBusiness.memberLastYearBusinessHistory.utilities
   inputIdentifier: utilities
   nextScreen: enterRentals
   order: 8

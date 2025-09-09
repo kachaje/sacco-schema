@@ -1,14 +1,14 @@
 cacheQueries:
-  id: savingsRate.id
-  monthlyRate: savingsRate.monthlyRate
-  savingsTypeId: savingsRate.savingsTypeId
+  id: savingsType.savingsRate.id
+  monthlyRate: savingsType.savingsRate.monthlyRate
+  savingsTypeId: savingsType.savingsRate.savingsTypeId
 enterId:
-  cacheQuery: savingsRate.id
+  cacheQuery: savingsType.savingsRate.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMonthlyRate:
-  cacheQuery: savingsRate.monthlyRate
+  cacheQuery: savingsType.savingsRate.monthlyRate
   inputIdentifier: monthlyRate
   nextScreen: formSummary
   order: 1
@@ -17,7 +17,7 @@ enterMonthlyRate:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterSavingsTypeId:
-  cacheQuery: savingsRate.savingsTypeId
+  cacheQuery: savingsType.savingsRate.savingsTypeId
   hidden: true
   inputIdentifier: savingsTypeId
   type: hiddenField

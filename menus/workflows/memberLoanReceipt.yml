@@ -1,11 +1,11 @@
 cacheQueries:
-  amount: memberLoanReceipt.amount
-  date: memberLoanReceipt.date
-  description: memberLoanReceipt.description
-  id: memberLoanReceipt.id
-  memberLoanPaymentScheduleId: memberLoanReceipt.memberLoanPaymentScheduleId
+  amount: memberLoanPaymentSchedule.memberLoanReceipt.amount
+  date: memberLoanPaymentSchedule.memberLoanReceipt.date
+  description: memberLoanPaymentSchedule.memberLoanReceipt.description
+  id: memberLoanPaymentSchedule.memberLoanReceipt.id
+  memberLoanPaymentScheduleId: memberLoanPaymentSchedule.memberLoanReceipt.memberLoanPaymentScheduleId
 enterAmount:
-  cacheQuery: memberLoanReceipt.amount
+  cacheQuery: memberLoanPaymentSchedule.memberLoanReceipt.amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 3
@@ -14,7 +14,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberLoanReceipt.date
+  cacheQuery: memberLoanPaymentSchedule.memberLoanReceipt.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -23,7 +23,7 @@ enterDate:
     en: Date
   type: inputScreen
 enterDescription:
-  cacheQuery: memberLoanReceipt.description
+  cacheQuery: memberLoanPaymentSchedule.memberLoanReceipt.description
   inputIdentifier: description
   nextScreen: enterDate
   order: 1
@@ -31,12 +31,12 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: memberLoanReceipt.id
+  cacheQuery: memberLoanPaymentSchedule.memberLoanReceipt.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanPaymentScheduleId:
-  cacheQuery: memberLoanReceipt.memberLoanPaymentScheduleId
+  cacheQuery: memberLoanPaymentSchedule.memberLoanReceipt.memberLoanPaymentScheduleId
   hidden: true
   inputIdentifier: memberLoanPaymentScheduleId
   type: hiddenField

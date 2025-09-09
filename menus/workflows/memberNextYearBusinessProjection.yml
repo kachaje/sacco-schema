@@ -1,20 +1,20 @@
 cacheQueries:
-  employeeWages: memberNextYearBusinessProjection.employeeWages
-  financialYear: memberNextYearBusinessProjection.financialYear
-  id: memberNextYearBusinessProjection.id
-  loanInterest: memberNextYearBusinessProjection.loanInterest
-  memberBusinessId: memberNextYearBusinessProjection.memberBusinessId
-  netProfitLoss: memberNextYearBusinessProjection.netProfitLoss
-  otherCosts: memberNextYearBusinessProjection.otherCosts
-  ownSalary: memberNextYearBusinessProjection.ownSalary
-  rentals: memberNextYearBusinessProjection.rentals
-  totalCostOfGoods: memberNextYearBusinessProjection.totalCostOfGoods
-  totalCosts: memberNextYearBusinessProjection.totalCosts
-  totalIncome: memberNextYearBusinessProjection.totalIncome
-  transport: memberNextYearBusinessProjection.transport
-  utilities: memberNextYearBusinessProjection.utilities
+  employeeWages: memberBusiness.memberNextYearBusinessProjection.employeeWages
+  financialYear: memberBusiness.memberNextYearBusinessProjection.financialYear
+  id: memberBusiness.memberNextYearBusinessProjection.id
+  loanInterest: memberBusiness.memberNextYearBusinessProjection.loanInterest
+  memberBusinessId: memberBusiness.memberNextYearBusinessProjection.memberBusinessId
+  netProfitLoss: memberBusiness.memberNextYearBusinessProjection.netProfitLoss
+  otherCosts: memberBusiness.memberNextYearBusinessProjection.otherCosts
+  ownSalary: memberBusiness.memberNextYearBusinessProjection.ownSalary
+  rentals: memberBusiness.memberNextYearBusinessProjection.rentals
+  totalCostOfGoods: memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
+  totalCosts: memberBusiness.memberNextYearBusinessProjection.totalCosts
+  totalIncome: memberBusiness.memberNextYearBusinessProjection.totalIncome
+  transport: memberBusiness.memberNextYearBusinessProjection.transport
+  utilities: memberBusiness.memberNextYearBusinessProjection.utilities
 enterEmployeeWages:
-  cacheQuery: memberNextYearBusinessProjection.employeeWages
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.employeeWages
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary
   order: 4
@@ -23,7 +23,7 @@ enterEmployeeWages:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterFinancialYear:
-  cacheQuery: memberNextYearBusinessProjection.financialYear
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.financialYear
   inputIdentifier: financialYear
   nextScreen: enterTotalIncome
   order: 1
@@ -32,12 +32,12 @@ enterFinancialYear:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberNextYearBusinessProjection.id
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanInterest:
-  cacheQuery: memberNextYearBusinessProjection.loanInterest
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.loanInterest
   inputIdentifier: loanInterest
   nextScreen: enterUtilities
   order: 7
@@ -46,12 +46,12 @@ enterLoanInterest:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterMemberBusinessId:
-  cacheQuery: memberNextYearBusinessProjection.memberBusinessId
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.memberBusinessId
   hidden: true
   inputIdentifier: memberBusinessId
   type: hiddenField
 enterNetProfitLoss:
-  cacheQuery: memberNextYearBusinessProjection.netProfitLoss
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.netProfitLoss
   inputIdentifier: netProfitLoss
   nextScreen: formSummary
   order: 12
@@ -60,7 +60,7 @@ enterNetProfitLoss:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOtherCosts:
-  cacheQuery: memberNextYearBusinessProjection.otherCosts
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.otherCosts
   inputIdentifier: otherCosts
   nextScreen: enterTotalCosts
   order: 10
@@ -69,7 +69,7 @@ enterOtherCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOwnSalary:
-  cacheQuery: memberNextYearBusinessProjection.ownSalary
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.ownSalary
   inputIdentifier: ownSalary
   nextScreen: enterTransport
   order: 5
@@ -78,7 +78,7 @@ enterOwnSalary:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterRentals:
-  cacheQuery: memberNextYearBusinessProjection.rentals
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.rentals
   inputIdentifier: rentals
   nextScreen: enterOtherCosts
   order: 9
@@ -87,7 +87,7 @@ enterRentals:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCostOfGoods:
-  cacheQuery: memberNextYearBusinessProjection.totalCostOfGoods
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
   inputIdentifier: totalCostOfGoods
   nextScreen: enterEmployeeWages
   order: 3
@@ -96,7 +96,7 @@ enterTotalCostOfGoods:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCosts:
-  cacheQuery: memberNextYearBusinessProjection.totalCosts
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.totalCosts
   inputIdentifier: totalCosts
   nextScreen: enterNetProfitLoss
   order: 11
@@ -105,7 +105,7 @@ enterTotalCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalIncome:
-  cacheQuery: memberNextYearBusinessProjection.totalIncome
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.totalIncome
   inputIdentifier: totalIncome
   nextScreen: enterTotalCostOfGoods
   order: 2
@@ -114,7 +114,7 @@ enterTotalIncome:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTransport:
-  cacheQuery: memberNextYearBusinessProjection.transport
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.transport
   inputIdentifier: transport
   nextScreen: enterLoanInterest
   order: 6
@@ -123,7 +123,7 @@ enterTransport:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterUtilities:
-  cacheQuery: memberNextYearBusinessProjection.utilities
+  cacheQuery: memberBusiness.memberNextYearBusinessProjection.utilities
   inputIdentifier: utilities
   nextScreen: enterRentals
   order: 8

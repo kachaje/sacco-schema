@@ -1,11 +1,11 @@
 cacheQueries:
-  businessVerified: memberBusinessVerification.businessVerified
-  grossIncomeVerified: memberBusinessVerification.grossIncomeVerified
-  id: memberBusinessVerification.id
-  memberBusinessId: memberBusinessVerification.memberBusinessId
-  netIncomeVerified: memberBusinessVerification.netIncomeVerified
+  businessVerified: memberBusiness.memberBusinessVerification.businessVerified
+  grossIncomeVerified: memberBusiness.memberBusinessVerification.grossIncomeVerified
+  id: memberBusiness.memberBusinessVerification.id
+  memberBusinessId: memberBusiness.memberBusinessVerification.memberBusinessId
+  netIncomeVerified: memberBusiness.memberBusinessVerification.netIncomeVerified
 enterBusinessVerified:
-  cacheQuery: memberBusinessVerification.businessVerified
+  cacheQuery: memberBusiness.memberBusinessVerification.businessVerified
   inputIdentifier: businessVerified
   nextScreen: enterGrossIncomeVerified
   optional: true
@@ -21,7 +21,7 @@ enterBusinessVerified:
     en: Business Verified
   type: inputScreen
 enterGrossIncomeVerified:
-  cacheQuery: memberBusinessVerification.grossIncomeVerified
+  cacheQuery: memberBusiness.memberBusinessVerification.grossIncomeVerified
   inputIdentifier: grossIncomeVerified
   nextScreen: enterNetIncomeVerified
   optional: true
@@ -37,17 +37,17 @@ enterGrossIncomeVerified:
     en: Gross Income Verified
   type: inputScreen
 enterId:
-  cacheQuery: memberBusinessVerification.id
+  cacheQuery: memberBusiness.memberBusinessVerification.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberBusinessId:
-  cacheQuery: memberBusinessVerification.memberBusinessId
+  cacheQuery: memberBusiness.memberBusinessVerification.memberBusinessId
   hidden: true
   inputIdentifier: memberBusinessId
   type: hiddenField
 enterNetIncomeVerified:
-  cacheQuery: memberBusinessVerification.netIncomeVerified
+  cacheQuery: memberBusiness.memberBusinessVerification.netIncomeVerified
   inputIdentifier: netIncomeVerified
   nextScreen: formSummary
   order: 3

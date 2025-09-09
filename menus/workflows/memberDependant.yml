@@ -1,14 +1,14 @@
 cacheQueries:
-  address: memberDependant.address
-  id: memberDependant.id
-  isNominee: memberDependant.isNominee
-  memberId: memberDependant.memberId
-  name: memberDependant.name
-  percentage: memberDependant.percentage
-  phoneNumber: memberDependant.phoneNumber
-  relationship: memberDependant.relationship
+  address: member.memberDependant.address
+  id: member.memberDependant.id
+  isNominee: member.memberDependant.isNominee
+  memberId: member.memberDependant.memberId
+  name: member.memberDependant.name
+  percentage: member.memberDependant.percentage
+  phoneNumber: member.memberDependant.phoneNumber
+  relationship: member.memberDependant.relationship
 enterAddress:
-  cacheQuery: memberDependant.address
+  cacheQuery: member.memberDependant.address
   inputIdentifier: address
   nextScreen: enterPercentage
   optional: true
@@ -17,12 +17,12 @@ enterAddress:
     en: Address
   type: inputScreen
 enterId:
-  cacheQuery: memberDependant.id
+  cacheQuery: member.memberDependant.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterIsNominee:
-  cacheQuery: memberDependant.isNominee
+  cacheQuery: member.memberDependant.isNominee
   inputIdentifier: isNominee
   nextScreen: enterRelationship
   optional: true
@@ -38,12 +38,12 @@ enterIsNominee:
     en: Is Nominee
   type: inputScreen
 enterMemberId:
-  cacheQuery: memberDependant.memberId
+  cacheQuery: member.memberDependant.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterName:
-  cacheQuery: memberDependant.name
+  cacheQuery: member.memberDependant.name
   inputIdentifier: name
   nextScreen: enterPhoneNumber
   order: 1
@@ -51,7 +51,7 @@ enterName:
     en: Name
   type: inputScreen
 enterPercentage:
-  cacheQuery: memberDependant.percentage
+  cacheQuery: member.memberDependant.percentage
   inputIdentifier: percentage
   nextScreen: enterIsNominee
   optional: true
@@ -61,7 +61,7 @@ enterPercentage:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPhoneNumber:
-  cacheQuery: memberDependant.phoneNumber
+  cacheQuery: member.memberDependant.phoneNumber
   inputIdentifier: phoneNumber
   nextScreen: enterAddress
   order: 2
@@ -69,7 +69,7 @@ enterPhoneNumber:
     en: Phone Number
   type: inputScreen
 enterRelationship:
-  cacheQuery: memberDependant.relationship
+  cacheQuery: member.memberDependant.relationship
   inputIdentifier: relationship
   nextScreen: formSummary
   options:

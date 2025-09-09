@@ -1,14 +1,14 @@
 cacheQueries:
-  email: memberContact.email
-  homeDistrict: memberContact.homeDistrict
-  homeTraditionalAuthority: memberContact.homeTraditionalAuthority
-  homeVillage: memberContact.homeVillage
-  id: memberContact.id
-  memberId: memberContact.memberId
-  postalAddress: memberContact.postalAddress
-  residentialAddress: memberContact.residentialAddress
+  email: member.memberContact.email
+  homeDistrict: member.memberContact.homeDistrict
+  homeTraditionalAuthority: member.memberContact.homeTraditionalAuthority
+  homeVillage: member.memberContact.homeVillage
+  id: member.memberContact.id
+  memberId: member.memberContact.memberId
+  postalAddress: member.memberContact.postalAddress
+  residentialAddress: member.memberContact.residentialAddress
 enterEmail:
-  cacheQuery: memberContact.email
+  cacheQuery: member.memberContact.email
   inputIdentifier: email
   nextScreen: enterHomeVillage
   optional: true
@@ -17,7 +17,7 @@ enterEmail:
     en: Email
   type: inputScreen
 enterHomeDistrict:
-  cacheQuery: memberContact.homeDistrict
+  cacheQuery: member.memberContact.homeDistrict
   inputIdentifier: homeDistrict
   nextScreen: formSummary
   order: 6
@@ -25,7 +25,7 @@ enterHomeDistrict:
     en: Home District
   type: inputScreen
 enterHomeTraditionalAuthority:
-  cacheQuery: memberContact.homeTraditionalAuthority
+  cacheQuery: member.memberContact.homeTraditionalAuthority
   inputIdentifier: homeTraditionalAuthority
   nextScreen: enterHomeDistrict
   order: 5
@@ -33,7 +33,7 @@ enterHomeTraditionalAuthority:
     en: Home Traditional Authority
   type: inputScreen
 enterHomeVillage:
-  cacheQuery: memberContact.homeVillage
+  cacheQuery: member.memberContact.homeVillage
   inputIdentifier: homeVillage
   nextScreen: enterHomeTraditionalAuthority
   order: 4
@@ -41,17 +41,17 @@ enterHomeVillage:
     en: Home Village
   type: inputScreen
 enterId:
-  cacheQuery: memberContact.id
+  cacheQuery: member.memberContact.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberContact.memberId
+  cacheQuery: member.memberContact.memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterPostalAddress:
-  cacheQuery: memberContact.postalAddress
+  cacheQuery: member.memberContact.postalAddress
   inputIdentifier: postalAddress
   nextScreen: enterResidentialAddress
   order: 1
@@ -59,7 +59,7 @@ enterPostalAddress:
     en: Postal Address
   type: inputScreen
 enterResidentialAddress:
-  cacheQuery: memberContact.residentialAddress
+  cacheQuery: member.memberContact.residentialAddress
   inputIdentifier: residentialAddress
   nextScreen: enterEmail
   order: 2

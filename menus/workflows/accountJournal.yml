@@ -1,22 +1,22 @@
 cacheQueries:
-  accountId: accountJournal.accountId
-  accountTransactionId: accountJournal.accountTransactionId
-  amount: accountJournal.amount
-  date: accountJournal.date
-  direction: accountJournal.direction
-  id: accountJournal.id
+  accountId: account.accountJournal.accountId
+  accountTransactionId: account.accountJournal.accountTransactionId
+  amount: account.accountJournal.amount
+  date: account.accountJournal.date
+  direction: account.accountJournal.direction
+  id: account.accountJournal.id
 enterAccountId:
-  cacheQuery: accountJournal.accountId
+  cacheQuery: account.accountJournal.accountId
   hidden: true
   inputIdentifier: accountId
   type: hiddenField
 enterAccountTransactionId:
-  cacheQuery: accountJournal.accountTransactionId
+  cacheQuery: account.accountJournal.accountTransactionId
   hidden: true
   inputIdentifier: accountTransactionId
   type: hiddenField
 enterAmount:
-  cacheQuery: accountJournal.amount
+  cacheQuery: account.accountJournal.amount
   inputIdentifier: amount
   nextScreen: enterDirection
   order: 2
@@ -25,7 +25,7 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: accountJournal.date
+  cacheQuery: account.accountJournal.date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -34,7 +34,7 @@ enterDate:
     en: Date
   type: inputScreen
 enterDirection:
-  cacheQuery: accountJournal.direction
+  cacheQuery: account.accountJournal.direction
   inputIdentifier: direction
   nextScreen: formSummary
   order: 3
@@ -43,7 +43,7 @@ enterDirection:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: accountJournal.id
+  cacheQuery: account.accountJournal.id
   hidden: true
   inputIdentifier: id
   type: hiddenField

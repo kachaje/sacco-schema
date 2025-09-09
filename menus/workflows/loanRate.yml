@@ -1,19 +1,19 @@
 cacheQueries:
-  id: loanRate.id
-  loanTypeId: loanRate.loanTypeId
-  monthlyRate: loanRate.monthlyRate
+  id: loanType.loanRate.id
+  loanTypeId: loanType.loanRate.loanTypeId
+  monthlyRate: loanType.loanRate.monthlyRate
 enterId:
-  cacheQuery: loanRate.id
+  cacheQuery: loanType.loanRate.id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanTypeId:
-  cacheQuery: loanRate.loanTypeId
+  cacheQuery: loanType.loanRate.loanTypeId
   hidden: true
   inputIdentifier: loanTypeId
   type: hiddenField
 enterMonthlyRate:
-  cacheQuery: loanRate.monthlyRate
+  cacheQuery: loanType.loanRate.monthlyRate
   inputIdentifier: monthlyRate
   nextScreen: formSummary
   order: 1
