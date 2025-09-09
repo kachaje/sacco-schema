@@ -24,7 +24,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "cacheQueries.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "arrayCacheQueries.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "targetData.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "arrayTargetData.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -49,4 +49,8 @@ func TestResolveCacheDataArray(t *testing.T) {
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
 	}
+}
+
+func TestResolveCacheDataFlat(t *testing.T) {
+	
 }
