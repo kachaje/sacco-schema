@@ -1,46 +1,46 @@
 cacheQueries:
-  balance: memberSaving.balance
-  id: memberSaving.id
-  memberId: memberSaving.memberId
-  memberSavingsIdNumber: memberSaving.memberSavingsIdNumber
-  savingsTypeId: memberSaving.savingsTypeId
+    balance: memberSaving.balance
+    id: memberSaving.id
+    memberId: memberSaving.memberId
+    memberSavingsIdNumber: memberSaving.memberSavingsIdNumber
+    savingsTypeId: memberSaving.savingsTypeId
 enterBalance:
-  cacheQuery: memberSaving.balance
-  inputIdentifier: balance
-  nextScreen: formSummary
-  order: 2
-  text:
-    en: Balance
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberSaving.balance
+    inputIdentifier: balance
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Balance
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSaving.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberSaving.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: memberSaving.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: memberSaving.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 enterMemberSavingsIdNumber:
-  cacheQuery: memberSaving.memberSavingsIdNumber
-  inputIdentifier: memberSavingsIdNumber
-  nextScreen: enterBalance
-  optional: true
-  order: 1
-  text:
-    en: Member Savings Id Number
-  type: inputScreen
+    cacheQuery: memberSaving.memberSavingsIdNumber
+    inputIdentifier: memberSavingsIdNumber
+    nextScreen: enterBalance
+    optional: true
+    order: 1
+    text:
+        en: Member Savings Id Number
+    type: inputScreen
 enterSavingsTypeId:
-  cacheQuery: memberSaving.savingsTypeId
-  hidden: true
-  inputIdentifier: savingsTypeId
-  type: hiddenField
+    cacheQuery: memberSaving.savingsTypeId
+    hidden: true
+    inputIdentifier: savingsTypeId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterMemberSavingsIdNumber
 model: memberSaving
 parentIds:
-  - memberId
-  - savingsTypeId
+    - memberId
+    - savingsTypeId

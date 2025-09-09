@@ -1,39 +1,39 @@
 cacheQueries:
-  claimed: memberSharesIdsCache.claimed
-  id: memberSharesIdsCache.id
-  idNumber: memberSharesIdsCache.idNumber
-  memberSharesId: memberSharesIdsCache.memberSharesId
+    claimed: memberSharesIdsCache.claimed
+    id: memberSharesIdsCache.id
+    idNumber: memberSharesIdsCache.idNumber
+    memberSharesId: memberSharesIdsCache.memberSharesId
 enterClaimed:
-  cacheQuery: memberSharesIdsCache.claimed
-  inputIdentifier: claimed
-  nextScreen: formSummary
-  optional: true
-  order: 2
-  text:
-    en: Claimed
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberSharesIdsCache.claimed
+    inputIdentifier: claimed
+    nextScreen: formSummary
+    optional: true
+    order: 2
+    text:
+        en: Claimed
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSharesIdsCache.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberSharesIdsCache.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterIdNumber:
-  cacheQuery: memberSharesIdsCache.idNumber
-  inputIdentifier: idNumber
-  nextScreen: enterClaimed
-  order: 1
-  text:
-    en: Id Number
-  type: inputScreen
+    cacheQuery: memberSharesIdsCache.idNumber
+    inputIdentifier: idNumber
+    nextScreen: enterClaimed
+    order: 1
+    text:
+        en: Id Number
+    type: inputScreen
 enterMemberSharesId:
-  cacheQuery: memberSharesIdsCache.memberSharesId
-  hidden: true
-  inputIdentifier: memberSharesId
-  type: hiddenField
+    cacheQuery: memberSharesIdsCache.memberSharesId
+    hidden: true
+    inputIdentifier: memberSharesId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterIdNumber
 model: memberSharesIdsCache
 parentIds:
-  - memberSharesId
+    - memberSharesId

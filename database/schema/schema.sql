@@ -304,8 +304,8 @@ CREATE TABLE IF NOT EXISTS memberDependant (
     memberId INTEGER NOT NULL,
     name TEXT NOT NULL,
     phoneNumber TEXT NOT NULL,
-    address TEXT NOT NULL,
-    percentage REAL NOT NULL,
+    address TEXT,
+    percentage REAL,
     isNominee TEXT DEFAULT 'No' CHECK (isNominee IN ('Yes', 'No')),
     relationship TEXT NOT NULL CHECK (
         relationship IN ('Spouse', 'Child', 'Sibling', 'Other')

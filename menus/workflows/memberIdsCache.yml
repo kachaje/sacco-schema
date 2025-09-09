@@ -1,39 +1,39 @@
 cacheQueries:
-  claimed: memberIdsCache.claimed
-  id: memberIdsCache.id
-  idNumber: memberIdsCache.idNumber
-  memberId: memberIdsCache.memberId
+    claimed: memberIdsCache.claimed
+    id: memberIdsCache.id
+    idNumber: memberIdsCache.idNumber
+    memberId: memberIdsCache.memberId
 enterClaimed:
-  cacheQuery: memberIdsCache.claimed
-  inputIdentifier: claimed
-  nextScreen: formSummary
-  optional: true
-  order: 2
-  text:
-    en: Claimed
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberIdsCache.claimed
+    inputIdentifier: claimed
+    nextScreen: formSummary
+    optional: true
+    order: 2
+    text:
+        en: Claimed
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberIdsCache.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberIdsCache.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterIdNumber:
-  cacheQuery: memberIdsCache.idNumber
-  inputIdentifier: idNumber
-  nextScreen: enterClaimed
-  order: 1
-  text:
-    en: Id Number
-  type: inputScreen
+    cacheQuery: memberIdsCache.idNumber
+    inputIdentifier: idNumber
+    nextScreen: enterClaimed
+    order: 1
+    text:
+        en: Id Number
+    type: inputScreen
 enterMemberId:
-  cacheQuery: memberIdsCache.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: memberIdsCache.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterIdNumber
 model: memberIdsCache
 parentIds:
-  - memberId
+    - memberId

@@ -1,29 +1,29 @@
 cacheQueries:
-  id: loanRate.id
-  loanTypeId: loanRate.loanTypeId
-  monthlyRate: loanRate.monthlyRate
+    id: loanRate.id
+    loanTypeId: loanRate.loanTypeId
+    monthlyRate: loanRate.monthlyRate
 enterId:
-  cacheQuery: loanRate.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: loanRate.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterLoanTypeId:
-  cacheQuery: loanRate.loanTypeId
-  hidden: true
-  inputIdentifier: loanTypeId
-  type: hiddenField
+    cacheQuery: loanRate.loanTypeId
+    hidden: true
+    inputIdentifier: loanTypeId
+    type: hiddenField
 enterMonthlyRate:
-  cacheQuery: loanRate.monthlyRate
-  inputIdentifier: monthlyRate
-  nextScreen: formSummary
-  order: 1
-  text:
-    en: Monthly Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: loanRate.monthlyRate
+    inputIdentifier: monthlyRate
+    nextScreen: formSummary
+    order: 1
+    text:
+        en: Monthly Rate
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterMonthlyRate
 model: loanRate
 parentIds:
-  - loanTypeId
+    - loanTypeId

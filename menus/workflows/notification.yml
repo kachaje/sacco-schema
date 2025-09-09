@@ -1,72 +1,72 @@
 cacheQueries:
-  date: notification.date
-  id: notification.id
-  memberId: notification.memberId
-  message: notification.message
-  msgDelivered: notification.msgDelivered
-  msgRead: notification.msgRead
+    date: notification.date
+    id: notification.id
+    memberId: notification.memberId
+    message: notification.message
+    msgDelivered: notification.msgDelivered
+    msgRead: notification.msgRead
 enterDate:
-  cacheQuery: notification.date
-  inputIdentifier: date
-  nextScreen: enterMessage
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: notification.date
+    inputIdentifier: date
+    nextScreen: enterMessage
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
 enterId:
-  cacheQuery: notification.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: notification.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: notification.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: notification.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 enterMessage:
-  cacheQuery: notification.message
-  inputIdentifier: message
-  nextScreen: enterMsgDelivered
-  order: 2
-  text:
-    en: Message
-  type: inputScreen
+    cacheQuery: notification.message
+    inputIdentifier: message
+    nextScreen: enterMsgDelivered
+    order: 2
+    text:
+        en: Message
+    type: inputScreen
 enterMsgDelivered:
-  cacheQuery: notification.msgDelivered
-  inputIdentifier: msgDelivered
-  nextScreen: enterMsgRead
-  optional: true
-  options:
-    - label:
-        en: "Yes"
-      position: 1
-    - label:
-        en: "No"
-      position: 2
-  order: 3
-  text:
-    en: Msg Delivered
-  type: inputScreen
+    cacheQuery: notification.msgDelivered
+    inputIdentifier: msgDelivered
+    nextScreen: enterMsgRead
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 3
+    text:
+        en: Msg Delivered
+    type: inputScreen
 enterMsgRead:
-  cacheQuery: notification.msgRead
-  inputIdentifier: msgRead
-  nextScreen: formSummary
-  optional: true
-  options:
-    - label:
-        en: "Yes"
-      position: 1
-    - label:
-        en: "No"
-      position: 2
-  order: 4
-  text:
-    en: Msg Read
-  type: inputScreen
+    cacheQuery: notification.msgRead
+    inputIdentifier: msgRead
+    nextScreen: formSummary
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 4
+    text:
+        en: Msg Read
+    type: inputScreen
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDate
 model: notification
 parentIds:
-  - memberId
+    - memberId

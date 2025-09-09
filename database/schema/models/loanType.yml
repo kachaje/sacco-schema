@@ -1,30 +1,31 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 name:
-  order: 1
-  type: text
+    order: 1
+    type: text
 
 category:
-  options:
-    - Personal
-    - Business
-    - Agricultural
-    - Emergency
-  order: 2
-  type: text
+    options:
+        - Personal
+        - Business
+        - Agricultural
+        - Emergency
+    order: 2
+    type: text
 
 amountLimit:
-  order: 3
-  type: real
+    order: 3
+    type: real
 
 periodLimitInMonths:
-  order: 4
-  type: int
+    order: 4
+    type: int
 
 maxInstalmentMonths:
-  order: 5
-  type: int
+    order: 5
+    type: int

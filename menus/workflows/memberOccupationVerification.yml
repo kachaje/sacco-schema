@@ -1,54 +1,54 @@
 cacheQueries:
-  grossVerified: memberOccupationVerification.grossVerified
-  id: memberOccupationVerification.id
-  jobVerified: memberOccupationVerification.jobVerified
-  memberOccupationId: memberOccupationVerification.memberOccupationId
-  netVerified: memberOccupationVerification.netVerified
+    grossVerified: memberOccupationVerification.grossVerified
+    id: memberOccupationVerification.id
+    jobVerified: memberOccupationVerification.jobVerified
+    memberOccupationId: memberOccupationVerification.memberOccupationId
+    netVerified: memberOccupationVerification.netVerified
 enterGrossVerified:
-  cacheQuery: memberOccupationVerification.grossVerified
-  inputIdentifier: grossVerified
-  nextScreen: enterNetVerified
-  order: 2
-  text:
-    en: Gross Verified
-  type: inputScreen
+    cacheQuery: memberOccupationVerification.grossVerified
+    inputIdentifier: grossVerified
+    nextScreen: enterNetVerified
+    order: 2
+    text:
+        en: Gross Verified
+    type: inputScreen
 enterId:
-  cacheQuery: memberOccupationVerification.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberOccupationVerification.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterJobVerified:
-  cacheQuery: memberOccupationVerification.jobVerified
-  inputIdentifier: jobVerified
-  nextScreen: enterGrossVerified
-  optional: true
-  options:
-    - label:
-        en: "Yes"
-      position: 1
-    - label:
-        en: "No"
-      position: 2
-  order: 1
-  text:
-    en: Job Verified
-  type: inputScreen
+    cacheQuery: memberOccupationVerification.jobVerified
+    inputIdentifier: jobVerified
+    nextScreen: enterGrossVerified
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 1
+    text:
+        en: Job Verified
+    type: inputScreen
 enterMemberOccupationId:
-  cacheQuery: memberOccupationVerification.memberOccupationId
-  hidden: true
-  inputIdentifier: memberOccupationId
-  type: hiddenField
+    cacheQuery: memberOccupationVerification.memberOccupationId
+    hidden: true
+    inputIdentifier: memberOccupationId
+    type: hiddenField
 enterNetVerified:
-  cacheQuery: memberOccupationVerification.netVerified
-  inputIdentifier: netVerified
-  nextScreen: formSummary
-  order: 3
-  text:
-    en: Net Verified
-  type: inputScreen
+    cacheQuery: memberOccupationVerification.netVerified
+    inputIdentifier: netVerified
+    nextScreen: formSummary
+    order: 3
+    text:
+        en: Net Verified
+    type: inputScreen
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterJobVerified
 model: memberOccupationVerification
 parentIds:
-  - memberOccupationId
+    - memberOccupationId

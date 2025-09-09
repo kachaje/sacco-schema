@@ -1,46 +1,46 @@
 cacheQueries:
-  amount: memberLoanInsurance.amount
-  date: memberLoanInsurance.date
-  id: memberLoanInsurance.id
-  insuranceProviderId: memberLoanInsurance.insuranceProviderId
-  memberLoanId: memberLoanInsurance.memberLoanId
+    amount: memberLoanInsurance.amount
+    date: memberLoanInsurance.date
+    id: memberLoanInsurance.id
+    insuranceProviderId: memberLoanInsurance.insuranceProviderId
+    memberLoanId: memberLoanInsurance.memberLoanId
 enterAmount:
-  cacheQuery: memberLoanInsurance.amount
-  inputIdentifier: amount
-  nextScreen: formSummary
-  order: 2
-  text:
-    en: Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberLoanInsurance.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberLoanInsurance.date
-  inputIdentifier: date
-  nextScreen: enterAmount
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: memberLoanInsurance.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
 enterId:
-  cacheQuery: memberLoanInsurance.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberLoanInsurance.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterInsuranceProviderId:
-  cacheQuery: memberLoanInsurance.insuranceProviderId
-  hidden: true
-  inputIdentifier: insuranceProviderId
-  type: hiddenField
+    cacheQuery: memberLoanInsurance.insuranceProviderId
+    hidden: true
+    inputIdentifier: insuranceProviderId
+    type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanInsurance.memberLoanId
-  hidden: true
-  inputIdentifier: memberLoanId
-  type: hiddenField
+    cacheQuery: memberLoanInsurance.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDate
 model: memberLoanInsurance
 parentIds:
-  - memberLoanId
-  - insuranceProviderId
+    - memberLoanId
+    - insuranceProviderId

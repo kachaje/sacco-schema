@@ -1,28 +1,29 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberId:
-  many: true
-  order: 1
-  referenceTable: member
-  type: int
+    many: true
+    order: 1
+    referenceTable: member
+    type: int
 
 memberSharesIdNumber:
-  optional: true
-  order: 2
-  type: text
+    optional: true
+    order: 2
+    type: text
 
 monthlyPremium:
-  order: 3
-  type: real
+    order: 3
+    type: real
 
 totalValue:
-  order: 4
-  type: real
+    order: 4
+    type: real
 
 numberOfShares:
-  order: 5
-  type: int
+    order: 5
+    type: int

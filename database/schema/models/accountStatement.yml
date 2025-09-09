@@ -1,22 +1,23 @@
+
 accountId:
-  many: true
-  order: 0
-  referenceTable: account
-  type: int
+    many: true
+    order: 0
+    referenceTable: account
+    type: int
 
 date:
-  default: CURRENT_TIMESTAMP
-  order: 1
-  type: text
+    default: CURRENT_TIMESTAMP
+    order: 1
+    type: text
 
 closingBalance:
-  order: 2
-  type: real
+    order: 2
+    type: real
 
 totalCredit:
-  order: 3
-  type: real
+    order: 3
+    type: real
 
 totalDebit:
-  order: 4
-  type: real
+    order: 4
+    type: real

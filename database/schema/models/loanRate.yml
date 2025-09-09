@@ -1,14 +1,15 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 loanTypeId:
-  order: 1
-  referenceTable: loanType
-  type: int
+    order: 1
+    referenceTable: loanType
+    type: int
 
 monthlyRate:
-  order: 2
-  type: real
+    order: 2
+    type: real

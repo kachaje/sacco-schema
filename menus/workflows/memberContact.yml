@@ -1,74 +1,74 @@
 cacheQueries:
-  email: memberContact.email
-  homeDistrict: memberContact.homeDistrict
-  homeTraditionalAuthority: memberContact.homeTraditionalAuthority
-  homeVillage: memberContact.homeVillage
-  id: memberContact.id
-  memberId: memberContact.memberId
-  postalAddress: memberContact.postalAddress
-  residentialAddress: memberContact.residentialAddress
+    email: memberContact.email
+    homeDistrict: memberContact.homeDistrict
+    homeTraditionalAuthority: memberContact.homeTraditionalAuthority
+    homeVillage: memberContact.homeVillage
+    id: memberContact.id
+    memberId: memberContact.memberId
+    postalAddress: memberContact.postalAddress
+    residentialAddress: memberContact.residentialAddress
 enterEmail:
-  cacheQuery: memberContact.email
-  inputIdentifier: email
-  nextScreen: enterHomeVillage
-  optional: true
-  order: 3
-  text:
-    en: Email
-  type: inputScreen
+    cacheQuery: memberContact.email
+    inputIdentifier: email
+    nextScreen: enterHomeVillage
+    optional: true
+    order: 3
+    text:
+        en: Email
+    type: inputScreen
 enterHomeDistrict:
-  cacheQuery: memberContact.homeDistrict
-  inputIdentifier: homeDistrict
-  nextScreen: formSummary
-  order: 6
-  text:
-    en: Home District
-  type: inputScreen
+    cacheQuery: memberContact.homeDistrict
+    inputIdentifier: homeDistrict
+    nextScreen: formSummary
+    order: 6
+    text:
+        en: Home District
+    type: inputScreen
 enterHomeTraditionalAuthority:
-  cacheQuery: memberContact.homeTraditionalAuthority
-  inputIdentifier: homeTraditionalAuthority
-  nextScreen: enterHomeDistrict
-  order: 5
-  text:
-    en: Home Traditional Authority
-  type: inputScreen
+    cacheQuery: memberContact.homeTraditionalAuthority
+    inputIdentifier: homeTraditionalAuthority
+    nextScreen: enterHomeDistrict
+    order: 5
+    text:
+        en: Home Traditional Authority
+    type: inputScreen
 enterHomeVillage:
-  cacheQuery: memberContact.homeVillage
-  inputIdentifier: homeVillage
-  nextScreen: enterHomeTraditionalAuthority
-  order: 4
-  text:
-    en: Home Village
-  type: inputScreen
+    cacheQuery: memberContact.homeVillage
+    inputIdentifier: homeVillage
+    nextScreen: enterHomeTraditionalAuthority
+    order: 4
+    text:
+        en: Home Village
+    type: inputScreen
 enterId:
-  cacheQuery: memberContact.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberContact.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: memberContact.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: memberContact.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 enterPostalAddress:
-  cacheQuery: memberContact.postalAddress
-  inputIdentifier: postalAddress
-  nextScreen: enterResidentialAddress
-  order: 1
-  text:
-    en: Postal Address
-  type: inputScreen
+    cacheQuery: memberContact.postalAddress
+    inputIdentifier: postalAddress
+    nextScreen: enterResidentialAddress
+    order: 1
+    text:
+        en: Postal Address
+    type: inputScreen
 enterResidentialAddress:
-  cacheQuery: memberContact.residentialAddress
-  inputIdentifier: residentialAddress
-  nextScreen: enterEmail
-  order: 2
-  text:
-    en: Residential Address
-  type: inputScreen
+    cacheQuery: memberContact.residentialAddress
+    inputIdentifier: residentialAddress
+    nextScreen: enterEmail
+    order: 2
+    text:
+        en: Residential Address
+    type: inputScreen
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterPostalAddress
 model: memberContact
 parentIds:
-  - memberId
+    - memberId

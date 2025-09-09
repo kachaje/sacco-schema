@@ -1,26 +1,27 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberOccupationId:
-  order: 1
-  referenceTable: memberOccupation
-  type: int
+    order: 1
+    referenceTable: memberOccupation
+    type: int
 
 jobVerified:
-  default: "No"
-  options:
-    - "Yes"
-    - "No"
-  order: 2
-  type: text
+    default: "No"
+    options:
+        - "Yes"
+        - "No"
+    order: 2
+    type: text
 
 grossVerified:
-  order: 3
-  type: text
+    order: 3
+    type: text
 
 netVerified:
-  order: 4
-  type: text
+    order: 4
+    type: text

@@ -1,25 +1,26 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 name:
-  order: 1
-  type: text
+    order: 1
+    type: text
 
 amountSize:
-  order: 2
-  type: real
+    order: 2
+    type: real
 
 withdrawPattern:
-  order: 3
-  type: text
+    order: 3
+    type: text
 
 minWithdrawMonths:
-  order: 4
-  type: int
+    order: 4
+    type: int
 
 maxWithdrawMonths:
-  order: 5
-  type: int
+    order: 5
+    type: int

@@ -1,14 +1,15 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 date:
-  default: CURRENT_TIMESTAMP
-  order: 1
-  type: text
+    default: CURRENT_TIMESTAMP
+    order: 1
+    type: text
 
 description:
-  order: 2
-  type: text
+    order: 2
+    type: text
