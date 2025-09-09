@@ -130,7 +130,5 @@
   },
   "initialScreen": "enterName",
   "model": "memberDependant",
-  "parentIds": [
-    "memberId"
-  ]
+  "parentIds": ["memberId"]
 }

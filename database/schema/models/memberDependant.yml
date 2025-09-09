@@ -1,46 +1,45 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 memberId:
-    many: true
-    order: 1
-    referenceTable: member
-    type: int
+  many: true
+  order: 1
+  referenceTable: member
+  type: int
 
 name:
-    order: 2
-    type: text
+  order: 2
+  type: text
 
 phoneNumber:
-    order: 3
-    type: text
+  order: 3
+  type: text
 
 address:
-    optional: true
-    order: 4
-    type: text
+  optional: true
+  order: 4
+  type: text
 
 percentage:
-    order: 5
-    type: real
+  order: 5
+  type: real
 
 isNominee:
-    default: "No"
-    options:
-        - "Yes"
-        - "No"
-    order: 6
-    type: text
+  default: "No"
+  options:
+    - "Yes"
+    - "No"
+  order: 6
+  type: text
 
 relationship:
-    options:
-        - Spouse
-        - Child
-        - Sibling
-        - Other
-    order: 7
-    type: text
+  options:
+    - Spouse
+    - Child
+    - Sibling
+    - Other
+  order: 7
+  type: text

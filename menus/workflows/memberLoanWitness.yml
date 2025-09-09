@@ -1,56 +1,56 @@
 cacheQueries:
-    address: memberLoan.memberLoanWitness.0.address
-    date: memberLoan.memberLoanWitness.0.date
-    id: memberLoan.memberLoanWitness.0.id
-    memberLoanId: memberLoan.memberLoanWitness.0.memberLoanId
-    telephone: memberLoan.memberLoanWitness.0.telephone
-    witnessName: memberLoan.memberLoanWitness.0.witnessName
+  address: memberLoan.memberLoanWitness.0.address
+  date: memberLoan.memberLoanWitness.0.date
+  id: memberLoan.memberLoanWitness.0.id
+  memberLoanId: memberLoan.memberLoanWitness.0.memberLoanId
+  telephone: memberLoan.memberLoanWitness.0.telephone
+  witnessName: memberLoan.memberLoanWitness.0.witnessName
 enterAddress:
-    cacheQuery: memberLoan.memberLoanWitness.0.address
-    inputIdentifier: address
-    nextScreen: enterDate
-    order: 3
-    text:
-        en: Address
-    type: inputScreen
+  cacheQuery: address
+  inputIdentifier: address
+  nextScreen: enterDate
+  order: 3
+  text:
+    en: Address
+  type: inputScreen
 enterDate:
-    cacheQuery: memberLoan.memberLoanWitness.0.date
-    inputIdentifier: date
-    nextScreen: formSummary
-    optional: true
-    order: 4
-    text:
-        en: Date
-    type: inputScreen
+  cacheQuery: date
+  inputIdentifier: date
+  nextScreen: formSummary
+  optional: true
+  order: 4
+  text:
+    en: Date
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoan.memberLoanWitness.0.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoan.memberLoanWitness.0.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 enterTelephone:
-    cacheQuery: memberLoan.memberLoanWitness.0.telephone
-    inputIdentifier: telephone
-    nextScreen: enterAddress
-    order: 2
-    text:
-        en: Telephone
-    type: inputScreen
+  cacheQuery: telephone
+  inputIdentifier: telephone
+  nextScreen: enterAddress
+  order: 2
+  text:
+    en: Telephone
+  type: inputScreen
 enterWitnessName:
-    cacheQuery: memberLoan.memberLoanWitness.0.witnessName
-    inputIdentifier: witnessName
-    nextScreen: enterTelephone
-    order: 1
-    text:
-        en: Witness Name
-    type: inputScreen
+  cacheQuery: witnessName
+  inputIdentifier: witnessName
+  nextScreen: enterTelephone
+  order: 1
+  text:
+    en: Witness Name
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterWitnessName
 model: memberLoanWitness
 parentIds:
-    - memberLoanId
+  - memberLoanId

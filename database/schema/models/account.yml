@@ -1,18 +1,17 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 name:
-    order: 1
-    type: text
+  order: 1
+  type: text
 
 number:
-    order: 2
-    type: int
+  order: 2
+  type: int
 
 normal:
-    order: 3
-    type: int
+  order: 3
+  type: int

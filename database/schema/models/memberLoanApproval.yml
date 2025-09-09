@@ -1,48 +1,47 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 memberLoanId:
-    hidden: true
-    order: 1
-    referenceTable: memberLoan
-    type: int
+  hidden: true
+  order: 1
+  referenceTable: memberLoan
+  type: int
 
 loanStatus:
-    default: PENDING
-    options:
-        - PENDING
-        - APPROVED
-        - REJECTED
-    order: 2
-    type: text
+  default: PENDING
+  options:
+    - PENDING
+    - APPROVED
+    - REJECTED
+  order: 2
+  type: text
 
 amountRecommended:
-    order: 3
-    type: real
+  order: 3
+  type: real
 
 approvedBy:
-    order: 4
-    type: text
+  order: 4
+  type: text
 
 dateOfApproval:
-    hidden: true
-    order: 5
-    type: text
+  hidden: true
+  order: 5
+  type: text
 
 verifiedBy:
-    order: 6
-    type: text
+  order: 6
+  type: text
 
 dateVerified:
-    hidden: true
-    order: 7
-    type: text
+  hidden: true
+  order: 7
+  type: text
 
 denialOrPartialReason:
-    optional: true
-    order: 8
-    type: text
+  optional: true
+  order: 8
+  type: text

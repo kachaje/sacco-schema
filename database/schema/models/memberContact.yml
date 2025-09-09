@@ -1,36 +1,35 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 memberId:
-    order: 1
-    referenceTable: member
-    type: int
+  order: 1
+  referenceTable: member
+  type: int
 
 postalAddress:
-    order: 2
-    type: text
+  order: 2
+  type: text
 
 residentialAddress:
-    order: 3
-    type: text
+  order: 3
+  type: text
 
 email:
-    optional: true
-    order: 4
-    type: text
+  optional: true
+  order: 4
+  type: text
 
 homeVillage:
-    order: 5
-    type: text
+  order: 5
+  type: text
 
 homeTraditionalAuthority:
-    order: 6
-    type: text
+  order: 6
+  type: text
 
 homeDistrict:
-    order: 7
-    type: text
+  order: 7
+  type: text

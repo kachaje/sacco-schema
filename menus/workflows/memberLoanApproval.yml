@@ -1,89 +1,89 @@
 cacheQueries:
-    amountRecommended: memberLoan.memberLoanApproval.amountRecommended
-    approvedBy: memberLoan.memberLoanApproval.approvedBy
-    dateOfApproval: memberLoan.memberLoanApproval.dateOfApproval
-    dateVerified: memberLoan.memberLoanApproval.dateVerified
-    denialOrPartialReason: memberLoan.memberLoanApproval.denialOrPartialReason
-    id: memberLoan.memberLoanApproval.id
-    loanStatus: memberLoan.memberLoanApproval.loanStatus
-    memberLoanId: memberLoan.memberLoanApproval.memberLoanId
-    verifiedBy: memberLoan.memberLoanApproval.verifiedBy
+  amountRecommended: memberLoan.memberLoanApproval.amountRecommended
+  approvedBy: memberLoan.memberLoanApproval.approvedBy
+  dateOfApproval: memberLoan.memberLoanApproval.dateOfApproval
+  dateVerified: memberLoan.memberLoanApproval.dateVerified
+  denialOrPartialReason: memberLoan.memberLoanApproval.denialOrPartialReason
+  id: memberLoan.memberLoanApproval.id
+  loanStatus: memberLoan.memberLoanApproval.loanStatus
+  memberLoanId: memberLoan.memberLoanApproval.memberLoanId
+  verifiedBy: memberLoan.memberLoanApproval.verifiedBy
 enterAmountRecommended:
-    cacheQuery: memberLoan.memberLoanApproval.amountRecommended
-    inputIdentifier: amountRecommended
-    nextScreen: enterApprovedBy
-    order: 2
-    text:
-        en: Amount Recommended
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: amountRecommended
+  inputIdentifier: amountRecommended
+  nextScreen: enterApprovedBy
+  order: 2
+  text:
+    en: Amount Recommended
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterApprovedBy:
-    cacheQuery: memberLoan.memberLoanApproval.approvedBy
-    inputIdentifier: approvedBy
-    nextScreen: enterVerifiedBy
-    order: 3
-    text:
-        en: Approved By
-    type: inputScreen
+  cacheQuery: approvedBy
+  inputIdentifier: approvedBy
+  nextScreen: enterVerifiedBy
+  order: 3
+  text:
+    en: Approved By
+  type: inputScreen
 enterDateOfApproval:
-    cacheQuery: memberLoan.memberLoanApproval.dateOfApproval
-    hidden: true
-    inputIdentifier: dateOfApproval
-    type: hiddenField
+  cacheQuery: dateOfApproval
+  hidden: true
+  inputIdentifier: dateOfApproval
+  type: hiddenField
 enterDateVerified:
-    cacheQuery: memberLoan.memberLoanApproval.dateVerified
-    hidden: true
-    inputIdentifier: dateVerified
-    type: hiddenField
+  cacheQuery: dateVerified
+  hidden: true
+  inputIdentifier: dateVerified
+  type: hiddenField
 enterDenialOrPartialReason:
-    cacheQuery: memberLoan.memberLoanApproval.denialOrPartialReason
-    inputIdentifier: denialOrPartialReason
-    nextScreen: formSummary
-    optional: true
-    order: 5
-    text:
-        en: Denial Or Partial Reason
-    type: inputScreen
+  cacheQuery: denialOrPartialReason
+  inputIdentifier: denialOrPartialReason
+  nextScreen: formSummary
+  optional: true
+  order: 5
+  text:
+    en: Denial Or Partial Reason
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoan.memberLoanApproval.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterLoanStatus:
-    cacheQuery: memberLoan.memberLoanApproval.loanStatus
-    inputIdentifier: loanStatus
-    nextScreen: enterAmountRecommended
-    optional: true
-    options:
-        - label:
-            en: PENDING
-          position: 1
-        - label:
-            en: APPROVED
-          position: 2
-        - label:
-            en: REJECTED
-          position: 3
-    order: 1
-    text:
-        en: Loan Status
-    type: inputScreen
+  cacheQuery: loanStatus
+  inputIdentifier: loanStatus
+  nextScreen: enterAmountRecommended
+  optional: true
+  options:
+    - label:
+        en: PENDING
+      position: 1
+    - label:
+        en: APPROVED
+      position: 2
+    - label:
+        en: REJECTED
+      position: 3
+  order: 1
+  text:
+    en: Loan Status
+  type: inputScreen
 enterMemberLoanId:
-    cacheQuery: memberLoan.memberLoanApproval.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 enterVerifiedBy:
-    cacheQuery: memberLoan.memberLoanApproval.verifiedBy
-    inputIdentifier: verifiedBy
-    nextScreen: enterDenialOrPartialReason
-    order: 4
-    text:
-        en: Verified By
-    type: inputScreen
+  cacheQuery: verifiedBy
+  inputIdentifier: verifiedBy
+  nextScreen: enterDenialOrPartialReason
+  order: 4
+  text:
+    en: Verified By
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterLoanStatus
 model: memberLoanApproval
 parentIds:
-    - memberLoanId
+  - memberLoanId

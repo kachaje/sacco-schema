@@ -1,46 +1,46 @@
 cacheQueries:
-    amount: memberLoan.memberLoanInsurance.0.amount
-    date: memberLoan.memberLoanInsurance.0.date
-    id: memberLoan.memberLoanInsurance.0.id
-    insuranceProviderId: memberLoan.memberLoanInsurance.0.insuranceProviderId
-    memberLoanId: memberLoan.memberLoanInsurance.0.memberLoanId
+  amount: memberLoan.memberLoanInsurance.0.amount
+  date: memberLoan.memberLoanInsurance.0.date
+  id: memberLoan.memberLoanInsurance.0.id
+  insuranceProviderId: memberLoan.memberLoanInsurance.0.insuranceProviderId
+  memberLoanId: memberLoan.memberLoanInsurance.0.memberLoanId
 enterAmount:
-    cacheQuery: memberLoan.memberLoanInsurance.0.amount
-    inputIdentifier: amount
-    nextScreen: formSummary
-    order: 2
-    text:
-        en: Amount
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: amount
+  inputIdentifier: amount
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDate:
-    cacheQuery: memberLoan.memberLoanInsurance.0.date
-    inputIdentifier: date
-    nextScreen: enterAmount
-    optional: true
-    order: 1
-    text:
-        en: Date
-    type: inputScreen
+  cacheQuery: date
+  inputIdentifier: date
+  nextScreen: enterAmount
+  optional: true
+  order: 1
+  text:
+    en: Date
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoan.memberLoanInsurance.0.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterInsuranceProviderId:
-    cacheQuery: memberLoan.memberLoanInsurance.0.insuranceProviderId
-    hidden: true
-    inputIdentifier: insuranceProviderId
-    type: hiddenField
+  cacheQuery: insuranceProviderId
+  hidden: true
+  inputIdentifier: insuranceProviderId
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoan.memberLoanInsurance.0.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDate
 model: memberLoanInsurance
 parentIds:
-    - memberLoanId
-    - insuranceProviderId
+  - memberLoanId
+  - insuranceProviderId

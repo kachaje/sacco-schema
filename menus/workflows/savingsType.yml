@@ -1,59 +1,59 @@
 cacheQueries:
-    amountSize: savingsType.amountSize
-    id: savingsType.id
-    maxWithdrawMonths: savingsType.maxWithdrawMonths
-    minWithdrawMonths: savingsType.minWithdrawMonths
-    name: savingsType.name
-    withdrawPattern: savingsType.withdrawPattern
+  amountSize: savingsType.amountSize
+  id: savingsType.id
+  maxWithdrawMonths: savingsType.maxWithdrawMonths
+  minWithdrawMonths: savingsType.minWithdrawMonths
+  name: savingsType.name
+  withdrawPattern: savingsType.withdrawPattern
 enterAmountSize:
-    cacheQuery: savingsType.amountSize
-    inputIdentifier: amountSize
-    nextScreen: enterWithdrawPattern
-    order: 2
-    text:
-        en: Amount Size
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: amountSize
+  inputIdentifier: amountSize
+  nextScreen: enterWithdrawPattern
+  order: 2
+  text:
+    en: Amount Size
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterId:
-    cacheQuery: savingsType.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMaxWithdrawMonths:
-    cacheQuery: savingsType.maxWithdrawMonths
-    inputIdentifier: maxWithdrawMonths
-    nextScreen: formSummary
-    order: 5
-    text:
-        en: Max Withdraw Months
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: maxWithdrawMonths
+  inputIdentifier: maxWithdrawMonths
+  nextScreen: formSummary
+  order: 5
+  text:
+    en: Max Withdraw Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterMinWithdrawMonths:
-    cacheQuery: savingsType.minWithdrawMonths
-    inputIdentifier: minWithdrawMonths
-    nextScreen: enterMaxWithdrawMonths
-    order: 4
-    text:
-        en: Min Withdraw Months
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: minWithdrawMonths
+  inputIdentifier: minWithdrawMonths
+  nextScreen: enterMaxWithdrawMonths
+  order: 4
+  text:
+    en: Min Withdraw Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterName:
-    cacheQuery: savingsType.name
-    inputIdentifier: name
-    nextScreen: enterAmountSize
-    order: 1
-    text:
-        en: Name
-    type: inputScreen
+  cacheQuery: name
+  inputIdentifier: name
+  nextScreen: enterAmountSize
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
 enterWithdrawPattern:
-    cacheQuery: savingsType.withdrawPattern
-    inputIdentifier: withdrawPattern
-    nextScreen: enterMinWithdrawMonths
-    order: 3
-    text:
-        en: Withdraw Pattern
-    type: inputScreen
+  cacheQuery: withdrawPattern
+  inputIdentifier: withdrawPattern
+  nextScreen: enterMinWithdrawMonths
+  order: 3
+  text:
+    en: Withdraw Pattern
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterName
 model: savingsType

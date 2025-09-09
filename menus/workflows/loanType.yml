@@ -1,72 +1,72 @@
 cacheQueries:
-    amountLimit: loanType.amountLimit
-    category: loanType.category
-    id: loanType.id
-    maxInstalmentMonths: loanType.maxInstalmentMonths
-    name: loanType.name
-    periodLimitInMonths: loanType.periodLimitInMonths
+  amountLimit: loanType.amountLimit
+  category: loanType.category
+  id: loanType.id
+  maxInstalmentMonths: loanType.maxInstalmentMonths
+  name: loanType.name
+  periodLimitInMonths: loanType.periodLimitInMonths
 enterAmountLimit:
-    cacheQuery: loanType.amountLimit
-    inputIdentifier: amountLimit
-    nextScreen: enterPeriodLimitInMonths
-    order: 3
-    text:
-        en: Amount Limit
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: amountLimit
+  inputIdentifier: amountLimit
+  nextScreen: enterPeriodLimitInMonths
+  order: 3
+  text:
+    en: Amount Limit
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterCategory:
-    cacheQuery: loanType.category
-    inputIdentifier: category
-    nextScreen: enterAmountLimit
-    options:
-        - label:
-            en: Personal
-          position: 1
-        - label:
-            en: Business
-          position: 2
-        - label:
-            en: Agricultural
-          position: 3
-        - label:
-            en: Emergency
-          position: 4
-    order: 2
-    text:
-        en: Category
-    type: inputScreen
+  cacheQuery: category
+  inputIdentifier: category
+  nextScreen: enterAmountLimit
+  options:
+    - label:
+        en: Personal
+      position: 1
+    - label:
+        en: Business
+      position: 2
+    - label:
+        en: Agricultural
+      position: 3
+    - label:
+        en: Emergency
+      position: 4
+  order: 2
+  text:
+    en: Category
+  type: inputScreen
 enterId:
-    cacheQuery: loanType.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMaxInstalmentMonths:
-    cacheQuery: loanType.maxInstalmentMonths
-    inputIdentifier: maxInstalmentMonths
-    nextScreen: formSummary
-    order: 5
-    text:
-        en: Max Instalment Months
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: maxInstalmentMonths
+  inputIdentifier: maxInstalmentMonths
+  nextScreen: formSummary
+  order: 5
+  text:
+    en: Max Instalment Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterName:
-    cacheQuery: loanType.name
-    inputIdentifier: name
-    nextScreen: enterCategory
-    order: 1
-    text:
-        en: Name
-    type: inputScreen
+  cacheQuery: name
+  inputIdentifier: name
+  nextScreen: enterCategory
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
 enterPeriodLimitInMonths:
-    cacheQuery: loanType.periodLimitInMonths
-    inputIdentifier: periodLimitInMonths
-    nextScreen: enterMaxInstalmentMonths
-    order: 4
-    text:
-        en: Period Limit In Months
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: periodLimitInMonths
+  inputIdentifier: periodLimitInMonths
+  nextScreen: enterMaxInstalmentMonths
+  order: 4
+  text:
+    en: Period Limit In Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterName
 model: loanType

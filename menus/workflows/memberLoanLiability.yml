@@ -1,38 +1,38 @@
 cacheQueries:
-    description: memberLoan.memberLoanLiability.0.description
-    id: memberLoan.memberLoanLiability.0.id
-    memberLoanId: memberLoan.memberLoanLiability.0.memberLoanId
-    value: memberLoan.memberLoanLiability.0.value
+  description: memberLoan.memberLoanLiability.0.description
+  id: memberLoan.memberLoanLiability.0.id
+  memberLoanId: memberLoan.memberLoanLiability.0.memberLoanId
+  value: memberLoan.memberLoanLiability.0.value
 enterDescription:
-    cacheQuery: memberLoan.memberLoanLiability.0.description
-    inputIdentifier: description
-    nextScreen: enterValue
-    order: 1
-    text:
-        en: Description
-    type: inputScreen
+  cacheQuery: description
+  inputIdentifier: description
+  nextScreen: enterValue
+  order: 1
+  text:
+    en: Description
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoan.memberLoanLiability.0.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoan.memberLoanLiability.0.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 enterValue:
-    cacheQuery: memberLoan.memberLoanLiability.0.value
-    inputIdentifier: value
-    nextScreen: formSummary
-    order: 2
-    text:
-        en: Value
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: value
+  inputIdentifier: value
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Value
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDescription
 model: memberLoanLiability
 parentIds:
-    - memberLoanId
+  - memberLoanId

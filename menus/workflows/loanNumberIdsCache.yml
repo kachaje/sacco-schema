@@ -1,39 +1,39 @@
 cacheQueries:
-    claimed: memberLoan.loanNumberIdsCache.claimed
-    id: memberLoan.loanNumberIdsCache.id
-    loanNumber: memberLoan.loanNumberIdsCache.loanNumber
-    memberLoanId: memberLoan.loanNumberIdsCache.memberLoanId
+  claimed: memberLoan.loanNumberIdsCache.claimed
+  id: memberLoan.loanNumberIdsCache.id
+  loanNumber: memberLoan.loanNumberIdsCache.loanNumber
+  memberLoanId: memberLoan.loanNumberIdsCache.memberLoanId
 enterClaimed:
-    cacheQuery: memberLoan.loanNumberIdsCache.claimed
-    inputIdentifier: claimed
-    nextScreen: formSummary
-    optional: true
-    order: 2
-    text:
-        en: Claimed
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: claimed
+  inputIdentifier: claimed
+  nextScreen: formSummary
+  optional: true
+  order: 2
+  text:
+    en: Claimed
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterId:
-    cacheQuery: memberLoan.loanNumberIdsCache.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterLoanNumber:
-    cacheQuery: memberLoan.loanNumberIdsCache.loanNumber
-    inputIdentifier: loanNumber
-    nextScreen: enterClaimed
-    order: 1
-    text:
-        en: Loan Number
-    type: inputScreen
+  cacheQuery: loanNumber
+  inputIdentifier: loanNumber
+  nextScreen: enterClaimed
+  order: 1
+  text:
+    en: Loan Number
+  type: inputScreen
 enterMemberLoanId:
-    cacheQuery: memberLoan.loanNumberIdsCache.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterLoanNumber
 model: loanNumberIdsCache
 parentIds:
-    - memberLoanId
+  - memberLoanId

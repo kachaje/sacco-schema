@@ -1,29 +1,28 @@
-
 id:
-    autoIncrement: true
-    order: 0
-    primaryKey: true
-    type: int
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
 
 memberLoanId:
-    many: true
-    order: 1
-    referenceTable: memberLoan
-    type: int
+  many: true
+  order: 1
+  referenceTable: memberLoan
+  type: int
 
 witnessName:
-    order: 2
-    type: text
+  order: 2
+  type: text
 
 telephone:
-    order: 3
-    type: text
+  order: 3
+  type: text
 
 address:
-    order: 4
-    type: text
+  order: 4
+  type: text
 
 date:
-    default: CURRENT_TIMESTAMP
-    order: 5
-    type: text
+  default: CURRENT_TIMESTAMP
+  order: 5
+  type: text

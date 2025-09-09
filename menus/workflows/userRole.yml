@@ -1,20 +1,20 @@
 cacheQueries:
-    id: userRole.id
-    name: userRole.name
+  id: userRole.id
+  name: userRole.name
 enterId:
-    cacheQuery: userRole.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterName:
-    cacheQuery: userRole.name
-    inputIdentifier: name
-    nextScreen: formSummary
-    order: 1
-    text:
-        en: Name
-    type: inputScreen
+  cacheQuery: name
+  inputIdentifier: name
+  nextScreen: formSummary
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterName
 model: userRole

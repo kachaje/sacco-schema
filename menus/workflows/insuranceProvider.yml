@@ -1,47 +1,47 @@
 cacheQueries:
-    address: insuranceProvider.address
-    contactPerson: insuranceProvider.contactPerson
-    id: insuranceProvider.id
-    name: insuranceProvider.name
-    phoneNumber: insuranceProvider.phoneNumber
+  address: insuranceProvider.address
+  contactPerson: insuranceProvider.contactPerson
+  id: insuranceProvider.id
+  name: insuranceProvider.name
+  phoneNumber: insuranceProvider.phoneNumber
 enterAddress:
-    cacheQuery: insuranceProvider.address
-    inputIdentifier: address
-    nextScreen: enterPhoneNumber
-    order: 2
-    text:
-        en: Address
-    type: inputScreen
+  cacheQuery: address
+  inputIdentifier: address
+  nextScreen: enterPhoneNumber
+  order: 2
+  text:
+    en: Address
+  type: inputScreen
 enterContactPerson:
-    cacheQuery: insuranceProvider.contactPerson
-    inputIdentifier: contactPerson
-    nextScreen: formSummary
-    order: 4
-    text:
-        en: Contact Person
-    type: inputScreen
+  cacheQuery: contactPerson
+  inputIdentifier: contactPerson
+  nextScreen: formSummary
+  order: 4
+  text:
+    en: Contact Person
+  type: inputScreen
 enterId:
-    cacheQuery: insuranceProvider.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterName:
-    cacheQuery: insuranceProvider.name
-    inputIdentifier: name
-    nextScreen: enterAddress
-    order: 1
-    text:
-        en: Name
-    type: inputScreen
+  cacheQuery: name
+  inputIdentifier: name
+  nextScreen: enterAddress
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
 enterPhoneNumber:
-    cacheQuery: insuranceProvider.phoneNumber
-    inputIdentifier: phoneNumber
-    nextScreen: enterContactPerson
-    order: 3
-    text:
-        en: Phone Number
-    type: inputScreen
+  cacheQuery: phoneNumber
+  inputIdentifier: phoneNumber
+  nextScreen: enterContactPerson
+  order: 3
+  text:
+    en: Phone Number
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterName
 model: insuranceProvider

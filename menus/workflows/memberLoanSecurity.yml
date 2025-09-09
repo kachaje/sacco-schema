@@ -1,47 +1,47 @@
 cacheQueries:
-    description: memberLoan.memberLoanSecurity.0.description
-    id: memberLoan.memberLoanSecurity.0.id
-    memberLoanId: memberLoan.memberLoanSecurity.0.memberLoanId
-    serialNumber: memberLoan.memberLoanSecurity.0.serialNumber
-    value: memberLoan.memberLoanSecurity.0.value
+  description: memberLoan.memberLoanSecurity.0.description
+  id: memberLoan.memberLoanSecurity.0.id
+  memberLoanId: memberLoan.memberLoanSecurity.0.memberLoanId
+  serialNumber: memberLoan.memberLoanSecurity.0.serialNumber
+  value: memberLoan.memberLoanSecurity.0.value
 enterDescription:
-    cacheQuery: memberLoan.memberLoanSecurity.0.description
-    inputIdentifier: description
-    nextScreen: enterValue
-    order: 1
-    text:
-        en: Description
-    type: inputScreen
+  cacheQuery: description
+  inputIdentifier: description
+  nextScreen: enterValue
+  order: 1
+  text:
+    en: Description
+  type: inputScreen
 enterId:
-    cacheQuery: memberLoan.memberLoanSecurity.0.id
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  cacheQuery: id
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterMemberLoanId:
-    cacheQuery: memberLoan.memberLoanSecurity.0.memberLoanId
-    hidden: true
-    inputIdentifier: memberLoanId
-    type: hiddenField
+  cacheQuery: memberLoanId
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
 enterSerialNumber:
-    cacheQuery: memberLoan.memberLoanSecurity.0.serialNumber
-    inputIdentifier: serialNumber
-    nextScreen: formSummary
-    order: 3
-    text:
-        en: Serial Number
-    type: inputScreen
+  cacheQuery: serialNumber
+  inputIdentifier: serialNumber
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Serial Number
+  type: inputScreen
 enterValue:
-    cacheQuery: memberLoan.memberLoanSecurity.0.value
-    inputIdentifier: value
-    nextScreen: enterSerialNumber
-    order: 2
-    text:
-        en: Value
-    type: inputScreen
-    validationRule: ^\d+\.*\d*$
+  cacheQuery: value
+  inputIdentifier: value
+  nextScreen: enterSerialNumber
+  order: 2
+  text:
+    en: Value
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterDescription
 model: memberLoanSecurity
 parentIds:
-    - memberLoanId
+  - memberLoanId
