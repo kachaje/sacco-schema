@@ -610,10 +610,7 @@
     "rootQuery": "member.memberContact"
   },
   "memberDependant": {
-    "belongsTo": [
-      "member"
-    ],
-    "fields": [
+    "arrayFields": [
       {
         "id1": {
           "hidden": true,
@@ -859,7 +856,10 @@
         }
       }
     ],
-    "rawFields": [
+    "belongsTo": [
+      "member"
+    ],
+    "fields": [
       {
         "id": {
           "hidden": true,

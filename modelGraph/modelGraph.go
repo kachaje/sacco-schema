@@ -334,17 +334,23 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 									}
 								}
 
-								result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
-									localKey: row,
-								})
-
-								if totalLoops > 1 && j == 0 {
-									if result[model].(map[string]any)["rawFields"] == nil {
-										result[model].(map[string]any)["rawFields"] = []map[string]any{}
+								if totalLoops == 1 {
+									result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+										k: row,
+									})
+								} else if totalLoops > 1 {
+									if j == 0 {
+										result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+											k: row,
+										})
 									}
 
-									result[model].(map[string]any)["rawFields"] = append(result[model].(map[string]any)["rawFields"].([]map[string]any), map[string]any{
-										k: row,
+									if result[model].(map[string]any)["arrayFields"] == nil {
+										result[model].(map[string]any)["arrayFields"] = []map[string]any{}
+									}
+
+									result[model].(map[string]any)["arrayFields"] = append(result[model].(map[string]any)["arrayFields"].([]map[string]any), map[string]any{
+										localKey: row,
 									})
 								}
 							}

@@ -341,9 +341,7 @@ memberContact:
             type: text
     rootQuery: member.memberContact
 memberDependant:
-    belongsTo:
-        - member
-    fields:
+    arrayFields:
         - id1:
             hidden: true
             order: 0
@@ -483,6 +481,44 @@ memberDependant:
                 - Sibling
                 - Other
             order: 31
+            type: text
+    belongsTo:
+        - member
+    fields:
+        - id:
+            hidden: true
+            order: 0
+        - memberId:
+            hidden: true
+            order: 1
+        - name:
+            order: 2
+            type: text
+        - phoneNumber:
+            order: 3
+            type: text
+        - address:
+            optional: true
+            order: 4
+            type: text
+        - percentage:
+            numericField: true
+            optional: true
+            order: 5
+        - isNominee:
+            optional: true
+            options:
+                - "Yes"
+                - "No"
+            order: 6
+            type: text
+        - relationship:
+            options:
+                - Spouse
+                - Child
+                - Sibling
+                - Other
+            order: 7
             type: text
     rootQuery: member.memberDependant.0
 memberIdsCache:
