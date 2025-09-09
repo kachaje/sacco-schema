@@ -47,8 +47,8 @@ CON Welcome to Kaso SACCO
 4. Banking Details
 5. Preferred Language
 6. Administration
-7. Exit
-9. Set PhoneNumber
+7. Set PhoneNumber
+8. Exit
 `
 
 	if utils.CleanString(result) != utils.CleanString(target) {

@@ -162,7 +162,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if !reflect.DeepEqual(targetData, result) {
+	if !utils.MapsEqual(targetData, result) {
 		t.Fatal("Test failed")
 	}
 }
