@@ -1,46 +1,46 @@
 cacheQueries:
-  amount: memberLoanDisbursement.amount
-  date: memberLoanDisbursement.date
-  description: memberLoanDisbursement.description
-  id: memberLoanDisbursement.id
-  memberLoanId: memberLoanDisbursement.memberLoanId
+    amount: memberLoanDisbursement.amount
+    date: memberLoanDisbursement.date
+    description: memberLoanDisbursement.description
+    id: memberLoanDisbursement.id
+    memberLoanId: memberLoanDisbursement.memberLoanId
 enterAmount:
-  cacheQuery: memberLoanDisbursement.amount
-  inputIdentifier: amount
-  nextScreen: formSummary
-  order: 3
-  text:
-    en: Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberLoanDisbursement.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 3
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberLoanDisbursement.date
-  inputIdentifier: date
-  nextScreen: enterAmount
-  optional: true
-  order: 2
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: memberLoanDisbursement.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 2
+    text:
+        en: Date
+    type: inputScreen
 enterDescription:
-  cacheQuery: memberLoanDisbursement.description
-  inputIdentifier: description
-  nextScreen: enterDate
-  order: 1
-  text:
-    en: Description
-  type: inputScreen
+    cacheQuery: memberLoanDisbursement.description
+    inputIdentifier: description
+    nextScreen: enterDate
+    order: 1
+    text:
+        en: Description
+    type: inputScreen
 enterId:
-  cacheQuery: memberLoanDisbursement.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberLoanDisbursement.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanDisbursement.memberLoanId
-  hidden: true
-  inputIdentifier: memberLoanId
-  type: hiddenField
+    cacheQuery: memberLoanDisbursement.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDescription
 model: memberLoanDisbursement

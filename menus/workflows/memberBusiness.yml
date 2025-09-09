@@ -1,54 +1,54 @@
 cacheQueries:
-  businessName: memberBusiness.businessName
-  businessNature: memberBusiness.businessNature
-  id: memberBusiness.id
-  memberLoanId: memberBusiness.memberLoanId
-  tradingArea: memberBusiness.tradingArea
-  yearsInBusiness: memberBusiness.yearsInBusiness
+    businessName: memberBusiness.businessName
+    businessNature: memberBusiness.businessNature
+    id: memberBusiness.id
+    memberLoanId: memberBusiness.memberLoanId
+    tradingArea: memberBusiness.tradingArea
+    yearsInBusiness: memberBusiness.yearsInBusiness
 enterBusinessName:
-  cacheQuery: memberBusiness.businessName
-  inputIdentifier: businessName
-  nextScreen: enterTradingArea
-  order: 3
-  text:
-    en: Business Name
-  type: inputScreen
+    cacheQuery: memberBusiness.businessName
+    inputIdentifier: businessName
+    nextScreen: enterTradingArea
+    order: 3
+    text:
+        en: Business Name
+    type: inputScreen
 enterBusinessNature:
-  cacheQuery: memberBusiness.businessNature
-  inputIdentifier: businessNature
-  nextScreen: enterBusinessName
-  order: 2
-  text:
-    en: Business Nature
-  type: inputScreen
+    cacheQuery: memberBusiness.businessNature
+    inputIdentifier: businessNature
+    nextScreen: enterBusinessName
+    order: 2
+    text:
+        en: Business Nature
+    type: inputScreen
 enterId:
-  cacheQuery: memberBusiness.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberBusiness.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberBusiness.memberLoanId
-  hidden: true
-  inputIdentifier: memberLoanId
-  type: hiddenField
+    cacheQuery: memberBusiness.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
 enterTradingArea:
-  cacheQuery: memberBusiness.tradingArea
-  inputIdentifier: tradingArea
-  nextScreen: formSummary
-  order: 4
-  text:
-    en: Trading Area
-  type: inputScreen
+    cacheQuery: memberBusiness.tradingArea
+    inputIdentifier: tradingArea
+    nextScreen: formSummary
+    order: 4
+    text:
+        en: Trading Area
+    type: inputScreen
 enterYearsInBusiness:
-  cacheQuery: memberBusiness.yearsInBusiness
-  inputIdentifier: yearsInBusiness
-  nextScreen: enterBusinessNature
-  order: 1
-  text:
-    en: Years In Business
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberBusiness.yearsInBusiness
+    inputIdentifier: yearsInBusiness
+    nextScreen: enterBusinessNature
+    order: 1
+    text:
+        en: Years In Business
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterYearsInBusiness
 model: memberBusiness

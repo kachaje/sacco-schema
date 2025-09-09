@@ -1,36 +1,36 @@
 cacheQueries:
-  description: memberLoanLiability.description
-  id: memberLoanLiability.id
-  memberLoanId: memberLoanLiability.memberLoanId
-  value: memberLoanLiability.value
+    description: memberLoanLiability.description
+    id: memberLoanLiability.id
+    memberLoanId: memberLoanLiability.memberLoanId
+    value: memberLoanLiability.value
 enterDescription:
-  cacheQuery: memberLoanLiability.description
-  inputIdentifier: description
-  nextScreen: enterValue
-  order: 1
-  text:
-    en: Description
-  type: inputScreen
+    cacheQuery: memberLoanLiability.description
+    inputIdentifier: description
+    nextScreen: enterValue
+    order: 1
+    text:
+        en: Description
+    type: inputScreen
 enterId:
-  cacheQuery: memberLoanLiability.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberLoanLiability.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanLiability.memberLoanId
-  hidden: true
-  inputIdentifier: memberLoanId
-  type: hiddenField
+    cacheQuery: memberLoanLiability.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
 enterValue:
-  cacheQuery: memberLoanLiability.value
-  inputIdentifier: value
-  nextScreen: formSummary
-  order: 2
-  text:
-    en: Value
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberLoanLiability.value
+    inputIdentifier: value
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Value
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDescription
 model: memberLoanLiability

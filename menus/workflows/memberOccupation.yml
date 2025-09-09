@@ -1,105 +1,105 @@
 cacheQueries:
-  employerAddress: memberOccupation.employerAddress
-  employerName: memberOccupation.employerName
-  employerPhone: memberOccupation.employerPhone
-  grossPay: memberOccupation.grossPay
-  highestQualification: memberOccupation.highestQualification
-  id: memberOccupation.id
-  jobTitle: memberOccupation.jobTitle
-  memberLoanId: memberOccupation.memberLoanId
-  netPay: memberOccupation.netPay
-  periodEmployedInMonths: memberOccupation.periodEmployedInMonths
+    employerAddress: memberOccupation.employerAddress
+    employerName: memberOccupation.employerName
+    employerPhone: memberOccupation.employerPhone
+    grossPay: memberOccupation.grossPay
+    highestQualification: memberOccupation.highestQualification
+    id: memberOccupation.id
+    jobTitle: memberOccupation.jobTitle
+    memberLoanId: memberOccupation.memberLoanId
+    netPay: memberOccupation.netPay
+    periodEmployedInMonths: memberOccupation.periodEmployedInMonths
 enterEmployerAddress:
-  cacheQuery: memberOccupation.employerAddress
-  inputIdentifier: employerAddress
-  nextScreen: enterEmployerPhone
-  order: 2
-  text:
-    en: Employer Address
-  type: inputScreen
+    cacheQuery: memberOccupation.employerAddress
+    inputIdentifier: employerAddress
+    nextScreen: enterEmployerPhone
+    order: 2
+    text:
+        en: Employer Address
+    type: inputScreen
 enterEmployerName:
-  cacheQuery: memberOccupation.employerName
-  inputIdentifier: employerName
-  nextScreen: enterEmployerAddress
-  order: 1
-  text:
-    en: Employer Name
-  type: inputScreen
+    cacheQuery: memberOccupation.employerName
+    inputIdentifier: employerName
+    nextScreen: enterEmployerAddress
+    order: 1
+    text:
+        en: Employer Name
+    type: inputScreen
 enterEmployerPhone:
-  cacheQuery: memberOccupation.employerPhone
-  inputIdentifier: employerPhone
-  nextScreen: enterJobTitle
-  order: 3
-  text:
-    en: Employer Phone
-  type: inputScreen
+    cacheQuery: memberOccupation.employerPhone
+    inputIdentifier: employerPhone
+    nextScreen: enterJobTitle
+    order: 3
+    text:
+        en: Employer Phone
+    type: inputScreen
 enterGrossPay:
-  cacheQuery: memberOccupation.grossPay
-  inputIdentifier: grossPay
-  nextScreen: enterNetPay
-  order: 6
-  text:
-    en: Gross Pay
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberOccupation.grossPay
+    inputIdentifier: grossPay
+    nextScreen: enterNetPay
+    order: 6
+    text:
+        en: Gross Pay
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterHighestQualification:
-  cacheQuery: memberOccupation.highestQualification
-  inputIdentifier: highestQualification
-  nextScreen: formSummary
-  options:
-    - label:
-        en: Tertiary
-      position: 1
-    - label:
-        en: Secondary
-      position: 2
-    - label:
-        en: Primary
-      position: 3
-    - label:
-        en: None
-      position: 4
-  order: 8
-  text:
-    en: Highest Qualification
-  type: inputScreen
+    cacheQuery: memberOccupation.highestQualification
+    inputIdentifier: highestQualification
+    nextScreen: formSummary
+    options:
+        - label:
+            en: Tertiary
+          position: 1
+        - label:
+            en: Secondary
+          position: 2
+        - label:
+            en: Primary
+          position: 3
+        - label:
+            en: None
+          position: 4
+    order: 8
+    text:
+        en: Highest Qualification
+    type: inputScreen
 enterId:
-  cacheQuery: memberOccupation.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberOccupation.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterJobTitle:
-  cacheQuery: memberOccupation.jobTitle
-  inputIdentifier: jobTitle
-  nextScreen: enterPeriodEmployedInMonths
-  order: 4
-  text:
-    en: Job Title
-  type: inputScreen
+    cacheQuery: memberOccupation.jobTitle
+    inputIdentifier: jobTitle
+    nextScreen: enterPeriodEmployedInMonths
+    order: 4
+    text:
+        en: Job Title
+    type: inputScreen
 enterMemberLoanId:
-  cacheQuery: memberOccupation.memberLoanId
-  hidden: true
-  inputIdentifier: memberLoanId
-  type: hiddenField
+    cacheQuery: memberOccupation.memberLoanId
+    hidden: true
+    inputIdentifier: memberLoanId
+    type: hiddenField
 enterNetPay:
-  cacheQuery: memberOccupation.netPay
-  inputIdentifier: netPay
-  nextScreen: enterHighestQualification
-  order: 7
-  text:
-    en: Net Pay
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberOccupation.netPay
+    inputIdentifier: netPay
+    nextScreen: enterHighestQualification
+    order: 7
+    text:
+        en: Net Pay
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterPeriodEmployedInMonths:
-  cacheQuery: memberOccupation.periodEmployedInMonths
-  inputIdentifier: periodEmployedInMonths
-  nextScreen: enterGrossPay
-  order: 5
-  text:
-    en: Period Employed In Months
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberOccupation.periodEmployedInMonths
+    inputIdentifier: periodEmployedInMonths
+    nextScreen: enterGrossPay
+    order: 5
+    text:
+        en: Period Employed In Months
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterEmployerName
 model: memberOccupation

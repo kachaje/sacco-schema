@@ -11,6 +11,9 @@ var (
 	InsuranceProviderArrayChildren = []string{
 		"memberLoanInsurance",
 	}
+	LoanNumberIdsCacheSingleChildren = []string{
+		"memberLoan",
+	}
 	LoanTypeSingleChildren = []string{
 		"loanRate",
 	}
@@ -73,6 +76,7 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
+		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
 		"LoanTypeSingleChildren":              LoanTypeSingleChildren,
 		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
 		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
@@ -111,6 +115,7 @@ var (
 		"amountSize",
 		"balance",
 		"balanceAmount",
+		"claimed",
 		"claimed",
 		"claimed",
 		"claimed",

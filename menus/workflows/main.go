@@ -106,7 +106,7 @@ func buildWorkflows() {
 		log.Panic(err)
 	}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "schema", "configs", "models.yml"))
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "schema", "configs", "models.yml"))
 	if err != nil {
 		log.Panic(err)
 	}
