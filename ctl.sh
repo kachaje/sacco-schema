@@ -12,11 +12,7 @@ if [[ "$1" == "-b" ]]; then
 
 elif [[ "$1" == "-g" ]]; then
 
-  pushd cmd/gen 2>&1 >/dev/null
-
-  go run *.go -f designs/sacco.drawio
-
-  popd 2>&1 >/dev/null
+  go run cmd/gen/*.go -f designs/sacco.drawio
 
   pushd menus/workflows 2>&1 >/dev/null
 
