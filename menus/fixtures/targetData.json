@@ -1,0 +1,20 @@
+{
+  "createdAt1": "2025-09-09 16:54:39",
+  "createdAt2": "2025-09-09 16:54:39",
+  "id1": 1,
+  "id2": 2,
+  "isNominee1": "Yes",
+  "isNominee2": "No",
+  "memberId1": 1,
+  "memberId2": 1,
+  "name1": "John Phiri",
+  "name2": "Jean Phiri",
+  "percentage1": 10,
+  "percentage2": 8,
+  "phoneNumber1": "0999888666",
+  "phoneNumber2": "0886775994",
+  "relationship1": "Spouse",
+  "relationship2": "Sibling",
+  "updatedAt1": "2025-09-09 16:54:39",
+  "updatedAt2": "2025-09-09 16:54:39"
+}
