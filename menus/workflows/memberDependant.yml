@@ -1,38 +1,38 @@
 cacheQueries:
-    address1: member.memberDependant.0.address1
-    address2: member.memberDependant.0.address2
-    address3: member.memberDependant.0.address3
-    address4: member.memberDependant.0.address4
-    id1: member.memberDependant.0.id1
-    id2: member.memberDependant.0.id2
-    id3: member.memberDependant.0.id3
-    id4: member.memberDependant.0.id4
-    isNominee1: member.memberDependant.0.isNominee1
-    isNominee2: member.memberDependant.0.isNominee2
-    isNominee3: member.memberDependant.0.isNominee3
-    isNominee4: member.memberDependant.0.isNominee4
-    memberId1: member.memberDependant.0.memberId1
-    memberId2: member.memberDependant.0.memberId2
-    memberId3: member.memberDependant.0.memberId3
-    memberId4: member.memberDependant.0.memberId4
-    name1: member.memberDependant.0.name1
-    name2: member.memberDependant.0.name2
-    name3: member.memberDependant.0.name3
-    name4: member.memberDependant.0.name4
-    percentage1: member.memberDependant.0.percentage1
-    percentage2: member.memberDependant.0.percentage2
-    percentage3: member.memberDependant.0.percentage3
-    percentage4: member.memberDependant.0.percentage4
-    phoneNumber1: member.memberDependant.0.phoneNumber1
-    phoneNumber2: member.memberDependant.0.phoneNumber2
-    phoneNumber3: member.memberDependant.0.phoneNumber3
-    phoneNumber4: member.memberDependant.0.phoneNumber4
-    relationship1: member.memberDependant.0.relationship1
-    relationship2: member.memberDependant.0.relationship2
-    relationship3: member.memberDependant.0.relationship3
-    relationship4: member.memberDependant.0.relationship4
+    address1: member.memberDependant.0.address
+    address2: member.memberDependant.0.address
+    address3: member.memberDependant.0.address
+    address4: member.memberDependant.0.address
+    id1: member.memberDependant.0.id
+    id2: member.memberDependant.0.id
+    id3: member.memberDependant.0.id
+    id4: member.memberDependant.0.id
+    isNominee1: member.memberDependant.0.isNominee
+    isNominee2: member.memberDependant.0.isNominee
+    isNominee3: member.memberDependant.0.isNominee
+    isNominee4: member.memberDependant.0.isNominee
+    memberId1: member.memberDependant.0.memberId
+    memberId2: member.memberDependant.0.memberId
+    memberId3: member.memberDependant.0.memberId
+    memberId4: member.memberDependant.0.memberId
+    name1: member.memberDependant.0.name
+    name2: member.memberDependant.0.name
+    name3: member.memberDependant.0.name
+    name4: member.memberDependant.0.name
+    percentage1: member.memberDependant.0.percentage
+    percentage2: member.memberDependant.0.percentage
+    percentage3: member.memberDependant.0.percentage
+    percentage4: member.memberDependant.0.percentage
+    phoneNumber1: member.memberDependant.0.phoneNumber
+    phoneNumber2: member.memberDependant.0.phoneNumber
+    phoneNumber3: member.memberDependant.0.phoneNumber
+    phoneNumber4: member.memberDependant.0.phoneNumber
+    relationship1: member.memberDependant.0.relationship
+    relationship2: member.memberDependant.0.relationship
+    relationship3: member.memberDependant.0.relationship
+    relationship4: member.memberDependant.0.relationship
 enterAddress1:
-    cacheQuery: member.memberDependant.0.address1
+    cacheQuery: address1
     inputIdentifier: address1
     nextScreen: enterPercentage1
     optional: true
@@ -41,7 +41,7 @@ enterAddress1:
         en: Address
     type: inputScreen
 enterAddress2:
-    cacheQuery: member.memberDependant.0.address2
+    cacheQuery: address2
     inputIdentifier: address2
     nextScreen: enterPercentage2
     optional: true
@@ -50,7 +50,7 @@ enterAddress2:
         en: Address
     type: inputScreen
 enterAddress3:
-    cacheQuery: member.memberDependant.0.address3
+    cacheQuery: address3
     inputIdentifier: address3
     nextScreen: enterPercentage3
     optional: true
@@ -59,7 +59,7 @@ enterAddress3:
         en: Address
     type: inputScreen
 enterAddress4:
-    cacheQuery: member.memberDependant.0.address4
+    cacheQuery: address4
     inputIdentifier: address4
     nextScreen: enterPercentage4
     optional: true
@@ -68,27 +68,27 @@ enterAddress4:
         en: Address
     type: inputScreen
 enterId1:
-    cacheQuery: member.memberDependant.0.id1
+    cacheQuery: id1
     hidden: true
     inputIdentifier: id1
     type: hiddenField
 enterId2:
-    cacheQuery: member.memberDependant.0.id2
+    cacheQuery: id2
     hidden: true
     inputIdentifier: id2
     type: hiddenField
 enterId3:
-    cacheQuery: member.memberDependant.0.id3
+    cacheQuery: id3
     hidden: true
     inputIdentifier: id3
     type: hiddenField
 enterId4:
-    cacheQuery: member.memberDependant.0.id4
+    cacheQuery: id4
     hidden: true
     inputIdentifier: id4
     type: hiddenField
 enterIsNominee1:
-    cacheQuery: member.memberDependant.0.isNominee1
+    cacheQuery: isNominee1
     inputIdentifier: isNominee1
     nextScreen: enterRelationship1
     optional: true
@@ -104,7 +104,7 @@ enterIsNominee1:
         en: Is Nominee
     type: inputScreen
 enterIsNominee2:
-    cacheQuery: member.memberDependant.0.isNominee2
+    cacheQuery: isNominee2
     inputIdentifier: isNominee2
     nextScreen: enterRelationship2
     optional: true
@@ -120,7 +120,7 @@ enterIsNominee2:
         en: Is Nominee
     type: inputScreen
 enterIsNominee3:
-    cacheQuery: member.memberDependant.0.isNominee3
+    cacheQuery: isNominee3
     inputIdentifier: isNominee3
     nextScreen: enterRelationship3
     optional: true
@@ -136,7 +136,7 @@ enterIsNominee3:
         en: Is Nominee
     type: inputScreen
 enterIsNominee4:
-    cacheQuery: member.memberDependant.0.isNominee4
+    cacheQuery: isNominee4
     inputIdentifier: isNominee4
     nextScreen: enterRelationship4
     optional: true
@@ -152,27 +152,27 @@ enterIsNominee4:
         en: Is Nominee
     type: inputScreen
 enterMemberId1:
-    cacheQuery: member.memberDependant.0.memberId1
+    cacheQuery: memberId1
     hidden: true
     inputIdentifier: memberId1
     type: hiddenField
 enterMemberId2:
-    cacheQuery: member.memberDependant.0.memberId2
+    cacheQuery: memberId2
     hidden: true
     inputIdentifier: memberId2
     type: hiddenField
 enterMemberId3:
-    cacheQuery: member.memberDependant.0.memberId3
+    cacheQuery: memberId3
     hidden: true
     inputIdentifier: memberId3
     type: hiddenField
 enterMemberId4:
-    cacheQuery: member.memberDependant.0.memberId4
+    cacheQuery: memberId4
     hidden: true
     inputIdentifier: memberId4
     type: hiddenField
 enterName1:
-    cacheQuery: member.memberDependant.0.name1
+    cacheQuery: name1
     inputIdentifier: name1
     nextScreen: enterPhoneNumber1
     order: 1
@@ -181,7 +181,7 @@ enterName1:
         en: Name
     type: inputScreen
 enterName2:
-    cacheQuery: member.memberDependant.0.name2
+    cacheQuery: name2
     inputIdentifier: name2
     nextScreen: enterPhoneNumber2
     order: 7
@@ -190,7 +190,7 @@ enterName2:
         en: Name
     type: inputScreen
 enterName3:
-    cacheQuery: member.memberDependant.0.name3
+    cacheQuery: name3
     inputIdentifier: name3
     nextScreen: enterPhoneNumber3
     order: 13
@@ -199,7 +199,7 @@ enterName3:
         en: Name
     type: inputScreen
 enterName4:
-    cacheQuery: member.memberDependant.0.name4
+    cacheQuery: name4
     inputIdentifier: name4
     nextScreen: enterPhoneNumber4
     order: 19
@@ -208,7 +208,7 @@ enterName4:
         en: Name
     type: inputScreen
 enterPercentage1:
-    cacheQuery: member.memberDependant.0.percentage1
+    cacheQuery: percentage1
     inputIdentifier: percentage1
     nextScreen: enterIsNominee1
     order: 4
@@ -217,7 +217,7 @@ enterPercentage1:
     type: inputScreen
     validationRule: ^\d+\.*\d*$
 enterPercentage2:
-    cacheQuery: member.memberDependant.0.percentage2
+    cacheQuery: percentage2
     inputIdentifier: percentage2
     nextScreen: enterIsNominee2
     order: 10
@@ -226,7 +226,7 @@ enterPercentage2:
     type: inputScreen
     validationRule: ^\d+\.*\d*$
 enterPercentage3:
-    cacheQuery: member.memberDependant.0.percentage3
+    cacheQuery: percentage3
     inputIdentifier: percentage3
     nextScreen: enterIsNominee3
     order: 16
@@ -235,7 +235,7 @@ enterPercentage3:
     type: inputScreen
     validationRule: ^\d+\.*\d*$
 enterPercentage4:
-    cacheQuery: member.memberDependant.0.percentage4
+    cacheQuery: percentage4
     inputIdentifier: percentage4
     nextScreen: enterIsNominee4
     order: 22
@@ -244,7 +244,7 @@ enterPercentage4:
     type: inputScreen
     validationRule: ^\d+\.*\d*$
 enterPhoneNumber1:
-    cacheQuery: member.memberDependant.0.phoneNumber1
+    cacheQuery: phoneNumber1
     inputIdentifier: phoneNumber1
     nextScreen: enterAddress1
     order: 2
@@ -252,7 +252,7 @@ enterPhoneNumber1:
         en: Phone Number
     type: inputScreen
 enterPhoneNumber2:
-    cacheQuery: member.memberDependant.0.phoneNumber2
+    cacheQuery: phoneNumber2
     inputIdentifier: phoneNumber2
     nextScreen: enterAddress2
     order: 8
@@ -260,7 +260,7 @@ enterPhoneNumber2:
         en: Phone Number
     type: inputScreen
 enterPhoneNumber3:
-    cacheQuery: member.memberDependant.0.phoneNumber3
+    cacheQuery: phoneNumber3
     inputIdentifier: phoneNumber3
     nextScreen: enterAddress3
     order: 14
@@ -268,7 +268,7 @@ enterPhoneNumber3:
         en: Phone Number
     type: inputScreen
 enterPhoneNumber4:
-    cacheQuery: member.memberDependant.0.phoneNumber4
+    cacheQuery: phoneNumber4
     inputIdentifier: phoneNumber4
     nextScreen: enterAddress4
     order: 20
@@ -276,7 +276,7 @@ enterPhoneNumber4:
         en: Phone Number
     type: inputScreen
 enterRelationship1:
-    cacheQuery: member.memberDependant.0.relationship1
+    cacheQuery: relationship1
     inputIdentifier: relationship1
     nextScreen: enterName2
     options:
@@ -297,7 +297,7 @@ enterRelationship1:
         en: Relationship
     type: inputScreen
 enterRelationship2:
-    cacheQuery: member.memberDependant.0.relationship2
+    cacheQuery: relationship2
     inputIdentifier: relationship2
     nextScreen: enterName3
     options:
@@ -318,7 +318,7 @@ enterRelationship2:
         en: Relationship
     type: inputScreen
 enterRelationship3:
-    cacheQuery: member.memberDependant.0.relationship3
+    cacheQuery: relationship3
     inputIdentifier: relationship3
     nextScreen: enterName4
     options:
@@ -339,7 +339,7 @@ enterRelationship3:
         en: Relationship
     type: inputScreen
 enterRelationship4:
-    cacheQuery: member.memberDependant.0.relationship4
+    cacheQuery: relationship4
     inputIdentifier: relationship4
     nextScreen: formSummary
     options:
