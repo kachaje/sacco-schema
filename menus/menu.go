@@ -132,6 +132,10 @@ func (m *Menus) populateMenus() error {
 			return nil
 		}
 
+		if !strings.HasSuffix(file, ".yml") {
+			return nil
+		}
+
 		content, err := menuFiles.ReadFile(file)
 		if err != nil {
 			return err
