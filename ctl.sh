@@ -12,7 +12,17 @@ if [[ "$1" == "-b" ]]; then
 
 elif [[ "$1" == "-g" ]]; then
 
-  ./convert -f designs/sacco.drawio
+  pushd cmd/gen 2>&1 >/dev/null
+
+  go run *.go -f designs/sacco.drawio
+
+  popd 2>&1 >/dev/null
+
+  pushd menus/workflows 2>&1 >/dev/null
+
+  go run *.go
+
+  popd 2>&1 >/dev/null
 
   npx prettier -w .
 
