@@ -274,52 +274,70 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 						}
 					}
 
-					for i := range len(keysOrder) {
-						if k, ok := keysOrder[i]; ok {
-							v := vv[k]
+					totalLoops := 1
 
-							row := map[string]any{}
+					if val["hasLoops"] != nil && val["totalLoops"] != nil {
+						v, err := strconv.Atoi(fmt.Sprintf("%v", val["totalLoops"]))
+						if err == nil {
+							totalLoops = v
+						}
+					}
 
-							if regexp.MustCompile("id$").MatchString(strings.ToLower(k)) {
-								row["hidden"] = true
+					for j := range totalLoops {
+						for i := range len(keysOrder) {
+							if k, ok := keysOrder[i]; ok {
+								v := vv[k]
 
-								if vf, ok := v.(map[string]any); ok {
-									if vf["order"] != nil {
-										vi, err := strconv.Atoi(fmt.Sprintf("%v", vf["order"]))
-										if err == nil {
-											row["order"] = vi
+								prefix := ""
+
+								if totalLoops > 1 {
+									prefix = fmt.Sprint(j + 1)
+								}
+
+								localKey := fmt.Sprintf("%v%v", k, prefix)
+
+								row := map[string]any{}
+
+								if regexp.MustCompile("id$").MatchString(strings.ToLower(k)) {
+									row["hidden"] = true
+
+									if vf, ok := v.(map[string]any); ok {
+										if vf["order"] != nil {
+											row["order"] = i + (j * len(keysOrder))
+										}
+									}
+								} else {
+									if vf, ok := v.(map[string]any); ok {
+										for kf, vf := range vf {
+											switch kf {
+											case "hidden":
+												row["optional"] = true
+												row["hidden"] = true
+											case "default", "optional":
+												row["optional"] = true
+											case "type":
+												if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
+													row["numericField"] = true
+												} else {
+													row[kf] = vf
+												}
+											case "order":
+												row["order"] = i + (j * len(keysOrder))
+											case "options":
+												if vo, ok := vf.([]any); ok {
+													row[kf] = vo
+												} else if vo, ok := vf.([]string); ok {
+													row[kf] = vo
+												}
+											}
 										}
 									}
 								}
-							} else {
-								if vf, ok := v.(map[string]any); ok {
-									for kf, vf := range vf {
-										switch kf {
-										case "hidden":
-											row["optional"] = true
-											row["hidden"] = true
-										case "default", "optional":
-											row["optional"] = true
-										case "type", "order":
-											if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
-												row["numericField"] = true
-											} else {
-												row[kf] = vf
-											}
-										case "options":
-											if vo, ok := vf.([]any); ok {
-												row[kf] = vo
-											} else if vo, ok := vf.([]string); ok {
-												row[kf] = vo
-											}
-										}
-									}
-								}
+
+								result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
+									localKey: row,
+								})
 							}
-
-							result[model].(map[string]any)["fields"] = append(result[model].(map[string]any)["fields"].([]map[string]any), map[string]any{
-								k: row,
-							})
 						}
 					}
 				}
