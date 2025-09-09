@@ -305,6 +305,7 @@
       },
       {
         "memberIdNumber": {
+          "hidden": true,
           "optional": true,
           "order": 1,
           "type": "text"
@@ -383,6 +384,7 @@
       },
       {
         "dateJoined": {
+          "hidden": true,
           "optional": true,
           "order": 13,
           "type": "text"
@@ -737,6 +739,7 @@
       },
       {
         "loanNumber": {
+          "hidden": true,
           "optional": true,
           "order": 3,
           "type": "text"
@@ -861,6 +864,8 @@
       },
       {
         "dateOfApproval": {
+          "hidden": true,
+          "optional": true,
           "order": 5,
           "type": "text"
         }
@@ -873,6 +878,8 @@
       },
       {
         "dateVerified": {
+          "hidden": true,
+          "optional": true,
           "order": 7,
           "type": "text"
         }

@@ -284,6 +284,9 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 								if vf, ok := v.(map[string]any); ok {
 									for kf, vf := range vf {
 										switch kf {
+										case "hidden":
+											row["optional"] = true
+											row["hidden"] = true
 										case "default", "optional":
 											row["optional"] = true
 										case "type", "order":
