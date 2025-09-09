@@ -135,7 +135,7 @@ func QueryWithRetry(db *sql.DB, ctx context.Context, retries int, query string, 
 				return QueryWithRetry(db, ctx, retries, query, args...)
 			}
 		}
-		return nil, fmt.Errorf("models.QueryWithRetry.1: %s", err.Error())
+		return nil, fmt.Errorf("utils.QueryWithRetry.1: %s", err.Error())
 	}
 
 	return result, nil
