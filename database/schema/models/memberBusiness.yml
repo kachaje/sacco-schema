@@ -1,26 +1,27 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberLoanId:
-  order: 1
-  referenceTable: memberLoan
-  type: int
+    order: 1
+    referenceTable: memberLoan
+    type: int
 
 yearsInBusiness:
-  order: 2
-  type: int
+    order: 2
+    type: int
 
 businessNature:
-  order: 3
-  type: text
+    order: 3
+    type: text
 
 businessName:
-  order: 4
-  type: text
+    order: 4
+    type: text
 
 tradingArea:
-  order: 5
-  type: text
+    order: 5
+    type: text

@@ -1,21 +1,22 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 name:
-  order: 1
-  type: text
+    order: 1
+    type: text
 
 address:
-  order: 2
-  type: text
+    order: 2
+    type: text
 
 phoneNumber:
-  order: 3
-  type: text
+    order: 3
+    type: text
 
 contactPerson:
-  order: 4
-  type: text
+    order: 4
+    type: text

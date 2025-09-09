@@ -1,68 +1,69 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberId:
-  hidden: true
-  many: true
-  order: 1
-  referenceTable: member
-  type: int
+    hidden: true
+    many: true
+    order: 1
+    referenceTable: member
+    type: int
 
 loanNumber:
-  hidden: true
-  optional: true
-  order: 2
-  type: text
+    hidden: true
+    optional: true
+    order: 2
+    type: text
 
 loanAmount:
-  order: 3
-  type: real
+    order: 3
+    type: real
 
 repaymentPeriodInMonths:
-  order: 4
-  type: int
+    order: 4
+    type: int
 
 loanPurpose:
-  order: 5
-  type: text
+    order: 5
+    type: text
 
 loanType:
-  order: 6
-  type: text
+    order: 6
+    type: text
 
 loanStartDate:
-  default: CURRENT_TIMESTAMP
-  order: 7
-  type: text
+    default: CURRENT_TIMESTAMP
+    order: 7
+    type: text
 
 loanDueDate:
-  default: CURRENT_TIMESTAMP
-  order: 8
-  type: text
+    default: CURRENT_TIMESTAMP
+    order: 8
+    type: text
 
 monthlyInstalments:
-  default: "0"
-  order: 9
-  readOnly: true
-  type: real
+    default: "0"
+    order: 9
+    readOnly: true
+    type: real
 
 interestRate:
-  default: "0"
-  order: 10
-  readOnly: true
-  type: real
+    default: "0"
+    order: 10
+    readOnly: true
+    type: real
 
 amountPaid:
-  default: "0"
-  order: 11
-  readOnly: true
-  type: real
+    default: "0"
+    order: 11
+    readOnly: true
+    type: real
 
 balanceAmount:
-  default: "0"
-  order: 12
-  readOnly: true
-  type: real
+    default: "0"
+    order: 12
+    readOnly: true
+    type: real

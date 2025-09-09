@@ -1,9 +1,10 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 name:
-  order: 1
-  type: text
+    order: 1
+    type: text

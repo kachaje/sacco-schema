@@ -1,48 +1,48 @@
 cacheQueries:
-  amount: memberSaving.memberSavingWithdrawal.0.amount
-  date: memberSaving.memberSavingWithdrawal.0.date
-  description: memberSaving.memberSavingWithdrawal.0.description
-  id: memberSaving.memberSavingWithdrawal.0.id
-  memberSavingId: memberSaving.memberSavingWithdrawal.0.memberSavingId
+    amount: memberSaving.memberSavingWithdrawal.0.amount
+    date: memberSaving.memberSavingWithdrawal.0.date
+    description: memberSaving.memberSavingWithdrawal.0.description
+    id: memberSaving.memberSavingWithdrawal.0.id
+    memberSavingId: memberSaving.memberSavingWithdrawal.0.memberSavingId
 enterAmount:
-  cacheQuery: memberSaving.memberSavingWithdrawal.0.amount
-  inputIdentifier: amount
-  nextScreen: formSummary
-  order: 3
-  text:
-    en: Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberSaving.memberSavingWithdrawal.0.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 3
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: memberSaving.memberSavingWithdrawal.0.date
-  inputIdentifier: date
-  nextScreen: enterAmount
-  optional: true
-  order: 2
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: memberSaving.memberSavingWithdrawal.0.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 2
+    text:
+        en: Date
+    type: inputScreen
 enterDescription:
-  cacheQuery: memberSaving.memberSavingWithdrawal.0.description
-  inputIdentifier: description
-  nextScreen: enterDate
-  order: 1
-  text:
-    en: Description
-  type: inputScreen
+    cacheQuery: memberSaving.memberSavingWithdrawal.0.description
+    inputIdentifier: description
+    nextScreen: enterDate
+    order: 1
+    text:
+        en: Description
+    type: inputScreen
 enterId:
-  cacheQuery: memberSaving.memberSavingWithdrawal.0.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberSaving.memberSavingWithdrawal.0.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberSavingId:
-  cacheQuery: memberSaving.memberSavingWithdrawal.0.memberSavingId
-  hidden: true
-  inputIdentifier: memberSavingId
-  type: hiddenField
+    cacheQuery: memberSaving.memberSavingWithdrawal.0.memberSavingId
+    hidden: true
+    inputIdentifier: memberSavingId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDescription
 model: memberSavingWithdrawal
 parentIds:
-  - memberSavingId
+    - memberSavingId

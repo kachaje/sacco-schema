@@ -1,28 +1,29 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberLoanId:
-  hidden: true
-  many: true
-  order: 1
-  referenceTable: memberLoan
-  type: int
+    hidden: true
+    many: true
+    order: 1
+    referenceTable: memberLoan
+    type: int
 
 dueDate:
-  order: 2
-  type: text
+    order: 2
+    type: text
 
 amountDue:
-  order: 3
-  type: real
+    order: 3
+    type: real
 
 paid:
-  default: "No"
-  options:
-    - "Yes"
-    - "No"
-  order: 4
-  type: text
+    default: "No"
+    options:
+        - "Yes"
+        - "No"
+    order: 4
+    type: text

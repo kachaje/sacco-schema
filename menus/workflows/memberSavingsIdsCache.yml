@@ -1,39 +1,39 @@
 cacheQueries:
-  claimed: memberSaving.memberSavingsIdsCache.claimed
-  id: memberSaving.memberSavingsIdsCache.id
-  idNumber: memberSaving.memberSavingsIdsCache.idNumber
-  memberSavingId: memberSaving.memberSavingsIdsCache.memberSavingId
+    claimed: memberSaving.memberSavingsIdsCache.claimed
+    id: memberSaving.memberSavingsIdsCache.id
+    idNumber: memberSaving.memberSavingsIdsCache.idNumber
+    memberSavingId: memberSaving.memberSavingsIdsCache.memberSavingId
 enterClaimed:
-  cacheQuery: memberSaving.memberSavingsIdsCache.claimed
-  inputIdentifier: claimed
-  nextScreen: formSummary
-  optional: true
-  order: 2
-  text:
-    en: Claimed
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: memberSaving.memberSavingsIdsCache.claimed
+    inputIdentifier: claimed
+    nextScreen: formSummary
+    optional: true
+    order: 2
+    text:
+        en: Claimed
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: memberSaving.memberSavingsIdsCache.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: memberSaving.memberSavingsIdsCache.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterIdNumber:
-  cacheQuery: memberSaving.memberSavingsIdsCache.idNumber
-  inputIdentifier: idNumber
-  nextScreen: enterClaimed
-  order: 1
-  text:
-    en: Id Number
-  type: inputScreen
+    cacheQuery: memberSaving.memberSavingsIdsCache.idNumber
+    inputIdentifier: idNumber
+    nextScreen: enterClaimed
+    order: 1
+    text:
+        en: Id Number
+    type: inputScreen
 enterMemberSavingId:
-  cacheQuery: memberSaving.memberSavingsIdsCache.memberSavingId
-  hidden: true
-  inputIdentifier: memberSavingId
-  type: hiddenField
+    cacheQuery: memberSaving.memberSavingsIdsCache.memberSavingId
+    hidden: true
+    inputIdentifier: memberSavingId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterIdNumber
 model: memberSavingsIdsCache
 parentIds:
-  - memberSavingId
+    - memberSavingId

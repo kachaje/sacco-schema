@@ -1,53 +1,53 @@
 cacheQueries:
-  accountId: account.accountStatement.0.accountId
-  closingBalance: account.accountStatement.0.closingBalance
-  date: account.accountStatement.0.date
-  totalCredit: account.accountStatement.0.totalCredit
-  totalDebit: account.accountStatement.0.totalDebit
+    accountId: account.accountStatement.0.accountId
+    closingBalance: account.accountStatement.0.closingBalance
+    date: account.accountStatement.0.date
+    totalCredit: account.accountStatement.0.totalCredit
+    totalDebit: account.accountStatement.0.totalDebit
 enterAccountId:
-  cacheQuery: account.accountStatement.0.accountId
-  hidden: true
-  inputIdentifier: accountId
-  type: hiddenField
+    cacheQuery: account.accountStatement.0.accountId
+    hidden: true
+    inputIdentifier: accountId
+    type: hiddenField
 enterClosingBalance:
-  cacheQuery: account.accountStatement.0.closingBalance
-  inputIdentifier: closingBalance
-  nextScreen: enterTotalCredit
-  order: 2
-  text:
-    en: Closing Balance
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: account.accountStatement.0.closingBalance
+    inputIdentifier: closingBalance
+    nextScreen: enterTotalCredit
+    order: 2
+    text:
+        en: Closing Balance
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: account.accountStatement.0.date
-  inputIdentifier: date
-  nextScreen: enterClosingBalance
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: account.accountStatement.0.date
+    inputIdentifier: date
+    nextScreen: enterClosingBalance
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
 enterTotalCredit:
-  cacheQuery: account.accountStatement.0.totalCredit
-  inputIdentifier: totalCredit
-  nextScreen: enterTotalDebit
-  order: 3
-  text:
-    en: Total Credit
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: account.accountStatement.0.totalCredit
+    inputIdentifier: totalCredit
+    nextScreen: enterTotalDebit
+    order: 3
+    text:
+        en: Total Credit
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterTotalDebit:
-  cacheQuery: account.accountStatement.0.totalDebit
-  inputIdentifier: totalDebit
-  nextScreen: formSummary
-  order: 4
-  text:
-    en: Total Debit
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: account.accountStatement.0.totalDebit
+    inputIdentifier: totalDebit
+    nextScreen: formSummary
+    order: 4
+    text:
+        en: Total Debit
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDate
 model: accountStatement
 parentIds:
-  - accountId
+    - accountId

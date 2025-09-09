@@ -1,59 +1,59 @@
 cacheQueries:
-  id: member.memberShares.0.id
-  memberId: member.memberShares.0.memberId
-  memberSharesIdNumber: member.memberShares.0.memberSharesIdNumber
-  monthlyPremium: member.memberShares.0.monthlyPremium
-  numberOfShares: member.memberShares.0.numberOfShares
-  totalValue: member.memberShares.0.totalValue
+    id: member.memberShares.0.id
+    memberId: member.memberShares.0.memberId
+    memberSharesIdNumber: member.memberShares.0.memberSharesIdNumber
+    monthlyPremium: member.memberShares.0.monthlyPremium
+    numberOfShares: member.memberShares.0.numberOfShares
+    totalValue: member.memberShares.0.totalValue
 enterId:
-  cacheQuery: member.memberShares.0.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: member.memberShares.0.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: member.memberShares.0.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: member.memberShares.0.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 enterMemberSharesIdNumber:
-  cacheQuery: member.memberShares.0.memberSharesIdNumber
-  inputIdentifier: memberSharesIdNumber
-  nextScreen: enterMonthlyPremium
-  optional: true
-  order: 1
-  text:
-    en: Member Shares Id Number
-  type: inputScreen
+    cacheQuery: member.memberShares.0.memberSharesIdNumber
+    inputIdentifier: memberSharesIdNumber
+    nextScreen: enterMonthlyPremium
+    optional: true
+    order: 1
+    text:
+        en: Member Shares Id Number
+    type: inputScreen
 enterMonthlyPremium:
-  cacheQuery: member.memberShares.0.monthlyPremium
-  inputIdentifier: monthlyPremium
-  nextScreen: enterTotalValue
-  order: 2
-  text:
-    en: Monthly Premium
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: member.memberShares.0.monthlyPremium
+    inputIdentifier: monthlyPremium
+    nextScreen: enterTotalValue
+    order: 2
+    text:
+        en: Monthly Premium
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterNumberOfShares:
-  cacheQuery: member.memberShares.0.numberOfShares
-  inputIdentifier: numberOfShares
-  nextScreen: formSummary
-  order: 4
-  text:
-    en: Number Of Shares
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: member.memberShares.0.numberOfShares
+    inputIdentifier: numberOfShares
+    nextScreen: formSummary
+    order: 4
+    text:
+        en: Number Of Shares
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterTotalValue:
-  cacheQuery: member.memberShares.0.totalValue
-  inputIdentifier: totalValue
-  nextScreen: enterNumberOfShares
-  order: 3
-  text:
-    en: Total Value
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: member.memberShares.0.totalValue
+    inputIdentifier: totalValue
+    nextScreen: enterNumberOfShares
+    order: 3
+    text:
+        en: Total Value
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterMemberSharesIdNumber
 model: memberShares
 parentIds:
-  - memberId
+    - memberId

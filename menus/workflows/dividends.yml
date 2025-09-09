@@ -1,39 +1,39 @@
 cacheQueries:
-  amount: member.dividends.0.amount
-  date: member.dividends.0.date
-  id: member.dividends.0.id
-  memberId: member.dividends.0.memberId
+    amount: member.dividends.0.amount
+    date: member.dividends.0.date
+    id: member.dividends.0.id
+    memberId: member.dividends.0.memberId
 enterAmount:
-  cacheQuery: member.dividends.0.amount
-  inputIdentifier: amount
-  nextScreen: formSummary
-  order: 2
-  text:
-    en: Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: member.dividends.0.amount
+    inputIdentifier: amount
+    nextScreen: formSummary
+    order: 2
+    text:
+        en: Amount
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: member.dividends.0.date
-  inputIdentifier: date
-  nextScreen: enterAmount
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: member.dividends.0.date
+    inputIdentifier: date
+    nextScreen: enterAmount
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
 enterId:
-  cacheQuery: member.dividends.0.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: member.dividends.0.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: member.dividends.0.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: member.dividends.0.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDate
 model: dividends
 parentIds:
-  - memberId
+    - memberId

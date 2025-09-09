@@ -1,72 +1,72 @@
 cacheQueries:
-  date: member.notification.0.date
-  id: member.notification.0.id
-  memberId: member.notification.0.memberId
-  message: member.notification.0.message
-  msgDelivered: member.notification.0.msgDelivered
-  msgRead: member.notification.0.msgRead
+    date: member.notification.0.date
+    id: member.notification.0.id
+    memberId: member.notification.0.memberId
+    message: member.notification.0.message
+    msgDelivered: member.notification.0.msgDelivered
+    msgRead: member.notification.0.msgRead
 enterDate:
-  cacheQuery: member.notification.0.date
-  inputIdentifier: date
-  nextScreen: enterMessage
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
+    cacheQuery: member.notification.0.date
+    inputIdentifier: date
+    nextScreen: enterMessage
+    optional: true
+    order: 1
+    text:
+        en: Date
+    type: inputScreen
 enterId:
-  cacheQuery: member.notification.0.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: member.notification.0.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMemberId:
-  cacheQuery: member.notification.0.memberId
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+    cacheQuery: member.notification.0.memberId
+    hidden: true
+    inputIdentifier: memberId
+    type: hiddenField
 enterMessage:
-  cacheQuery: member.notification.0.message
-  inputIdentifier: message
-  nextScreen: enterMsgDelivered
-  order: 2
-  text:
-    en: Message
-  type: inputScreen
+    cacheQuery: member.notification.0.message
+    inputIdentifier: message
+    nextScreen: enterMsgDelivered
+    order: 2
+    text:
+        en: Message
+    type: inputScreen
 enterMsgDelivered:
-  cacheQuery: member.notification.0.msgDelivered
-  inputIdentifier: msgDelivered
-  nextScreen: enterMsgRead
-  optional: true
-  options:
-    - label:
-        en: "Yes"
-      position: 1
-    - label:
-        en: "No"
-      position: 2
-  order: 3
-  text:
-    en: Msg Delivered
-  type: inputScreen
+    cacheQuery: member.notification.0.msgDelivered
+    inputIdentifier: msgDelivered
+    nextScreen: enterMsgRead
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 3
+    text:
+        en: Msg Delivered
+    type: inputScreen
 enterMsgRead:
-  cacheQuery: member.notification.0.msgRead
-  inputIdentifier: msgRead
-  nextScreen: formSummary
-  optional: true
-  options:
-    - label:
-        en: "Yes"
-      position: 1
-    - label:
-        en: "No"
-      position: 2
-  order: 4
-  text:
-    en: Msg Read
-  type: inputScreen
+    cacheQuery: member.notification.0.msgRead
+    inputIdentifier: msgRead
+    nextScreen: formSummary
+    optional: true
+    options:
+        - label:
+            en: "Yes"
+          position: 1
+        - label:
+            en: "No"
+          position: 2
+    order: 4
+    text:
+        en: Msg Read
+    type: inputScreen
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterDate
 model: notification
 parentIds:
-  - memberId
+    - memberId

@@ -1,38 +1,39 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberId:
-  many: true
-  order: 1
-  referenceTable: member
-  type: int
+    many: true
+    order: 1
+    referenceTable: member
+    type: int
 
 date:
-  default: CURRENT_TIMESTAMP
-  order: 2
-  type: text
+    default: CURRENT_TIMESTAMP
+    order: 2
+    type: text
 
 message:
-  order: 3
-  type: text
+    order: 3
+    type: text
 
 msgDelivered:
-  default: "No"
-  optional: true
-  options:
-    - "Yes"
-    - "No"
-  order: 4
-  type: text
+    default: "No"
+    optional: true
+    options:
+        - "Yes"
+        - "No"
+    order: 4
+    type: text
 
 msgRead:
-  default: "No"
-  optional: true
-  options:
-    - "Yes"
-    - "No"
-  order: 5
-  type: text
+    default: "No"
+    optional: true
+    options:
+        - "Yes"
+        - "No"
+    order: 5
+    type: text

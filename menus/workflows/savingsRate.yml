@@ -1,29 +1,29 @@
 cacheQueries:
-  id: savingsType.savingsRate.0.id
-  monthlyRate: savingsType.savingsRate.0.monthlyRate
-  savingsTypeId: savingsType.savingsRate.0.savingsTypeId
+    id: savingsType.savingsRate.0.id
+    monthlyRate: savingsType.savingsRate.0.monthlyRate
+    savingsTypeId: savingsType.savingsRate.0.savingsTypeId
 enterId:
-  cacheQuery: savingsType.savingsRate.0.id
-  hidden: true
-  inputIdentifier: id
-  type: hiddenField
+    cacheQuery: savingsType.savingsRate.0.id
+    hidden: true
+    inputIdentifier: id
+    type: hiddenField
 enterMonthlyRate:
-  cacheQuery: savingsType.savingsRate.0.monthlyRate
-  inputIdentifier: monthlyRate
-  nextScreen: formSummary
-  order: 1
-  text:
-    en: Monthly Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+    cacheQuery: savingsType.savingsRate.0.monthlyRate
+    inputIdentifier: monthlyRate
+    nextScreen: formSummary
+    order: 1
+    text:
+        en: Monthly Rate
+    type: inputScreen
+    validationRule: ^\d+\.*\d*$
 enterSavingsTypeId:
-  cacheQuery: savingsType.savingsRate.0.savingsTypeId
-  hidden: true
-  inputIdentifier: savingsTypeId
-  type: hiddenField
+    cacheQuery: savingsType.savingsRate.0.savingsTypeId
+    hidden: true
+    inputIdentifier: savingsTypeId
+    type: hiddenField
 formSummary:
-  type: quitScreen
+    type: quitScreen
 initialScreen: enterMonthlyRate
 model: savingsRate
 parentIds:
-  - savingsTypeId
+    - savingsTypeId

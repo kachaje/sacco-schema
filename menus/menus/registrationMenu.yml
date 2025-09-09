@@ -37,10 +37,6 @@ fields:
     label:
       en: Beneficiaries
     workflow: memberDependant
-    settings:
-      hasLoops: true
-      totalLoops: 4
-      terminateBlockOnEmptyField: name
     targetKeys:
       - id
       - name

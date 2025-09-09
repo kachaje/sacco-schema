@@ -1,20 +1,21 @@
+
 id:
-  autoIncrement: true
-  order: 0
-  primaryKey: true
-  type: int
+    autoIncrement: true
+    order: 0
+    primaryKey: true
+    type: int
 
 memberId:
-  optional: true
-  order: 1
-  referenceTable: member
-  type: int
+    optional: true
+    order: 1
+    referenceTable: member
+    type: int
 
 idNumber:
-  order: 2
-  type: text
+    order: 2
+    type: text
 
 claimed:
-  default: "0"
-  order: 3
-  type: int
+    default: "0"
+    order: 3
+    type: int
