@@ -30,8 +30,8 @@ func setupModelDb(dbname string) (*sql.DB, *database.Model, error) {
 		height REAL,
 		weight REAL,
 		active INTEGER DEFAULT 1,
-		created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-		updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+		createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+		updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
 	);`, tableName)
 	_, err = db.Exec(sqlStmt)
 	if err != nil {

@@ -18,23 +18,23 @@ func ListUsers(
 
 	title := "Users List\n----------"
 
-	result, err := DB.SQLQuery("SELECT id, username, role, created_at, updated_at FROM user WHERE active = 1")
+	result, err := DB.SQLQuery("SELECT id, username, userRole, createdAt, updatedAt FROM user WHERE active = 1")
 	if err != nil {
 		content = fmt.Sprintf("%s\n", err.Error())
 	} else {
 		rows := []string{
-			fmt.Sprintf("%2s | %-10s | %-8s | %-20s | %-20s", "id", "username", "role", "created_at", "updated_at"),
+			fmt.Sprintf("%2s | %-10s | %-8s | %-20s | %-20s", "id", "username", "role", "createdAt", "updatedAt"),
 			strings.Repeat("-", 70),
 		}
 
 		for _, row := range result {
 			id := fmt.Sprintf("%v", row["id"])
 			username := fmt.Sprintf("%v", row["username"])
-			role := fmt.Sprintf("%v", row["role"])
-			createdAt := fmt.Sprintf("%v", row["created_at"])
-			updatedAt := fmt.Sprintf("%v", row["updated_at"])
+			userRole := fmt.Sprintf("%v", row["userRole"])
+			createdAt := fmt.Sprintf("%v", row["createdAt"])
+			updatedAt := fmt.Sprintf("%v", row["updatedAt"])
 
-			entry := fmt.Sprintf("%2s | %-10s | %-8s | %-20s | %-20s", id, username, role, createdAt, updatedAt)
+			entry := fmt.Sprintf("%2s | %-10s | %-8s | %-20s | %-20s", id, username, userRole, createdAt, updatedAt)
 
 			rows = append(rows, entry)
 		}
