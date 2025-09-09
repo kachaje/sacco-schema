@@ -8,7 +8,6 @@ cacheQueries:
   postalAddress: member.memberContact.postalAddress
   residentialAddress: member.memberContact.residentialAddress
 enterEmail:
-  cacheQuery: email
   inputIdentifier: email
   nextScreen: enterHomeVillage
   optional: true
@@ -17,7 +16,6 @@ enterEmail:
     en: Email
   type: inputScreen
 enterHomeDistrict:
-  cacheQuery: homeDistrict
   inputIdentifier: homeDistrict
   nextScreen: formSummary
   order: 6
@@ -25,7 +23,6 @@ enterHomeDistrict:
     en: Home District
   type: inputScreen
 enterHomeTraditionalAuthority:
-  cacheQuery: homeTraditionalAuthority
   inputIdentifier: homeTraditionalAuthority
   nextScreen: enterHomeDistrict
   order: 5
@@ -33,7 +30,6 @@ enterHomeTraditionalAuthority:
     en: Home Traditional Authority
   type: inputScreen
 enterHomeVillage:
-  cacheQuery: homeVillage
   inputIdentifier: homeVillage
   nextScreen: enterHomeTraditionalAuthority
   order: 4
@@ -41,17 +37,14 @@ enterHomeVillage:
     en: Home Village
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterPostalAddress:
-  cacheQuery: postalAddress
   inputIdentifier: postalAddress
   nextScreen: enterResidentialAddress
   order: 1
@@ -59,7 +52,6 @@ enterPostalAddress:
     en: Postal Address
   type: inputScreen
 enterResidentialAddress:
-  cacheQuery: residentialAddress
   inputIdentifier: residentialAddress
   nextScreen: enterEmail
   order: 2

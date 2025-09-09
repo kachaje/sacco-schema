@@ -32,7 +32,6 @@ cacheQueries:
   relationship3: member.memberDependant.0.relationship
   relationship4: member.memberDependant.0.relationship
 enterAddress1:
-  cacheQuery: address
   inputIdentifier: address1
   nextScreen: enterPercentage1
   optional: true
@@ -41,7 +40,6 @@ enterAddress1:
     en: Address
   type: inputScreen
 enterAddress2:
-  cacheQuery: address
   inputIdentifier: address2
   nextScreen: enterPercentage2
   optional: true
@@ -50,7 +48,6 @@ enterAddress2:
     en: Address
   type: inputScreen
 enterAddress3:
-  cacheQuery: address
   inputIdentifier: address3
   nextScreen: enterPercentage3
   optional: true
@@ -59,7 +56,6 @@ enterAddress3:
     en: Address
   type: inputScreen
 enterAddress4:
-  cacheQuery: address
   inputIdentifier: address4
   nextScreen: enterPercentage4
   optional: true
@@ -68,27 +64,22 @@ enterAddress4:
     en: Address
   type: inputScreen
 enterId1:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id1
   type: hiddenField
 enterId2:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id2
   type: hiddenField
 enterId3:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id3
   type: hiddenField
 enterId4:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id4
   type: hiddenField
 enterIsNominee1:
-  cacheQuery: isNominee
   inputIdentifier: isNominee1
   nextScreen: enterRelationship1
   optional: true
@@ -104,7 +95,6 @@ enterIsNominee1:
     en: Is Nominee
   type: inputScreen
 enterIsNominee2:
-  cacheQuery: isNominee
   inputIdentifier: isNominee2
   nextScreen: enterRelationship2
   optional: true
@@ -120,7 +110,6 @@ enterIsNominee2:
     en: Is Nominee
   type: inputScreen
 enterIsNominee3:
-  cacheQuery: isNominee
   inputIdentifier: isNominee3
   nextScreen: enterRelationship3
   optional: true
@@ -136,7 +125,6 @@ enterIsNominee3:
     en: Is Nominee
   type: inputScreen
 enterIsNominee4:
-  cacheQuery: isNominee
   inputIdentifier: isNominee4
   nextScreen: enterRelationship4
   optional: true
@@ -152,27 +140,22 @@ enterIsNominee4:
     en: Is Nominee
   type: inputScreen
 enterMemberId1:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId1
   type: hiddenField
 enterMemberId2:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId2
   type: hiddenField
 enterMemberId3:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId3
   type: hiddenField
 enterMemberId4:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId4
   type: hiddenField
 enterName1:
-  cacheQuery: name
   inputIdentifier: name1
   nextScreen: enterPhoneNumber1
   order: 1
@@ -181,7 +164,6 @@ enterName1:
     en: Name
   type: inputScreen
 enterName2:
-  cacheQuery: name
   inputIdentifier: name2
   nextScreen: enterPhoneNumber2
   order: 7
@@ -190,7 +172,6 @@ enterName2:
     en: Name
   type: inputScreen
 enterName3:
-  cacheQuery: name
   inputIdentifier: name3
   nextScreen: enterPhoneNumber3
   order: 13
@@ -199,7 +180,6 @@ enterName3:
     en: Name
   type: inputScreen
 enterName4:
-  cacheQuery: name
   inputIdentifier: name4
   nextScreen: enterPhoneNumber4
   order: 19
@@ -208,7 +188,6 @@ enterName4:
     en: Name
   type: inputScreen
 enterPercentage1:
-  cacheQuery: percentage
   inputIdentifier: percentage1
   nextScreen: enterIsNominee1
   order: 4
@@ -217,7 +196,6 @@ enterPercentage1:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPercentage2:
-  cacheQuery: percentage
   inputIdentifier: percentage2
   nextScreen: enterIsNominee2
   order: 10
@@ -226,7 +204,6 @@ enterPercentage2:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPercentage3:
-  cacheQuery: percentage
   inputIdentifier: percentage3
   nextScreen: enterIsNominee3
   order: 16
@@ -235,7 +212,6 @@ enterPercentage3:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPercentage4:
-  cacheQuery: percentage
   inputIdentifier: percentage4
   nextScreen: enterIsNominee4
   order: 22
@@ -244,7 +220,6 @@ enterPercentage4:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterPhoneNumber1:
-  cacheQuery: phoneNumber
   inputIdentifier: phoneNumber1
   nextScreen: enterAddress1
   order: 2
@@ -252,7 +227,6 @@ enterPhoneNumber1:
     en: Phone Number
   type: inputScreen
 enterPhoneNumber2:
-  cacheQuery: phoneNumber
   inputIdentifier: phoneNumber2
   nextScreen: enterAddress2
   order: 8
@@ -260,7 +234,6 @@ enterPhoneNumber2:
     en: Phone Number
   type: inputScreen
 enterPhoneNumber3:
-  cacheQuery: phoneNumber
   inputIdentifier: phoneNumber3
   nextScreen: enterAddress3
   order: 14
@@ -268,7 +241,6 @@ enterPhoneNumber3:
     en: Phone Number
   type: inputScreen
 enterPhoneNumber4:
-  cacheQuery: phoneNumber
   inputIdentifier: phoneNumber4
   nextScreen: enterAddress4
   order: 20
@@ -276,7 +248,6 @@ enterPhoneNumber4:
     en: Phone Number
   type: inputScreen
 enterRelationship1:
-  cacheQuery: relationship
   inputIdentifier: relationship1
   nextScreen: enterName2
   options:
@@ -297,7 +268,6 @@ enterRelationship1:
     en: Relationship
   type: inputScreen
 enterRelationship2:
-  cacheQuery: relationship
   inputIdentifier: relationship2
   nextScreen: enterName3
   options:
@@ -318,7 +288,6 @@ enterRelationship2:
     en: Relationship
   type: inputScreen
 enterRelationship3:
-  cacheQuery: relationship
   inputIdentifier: relationship3
   nextScreen: enterName4
   options:
@@ -339,7 +308,6 @@ enterRelationship3:
     en: Relationship
   type: inputScreen
 enterRelationship4:
-  cacheQuery: relationship
   inputIdentifier: relationship4
   nextScreen: formSummary
   options:

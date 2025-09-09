@@ -141,16 +141,14 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 									}
 								}
 
-								suffix := key
+								localSuffix := key
 
 								reSuffix := regexp.MustCompile(`\d+$`)
 								if reSuffix.MatchString(key) {
-									suffix = reSuffix.ReplaceAllLiteralString(key, "")
+									localSuffix = reSuffix.ReplaceAllLiteralString(key, "")
 								}
 
-								cacheQuery := fmt.Sprintf("%v.%s", rootQuery, suffix)
-
-								data[tag].(map[string]any)["cacheQuery"] = suffix
+								cacheQuery := fmt.Sprintf("%v.%s", rootQuery, localSuffix)
 
 								cacheQueries[inputIdentifier] = cacheQuery
 							}

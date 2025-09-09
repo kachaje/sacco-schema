@@ -6,17 +6,14 @@ cacheQueries:
   direction: account.accountJournal.0.direction
   id: account.accountJournal.0.id
 enterAccountId:
-  cacheQuery: accountId
   hidden: true
   inputIdentifier: accountId
   type: hiddenField
 enterAccountTransactionId:
-  cacheQuery: accountTransactionId
   hidden: true
   inputIdentifier: accountTransactionId
   type: hiddenField
 enterAmount:
-  cacheQuery: amount
   inputIdentifier: amount
   nextScreen: enterDirection
   order: 2
@@ -25,7 +22,6 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -34,7 +30,6 @@ enterDate:
     en: Date
   type: inputScreen
 enterDirection:
-  cacheQuery: direction
   inputIdentifier: direction
   nextScreen: formSummary
   order: 3
@@ -43,7 +38,6 @@ enterDirection:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField

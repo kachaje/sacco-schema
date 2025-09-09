@@ -9,7 +9,6 @@ cacheQueries:
   memberLoanId: memberLoan.memberLoanApproval.memberLoanId
   verifiedBy: memberLoan.memberLoanApproval.verifiedBy
 enterAmountRecommended:
-  cacheQuery: amountRecommended
   inputIdentifier: amountRecommended
   nextScreen: enterApprovedBy
   order: 2
@@ -18,7 +17,6 @@ enterAmountRecommended:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterApprovedBy:
-  cacheQuery: approvedBy
   inputIdentifier: approvedBy
   nextScreen: enterVerifiedBy
   order: 3
@@ -26,17 +24,14 @@ enterApprovedBy:
     en: Approved By
   type: inputScreen
 enterDateOfApproval:
-  cacheQuery: dateOfApproval
   hidden: true
   inputIdentifier: dateOfApproval
   type: hiddenField
 enterDateVerified:
-  cacheQuery: dateVerified
   hidden: true
   inputIdentifier: dateVerified
   type: hiddenField
 enterDenialOrPartialReason:
-  cacheQuery: denialOrPartialReason
   inputIdentifier: denialOrPartialReason
   nextScreen: formSummary
   optional: true
@@ -45,12 +40,10 @@ enterDenialOrPartialReason:
     en: Denial Or Partial Reason
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanStatus:
-  cacheQuery: loanStatus
   inputIdentifier: loanStatus
   nextScreen: enterAmountRecommended
   optional: true
@@ -69,12 +62,10 @@ enterLoanStatus:
     en: Loan Status
   type: inputScreen
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterVerifiedBy:
-  cacheQuery: verifiedBy
   inputIdentifier: verifiedBy
   nextScreen: enterDenialOrPartialReason
   order: 4

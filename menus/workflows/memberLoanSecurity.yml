@@ -5,7 +5,6 @@ cacheQueries:
   serialNumber: memberLoan.memberLoanSecurity.0.serialNumber
   value: memberLoan.memberLoanSecurity.0.value
 enterDescription:
-  cacheQuery: description
   inputIdentifier: description
   nextScreen: enterValue
   order: 1
@@ -13,17 +12,14 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterSerialNumber:
-  cacheQuery: serialNumber
   inputIdentifier: serialNumber
   nextScreen: formSummary
   order: 3
@@ -31,7 +27,6 @@ enterSerialNumber:
     en: Serial Number
   type: inputScreen
 enterValue:
-  cacheQuery: value
   inputIdentifier: value
   nextScreen: enterSerialNumber
   order: 2

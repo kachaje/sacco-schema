@@ -14,7 +14,6 @@ cacheQueries:
   transport: memberBusiness.memberLastYearBusinessHistory.transport
   utilities: memberBusiness.memberLastYearBusinessHistory.utilities
 enterEmployeeWages:
-  cacheQuery: employeeWages
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary
   order: 4
@@ -23,7 +22,6 @@ enterEmployeeWages:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterFinancialYear:
-  cacheQuery: financialYear
   inputIdentifier: financialYear
   nextScreen: enterTotalIncome
   order: 1
@@ -32,12 +30,10 @@ enterFinancialYear:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanInterest:
-  cacheQuery: loanInterest
   inputIdentifier: loanInterest
   nextScreen: enterUtilities
   order: 7
@@ -46,12 +42,10 @@ enterLoanInterest:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterMemberBusinessId:
-  cacheQuery: memberBusinessId
   hidden: true
   inputIdentifier: memberBusinessId
   type: hiddenField
 enterNetProfitLoss:
-  cacheQuery: netProfitLoss
   inputIdentifier: netProfitLoss
   nextScreen: formSummary
   order: 12
@@ -60,7 +54,6 @@ enterNetProfitLoss:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOtherCosts:
-  cacheQuery: otherCosts
   inputIdentifier: otherCosts
   nextScreen: enterTotalCosts
   order: 10
@@ -69,7 +62,6 @@ enterOtherCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterOwnSalary:
-  cacheQuery: ownSalary
   inputIdentifier: ownSalary
   nextScreen: enterTransport
   order: 5
@@ -78,7 +70,6 @@ enterOwnSalary:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterRentals:
-  cacheQuery: rentals
   inputIdentifier: rentals
   nextScreen: enterOtherCosts
   order: 9
@@ -87,7 +78,6 @@ enterRentals:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCostOfGoods:
-  cacheQuery: totalCostOfGoods
   inputIdentifier: totalCostOfGoods
   nextScreen: enterEmployeeWages
   order: 3
@@ -96,7 +86,6 @@ enterTotalCostOfGoods:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalCosts:
-  cacheQuery: totalCosts
   inputIdentifier: totalCosts
   nextScreen: enterNetProfitLoss
   order: 11
@@ -105,7 +94,6 @@ enterTotalCosts:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalIncome:
-  cacheQuery: totalIncome
   inputIdentifier: totalIncome
   nextScreen: enterTotalCostOfGoods
   order: 2
@@ -114,7 +102,6 @@ enterTotalIncome:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTransport:
-  cacheQuery: transport
   inputIdentifier: transport
   nextScreen: enterLoanInterest
   order: 6
@@ -123,7 +110,6 @@ enterTransport:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterUtilities:
-  cacheQuery: utilities
   inputIdentifier: utilities
   nextScreen: enterRentals
   order: 8

@@ -4,7 +4,6 @@ cacheQueries:
   loanNumber: memberLoan.loanNumberIdsCache.loanNumber
   memberLoanId: memberLoan.loanNumberIdsCache.memberLoanId
 enterClaimed:
-  cacheQuery: claimed
   inputIdentifier: claimed
   nextScreen: formSummary
   optional: true
@@ -14,12 +13,10 @@ enterClaimed:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLoanNumber:
-  cacheQuery: loanNumber
   inputIdentifier: loanNumber
   nextScreen: enterClaimed
   order: 1
@@ -27,7 +24,6 @@ enterLoanNumber:
     en: Loan Number
   type: inputScreen
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField

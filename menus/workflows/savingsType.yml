@@ -6,7 +6,6 @@ cacheQueries:
   name: savingsType.name
   withdrawPattern: savingsType.withdrawPattern
 enterAmountSize:
-  cacheQuery: amountSize
   inputIdentifier: amountSize
   nextScreen: enterWithdrawPattern
   order: 2
@@ -15,12 +14,10 @@ enterAmountSize:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMaxWithdrawMonths:
-  cacheQuery: maxWithdrawMonths
   inputIdentifier: maxWithdrawMonths
   nextScreen: formSummary
   order: 5
@@ -29,7 +26,6 @@ enterMaxWithdrawMonths:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterMinWithdrawMonths:
-  cacheQuery: minWithdrawMonths
   inputIdentifier: minWithdrawMonths
   nextScreen: enterMaxWithdrawMonths
   order: 4
@@ -38,7 +34,6 @@ enterMinWithdrawMonths:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterName:
-  cacheQuery: name
   inputIdentifier: name
   nextScreen: enterAmountSize
   order: 1
@@ -46,7 +41,6 @@ enterName:
     en: Name
   type: inputScreen
 enterWithdrawPattern:
-  cacheQuery: withdrawPattern
   inputIdentifier: withdrawPattern
   nextScreen: enterMinWithdrawMonths
   order: 3

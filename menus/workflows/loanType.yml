@@ -6,7 +6,6 @@ cacheQueries:
   name: loanType.name
   periodLimitInMonths: loanType.periodLimitInMonths
 enterAmountLimit:
-  cacheQuery: amountLimit
   inputIdentifier: amountLimit
   nextScreen: enterPeriodLimitInMonths
   order: 3
@@ -15,7 +14,6 @@ enterAmountLimit:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterCategory:
-  cacheQuery: category
   inputIdentifier: category
   nextScreen: enterAmountLimit
   options:
@@ -36,12 +34,10 @@ enterCategory:
     en: Category
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMaxInstalmentMonths:
-  cacheQuery: maxInstalmentMonths
   inputIdentifier: maxInstalmentMonths
   nextScreen: formSummary
   order: 5
@@ -50,7 +46,6 @@ enterMaxInstalmentMonths:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterName:
-  cacheQuery: name
   inputIdentifier: name
   nextScreen: enterCategory
   order: 1
@@ -58,7 +53,6 @@ enterName:
     en: Name
   type: inputScreen
 enterPeriodLimitInMonths:
-  cacheQuery: periodLimitInMonths
   inputIdentifier: periodLimitInMonths
   nextScreen: enterMaxInstalmentMonths
   order: 4

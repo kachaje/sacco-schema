@@ -14,12 +14,10 @@ cacheQueries:
   utilityBillNumber: member.utilityBillNumber
   utilityBillType: member.utilityBillType
 enterDateJoined:
-  cacheQuery: dateJoined
   hidden: true
   inputIdentifier: dateJoined
   type: hiddenField
 enterDateOfBirth:
-  cacheQuery: dateOfBirth
   inputIdentifier: dateOfBirth
   nextScreen: enterNationalIdentifier
   order: 8
@@ -27,7 +25,6 @@ enterDateOfBirth:
     en: Date Of Birth
   type: inputScreen
 enterFirstName:
-  cacheQuery: firstName
   inputIdentifier: firstName
   nextScreen: enterLastName
   order: 1
@@ -35,7 +32,6 @@ enterFirstName:
     en: First Name
   type: inputScreen
 enterGender:
-  cacheQuery: gender
   inputIdentifier: gender
   nextScreen: enterPhoneNumber
   options:
@@ -50,12 +46,10 @@ enterGender:
     en: Gender
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterLastName:
-  cacheQuery: lastName
   inputIdentifier: lastName
   nextScreen: enterOtherName
   order: 2
@@ -63,7 +57,6 @@ enterLastName:
     en: Last Name
   type: inputScreen
 enterMaritalStatus:
-  cacheQuery: maritalStatus
   inputIdentifier: maritalStatus
   nextScreen: enterDateOfBirth
   options:
@@ -84,12 +77,10 @@ enterMaritalStatus:
     en: Marital Status
   type: inputScreen
 enterMemberIdNumber:
-  cacheQuery: memberIdNumber
   hidden: true
   inputIdentifier: memberIdNumber
   type: hiddenField
 enterNationalIdentifier:
-  cacheQuery: nationalIdentifier
   inputIdentifier: nationalIdentifier
   nextScreen: enterUtilityBillType
   order: 9
@@ -97,7 +88,6 @@ enterNationalIdentifier:
     en: National Identifier
   type: inputScreen
 enterOtherName:
-  cacheQuery: otherName
   inputIdentifier: otherName
   nextScreen: enterGender
   optional: true
@@ -106,7 +96,6 @@ enterOtherName:
     en: Other Name
   type: inputScreen
 enterPhoneNumber:
-  cacheQuery: phoneNumber
   inputIdentifier: phoneNumber
   nextScreen: enterTitle
   order: 5
@@ -114,7 +103,6 @@ enterPhoneNumber:
     en: Phone Number
   type: inputScreen
 enterTitle:
-  cacheQuery: title
   inputIdentifier: title
   nextScreen: enterMaritalStatus
   options:
@@ -144,7 +132,6 @@ enterTitle:
     en: Title
   type: inputScreen
 enterUtilityBillNumber:
-  cacheQuery: utilityBillNumber
   inputIdentifier: utilityBillNumber
   nextScreen: formSummary
   order: 11
@@ -152,7 +139,6 @@ enterUtilityBillNumber:
     en: Utility Bill Number
   type: inputScreen
 enterUtilityBillType:
-  cacheQuery: utilityBillType
   inputIdentifier: utilityBillType
   nextScreen: enterUtilityBillNumber
   options:

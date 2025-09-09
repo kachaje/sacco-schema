@@ -4,12 +4,10 @@ cacheQueries:
   normal: account.normal
   number: account.number
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterName:
-  cacheQuery: name
   inputIdentifier: name
   nextScreen: enterNumber
   order: 1
@@ -17,7 +15,6 @@ enterName:
     en: Name
   type: inputScreen
 enterNormal:
-  cacheQuery: normal
   inputIdentifier: normal
   nextScreen: formSummary
   order: 3
@@ -26,7 +23,6 @@ enterNormal:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterNumber:
-  cacheQuery: number
   inputIdentifier: number
   nextScreen: enterNormal
   order: 2

@@ -13,12 +13,10 @@ cacheQueries:
   monthlyInstalments: member.memberLoan.0.monthlyInstalments
   repaymentPeriodInMonths: member.memberLoan.0.repaymentPeriodInMonths
 enterAmountPaid:
-  cacheQuery: amountPaid
   hidden: true
   inputIdentifier: amountPaid
   type: hiddenField
 enterBalanceAmount:
-  cacheQuery: balanceAmount
   inputIdentifier: balanceAmount
   nextScreen: formSummary
   optional: true
@@ -28,12 +26,10 @@ enterBalanceAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterInterestRate:
-  cacheQuery: interestRate
   inputIdentifier: interestRate
   nextScreen: enterBalanceAmount
   optional: true
@@ -43,7 +39,6 @@ enterInterestRate:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterLoanAmount:
-  cacheQuery: loanAmount
   inputIdentifier: loanAmount
   nextScreen: enterRepaymentPeriodInMonths
   order: 1
@@ -52,7 +47,6 @@ enterLoanAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterLoanDueDate:
-  cacheQuery: loanDueDate
   inputIdentifier: loanDueDate
   nextScreen: enterMonthlyInstalments
   optional: true
@@ -61,12 +55,10 @@ enterLoanDueDate:
     en: Loan Due Date
   type: inputScreen
 enterLoanNumber:
-  cacheQuery: loanNumber
   hidden: true
   inputIdentifier: loanNumber
   type: hiddenField
 enterLoanPurpose:
-  cacheQuery: loanPurpose
   inputIdentifier: loanPurpose
   nextScreen: enterLoanType
   order: 3
@@ -74,7 +66,6 @@ enterLoanPurpose:
     en: Loan Purpose
   type: inputScreen
 enterLoanStartDate:
-  cacheQuery: loanStartDate
   inputIdentifier: loanStartDate
   nextScreen: enterLoanDueDate
   optional: true
@@ -83,7 +74,6 @@ enterLoanStartDate:
     en: Loan Start Date
   type: inputScreen
 enterLoanType:
-  cacheQuery: loanType
   inputIdentifier: loanType
   nextScreen: enterLoanStartDate
   order: 4
@@ -91,12 +81,10 @@ enterLoanType:
     en: Loan Type
   type: inputScreen
 enterMemberId:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMonthlyInstalments:
-  cacheQuery: monthlyInstalments
   inputIdentifier: monthlyInstalments
   nextScreen: enterInterestRate
   optional: true
@@ -106,7 +94,6 @@ enterMonthlyInstalments:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterRepaymentPeriodInMonths:
-  cacheQuery: repaymentPeriodInMonths
   inputIdentifier: repaymentPeriodInMonths
   nextScreen: enterLoanPurpose
   order: 2

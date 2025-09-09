@@ -4,7 +4,6 @@ cacheQueries:
   id: member.dividends.0.id
   memberId: member.dividends.0.memberId
 enterAmount:
-  cacheQuery: amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 2
@@ -13,7 +12,6 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -22,12 +20,10 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField

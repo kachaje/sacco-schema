@@ -5,7 +5,6 @@ cacheQueries:
   memberLoanId: memberLoan.memberLoanPaymentSchedule.0.memberLoanId
   paid: memberLoan.memberLoanPaymentSchedule.0.paid
 enterAmountDue:
-  cacheQuery: amountDue
   inputIdentifier: amountDue
   nextScreen: formSummary
   order: 2
@@ -14,7 +13,6 @@ enterAmountDue:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDueDate:
-  cacheQuery: dueDate
   inputIdentifier: dueDate
   nextScreen: enterAmountDue
   order: 1
@@ -22,17 +20,14 @@ enterDueDate:
     en: Due Date
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterPaid:
-  cacheQuery: paid
   hidden: true
   inputIdentifier: paid
   type: hiddenField

@@ -5,7 +5,6 @@ cacheQueries:
   memberBusinessId: memberBusiness.memberBusinessVerification.memberBusinessId
   netIncomeVerified: memberBusiness.memberBusinessVerification.netIncomeVerified
 enterBusinessVerified:
-  cacheQuery: businessVerified
   inputIdentifier: businessVerified
   nextScreen: enterGrossIncomeVerified
   optional: true
@@ -21,7 +20,6 @@ enterBusinessVerified:
     en: Business Verified
   type: inputScreen
 enterGrossIncomeVerified:
-  cacheQuery: grossIncomeVerified
   inputIdentifier: grossIncomeVerified
   nextScreen: enterNetIncomeVerified
   optional: true
@@ -37,17 +35,14 @@ enterGrossIncomeVerified:
     en: Gross Income Verified
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberBusinessId:
-  cacheQuery: memberBusinessId
   hidden: true
   inputIdentifier: memberBusinessId
   type: hiddenField
 enterNetIncomeVerified:
-  cacheQuery: netIncomeVerified
   inputIdentifier: netIncomeVerified
   nextScreen: formSummary
   order: 3

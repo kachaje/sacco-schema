@@ -5,7 +5,6 @@ cacheQueries:
   id: memberLoanPaymentSchedule.memberLoanReceipt.0.id
   memberLoanPaymentScheduleId: memberLoanPaymentSchedule.memberLoanReceipt.0.memberLoanPaymentScheduleId
 enterAmount:
-  cacheQuery: amount
   inputIdentifier: amount
   nextScreen: formSummary
   order: 3
@@ -14,7 +13,6 @@ enterAmount:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate:
-  cacheQuery: date
   inputIdentifier: date
   nextScreen: enterAmount
   optional: true
@@ -23,7 +21,6 @@ enterDate:
     en: Date
   type: inputScreen
 enterDescription:
-  cacheQuery: description
   inputIdentifier: description
   nextScreen: enterDate
   order: 1
@@ -31,12 +28,10 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanPaymentScheduleId:
-  cacheQuery: memberLoanPaymentScheduleId
   hidden: true
   inputIdentifier: memberLoanPaymentScheduleId
   type: hiddenField

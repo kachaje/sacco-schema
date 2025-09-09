@@ -4,7 +4,6 @@ cacheQueries:
   memberLoanId: memberLoan.memberLoanLiability.0.memberLoanId
   value: memberLoan.memberLoanLiability.0.value
 enterDescription:
-  cacheQuery: description
   inputIdentifier: description
   nextScreen: enterValue
   order: 1
@@ -12,17 +11,14 @@ enterDescription:
     en: Description
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterValue:
-  cacheQuery: value
   inputIdentifier: value
   nextScreen: formSummary
   order: 2

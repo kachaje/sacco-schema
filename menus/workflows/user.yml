@@ -5,12 +5,10 @@ cacheQueries:
   userRole: user.userRole
   username: user.username
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterName:
-  cacheQuery: name
   inputIdentifier: name
   nextScreen: enterUserRole
   order: 3
@@ -18,7 +16,6 @@ enterName:
     en: Name
   type: inputScreen
 enterPassword:
-  cacheQuery: password
   inputIdentifier: password
   nextScreen: enterName
   order: 2
@@ -26,7 +23,6 @@ enterPassword:
     en: Password
   type: inputScreen
 enterUserRole:
-  cacheQuery: userRole
   inputIdentifier: userRole
   nextScreen: formSummary
   order: 4
@@ -34,7 +30,6 @@ enterUserRole:
     en: User Role
   type: inputScreen
 enterUsername:
-  cacheQuery: username
   inputIdentifier: username
   nextScreen: enterPassword
   order: 1

@@ -6,7 +6,6 @@ cacheQueries:
   telephone: memberLoan.memberLoanWitness.0.telephone
   witnessName: memberLoan.memberLoanWitness.0.witnessName
 enterAddress:
-  cacheQuery: address
   inputIdentifier: address
   nextScreen: enterDate
   order: 3
@@ -14,7 +13,6 @@ enterAddress:
     en: Address
   type: inputScreen
 enterDate:
-  cacheQuery: date
   inputIdentifier: date
   nextScreen: formSummary
   optional: true
@@ -23,17 +21,14 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberLoanId:
-  cacheQuery: memberLoanId
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
 enterTelephone:
-  cacheQuery: telephone
   inputIdentifier: telephone
   nextScreen: enterAddress
   order: 2
@@ -41,7 +36,6 @@ enterTelephone:
     en: Telephone
   type: inputScreen
 enterWitnessName:
-  cacheQuery: witnessName
   inputIdentifier: witnessName
   nextScreen: enterTelephone
   order: 1

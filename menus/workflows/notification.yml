@@ -6,7 +6,6 @@ cacheQueries:
   msgDelivered: member.notification.0.msgDelivered
   msgRead: member.notification.0.msgRead
 enterDate:
-  cacheQuery: date
   inputIdentifier: date
   nextScreen: enterMessage
   optional: true
@@ -15,17 +14,14 @@ enterDate:
     en: Date
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterMemberId:
-  cacheQuery: memberId
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
 enterMessage:
-  cacheQuery: message
   inputIdentifier: message
   nextScreen: enterMsgDelivered
   order: 2
@@ -33,7 +29,6 @@ enterMessage:
     en: Message
   type: inputScreen
 enterMsgDelivered:
-  cacheQuery: msgDelivered
   inputIdentifier: msgDelivered
   nextScreen: enterMsgRead
   optional: true
@@ -49,7 +44,6 @@ enterMsgDelivered:
     en: Msg Delivered
   type: inputScreen
 enterMsgRead:
-  cacheQuery: msgRead
   inputIdentifier: msgRead
   nextScreen: formSummary
   optional: true

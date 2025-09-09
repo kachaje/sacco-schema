@@ -2,12 +2,10 @@ cacheQueries:
   id: userRole.id
   name: userRole.name
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterName:
-  cacheQuery: name
   inputIdentifier: name
   nextScreen: formSummary
   order: 1

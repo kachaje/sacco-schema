@@ -5,7 +5,6 @@ cacheQueries:
   memberOccupationId: memberOccupation.memberOccupationVerification.memberOccupationId
   netVerified: memberOccupation.memberOccupationVerification.netVerified
 enterGrossVerified:
-  cacheQuery: grossVerified
   inputIdentifier: grossVerified
   nextScreen: enterNetVerified
   order: 2
@@ -13,12 +12,10 @@ enterGrossVerified:
     en: Gross Verified
   type: inputScreen
 enterId:
-  cacheQuery: id
   hidden: true
   inputIdentifier: id
   type: hiddenField
 enterJobVerified:
-  cacheQuery: jobVerified
   inputIdentifier: jobVerified
   nextScreen: enterGrossVerified
   optional: true
@@ -34,12 +31,10 @@ enterJobVerified:
     en: Job Verified
   type: inputScreen
 enterMemberOccupationId:
-  cacheQuery: memberOccupationId
   hidden: true
   inputIdentifier: memberOccupationId
   type: hiddenField
 enterNetVerified:
-  cacheQuery: netVerified
   inputIdentifier: netVerified
   nextScreen: formSummary
   order: 3
