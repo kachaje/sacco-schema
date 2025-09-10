@@ -28,7 +28,8 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 		var re2 = regexp.MustCompile(fmt.Sprintf(`%s([A-Za-z]+)$`, groupRoot))
 
 		if regexp.MustCompile(groupRoot).MatchString(key) &&
-			(re1.MatchString(key) || regexp.MustCompile(`\\d+`).MatchString(key)) {
+			(re1.MatchString(key) || regexp.MustCompile(`\\d+`).MatchString(key) ||
+				regexp.MustCompile(`\\.\(\\d\+\)\\.$`).MatchString(groupRoot)) {
 			var parts [][]string
 
 			if re1.MatchString(key) {

@@ -2,6 +2,7 @@ package menus_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/menus"
@@ -44,7 +45,11 @@ func TestResolveCacheDataArray(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menus.ResolveCacheData(data, "member.memberDependant.")
+	result := menus.ResolveCacheData(data, "member.memberDependant.0.")
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
