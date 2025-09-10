@@ -427,19 +427,13 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 		workingMenu := session.CurrentMenu
 		model := fmt.Sprintf("%v", m.Workflows[workingMenu])
 
-		if session.ActiveData != nil {
+		if session.Cache != nil {
 			if regexp.MustCompile(`^\d+$`).MatchString(phoneNumber) && session.WorkflowsMapping != nil &&
 				session.WorkflowsMapping[model] != nil {
-				if m.TargetKeys[workingMenu] != nil && m.CacheQueries[model] != nil {
-					if cacheQueries, ok := m.CacheQueries[model].(map[string]any); ok {
-						for key, value := range cacheQueries {
-							if _, ok := session.WorkflowsMapping[model].Data[key]; !ok {
-								if vs, ok := value.(string); ok {
-									if val, ok := session.ActiveData[vs]; ok {
-										session.WorkflowsMapping[model].Data[key] = val
-									}
-								}
-							}
+				if m.TargetKeys[workingMenu] != nil {
+					for key, value := range session.Cache {
+						if _, ok := session.WorkflowsMapping[model].Data[key]; !ok {
+							session.WorkflowsMapping[model].Data[key] = value
 						}
 					}
 				}
