@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"sacco/utils"
 	"slices"
+	"strconv"
 	"strings"
 	"time"
 
@@ -43,6 +44,17 @@ func (m *Model) AddRecord(data map[string]any) (*int64, error) {
 	values := []any{}
 	markers := []string{}
 	var id int64
+
+	if data["id"] != nil {
+		val, err := strconv.ParseInt(fmt.Sprintf("%v", data["id"]), 10, 64)
+		if err == nil {
+			id = val
+
+			err := m.UpdateRecord(data, id)
+
+			return &id, err
+		}
+	}
 
 	if m.ModelName == "member" {
 		if data["memberIdNumber"] == nil {
