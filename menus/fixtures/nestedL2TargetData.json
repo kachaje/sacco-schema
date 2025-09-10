@@ -1,0 +1,16 @@
+{
+  "employeeWages": 50000,
+  "financialYear": 2024,
+  "id": 1,
+  "loanInterest": 0,
+  "memberBusinessId": 1,
+  "netProfitLoss": 715000,
+  "otherCosts": 0,
+  "ownSalary": 100000,
+  "rentals": 50000,
+  "totalCostOfGoods": 1000000,
+  "totalCosts": 1285000,
+  "totalIncome": 2000000,
+  "transport": 50000,
+  "utilities": 35000
+}

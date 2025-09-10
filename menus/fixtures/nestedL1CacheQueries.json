@@ -1,0 +1,17 @@
+{
+  "cacheQueries": {
+    "mountPaid": "member.memberLoan.0.amountPaid",
+    "balanceAmount": "member.memberLoan.0.balanceAmount",
+    "id": "member.memberLoan.0.id",
+    "interestRate": "member.memberLoan.0.interestRate",
+    "loanAmount": "member.memberLoan.0.loanAmount",
+    "loanDueDate": "member.memberLoan.0.loanDueDate",
+    "loanNumber": "member.memberLoan.0.loanNumber",
+    "loanPurpose": "member.memberLoan.0.loanPurpose",
+    "loanStartDate": "member.memberLoan.0.loanStartDate",
+    "loanType": "member.memberLoan.0.loanType",
+    "memberId": "member.memberLoan.0.memberId",
+    "monthlyInstalments": "member.memberLoan.0.monthlyInstalments",
+    "repaymentPeriodInMonths": "member.memberLoan.0.repaymentPeriodInMonths"
+  }
+}
