@@ -12,14 +12,14 @@ import (
 )
 
 //go:embed templates/member.template.json
-var templateContent []byte
+var memberTemplateContent []byte
 
-var templateData map[string]any
+var memberTemplateData map[string]any
 
 func init() {
-	err := json.Unmarshal(templateContent, &templateData)
+	err := json.Unmarshal(memberTemplateContent, &memberTemplateData)
 	if err != nil {
-		log.Fatalf("server.menus.init: %s", err.Error())
+		log.Fatalf("menus.init: %s", err.Error())
 	}
 }
 
@@ -55,9 +55,9 @@ func ViewMemberDetails(
 			preferencesFolder = val
 		}
 	}
-	if data["templateData"] != nil {
-		if val, ok := data["templateData"].(map[string]any); ok {
-			templateData = val
+	if data["memberTemplateData"] != nil {
+		if val, ok := data["memberTemplateData"].(map[string]any); ok {
+			memberTemplateData = val
 		}
 	}
 
@@ -73,7 +73,7 @@ func ViewMemberDetails(
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
-			data = LoadTemplateData(session.ActiveData, templateData)
+			data = LoadTemplateData(session.ActiveData, memberTemplateData)
 
 			table := TabulateData(data)
 
