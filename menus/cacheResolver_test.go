@@ -2,7 +2,6 @@ package menus_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/menus"
@@ -137,8 +136,6 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 }
 
 func TestResolveCacheDataNestedL2(t *testing.T) {
-	t.Skip()
-
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
@@ -174,10 +171,6 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 	}
 
 	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.")
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	fmt.Println(string(payload))
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")

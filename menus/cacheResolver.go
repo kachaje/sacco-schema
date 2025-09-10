@@ -17,8 +17,8 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 		groupRoot = regexp.MustCompile(`\.`).ReplaceAllLiteralString(groupRoot, `\.`)
 	}
 
-	if regexp.MustCompile(`\.0\.`).MatchString(groupRoot) {
-		groupRoot = regexp.MustCompile(`\.0\.`).ReplaceAllLiteralString(groupRoot, `\.(\d+)\.`)
+	if regexp.MustCompile(`0`).MatchString(groupRoot) {
+		groupRoot = regexp.MustCompile(`0`).ReplaceAllLiteralString(groupRoot, `(\d+)`)
 	}
 
 	groupRoot = fmt.Sprintf(`^%s`, groupRoot)
