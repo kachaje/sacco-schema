@@ -34,3 +34,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: account
+rootQuery: account

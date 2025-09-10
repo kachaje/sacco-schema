@@ -16,3 +16,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: userRole
+rootQuery: userRole

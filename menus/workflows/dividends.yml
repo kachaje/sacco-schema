@@ -33,3 +33,4 @@ initialScreen: enterDate
 model: dividends
 parentIds:
   - memberId
+rootQuery: member.0.dividends

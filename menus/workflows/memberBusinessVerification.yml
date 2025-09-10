@@ -55,3 +55,4 @@ initialScreen: enterBusinessVerified
 model: memberBusinessVerification
 parentIds:
   - memberBusinessId
+rootQuery: member.0.memberLoan.memberBusiness.memberBusinessVerification

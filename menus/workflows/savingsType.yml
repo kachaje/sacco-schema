@@ -51,3 +51,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: savingsType
+rootQuery: savingsType

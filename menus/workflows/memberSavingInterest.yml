@@ -41,3 +41,4 @@ initialScreen: enterDescription
 model: memberSavingInterest
 parentIds:
   - memberSavingId
+rootQuery: member.0.savingsType.0.memberSaving.0.memberSavingInterest

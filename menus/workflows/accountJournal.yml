@@ -48,3 +48,4 @@ model: accountJournal
 parentIds:
   - accountId
   - accountTransactionId
+rootQuery: account.0.accountTransaction.0.accountJournal

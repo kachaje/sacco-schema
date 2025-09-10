@@ -39,3 +39,4 @@ model: memberSaving
 parentIds:
   - memberId
   - savingsTypeId
+rootQuery: member.0.savingsType.0.memberSaving

@@ -40,3 +40,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: insuranceProvider
+rootQuery: insuranceProvider

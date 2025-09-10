@@ -33,3 +33,4 @@ initialScreen: enterIdNumber
 model: memberSavingsIdsCache
 parentIds:
   - memberSavingId
+rootQuery: member.0.savingsType.0.memberSaving.memberSavingsIdsCache

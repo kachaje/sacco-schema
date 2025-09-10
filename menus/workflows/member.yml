@@ -156,3 +156,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterFirstName
 model: member
+rootQuery: member

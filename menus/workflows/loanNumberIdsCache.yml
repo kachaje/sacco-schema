@@ -33,3 +33,4 @@ initialScreen: enterLoanNumber
 model: loanNumberIdsCache
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.loanNumberIdsCache

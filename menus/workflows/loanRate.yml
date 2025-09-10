@@ -24,3 +24,4 @@ initialScreen: enterMonthlyRate
 model: loanRate
 parentIds:
   - loanTypeId
+rootQuery: loanType.loanRate

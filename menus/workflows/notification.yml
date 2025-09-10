@@ -64,3 +64,4 @@ initialScreen: enterDate
 model: notification
 parentIds:
   - memberId
+rootQuery: member.0.notification

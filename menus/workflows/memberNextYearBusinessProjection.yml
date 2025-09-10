@@ -123,3 +123,4 @@ initialScreen: enterFinancialYear
 model: memberNextYearBusinessProjection
 parentIds:
   - memberBusinessId
+rootQuery: member.0.memberLoan.memberBusiness.memberNextYearBusinessProjection

@@ -78,3 +78,4 @@ initialScreen: enterLoanStatus
 model: memberLoanApproval
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.memberLoanApproval

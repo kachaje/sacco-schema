@@ -47,3 +47,4 @@ initialScreen: enterJobVerified
 model: memberOccupationVerification
 parentIds:
   - memberOccupationId
+rootQuery: member.0.memberLoan.memberOccupation.memberOccupationVerification

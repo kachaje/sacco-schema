@@ -41,3 +41,4 @@ initialScreen: enterDescription
 model: sharesDepositWithdraw
 parentIds:
   - memberSavingId
+rootQuery: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw

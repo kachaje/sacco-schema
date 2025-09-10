@@ -24,3 +24,4 @@ initialScreen: enterMonthlyRate
 model: savingsRate
 parentIds:
   - savingsTypeId
+rootQuery: savingsType.0.savingsRate

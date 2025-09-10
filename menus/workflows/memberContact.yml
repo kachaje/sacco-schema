@@ -64,3 +64,4 @@ initialScreen: enterPostalAddress
 model: memberContact
 parentIds:
   - memberId
+rootQuery: member.memberContact

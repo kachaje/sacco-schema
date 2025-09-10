@@ -40,3 +40,4 @@ initialScreen: enterDescription
 model: memberLoanSecurity
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.0.memberLoanSecurity

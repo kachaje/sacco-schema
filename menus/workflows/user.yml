@@ -40,3 +40,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterUsername
 model: user
+rootQuery: user

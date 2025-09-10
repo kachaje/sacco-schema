@@ -33,3 +33,4 @@ initialScreen: enterDate
 model: memberLoanProcessingFee
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.0.memberLoanProcessingFee

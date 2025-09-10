@@ -51,3 +51,4 @@ initialScreen: enterMemberSharesIdNumber
 model: memberShares
 parentIds:
   - memberId
+rootQuery: member.0.memberShares

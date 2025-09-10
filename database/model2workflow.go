@@ -24,6 +24,10 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 	if rawData, ok := sourceData[model].(map[string]any); ok {
 		count := 1
 
+		if rawData["rootQuery"] != nil {
+			data["rootQuery"] = rawData["rootQuery"]
+		}
+
 		if rawData["settings"] != nil {
 			if val, ok := rawData["settings"].(map[string]any); ok && val["hasLoops"] != nil && val["totalLoops"] != nil {
 				if totalLoops, ok := val["totalLoops"].(int); ok {

@@ -33,3 +33,4 @@ initialScreen: enterIdNumber
 model: memberSharesIdsCache
 parentIds:
   - memberSharesId
+rootQuery: member.0.memberShares.memberSharesIdsCache

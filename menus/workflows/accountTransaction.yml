@@ -25,3 +25,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterDate
 model: accountTransaction
+rootQuery: accountTransaction

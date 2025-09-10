@@ -39,3 +39,4 @@ model: memberLoanInsurance
 parentIds:
   - memberLoanId
   - insuranceProviderId
+rootQuery: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance

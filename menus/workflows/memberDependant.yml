@@ -333,3 +333,4 @@ initialScreen: enterName1
 model: memberDependant
 parentIds:
   - memberId
+rootQuery: member.0.memberDependant

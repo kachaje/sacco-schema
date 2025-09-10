@@ -46,3 +46,4 @@ initialScreen: enterDate
 model: accountStatement
 parentIds:
   - accountId
+rootQuery: account.0.accountStatement

@@ -41,3 +41,4 @@ initialScreen: enterDescription
 model: memberLoanDisbursement
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.memberLoanDisbursement

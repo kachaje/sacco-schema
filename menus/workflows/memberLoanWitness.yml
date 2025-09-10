@@ -48,3 +48,4 @@ initialScreen: enterWitnessName
 model: memberLoanWitness
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.0.memberLoanWitness

@@ -37,3 +37,4 @@ initialScreen: enterDueDate
 model: memberLoanPaymentSchedule
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.0.memberLoanPaymentSchedule

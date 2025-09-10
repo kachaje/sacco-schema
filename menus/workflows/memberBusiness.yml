@@ -48,3 +48,4 @@ initialScreen: enterYearsInBusiness
 model: memberBusiness
 parentIds:
   - memberLoanId
+rootQuery: member.0.memberLoan.memberBusiness

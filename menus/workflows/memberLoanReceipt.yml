@@ -41,3 +41,4 @@ initialScreen: enterDescription
 model: memberLoanReceipt
 parentIds:
   - memberLoanPaymentScheduleId
+rootQuery: member.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt

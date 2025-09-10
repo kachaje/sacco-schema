@@ -107,3 +107,4 @@ initialScreen: enterLoanAmount
 model: memberLoan
 parentIds:
   - memberId
+rootQuery: member.0.memberLoan

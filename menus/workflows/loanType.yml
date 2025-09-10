@@ -64,3 +64,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterName
 model: loanType
+rootQuery: loanType
