@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	modelgraph "sacco/modelGraph"
 	"sacco/utils"
 	"sort"
@@ -327,5 +328,61 @@ func TestCreateWorkflowGraph(t *testing.T) {
 				}
 			}
 		}
+	}
+}
+
+func TestGetParents(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "models.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := modelgraph.GetParents(data, "memberBusinessVerification")
+
+	target := map[string]any{
+		"memberBusinessVerification": map[string]any{
+			"memberBusiness": map[string]any{
+				"0": map[string]any{
+					"memberLoan": map[string]any{
+						"0": map[string]any{
+							"member": map[string]any{},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	if !reflect.DeepEqual(target, result) {
+		t.Fatal("Test failed")
+	}
+}
+
+func TestUpdateRootQuery(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "models.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := modelgraph.UpdateRootQuery(data)
+
+	if false {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		fmt.Println(string(payload))
 	}
 }

@@ -370,3 +370,52 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 
 	return result, nil
 }
+
+func GetParents(data map[string]any, model string) map[string]any {
+	var result = map[string]any{
+		model: map[string]any{},
+	}
+
+	if data[model] != nil {
+		if val, ok := data[model].(map[string]any); ok {
+			if val["belongsTo"] != nil {
+				parents := []string{}
+
+				if v, ok := val["belongsTo"].([]any); ok {
+					for _, k := range v {
+						parents = append(parents, fmt.Sprintf("%v", k))
+					}
+				} else if v, ok := val["belongsTo"].([]string); ok {
+					parents = v
+				}
+
+				for _, key := range parents {
+					parent := GetParents(data, key)
+					if vp, ok := data[key].(map[string]any); ok {
+						if vp["hasMany"] != nil {
+							result[model].(map[string]any)["0"] = parent
+						} else {
+							result[model] = parent
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return result
+}
+
+func UpdateRootQuery(data map[string]any) map[string]any {
+	var result = data
+
+	for key, value := range data {
+		if val, ok := value.(map[string]any); ok {
+			_ = val
+
+			fmt.Println(key)
+		}
+	}
+
+	return result
+}
