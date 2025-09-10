@@ -368,6 +368,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 		}
 	}
 
+	result = UpdateRootQuery(result)
+
 	return result, nil
 }
 
@@ -412,11 +414,11 @@ func FetchNodeTree(data map[string]any, model string) string {
 func UpdateRootQuery(data map[string]any) map[string]any {
 	var result = data
 
-	for key, value := range data {
+	for key, value := range result {
 		if val, ok := value.(map[string]any); ok {
-			_ = val
+			rootQuery := FetchNodeTree(data, key)
 
-			fmt.Println(key)
+			val["rootQuery"] = rootQuery
 		}
 	}
 

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	modelgraph "sacco/modelGraph"
 	"sacco/utils"
 	"sort"
@@ -368,9 +369,19 @@ func TestUpdateRootQuery(t *testing.T) {
 
 	result := modelgraph.UpdateRootQuery(data)
 
-	if false {
-		payload, _ := json.MarshalIndent(result, "", "  ")
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "modelsTarget.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
 
-		fmt.Println(string(payload))
+	target := map[string]any{}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !reflect.DeepEqual(target, result) {
+		t.Fatal("Test failed")
 	}
 }
