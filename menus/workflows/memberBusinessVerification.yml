@@ -1,9 +1,9 @@
 cacheQueries:
-  businessVerified: member.0.memberLoan.0.memberBusiness.memberBusinessVerification.businessVerified
-  grossIncomeVerified: member.0.memberLoan.0.memberBusiness.memberBusinessVerification.grossIncomeVerified
-  id: member.0.memberLoan.0.memberBusiness.memberBusinessVerification.id
-  memberBusinessId: member.0.memberLoan.0.memberBusiness.memberBusinessVerification.memberBusinessId
-  netIncomeVerified: member.0.memberLoan.0.memberBusiness.memberBusinessVerification.netIncomeVerified
+  businessVerified: member.0.memberLoan.memberBusiness.memberBusinessVerification.businessVerified
+  grossIncomeVerified: member.0.memberLoan.memberBusiness.memberBusinessVerification.grossIncomeVerified
+  id: member.0.memberLoan.memberBusiness.memberBusinessVerification.id
+  memberBusinessId: member.0.memberLoan.memberBusiness.memberBusinessVerification.memberBusinessId
+  netIncomeVerified: member.0.memberLoan.memberBusiness.memberBusinessVerification.netIncomeVerified
 enterBusinessVerified:
   inputIdentifier: businessVerified
   nextScreen: enterGrossIncomeVerified

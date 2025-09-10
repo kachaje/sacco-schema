@@ -1,9 +1,9 @@
 cacheQueries:
-  amount: member.0.memberLoan.0.memberLoanDisbursement.amount
-  date: member.0.memberLoan.0.memberLoanDisbursement.date
-  description: member.0.memberLoan.0.memberLoanDisbursement.description
-  id: member.0.memberLoan.0.memberLoanDisbursement.id
-  memberLoanId: member.0.memberLoan.0.memberLoanDisbursement.memberLoanId
+  amount: member.0.memberLoan.memberLoanDisbursement.amount
+  date: member.0.memberLoan.memberLoanDisbursement.date
+  description: member.0.memberLoan.memberLoanDisbursement.description
+  id: member.0.memberLoan.memberLoanDisbursement.id
+  memberLoanId: member.0.memberLoan.memberLoanDisbursement.memberLoanId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary

@@ -1,12 +1,12 @@
 cacheQueries:
-  email: member.0.memberContact.email
-  homeDistrict: member.0.memberContact.homeDistrict
-  homeTraditionalAuthority: member.0.memberContact.homeTraditionalAuthority
-  homeVillage: member.0.memberContact.homeVillage
-  id: member.0.memberContact.id
-  memberId: member.0.memberContact.memberId
-  postalAddress: member.0.memberContact.postalAddress
-  residentialAddress: member.0.memberContact.residentialAddress
+  email: member.memberContact.email
+  homeDistrict: member.memberContact.homeDistrict
+  homeTraditionalAuthority: member.memberContact.homeTraditionalAuthority
+  homeVillage: member.memberContact.homeVillage
+  id: member.memberContact.id
+  memberId: member.memberContact.memberId
+  postalAddress: member.memberContact.postalAddress
+  residentialAddress: member.memberContact.residentialAddress
 enterEmail:
   inputIdentifier: email
   nextScreen: enterHomeVillage

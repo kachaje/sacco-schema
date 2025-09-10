@@ -1,8 +1,8 @@
 cacheQueries:
-  claimed: member.0.memberLoan.0.loanNumberIdsCache.claimed
-  id: member.0.memberLoan.0.loanNumberIdsCache.id
-  loanNumber: member.0.memberLoan.0.loanNumberIdsCache.loanNumber
-  memberLoanId: member.0.memberLoan.0.loanNumberIdsCache.memberLoanId
+  claimed: member.0.memberLoan.loanNumberIdsCache.claimed
+  id: member.0.memberLoan.loanNumberIdsCache.id
+  loanNumber: member.0.memberLoan.loanNumberIdsCache.loanNumber
+  memberLoanId: member.0.memberLoan.loanNumberIdsCache.memberLoanId
 enterClaimed:
   inputIdentifier: claimed
   nextScreen: formSummary
