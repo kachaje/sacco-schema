@@ -68,14 +68,14 @@ func ChangePassword(
 
 				content = newPassword("(Password Mismatch!)")
 			} else {
-				if id, _, ok := DB.ValidatePassword(*session.SessionUser, session.Cache["currentPassword"]); ok {
+				if id, _, ok := DB.ValidatePassword(*session.SessionUser, fmt.Sprintf("%v", session.Cache["currentPassword"])); ok {
 					err := DB.GenericModels["user"].UpdateRecord(map[string]any{
 						"password": session.Cache["newPassword"],
 					}, *id)
 					if err != nil {
 						content = fmt.Sprintf("ERROR: %s\n", err.Error())
 					} else {
-						session.Cache = map[string]string{}
+						session.Cache = map[string]any{}
 						session.LastPrompt = ""
 
 						content = "Password Changed!\n"

@@ -34,7 +34,7 @@ type Session struct {
 	SessionUserRole *string
 	SessionUserId   *int64
 
-	Cache      map[string]string
+	Cache      map[string]any
 	LastPrompt string
 }
 
@@ -51,7 +51,7 @@ func NewSession(
 		SkipFields:       []string{"active"},
 		CurrentMenu:      "main",
 		WorkflowsMapping: map[string]*WorkFlow{},
-		Cache:            map[string]string{},
+		Cache:            map[string]any{},
 		LastPrompt:       "",
 		GlobalIds:        map[string]any{},
 	}

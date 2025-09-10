@@ -41,7 +41,7 @@ func DoExit(
 			}
 		}
 
-		session.Cache = map[string]string{}
+		session.Cache = map[string]any{}
 		session.LastPrompt = "username"
 		session.SessionToken = nil
 

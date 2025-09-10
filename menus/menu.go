@@ -393,32 +393,31 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 
 		if session != nil {
 			session.CurrentMenu = kv[target]
-		}
+			session.Cache = map[string]any{}
 
-		model := fmt.Sprintf("%v", m.Workflows[kv[target]])
+			model := fmt.Sprintf("%v", m.Workflows[kv[target]])
 
-		if m.CacheQueries[model] != nil {
-			if vMap, ok := m.CacheQueries[model].(map[string]any); ok {
-				var groupRoot string
+			if m.CacheQueries[model] != nil {
+				if vMap, ok := m.CacheQueries[model].(map[string]any); ok {
+					var groupRoot string
 
-				for _, value := range vMap {
-					if groupRoot == "" {
-						if val, ok := value.(string); ok {
-							if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
-								groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
-								break
-							} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
-								groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
-								break
+					for _, value := range vMap {
+						if groupRoot == "" {
+							if val, ok := value.(string); ok {
+								if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
+									groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
+									break
+								} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
+									groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
+									break
+								}
 							}
 						}
 					}
-				}
 
-				if groupRoot != "" {
-					cacheData := ResolveCacheData(session.ActiveData, groupRoot)
-
-					fmt.Println("#######", kv[target], model, cacheData)
+					if groupRoot != "" {
+						session.Cache = ResolveCacheData(session.ActiveData, groupRoot)
+					}
 				}
 			}
 		}

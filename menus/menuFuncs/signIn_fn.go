@@ -70,7 +70,7 @@ func SignIn(
 
 			text = ""
 
-			if id, role, ok := DB.ValidatePassword(session.Cache["username"], session.Cache["password"]); ok {
+			if id, role, ok := DB.ValidatePassword(fmt.Sprintf("%v", session.Cache["username"]), fmt.Sprintf("%v", session.Cache["password"])); ok {
 				token := uuid.NewString()
 				session.SessionToken = &token
 				session.SessionUserId = id
@@ -82,12 +82,12 @@ func SignIn(
 
 				session.SessionUser = &username
 
-				session.Cache = map[string]string{}
+				session.Cache = map[string]any{}
 				session.LastPrompt = ""
 
 				return loadMenu("main", session, phoneNumber, text, preferencesFolder)
 			} else {
-				session.Cache = map[string]string{}
+				session.Cache = map[string]any{}
 				session.LastPrompt = "username"
 
 				content = askUsername("(Invalid credentials)")

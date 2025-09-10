@@ -43,7 +43,7 @@ func Landing(loadMenu func(
 	}
 
 	session.LastPrompt = ""
-	session.Cache = map[string]string{}
+	session.Cache = map[string]any{}
 
 	switch text {
 	case "1":

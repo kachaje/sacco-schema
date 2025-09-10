@@ -132,7 +132,7 @@ func SignUp(
 					if err != nil {
 						content = err.Error()
 					} else {
-						session.Cache = map[string]string{}
+						session.Cache = map[string]any{}
 						session.LastPrompt = ""
 
 						content = "Welcome on board!\n"
