@@ -1,0 +1,95 @@
+exec server -p 8993 -n db6 -o 2>&1 >/dev/null &
+stdin input.txt
+exec wscli -p 8993 -n 0888999781
+stdout 'Welcome to Kaso SACCO'
+stdout 'Choose Activity'
+stdout 'First Name:'
+stdout 'Last Name:'
+stdout 'Other Name'
+stdout 'Gender:'
+stdout 'Phone Number: \(0888999781\)'
+stdout 'Title:'
+stdout 'Marital Status:'
+stdout 'Date Of Birth:'
+stdout 'National Identifier:'
+stdout 'Utility Bill Type:'
+stdout 'Utility Bill Number:'
+stdout 'Summary'
+stdout '1. Member Details \(\*\)'
+stdout 'Postal Address:'
+stdout 'Residential Address:'
+stdout 'Email:'
+stdout 'Home Village:'
+stdout 'Home Traditional Authority:'
+stdout 'Home District:'
+stdout '- Home District: Lilongwe'
+stdout '2\. Contact Details \(\*\)'
+stdout 'First Name:'
+stdout 'Last Name:'
+stdout 'Other Name'
+stdout 'Gender:'
+stdout 'Phone Number: \(0888999781\)'
+stdout 'Title:'
+stdout 'Marital Status:'
+stdout 'Date Of Birth:'
+stdout 'National Identifier:'
+stdout 'Utility Bill Type:'
+stdout 'Utility Bill Number:'
+stdout 'Summary'
+stdout '1\. Member Details'
+stdout 'Postal Address: \(P.O. Box 1\)'
+stdout 'Residential Address: \(Area 49\)'
+stdout 'Email:'
+stdout 'Home Village: \(Chawantha\)'
+stdout 'Home Traditional Authority: \(Kalolo\)'
+stdout 'Home District: \(Lilongwe\)'
+stdout '- Home District: Dedza'
+stdout '2\. Contact Details \(\*\)'
+stdout 'Welcome to Kaso SACCO'
+
+-- input.txt --
+1
+1
+Mary
+Banda
+02
+1
+01
+3
+2
+1999-09-01
+DHSGH3837
+1
+938374838
+0
+2
+P.O. Box 1
+Area 49
+02
+Chawantha
+Kalolo
+Lilongwe
+0
+1
+Mary
+Banda
+02
+1
+01
+3
+2
+1999-09-01
+DHSGH3837
+1
+938374838
+0
+2
+P.O. Box 1
+Area 49
+02
+Chawantha
+Kalolo
+Dedza
+0
+00
+8
