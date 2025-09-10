@@ -25,6 +25,7 @@ type Menus struct {
 	ActiveMenus  map[string]any
 	Titles       map[string]string
 	Workflows    map[string]any
+	RootQueries  map[string]string
 	Functions    map[string]any
 	FunctionsMap map[string]func(
 		func(
@@ -87,6 +88,7 @@ func NewMenus(devMode, demoMode *bool) *Menus {
 		ActiveMenus: map[string]any{},
 		Titles:      map[string]string{},
 		Workflows:   map[string]any{},
+		RootQueries: map[string]string{},
 		Functions:   map[string]any{},
 		FunctionsMap: map[string]func(
 			func(
@@ -218,6 +220,10 @@ func (m *Menus) populateMenus() error {
 						if val["workflow"] != nil {
 							if v, ok := val["workflow"].(string); ok {
 								m.Workflows[id] = v
+
+								if menufuncs.WorkflowsData[v]["rootQuery"] != nil {
+									m.RootQueries[v] = fmt.Sprintf("%v", menufuncs.WorkflowsData[v]["rootQuery"])
+								}
 
 								parentIds := []string{}
 
@@ -397,27 +403,11 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 
 			model := fmt.Sprintf("%v", m.Workflows[kv[target]])
 
-			if m.CacheQueries[model] != nil {
-				if vMap, ok := m.CacheQueries[model].(map[string]any); ok {
-					var groupRoot string
+			if m.CacheQueries[model] != nil && m.RootQueries[model] != "" {
+				groupRoot := fmt.Sprintf("%v.", m.RootQueries[model])
 
-					for _, value := range vMap {
-						if groupRoot == "" {
-							if val, ok := value.(string); ok {
-								if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
-									groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
-									break
-								} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
-									groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
-									break
-								}
-							}
-						}
-					}
-
-					if groupRoot != "" {
-						session.Cache = ResolveCacheData(session.ActiveData, groupRoot)
-					}
+				if groupRoot != "" {
+					session.Cache = ResolveCacheData(session.ActiveData, groupRoot)
 				}
 			}
 		}
