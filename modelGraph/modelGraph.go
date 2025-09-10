@@ -396,7 +396,19 @@ func FetchNodeTree(data map[string]any, model string) string {
 
 					if vp, ok := data[key].(map[string]any); ok {
 						if vp["hasMany"] != nil {
-							values = append(values, "0")
+							vm := []string{}
+
+							if v, ok := vp["hasMany"].([]any); ok {
+								for _, vc := range v {
+									vm = append(vm, fmt.Sprintf("%v", vc))
+								}
+							} else if v, ok := vp["hasMany"].([]string); ok {
+								vm = v
+							}
+
+							if slices.Contains(vm, model) {
+								values = append(values, "0")
+							}
 						}
 					}
 				}

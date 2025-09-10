@@ -347,7 +347,7 @@ func TestFetchNodeTree(t *testing.T) {
 
 	result := modelgraph.FetchNodeTree(data, "memberBusinessVerification")
 
-	target := "member.0.memberLoan.0.memberBusiness.memberBusinessVerification"
+	target := "member.0.memberLoan.memberBusiness.memberBusinessVerification"
 
 	if !strings.EqualFold(target, result) {
 		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, result)

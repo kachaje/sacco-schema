@@ -26,11 +26,17 @@
         }
       }
     ],
-    "hasMany": ["accountJournal", "accountStatement"],
+    "hasMany": [
+      "accountJournal",
+      "accountStatement"
+    ],
     "rootQuery": "account"
   },
   "accountJournal": {
-    "belongsTo": ["account", "accountTransaction"],
+    "belongsTo": [
+      "account",
+      "accountTransaction"
+    ],
     "fields": [
       {
         "id": {
@@ -73,7 +79,9 @@
     "rootQuery": "account.0.accountTransaction.0.accountJournal"
   },
   "accountStatement": {
-    "belongsTo": ["account"],
+    "belongsTo": [
+      "account"
+    ],
     "fields": [
       {
         "accountId": {
@@ -131,11 +139,15 @@
         }
       }
     ],
-    "hasMany": ["accountJournal"],
+    "hasMany": [
+      "accountJournal"
+    ],
     "rootQuery": "accountTransaction"
   },
   "dividends": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -198,11 +210,15 @@
         }
       }
     ],
-    "hasMany": ["memberLoanInsurance"],
+    "hasMany": [
+      "memberLoanInsurance"
+    ],
     "rootQuery": "insuranceProvider"
   },
   "loanNumberIdsCache": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -230,11 +246,15 @@
         }
       }
     ],
-    "hasOne": ["memberLoan"],
-    "rootQuery": "member.0.memberLoan.0.loanNumberIdsCache"
+    "hasOne": [
+      "memberLoan"
+    ],
+    "rootQuery": "member.0.memberLoan.loanNumberIdsCache"
   },
   "loanRate": {
-    "belongsTo": ["loanType"],
+    "belongsTo": [
+      "loanType"
+    ],
     "fields": [
       {
         "id": {
@@ -273,7 +293,12 @@
       },
       {
         "category": {
-          "options": ["Personal", "Business", "Agricultural", "Emergency"],
+          "options": [
+            "Personal",
+            "Business",
+            "Agricultural",
+            "Emergency"
+          ],
           "order": 2,
           "type": "text"
         }
@@ -297,7 +322,9 @@
         }
       }
     ],
-    "hasOne": ["loanRate"],
+    "hasOne": [
+      "loanRate"
+    ],
     "rootQuery": "loanType"
   },
   "member": {
@@ -337,7 +364,10 @@
       },
       {
         "gender": {
-          "options": ["Female", "Male"],
+          "options": [
+            "Female",
+            "Male"
+          ],
           "order": 5,
           "type": "text"
         }
@@ -350,14 +380,27 @@
       },
       {
         "title": {
-          "options": ["Mr", "Mrs", "Miss", "Dr", "Prof", "Rev", "Other"],
+          "options": [
+            "Mr",
+            "Mrs",
+            "Miss",
+            "Dr",
+            "Prof",
+            "Rev",
+            "Other"
+          ],
           "order": 7,
           "type": "text"
         }
       },
       {
         "maritalStatus": {
-          "options": ["Married", "Single", "Widowed", "Divorced"],
+          "options": [
+            "Married",
+            "Single",
+            "Widowed",
+            "Divorced"
+          ],
           "order": 8,
           "type": "text"
         }
@@ -376,7 +419,10 @@
       },
       {
         "utilityBillType": {
-          "options": ["ESCOM", "Water Board"],
+          "options": [
+            "ESCOM",
+            "Water Board"
+          ],
           "order": 11,
           "type": "text"
         }
@@ -404,11 +450,15 @@
       "memberShares",
       "notification"
     ],
-    "hasOne": ["memberContact"],
+    "hasOne": [
+      "memberContact"
+    ],
     "rootQuery": "member"
   },
   "memberBusiness": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -452,10 +502,12 @@
       "memberLastYearBusinessHistory",
       "memberNextYearBusinessProjection"
     ],
-    "rootQuery": "member.0.memberLoan.0.memberBusiness"
+    "rootQuery": "member.0.memberLoan.memberBusiness"
   },
   "memberBusinessVerification": {
-    "belongsTo": ["memberBusiness"],
+    "belongsTo": [
+      "memberBusiness"
+    ],
     "fields": [
       {
         "id": {
@@ -472,7 +524,10 @@
       {
         "businessVerified": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 2,
           "type": "text"
         }
@@ -480,7 +535,10 @@
       {
         "grossIncomeVerified": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 3,
           "type": "text"
         }
@@ -492,10 +550,12 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberBusiness.memberBusinessVerification"
+    "rootQuery": "member.0.memberLoan.memberBusiness.memberBusinessVerification"
   },
   "memberContact": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -547,7 +607,7 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberContact"
+    "rootQuery": "member.memberContact"
   },
   "memberDependant": {
     "arrayFields": [
@@ -592,14 +652,22 @@
       {
         "isNominee1": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 6,
           "type": "text"
         }
       },
       {
         "relationship1": {
-          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
           "order": 7,
           "type": "text"
         }
@@ -645,14 +713,22 @@
       {
         "isNominee2": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 14,
           "type": "text"
         }
       },
       {
         "relationship2": {
-          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
           "order": 15,
           "type": "text"
         }
@@ -698,14 +774,22 @@
       {
         "isNominee3": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 22,
           "type": "text"
         }
       },
       {
         "relationship3": {
-          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
           "order": 23,
           "type": "text"
         }
@@ -751,20 +835,30 @@
       {
         "isNominee4": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 30,
           "type": "text"
         }
       },
       {
         "relationship4": {
-          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
           "order": 31,
           "type": "text"
         }
       }
     ],
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -807,14 +901,22 @@
       {
         "isNominee": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 6,
           "type": "text"
         }
       },
       {
         "relationship": {
-          "options": ["Spouse", "Child", "Sibling", "Other"],
+          "options": [
+            "Spouse",
+            "Child",
+            "Sibling",
+            "Other"
+          ],
           "order": 7,
           "type": "text"
         }
@@ -823,7 +925,9 @@
     "rootQuery": "member.0.memberDependant"
   },
   "memberIdsCache": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -851,11 +955,15 @@
         }
       }
     ],
-    "hasOne": ["member"],
-    "rootQuery": "member.0.memberIdsCache"
+    "hasOne": [
+      "member"
+    ],
+    "rootQuery": "member.memberIdsCache"
   },
   "memberLastYearBusinessHistory": {
-    "belongsTo": ["memberBusiness"],
+    "belongsTo": [
+      "memberBusiness"
+    ],
     "fields": [
       {
         "id": {
@@ -942,10 +1050,12 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory"
+    "rootQuery": "member.0.memberLoan.memberBusiness.memberLastYearBusinessHistory"
   },
   "memberLoan": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -1051,7 +1161,9 @@
     "rootQuery": "member.0.memberLoan"
   },
   "memberLoanApproval": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1068,7 +1180,11 @@
       {
         "loanStatus": {
           "optional": true,
-          "options": ["PENDING", "APPROVED", "REJECTED"],
+          "options": [
+            "PENDING",
+            "APPROVED",
+            "REJECTED"
+          ],
           "order": 2,
           "type": "text"
         }
@@ -1115,10 +1231,12 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberLoanApproval"
+    "rootQuery": "member.0.memberLoan.memberLoanApproval"
   },
   "memberLoanDisbursement": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1152,10 +1270,13 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberLoanDisbursement"
+    "rootQuery": "member.0.memberLoan.memberLoanDisbursement"
   },
   "memberLoanInsurance": {
-    "belongsTo": ["memberLoan", "insuranceProvider"],
+    "belongsTo": [
+      "memberLoan",
+      "insuranceProvider"
+    ],
     "fields": [
       {
         "id": {
@@ -1192,7 +1313,9 @@
     "rootQuery": "member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance"
   },
   "memberLoanLiability": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1222,7 +1345,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanLiability"
   },
   "memberLoanPaymentSchedule": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1255,11 +1380,15 @@
         }
       }
     ],
-    "hasMany": ["memberLoanReceipt"],
+    "hasMany": [
+      "memberLoanReceipt"
+    ],
     "rootQuery": "member.0.memberLoan.0.memberLoanPaymentSchedule"
   },
   "memberLoanProcessingFee": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1290,7 +1419,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanProcessingFee"
   },
   "memberLoanReceipt": {
-    "belongsTo": ["memberLoanPaymentSchedule"],
+    "belongsTo": [
+      "memberLoanPaymentSchedule"
+    ],
     "fields": [
       {
         "id": {
@@ -1327,7 +1458,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt"
   },
   "memberLoanSecurity": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1363,7 +1496,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanSecurity"
   },
   "memberLoanTax": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1400,7 +1535,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanTax"
   },
   "memberLoanWitness": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1443,7 +1580,9 @@
     "rootQuery": "member.0.memberLoan.0.memberLoanWitness"
   },
   "memberNextYearBusinessProjection": {
-    "belongsTo": ["memberBusiness"],
+    "belongsTo": [
+      "memberBusiness"
+    ],
     "fields": [
       {
         "id": {
@@ -1530,10 +1669,12 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection"
+    "rootQuery": "member.0.memberLoan.memberBusiness.memberNextYearBusinessProjection"
   },
   "memberOccupation": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": [
+      "memberLoan"
+    ],
     "fields": [
       {
         "id": {
@@ -1591,17 +1732,26 @@
       },
       {
         "highestQualification": {
-          "options": ["Tertiary", "Secondary", "Primary", "None"],
+          "options": [
+            "Tertiary",
+            "Secondary",
+            "Primary",
+            "None"
+          ],
           "order": 9,
           "type": "text"
         }
       }
     ],
-    "hasOne": ["memberOccupationVerification"],
-    "rootQuery": "member.0.memberLoan.0.memberOccupation"
+    "hasOne": [
+      "memberOccupationVerification"
+    ],
+    "rootQuery": "member.0.memberLoan.memberOccupation"
   },
   "memberOccupationVerification": {
-    "belongsTo": ["memberOccupation"],
+    "belongsTo": [
+      "memberOccupation"
+    ],
     "fields": [
       {
         "id": {
@@ -1618,7 +1768,10 @@
       {
         "jobVerified": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 2,
           "type": "text"
         }
@@ -1636,10 +1789,13 @@
         }
       }
     ],
-    "rootQuery": "member.0.memberLoan.0.memberOccupation.memberOccupationVerification"
+    "rootQuery": "member.0.memberLoan.memberOccupation.memberOccupationVerification"
   },
   "memberSaving": {
-    "belongsTo": ["member", "savingsType"],
+    "belongsTo": [
+      "member",
+      "savingsType"
+    ],
     "fields": [
       {
         "id": {
@@ -1683,7 +1839,9 @@
     "rootQuery": "member.0.savingsType.0.memberSaving"
   },
   "memberSavingDeposit": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
@@ -1720,7 +1878,9 @@
     "rootQuery": "member.0.savingsType.0.memberSaving.0.memberSavingDeposit"
   },
   "memberSavingInterest": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
@@ -1757,7 +1917,9 @@
     "rootQuery": "member.0.savingsType.0.memberSaving.0.memberSavingInterest"
   },
   "memberSavingWithdrawal": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
@@ -1794,7 +1956,9 @@
     "rootQuery": "member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal"
   },
   "memberSavingsIdsCache": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
@@ -1822,11 +1986,15 @@
         }
       }
     ],
-    "hasOne": ["memberSaving"],
-    "rootQuery": "member.0.savingsType.0.memberSaving.0.memberSavingsIdsCache"
+    "hasOne": [
+      "memberSaving"
+    ],
+    "rootQuery": "member.0.savingsType.0.memberSaving.memberSavingsIdsCache"
   },
   "memberShares": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -1869,7 +2037,9 @@
     "rootQuery": "member.0.memberShares"
   },
   "memberSharesIdsCache": {
-    "belongsTo": ["memberShares"],
+    "belongsTo": [
+      "memberShares"
+    ],
     "fields": [
       {
         "id": {
@@ -1897,11 +2067,15 @@
         }
       }
     ],
-    "hasOne": ["memberShares"],
+    "hasOne": [
+      "memberShares"
+    ],
     "rootQuery": "member.0.memberShares.memberSharesIdsCache"
   },
   "notification": {
-    "belongsTo": ["member"],
+    "belongsTo": [
+      "member"
+    ],
     "fields": [
       {
         "id": {
@@ -1931,7 +2105,10 @@
       {
         "msgDelivered": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 4,
           "type": "text"
         }
@@ -1939,7 +2116,10 @@
       {
         "msgRead": {
           "optional": true,
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "order": 5,
           "type": "text"
         }
@@ -1948,7 +2128,9 @@
     "rootQuery": "member.0.notification"
   },
   "savingsRate": {
-    "belongsTo": ["savingsType"],
+    "belongsTo": [
+      "savingsType"
+    ],
     "fields": [
       {
         "id": {
@@ -2010,11 +2192,16 @@
         }
       }
     ],
-    "hasMany": ["memberSaving", "savingsRate"],
+    "hasMany": [
+      "memberSaving",
+      "savingsRate"
+    ],
     "rootQuery": "savingsType"
   },
   "sharesDepositReceipt": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
@@ -2051,7 +2238,9 @@
     "rootQuery": "member.0.savingsType.0.memberSaving.0.sharesDepositReceipt"
   },
   "sharesDepositWithdraw": {
-    "belongsTo": ["memberSaving"],
+    "belongsTo": [
+      "memberSaving"
+    ],
     "fields": [
       {
         "id": {
