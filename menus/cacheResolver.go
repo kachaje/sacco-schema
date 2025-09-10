@@ -5,7 +5,6 @@ import (
 	"regexp"
 	"slices"
 	"sort"
-	"strings"
 )
 
 func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
@@ -14,10 +13,31 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 
 	keys := []string{}
 
+	if regexp.MustCompile(`\.`).MatchString(groupRoot) {
+		groupRoot = regexp.MustCompile(`\.`).ReplaceAllLiteralString(groupRoot, `\.`)
+	}
+
+	if regexp.MustCompile(`\.0\.`).MatchString(groupRoot) {
+		groupRoot = regexp.MustCompile(`\.0\.`).ReplaceAllLiteralString(groupRoot, `\.(\d+)\.`)
+	}
+
+	groupRoot = fmt.Sprintf(`^%s`, groupRoot)
+
 	for key, value := range data {
-		re := regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.([A-Za-z]+)$`, groupRoot))
-		if strings.HasPrefix(key, groupRoot) && re.MatchString(key) {
-			parts := re.FindAllStringSubmatch(key, -1)
+		var re1 = regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.([A-Za-z]+)$`, groupRoot))
+		var re2 = regexp.MustCompile(fmt.Sprintf(`%s([A-Za-z]+)$`, groupRoot))
+
+		if regexp.MustCompile(groupRoot).MatchString(key) &&
+			(re1.MatchString(key) || regexp.MustCompile(`\\d+`).MatchString(key)) {
+			var parts [][]string
+
+			if re1.MatchString(key) {
+				parts = re1.FindAllStringSubmatch(key, -1)
+			} else if re2.MatchString(key) {
+				parts = re2.FindAllStringSubmatch(key, -1)
+			} else {
+				continue
+			}
 
 			indexKey := parts[0][1]
 			field := parts[0][2]
@@ -32,10 +52,6 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 
 			incomingData[indexKey].(map[string]any)[field] = value
 		} else if regexp.MustCompile(fmt.Sprintf(`^%s[A-Za-z]+$`, groupRoot)).MatchString(key) {
-			if regexp.MustCompile(`[A-Za-z]\.`).MatchString(groupRoot) {
-				groupRoot = regexp.MustCompile(`\.`).ReplaceAllLiteralString(groupRoot, `\.`)
-			}
-
 			field := regexp.MustCompile(groupRoot).ReplaceAllLiteralString(key, "")
 
 			result[field] = value
