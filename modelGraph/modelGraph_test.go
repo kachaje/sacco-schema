@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"reflect"
 	modelgraph "sacco/modelGraph"
 	"sacco/utils"
 	"sort"
+	"strings"
 	"testing"
 )
 
@@ -331,7 +331,7 @@ func TestCreateWorkflowGraph(t *testing.T) {
 	}
 }
 
-func TestGetParents(t *testing.T) {
+func TestFetchNodeTree(t *testing.T) {
 	data := map[string]any{}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "models.json"))
@@ -344,24 +344,12 @@ func TestGetParents(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := modelgraph.GetParents(data, "memberBusinessVerification")
+	result := modelgraph.FetchNodeTree(data, "memberBusinessVerification")
 
-	target := map[string]any{
-		"memberBusinessVerification": map[string]any{
-			"memberBusiness": map[string]any{
-				"0": map[string]any{
-					"memberLoan": map[string]any{
-						"0": map[string]any{
-							"member": map[string]any{},
-						},
-					},
-				},
-			},
-		},
-	}
+	target := "member.0.memberLoan.0.memberBusiness.memberBusinessVerification"
 
-	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+	if !strings.EqualFold(target, result) {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, result)
 	}
 }
 

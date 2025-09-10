@@ -371,12 +371,12 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 	return result, nil
 }
 
-func GetParents(data map[string]any, model string) map[string]any {
-	var result = map[string]any{
-		model: map[string]any{},
-	}
+func FetchNodeTree(data map[string]any, model string) string {
+	values := []string{}
 
-	if data[model] != nil {
+	var fp func(string)
+
+	fp = func(model string) {
 		if val, ok := data[model].(map[string]any); ok {
 			if val["belongsTo"] != nil {
 				parents := []string{}
@@ -390,20 +390,23 @@ func GetParents(data map[string]any, model string) map[string]any {
 				}
 
 				for _, key := range parents {
-					parent := GetParents(data, key)
+					fp(key)
+
 					if vp, ok := data[key].(map[string]any); ok {
 						if vp["hasMany"] != nil {
-							result[model].(map[string]any)["0"] = parent
-						} else {
-							result[model] = parent
+							values = append(values, "0")
 						}
 					}
 				}
 			}
 		}
+
+		values = append(values, model)
 	}
 
-	return result
+	fp(model)
+
+	return strings.Join(values, ".")
 }
 
 func UpdateRootQuery(data map[string]any) map[string]any {
