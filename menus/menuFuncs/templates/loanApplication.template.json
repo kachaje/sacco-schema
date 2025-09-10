@@ -185,7 +185,7 @@
       },
       "yearsInBusiness": {
         "order": 4,
-        "label": "Number of Years in Business",
+        "label": "Years in Business",
         "cachQuery": "member.memberLoan.0.memberBusiness.yearsInBusiness"
       },
       "businessVerified": {
