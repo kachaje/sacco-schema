@@ -551,6 +551,8 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 					}
 				}
 			}
+		} else {
+			result[key] = value
 		}
 	}
 
