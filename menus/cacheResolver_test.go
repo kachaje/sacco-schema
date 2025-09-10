@@ -2,6 +2,7 @@ package menus_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/menus"
@@ -14,7 +15,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 	cacheData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "data.json"))
+	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -87,6 +88,10 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	}
 
 	result := menus.ResolveCacheData(data, "member.")
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
