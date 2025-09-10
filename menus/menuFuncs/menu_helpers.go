@@ -88,13 +88,23 @@ func ResolveNestedQuery(data map[string]any, query string) string {
 		if reTop.MatchString(query) {
 			targetTop := reTop.FindAllStringSubmatch(query, -1)[0][1]
 
+			found := false
+
 			for key := range data {
 				re := regexp.MustCompile(fmt.Sprintf(`^%s(\d+)`, targetTop))
 				if re.MatchString(key) {
 					targetChild := re.FindAllStringSubmatch(key, -1)[0][1]
 
 					query = reTop.ReplaceAllLiteralString(query, fmt.Sprintf(`%s%v`, targetTop, targetChild))
+
+					found = true
 				}
+			}
+
+			if found && reTop.MatchString(query) {
+				return ResolveNestedQuery(data, query)
+			} else {
+				break
 			}
 		} else {
 			break
