@@ -32,6 +32,10 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 
 			incomingData[indexKey].(map[string]any)[field] = value
 		} else if regexp.MustCompile(fmt.Sprintf(`^%s[A-Za-z]+$`, groupRoot)).MatchString(key) {
+			if regexp.MustCompile(`[A-Za-z]\.`).MatchString(groupRoot) {
+				groupRoot = regexp.MustCompile(`\.`).ReplaceAllLiteralString(groupRoot, `\.`)
+			}
+
 			field := regexp.MustCompile(groupRoot).ReplaceAllLiteralString(key, "")
 
 			result[field] = value
