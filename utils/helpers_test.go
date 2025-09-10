@@ -222,6 +222,32 @@ func TestUnpackData(t *testing.T) {
 	}
 }
 
+func TestUnpackData2(t *testing.T) {
+	data := map[string]any{
+		"isNominee1":    "Yes",
+		"name1":         "John Phiri",
+		"percentage1":   "10",
+		"phoneNumber":   "1234567890",
+		"phoneNumber1":  "094984737",
+		"relationship1": "Spouse",
+	}
+	target := []map[string]any{
+		{
+			"isNominee":    "Yes",
+			"name":         "John Phiri",
+			"percentage":   "10",
+			"phoneNumber":  "094984737",
+			"relationship": "Spouse",
+		},
+	}
+
+	result := utils.UnpackData(data)
+
+	if !reflect.DeepEqual(target, result) {
+		t.Fatal("Test failed")
+	}
+}
+
 func TestGetSkippedRefIds(t *testing.T) {
 	refData := []map[string]any{
 		{
