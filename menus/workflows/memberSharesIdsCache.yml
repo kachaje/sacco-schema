@@ -1,8 +1,8 @@
 cacheQueries:
-  claimed: member.0.memberShares.memberSharesIdsCache.claimed
-  id: member.0.memberShares.memberSharesIdsCache.id
-  idNumber: member.0.memberShares.memberSharesIdsCache.idNumber
-  memberSharesId: member.0.memberShares.memberSharesIdsCache.memberSharesId
+  claimed: member.memberShares.0.memberSharesIdsCache.claimed
+  id: member.memberShares.0.memberSharesIdsCache.id
+  idNumber: member.memberShares.0.memberSharesIdsCache.idNumber
+  memberSharesId: member.memberShares.0.memberSharesIdsCache.memberSharesId
 enterClaimed:
   inputIdentifier: claimed
   nextScreen: formSummary
@@ -33,4 +33,4 @@ initialScreen: enterIdNumber
 model: memberSharesIdsCache
 parentIds:
   - memberSharesId
-rootQuery: member.0.memberShares.memberSharesIdsCache
+rootQuery: member.memberShares.0.memberSharesIdsCache

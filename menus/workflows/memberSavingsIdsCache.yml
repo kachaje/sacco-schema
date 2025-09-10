@@ -1,8 +1,8 @@
 cacheQueries:
-  claimed: member.0.savingsType.0.memberSaving.memberSavingsIdsCache.claimed
-  id: member.0.savingsType.0.memberSaving.memberSavingsIdsCache.id
-  idNumber: member.0.savingsType.0.memberSaving.memberSavingsIdsCache.idNumber
-  memberSavingId: member.0.savingsType.0.memberSaving.memberSavingsIdsCache.memberSavingId
+  claimed: member.savingsType.memberSaving.0.memberSavingsIdsCache.claimed
+  id: member.savingsType.memberSaving.0.memberSavingsIdsCache.id
+  idNumber: member.savingsType.memberSaving.0.memberSavingsIdsCache.idNumber
+  memberSavingId: member.savingsType.memberSaving.0.memberSavingsIdsCache.memberSavingId
 enterClaimed:
   inputIdentifier: claimed
   nextScreen: formSummary
@@ -33,4 +33,4 @@ initialScreen: enterIdNumber
 model: memberSavingsIdsCache
 parentIds:
   - memberSavingId
-rootQuery: member.0.savingsType.0.memberSaving.memberSavingsIdsCache
+rootQuery: member.savingsType.memberSaving.0.memberSavingsIdsCache

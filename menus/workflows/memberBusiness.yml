@@ -1,10 +1,10 @@
 cacheQueries:
-  businessName: member.0.memberLoan.memberBusiness.businessName
-  businessNature: member.0.memberLoan.memberBusiness.businessNature
-  id: member.0.memberLoan.memberBusiness.id
-  memberLoanId: member.0.memberLoan.memberBusiness.memberLoanId
-  tradingArea: member.0.memberLoan.memberBusiness.tradingArea
-  yearsInBusiness: member.0.memberLoan.memberBusiness.yearsInBusiness
+  businessName: member.memberLoan.0.memberBusiness.businessName
+  businessNature: member.memberLoan.0.memberBusiness.businessNature
+  id: member.memberLoan.0.memberBusiness.id
+  memberLoanId: member.memberLoan.0.memberBusiness.memberLoanId
+  tradingArea: member.memberLoan.0.memberBusiness.tradingArea
+  yearsInBusiness: member.memberLoan.0.memberBusiness.yearsInBusiness
 enterBusinessName:
   inputIdentifier: businessName
   nextScreen: enterTradingArea
@@ -48,4 +48,4 @@ initialScreen: enterYearsInBusiness
 model: memberBusiness
 parentIds:
   - memberLoanId
-rootQuery: member.0.memberLoan.memberBusiness
+rootQuery: member.memberLoan.0.memberBusiness

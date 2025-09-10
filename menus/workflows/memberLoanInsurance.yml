@@ -1,9 +1,9 @@
 cacheQueries:
-  amount: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance.amount
-  date: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance.date
-  id: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance.id
-  insuranceProviderId: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance.insuranceProviderId
-  memberLoanId: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance.memberLoanId
+  amount: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.amount
+  date: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.date
+  id: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.id
+  insuranceProviderId: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.insuranceProviderId
+  memberLoanId: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.memberLoanId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary
@@ -39,4 +39,4 @@ model: memberLoanInsurance
 parentIds:
   - memberLoanId
   - insuranceProviderId
-rootQuery: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance
+rootQuery: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0

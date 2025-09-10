@@ -1,7 +1,7 @@
 cacheQueries:
-  id: savingsType.0.savingsRate.id
-  monthlyRate: savingsType.0.savingsRate.monthlyRate
-  savingsTypeId: savingsType.0.savingsRate.savingsTypeId
+  id: savingsType.savingsRate.0.id
+  monthlyRate: savingsType.savingsRate.0.monthlyRate
+  savingsTypeId: savingsType.savingsRate.0.savingsTypeId
 enterId:
   hidden: true
   inputIdentifier: id
@@ -24,4 +24,4 @@ initialScreen: enterMonthlyRate
 model: savingsRate
 parentIds:
   - savingsTypeId
-rootQuery: savingsType.0.savingsRate
+rootQuery: savingsType.savingsRate.0

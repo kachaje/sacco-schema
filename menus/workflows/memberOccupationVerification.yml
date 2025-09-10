@@ -1,9 +1,9 @@
 cacheQueries:
-  grossVerified: member.0.memberLoan.memberOccupation.memberOccupationVerification.grossVerified
-  id: member.0.memberLoan.memberOccupation.memberOccupationVerification.id
-  jobVerified: member.0.memberLoan.memberOccupation.memberOccupationVerification.jobVerified
-  memberOccupationId: member.0.memberLoan.memberOccupation.memberOccupationVerification.memberOccupationId
-  netVerified: member.0.memberLoan.memberOccupation.memberOccupationVerification.netVerified
+  grossVerified: member.memberLoan.0.memberOccupation.memberOccupationVerification.grossVerified
+  id: member.memberLoan.0.memberOccupation.memberOccupationVerification.id
+  jobVerified: member.memberLoan.0.memberOccupation.memberOccupationVerification.jobVerified
+  memberOccupationId: member.memberLoan.0.memberOccupation.memberOccupationVerification.memberOccupationId
+  netVerified: member.memberLoan.0.memberOccupation.memberOccupationVerification.netVerified
 enterGrossVerified:
   inputIdentifier: grossVerified
   nextScreen: enterNetVerified
@@ -47,4 +47,4 @@ initialScreen: enterJobVerified
 model: memberOccupationVerification
 parentIds:
   - memberOccupationId
-rootQuery: member.0.memberLoan.memberOccupation.memberOccupationVerification
+rootQuery: member.memberLoan.0.memberOccupation.memberOccupationVerification

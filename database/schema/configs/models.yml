@@ -40,7 +40,7 @@ accountJournal:
     - direction:
         numericField: true
         order: 5
-  rootQuery: account.0.accountTransaction.0.accountJournal
+  rootQuery: account.accountTransaction.accountJournal.0
 accountStatement:
   belongsTo:
     - account
@@ -61,7 +61,7 @@ accountStatement:
     - totalDebit:
         numericField: true
         order: 4
-  rootQuery: account.0.accountStatement
+  rootQuery: account.accountStatement.0
 accountTransaction:
   fields:
     - id:
@@ -94,7 +94,7 @@ dividends:
     - amount:
         numericField: true
         order: 3
-  rootQuery: member.0.dividends
+  rootQuery: member.dividends.0
 insuranceProvider:
   fields:
     - id:
@@ -134,7 +134,7 @@ loanNumberIdsCache:
         order: 3
   hasOne:
     - memberLoan
-  rootQuery: member.0.memberLoan.loanNumberIdsCache
+  rootQuery: member.memberLoan.0.loanNumberIdsCache
 loanRate:
   belongsTo:
     - loanType
@@ -281,7 +281,7 @@ memberBusiness:
     - memberBusinessVerification
     - memberLastYearBusinessHistory
     - memberNextYearBusinessProjection
-  rootQuery: member.0.memberLoan.memberBusiness
+  rootQuery: member.memberLoan.0.memberBusiness
 memberBusinessVerification:
   belongsTo:
     - memberBusiness
@@ -309,7 +309,7 @@ memberBusinessVerification:
     - netIncomeVerified:
         order: 4
         type: text
-  rootQuery: member.0.memberLoan.memberBusiness.memberBusinessVerification
+  rootQuery: member.memberLoan.0.memberBusiness.memberBusinessVerification
 memberContact:
   belongsTo:
     - member
@@ -520,7 +520,7 @@ memberDependant:
           - Other
         order: 7
         type: text
-  rootQuery: member.0.memberDependant
+  rootQuery: member.memberDependant.0
 memberIdsCache:
   belongsTo:
     - member
@@ -587,7 +587,7 @@ memberLastYearBusinessHistory:
     - netProfitLoss:
         numericField: true
         order: 13
-  rootQuery: member.0.memberLoan.memberBusiness.memberLastYearBusinessHistory
+  rootQuery: member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory
 memberLoan:
   belongsTo:
     - member
@@ -651,7 +651,7 @@ memberLoan:
     - memberLoanApproval
     - memberLoanDisbursement
     - memberOccupation
-  rootQuery: member.0.memberLoan
+  rootQuery: member.memberLoan.0
 memberLoanApproval:
   belongsTo:
     - memberLoan
@@ -693,7 +693,7 @@ memberLoanApproval:
         optional: true
         order: 8
         type: text
-  rootQuery: member.0.memberLoan.memberLoanApproval
+  rootQuery: member.memberLoan.0.memberLoanApproval
 memberLoanDisbursement:
   belongsTo:
     - memberLoan
@@ -714,7 +714,7 @@ memberLoanDisbursement:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.memberLoan.memberLoanDisbursement
+  rootQuery: member.memberLoan.0.memberLoanDisbursement
 memberLoanInsurance:
   belongsTo:
     - memberLoan
@@ -736,7 +736,7 @@ memberLoanInsurance:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.memberLoan.0.insuranceProvider.0.memberLoanInsurance
+  rootQuery: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0
 memberLoanLiability:
   belongsTo:
     - memberLoan
@@ -753,7 +753,7 @@ memberLoanLiability:
     - value:
         numericField: true
         order: 3
-  rootQuery: member.0.memberLoan.0.memberLoanLiability
+  rootQuery: member.memberLoan.0.memberLoanLiability.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -775,7 +775,7 @@ memberLoanPaymentSchedule:
         order: 4
   hasMany:
     - memberLoanReceipt
-  rootQuery: member.0.memberLoan.0.memberLoanPaymentSchedule
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
 memberLoanProcessingFee:
   belongsTo:
     - memberLoan
@@ -793,7 +793,7 @@ memberLoanProcessingFee:
     - amount:
         numericField: true
         order: 3
-  rootQuery: member.0.memberLoan.0.memberLoanProcessingFee
+  rootQuery: member.memberLoan.0.memberLoanProcessingFee.0
 memberLoanReceipt:
   belongsTo:
     - memberLoanPaymentSchedule
@@ -814,7 +814,7 @@ memberLoanReceipt:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0
 memberLoanSecurity:
   belongsTo:
     - memberLoan
@@ -834,7 +834,7 @@ memberLoanSecurity:
     - serialNumber:
         order: 4
         type: text
-  rootQuery: member.0.memberLoan.0.memberLoanSecurity
+  rootQuery: member.memberLoan.0.memberLoanSecurity.0
 memberLoanTax:
   belongsTo:
     - memberLoan
@@ -855,7 +855,7 @@ memberLoanTax:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.memberLoan.0.memberLoanTax
+  rootQuery: member.memberLoan.0.memberLoanTax.0
 memberLoanWitness:
   belongsTo:
     - memberLoan
@@ -879,7 +879,7 @@ memberLoanWitness:
         optional: true
         order: 5
         type: text
-  rootQuery: member.0.memberLoan.0.memberLoanWitness
+  rootQuery: member.memberLoan.0.memberLoanWitness.0
 memberNextYearBusinessProjection:
   belongsTo:
     - memberBusiness
@@ -926,7 +926,7 @@ memberNextYearBusinessProjection:
     - netProfitLoss:
         numericField: true
         order: 13
-  rootQuery: member.0.memberLoan.memberBusiness.memberNextYearBusinessProjection
+  rootQuery: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection
 memberOccupation:
   belongsTo:
     - memberLoan
@@ -968,7 +968,7 @@ memberOccupation:
         type: text
   hasOne:
     - memberOccupationVerification
-  rootQuery: member.0.memberLoan.memberOccupation
+  rootQuery: member.memberLoan.0.memberOccupation
 memberOccupationVerification:
   belongsTo:
     - memberOccupation
@@ -992,7 +992,7 @@ memberOccupationVerification:
     - netVerified:
         order: 4
         type: text
-  rootQuery: member.0.memberLoan.memberOccupation.memberOccupationVerification
+  rootQuery: member.memberLoan.0.memberOccupation.memberOccupationVerification
 memberSaving:
   belongsTo:
     - member
@@ -1020,7 +1020,7 @@ memberSaving:
     - memberSavingWithdrawal
     - sharesDepositReceipt
     - sharesDepositWithdraw
-  rootQuery: member.0.savingsType.0.memberSaving
+  rootQuery: member.savingsType.memberSaving.0
 memberSavingDeposit:
   belongsTo:
     - memberSaving
@@ -1041,7 +1041,7 @@ memberSavingDeposit:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.savingsType.0.memberSaving.0.memberSavingDeposit
+  rootQuery: member.savingsType.memberSaving.0.memberSavingDeposit.0
 memberSavingInterest:
   belongsTo:
     - memberSaving
@@ -1062,7 +1062,7 @@ memberSavingInterest:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.savingsType.0.memberSaving.0.memberSavingInterest
+  rootQuery: member.savingsType.memberSaving.0.memberSavingInterest.0
 memberSavingWithdrawal:
   belongsTo:
     - memberSaving
@@ -1083,7 +1083,7 @@ memberSavingWithdrawal:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal
+  rootQuery: member.savingsType.memberSaving.0.memberSavingWithdrawal.0
 memberSavingsIdsCache:
   belongsTo:
     - memberSaving
@@ -1103,7 +1103,7 @@ memberSavingsIdsCache:
         order: 3
   hasOne:
     - memberSaving
-  rootQuery: member.0.savingsType.0.memberSaving.memberSavingsIdsCache
+  rootQuery: member.savingsType.memberSaving.0.memberSavingsIdsCache
 memberShares:
   belongsTo:
     - member
@@ -1127,7 +1127,7 @@ memberShares:
     - numberOfShares:
         numericField: true
         order: 5
-  rootQuery: member.0.memberShares
+  rootQuery: member.memberShares.0
 memberSharesIdsCache:
   belongsTo:
     - memberShares
@@ -1147,7 +1147,7 @@ memberSharesIdsCache:
         order: 3
   hasOne:
     - memberShares
-  rootQuery: member.0.memberShares.memberSharesIdsCache
+  rootQuery: member.memberShares.0.memberSharesIdsCache
 notification:
   belongsTo:
     - member
@@ -1179,7 +1179,7 @@ notification:
           - "No"
         order: 5
         type: text
-  rootQuery: member.0.notification
+  rootQuery: member.notification.0
 savingsRate:
   belongsTo:
     - savingsType
@@ -1193,7 +1193,7 @@ savingsRate:
     - monthlyRate:
         numericField: true
         order: 2
-  rootQuery: savingsType.0.savingsRate
+  rootQuery: savingsType.savingsRate.0
 savingsType:
   fields:
     - id:
@@ -1238,7 +1238,7 @@ sharesDepositReceipt:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.savingsType.0.memberSaving.0.sharesDepositReceipt
+  rootQuery: member.savingsType.memberSaving.0.sharesDepositReceipt.0
 sharesDepositWithdraw:
   belongsTo:
     - memberSaving
@@ -1259,7 +1259,7 @@ sharesDepositWithdraw:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw
+  rootQuery: member.savingsType.memberSaving.0.sharesDepositWithdraw.0
 user:
   fields:
     - id:

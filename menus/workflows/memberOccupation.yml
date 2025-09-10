@@ -1,14 +1,14 @@
 cacheQueries:
-  employerAddress: member.0.memberLoan.memberOccupation.employerAddress
-  employerName: member.0.memberLoan.memberOccupation.employerName
-  employerPhone: member.0.memberLoan.memberOccupation.employerPhone
-  grossPay: member.0.memberLoan.memberOccupation.grossPay
-  highestQualification: member.0.memberLoan.memberOccupation.highestQualification
-  id: member.0.memberLoan.memberOccupation.id
-  jobTitle: member.0.memberLoan.memberOccupation.jobTitle
-  memberLoanId: member.0.memberLoan.memberOccupation.memberLoanId
-  netPay: member.0.memberLoan.memberOccupation.netPay
-  periodEmployedInMonths: member.0.memberLoan.memberOccupation.periodEmployedInMonths
+  employerAddress: member.memberLoan.0.memberOccupation.employerAddress
+  employerName: member.memberLoan.0.memberOccupation.employerName
+  employerPhone: member.memberLoan.0.memberOccupation.employerPhone
+  grossPay: member.memberLoan.0.memberOccupation.grossPay
+  highestQualification: member.memberLoan.0.memberOccupation.highestQualification
+  id: member.memberLoan.0.memberOccupation.id
+  jobTitle: member.memberLoan.0.memberOccupation.jobTitle
+  memberLoanId: member.memberLoan.0.memberOccupation.memberLoanId
+  netPay: member.memberLoan.0.memberOccupation.netPay
+  periodEmployedInMonths: member.memberLoan.0.memberOccupation.periodEmployedInMonths
 enterEmployerAddress:
   inputIdentifier: employerAddress
   nextScreen: enterEmployerPhone
@@ -95,4 +95,4 @@ initialScreen: enterEmployerName
 model: memberOccupation
 parentIds:
   - memberLoanId
-rootQuery: member.0.memberLoan.memberOccupation
+rootQuery: member.memberLoan.0.memberOccupation

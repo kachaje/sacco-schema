@@ -379,6 +379,8 @@ func FetchNodeTree(data map[string]any, model string) string {
 	var fp func(string)
 
 	fp = func(model string) {
+		var arrayChild bool
+
 		if val, ok := data[model].(map[string]any); ok {
 			if val["belongsTo"] != nil {
 				parents := []string{}
@@ -407,7 +409,7 @@ func FetchNodeTree(data map[string]any, model string) string {
 							}
 
 							if slices.Contains(vm, model) {
-								values = append(values, "0")
+								arrayChild = true
 							}
 						}
 					}
@@ -416,6 +418,10 @@ func FetchNodeTree(data map[string]any, model string) string {
 		}
 
 		values = append(values, model)
+
+		if arrayChild {
+			values = append(values, "0")
+		}
 	}
 
 	fp(model)

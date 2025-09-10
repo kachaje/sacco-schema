@@ -1,9 +1,9 @@
 cacheQueries:
-  accountId: account.0.accountStatement.accountId
-  closingBalance: account.0.accountStatement.closingBalance
-  date: account.0.accountStatement.date
-  totalCredit: account.0.accountStatement.totalCredit
-  totalDebit: account.0.accountStatement.totalDebit
+  accountId: account.accountStatement.0.accountId
+  closingBalance: account.accountStatement.0.closingBalance
+  date: account.accountStatement.0.date
+  totalCredit: account.accountStatement.0.totalCredit
+  totalDebit: account.accountStatement.0.totalDebit
 enterAccountId:
   hidden: true
   inputIdentifier: accountId
@@ -46,4 +46,4 @@ initialScreen: enterDate
 model: accountStatement
 parentIds:
   - accountId
-rootQuery: account.0.accountStatement
+rootQuery: account.accountStatement.0

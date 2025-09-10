@@ -1,9 +1,9 @@
 cacheQueries:
-  amount: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw.amount
-  date: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw.date
-  description: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw.description
-  id: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw.id
-  memberSavingId: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw.memberSavingId
+  amount: member.savingsType.memberSaving.0.sharesDepositWithdraw.0.amount
+  date: member.savingsType.memberSaving.0.sharesDepositWithdraw.0.date
+  description: member.savingsType.memberSaving.0.sharesDepositWithdraw.0.description
+  id: member.savingsType.memberSaving.0.sharesDepositWithdraw.0.id
+  memberSavingId: member.savingsType.memberSaving.0.sharesDepositWithdraw.0.memberSavingId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary
@@ -41,4 +41,4 @@ initialScreen: enterDescription
 model: sharesDepositWithdraw
 parentIds:
   - memberSavingId
-rootQuery: member.0.savingsType.0.memberSaving.0.sharesDepositWithdraw
+rootQuery: member.savingsType.memberSaving.0.sharesDepositWithdraw.0

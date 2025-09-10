@@ -1,8 +1,8 @@
 cacheQueries:
-  claimed: member.0.memberLoan.loanNumberIdsCache.claimed
-  id: member.0.memberLoan.loanNumberIdsCache.id
-  loanNumber: member.0.memberLoan.loanNumberIdsCache.loanNumber
-  memberLoanId: member.0.memberLoan.loanNumberIdsCache.memberLoanId
+  claimed: member.memberLoan.0.loanNumberIdsCache.claimed
+  id: member.memberLoan.0.loanNumberIdsCache.id
+  loanNumber: member.memberLoan.0.loanNumberIdsCache.loanNumber
+  memberLoanId: member.memberLoan.0.loanNumberIdsCache.memberLoanId
 enterClaimed:
   inputIdentifier: claimed
   nextScreen: formSummary
@@ -33,4 +33,4 @@ initialScreen: enterLoanNumber
 model: loanNumberIdsCache
 parentIds:
   - memberLoanId
-rootQuery: member.0.memberLoan.loanNumberIdsCache
+rootQuery: member.memberLoan.0.loanNumberIdsCache

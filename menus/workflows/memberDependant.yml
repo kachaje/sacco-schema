@@ -1,36 +1,36 @@
 cacheQueries:
-  address1: member.0.memberDependant.address
-  address2: member.0.memberDependant.address
-  address3: member.0.memberDependant.address
-  address4: member.0.memberDependant.address
-  id1: member.0.memberDependant.id
-  id2: member.0.memberDependant.id
-  id3: member.0.memberDependant.id
-  id4: member.0.memberDependant.id
-  isNominee1: member.0.memberDependant.isNominee
-  isNominee2: member.0.memberDependant.isNominee
-  isNominee3: member.0.memberDependant.isNominee
-  isNominee4: member.0.memberDependant.isNominee
-  memberId1: member.0.memberDependant.memberId
-  memberId2: member.0.memberDependant.memberId
-  memberId3: member.0.memberDependant.memberId
-  memberId4: member.0.memberDependant.memberId
-  name1: member.0.memberDependant.name
-  name2: member.0.memberDependant.name
-  name3: member.0.memberDependant.name
-  name4: member.0.memberDependant.name
-  percentage1: member.0.memberDependant.percentage
-  percentage2: member.0.memberDependant.percentage
-  percentage3: member.0.memberDependant.percentage
-  percentage4: member.0.memberDependant.percentage
-  phoneNumber1: member.0.memberDependant.phoneNumber
-  phoneNumber2: member.0.memberDependant.phoneNumber
-  phoneNumber3: member.0.memberDependant.phoneNumber
-  phoneNumber4: member.0.memberDependant.phoneNumber
-  relationship1: member.0.memberDependant.relationship
-  relationship2: member.0.memberDependant.relationship
-  relationship3: member.0.memberDependant.relationship
-  relationship4: member.0.memberDependant.relationship
+  address1: member.memberDependant.0.address
+  address2: member.memberDependant.0.address
+  address3: member.memberDependant.0.address
+  address4: member.memberDependant.0.address
+  id1: member.memberDependant.0.id
+  id2: member.memberDependant.0.id
+  id3: member.memberDependant.0.id
+  id4: member.memberDependant.0.id
+  isNominee1: member.memberDependant.0.isNominee
+  isNominee2: member.memberDependant.0.isNominee
+  isNominee3: member.memberDependant.0.isNominee
+  isNominee4: member.memberDependant.0.isNominee
+  memberId1: member.memberDependant.0.memberId
+  memberId2: member.memberDependant.0.memberId
+  memberId3: member.memberDependant.0.memberId
+  memberId4: member.memberDependant.0.memberId
+  name1: member.memberDependant.0.name
+  name2: member.memberDependant.0.name
+  name3: member.memberDependant.0.name
+  name4: member.memberDependant.0.name
+  percentage1: member.memberDependant.0.percentage
+  percentage2: member.memberDependant.0.percentage
+  percentage3: member.memberDependant.0.percentage
+  percentage4: member.memberDependant.0.percentage
+  phoneNumber1: member.memberDependant.0.phoneNumber
+  phoneNumber2: member.memberDependant.0.phoneNumber
+  phoneNumber3: member.memberDependant.0.phoneNumber
+  phoneNumber4: member.memberDependant.0.phoneNumber
+  relationship1: member.memberDependant.0.relationship
+  relationship2: member.memberDependant.0.relationship
+  relationship3: member.memberDependant.0.relationship
+  relationship4: member.memberDependant.0.relationship
 enterAddress1:
   inputIdentifier: address1
   nextScreen: enterPercentage1
@@ -333,4 +333,4 @@ initialScreen: enterName1
 model: memberDependant
 parentIds:
   - memberId
-rootQuery: member.0.memberDependant
+rootQuery: member.memberDependant.0
