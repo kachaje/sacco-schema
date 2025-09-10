@@ -51,8 +51,10 @@ func (m *Model) AddRecord(data map[string]any) (*int64, error) {
 			id = val
 
 			err := m.UpdateRecord(data, id)
-
-			return &id, err
+			if err != nil && err.Error() == "no match found" {
+			} else {
+				return &id, err
+			}
 		}
 	}
 
@@ -135,13 +137,17 @@ func (m *Model) UpdateRecord(data map[string]any, id int64) error {
 
 	statement := fmt.Sprintf("UPDATE %s SET %s WHERE id=?", m.ModelName, strings.Join(fields, ", "))
 
-	_, err := utils.QueryWithRetry(
+	result, err := utils.QueryWithRetry(
 		m.db,
 		context.Background(), 0,
 		statement, values...,
 	)
 	if err != nil {
 		return err
+	}
+
+	if count, err := result.RowsAffected(); err == nil && count <= 0 {
+		return fmt.Errorf("no match found")
 	}
 
 	return nil
