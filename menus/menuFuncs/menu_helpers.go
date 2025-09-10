@@ -263,7 +263,7 @@ func TabulateData(data map[string]any) []string {
 							percentage = v
 						}
 					}
-					if childData[contactLabel] != nil {
+					if childData[contactLabel] != nil && childData[contactLabel]["value"] != nil {
 						contact = fmt.Sprintf("%v", childData[contactLabel]["value"])
 					}
 
