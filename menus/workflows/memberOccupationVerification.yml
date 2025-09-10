@@ -1,9 +1,9 @@
 cacheQueries:
-  grossVerified: memberOccupation.memberOccupationVerification.grossVerified
-  id: memberOccupation.memberOccupationVerification.id
-  jobVerified: memberOccupation.memberOccupationVerification.jobVerified
-  memberOccupationId: memberOccupation.memberOccupationVerification.memberOccupationId
-  netVerified: memberOccupation.memberOccupationVerification.netVerified
+  grossVerified: member.0.memberLoan.0.memberOccupation.memberOccupationVerification.grossVerified
+  id: member.0.memberLoan.0.memberOccupation.memberOccupationVerification.id
+  jobVerified: member.0.memberLoan.0.memberOccupation.memberOccupationVerification.jobVerified
+  memberOccupationId: member.0.memberLoan.0.memberOccupation.memberOccupationVerification.memberOccupationId
+  netVerified: member.0.memberLoan.0.memberOccupation.memberOccupationVerification.netVerified
 enterGrossVerified:
   inputIdentifier: grossVerified
   nextScreen: enterNetVerified

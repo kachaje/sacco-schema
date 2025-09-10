@@ -1,17 +1,17 @@
 cacheQueries:
-  amountPaid: member.memberLoan.0.amountPaid
-  balanceAmount: member.memberLoan.0.balanceAmount
-  id: member.memberLoan.0.id
-  interestRate: member.memberLoan.0.interestRate
-  loanAmount: member.memberLoan.0.loanAmount
-  loanDueDate: member.memberLoan.0.loanDueDate
-  loanNumber: member.memberLoan.0.loanNumber
-  loanPurpose: member.memberLoan.0.loanPurpose
-  loanStartDate: member.memberLoan.0.loanStartDate
-  loanType: member.memberLoan.0.loanType
-  memberId: member.memberLoan.0.memberId
-  monthlyInstalments: member.memberLoan.0.monthlyInstalments
-  repaymentPeriodInMonths: member.memberLoan.0.repaymentPeriodInMonths
+  amountPaid: member.0.memberLoan.amountPaid
+  balanceAmount: member.0.memberLoan.balanceAmount
+  id: member.0.memberLoan.id
+  interestRate: member.0.memberLoan.interestRate
+  loanAmount: member.0.memberLoan.loanAmount
+  loanDueDate: member.0.memberLoan.loanDueDate
+  loanNumber: member.0.memberLoan.loanNumber
+  loanPurpose: member.0.memberLoan.loanPurpose
+  loanStartDate: member.0.memberLoan.loanStartDate
+  loanType: member.0.memberLoan.loanType
+  memberId: member.0.memberLoan.memberId
+  monthlyInstalments: member.0.memberLoan.monthlyInstalments
+  repaymentPeriodInMonths: member.0.memberLoan.repaymentPeriodInMonths
 enterAmountPaid:
   hidden: true
   inputIdentifier: amountPaid

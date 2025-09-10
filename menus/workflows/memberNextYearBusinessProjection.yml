@@ -1,18 +1,18 @@
 cacheQueries:
-  employeeWages: memberBusiness.memberNextYearBusinessProjection.employeeWages
-  financialYear: memberBusiness.memberNextYearBusinessProjection.financialYear
-  id: memberBusiness.memberNextYearBusinessProjection.id
-  loanInterest: memberBusiness.memberNextYearBusinessProjection.loanInterest
-  memberBusinessId: memberBusiness.memberNextYearBusinessProjection.memberBusinessId
-  netProfitLoss: memberBusiness.memberNextYearBusinessProjection.netProfitLoss
-  otherCosts: memberBusiness.memberNextYearBusinessProjection.otherCosts
-  ownSalary: memberBusiness.memberNextYearBusinessProjection.ownSalary
-  rentals: memberBusiness.memberNextYearBusinessProjection.rentals
-  totalCostOfGoods: memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
-  totalCosts: memberBusiness.memberNextYearBusinessProjection.totalCosts
-  totalIncome: memberBusiness.memberNextYearBusinessProjection.totalIncome
-  transport: memberBusiness.memberNextYearBusinessProjection.transport
-  utilities: memberBusiness.memberNextYearBusinessProjection.utilities
+  employeeWages: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.employeeWages
+  financialYear: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.financialYear
+  id: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.id
+  loanInterest: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.loanInterest
+  memberBusinessId: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.memberBusinessId
+  netProfitLoss: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.netProfitLoss
+  otherCosts: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.otherCosts
+  ownSalary: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.ownSalary
+  rentals: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.rentals
+  totalCostOfGoods: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
+  totalCosts: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCosts
+  totalIncome: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalIncome
+  transport: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.transport
+  utilities: member.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.utilities
 enterEmployeeWages:
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary

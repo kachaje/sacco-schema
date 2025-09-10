@@ -1,8 +1,8 @@
 cacheQueries:
-  description: memberLoan.memberLoanLiability.0.description
-  id: memberLoan.memberLoanLiability.0.id
-  memberLoanId: memberLoan.memberLoanLiability.0.memberLoanId
-  value: memberLoan.memberLoanLiability.0.value
+  description: member.0.memberLoan.0.memberLoanLiability.description
+  id: member.0.memberLoan.0.memberLoanLiability.id
+  memberLoanId: member.0.memberLoan.0.memberLoanLiability.memberLoanId
+  value: member.0.memberLoan.0.memberLoanLiability.value
 enterDescription:
   inputIdentifier: description
   nextScreen: enterValue

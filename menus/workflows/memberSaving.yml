@@ -1,9 +1,9 @@
 cacheQueries:
-  balance: member.memberSaving.0.balance
-  id: member.memberSaving.0.id
-  memberId: member.memberSaving.0.memberId
-  memberSavingsIdNumber: member.memberSaving.0.memberSavingsIdNumber
-  savingsTypeId: member.memberSaving.0.savingsTypeId
+  balance: member.0.savingsType.0.memberSaving.balance
+  id: member.0.savingsType.0.memberSaving.id
+  memberId: member.0.savingsType.0.memberSaving.memberId
+  memberSavingsIdNumber: member.0.savingsType.0.memberSaving.memberSavingsIdNumber
+  savingsTypeId: member.0.savingsType.0.memberSaving.savingsTypeId
 enterBalance:
   inputIdentifier: balance
   nextScreen: formSummary

@@ -1,10 +1,10 @@
 cacheQueries:
-  address: memberLoan.memberLoanWitness.0.address
-  date: memberLoan.memberLoanWitness.0.date
-  id: memberLoan.memberLoanWitness.0.id
-  memberLoanId: memberLoan.memberLoanWitness.0.memberLoanId
-  telephone: memberLoan.memberLoanWitness.0.telephone
-  witnessName: memberLoan.memberLoanWitness.0.witnessName
+  address: member.0.memberLoan.0.memberLoanWitness.address
+  date: member.0.memberLoan.0.memberLoanWitness.date
+  id: member.0.memberLoan.0.memberLoanWitness.id
+  memberLoanId: member.0.memberLoan.0.memberLoanWitness.memberLoanId
+  telephone: member.0.memberLoan.0.memberLoanWitness.telephone
+  witnessName: member.0.memberLoan.0.memberLoanWitness.witnessName
 enterAddress:
   inputIdentifier: address
   nextScreen: enterDate

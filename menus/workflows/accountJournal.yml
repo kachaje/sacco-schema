@@ -1,10 +1,10 @@
 cacheQueries:
-  accountId: account.accountJournal.0.accountId
-  accountTransactionId: account.accountJournal.0.accountTransactionId
-  amount: account.accountJournal.0.amount
-  date: account.accountJournal.0.date
-  direction: account.accountJournal.0.direction
-  id: account.accountJournal.0.id
+  accountId: account.0.accountTransaction.0.accountJournal.accountId
+  accountTransactionId: account.0.accountTransaction.0.accountJournal.accountTransactionId
+  amount: account.0.accountTransaction.0.accountJournal.amount
+  date: account.0.accountTransaction.0.accountJournal.date
+  direction: account.0.accountTransaction.0.accountJournal.direction
+  id: account.0.accountTransaction.0.accountJournal.id
 enterAccountId:
   hidden: true
   inputIdentifier: accountId

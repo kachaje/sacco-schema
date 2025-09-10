@@ -1,8 +1,8 @@
 cacheQueries:
-  amount: member.dividends.0.amount
-  date: member.dividends.0.date
-  id: member.dividends.0.id
-  memberId: member.dividends.0.memberId
+  amount: member.0.dividends.amount
+  date: member.0.dividends.date
+  id: member.0.dividends.id
+  memberId: member.0.dividends.memberId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary

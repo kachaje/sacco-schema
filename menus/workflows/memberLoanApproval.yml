@@ -1,13 +1,13 @@
 cacheQueries:
-  amountRecommended: memberLoan.memberLoanApproval.amountRecommended
-  approvedBy: memberLoan.memberLoanApproval.approvedBy
-  dateOfApproval: memberLoan.memberLoanApproval.dateOfApproval
-  dateVerified: memberLoan.memberLoanApproval.dateVerified
-  denialOrPartialReason: memberLoan.memberLoanApproval.denialOrPartialReason
-  id: memberLoan.memberLoanApproval.id
-  loanStatus: memberLoan.memberLoanApproval.loanStatus
-  memberLoanId: memberLoan.memberLoanApproval.memberLoanId
-  verifiedBy: memberLoan.memberLoanApproval.verifiedBy
+  amountRecommended: member.0.memberLoan.0.memberLoanApproval.amountRecommended
+  approvedBy: member.0.memberLoan.0.memberLoanApproval.approvedBy
+  dateOfApproval: member.0.memberLoan.0.memberLoanApproval.dateOfApproval
+  dateVerified: member.0.memberLoan.0.memberLoanApproval.dateVerified
+  denialOrPartialReason: member.0.memberLoan.0.memberLoanApproval.denialOrPartialReason
+  id: member.0.memberLoan.0.memberLoanApproval.id
+  loanStatus: member.0.memberLoan.0.memberLoanApproval.loanStatus
+  memberLoanId: member.0.memberLoan.0.memberLoanApproval.memberLoanId
+  verifiedBy: member.0.memberLoan.0.memberLoanApproval.verifiedBy
 enterAmountRecommended:
   inputIdentifier: amountRecommended
   nextScreen: enterApprovedBy

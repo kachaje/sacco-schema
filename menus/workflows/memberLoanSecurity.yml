@@ -1,9 +1,9 @@
 cacheQueries:
-  description: memberLoan.memberLoanSecurity.0.description
-  id: memberLoan.memberLoanSecurity.0.id
-  memberLoanId: memberLoan.memberLoanSecurity.0.memberLoanId
-  serialNumber: memberLoan.memberLoanSecurity.0.serialNumber
-  value: memberLoan.memberLoanSecurity.0.value
+  description: member.0.memberLoan.0.memberLoanSecurity.description
+  id: member.0.memberLoan.0.memberLoanSecurity.id
+  memberLoanId: member.0.memberLoan.0.memberLoanSecurity.memberLoanId
+  serialNumber: member.0.memberLoan.0.memberLoanSecurity.serialNumber
+  value: member.0.memberLoan.0.memberLoanSecurity.value
 enterDescription:
   inputIdentifier: description
   nextScreen: enterValue

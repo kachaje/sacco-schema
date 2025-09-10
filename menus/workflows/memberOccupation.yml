@@ -1,14 +1,14 @@
 cacheQueries:
-  employerAddress: memberLoan.memberOccupation.employerAddress
-  employerName: memberLoan.memberOccupation.employerName
-  employerPhone: memberLoan.memberOccupation.employerPhone
-  grossPay: memberLoan.memberOccupation.grossPay
-  highestQualification: memberLoan.memberOccupation.highestQualification
-  id: memberLoan.memberOccupation.id
-  jobTitle: memberLoan.memberOccupation.jobTitle
-  memberLoanId: memberLoan.memberOccupation.memberLoanId
-  netPay: memberLoan.memberOccupation.netPay
-  periodEmployedInMonths: memberLoan.memberOccupation.periodEmployedInMonths
+  employerAddress: member.0.memberLoan.0.memberOccupation.employerAddress
+  employerName: member.0.memberLoan.0.memberOccupation.employerName
+  employerPhone: member.0.memberLoan.0.memberOccupation.employerPhone
+  grossPay: member.0.memberLoan.0.memberOccupation.grossPay
+  highestQualification: member.0.memberLoan.0.memberOccupation.highestQualification
+  id: member.0.memberLoan.0.memberOccupation.id
+  jobTitle: member.0.memberLoan.0.memberOccupation.jobTitle
+  memberLoanId: member.0.memberLoan.0.memberOccupation.memberLoanId
+  netPay: member.0.memberLoan.0.memberOccupation.netPay
+  periodEmployedInMonths: member.0.memberLoan.0.memberOccupation.periodEmployedInMonths
 enterEmployerAddress:
   inputIdentifier: employerAddress
   nextScreen: enterEmployerPhone

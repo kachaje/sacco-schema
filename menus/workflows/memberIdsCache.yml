@@ -1,8 +1,8 @@
 cacheQueries:
-  claimed: member.memberIdsCache.claimed
-  id: member.memberIdsCache.id
-  idNumber: member.memberIdsCache.idNumber
-  memberId: member.memberIdsCache.memberId
+  claimed: member.0.memberIdsCache.claimed
+  id: member.0.memberIdsCache.id
+  idNumber: member.0.memberIdsCache.idNumber
+  memberId: member.0.memberIdsCache.memberId
 enterClaimed:
   inputIdentifier: claimed
   nextScreen: formSummary

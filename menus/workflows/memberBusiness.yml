@@ -1,10 +1,10 @@
 cacheQueries:
-  businessName: memberLoan.memberBusiness.businessName
-  businessNature: memberLoan.memberBusiness.businessNature
-  id: memberLoan.memberBusiness.id
-  memberLoanId: memberLoan.memberBusiness.memberLoanId
-  tradingArea: memberLoan.memberBusiness.tradingArea
-  yearsInBusiness: memberLoan.memberBusiness.yearsInBusiness
+  businessName: member.0.memberLoan.0.memberBusiness.businessName
+  businessNature: member.0.memberLoan.0.memberBusiness.businessNature
+  id: member.0.memberLoan.0.memberBusiness.id
+  memberLoanId: member.0.memberLoan.0.memberBusiness.memberLoanId
+  tradingArea: member.0.memberLoan.0.memberBusiness.tradingArea
+  yearsInBusiness: member.0.memberLoan.0.memberBusiness.yearsInBusiness
 enterBusinessName:
   inputIdentifier: businessName
   nextScreen: enterTradingArea

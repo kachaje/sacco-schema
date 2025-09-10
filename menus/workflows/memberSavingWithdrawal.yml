@@ -1,9 +1,9 @@
 cacheQueries:
-  amount: memberSaving.memberSavingWithdrawal.0.amount
-  date: memberSaving.memberSavingWithdrawal.0.date
-  description: memberSaving.memberSavingWithdrawal.0.description
-  id: memberSaving.memberSavingWithdrawal.0.id
-  memberSavingId: memberSaving.memberSavingWithdrawal.0.memberSavingId
+  amount: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal.amount
+  date: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal.date
+  description: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal.description
+  id: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal.id
+  memberSavingId: member.0.savingsType.0.memberSaving.0.memberSavingWithdrawal.memberSavingId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary

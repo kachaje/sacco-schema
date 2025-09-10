@@ -1,10 +1,10 @@
 cacheQueries:
-  date: member.notification.0.date
-  id: member.notification.0.id
-  memberId: member.notification.0.memberId
-  message: member.notification.0.message
-  msgDelivered: member.notification.0.msgDelivered
-  msgRead: member.notification.0.msgRead
+  date: member.0.notification.date
+  id: member.0.notification.id
+  memberId: member.0.notification.memberId
+  message: member.0.notification.message
+  msgDelivered: member.0.notification.msgDelivered
+  msgRead: member.0.notification.msgRead
 enterDate:
   inputIdentifier: date
   nextScreen: enterMessage

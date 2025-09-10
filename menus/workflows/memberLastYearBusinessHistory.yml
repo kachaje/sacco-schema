@@ -1,18 +1,18 @@
 cacheQueries:
-  employeeWages: memberBusiness.memberLastYearBusinessHistory.employeeWages
-  financialYear: memberBusiness.memberLastYearBusinessHistory.financialYear
-  id: memberBusiness.memberLastYearBusinessHistory.id
-  loanInterest: memberBusiness.memberLastYearBusinessHistory.loanInterest
-  memberBusinessId: memberBusiness.memberLastYearBusinessHistory.memberBusinessId
-  netProfitLoss: memberBusiness.memberLastYearBusinessHistory.netProfitLoss
-  otherCosts: memberBusiness.memberLastYearBusinessHistory.otherCosts
-  ownSalary: memberBusiness.memberLastYearBusinessHistory.ownSalary
-  rentals: memberBusiness.memberLastYearBusinessHistory.rentals
-  totalCostOfGoods: memberBusiness.memberLastYearBusinessHistory.totalCostOfGoods
-  totalCosts: memberBusiness.memberLastYearBusinessHistory.totalCosts
-  totalIncome: memberBusiness.memberLastYearBusinessHistory.totalIncome
-  transport: memberBusiness.memberLastYearBusinessHistory.transport
-  utilities: memberBusiness.memberLastYearBusinessHistory.utilities
+  employeeWages: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.employeeWages
+  financialYear: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.financialYear
+  id: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.id
+  loanInterest: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.loanInterest
+  memberBusinessId: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.memberBusinessId
+  netProfitLoss: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.netProfitLoss
+  otherCosts: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.otherCosts
+  ownSalary: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.ownSalary
+  rentals: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.rentals
+  totalCostOfGoods: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalCostOfGoods
+  totalCosts: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalCosts
+  totalIncome: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.totalIncome
+  transport: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.transport
+  utilities: member.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.utilities
 enterEmployeeWages:
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary

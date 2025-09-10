@@ -1,7 +1,7 @@
 cacheQueries:
-  id: savingsType.savingsRate.0.id
-  monthlyRate: savingsType.savingsRate.0.monthlyRate
-  savingsTypeId: savingsType.savingsRate.0.savingsTypeId
+  id: savingsType.0.savingsRate.id
+  monthlyRate: savingsType.0.savingsRate.monthlyRate
+  savingsTypeId: savingsType.0.savingsRate.savingsTypeId
 enterId:
   hidden: true
   inputIdentifier: id

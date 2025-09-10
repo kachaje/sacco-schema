@@ -1,10 +1,10 @@
 cacheQueries:
-  id: member.memberShares.0.id
-  memberId: member.memberShares.0.memberId
-  memberSharesIdNumber: member.memberShares.0.memberSharesIdNumber
-  monthlyPremium: member.memberShares.0.monthlyPremium
-  numberOfShares: member.memberShares.0.numberOfShares
-  totalValue: member.memberShares.0.totalValue
+  id: member.0.memberShares.id
+  memberId: member.0.memberShares.memberId
+  memberSharesIdNumber: member.0.memberShares.memberSharesIdNumber
+  monthlyPremium: member.0.memberShares.monthlyPremium
+  numberOfShares: member.0.memberShares.numberOfShares
+  totalValue: member.0.memberShares.totalValue
 enterId:
   hidden: true
   inputIdentifier: id
