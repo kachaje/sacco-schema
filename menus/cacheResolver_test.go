@@ -44,7 +44,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menus.ResolveCacheData(data, cacheData)
+	result := menus.ResolveCacheData(data, "member.memberDependant.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
@@ -86,7 +86,7 @@ func TestResolveCacheDataFlat(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menus.ResolveCacheData(data, cacheData)
+	result := menus.ResolveCacheData(data, "member.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")

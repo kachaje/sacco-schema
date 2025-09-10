@@ -8,29 +8,9 @@ import (
 	"strings"
 )
 
-func ResolveCacheData(data, cacheMap map[string]any) map[string]any {
+func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 	var result = map[string]any{}
-	var groupRoot string
-
-	if cacheMap != nil && cacheMap["cacheQueries"] != nil && data != nil {
-		if cacheQueries, ok := cacheMap["cacheQueries"].(map[string]any); ok {
-			for _, value := range cacheQueries {
-				if groupRoot == "" {
-					if val, ok := value.(string); ok {
-						if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
-							groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
-							break
-						} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
-							groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
-							break
-						}
-					}
-				}
-			}
-		}
-	}
-
-	incomingData := map[string]any{}
+	var incomingData = map[string]any{}
 
 	keys := []string{}
 

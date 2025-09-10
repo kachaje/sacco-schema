@@ -395,6 +395,34 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 			session.CurrentMenu = kv[target]
 		}
 
+		model := fmt.Sprintf("%v", m.Workflows[kv[target]])
+
+		if m.CacheQueries[model] != nil {
+			if vMap, ok := m.CacheQueries[model].(map[string]any); ok {
+				var groupRoot string
+
+				for _, value := range vMap {
+					if groupRoot == "" {
+						if val, ok := value.(string); ok {
+							if regexp.MustCompile(`^([^0]+)0`).MatchString(val) {
+								groupRoot = regexp.MustCompile(`^([^0]+)`).FindString(val)
+								break
+							} else if regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).MatchString(val) {
+								groupRoot = regexp.MustCompile(`^(.+\.)[A-Za-z]+$`).FindAllStringSubmatch(val, -1)[0][1]
+								break
+							}
+						}
+					}
+				}
+
+				if groupRoot != "" {
+					cacheData := ResolveCacheData(session.ActiveData, groupRoot)
+
+					fmt.Println("#######", kv[target], model, cacheData)
+				}
+			}
+		}
+
 		return m.LoadMenu(kv[target], session, phoneNumber, text, preferencesFolder)
 	} else if session != nil && m.Workflows[session.CurrentMenu] != nil {
 		workingMenu := session.CurrentMenu
