@@ -1,0 +1,57 @@
+exec server -p 8396 -n db3 -o 2>&1 >/dev/null &
+stdin input.txt
+exec wscli -p 8396 -n 0888999784
+stdout 'Welcome to Kaso SACCO'
+stdout 'Choose Activity'
+stdout 'First Name:'
+stdout 'Last Name:'
+stdout 'Other Name'
+stdout 'Gender:'
+stdout 'Phone Number: \(0888999784\)'
+stdout 'Title:'
+stdout 'Marital Status:'
+stdout 'Date Of Birth:'
+stdout 'National Identifier:'
+stdout 'Utility Bill Type:'
+stdout 'Utility Bill Number:'
+stdout 'Summary'
+stdout '1. Member Details \(\*\)'
+stdout 'Name:'
+stdout 'Phone Number:'
+stdout 'Address:'
+stdout 'Percentage:'
+stdout 'Is Nominee:'
+stdout 'Relationship:'
+stdout 'Name:'
+stdout '- Name: John Banda'
+stdout '3\. Beneficiaries \(\*\)'
+stdout 'Name: \(John Banda\)'
+
+-- input.txt --
+1
+1
+Mary
+Banda
+02
+1
+01
+3
+2
+1999-09-01
+DHSGH3837
+1
+938374838
+0
+3
+John Banda
+0999999999
+02
+10
+1
+1
+02
+0
+3
+99
+00
+8
