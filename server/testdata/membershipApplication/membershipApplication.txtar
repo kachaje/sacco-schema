@@ -1,0 +1,62 @@
+exec server -p 7989 -n db1 -o 2>&1 >/dev/null &
+stdin input.txt
+exec wscli -p 7989 -n 0777999888
+stdout 'Welcome to Kaso SACCO'
+stdout 'Choose Activity'
+stdout 'First Name:'
+stdout 'Last Name:'
+stdout 'Other Name'
+stdout 'Gender:'
+stdout 'Phone Number: \(0777999888\)'
+stdout 'Title:'
+stdout 'Marital Status:'
+stdout 'Date Of Birth:'
+stdout 'National Identifier:'
+stdout 'Utility Bill Type:'
+stdout 'Utility Bill Number:'
+stdout 'Summary'
+stdout '1. Member Details \(\*\)'
+stdout 'First Name: \(Mary\)'
+stdout 'Last Name: \(Banda\)'
+stdout 'Other Name'
+stdout 'Gender: \(Female\)'
+stdout 'Phone Number: \(0777999888\)'
+stdout 'Title: (Miss)'
+stdout 'Marital Status: \(Single\)'
+stdout 'Date Of Birth: \(1999-09-01\)'
+stdout 'National Identifier: \(DHSGH3837\)'
+stdout 'Utility Bill Type: \(ESCOM\)'
+stdout 'Utility Bill Number: \(938374838\)'
+stdout '- Utility Bill Number: 12345678'
+stdout 'Welcome to Kaso SACCO'
+
+-- input.txt --
+1
+1
+Mary
+Banda
+02
+1
+01
+3
+2
+1999-09-01
+DHSGH3837
+1
+938374838
+0
+1
+01
+01
+Jean
+01
+01
+01
+01
+01
+01
+2
+12345678
+0
+00
+8
