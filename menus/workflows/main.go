@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 	"sacco/database"
 	"sacco/utils"
-	"slices"
 	"sort"
 	"strings"
 )
@@ -118,7 +117,7 @@ func buildWorkflows() {
 
 	relationships := map[string]any{}
 	parentModels := []string{}
-	floatFields := []string{}
+	floatFields := map[string]bool{}
 
 	for model := range data {
 		targetFile := filepath.Join(workingFolder, fmt.Sprintf("%s.yml", model))
@@ -143,8 +142,8 @@ func buildWorkflows() {
 		}
 
 		for key := range floats {
-			if !slices.Contains(floatFields, key) {
-				floatFields = append(floatFields, fmt.Sprintf(`"%s",`, key))
+			if !floatFields[key] {
+				floatFields[key] = true
 			}
 		}
 
@@ -200,10 +199,16 @@ func buildWorkflows() {
 		}
 	}
 
+	floatKeys := []string{}
+
+	for key := range floatFields {
+		floatKeys = append(floatKeys, fmt.Sprintf(`"%s",`, key))
+	}
+
 	sort.Strings(script)
 	sort.Strings(singlesGroup)
 	sort.Strings(arraysGroup)
-	sort.Strings(floatFields)
+	sort.Strings(floatKeys)
 	sort.Strings(parentModels)
 
 	targetName := filepath.Join("..", "..", "database", "models.go")
@@ -228,7 +233,7 @@ func buildWorkflows() {
 		strings.Join(script, "\n"),
 		strings.Join(singlesGroup, "\n"),
 		strings.Join(arraysGroup, "\n"),
-		strings.Join(floatFields, "\n"),
+		strings.Join(floatKeys, "\n"),
 		strings.Join(parentModels, "\n"),
 	))
 	if err != nil {
