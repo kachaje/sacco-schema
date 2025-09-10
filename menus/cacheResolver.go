@@ -15,7 +15,7 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 	keys := []string{}
 
 	for key, value := range data {
-		re := regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.(.+)`, groupRoot))
+		re := regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.([A-Za-z]+)$`, groupRoot))
 		if strings.HasPrefix(key, groupRoot) && re.MatchString(key) {
 			parts := re.FindAllStringSubmatch(key, -1)
 

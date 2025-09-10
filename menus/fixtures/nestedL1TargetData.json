@@ -1,13 +1,15 @@
 {
-  "amountPaid": 0,
-  "balanceAmount": 0,
-  "id": 1,
-  "interestRate": 0,
-  "loanAmount": 200000,
-  "loanDueDate": "2025-09-08 07:09:32",
-  "loanNumber": "KLN360577",
-  "loanPurpose": "School fees",
-  "loanStartDate": "2025-09-08 07:09:32",
-  "loanType": "PERSONAL",
-  "memberId": 1
+  "amountPaid1": 0,
+  "balanceAmount1": 0,
+  "id1": 1,
+  "interestRate1": 0,
+  "loanAmount1": 200000,
+  "loanDueDate1": "2025-09-08 07:09:32",
+  "loanNumber1": "KLN360577",
+  "loanPurpose1": "School fees",
+  "loanStartDate1": "2025-09-08 07:09:32",
+  "loanType1": "PERSONAL",
+  "memberId1": 1,
+  "monthlyInstalments1": 0,
+  "repaymentPeriodInMonths1": 12
 }
