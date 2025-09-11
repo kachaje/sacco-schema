@@ -80,7 +80,7 @@
     "loanType": {
       "label": "Loan Type",
       "order": 1,
-      "value": "PERSONAL"
+      "value": "Personal"
     }
   },
   "C. LOAN INFORMATION": {
