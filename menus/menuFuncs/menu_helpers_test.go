@@ -81,7 +81,7 @@ func TestLoadTemplateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -101,7 +101,7 @@ func TestLoadTemplateData(t *testing.T) {
 func TestTabulateData(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.template.output.json"))
+	content, err := os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -111,7 +111,7 @@ func TestTabulateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "member.txt"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -209,6 +209,33 @@ func TestBusinessSummary(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
+		t.Fatal("Test failed")
+	}
+}
+
+func TestTabulateBusinessSummary(t *testing.T) {
+	data := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
+
+	result := menufuncs.TabulateData(data)
+
+	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
 		t.Fatal("Test failed")
 	}
 }
