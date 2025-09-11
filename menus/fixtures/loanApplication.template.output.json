@@ -18,7 +18,8 @@
   "A. PERSONAL INFORMATION": {
     "dateOfBirth": {
       "label": "Age",
-      "order": 4
+      "order": 4,
+      "value": 26
     },
     "email": {
       "label": "Email",

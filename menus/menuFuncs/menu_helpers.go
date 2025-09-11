@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sacco/parser"
 	"sort"
 	"strconv"
 	"strings"
@@ -137,7 +138,15 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 							if val, ok := data[query]; ok {
 								if value["formula"] != nil {
 									if formula, ok := value["formula"].(string); ok {
-										fmt.Println("######## TODO:", formula, val)
+										tokens := parser.GetTokens(formula)
+
+										result, err := parser.ResultFromFormulae(tokens, map[string]any{
+											field: val,
+										})
+
+										if err == nil {
+											parentMap[key].(map[string]any)[field].(map[string]any)["value"] = *result
+										}
 									}
 								} else if len(strings.TrimSpace(fmt.Sprintf("%v", val))) > 0 {
 									parentMap[key].(map[string]any)[field].(map[string]any)["value"] = val
