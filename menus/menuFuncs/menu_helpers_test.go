@@ -2,7 +2,6 @@ package menufuncs_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -169,8 +168,6 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 }
 
 func TestBusinessSummary(t *testing.T) {
-	t.Skip()
-
 	data := map[string]any{}
 	templateData := map[string]any{}
 	targetData := map[string]any{}
@@ -207,15 +204,9 @@ func TestBusinessSummary(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	target := targetData["E BUSINESS INFORMATION"].(map[string]any)
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	fmt.Println(string(payload))
-
-	payload, _ = json.MarshalIndent(target, "", "  ")
-
-	fmt.Println(string(payload))
+	target := map[string]any{
+		"E BUSINESS INFORMATION": targetData["E BUSINESS INFORMATION"],
+	}
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
