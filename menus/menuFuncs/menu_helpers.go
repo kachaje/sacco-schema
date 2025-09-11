@@ -353,7 +353,8 @@ func TabulateData(data map[string]any) []string {
 
 					var entry string
 
-					if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", value)) {
+					if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", value)) &&
+						!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(label)) {
 						p := message.NewPrinter(language.English)
 
 						var vn float64
