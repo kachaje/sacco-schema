@@ -2,6 +2,7 @@ package menufuncs_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -150,7 +151,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menufuncs.LoadLoanApplicationForm(data, templateData)
+	result := menufuncs.LoadTemplateData(data, templateData)
 
 	content, err = os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
@@ -163,6 +164,60 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(targetData, result) {
+		t.Fatal("Test failed")
+	}
+}
+
+func TestBusinessSummary(t *testing.T) {
+	t.Skip()
+
+	data := map[string]any{}
+	templateData := map[string]any{}
+	targetData := map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "templates", "businessSummary.template.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &templateData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := menufuncs.LoadTemplateData(data, templateData)
+
+	content, err = os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "loanApplication.template.output.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &targetData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := targetData["E BUSINESS INFORMATION"].(map[string]any)
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
+
+	payload, _ = json.MarshalIndent(target, "", "  ")
+
+	fmt.Println(string(payload))
+
+	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
 	}
 }

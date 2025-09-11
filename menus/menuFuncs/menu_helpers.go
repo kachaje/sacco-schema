@@ -117,20 +117,56 @@ func ResolveNestedQuery(data map[string]any, query string) string {
 func LoadTemplateData(data map[string]any, template map[string]any) map[string]any {
 	result := map[string]any{}
 
-	for key, value := range template {
+	loadData := func(fieldData, parentMap map[string]any, key string) {
+		for field, values := range fieldData {
+			if value, ok := values.(map[string]any); ok {
+				if order, err := strconv.ParseFloat(fmt.Sprintf("%v", value["order"]), 64); err == nil {
+					parentMap[key].(map[string]any)[field] = map[string]any{
+						"order": order,
+						"label": fmt.Sprintf("%v", value["label"]),
+					}
+
+					if value["cachQuery"] != nil {
+						if query, ok := value["cachQuery"].(string); ok {
+							query = ResolveNestedQuery(data, query)
+
+							if val, ok := data[query]; ok {
+								if value["formula"] != nil {
+									if formula, ok := value["formula"].(string); ok {
+										fmt.Println("######## TODO:", formula, val)
+									}
+								} else if len(strings.TrimSpace(fmt.Sprintf("%v", val))) > 0 {
+									parentMap[key].(map[string]any)[field].(map[string]any)["value"] = val
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	keys := []string{}
+
+	for key := range template {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	for _, key := range keys {
 		result[key] = map[string]any{}
 
 		var level string
 
-		val, ok := value.(map[string]any)
-		if ok {
-			if val["level"] != nil {
-				level = fmt.Sprintf("%v", val["level"])
+		if rawData, ok := template[key].(map[string]any); ok {
+			if rawData["level"] != nil {
+				level = fmt.Sprintf("%v", rawData["level"])
 			}
 
 			fieldData := map[string]any{}
 
-			v, ok := val["data"].(map[string]any)
+			v, ok := rawData["data"].(map[string]any)
 			if ok {
 				fieldData = v
 			}
@@ -169,20 +205,27 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 					}
 				}
 			default:
-				for field, kids := range fieldData {
-					if vf, ok := kids.(map[string]any); ok {
-						if order, err := strconv.ParseFloat(fmt.Sprintf("%v", vf["order"]), 64); err == nil {
-							result[key].(map[string]any)[field] = map[string]any{
-								"order": order,
-								"label": fmt.Sprintf("%v", vf["label"]),
+				loadData(fieldData, result, key)
+
+				if tables, ok := rawData["tables"]; ok {
+					if tablesData, ok := tables.(map[string]any); ok {
+						var tableLabel string
+
+						if tablesData["label"] != nil {
+							if val, ok := tablesData["label"].(string); ok {
+								tableLabel = val
 							}
+						}
 
-							if vf["cachQuery"] != nil {
-								if query, ok := vf["cachQuery"].(string); ok {
-									query = ResolveNestedQuery(data, query)
+						if sectionsData, ok := tablesData["sections"].(map[string]any); ok {
+							for section, sectionData := range sectionsData {
+								if value, ok := sectionData.(map[string]any); ok {
+									if fieldData, ok := value["data"].(map[string]any); ok {
+										result[key].(map[string]any)[tableLabel] = map[string]any{
+											section: map[string]any{},
+										}
 
-									if value, ok := data[query]; ok {
-										result[key].(map[string]any)[field].(map[string]any)["value"] = value
+										loadData(fieldData, result[key].(map[string]any)[tableLabel].(map[string]any), section)
 									}
 								}
 							}
@@ -299,85 +342,6 @@ func TabulateData(data map[string]any) []string {
 		payload, _ := json.MarshalIndent(data, "", "  ")
 
 		fmt.Println(string(payload))
-	}
-
-	return result
-}
-
-func LoadLoanApplicationForm(data map[string]any, template map[string]any) map[string]any {
-	result := map[string]any{}
-
-	keys := []string{}
-
-	for key := range template {
-		keys = append(keys, key)
-	}
-
-	sort.Strings(keys)
-
-	loadData := func(fieldData, parentMap map[string]any, key string) {
-		for field, values := range fieldData {
-			if value, ok := values.(map[string]any); ok {
-				if order, err := strconv.ParseFloat(fmt.Sprintf("%v", value["order"]), 64); err == nil {
-					parentMap[key].(map[string]any)[field] = map[string]any{
-						"order": order,
-						"label": fmt.Sprintf("%v", value["label"]),
-					}
-
-					if value["cachQuery"] != nil {
-						if query, ok := value["cachQuery"].(string); ok {
-							query = ResolveNestedQuery(data, query)
-
-							if val, ok := data[query]; ok {
-								if value["formula"] != nil {
-									if formula, ok := value["formula"].(string); ok {
-										fmt.Println("######## TODO:", formula, val)
-									}
-								} else if len(strings.TrimSpace(fmt.Sprintf("%v", val))) > 0 {
-									parentMap[key].(map[string]any)[field].(map[string]any)["value"] = val
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	for _, key := range keys {
-		result[key] = map[string]any{}
-
-		if rawData, ok := template[key].(map[string]any); ok {
-			if fieldData, ok := rawData["data"].(map[string]any); ok {
-				loadData(fieldData, result, key)
-			}
-
-			if tables, ok := rawData["tables"]; ok {
-				if tablesData, ok := tables.(map[string]any); ok {
-					var tableLabel string
-
-					if tablesData["label"] != nil {
-						if val, ok := tablesData["label"].(string); ok {
-							tableLabel = val
-						}
-					}
-
-					if sectionsData, ok := tablesData["sections"].(map[string]any); ok {
-						for section, sectionData := range sectionsData {
-							if value, ok := sectionData.(map[string]any); ok {
-								if fieldData, ok := value["data"].(map[string]any); ok {
-									result[key].(map[string]any)[tableLabel] = map[string]any{
-										section: map[string]any{},
-									}
-
-									loadData(fieldData, result[key].(map[string]any)[tableLabel].(map[string]any), section)
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 
 	return result
