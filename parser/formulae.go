@@ -80,22 +80,29 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 			}
 		}
 	case "DATE_DIFF_YEARS":
-		for _, key := range terms {
-			if data[key] == nil {
-				continue
-			}
+		var startDate time.Time
+		var refDate time.Time
+		var err error
 
-			startDate, err := time.Parse("2006-01-02", fmt.Sprintf("%v", data[key]))
-			if err != nil {
-				return nil, err
-			}
-
-			duration := time.Since(startDate)
-
-			result = math.Round(duration.Abs().Hours() / (365 * 24))
-
-			break
+		if data["startDate"] == nil {
+			return nil, fmt.Errorf("missing required startDate input")
 		}
+		if data["refDate"] == nil {
+			return nil, fmt.Errorf("missing required refDate input")
+		}
+
+		startDate, err = time.Parse("2006-01-02", fmt.Sprintf("%v", data["startDate"]))
+		if err != nil {
+			return nil, err
+		}
+		refDate, err = time.Parse("2006-01-02", fmt.Sprintf("%v", data["refDate"]))
+		if err != nil {
+			return nil, err
+		}
+
+		duration := refDate.Sub(startDate)
+
+		result = math.Round(duration.Abs().Hours() / (365 * 24))
 	}
 
 	return &result, nil

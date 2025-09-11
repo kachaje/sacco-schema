@@ -143,7 +143,8 @@ func TestDATE_DIFF_YEARS(t *testing.T) {
 	tokens := parser.GetTokens("DATE_DIFF_YEARS({{TODAY}}-{{dateOfBirth}})")
 
 	data := map[string]any{
-		"dateOfBirth": "1999-09-01",
+		"startDate": "1999-09-01",
+		"refDate":   "2025-09-11",
 	}
 
 	tm, err := time.Parse("2006-01-02", "1999-09-01")
