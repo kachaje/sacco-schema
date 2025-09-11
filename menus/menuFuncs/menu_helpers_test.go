@@ -152,7 +152,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 
 	result := menufuncs.LoadTemplateData(data, templateData)
 
-	content, err = os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "loanApplication.template.output.json"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -194,7 +194,7 @@ func TestBusinessSummary(t *testing.T) {
 
 	result := menufuncs.LoadTemplateData(data, templateData)
 
-	content, err = os.ReadFile(filepath.Join("..", "..", "utils", "fixtures", "loanApplication.template.output.json"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
