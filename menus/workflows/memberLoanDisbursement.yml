@@ -1,9 +1,9 @@
 cacheQueries:
-  amount: member.memberLoan.0.memberLoanDisbursement.amount
-  date: member.memberLoan.0.memberLoanDisbursement.date
-  description: member.memberLoan.0.memberLoanDisbursement.description
-  id: member.memberLoan.0.memberLoanDisbursement.id
-  memberLoanId: member.memberLoan.0.memberLoanDisbursement.memberLoanId
+  amount: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement.amount
+  date: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement.date
+  description: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement.description
+  id: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement.id
+  memberLoanId: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement.memberLoanId
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary
@@ -41,4 +41,4 @@ initialScreen: enterDescription
 model: memberLoanDisbursement
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoan.0.memberLoanDisbursement
+rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement

@@ -1,9 +1,9 @@
 cacheQueries:
-  amountDue1: member.memberLoan.0.memberLoanPaymentSchedule.0.amountDue
-  dueDate1: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
-  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.id
-  memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
-  paid1: member.memberLoan.0.memberLoanPaymentSchedule.0.paid
+  amountDue1: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.amountDue
+  dueDate1: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
+  id1: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.id
+  memberLoanId1: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
+  paid1: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.paid
 enterAmountDue1:
   inputIdentifier: amountDue1
   nextScreen: formSummary
@@ -37,4 +37,4 @@ initialScreen: enterDueDate1
 model: memberLoanPaymentSchedule
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
+rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0

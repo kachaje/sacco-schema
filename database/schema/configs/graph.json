@@ -18,7 +18,7 @@
     "arrayChildren": [
       "dividends",
       "memberDependant",
-      "memberLoan",
+      "memberLoanApplication",
       "memberSaving",
       "memberShares",
       "notification"
@@ -51,6 +51,9 @@
       "memberLoanDisbursement",
       "memberOccupation"
     ]
+  },
+  "memberLoanApplication": {
+    "arrayChildren": ["memberLoan"]
   },
   "memberLoanPaymentSchedule": {
     "arrayChildren": ["memberLoanReceipt"]

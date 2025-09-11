@@ -20,7 +20,7 @@ var (
 	MemberArrayChildren = []string{
 		"dividends",
 		"memberDependant",
-		"memberLoan",
+		"memberLoanApplication",
 		"memberSaving",
 		"memberShares",
 		"notification",
@@ -32,6 +32,9 @@ var (
 	}
 	MemberIdsCacheSingleChildren = []string{
 		"member",
+	}
+	MemberLoanApplicationArrayChildren = []string{
+		"memberLoan",
 	}
 	MemberLoanArrayChildren = []string{
 		"memberLoanInsurance",
@@ -90,6 +93,7 @@ var (
 		"AccountTransactionArrayChildren":        AccountTransactionArrayChildren,
 		"InsuranceProviderArrayChildren":         InsuranceProviderArrayChildren,
 		"MemberArrayChildren":                    MemberArrayChildren,
+		"MemberLoanApplicationArrayChildren":     MemberLoanApplicationArrayChildren,
 		"MemberLoanArrayChildren":                MemberLoanArrayChildren,
 		"MemberLoanPaymentScheduleArrayChildren": MemberLoanPaymentScheduleArrayChildren,
 		"MemberSavingArrayChildren":              MemberSavingArrayChildren,
@@ -180,6 +184,9 @@ var (
 			"memberBusiness",
 		},
 		"memberLoan": {
+			"memberLoanApplication",
+		},
+		"memberLoanApplication": {
 			"member",
 		},
 		"memberLoanApproval": {

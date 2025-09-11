@@ -1,10 +1,10 @@
 cacheQueries:
-  address1: member.memberLoan.0.memberLoanWitness.0.address
-  date1: member.memberLoan.0.memberLoanWitness.0.date
-  id1: member.memberLoan.0.memberLoanWitness.0.id
-  memberLoanId1: member.memberLoan.0.memberLoanWitness.0.memberLoanId
-  telephone1: member.memberLoan.0.memberLoanWitness.0.telephone
-  witnessName1: member.memberLoan.0.memberLoanWitness.0.witnessName
+  address1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.address
+  date1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.date
+  id1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.id
+  memberLoanId1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.memberLoanId
+  telephone1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.telephone
+  witnessName1: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0.witnessName
 enterAddress1:
   inputIdentifier: address1
   nextScreen: enterDate1
@@ -48,4 +48,4 @@ initialScreen: enterWitnessName1
 model: memberLoanWitness
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoan.0.memberLoanWitness.0
+rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0

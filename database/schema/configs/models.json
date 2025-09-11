@@ -231,7 +231,7 @@
       }
     ],
     "hasOne": ["memberLoan"],
-    "rootQuery": "member.memberLoan.0.loanNumberIdsCache"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.loanNumberIdsCache"
   },
   "loanRate": {
     "belongsTo": ["loanType"],
@@ -399,7 +399,7 @@
     "hasMany": [
       "dividends",
       "memberDependant",
-      "memberLoan",
+      "memberLoanApplication",
       "memberSaving",
       "memberShares",
       "notification"
@@ -452,7 +452,7 @@
       "memberLastYearBusinessHistory",
       "memberNextYearBusinessProjection"
     ],
-    "rootQuery": "member.memberLoan.0.memberBusiness"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberBusiness"
   },
   "memberBusinessVerification": {
     "belongsTo": ["memberBusiness"],
@@ -492,7 +492,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberBusiness.memberBusinessVerification"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification"
   },
   "memberContact": {
     "belongsTo": ["member"],
@@ -942,10 +942,10 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory"
   },
   "memberLoan": {
-    "belongsTo": ["member"],
+    "belongsTo": ["memberLoanApplication"],
     "fields": [
       {
         "id": {
@@ -954,7 +954,7 @@
         }
       },
       {
-        "memberId": {
+        "memberLoanApplicationId": {
           "hidden": true,
           "order": 1
         }
@@ -968,41 +968,16 @@
         }
       },
       {
-        "loanAmount": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "repaymentPeriodInMonths": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "loanPurpose": {
-          "order": 5,
-          "type": "text"
-        }
-      },
-      {
-        "loanType": {
-          "options": ["Personal", "Business", "Agricultural", "Emergency"],
-          "order": 6,
-          "type": "text"
-        }
-      },
-      {
         "loanStartDate": {
           "optional": true,
-          "order": 7,
+          "order": 3,
           "type": "text"
         }
       },
       {
         "loanDueDate": {
           "optional": true,
-          "order": 8,
+          "order": 4,
           "type": "text"
         }
       },
@@ -1010,27 +985,27 @@
         "monthlyInstalments": {
           "numericField": true,
           "optional": true,
-          "order": 9
+          "order": 5
         }
       },
       {
         "interestRate": {
           "numericField": true,
           "optional": true,
-          "order": 10
+          "order": 6
         }
       },
       {
         "amountPaid": {
           "hidden": true,
-          "order": 11
+          "order": 7
         }
       },
       {
         "balanceAmount": {
           "numericField": true,
           "optional": true,
-          "order": 12
+          "order": 8
         }
       }
     ],
@@ -1049,7 +1024,51 @@
       "memberLoanDisbursement",
       "memberOccupation"
     ],
-    "rootQuery": "member.memberLoan.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0"
+  },
+  "memberLoanApplication": {
+    "belongsTo": ["member"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "loanPurpose": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "loanAmount": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "repaymentPeriodInMonths": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "loanType": {
+          "options": ["Personal", "Business", "Agricultural", "Emergency"],
+          "order": 5,
+          "type": "text"
+        }
+      }
+    ],
+    "hasMany": ["memberLoan"],
+    "rootQuery": "member.memberLoanApplication.0"
   },
   "memberLoanApproval": {
     "belongsTo": ["memberLoan"],
@@ -1116,7 +1135,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanApproval"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanApproval"
   },
   "memberLoanDisbursement": {
     "belongsTo": ["memberLoan"],
@@ -1153,7 +1172,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanDisbursement"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement"
   },
   "memberLoanInsurance": {
     "belongsTo": ["memberLoan", "insuranceProvider"],
@@ -1190,7 +1209,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.insuranceProvider.memberLoanInsurance.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.insuranceProvider.memberLoanInsurance.0"
   },
   "memberLoanLiability": {
     "belongsTo": ["memberLoan"],
@@ -1220,7 +1239,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanLiability.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0"
   },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
@@ -1257,7 +1276,7 @@
       }
     ],
     "hasMany": ["memberLoanReceipt"],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0"
   },
   "memberLoanProcessingFee": {
     "belongsTo": ["memberLoan"],
@@ -1288,7 +1307,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanProcessingFee.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanProcessingFee.0"
   },
   "memberLoanReceipt": {
     "belongsTo": ["memberLoanPaymentSchedule"],
@@ -1325,7 +1344,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0"
   },
   "memberLoanSecurity": {
     "belongsTo": ["memberLoan"],
@@ -1361,7 +1380,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanSecurity.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanSecurity.0"
   },
   "memberLoanTax": {
     "belongsTo": ["memberLoan"],
@@ -1398,7 +1417,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanTax.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanTax.0"
   },
   "memberLoanWitness": {
     "belongsTo": ["memberLoan"],
@@ -1441,7 +1460,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanWitness.0"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0"
   },
   "memberNextYearBusinessProjection": {
     "belongsTo": ["memberBusiness"],
@@ -1531,7 +1550,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection"
   },
   "memberOccupation": {
     "belongsTo": ["memberLoan"],
@@ -1599,7 +1618,7 @@
       }
     ],
     "hasOne": ["memberOccupationVerification"],
-    "rootQuery": "member.memberLoan.0.memberOccupation"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberOccupation"
   },
   "memberOccupationVerification": {
     "belongsTo": ["memberOccupation"],
@@ -1637,7 +1656,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification"
+    "rootQuery": "member.memberLoanApplication.0.memberLoan.0.memberOccupation.memberOccupationVerification"
   },
   "memberSaving": {
     "belongsTo": ["member", "savingsType"],

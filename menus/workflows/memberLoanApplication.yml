@@ -1,0 +1,65 @@
+cacheQueries:
+  id1: member.memberLoanApplication.0.id
+  loanAmount1: member.memberLoanApplication.0.loanAmount
+  loanPurpose1: member.memberLoanApplication.0.loanPurpose
+  loanType1: member.memberLoanApplication.0.loanType
+  memberId1: member.memberLoanApplication.0.memberId
+  repaymentPeriodInMonths1: member.memberLoanApplication.0.repaymentPeriodInMonths
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterLoanAmount1:
+  inputIdentifier: loanAmount1
+  nextScreen: enterRepaymentPeriodInMonths1
+  order: 2
+  text:
+    en: Loan Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterLoanPurpose1:
+  inputIdentifier: loanPurpose1
+  nextScreen: enterLoanAmount1
+  order: 1
+  text:
+    en: Loan Purpose
+  type: inputScreen
+enterLoanType1:
+  inputIdentifier: loanType1
+  nextScreen: formSummary
+  options:
+    - label:
+        en: Personal
+      position: 1
+    - label:
+        en: Business
+      position: 2
+    - label:
+        en: Agricultural
+      position: 3
+    - label:
+        en: Emergency
+      position: 4
+  order: 4
+  text:
+    en: Loan Type
+  type: inputScreen
+enterMemberId1:
+  hidden: true
+  inputIdentifier: memberId1
+  type: hiddenField
+enterRepaymentPeriodInMonths1:
+  inputIdentifier: repaymentPeriodInMonths1
+  nextScreen: enterLoanType1
+  order: 3
+  text:
+    en: Repayment Period In Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterLoanPurpose1
+model: memberLoanApplication
+parentIds:
+  - memberId
+rootQuery: member.memberLoanApplication.0

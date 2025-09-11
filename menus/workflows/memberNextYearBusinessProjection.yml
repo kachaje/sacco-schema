@@ -1,18 +1,18 @@
 cacheQueries:
-  employeeWages: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.employeeWages
-  financialYear: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.financialYear
-  id: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.id
-  loanInterest: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.loanInterest
-  memberBusinessId: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.memberBusinessId
-  netProfitLoss: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.netProfitLoss
-  otherCosts: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.otherCosts
-  ownSalary: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.ownSalary
-  rentals: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.rentals
-  totalCostOfGoods: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
-  totalCosts: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCosts
-  totalIncome: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalIncome
-  transport: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.transport
-  utilities: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.utilities
+  employeeWages: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.employeeWages
+  financialYear: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.financialYear
+  id: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.id
+  loanInterest: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.loanInterest
+  memberBusinessId: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.memberBusinessId
+  netProfitLoss: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.netProfitLoss
+  otherCosts: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.otherCosts
+  ownSalary: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.ownSalary
+  rentals: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.rentals
+  totalCostOfGoods: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCostOfGoods
+  totalCosts: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalCosts
+  totalIncome: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.totalIncome
+  transport: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.transport
+  utilities: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection.utilities
 enterEmployeeWages:
   inputIdentifier: employeeWages
   nextScreen: enterOwnSalary
@@ -123,4 +123,4 @@ initialScreen: enterFinancialYear
 model: memberNextYearBusinessProjection
 parentIds:
   - memberBusinessId
-rootQuery: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection
+rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection

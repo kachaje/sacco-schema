@@ -4,11 +4,11 @@ id:
   primaryKey: true
   type: int
 
-memberId:
+memberLoanApplicationId:
   hidden: true
   many: true
   order: 1
-  referenceTable: member
+  referenceTable: memberLoanApplication
   type: int
 
 loanNumber:
@@ -17,57 +17,36 @@ loanNumber:
   order: 2
   type: text
 
-loanAmount:
-  order: 3
-  type: real
-
-repaymentPeriodInMonths:
-  order: 4
-  type: int
-
-loanPurpose:
-  order: 5
-  type: text
-
-loanType:
-  options:
-    - Personal
-    - Business
-    - Agricultural
-    - Emergency
-  order: 6
-  type: text
-
 loanStartDate:
   default: CURRENT_TIMESTAMP
-  order: 7
+  order: 3
   type: text
 
 loanDueDate:
   default: CURRENT_TIMESTAMP
-  order: 8
+  order: 4
   type: text
 
 monthlyInstalments:
   default: "0"
-  order: 9
+  order: 5
   readOnly: true
   type: real
 
 interestRate:
   default: "0"
-  order: 10
+  order: 6
   readOnly: true
   type: real
 
 amountPaid:
   default: "0"
-  order: 11
+  order: 7
   readOnly: true
   type: real
 
 balanceAmount:
   default: "0"
-  order: 12
+  order: 8
   readOnly: true
   type: real
