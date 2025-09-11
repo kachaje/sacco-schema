@@ -221,9 +221,10 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 							for section, sectionData := range sectionsData {
 								if value, ok := sectionData.(map[string]any); ok {
 									if fieldData, ok := value["data"].(map[string]any); ok {
-										result[key].(map[string]any)[tableLabel] = map[string]any{
-											section: map[string]any{},
+										if result[key].(map[string]any)[tableLabel] == nil {
+											result[key].(map[string]any)[tableLabel] = map[string]any{}
 										}
+										result[key].(map[string]any)[tableLabel].(map[string]any)[section] = map[string]any{}
 
 										loadData(fieldData, result[key].(map[string]any)[tableLabel].(map[string]any), section)
 									}

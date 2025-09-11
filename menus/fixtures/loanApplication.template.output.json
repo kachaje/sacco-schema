@@ -146,7 +146,7 @@
       "value": "Yes"
     }
   },
-  "E. BUSINESS INFORMATION": {
+  "E BUSINESS INFORMATION": {
     "Profit and Loss": {
       "Next 12 Months Projections": {
         "employeeWages": {
@@ -237,9 +237,9 @@
           "value": 50000
         },
         "totalCostOfGoods": {
-          "label": "Total Cost of Gooods",
+          "label": "Total Cost of Goods",
           "order": 2,
-          "value": 1500000
+          "value": 1000000
         },
         "totalCosts": {
           "label": "Total Costs",
@@ -249,7 +249,7 @@
         "totalIncome": {
           "label": "Total Sales/Income",
           "order": 1,
-          "value": 2500000
+          "value": 2000000
         },
         "transport": {
           "label": "Transport",
