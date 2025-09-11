@@ -2,7 +2,6 @@ package menufuncs_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -231,8 +230,6 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	target := string(content)
 
 	result := menufuncs.TabulateData(data)
-
-	fmt.Println(strings.Join(result, "\n"))
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
 		t.Fatal("Test failed")

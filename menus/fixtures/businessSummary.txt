@@ -2,7 +2,35 @@ E. BUSINESS INFORMATION
    Name of Business:        | Vendors Galore
    Nature of Business:      | Vendor
    Trading Area:            | Mtandire
-   Years in Business:       | 3
+   Years in Business:       |            3
    Business Verified:       | 
    Gross Income Verified:   | 
-   Net Income Verified:     |
+   Net Income Verified:     | 
+
+   Profit and Loss
+     Next 12 Months Projections
+        Total Sales/Income:      |    2,500,000
+        Total Cost of Gooods:    |    1,500,000
+        Employees Wages:         |       50,000
+        Own Salary:              |      100,000
+        Transport:               |       50,000
+        Loan Interest:           |            0
+        Electricity/Water:       |       35,000
+        Rentals:                 |       50,000
+        Other Costs:             |            0
+        Total Costs:             |    1,285,000
+        Net Profit:              |      715,000
+     
+     Previous 12 Months
+        Total Sales/Income:      |    2,000,000
+        Total Cost of Goods:     |    1,000,000
+        Employees Wages:         |       50,000
+        Own Salary:              |      100,000
+        Transport:               |       50,000
+        Loan Interest:           |            0
+        Electricity/Water:       |       35,000
+        Rentals:                 |       50,000
+        Other Costs:             |            0
+        Total Costs:             |    1,285,000
+        Net Profit:              |      715,000
+     
