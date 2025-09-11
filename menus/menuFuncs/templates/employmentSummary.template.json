@@ -1,0 +1,52 @@
+{
+  "D. EMPLOYMENT INFORMATION": {
+    "level": "root",
+    "data": {
+      "employerName": {
+        "order": 1,
+        "label": "Name of Employer",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerName"
+      },
+      "employerAddress": {
+        "order": 2,
+        "label": "Employer's Address",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerAddress"
+      },
+      "employerPhone": {
+        "order": 3,
+        "label": "Employer's Phone Number",
+        "cachQuery": "member.memberLoan.0.memberOccupation.employerPhone"
+      },
+      "jobTitle": {
+        "order": 4,
+        "label": "Job Title",
+        "cachQuery": "member.memberLoan.0.memberOccupation.jobTitle"
+      },
+      "jobVerified": {
+        "order": 5,
+        "label": "Job Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.jobVerified"
+      },
+      "grossPay": {
+        "order": 6,
+        "label": "Gross Salary",
+        "cachQuery": "member.memberLoan.0.memberOccupation.grossPay"
+      },
+      "grossVerified": {
+        "order": 7,
+        "label": "Gross Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.grossVerified"
+      },
+      "netPay": {
+        "order": 8,
+        "label": "Net Income",
+        "cachQuery": "member.memberLoan.0.memberOccupation.netPay"
+      },
+      "netVerified": {
+        "order": 9,
+        "label": "Net Verified",
+        "cachQuery": "member.memberLoan.0.memberOccupation.memberOccupationVerification.netVerified"
+      }
+    }
+  }
+}
