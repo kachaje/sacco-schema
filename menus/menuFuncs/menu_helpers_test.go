@@ -170,7 +170,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 func TestBusinessSummary(t *testing.T) {
 	data := map[string]any{}
 	templateData := map[string]any{}
-	targetData := map[string]any{}
+	target := map[string]any{}
 
 	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
 	if err != nil {
@@ -194,18 +194,14 @@ func TestBusinessSummary(t *testing.T) {
 
 	result := menufuncs.LoadTemplateData(data, templateData)
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	err = json.Unmarshal(content, &targetData)
+	err = json.Unmarshal(content, &target)
 	if err != nil {
 		t.Fatal(err)
-	}
-
-	target := map[string]any{
-		"E BUSINESS INFORMATION": targetData["E BUSINESS INFORMATION"],
 	}
 
 	if !utils.MapsEqual(target, result) {
