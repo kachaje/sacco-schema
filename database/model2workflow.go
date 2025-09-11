@@ -110,6 +110,10 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 				if val, ok := row.(map[string]any); ok {
 					for key, rawValue := range val {
 						if value, ok := rawValue.(map[string]any); ok {
+							if regexp.MustCompile(`\d+$`).MatchString(key) {
+								suffix = ""
+							}
+
 							tag := fmt.Sprintf("enter%s%v", utils.CapitalizeFirstLetter(key), suffix)
 
 							if len(parentModels) > 0 {
