@@ -30,6 +30,11 @@ loanPurpose:
   type: text
 
 loanType:
+  options:
+    - Personal
+    - Business
+    - Agricultural
+    - Emergency
   order: 6
   type: text
 

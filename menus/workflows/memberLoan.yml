@@ -76,6 +76,19 @@ enterLoanStartDate:
 enterLoanType:
   inputIdentifier: loanType
   nextScreen: enterLoanStartDate
+  options:
+    - label:
+        en: Personal
+      position: 1
+    - label:
+        en: Business
+      position: 2
+    - label:
+        en: Agricultural
+      position: 3
+    - label:
+        en: Emergency
+      position: 4
   order: 4
   text:
     en: Loan Type

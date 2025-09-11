@@ -385,7 +385,14 @@ CREATE TABLE IF NOT EXISTS memberLoan (
     loanAmount REAL NOT NULL,
     repaymentPeriodInMonths INTEGER NOT NULL,
     loanPurpose TEXT NOT NULL,
-    loanType TEXT NOT NULL,
+    loanType TEXT NOT NULL CHECK (
+        loanType IN (
+            'Personal',
+            'Business',
+            'Agricultural',
+            'Emergency'
+        )
+    ),
     loanStartDate TEXT DEFAULT CURRENT_TIMESTAMP,
     loanDueDate TEXT DEFAULT CURRENT_TIMESTAMP,
     monthlyInstalments REAL DEFAULT 0,

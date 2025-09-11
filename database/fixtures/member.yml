@@ -1,159 +1,159 @@
 cacheQueries:
-    dateJoined: member.dateJoined
-    dateOfBirth: member.dateOfBirth
-    firstName: member.firstName
-    gender: member.gender
-    id: member.id
-    lastName: member.lastName
-    maritalStatus: member.maritalStatus
-    memberIdNumber: member.memberIdNumber
-    nationalIdentifier: member.nationalIdentifier
-    otherName: member.otherName
-    phoneNumber: member.phoneNumber
-    title: member.title
-    utilityBillNumber: member.utilityBillNumber
-    utilityBillType: member.utilityBillType
+  dateJoined: member.dateJoined
+  dateOfBirth: member.dateOfBirth
+  firstName: member.firstName
+  gender: member.gender
+  id: member.id
+  lastName: member.lastName
+  maritalStatus: member.maritalStatus
+  memberIdNumber: member.memberIdNumber
+  nationalIdentifier: member.nationalIdentifier
+  otherName: member.otherName
+  phoneNumber: member.phoneNumber
+  title: member.title
+  utilityBillNumber: member.utilityBillNumber
+  utilityBillType: member.utilityBillType
 enterDateJoined:
-    hidden: true
-    inputIdentifier: dateJoined
-    type: hiddenField
+  hidden: true
+  inputIdentifier: dateJoined
+  type: hiddenField
 enterDateOfBirth:
-    inputIdentifier: dateOfBirth
-    nextScreen: enterNationalIdentifier
-    order: 8
-    text:
-        en: Date Of Birth
-    type: inputScreen
+  inputIdentifier: dateOfBirth
+  nextScreen: enterNationalIdentifier
+  order: 8
+  text:
+    en: Date Of Birth
+  type: inputScreen
 enterFirstName:
-    inputIdentifier: firstName
-    nextScreen: enterLastName
-    order: 1
-    text:
-        en: First Name
-    type: inputScreen
+  inputIdentifier: firstName
+  nextScreen: enterLastName
+  order: 1
+  text:
+    en: First Name
+  type: inputScreen
 enterGender:
-    inputIdentifier: gender
-    nextScreen: enterPhoneNumber
-    options:
-        - label:
-            en: Female
-          position: 1
-        - label:
-            en: Male
-          position: 2
-    order: 4
-    text:
-        en: Gender
-    type: inputScreen
+  inputIdentifier: gender
+  nextScreen: enterPhoneNumber
+  options:
+    - label:
+        en: Female
+      position: 1
+    - label:
+        en: Male
+      position: 2
+  order: 4
+  text:
+    en: Gender
+  type: inputScreen
 enterId:
-    hidden: true
-    inputIdentifier: id
-    type: hiddenField
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
 enterLastName:
-    inputIdentifier: lastName
-    nextScreen: enterOtherName
-    order: 2
-    text:
-        en: Last Name
-    type: inputScreen
+  inputIdentifier: lastName
+  nextScreen: enterOtherName
+  order: 2
+  text:
+    en: Last Name
+  type: inputScreen
 enterMaritalStatus:
-    inputIdentifier: maritalStatus
-    nextScreen: enterDateOfBirth
-    options:
-        - label:
-            en: Married
-          position: 1
-        - label:
-            en: Single
-          position: 2
-        - label:
-            en: Widowed
-          position: 3
-        - label:
-            en: Divorced
-          position: 4
-    order: 7
-    text:
-        en: Marital Status
-    type: inputScreen
+  inputIdentifier: maritalStatus
+  nextScreen: enterDateOfBirth
+  options:
+    - label:
+        en: Married
+      position: 1
+    - label:
+        en: Single
+      position: 2
+    - label:
+        en: Widowed
+      position: 3
+    - label:
+        en: Divorced
+      position: 4
+  order: 7
+  text:
+    en: Marital Status
+  type: inputScreen
 enterMemberIdNumber:
-    hidden: true
-    inputIdentifier: memberIdNumber
-    type: hiddenField
+  hidden: true
+  inputIdentifier: memberIdNumber
+  type: hiddenField
 enterNationalIdentifier:
-    inputIdentifier: nationalIdentifier
-    nextScreen: enterUtilityBillType
-    order: 9
-    text:
-        en: National Identifier
-    type: inputScreen
+  inputIdentifier: nationalIdentifier
+  nextScreen: enterUtilityBillType
+  order: 9
+  text:
+    en: National Identifier
+  type: inputScreen
 enterOtherName:
-    inputIdentifier: otherName
-    nextScreen: enterGender
-    optional: true
-    order: 3
-    text:
-        en: Other Name
-    type: inputScreen
+  inputIdentifier: otherName
+  nextScreen: enterGender
+  optional: true
+  order: 3
+  text:
+    en: Other Name
+  type: inputScreen
 enterPhoneNumber:
-    inputIdentifier: phoneNumber
-    nextScreen: enterTitle
-    order: 5
-    text:
-        en: Phone Number
-    type: inputScreen
+  inputIdentifier: phoneNumber
+  nextScreen: enterTitle
+  order: 5
+  text:
+    en: Phone Number
+  type: inputScreen
 enterTitle:
-    inputIdentifier: title
-    nextScreen: enterMaritalStatus
-    options:
-        - label:
-            en: Mr
-          position: 1
-        - label:
-            en: Mrs
-          position: 2
-        - label:
-            en: Miss
-          position: 3
-        - label:
-            en: Dr
-          position: 4
-        - label:
-            en: Prof
-          position: 5
-        - label:
-            en: Rev
-          position: 6
-        - label:
-            en: Other
-          position: 7
-    order: 6
-    text:
-        en: Title
-    type: inputScreen
+  inputIdentifier: title
+  nextScreen: enterMaritalStatus
+  options:
+    - label:
+        en: Mr
+      position: 1
+    - label:
+        en: Mrs
+      position: 2
+    - label:
+        en: Miss
+      position: 3
+    - label:
+        en: Dr
+      position: 4
+    - label:
+        en: Prof
+      position: 5
+    - label:
+        en: Rev
+      position: 6
+    - label:
+        en: Other
+      position: 7
+  order: 6
+  text:
+    en: Title
+  type: inputScreen
 enterUtilityBillNumber:
-    inputIdentifier: utilityBillNumber
-    nextScreen: formSummary
-    order: 11
-    text:
-        en: Utility Bill Number
-    type: inputScreen
+  inputIdentifier: utilityBillNumber
+  nextScreen: formSummary
+  order: 11
+  text:
+    en: Utility Bill Number
+  type: inputScreen
 enterUtilityBillType:
-    inputIdentifier: utilityBillType
-    nextScreen: enterUtilityBillNumber
-    options:
-        - label:
-            en: ESCOM
-          position: 1
-        - label:
-            en: Water Board
-          position: 2
-    order: 10
-    text:
-        en: Utility Bill Type
-    type: inputScreen
+  inputIdentifier: utilityBillType
+  nextScreen: enterUtilityBillNumber
+  options:
+    - label:
+        en: ESCOM
+      position: 1
+    - label:
+        en: Water Board
+      position: 2
+  order: 10
+  text:
+    en: Utility Bill Type
+  type: inputScreen
 formSummary:
-    type: quitScreen
+  type: quitScreen
 initialScreen: enterFirstName
 model: member
 rootQuery: member
