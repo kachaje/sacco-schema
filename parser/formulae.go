@@ -2,21 +2,23 @@ package parser
 
 import (
 	"fmt"
+	"math"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func GetTokens(query string) map[string]any {
 	result := map[string]any{}
 
-	re := regexp.MustCompile(`^([A-z]+)`)
+	re := regexp.MustCompile(`^([A-z_]+)`)
 
 	op := re.FindAllString(query, -1)[0]
 
 	result["op"] = op
 
-	re = regexp.MustCompile(`([A-Za-z]+)`)
+	re = regexp.MustCompile(`([A-Za-z_]+)`)
 
 	result["terms"] = []string{}
 
@@ -76,6 +78,23 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 					}
 				}
 			}
+		}
+	case "DATE_DIFF_YEARS":
+		for _, key := range terms {
+			if data[key] == nil {
+				continue
+			}
+
+			startDate, err := time.Parse("2006-01-02", fmt.Sprintf("%v", data[key]))
+			if err != nil {
+				return nil, err
+			}
+
+			duration := time.Since(startDate)
+
+			result = math.Round(duration.Abs().Hours() / (365 * 24))
+
+			break
 		}
 	}
 

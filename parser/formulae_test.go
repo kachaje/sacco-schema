@@ -2,10 +2,12 @@ package parser_test
 
 import (
 	"encoding/json"
+	"math"
 	"reflect"
 	"sacco/parser"
 	"sacco/utils"
 	"testing"
+	"time"
 )
 
 func TestGetTokens(t *testing.T) {
@@ -134,5 +136,35 @@ func TestCalculateFormulae(t *testing.T) {
 		payload, _ := json.MarshalIndent(diff, "", "  ")
 
 		t.Fatalf("Test failed. Diff: %s\n", payload)
+	}
+}
+
+func TestDATE_DIFF_YEARS(t *testing.T) {
+	tokens := parser.GetTokens("DATE_DIFF_YEARS({{TODAY}}-{{dateOfBirth}})")
+
+	data := map[string]any{
+		"dateOfBirth": "1999-09-01",
+	}
+
+	tm, err := time.Parse("2006-01-02", "1999-09-01")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	d := time.Since(tm)
+
+	target := math.Round(d.Abs().Hours() / (365 * 24))
+
+	result, err := parser.ResultFromFormulae(tokens, data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	if *result != target {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, *result)
 	}
 }
