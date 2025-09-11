@@ -11,6 +11,10 @@ import (
 	"testing"
 )
 
+var (
+	refDate = "2025-09-11"
+)
+
 func TestLoadGroupMembers(t *testing.T) {
 	data := map[string]any{}
 	targetData := []map[string]any{}
@@ -91,7 +95,7 @@ func TestLoadTemplateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menufuncs.LoadTemplateData(data, templateData)
+	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
 	if !reflect.DeepEqual(targetData, result) {
 		t.Fatal("Test failed")
@@ -150,7 +154,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menufuncs.LoadTemplateData(data, templateData)
+	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
@@ -192,7 +196,7 @@ func TestBusinessSummary(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := menufuncs.LoadTemplateData(data, templateData)
+	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {

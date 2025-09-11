@@ -55,7 +55,7 @@ func MemberLoansSummary(
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
-			data = LoadTemplateData(session.ActiveData, loanTemplateData)
+			data = LoadTemplateData(session.ActiveData, loanTemplateData, &RefDate)
 
 			table := TabulateData(data)
 

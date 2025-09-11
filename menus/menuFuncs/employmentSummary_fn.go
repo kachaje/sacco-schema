@@ -55,7 +55,7 @@ func EmploymentSummary(
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
-			data = LoadTemplateData(session.ActiveData, employmentSummaryData)
+			data = LoadTemplateData(session.ActiveData, employmentSummaryData, &RefDate)
 
 			table := TabulateData(data)
 

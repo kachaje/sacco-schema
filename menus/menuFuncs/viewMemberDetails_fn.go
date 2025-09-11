@@ -73,7 +73,7 @@ func ViewMemberDetails(
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
-			data = LoadTemplateData(session.ActiveData, memberTemplateData)
+			data = LoadTemplateData(session.ActiveData, memberTemplateData, &RefDate)
 
 			table := TabulateData(data)
 

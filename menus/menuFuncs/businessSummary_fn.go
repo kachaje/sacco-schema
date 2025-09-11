@@ -62,7 +62,7 @@ func BusinessSummary(
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
-			data = LoadTemplateData(session.ActiveData, businessSummaryTemplateData)
+			data = LoadTemplateData(session.ActiveData, businessSummaryTemplateData, &RefDate)
 
 			table := TabulateData(data)
 

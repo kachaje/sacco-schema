@@ -11,6 +11,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -119,7 +120,13 @@ func ResolveNestedQuery(data map[string]any, query string) string {
 	return query
 }
 
-func LoadTemplateData(data map[string]any, template map[string]any) map[string]any {
+func LoadTemplateData(data map[string]any, template map[string]any, dateToday *string) map[string]any {
+	var today string = time.Now().Format("2006-01-02")
+
+	if dateToday != nil {
+		today = *dateToday
+	}
+
 	result := map[string]any{}
 
 	loadData := func(fieldData, parentMap map[string]any, key string) {
@@ -141,7 +148,8 @@ func LoadTemplateData(data map[string]any, template map[string]any) map[string]a
 										tokens := parser.GetTokens(formula)
 
 										result, err := parser.ResultFromFormulae(tokens, map[string]any{
-											field: val,
+											"startDate": val,
+											"refDate":   today,
 										})
 
 										if err == nil {
