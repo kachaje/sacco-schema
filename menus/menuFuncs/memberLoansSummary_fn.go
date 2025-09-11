@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"regexp"
 	"sacco/parser"
 	"strings"
 
@@ -52,13 +51,7 @@ func MemberLoansSummary(
 
 	if session != nil {
 		if strings.TrimSpace(text) == "99" {
-			parentMenu := "main"
-
-			if regexp.MustCompile(`\.\d+$`).MatchString(session.CurrentMenu) {
-				parentMenu = regexp.MustCompile(`\.\d+$`).ReplaceAllLiteralString(session.CurrentMenu, "")
-			}
-
-			session.CurrentMenu = parentMenu
+			session.CurrentMenu = "loan"
 			text = ""
 			return loadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
 		} else {
