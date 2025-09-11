@@ -212,7 +212,7 @@ func TestBusinessSummary(t *testing.T) {
 func TestTabulateBusinessSummary(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
+	content, err := os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -222,7 +222,7 @@ func TestTabulateBusinessSummary(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
+	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -146,9 +146,66 @@
       "value": "Yes"
     }
   },
-  "E BUSINESS INFORMATION": {
+  "E. BUSINESS INFORMATION": {
     "Profit and Loss": {
       "Next 12 Months Projections": {
+        "employeeWages": {
+          "label": "Employees Wages",
+          "order": 3,
+          "value": 50000
+        },
+        "loanInterest": {
+          "label": "Loan Interest",
+          "order": 6,
+          "value": 0
+        },
+        "netProfitLoss": {
+          "label": "Net Profit",
+          "order": 11,
+          "value": 715000
+        },
+        "otherCosts": {
+          "label": "Other Costs",
+          "order": 9,
+          "value": 0
+        },
+        "ownSalary": {
+          "label": "Own Salary",
+          "order": 4,
+          "value": 100000
+        },
+        "rentals": {
+          "label": "Rentals",
+          "order": 8,
+          "value": 50000
+        },
+        "totalCostOfGoods": {
+          "label": "Total Cost of Gooods",
+          "order": 2,
+          "value": 1500000
+        },
+        "totalCosts": {
+          "label": "Total Costs",
+          "order": 10,
+          "value": 1285000
+        },
+        "totalIncome": {
+          "label": "Total Sales/Income",
+          "order": 1,
+          "value": 2500000
+        },
+        "transport": {
+          "label": "Transport",
+          "order": 5,
+          "value": 50000
+        },
+        "utilities": {
+          "label": "Electricity/Water",
+          "order": 7,
+          "value": 35000
+        }
+      },
+      "Previous 12 Months": {
         "employeeWages": {
           "label": "Employees Wages",
           "order": 3,
