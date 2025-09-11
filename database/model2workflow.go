@@ -5,6 +5,7 @@ import (
 	"os"
 	"regexp"
 	"sacco/utils"
+	"strings"
 )
 
 func Main(model, destinationFile string, sourceData map[string]any) (*string, map[string][]string, map[string]bool, []string, error) {
@@ -23,9 +24,14 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 
 	if rawData, ok := sourceData[model].(map[string]any); ok {
 		count := 1
+		arrayModel := false
 
 		if rawData["rootQuery"] != nil {
 			data["rootQuery"] = rawData["rootQuery"]
+
+			if strings.HasSuffix(fmt.Sprintf("%v", rawData["rootQuery"]), ".0") {
+				arrayModel = true
+			}
 		}
 
 		if rawData["settings"] != nil {
@@ -84,7 +90,7 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 
 		for index := range count {
 			suffix := ""
-			if count > 1 {
+			if count > 1 || arrayModel {
 				suffix = fmt.Sprint(index + 1)
 			}
 

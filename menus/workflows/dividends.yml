@@ -1,35 +1,35 @@
 cacheQueries:
-  amount: member.dividends.0.amount
-  date: member.dividends.0.date
-  id: member.dividends.0.id
-  memberId: member.dividends.0.memberId
-enterAmount:
-  inputIdentifier: amount
+  amount1: member.dividends.0.amount
+  date1: member.dividends.0.date
+  id1: member.dividends.0.id
+  memberId1: member.dividends.0.memberId
+enterAmount1:
+  inputIdentifier: amount1
   nextScreen: formSummary
   order: 2
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterAmount
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterAmount1
   optional: true
   order: 1
   text:
     en: Date
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberId:
+enterMemberId1:
   hidden: true
-  inputIdentifier: memberId
+  inputIdentifier: memberId1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterDate
+initialScreen: enterDate1
 model: dividends
 parentIds:
   - memberId

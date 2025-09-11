@@ -1,40 +1,40 @@
 cacheQueries:
-  balance: member.savingsType.memberSaving.0.balance
-  id: member.savingsType.memberSaving.0.id
-  memberId: member.savingsType.memberSaving.0.memberId
-  memberSavingsIdNumber: member.savingsType.memberSaving.0.memberSavingsIdNumber
-  savingsTypeId: member.savingsType.memberSaving.0.savingsTypeId
-enterBalance:
-  inputIdentifier: balance
+  balance1: member.savingsType.memberSaving.0.balance
+  id1: member.savingsType.memberSaving.0.id
+  memberId1: member.savingsType.memberSaving.0.memberId
+  memberSavingsIdNumber1: member.savingsType.memberSaving.0.memberSavingsIdNumber
+  savingsTypeId1: member.savingsType.memberSaving.0.savingsTypeId
+enterBalance1:
+  inputIdentifier: balance1
   nextScreen: formSummary
   order: 2
   text:
     en: Balance
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberId:
+enterMemberId1:
   hidden: true
-  inputIdentifier: memberId
+  inputIdentifier: memberId1
   type: hiddenField
-enterMemberSavingsIdNumber:
-  inputIdentifier: memberSavingsIdNumber
-  nextScreen: enterBalance
+enterMemberSavingsIdNumber1:
+  inputIdentifier: memberSavingsIdNumber1
+  nextScreen: enterBalance1
   optional: true
   order: 1
   text:
     en: Member Savings Id Number
   type: inputScreen
-enterSavingsTypeId:
+enterSavingsTypeId1:
   hidden: true
-  inputIdentifier: savingsTypeId
+  inputIdentifier: savingsTypeId1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterMemberSavingsIdNumber
+initialScreen: enterMemberSavingsIdNumber1
 model: memberSaving
 parentIds:
   - memberId

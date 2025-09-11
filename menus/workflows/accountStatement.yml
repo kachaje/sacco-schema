@@ -1,39 +1,39 @@
 cacheQueries:
-  accountId: account.accountStatement.0.accountId
-  closingBalance: account.accountStatement.0.closingBalance
-  date: account.accountStatement.0.date
-  totalCredit: account.accountStatement.0.totalCredit
-  totalDebit: account.accountStatement.0.totalDebit
-enterAccountId:
+  accountId1: account.accountStatement.0.accountId
+  closingBalance1: account.accountStatement.0.closingBalance
+  date1: account.accountStatement.0.date
+  totalCredit1: account.accountStatement.0.totalCredit
+  totalDebit1: account.accountStatement.0.totalDebit
+enterAccountId1:
   hidden: true
-  inputIdentifier: accountId
+  inputIdentifier: accountId1
   type: hiddenField
-enterClosingBalance:
-  inputIdentifier: closingBalance
-  nextScreen: enterTotalCredit
+enterClosingBalance1:
+  inputIdentifier: closingBalance1
+  nextScreen: enterTotalCredit1
   order: 2
   text:
     en: Closing Balance
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterClosingBalance
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterClosingBalance1
   optional: true
   order: 1
   text:
     en: Date
   type: inputScreen
-enterTotalCredit:
-  inputIdentifier: totalCredit
-  nextScreen: enterTotalDebit
+enterTotalCredit1:
+  inputIdentifier: totalCredit1
+  nextScreen: enterTotalDebit1
   order: 3
   text:
     en: Total Credit
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterTotalDebit:
-  inputIdentifier: totalDebit
+enterTotalDebit1:
+  inputIdentifier: totalDebit1
   nextScreen: formSummary
   order: 4
   text:
@@ -42,7 +42,7 @@ enterTotalDebit:
   validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
-initialScreen: enterDate
+initialScreen: enterDate1
 model: accountStatement
 parentIds:
   - accountId

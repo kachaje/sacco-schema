@@ -1,43 +1,43 @@
 cacheQueries:
-  amount: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.amount
-  date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.date
-  description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.description
-  id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.id
-  memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.memberLoanPaymentScheduleId
-enterAmount:
-  inputIdentifier: amount
+  amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.amount
+  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.date
+  description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.description
+  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.id
+  memberLoanPaymentScheduleId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.memberLoanPaymentScheduleId
+enterAmount1:
+  inputIdentifier: amount1
   nextScreen: formSummary
   order: 3
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterAmount
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterAmount1
   optional: true
   order: 2
   text:
     en: Date
   type: inputScreen
-enterDescription:
-  inputIdentifier: description
-  nextScreen: enterDate
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterDate1
   order: 1
   text:
     en: Description
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberLoanPaymentScheduleId:
+enterMemberLoanPaymentScheduleId1:
   hidden: true
-  inputIdentifier: memberLoanPaymentScheduleId
+  inputIdentifier: memberLoanPaymentScheduleId1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterDescription
+initialScreen: enterDescription1
 model: memberLoanReceipt
 parentIds:
   - memberLoanPaymentScheduleId

@@ -1,36 +1,36 @@
 cacheQueries:
-  date: member.notification.0.date
-  id: member.notification.0.id
-  memberId: member.notification.0.memberId
-  message: member.notification.0.message
-  msgDelivered: member.notification.0.msgDelivered
-  msgRead: member.notification.0.msgRead
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterMessage
+  date1: member.notification.0.date
+  id1: member.notification.0.id
+  memberId1: member.notification.0.memberId
+  message1: member.notification.0.message
+  msgDelivered1: member.notification.0.msgDelivered
+  msgRead1: member.notification.0.msgRead
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterMessage1
   optional: true
   order: 1
   text:
     en: Date
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberId:
+enterMemberId1:
   hidden: true
-  inputIdentifier: memberId
+  inputIdentifier: memberId1
   type: hiddenField
-enterMessage:
-  inputIdentifier: message
-  nextScreen: enterMsgDelivered
+enterMessage1:
+  inputIdentifier: message1
+  nextScreen: enterMsgDelivered1
   order: 2
   text:
     en: Message
   type: inputScreen
-enterMsgDelivered:
-  inputIdentifier: msgDelivered
-  nextScreen: enterMsgRead
+enterMsgDelivered1:
+  inputIdentifier: msgDelivered1
+  nextScreen: enterMsgRead1
   optional: true
   options:
     - label:
@@ -43,8 +43,8 @@ enterMsgDelivered:
   text:
     en: Msg Delivered
   type: inputScreen
-enterMsgRead:
-  inputIdentifier: msgRead
+enterMsgRead1:
+  inputIdentifier: msgRead1
   nextScreen: formSummary
   optional: true
   options:
@@ -60,7 +60,7 @@ enterMsgRead:
   type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterDate
+initialScreen: enterDate1
 model: notification
 parentIds:
   - memberId

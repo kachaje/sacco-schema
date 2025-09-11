@@ -1,43 +1,43 @@
 cacheQueries:
-  amount: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.amount
-  date: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.date
-  description: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.description
-  id: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.id
-  memberSavingId: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.memberSavingId
-enterAmount:
-  inputIdentifier: amount
+  amount1: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.amount
+  date1: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.date
+  description1: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.description
+  id1: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.id
+  memberSavingId1: member.savingsType.memberSaving.0.memberSavingWithdrawal.0.memberSavingId
+enterAmount1:
+  inputIdentifier: amount1
   nextScreen: formSummary
   order: 3
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterAmount
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterAmount1
   optional: true
   order: 2
   text:
     en: Date
   type: inputScreen
-enterDescription:
-  inputIdentifier: description
-  nextScreen: enterDate
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterDate1
   order: 1
   text:
     en: Description
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberSavingId:
+enterMemberSavingId1:
   hidden: true
-  inputIdentifier: memberSavingId
+  inputIdentifier: memberSavingId1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterDescription
+initialScreen: enterDescription1
 model: memberSavingWithdrawal
 parentIds:
   - memberSavingId

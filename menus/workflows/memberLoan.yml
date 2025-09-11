@@ -1,23 +1,23 @@
 cacheQueries:
-  amountPaid: member.memberLoan.0.amountPaid
-  balanceAmount: member.memberLoan.0.balanceAmount
-  id: member.memberLoan.0.id
-  interestRate: member.memberLoan.0.interestRate
-  loanAmount: member.memberLoan.0.loanAmount
-  loanDueDate: member.memberLoan.0.loanDueDate
-  loanNumber: member.memberLoan.0.loanNumber
-  loanPurpose: member.memberLoan.0.loanPurpose
-  loanStartDate: member.memberLoan.0.loanStartDate
-  loanType: member.memberLoan.0.loanType
-  memberId: member.memberLoan.0.memberId
-  monthlyInstalments: member.memberLoan.0.monthlyInstalments
-  repaymentPeriodInMonths: member.memberLoan.0.repaymentPeriodInMonths
-enterAmountPaid:
+  amountPaid1: member.memberLoan.0.amountPaid
+  balanceAmount1: member.memberLoan.0.balanceAmount
+  id1: member.memberLoan.0.id
+  interestRate1: member.memberLoan.0.interestRate
+  loanAmount1: member.memberLoan.0.loanAmount
+  loanDueDate1: member.memberLoan.0.loanDueDate
+  loanNumber1: member.memberLoan.0.loanNumber
+  loanPurpose1: member.memberLoan.0.loanPurpose
+  loanStartDate1: member.memberLoan.0.loanStartDate
+  loanType1: member.memberLoan.0.loanType
+  memberId1: member.memberLoan.0.memberId
+  monthlyInstalments1: member.memberLoan.0.monthlyInstalments
+  repaymentPeriodInMonths1: member.memberLoan.0.repaymentPeriodInMonths
+enterAmountPaid1:
   hidden: true
-  inputIdentifier: amountPaid
+  inputIdentifier: amountPaid1
   type: hiddenField
-enterBalanceAmount:
-  inputIdentifier: balanceAmount
+enterBalanceAmount1:
+  inputIdentifier: balanceAmount1
   nextScreen: formSummary
   optional: true
   order: 9
@@ -25,57 +25,57 @@ enterBalanceAmount:
     en: Balance Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterInterestRate:
-  inputIdentifier: interestRate
-  nextScreen: enterBalanceAmount
+enterInterestRate1:
+  inputIdentifier: interestRate1
+  nextScreen: enterBalanceAmount1
   optional: true
   order: 8
   text:
     en: Interest Rate
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterLoanAmount:
-  inputIdentifier: loanAmount
-  nextScreen: enterRepaymentPeriodInMonths
+enterLoanAmount1:
+  inputIdentifier: loanAmount1
+  nextScreen: enterRepaymentPeriodInMonths1
   order: 1
   text:
     en: Loan Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterLoanDueDate:
-  inputIdentifier: loanDueDate
-  nextScreen: enterMonthlyInstalments
+enterLoanDueDate1:
+  inputIdentifier: loanDueDate1
+  nextScreen: enterMonthlyInstalments1
   optional: true
   order: 6
   text:
     en: Loan Due Date
   type: inputScreen
-enterLoanNumber:
+enterLoanNumber1:
   hidden: true
-  inputIdentifier: loanNumber
+  inputIdentifier: loanNumber1
   type: hiddenField
-enterLoanPurpose:
-  inputIdentifier: loanPurpose
-  nextScreen: enterLoanType
+enterLoanPurpose1:
+  inputIdentifier: loanPurpose1
+  nextScreen: enterLoanType1
   order: 3
   text:
     en: Loan Purpose
   type: inputScreen
-enterLoanStartDate:
-  inputIdentifier: loanStartDate
-  nextScreen: enterLoanDueDate
+enterLoanStartDate1:
+  inputIdentifier: loanStartDate1
+  nextScreen: enterLoanDueDate1
   optional: true
   order: 5
   text:
     en: Loan Start Date
   type: inputScreen
-enterLoanType:
-  inputIdentifier: loanType
-  nextScreen: enterLoanStartDate
+enterLoanType1:
+  inputIdentifier: loanType1
+  nextScreen: enterLoanStartDate1
   options:
     - label:
         en: Personal
@@ -93,22 +93,22 @@ enterLoanType:
   text:
     en: Loan Type
   type: inputScreen
-enterMemberId:
+enterMemberId1:
   hidden: true
-  inputIdentifier: memberId
+  inputIdentifier: memberId1
   type: hiddenField
-enterMonthlyInstalments:
-  inputIdentifier: monthlyInstalments
-  nextScreen: enterInterestRate
+enterMonthlyInstalments1:
+  inputIdentifier: monthlyInstalments1
+  nextScreen: enterInterestRate1
   optional: true
   order: 7
   text:
     en: Monthly Instalments
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterRepaymentPeriodInMonths:
-  inputIdentifier: repaymentPeriodInMonths
-  nextScreen: enterLoanPurpose
+enterRepaymentPeriodInMonths1:
+  inputIdentifier: repaymentPeriodInMonths1
+  nextScreen: enterLoanPurpose1
   order: 2
   text:
     en: Repayment Period In Months
@@ -116,7 +116,7 @@ enterRepaymentPeriodInMonths:
   validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
-initialScreen: enterLoanAmount
+initialScreen: enterLoanAmount1
 model: memberLoan
 parentIds:
   - memberId

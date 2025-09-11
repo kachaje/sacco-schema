@@ -1,49 +1,49 @@
 cacheQueries:
-  accountId: account.accountTransaction.accountJournal.0.accountId
-  accountTransactionId: account.accountTransaction.accountJournal.0.accountTransactionId
-  amount: account.accountTransaction.accountJournal.0.amount
-  date: account.accountTransaction.accountJournal.0.date
-  direction: account.accountTransaction.accountJournal.0.direction
-  id: account.accountTransaction.accountJournal.0.id
-enterAccountId:
+  accountId1: account.accountTransaction.accountJournal.0.accountId
+  accountTransactionId1: account.accountTransaction.accountJournal.0.accountTransactionId
+  amount1: account.accountTransaction.accountJournal.0.amount
+  date1: account.accountTransaction.accountJournal.0.date
+  direction1: account.accountTransaction.accountJournal.0.direction
+  id1: account.accountTransaction.accountJournal.0.id
+enterAccountId1:
   hidden: true
-  inputIdentifier: accountId
+  inputIdentifier: accountId1
   type: hiddenField
-enterAccountTransactionId:
+enterAccountTransactionId1:
   hidden: true
-  inputIdentifier: accountTransactionId
+  inputIdentifier: accountTransactionId1
   type: hiddenField
-enterAmount:
-  inputIdentifier: amount
-  nextScreen: enterDirection
+enterAmount1:
+  inputIdentifier: amount1
+  nextScreen: enterDirection1
   order: 2
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
-  inputIdentifier: date
-  nextScreen: enterAmount
+enterDate1:
+  inputIdentifier: date1
+  nextScreen: enterAmount1
   optional: true
   order: 1
   text:
     en: Date
   type: inputScreen
-enterDirection:
-  inputIdentifier: direction
+enterDirection1:
+  inputIdentifier: direction1
   nextScreen: formSummary
   order: 3
   text:
     en: Direction
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterDate
+initialScreen: enterDate1
 model: accountJournal
 parentIds:
   - accountId

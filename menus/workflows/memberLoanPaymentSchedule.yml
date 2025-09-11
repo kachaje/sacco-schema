@@ -1,39 +1,39 @@
 cacheQueries:
-  amountDue: member.memberLoan.0.memberLoanPaymentSchedule.0.amountDue
-  dueDate: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
-  id: member.memberLoan.0.memberLoanPaymentSchedule.0.id
-  memberLoanId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
-  paid: member.memberLoan.0.memberLoanPaymentSchedule.0.paid
-enterAmountDue:
-  inputIdentifier: amountDue
+  amountDue1: member.memberLoan.0.memberLoanPaymentSchedule.0.amountDue
+  dueDate1: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
+  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.id
+  memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
+  paid1: member.memberLoan.0.memberLoanPaymentSchedule.0.paid
+enterAmountDue1:
+  inputIdentifier: amountDue1
   nextScreen: formSummary
   order: 2
   text:
     en: Amount Due
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDueDate:
-  inputIdentifier: dueDate
-  nextScreen: enterAmountDue
+enterDueDate1:
+  inputIdentifier: dueDate1
+  nextScreen: enterAmountDue1
   order: 1
   text:
     en: Due Date
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberLoanId:
+enterMemberLoanId1:
   hidden: true
-  inputIdentifier: memberLoanId
+  inputIdentifier: memberLoanId1
   type: hiddenField
-enterPaid:
+enterPaid1:
   hidden: true
-  inputIdentifier: paid
+  inputIdentifier: paid1
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterDueDate
+initialScreen: enterDueDate1
 model: memberLoanPaymentSchedule
 parentIds:
   - memberLoanId

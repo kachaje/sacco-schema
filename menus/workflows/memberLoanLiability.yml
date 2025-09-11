@@ -1,25 +1,25 @@
 cacheQueries:
-  description: member.memberLoan.0.memberLoanLiability.0.description
-  id: member.memberLoan.0.memberLoanLiability.0.id
-  memberLoanId: member.memberLoan.0.memberLoanLiability.0.memberLoanId
-  value: member.memberLoan.0.memberLoanLiability.0.value
-enterDescription:
-  inputIdentifier: description
-  nextScreen: enterValue
+  description1: member.memberLoan.0.memberLoanLiability.0.description
+  id1: member.memberLoan.0.memberLoanLiability.0.id
+  memberLoanId1: member.memberLoan.0.memberLoanLiability.0.memberLoanId
+  value1: member.memberLoan.0.memberLoanLiability.0.value
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterValue1
   order: 1
   text:
     en: Description
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberLoanId:
+enterMemberLoanId1:
   hidden: true
-  inputIdentifier: memberLoanId
+  inputIdentifier: memberLoanId1
   type: hiddenField
-enterValue:
-  inputIdentifier: value
+enterValue1:
+  inputIdentifier: value1
   nextScreen: formSummary
   order: 2
   text:
@@ -28,7 +28,7 @@ enterValue:
   validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
-initialScreen: enterDescription
+initialScreen: enterDescription1
 model: memberLoanLiability
 parentIds:
   - memberLoanId
