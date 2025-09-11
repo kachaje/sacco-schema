@@ -10,6 +10,10 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"golang.org/x/text/language"
+	"golang.org/x/text/message"
+	"golang.org/x/text/number"
 )
 
 func CheckPreferredLanguage(phoneNumber, preferencesFolder string) *string {
@@ -251,6 +255,8 @@ func TabulateData(data map[string]any) []string {
 
 	sort.Strings(keys)
 
+	otherData := []string{}
+
 	for _, key := range keys {
 		result = append(result, key)
 
@@ -270,6 +276,22 @@ func TabulateData(data map[string]any) []string {
 					if err == nil {
 						keysMap[order] = k
 						floatKeys = append(floatKeys, order)
+					}
+				} else {
+					otherData = append(otherData, fmt.Sprintf("   %s", k))
+
+					if child, ok := v.(map[string]any); ok {
+						for kc, vc := range child {
+							if vd, ok := vc.(map[string]any); ok {
+								entry := TabulateData(map[string]any{
+									kc: vd,
+								})
+
+								for _, item := range entry {
+									otherData = append(otherData, fmt.Sprintf("     %s", item))
+								}
+							}
+						}
 					}
 				}
 			}
@@ -329,7 +351,22 @@ func TabulateData(data map[string]any) []string {
 						value = fmt.Sprintf("%v", childData[childKey]["value"])
 					}
 
-					entry := fmt.Sprintf("   %-25s| %s", label, value)
+					var entry string
+
+					if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", value)) {
+						p := message.NewPrinter(language.English)
+
+						var vn float64
+
+						vr, err := strconv.ParseFloat(value, 64)
+						if err == nil {
+							vn = vr
+						}
+
+						entry = fmt.Sprintf("   %-25s| %12s", label, p.Sprintf("%f", number.Decimal(vn)))
+					} else {
+						entry = fmt.Sprintf("   %-25s| %s", label, value)
+					}
 
 					result = append(result, entry)
 				}
@@ -339,11 +376,7 @@ func TabulateData(data map[string]any) []string {
 		}
 	}
 
-	if false {
-		payload, _ := json.MarshalIndent(data, "", "  ")
-
-		fmt.Println(string(payload))
-	}
+	result = append(result, otherData...)
 
 	return result
 }
