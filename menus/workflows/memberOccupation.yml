@@ -1,14 +1,14 @@
 cacheQueries:
-  employerAddress: member.memberLoanApplication.0.memberLoan.0.memberOccupation.employerAddress
-  employerName: member.memberLoanApplication.0.memberLoan.0.memberOccupation.employerName
-  employerPhone: member.memberLoanApplication.0.memberLoan.0.memberOccupation.employerPhone
-  grossPay: member.memberLoanApplication.0.memberLoan.0.memberOccupation.grossPay
-  highestQualification: member.memberLoanApplication.0.memberLoan.0.memberOccupation.highestQualification
-  id: member.memberLoanApplication.0.memberLoan.0.memberOccupation.id
-  jobTitle: member.memberLoanApplication.0.memberLoan.0.memberOccupation.jobTitle
-  memberLoanId: member.memberLoanApplication.0.memberLoan.0.memberOccupation.memberLoanId
-  netPay: member.memberLoanApplication.0.memberLoan.0.memberOccupation.netPay
-  periodEmployedInMonths: member.memberLoanApplication.0.memberLoan.0.memberOccupation.periodEmployedInMonths
+  employerAddress: member.memberLoan.0.memberOccupation.employerAddress
+  employerName: member.memberLoan.0.memberOccupation.employerName
+  employerPhone: member.memberLoan.0.memberOccupation.employerPhone
+  grossPay: member.memberLoan.0.memberOccupation.grossPay
+  highestQualification: member.memberLoan.0.memberOccupation.highestQualification
+  id: member.memberLoan.0.memberOccupation.id
+  jobTitle: member.memberLoan.0.memberOccupation.jobTitle
+  memberLoanId: member.memberLoan.0.memberOccupation.memberLoanId
+  netPay: member.memberLoan.0.memberOccupation.netPay
+  periodEmployedInMonths: member.memberLoan.0.memberOccupation.periodEmployedInMonths
 enterEmployerAddress:
   inputIdentifier: employerAddress
   nextScreen: enterEmployerPhone
@@ -95,4 +95,4 @@ initialScreen: enterEmployerName
 model: memberOccupation
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoanApplication.0.memberLoan.0.memberOccupation
+rootQuery: member.memberLoan.0.memberOccupation

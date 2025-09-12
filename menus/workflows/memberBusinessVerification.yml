@@ -1,9 +1,9 @@
 cacheQueries:
-  businessVerified: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification.businessVerified
-  grossIncomeVerified: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification.grossIncomeVerified
-  id: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification.id
-  memberBusinessId: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification.memberBusinessId
-  netIncomeVerified: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification.netIncomeVerified
+  businessVerified: member.memberLoan.0.memberBusiness.memberBusinessVerification.businessVerified
+  grossIncomeVerified: member.memberLoan.0.memberBusiness.memberBusinessVerification.grossIncomeVerified
+  id: member.memberLoan.0.memberBusiness.memberBusinessVerification.id
+  memberBusinessId: member.memberLoan.0.memberBusiness.memberBusinessVerification.memberBusinessId
+  netIncomeVerified: member.memberLoan.0.memberBusiness.memberBusinessVerification.netIncomeVerified
 enterBusinessVerified:
   inputIdentifier: businessVerified
   nextScreen: enterGrossIncomeVerified
@@ -55,4 +55,4 @@ initialScreen: enterBusinessVerified
 model: memberBusinessVerification
 parentIds:
   - memberBusinessId
-rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification
+rootQuery: member.memberLoan.0.memberBusiness.memberBusinessVerification

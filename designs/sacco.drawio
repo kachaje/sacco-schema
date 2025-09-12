@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
   <diagram name="Page-1" id="UPUowpIk6W7c6kZH7XhG">
-    <mxGraphModel dx="1257" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1665" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -84,8 +84,8 @@
         <mxCell id="fwgtb6dIBil6Uczm33GN-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="sz-M_Azw0uYvEaWHzbE8-21" target="sz-M_Azw0uYvEaWHzbE8-28" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sz-M_Azw0uYvEaWHzbE8-21" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberLoan&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;br&gt;FK2&lt;br&gt;&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberLoanApplicationId (INT;many:true;hidden:true)&lt;br&gt;loanNumber (TEXT;optional:true;hidden:true)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;loanStartDate (TEXT;default:CURRENT_TIMESTAMP)&lt;br&gt;loanDueDate (TEXT;default:CURRENT_TIMESTAMP)&lt;br&gt;monthlyInstalments (REAL;default:0;readOnly:true)&lt;br&gt;interestRate (REAL;default:0;readOnly:true)&lt;br&gt;amountPaid (REAL;default:0;readOnly:true)&lt;br&gt;balanceAmount (REAL;default:0;readOnly:true)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="370" y="1640" width="410" height="170" as="geometry" />
+        <mxCell id="sz-M_Azw0uYvEaWHzbE8-21" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberLoan&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;br&gt;FK2&lt;br&gt;&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberId (INT;many:true;hidden:true)&lt;br&gt;loanNumber (TEXT;optional:true;hidden:true)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;loanStartDate (TEXT;default:CURRENT_TIMESTAMP;hidden:true)&lt;br&gt;loanDueDate (TEXT;default:CURRENT_TIMESTAMP;hidden:true)&lt;br&gt;loanPurpose (TEXT)&lt;br&gt;loanAmount (REAL)&lt;br&gt;repaymentPeriodInMonths (INT)&lt;br&gt;loanType (TEXT;options:Personal,Business,Agricultural,Emergency)&lt;br&gt;monthlyInstalments (REAL;default:0;readOnly:true)&lt;br&gt;interestRate (REAL;default:0;hidden:true)&lt;br&gt;amountPaid (REAL;default:0;hidden:true)&lt;br&gt;balanceAmount (REAL;default:0;hidden:true)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="370" y="1590" width="410" height="220" as="geometry" />
         </mxCell>
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="sz-M_Azw0uYvEaWHzbE8-22" target="sz-M_Azw0uYvEaWHzbE8-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -123,12 +123,12 @@
           <mxGeometry x="714" y="1310" width="405" height="180" as="geometry" />
         </mxCell>
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-29" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberLoanLiability&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberLoanId (INT;many:true;hidden:true)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;description (TEXT)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;value (REAL)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="63" y="1628.25" width="270" height="107.5" as="geometry" />
+          <mxGeometry x="60" y="1591.25" width="270" height="107.5" as="geometry" />
         </mxCell>
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="sz-M_Azw0uYvEaWHzbE8-31" target="sz-M_Azw0uYvEaWHzbE8-21" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="218" y="1768" />
+              <mxPoint x="218" y="1755" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -229,16 +229,17 @@
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-51" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberSavingWithdrawal&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;br&gt;&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberSavingId (INT;many:true)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;description (TEXT)&lt;br&gt;date (TEXT;default:CURRENT_TIMESTAMP)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;amount (REAL)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="2400" y="1685" width="280" height="105" as="geometry" />
         </mxCell>
-        <mxCell id="sz-M_Azw0uYvEaWHzbE8-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="sz-M_Azw0uYvEaWHzbE8-30" target="sz-M_Azw0uYvEaWHzbE8-21" edge="1">
+        <mxCell id="sz-M_Azw0uYvEaWHzbE8-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="sz-M_Azw0uYvEaWHzbE8-30" target="sz-M_Azw0uYvEaWHzbE8-21" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="453" y="1620" as="targetPoint" />
             <Array as="points">
+              <mxPoint x="473" y="1420" />
               <mxPoint x="473" y="1535" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-30" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberLoanSecurity&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberLoanId (INT;many:true;hidden:true)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;description (TEXT)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;value (REAL)&lt;br&gt;serialNumber (TEXT)&lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="63" y="1480" width="280" height="110" as="geometry" />
+          <mxGeometry x="333" y="1310" width="280" height="110" as="geometry" />
         </mxCell>
         <mxCell id="sz-M_Azw0uYvEaWHzbE8-54" value="loan" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" parent="1" vertex="1">
           <mxGeometry x="50" y="1240" width="1520" height="1050" as="geometry" />
@@ -324,13 +325,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="KxpVN29LyYGCwS3-Cs0k-1" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;loanNumberIdsCache&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberLoanId (INT;optional:true;hidden:true)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;loanNumber (TEXT)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;claimed (INT;default:0)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="714" y="1873.5" width="290" height="99" as="geometry" />
-        </mxCell>
-        <mxCell id="rcGjH3r-eykudUTbSk6V-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="rcGjH3r-eykudUTbSk6V-3" target="sz-M_Azw0uYvEaWHzbE8-21">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="rcGjH3r-eykudUTbSk6V-3" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;memberLoanApplication&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;br&gt;FK1&lt;/td&gt;&lt;td&gt;id (INT;autoIncrement:true)&lt;br&gt;memberId (INT;many:true;hidden:true)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;loanPurpose (TEXT)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;loanAmount (REAL)&lt;br&gt;repaymentPeriodInMonths (INT)&lt;br&gt;loanType (TEXT;options:Personal,Business,Agricultural,Emergency)&lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="267" y="1280" width="410" height="130" as="geometry" />
+          <mxGeometry x="714" y="1849.5" width="290" height="99" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

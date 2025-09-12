@@ -577,14 +577,14 @@
     "fields": {
       "amountPaid": {
         "default": "0",
-        "order": 7,
-        "readOnly": true,
+        "hidden": true,
+        "order": 11,
         "type": "real"
       },
       "balanceAmount": {
         "default": "0",
-        "order": 8,
-        "readOnly": true,
+        "hidden": true,
+        "order": 12,
         "type": "real"
       },
       "id": {
@@ -595,12 +595,17 @@
       },
       "interestRate": {
         "default": "0",
+        "hidden": true,
+        "order": 10,
+        "type": "real"
+      },
+      "loanAmount": {
         "order": 6,
-        "readOnly": true,
         "type": "real"
       },
       "loanDueDate": {
         "default": "CURRENT_TIMESTAMP",
+        "hidden": true,
         "order": 4,
         "type": "text"
       },
@@ -610,48 +615,19 @@
         "order": 2,
         "type": "text"
       },
-      "loanStartDate": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
+      "loanPurpose": {
+        "order": 5,
         "type": "text"
       },
-      "memberLoanApplicationId": {
+      "loanStartDate": {
+        "default": "CURRENT_TIMESTAMP",
         "hidden": true,
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberLoanApplication",
-        "type": "int"
-      },
-      "monthlyInstalments": {
-        "default": "0",
-        "order": 5,
-        "readOnly": true,
-        "type": "real"
-      }
-    },
-    "many": true,
-    "model": "memberLoan",
-    "parents": ["memberLoanApplication"]
-  },
-  "memberLoanApplication": {
-    "fields": {
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanAmount": {
         "order": 3,
-        "type": "real"
-      },
-      "loanPurpose": {
-        "order": 2,
         "type": "text"
       },
       "loanType": {
         "options": ["Personal", "Business", "Agricultural", "Emergency"],
-        "order": 5,
+        "order": 8,
         "type": "text"
       },
       "memberId": {
@@ -661,13 +637,19 @@
         "referenceTable": "member",
         "type": "int"
       },
+      "monthlyInstalments": {
+        "default": "0",
+        "order": 9,
+        "readOnly": true,
+        "type": "real"
+      },
       "repaymentPeriodInMonths": {
-        "order": 4,
+        "order": 7,
         "type": "int"
       }
     },
     "many": true,
-    "model": "memberLoanApplication",
+    "model": "memberLoan",
     "parents": ["member"]
   },
   "memberLoanApproval": {

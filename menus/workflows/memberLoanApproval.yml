@@ -1,13 +1,13 @@
 cacheQueries:
-  amountRecommended: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.amountRecommended
-  approvedBy: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.approvedBy
-  dateOfApproval: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.dateOfApproval
-  dateVerified: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.dateVerified
-  denialOrPartialReason: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.denialOrPartialReason
-  id: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.id
-  loanStatus: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.loanStatus
-  memberLoanId: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.memberLoanId
-  verifiedBy: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval.verifiedBy
+  amountRecommended: member.memberLoan.0.memberLoanApproval.amountRecommended
+  approvedBy: member.memberLoan.0.memberLoanApproval.approvedBy
+  dateOfApproval: member.memberLoan.0.memberLoanApproval.dateOfApproval
+  dateVerified: member.memberLoan.0.memberLoanApproval.dateVerified
+  denialOrPartialReason: member.memberLoan.0.memberLoanApproval.denialOrPartialReason
+  id: member.memberLoan.0.memberLoanApproval.id
+  loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
+  memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
+  verifiedBy: member.memberLoan.0.memberLoanApproval.verifiedBy
 enterAmountRecommended:
   inputIdentifier: amountRecommended
   nextScreen: enterApprovedBy
@@ -78,4 +78,4 @@ initialScreen: enterLoanStatus
 model: memberLoanApproval
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval
+rootQuery: member.memberLoan.0.memberLoanApproval

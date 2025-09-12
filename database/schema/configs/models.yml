@@ -134,7 +134,7 @@ loanNumberIdsCache:
         order: 3
   hasOne:
     - memberLoan
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.loanNumberIdsCache
+  rootQuery: member.memberLoan.0.loanNumberIdsCache
 loanRate:
   belongsTo:
     - loanType
@@ -248,7 +248,7 @@ member:
   hasMany:
     - dividends
     - memberDependant
-    - memberLoanApplication
+    - memberLoan
     - memberSaving
     - memberShares
     - notification
@@ -281,7 +281,7 @@ memberBusiness:
     - memberBusinessVerification
     - memberLastYearBusinessHistory
     - memberNextYearBusinessProjection
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness
+  rootQuery: member.memberLoan.0.memberBusiness
 memberBusinessVerification:
   belongsTo:
     - memberBusiness
@@ -309,7 +309,7 @@ memberBusinessVerification:
     - netIncomeVerified:
         order: 4
         type: text
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberBusinessVerification
+  rootQuery: member.memberLoan.0.memberBusiness.memberBusinessVerification
 memberContact:
   belongsTo:
     - member
@@ -587,15 +587,15 @@ memberLastYearBusinessHistory:
     - netProfitLoss:
         numericField: true
         order: 13
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberLastYearBusinessHistory
+  rootQuery: member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory
 memberLoan:
   belongsTo:
-    - memberLoanApplication
+    - member
   fields:
     - id:
         hidden: true
         order: 0
-    - memberLoanApplicationId:
+    - memberId:
         hidden: true
         order: 1
     - loanNumber:
@@ -604,28 +604,49 @@ memberLoan:
         order: 2
         type: text
     - loanStartDate:
+        hidden: true
         optional: true
         order: 3
         type: text
     - loanDueDate:
+        hidden: true
         optional: true
         order: 4
+        type: text
+    - loanPurpose:
+        order: 5
+        type: text
+    - loanAmount:
+        numericField: true
+        order: 6
+    - repaymentPeriodInMonths:
+        numericField: true
+        order: 7
+    - loanType:
+        options:
+          - Personal
+          - Business
+          - Agricultural
+          - Emergency
+        order: 8
         type: text
     - monthlyInstalments:
         numericField: true
         optional: true
-        order: 5
+        order: 9
     - interestRate:
+        hidden: true
         numericField: true
         optional: true
-        order: 6
+        order: 10
     - amountPaid:
         hidden: true
-        order: 7
+        order: 11
     - balanceAmount:
+        hidden: true
         numericField: true
         optional: true
-        order: 8
+        order: 12
   hasMany:
     - memberLoanInsurance
     - memberLoanLiability
@@ -639,37 +660,7 @@ memberLoan:
     - memberLoanApproval
     - memberLoanDisbursement
     - memberOccupation
-  rootQuery: member.memberLoanApplication.0.memberLoan.0
-memberLoanApplication:
-  belongsTo:
-    - member
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberId:
-        hidden: true
-        order: 1
-    - loanPurpose:
-        order: 2
-        type: text
-    - loanAmount:
-        numericField: true
-        order: 3
-    - repaymentPeriodInMonths:
-        numericField: true
-        order: 4
-    - loanType:
-        options:
-          - Personal
-          - Business
-          - Agricultural
-          - Emergency
-        order: 5
-        type: text
-  hasMany:
-    - memberLoan
-  rootQuery: member.memberLoanApplication.0
+  rootQuery: member.memberLoan.0
 memberLoanApproval:
   belongsTo:
     - memberLoan
@@ -711,7 +702,7 @@ memberLoanApproval:
         optional: true
         order: 8
         type: text
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanApproval
+  rootQuery: member.memberLoan.0.memberLoanApproval
 memberLoanDisbursement:
   belongsTo:
     - memberLoan
@@ -732,7 +723,7 @@ memberLoanDisbursement:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanDisbursement
+  rootQuery: member.memberLoan.0.memberLoanDisbursement
 memberLoanInsurance:
   belongsTo:
     - memberLoan
@@ -754,7 +745,7 @@ memberLoanInsurance:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.insuranceProvider.memberLoanInsurance.0
+  rootQuery: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0
 memberLoanLiability:
   belongsTo:
     - memberLoan
@@ -771,7 +762,7 @@ memberLoanLiability:
     - value:
         numericField: true
         order: 3
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0
+  rootQuery: member.memberLoan.0.memberLoanLiability.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -793,7 +784,7 @@ memberLoanPaymentSchedule:
         order: 4
   hasMany:
     - memberLoanReceipt
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
 memberLoanProcessingFee:
   belongsTo:
     - memberLoan
@@ -811,7 +802,7 @@ memberLoanProcessingFee:
     - amount:
         numericField: true
         order: 3
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanProcessingFee.0
+  rootQuery: member.memberLoan.0.memberLoanProcessingFee.0
 memberLoanReceipt:
   belongsTo:
     - memberLoanPaymentSchedule
@@ -832,7 +823,7 @@ memberLoanReceipt:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0
 memberLoanSecurity:
   belongsTo:
     - memberLoan
@@ -852,7 +843,7 @@ memberLoanSecurity:
     - serialNumber:
         order: 4
         type: text
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanSecurity.0
+  rootQuery: member.memberLoan.0.memberLoanSecurity.0
 memberLoanTax:
   belongsTo:
     - memberLoan
@@ -873,7 +864,7 @@ memberLoanTax:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanTax.0
+  rootQuery: member.memberLoan.0.memberLoanTax.0
 memberLoanWitness:
   belongsTo:
     - memberLoan
@@ -897,7 +888,7 @@ memberLoanWitness:
         optional: true
         order: 5
         type: text
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanWitness.0
+  rootQuery: member.memberLoan.0.memberLoanWitness.0
 memberNextYearBusinessProjection:
   belongsTo:
     - memberBusiness
@@ -944,7 +935,7 @@ memberNextYearBusinessProjection:
     - netProfitLoss:
         numericField: true
         order: 13
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberBusiness.memberNextYearBusinessProjection
+  rootQuery: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection
 memberOccupation:
   belongsTo:
     - memberLoan
@@ -986,7 +977,7 @@ memberOccupation:
         type: text
   hasOne:
     - memberOccupationVerification
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberOccupation
+  rootQuery: member.memberLoan.0.memberOccupation
 memberOccupationVerification:
   belongsTo:
     - memberOccupation
@@ -1010,7 +1001,7 @@ memberOccupationVerification:
     - netVerified:
         order: 4
         type: text
-  rootQuery: member.memberLoanApplication.0.memberLoan.0.memberOccupation.memberOccupationVerification
+  rootQuery: member.memberLoan.0.memberOccupation.memberOccupationVerification
 memberSaving:
   belongsTo:
     - member

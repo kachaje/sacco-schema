@@ -380,10 +380,21 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoan (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberLoanApplicationId INTEGER NOT NULL,
+    memberId INTEGER NOT NULL,
     loanNumber TEXT,
     loanStartDate TEXT DEFAULT CURRENT_TIMESTAMP,
     loanDueDate TEXT DEFAULT CURRENT_TIMESTAMP,
+    loanPurpose TEXT NOT NULL,
+    loanAmount REAL NOT NULL,
+    repaymentPeriodInMonths INTEGER NOT NULL,
+    loanType TEXT NOT NULL CHECK (
+        loanType IN (
+            'Personal',
+            'Business',
+            'Agricultural',
+            'Emergency'
+        )
+    ),
     monthlyInstalments REAL DEFAULT 0,
     interestRate REAL DEFAULT 0,
     amountPaid REAL DEFAULT 0,
@@ -391,7 +402,7 @@ CREATE TABLE IF NOT EXISTS memberLoan (
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberLoanApplicationId) REFERENCES memberLoanApplication (id) ON DELETE CASCADE
+    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanUpdated AFTER

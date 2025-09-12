@@ -1,8 +1,8 @@
 cacheQueries:
-  description1: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0.description
-  id1: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0.id
-  memberLoanId1: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0.memberLoanId
-  value1: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0.value
+  description1: member.memberLoan.0.memberLoanLiability.0.description
+  id1: member.memberLoan.0.memberLoanLiability.0.id
+  memberLoanId1: member.memberLoan.0.memberLoanLiability.0.memberLoanId
+  value1: member.memberLoan.0.memberLoanLiability.0.value
 enterDescription1:
   inputIdentifier: description1
   nextScreen: enterValue1
@@ -32,4 +32,4 @@ initialScreen: enterDescription1
 model: memberLoanLiability
 parentIds:
   - memberLoanId
-rootQuery: member.memberLoanApplication.0.memberLoan.0.memberLoanLiability.0
+rootQuery: member.memberLoan.0.memberLoanLiability.0
