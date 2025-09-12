@@ -33,22 +33,17 @@ maxInstalmentMonths:
   order: 5
   type: int
 
-insuranceRate:
-  default: "0.015"
-  order: 6
-  type: real
-
 processingFeeRate:
   default: "0.05"
-  order: 7
+  order: 6
   type: real
 
 penaltyRate:
   default: "0.1"
-  order: 8
+  order: 7
   type: real
 
 monthlyInterestRate:
   default: "0.05"
-  order: 9
+  order: 8
   type: real

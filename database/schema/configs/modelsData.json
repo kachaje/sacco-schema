@@ -213,18 +213,13 @@
         "primaryKey": true,
         "type": "int"
       },
-      "insuranceRate": {
-        "default": "0.015",
-        "order": 6,
-        "type": "real"
-      },
       "maxInstalmentMonths": {
         "order": 5,
         "type": "int"
       },
       "monthlyInterestRate": {
         "default": "0.05",
-        "order": 9,
+        "order": 8,
         "type": "real"
       },
       "name": {
@@ -240,7 +235,7 @@
       },
       "penaltyRate": {
         "default": "0.1",
-        "order": 8,
+        "order": 7,
         "type": "real"
       },
       "periodLimitInMonths": {
@@ -249,7 +244,7 @@
       },
       "processingFeeRate": {
         "default": "0.05",
-        "order": 7,
+        "order": 6,
         "type": "real"
       }
     },
@@ -586,13 +581,13 @@
       "amountPaid": {
         "default": "0",
         "hidden": true,
-        "order": 12,
+        "order": 15,
         "type": "real"
       },
       "balanceAmount": {
         "default": "0",
         "hidden": true,
-        "order": 13,
+        "order": 16,
         "type": "real"
       },
       "id": {
@@ -600,12 +595,6 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
-      },
-      "interestRate": {
-        "default": "0",
-        "hidden": true,
-        "order": 11,
-        "type": "real"
       },
       "loanAmount": {
         "order": 6,
@@ -661,6 +650,27 @@
         "default": "0",
         "formula": "DIV({{loanAmount}},{{repaymentPeriodInMonths}}",
         "order": 10,
+        "type": "real"
+      },
+      "monthlyInsuranceRate": {
+        "default": "0.015",
+        "order": 12,
+        "type": "real"
+      },
+      "monthlyInterestRate": {
+        "default": "0.045",
+        "hidden": true,
+        "order": 11,
+        "type": "real"
+      },
+      "penaltyRate": {
+        "default": "0.1",
+        "order": 14,
+        "type": "real"
+      },
+      "processingFeeRate": {
+        "default": "0.05",
+        "order": 13,
         "type": "real"
       },
       "repaymentPeriodInMonths": {

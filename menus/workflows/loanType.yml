@@ -2,7 +2,6 @@ cacheQueries:
   amountLimit: loanType.amountLimit
   category: loanType.category
   id: loanType.id
-  insuranceRate: loanType.insuranceRate
   maxInstalmentMonths: loanType.maxInstalmentMonths
   monthlyInterestRate: loanType.monthlyInterestRate
   name: loanType.name
@@ -35,18 +34,9 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
-enterInsuranceRate:
-  inputIdentifier: insuranceRate
-  nextScreen: enterProcessingFeeRate
-  optional: true
-  order: 6
-  text:
-    en: Insurance Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
 enterMaxInstalmentMonths:
   inputIdentifier: maxInstalmentMonths
-  nextScreen: enterInsuranceRate
+  nextScreen: enterProcessingFeeRate
   order: 5
   text:
     en: Max Instalment Months
@@ -56,7 +46,7 @@ enterMonthlyInterestRate:
   inputIdentifier: monthlyInterestRate
   nextScreen: formSummary
   optional: true
-  order: 9
+  order: 8
   text:
     en: Monthly Interest Rate
   type: inputScreen
@@ -88,7 +78,7 @@ enterPenaltyRate:
   inputIdentifier: penaltyRate
   nextScreen: enterMonthlyInterestRate
   optional: true
-  order: 8
+  order: 7
   text:
     en: Penalty Rate
   type: inputScreen
@@ -105,7 +95,7 @@ enterProcessingFeeRate:
   inputIdentifier: processingFeeRate
   nextScreen: enterPenaltyRate
   optional: true
-  order: 7
+  order: 6
   text:
     en: Processing Fee Rate
   type: inputScreen

@@ -2,7 +2,6 @@ cacheQueries:
   amountPaid1: member.memberLoan.0.amountPaid
   balanceAmount1: member.memberLoan.0.balanceAmount
   id1: member.memberLoan.0.id
-  interestRate1: member.memberLoan.0.interestRate
   loanAmount1: member.memberLoan.0.loanAmount
   loanCategory1: member.memberLoan.0.loanCategory
   loanDueDate1: member.memberLoan.0.loanDueDate
@@ -12,6 +11,10 @@ cacheQueries:
   loanType1: member.memberLoan.0.loanType
   memberId1: member.memberLoan.0.memberId
   monthlyInstalments1: member.memberLoan.0.monthlyInstalments
+  monthlyInsuranceRate1: member.memberLoan.0.monthlyInsuranceRate
+  monthlyInterestRate1: member.memberLoan.0.monthlyInterestRate
+  penaltyRate1: member.memberLoan.0.penaltyRate
+  processingFeeRate1: member.memberLoan.0.processingFeeRate
   repaymentPeriodInMonths1: member.memberLoan.0.repaymentPeriodInMonths
 enterAmountPaid1:
   hidden: true
@@ -25,10 +28,6 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
-enterInterestRate1:
-  hidden: true
-  inputIdentifier: interestRate1
-  type: hiddenField
 enterLoanAmount1:
   inputIdentifier: loanAmount1
   nextScreen: enterRepaymentPeriodInMonths1
@@ -39,7 +38,7 @@ enterLoanAmount1:
   validationRule: ^\d+\.*\d*$
 enterLoanCategory1:
   inputIdentifier: loanCategory1
-  nextScreen: formSummary
+  nextScreen: enterMonthlyInsuranceRate1
   optional: true
   options:
     - label:
@@ -105,6 +104,37 @@ enterMonthlyInstalments1:
   text:
     en: Monthly Instalments
   type: inputScreen
+enterMonthlyInsuranceRate1:
+  inputIdentifier: monthlyInsuranceRate1
+  nextScreen: enterProcessingFeeRate1
+  optional: true
+  order: 6
+  text:
+    en: Monthly Insurance Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterMonthlyInterestRate1:
+  hidden: true
+  inputIdentifier: monthlyInterestRate1
+  type: hiddenField
+enterPenaltyRate1:
+  inputIdentifier: penaltyRate1
+  nextScreen: formSummary
+  optional: true
+  order: 8
+  text:
+    en: Penalty Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterProcessingFeeRate1:
+  inputIdentifier: processingFeeRate1
+  nextScreen: enterPenaltyRate1
+  optional: true
+  order: 7
+  text:
+    en: Processing Fee Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterRepaymentPeriodInMonths1:
   inputIdentifier: repaymentPeriodInMonths1
   nextScreen: enterLoanType1

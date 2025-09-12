@@ -280,31 +280,24 @@
         }
       },
       {
-        "insuranceRate": {
+        "processingFeeRate": {
           "numericField": true,
           "optional": true,
           "order": 6
         }
       },
       {
-        "processingFeeRate": {
+        "penaltyRate": {
           "numericField": true,
           "optional": true,
           "order": 7
         }
       },
       {
-        "penaltyRate": {
-          "numericField": true,
-          "optional": true,
-          "order": 8
-        }
-      },
-      {
         "monthlyInterestRate": {
           "numericField": true,
           "optional": true,
-          "order": 9
+          "order": 8
         }
       }
     ],
@@ -1043,7 +1036,7 @@
         }
       },
       {
-        "interestRate": {
+        "monthlyInterestRate": {
           "hidden": true,
           "numericField": true,
           "optional": true,
@@ -1051,9 +1044,30 @@
         }
       },
       {
+        "monthlyInsuranceRate": {
+          "numericField": true,
+          "optional": true,
+          "order": 12
+        }
+      },
+      {
+        "processingFeeRate": {
+          "numericField": true,
+          "optional": true,
+          "order": 13
+        }
+      },
+      {
+        "penaltyRate": {
+          "numericField": true,
+          "optional": true,
+          "order": 14
+        }
+      },
+      {
         "amountPaid": {
           "hidden": true,
-          "order": 12
+          "order": 15
         }
       },
       {
@@ -1061,7 +1075,7 @@
           "hidden": true,
           "numericField": true,
           "optional": true,
-          "order": 13
+          "order": 16
         }
       }
     ],
