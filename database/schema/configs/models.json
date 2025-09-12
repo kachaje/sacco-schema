@@ -931,12 +931,14 @@
       },
       {
         "totalCosts": {
+          "formula": "SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
           "numericField": true,
           "order": 12
         }
       },
       {
         "netProfitLoss": {
+          "formula": "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
           "numericField": true,
           "order": 13
         }
@@ -1010,6 +1012,7 @@
       },
       {
         "monthlyInstalments": {
+          "formula": "DIV({{loanAmount}},{{repaymentPeriodInMonths}}",
           "numericField": true,
           "optional": true,
           "order": 9
@@ -1524,12 +1527,14 @@
       },
       {
         "totalCosts": {
+          "formula": "SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
           "numericField": true,
           "order": 12
         }
       },
       {
         "netProfitLoss": {
+          "formula": "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
           "numericField": true,
           "order": 13
         }

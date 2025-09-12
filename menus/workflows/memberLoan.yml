@@ -57,7 +57,7 @@ enterLoanStartDate1:
   type: hiddenField
 enterLoanType1:
   inputIdentifier: loanType1
-  nextScreen: enterMonthlyInstalments1
+  nextScreen: formSummary
   options:
     - label:
         en: Personal
@@ -80,14 +80,12 @@ enterMemberId1:
   inputIdentifier: memberId1
   type: hiddenField
 enterMonthlyInstalments1:
+  formula: DIV({{loanAmount}},{{repaymentPeriodInMonths}}
   inputIdentifier: monthlyInstalments1
-  nextScreen: formSummary
-  optional: true
-  order: 5
+  readOnly: true
   text:
     en: Monthly Instalments
   type: inputScreen
-  validationRule: ^\d+\.*\d*$
 enterRepaymentPeriodInMonths1:
   inputIdentifier: repaymentPeriodInMonths1
   nextScreen: enterLoanType1

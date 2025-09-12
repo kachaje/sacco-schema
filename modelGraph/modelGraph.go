@@ -315,6 +315,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 											case "hidden":
 												row["optional"] = true
 												row["hidden"] = true
+											case "formula":
+												row["formula"] = vf
 											case "default", "optional":
 												row["optional"] = true
 											case "type":

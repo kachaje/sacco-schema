@@ -582,9 +582,11 @@ memberLastYearBusinessHistory:
         numericField: true
         order: 11
     - totalCosts:
+        formula: SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}
         numericField: true
         order: 12
     - netProfitLoss:
+        formula: DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}
         numericField: true
         order: 13
   rootQuery: member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory
@@ -631,6 +633,7 @@ memberLoan:
         order: 8
         type: text
     - monthlyInstalments:
+        formula: DIV({{loanAmount}},{{repaymentPeriodInMonths}}
         numericField: true
         optional: true
         order: 9
@@ -930,9 +933,11 @@ memberNextYearBusinessProjection:
         numericField: true
         order: 11
     - totalCosts:
+        formula: SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}
         numericField: true
         order: 12
     - netProfitLoss:
+        formula: DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}
         numericField: true
         order: 13
   rootQuery: member.memberLoan.0.memberBusiness.memberNextYearBusinessProjection
