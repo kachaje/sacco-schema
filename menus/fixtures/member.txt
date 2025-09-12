@@ -1,39 +1,39 @@
 1. OFFICIAL DETAILS
-   Date Joined:             | 2025-09-08 13:34:07
-   Member ID Number:        | KSM161252
+   Date Joined:                | 2025-09-12 17:05:13
+   Member ID Number:           | KSM372369
 
 A. PERSONAL INFORMATION
-   Surname:                 | Banda
-   First Name:              | Mary
-   Other Name(s):           | 
-   Gender:                  | Female
-   Phone Number:            | 09999999999
-   Title:                   | Miss
-   Marital Status:          | Single
-   Date of Birth:           | 1999-09-01
-   National ID:             | DHFYR8475
-   Utility Bill No:         | 29383746
-   Utility Bill Type:       | ESCOM
+   Surname:                    | Banda
+   First Name:                 | Mary
+   Other Name(s):              | 
+   Gender:                     | Female
+   Phone Number:               | 09999999999
+   Title:                      | Miss
+   Marital Status:             | Single
+   Date of Birth:              | 1999-09-01
+   National ID:                | DHFYR8475
+   Utility Bill No:            | 29383746
+   Utility Bill Type:          | ESCOM
 
 B. OCCUPATION DETAILS
-   Name of Employer:        | SOBO
-   Net Pay:                 |       90,000
-   Job Title:               | Driver
-   Employer Address:        | Kanengo
-   Highest Qualification:   | Secondary
+   Name of Employer:           | SOBO
+   Net Pay:                    |       90,000
+   Job Title:                  | Driver
+   Employer Address:           | Kanengo
+   Highest Qualification:      | Secondary
 
 C. CONTACT DETAILS
-   Postal Address:          | P.O. Box 3200, Blantyre
-   Residential Address:     | Chilomoni, Blantrye
-   Email:                   | 
-   Village:                 | Thumba
-   Traditional Authority:   | Kabudula
-   District:                | Lilongwe
+   Postal Address:             | P.O. Box 3200, Blantyre
+   Residential Address:        | Chilomoni, Blantrye
+   Email:                      | 
+   Village:                    | Thumba
+   Traditional Authority:      | Kabudula
+   District:                   | Lilongwe
 
 D. NOMINEE (NEXT OF KIN) DETAILS
-   Name:                    | Benefator 1
-   Cell Phone Number:       | 0888888888
-   Postal Address/Email:    | P.O. Box 1
+   Name:                       | Benefator 1
+   Cell Phone Number:          | 0888888888
+   Postal Address/Email:       | P.O. Box 1
 
 E. BENEFICIARIES DETAILS
 --- --------------------- --------- ------------

@@ -53,12 +53,12 @@ func TestFlattenMapAllData(t *testing.T) {
 
 	result := utils.FlattenMap(data, false)
 
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
 	target, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
 
 	if utils.CleanScript(payload) != utils.CleanScript(target) {
 		t.Fatal("Test failed")
