@@ -52,8 +52,8 @@ loanType:
 
 monthlyInstalments:
   default: "0"
+  formula: DIV({{loanAmount}},{{repaymentPeriodInMonths}}
   order: 9
-  readOnly: true
   type: real
 
 interestRate:
