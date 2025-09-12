@@ -81,6 +81,8 @@ func TestResolveCacheDataFlat(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menus.ResolveCacheData(data, "member.")
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatTargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -90,8 +92,6 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menus.ResolveCacheData(data, "member.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")
@@ -123,6 +123,8 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menus.ResolveCacheData(data, "member.memberLoan.")
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -132,8 +134,6 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menus.ResolveCacheData(data, "member.memberLoan.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatal("Test failed")

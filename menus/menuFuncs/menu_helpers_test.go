@@ -85,6 +85,8 @@ func TestLoadTemplateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
+
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -94,8 +96,6 @@ func TestLoadTemplateData(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
 	if !reflect.DeepEqual(targetData, result) {
 		t.Fatal("Test failed")
@@ -115,14 +115,16 @@ func TestTabulateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menufuncs.TabulateData(data)
+
+	os.WriteFile(filepath.Join("..", "fixtures", "member.txt"), []byte(strings.Join(result, "\n")), 0644)
+
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	target := string(content)
-
-	result := menufuncs.TabulateData(data)
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
 		t.Fatal("Test failed")
