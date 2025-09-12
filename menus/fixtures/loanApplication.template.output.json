@@ -6,12 +6,13 @@
     },
     "loanNumber": {
       "label": "Loan Number",
-      "order": 2
+      "order": 2,
+      "value": "KLN647280"
     },
     "memberIdNumber": {
       "label": "Member ID No.",
       "order": 1,
-      "value": "KSM372369"
+      "value": "KSM770662"
     }
   },
   "A. PERSONAL INFORMATION": {
