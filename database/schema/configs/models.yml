@@ -142,6 +142,7 @@ loanType:
         order: 0
     - name:
         options:
+          - School fees
           - Personal
           - Business
           - Agricultural
@@ -629,6 +630,7 @@ memberLoan:
         order: 7
     - loanType:
         options:
+          - School fees
           - Personal
           - Business
           - Agricultural

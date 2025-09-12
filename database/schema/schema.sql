@@ -150,6 +150,7 @@ CREATE TABLE IF NOT EXISTS loanType (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL CHECK (
         name IN (
+            'School fees',
             'Personal',
             'Business',
             'Agricultural',
@@ -373,6 +374,7 @@ CREATE TABLE IF NOT EXISTS memberLoan (
     repaymentPeriodInMonths INTEGER NOT NULL,
     loanType TEXT NOT NULL CHECK (
         loanType IN (
+            'School fees',
             'Personal',
             'Business',
             'Agricultural',

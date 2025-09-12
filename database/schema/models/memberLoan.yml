@@ -43,6 +43,7 @@ repaymentPeriodInMonths:
 
 loanType:
   options:
+    - School fees
     - Personal
     - Business
     - Agricultural

@@ -76,17 +76,20 @@ enterLoanType1:
   nextScreen: enterLoanCategory1
   options:
     - label:
-        en: Personal
+        en: School fees
       position: 1
     - label:
-        en: Business
+        en: Personal
       position: 2
     - label:
-        en: Agricultural
+        en: Business
       position: 3
     - label:
-        en: Emergency
+        en: Agricultural
       position: 4
+    - label:
+        en: Emergency
+      position: 5
   order: 4
   text:
     en: Loan Type

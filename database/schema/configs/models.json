@@ -243,7 +243,13 @@
       },
       {
         "name": {
-          "options": ["Personal", "Business", "Agricultural", "Emergency"],
+          "options": [
+            "School fees",
+            "Personal",
+            "Business",
+            "Agricultural",
+            "Emergency"
+          ],
           "order": 1,
           "type": "text"
         }
@@ -1009,7 +1015,13 @@
       },
       {
         "loanType": {
-          "options": ["Personal", "Business", "Agricultural", "Emergency"],
+          "options": [
+            "School fees",
+            "Personal",
+            "Business",
+            "Agricultural",
+            "Emergency"
+          ],
           "order": 8,
           "type": "text"
         }
