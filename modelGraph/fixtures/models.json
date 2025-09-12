@@ -233,30 +233,6 @@
     "hasOne": ["memberLoan"],
     "rootQuery": "memberLoan.loanNumberIdsCache"
   },
-  "loanRate": {
-    "belongsTo": ["loanType"],
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "loanTypeId": {
-          "hidden": true,
-          "order": 1
-        }
-      },
-      {
-        "monthlyRate": {
-          "numericField": true,
-          "order": 2
-        }
-      }
-    ],
-    "rootQuery": "loanType.loanRate"
-  },
   "loanType": {
     "fields": [
       {
@@ -297,7 +273,6 @@
         }
       }
     ],
-    "hasOne": ["loanRate"],
     "rootQuery": "loanType"
   },
   "member": {

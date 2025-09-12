@@ -175,7 +175,7 @@ func TestDIV(t *testing.T) {
 
 	data := map[string]any{
 		"repaymentPeriodInMonths1": 12,
-		"loanAmount":              120000,
+		"loanAmount":               120000,
 	}
 
 	result, err := parser.ResultFromFormulae(tokens, data)

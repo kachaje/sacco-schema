@@ -5,7 +5,6 @@
   "accountTransaction": [1],
   "dividends": [1],
   "insuranceProvider": [1],
-  "loanRate": [1],
   "loanType": [1],
   "member": [1],
   "memberBusiness": [1, 2],
