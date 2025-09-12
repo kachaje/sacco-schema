@@ -146,39 +146,6 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS loanType (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL CHECK (
-        name IN (
-            'School fees',
-            'Personal',
-            'Business',
-            'Agricultural',
-            'Emergency'
-        )
-    ),
-    category TEXT NOT NULL CHECK (category IN ('Individual', 'Group/Institution')),
-    amountLimit REAL NOT NULL,
-    periodLimitInMonths INTEGER NOT NULL,
-    maxInstalmentMonths INTEGER NOT NULL,
-    processingFeeRate REAL DEFAULT 0.05,
-    penaltyRate REAL DEFAULT 0.1,
-    monthlyInterestRate REAL DEFAULT 0.05,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TRIGGER IF NOT EXISTS loanTypeUpdated AFTER
-UPDATE ON loanType FOR EACH ROW BEGIN
-UPDATE loanType
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
 CREATE TABLE IF NOT EXISTS member (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberIdNumber TEXT,
@@ -600,6 +567,39 @@ CREATE TABLE IF NOT EXISTS memberLoanTax (
 CREATE TRIGGER IF NOT EXISTS memberLoanTaxUpdated AFTER
 UPDATE ON memberLoanTax FOR EACH ROW BEGIN
 UPDATE memberLoanTax
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberLoanType (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL CHECK (
+        name IN (
+            'School fees',
+            'Personal',
+            'Business',
+            'Agricultural',
+            'Emergency'
+        )
+    ),
+    category TEXT NOT NULL CHECK (category IN ('Individual', 'Group/Institution')),
+    amountLimit REAL NOT NULL,
+    periodLimitInMonths INTEGER NOT NULL,
+    maxInstalmentMonths INTEGER NOT NULL,
+    processingFeeRate REAL DEFAULT 0.05,
+    penaltyRate REAL DEFAULT 0.1,
+    monthlyInterestRate REAL DEFAULT 0.05,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TRIGGER IF NOT EXISTS memberLoanTypeUpdated AFTER
+UPDATE ON memberLoanType FOR EACH ROW BEGIN
+UPDATE memberLoanType
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

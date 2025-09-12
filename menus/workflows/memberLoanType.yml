@@ -1,0 +1,107 @@
+cacheQueries:
+  amountLimit: memberLoanType.amountLimit
+  category: memberLoanType.category
+  id: memberLoanType.id
+  maxInstalmentMonths: memberLoanType.maxInstalmentMonths
+  monthlyInterestRate: memberLoanType.monthlyInterestRate
+  name: memberLoanType.name
+  penaltyRate: memberLoanType.penaltyRate
+  periodLimitInMonths: memberLoanType.periodLimitInMonths
+  processingFeeRate: memberLoanType.processingFeeRate
+enterAmountLimit:
+  inputIdentifier: amountLimit
+  nextScreen: enterPeriodLimitInMonths
+  order: 3
+  text:
+    en: Amount Limit
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterCategory:
+  inputIdentifier: category
+  nextScreen: enterAmountLimit
+  options:
+    - label:
+        en: Individual
+      position: 1
+    - label:
+        en: Group/Institution
+      position: 2
+  order: 2
+  text:
+    en: Category
+  type: inputScreen
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterMaxInstalmentMonths:
+  inputIdentifier: maxInstalmentMonths
+  nextScreen: enterProcessingFeeRate
+  order: 5
+  text:
+    en: Max Instalment Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterMonthlyInterestRate:
+  inputIdentifier: monthlyInterestRate
+  nextScreen: formSummary
+  optional: true
+  order: 8
+  text:
+    en: Monthly Interest Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterName:
+  inputIdentifier: name
+  nextScreen: enterCategory
+  options:
+    - label:
+        en: School fees
+      position: 1
+    - label:
+        en: Personal
+      position: 2
+    - label:
+        en: Business
+      position: 3
+    - label:
+        en: Agricultural
+      position: 4
+    - label:
+        en: Emergency
+      position: 5
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
+enterPenaltyRate:
+  inputIdentifier: penaltyRate
+  nextScreen: enterMonthlyInterestRate
+  optional: true
+  order: 7
+  text:
+    en: Penalty Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterPeriodLimitInMonths:
+  inputIdentifier: periodLimitInMonths
+  nextScreen: enterMaxInstalmentMonths
+  order: 4
+  text:
+    en: Period Limit In Months
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterProcessingFeeRate:
+  inputIdentifier: processingFeeRate
+  nextScreen: enterPenaltyRate
+  optional: true
+  order: 6
+  text:
+    en: Processing Fee Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterName
+model: memberLoanType
+rootQuery: memberLoanType

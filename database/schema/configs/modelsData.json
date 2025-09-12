@@ -196,61 +196,6 @@
     "model": "loanNumberIdsCache",
     "parents": ["memberLoan"]
   },
-  "loanType": {
-    "fields": {
-      "amountLimit": {
-        "order": 3,
-        "type": "real"
-      },
-      "category": {
-        "options": ["Individual", "Group/Institution"],
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "maxInstalmentMonths": {
-        "order": 5,
-        "type": "int"
-      },
-      "monthlyInterestRate": {
-        "default": "0.05",
-        "order": 8,
-        "type": "real"
-      },
-      "name": {
-        "options": [
-          "School fees",
-          "Personal",
-          "Business",
-          "Agricultural",
-          "Emergency"
-        ],
-        "order": 1,
-        "type": "text"
-      },
-      "penaltyRate": {
-        "default": "0.1",
-        "order": 7,
-        "type": "real"
-      },
-      "periodLimitInMonths": {
-        "order": 4,
-        "type": "int"
-      },
-      "processingFeeRate": {
-        "default": "0.05",
-        "order": 6,
-        "type": "real"
-      }
-    },
-    "model": "loanType",
-    "parents": []
-  },
   "member": {
     "fields": {
       "dateJoined": {
@@ -985,6 +930,61 @@
     "many": true,
     "model": "memberLoanTax",
     "parents": ["memberLoan"]
+  },
+  "memberLoanType": {
+    "fields": {
+      "amountLimit": {
+        "order": 3,
+        "type": "real"
+      },
+      "category": {
+        "options": ["Individual", "Group/Institution"],
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "maxInstalmentMonths": {
+        "order": 5,
+        "type": "int"
+      },
+      "monthlyInterestRate": {
+        "default": "0.05",
+        "order": 8,
+        "type": "real"
+      },
+      "name": {
+        "options": [
+          "School fees",
+          "Personal",
+          "Business",
+          "Agricultural",
+          "Emergency"
+        ],
+        "order": 1,
+        "type": "text"
+      },
+      "penaltyRate": {
+        "default": "0.1",
+        "order": 7,
+        "type": "real"
+      },
+      "periodLimitInMonths": {
+        "order": 4,
+        "type": "int"
+      },
+      "processingFeeRate": {
+        "default": "0.05",
+        "order": 6,
+        "type": "real"
+      }
+    },
+    "model": "memberLoanType",
+    "parents": []
   },
   "memberLoanWitness": {
     "fields": {

@@ -135,48 +135,6 @@ loanNumberIdsCache:
   hasOne:
     - memberLoan
   rootQuery: member.memberLoan.0.loanNumberIdsCache
-loanType:
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - name:
-        options:
-          - School fees
-          - Personal
-          - Business
-          - Agricultural
-          - Emergency
-        order: 1
-        type: text
-    - category:
-        options:
-          - Individual
-          - Group/Institution
-        order: 2
-        type: text
-    - amountLimit:
-        numericField: true
-        order: 3
-    - periodLimitInMonths:
-        numericField: true
-        order: 4
-    - maxInstalmentMonths:
-        numericField: true
-        order: 5
-    - processingFeeRate:
-        numericField: true
-        optional: true
-        order: 6
-    - penaltyRate:
-        numericField: true
-        optional: true
-        order: 7
-    - monthlyInterestRate:
-        numericField: true
-        optional: true
-        order: 8
-  rootQuery: loanType
 member:
   fields:
     - id:
@@ -888,6 +846,48 @@ memberLoanTax:
         numericField: true
         order: 4
   rootQuery: member.memberLoan.0.memberLoanTax.0
+memberLoanType:
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - name:
+        options:
+          - School fees
+          - Personal
+          - Business
+          - Agricultural
+          - Emergency
+        order: 1
+        type: text
+    - category:
+        options:
+          - Individual
+          - Group/Institution
+        order: 2
+        type: text
+    - amountLimit:
+        numericField: true
+        order: 3
+    - periodLimitInMonths:
+        numericField: true
+        order: 4
+    - maxInstalmentMonths:
+        numericField: true
+        order: 5
+    - processingFeeRate:
+        numericField: true
+        optional: true
+        order: 6
+    - penaltyRate:
+        numericField: true
+        optional: true
+        order: 7
+    - monthlyInterestRate:
+        numericField: true
+        optional: true
+        order: 8
+  rootQuery: memberLoanType
 memberLoanWitness:
   belongsTo:
     - memberLoan

@@ -1,6 +1,6 @@
 {
   "member": {
-    "dateJoined": "2025-09-12 18:50:31",
+    "dateJoined": "2025-09-12 19:54:05",
     "dateOfBirth": "1999-09-01",
     "firstName": "Mary",
     "gender": "Female",
@@ -58,7 +58,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM770662",
+    "memberIdNumber": "KSM931080",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -67,7 +67,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN647280",
+        "loanNumber": "KLN795397",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -142,10 +142,6 @@
           "periodEmployedInMonths": 36
         },
         "monthlyInstalments": 0,
-        "monthlyInsuranceRate": 0.015,
-        "monthlyInterestRate": 0.045,
-        "penaltyRate": 0.1,
-        "processingFeeRate": 0.05,
         "repaymentPeriodInMonths": 12
       }
     },

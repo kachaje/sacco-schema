@@ -11,7 +11,6 @@
   "loanNumberIdsCache": {
     "singleChildren": ["memberLoan"]
   },
-  "loanType": {},
   "member": {
     "arrayChildren": [
       "dividends",
@@ -53,6 +52,7 @@
   "memberLoanPaymentSchedule": {
     "arrayChildren": ["memberLoanReceipt"]
   },
+  "memberLoanType": {},
   "memberOccupation": {
     "singleChildren": ["memberOccupationVerification"]
   },

@@ -233,48 +233,6 @@
     "hasOne": ["memberLoan"],
     "rootQuery": "memberLoan.loanNumberIdsCache"
   },
-  "loanType": {
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "name": {
-          "order": 1,
-          "type": "text"
-        }
-      },
-      {
-        "category": {
-          "options": ["Personal", "Business", "Agricultural", "Emergency"],
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "amountLimit": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "periodLimitInMonths": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "maxInstalmentMonths": {
-          "numericField": true,
-          "order": 5
-        }
-      }
-    ],
-    "rootQuery": "loanType"
-  },
   "member": {
     "fields": [
       {

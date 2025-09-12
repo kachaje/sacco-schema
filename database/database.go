@@ -25,6 +25,12 @@ var seedString string
 //go:embed schema/triggers.sql
 var triggersString string
 
+//go:embed schema/rates.sql
+var ratesString string
+
+//go:embed schema/customTriggers.sql
+var customTriggersString string
+
 //go:embed schema/configs/models.yml
 var modelTemplates string
 
@@ -112,6 +118,8 @@ func (d *Database) initDb() error {
 		schemaString,
 		seedString,
 		triggersString,
+		ratesString,
+		customTriggersString,
 	} {
 		_, err := d.DB.Exec(statement)
 		if err != nil {
