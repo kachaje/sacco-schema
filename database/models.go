@@ -14,9 +14,6 @@ var (
 	LoanNumberIdsCacheSingleChildren = []string{
 		"memberLoan",
 	}
-	LoanTypeSingleChildren = []string{
-		"loanRate",
-	}
 	MemberArrayChildren = []string{
 		"dividends",
 		"memberDependant",
@@ -76,7 +73,6 @@ var (
 	}
 	SingleChildren = map[string][]string{
 		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
-		"LoanTypeSingleChildren":              LoanTypeSingleChildren,
 		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
 		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
 		"MemberLoanSingleChildren":            MemberLoanSingleChildren,
@@ -108,12 +104,14 @@ var (
 		"employeeWages",
 		"financialYear",
 		"grossPay",
+		"insuranceRate",
 		"loanAmount",
 		"loanInterest",
 		"maxInstalmentMonths",
 		"maxWithdrawMonths",
 		"minWithdrawMonths",
 		"monthlyInstalments",
+		"monthlyInterestRate",
 		"monthlyPremium",
 		"monthlyRate",
 		"netPay",
@@ -123,12 +121,14 @@ var (
 		"numberOfShares",
 		"otherCosts",
 		"ownSalary",
+		"penaltyRate",
 		"percentage1",
 		"percentage2",
 		"percentage3",
 		"percentage4",
 		"periodEmployedInMonths",
 		"periodLimitInMonths",
+		"processingFeeRate",
 		"rentals",
 		"repaymentPeriodInMonths",
 		"totalCostOfGoods",
@@ -155,9 +155,6 @@ var (
 		},
 		"loanNumberIdsCache": {
 			"memberLoan",
-		},
-		"loanRate": {
-			"loanType",
 		},
 		"memberBusiness": {
 			"memberLoan",

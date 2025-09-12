@@ -146,40 +146,24 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS loanRate (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    loanTypeId INTEGER NOT NULL,
-    monthlyRate REAL NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (loanTypeId) REFERENCES loanType (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS loanRateUpdated AFTER
-UPDATE ON loanRate FOR EACH ROW BEGIN
-UPDATE loanRate
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
 CREATE TABLE IF NOT EXISTS loanType (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    category TEXT NOT NULL CHECK (
-        category IN (
+    name TEXT NOT NULL CHECK (
+        name IN (
             'Personal',
             'Business',
             'Agricultural',
             'Emergency'
         )
     ),
+    category TEXT NOT NULL CHECK (category IN ('Individual', 'Group/Institution')),
     amountLimit REAL NOT NULL,
     periodLimitInMonths INTEGER NOT NULL,
     maxInstalmentMonths INTEGER NOT NULL,
+    insuranceRate REAL DEFAULT 0.015,
+    processingFeeRate REAL DEFAULT 0.05,
+    penaltyRate REAL DEFAULT 0.1,
+    monthlyInterestRate REAL DEFAULT 0.05,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
@@ -395,6 +379,9 @@ CREATE TABLE IF NOT EXISTS memberLoan (
             'Emergency'
         )
     ),
+    loanCategory TEXT DEFAULT 'Individual' CHECK (
+        loanCategory IN ('Individual', 'Group/Institution')
+    ),
     monthlyInstalments REAL DEFAULT 0,
     interestRate REAL DEFAULT 0,
     amountPaid REAL DEFAULT 0,
@@ -408,36 +395,6 @@ CREATE TABLE IF NOT EXISTS memberLoan (
 CREATE TRIGGER IF NOT EXISTS memberLoanUpdated AFTER
 UPDATE ON memberLoan FOR EACH ROW BEGIN
 UPDATE memberLoan
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS memberLoanApplication (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberId INTEGER NOT NULL,
-    loanPurpose TEXT NOT NULL,
-    loanAmount REAL NOT NULL,
-    repaymentPeriodInMonths INTEGER NOT NULL,
-    loanType TEXT NOT NULL CHECK (
-        loanType IN (
-            'Personal',
-            'Business',
-            'Agricultural',
-            'Emergency'
-        )
-    ),
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberLoanApplicationUpdated AFTER
-UPDATE ON memberLoanApplication FOR EACH ROW BEGIN
-UPDATE memberLoanApplication
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

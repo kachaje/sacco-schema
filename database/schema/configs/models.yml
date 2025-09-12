@@ -135,34 +135,23 @@ loanNumberIdsCache:
   hasOne:
     - memberLoan
   rootQuery: member.memberLoan.0.loanNumberIdsCache
-loanRate:
-  belongsTo:
-    - loanType
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - loanTypeId:
-        hidden: true
-        order: 1
-    - monthlyRate:
-        numericField: true
-        order: 2
-  rootQuery: loanType.loanRate
 loanType:
   fields:
     - id:
         hidden: true
         order: 0
     - name:
-        order: 1
-        type: text
-    - category:
         options:
           - Personal
           - Business
           - Agricultural
           - Emergency
+        order: 1
+        type: text
+    - category:
+        options:
+          - Individual
+          - Group/Institution
         order: 2
         type: text
     - amountLimit:
@@ -174,8 +163,22 @@ loanType:
     - maxInstalmentMonths:
         numericField: true
         order: 5
-  hasOne:
-    - loanRate
+    - insuranceRate:
+        numericField: true
+        optional: true
+        order: 6
+    - processingFeeRate:
+        numericField: true
+        optional: true
+        order: 7
+    - penaltyRate:
+        numericField: true
+        optional: true
+        order: 8
+    - monthlyInterestRate:
+        numericField: true
+        optional: true
+        order: 9
   rootQuery: loanType
 member:
   fields:
@@ -632,24 +635,31 @@ memberLoan:
           - Emergency
         order: 8
         type: text
+    - loanCategory:
+        optional: true
+        options:
+          - Individual
+          - Group/Institution
+        order: 9
+        type: text
     - monthlyInstalments:
         formula: DIV({{loanAmount}},{{repaymentPeriodInMonths}}
         numericField: true
         optional: true
-        order: 9
+        order: 10
     - interestRate:
         hidden: true
         numericField: true
         optional: true
-        order: 10
+        order: 11
     - amountPaid:
         hidden: true
-        order: 11
+        order: 12
     - balanceAmount:
         hidden: true
         numericField: true
         optional: true
-        order: 12
+        order: 13
   hasMany:
     - memberLoanInsurance
     - memberLoanLiability

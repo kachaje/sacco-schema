@@ -4,6 +4,7 @@ cacheQueries:
   id1: member.memberLoan.0.id
   interestRate1: member.memberLoan.0.interestRate
   loanAmount1: member.memberLoan.0.loanAmount
+  loanCategory1: member.memberLoan.0.loanCategory
   loanDueDate1: member.memberLoan.0.loanDueDate
   loanNumber1: member.memberLoan.0.loanNumber
   loanPurpose1: member.memberLoan.0.loanPurpose
@@ -36,6 +37,21 @@ enterLoanAmount1:
     en: Loan Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterLoanCategory1:
+  inputIdentifier: loanCategory1
+  nextScreen: formSummary
+  optional: true
+  options:
+    - label:
+        en: Individual
+      position: 1
+    - label:
+        en: Group/Institution
+      position: 2
+  order: 5
+  text:
+    en: Loan Category
+  type: inputScreen
 enterLoanDueDate1:
   hidden: true
   inputIdentifier: loanDueDate1
@@ -57,7 +73,7 @@ enterLoanStartDate1:
   type: hiddenField
 enterLoanType1:
   inputIdentifier: loanType1
-  nextScreen: formSummary
+  nextScreen: enterLoanCategory1
   options:
     - label:
         en: Personal

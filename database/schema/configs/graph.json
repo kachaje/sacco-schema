@@ -11,9 +11,7 @@
   "loanNumberIdsCache": {
     "singleChildren": ["memberLoan"]
   },
-  "loanType": {
-    "singleChildren": ["loanRate"]
-  },
+  "loanType": {},
   "member": {
     "arrayChildren": [
       "dividends",

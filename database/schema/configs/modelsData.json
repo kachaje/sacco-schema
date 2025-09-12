@@ -196,27 +196,6 @@
     "model": "loanNumberIdsCache",
     "parents": ["memberLoan"]
   },
-  "loanRate": {
-    "fields": {
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanTypeId": {
-        "order": 1,
-        "referenceTable": "loanType",
-        "type": "int"
-      },
-      "monthlyRate": {
-        "order": 2,
-        "type": "real"
-      }
-    },
-    "model": "loanRate",
-    "parents": ["loanType"]
-  },
   "loanType": {
     "fields": {
       "amountLimit": {
@@ -224,7 +203,7 @@
         "type": "real"
       },
       "category": {
-        "options": ["Personal", "Business", "Agricultural", "Emergency"],
+        "options": ["Individual", "Group/Institution"],
         "order": 2,
         "type": "text"
       },
@@ -234,17 +213,38 @@
         "primaryKey": true,
         "type": "int"
       },
+      "insuranceRate": {
+        "default": "0.015",
+        "order": 6,
+        "type": "real"
+      },
       "maxInstalmentMonths": {
         "order": 5,
         "type": "int"
       },
+      "monthlyInterestRate": {
+        "default": "0.05",
+        "order": 9,
+        "type": "real"
+      },
       "name": {
+        "options": ["Personal", "Business", "Agricultural", "Emergency"],
         "order": 1,
         "type": "text"
+      },
+      "penaltyRate": {
+        "default": "0.1",
+        "order": 8,
+        "type": "real"
       },
       "periodLimitInMonths": {
         "order": 4,
         "type": "int"
+      },
+      "processingFeeRate": {
+        "default": "0.05",
+        "order": 7,
+        "type": "real"
       }
     },
     "model": "loanType",
@@ -580,13 +580,13 @@
       "amountPaid": {
         "default": "0",
         "hidden": true,
-        "order": 11,
+        "order": 12,
         "type": "real"
       },
       "balanceAmount": {
         "default": "0",
         "hidden": true,
-        "order": 12,
+        "order": 13,
         "type": "real"
       },
       "id": {
@@ -598,12 +598,18 @@
       "interestRate": {
         "default": "0",
         "hidden": true,
-        "order": 10,
+        "order": 11,
         "type": "real"
       },
       "loanAmount": {
         "order": 6,
         "type": "real"
+      },
+      "loanCategory": {
+        "default": "Individual",
+        "options": ["Individual", "Group/Institution"],
+        "order": 9,
+        "type": "text"
       },
       "loanDueDate": {
         "default": "CURRENT_TIMESTAMP",
@@ -642,7 +648,7 @@
       "monthlyInstalments": {
         "default": "0",
         "formula": "DIV({{loanAmount}},{{repaymentPeriodInMonths}}",
-        "order": 9,
+        "order": 10,
         "type": "real"
       },
       "repaymentPeriodInMonths": {

@@ -50,26 +50,34 @@ loanType:
   order: 8
   type: text
 
+loanCategory:
+  default: Individual
+  options:
+    - Individual
+    - Group/Institution
+  order: 9
+  type: text
+
 monthlyInstalments:
   default: "0"
   formula: DIV({{loanAmount}},{{repaymentPeriodInMonths}}
-  order: 9
+  order: 10
   type: real
 
 interestRate:
   default: "0"
   hidden: true
-  order: 10
+  order: 11
   type: real
 
 amountPaid:
   default: "0"
   hidden: true
-  order: 11
+  order: 12
   type: real
 
 balanceAmount:
   default: "0"
   hidden: true
-  order: 12
+  order: 13
   type: real
