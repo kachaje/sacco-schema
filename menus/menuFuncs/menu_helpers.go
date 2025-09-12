@@ -381,9 +381,9 @@ func TabulateData(data map[string]any) []string {
 							vn = vr
 						}
 
-						entry = fmt.Sprintf("   %-25s| %12s", label, p.Sprintf("%f", number.Decimal(vn)))
+						entry = fmt.Sprintf("   %-28s| %12s", label, p.Sprintf("%f", number.Decimal(vn)))
 					} else {
-						entry = fmt.Sprintf("   %-25s| %s", label, value)
+						entry = fmt.Sprintf("   %-28s| %s", label, value)
 					}
 
 					result = append(result, entry)
