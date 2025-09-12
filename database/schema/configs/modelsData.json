@@ -534,6 +534,7 @@
         "type": "int"
       },
       "netProfitLoss": {
+        "formula": "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
         "order": 13,
         "type": "real"
       },
@@ -554,6 +555,7 @@
         "type": "real"
       },
       "totalCosts": {
+        "formula": "SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
         "order": 12,
         "type": "real"
       },
@@ -1018,6 +1020,7 @@
         "type": "int"
       },
       "netProfitLoss": {
+        "formula": "DIFF({{totalIncome}},{{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
         "order": 13,
         "type": "real"
       },
@@ -1038,6 +1041,7 @@
         "type": "real"
       },
       "totalCosts": {
+        "formula": "SUM({{totalCostOfGoods}}, {{employeesWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}}",
         "order": 12,
         "type": "real"
       },
