@@ -174,7 +174,7 @@ func TestDIV(t *testing.T) {
 	tokens := parser.GetTokens("DIV({{loanAmount}},{{repaymentPeriodInMonths}})")
 
 	data := map[string]any{
-		"repaymentPeriodInMonths": 12,
+		"repaymentPeriodInMonths1": 12,
 		"loanAmount":              120000,
 	}
 

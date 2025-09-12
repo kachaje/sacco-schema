@@ -110,21 +110,32 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 
 		if len(terms) > 1 {
 			for key, value := range data {
-				if key == terms[0] {
+				rawKey := regexp.MustCompile(`\d+$`).ReplaceAllLiteralString(key, "")
+
+				switch rawKey {
+				case terms[0]:
 					val, err := strconv.ParseFloat(fmt.Sprintf("%v", value), 64)
 					if err == nil {
 						numerator = val
+					} else {
+						return nil, err
 					}
-				} else if key == terms[1] {
+				case terms[1]:
 					val, err := strconv.ParseFloat(fmt.Sprintf("%v", value), 64)
 					if err == nil {
 						denominator = val
+					} else {
+						return nil, err
 					}
 				}
 			}
 		}
 
-		result = numerator / denominator
+		fmt.Println(numerator, denominator, data)
+
+		if denominator > 0 {
+			result = numerator / denominator
+		}
 	}
 
 	return &result, nil
