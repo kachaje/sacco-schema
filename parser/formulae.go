@@ -131,8 +131,6 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 			}
 		}
 
-		fmt.Println(numerator, denominator, data)
-
 		if denominator > 0 {
 			result = numerator / denominator
 		}

@@ -7,6 +7,10 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"golang.org/x/text/language"
+	"golang.org/x/text/message"
+	"golang.org/x/text/number"
 )
 
 const (
@@ -518,6 +522,25 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 		log.Println(err)
 	}
 
+	formatLabel := func(key string, value any) {
+		if !preferCode &&
+			regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", value)) &&
+			!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(key)) {
+			p := message.NewPrinter(language.English)
+
+			var vn float64
+
+			vr, err := strconv.ParseFloat(fmt.Sprintf("%v", value), 64)
+			if err == nil {
+				vn = vr
+			}
+
+			result[key] = p.Sprintf("%f", number.Decimal(vn))
+		} else {
+			result[key] = value
+		}
+	}
+
 	for key, value := range data {
 		nodeId := w.ScreenIdMap[key]
 
@@ -546,13 +569,13 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 							result[key] = "********"
 							result["password.hidden"] = value
 						} else {
-							result[key] = value
+							formatLabel(key, value)
 						}
 					}
 				}
 			}
 		} else {
-			result[key] = value
+			formatLabel(key, value)
 		}
 	}
 
