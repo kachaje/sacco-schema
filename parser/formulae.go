@@ -103,6 +103,28 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 		duration := refDate.Sub(startDate)
 
 		result = math.Round(duration.Abs().Hours() / (365 * 24))
+
+	case "DIV":
+		var numerator float64
+		var denominator float64
+
+		if len(terms) > 1 {
+			for key, value := range data {
+				if key == terms[0] {
+					val, err := strconv.ParseFloat(fmt.Sprintf("%v", value), 64)
+					if err == nil {
+						numerator = val
+					}
+				} else if key == terms[1] {
+					val, err := strconv.ParseFloat(fmt.Sprintf("%v", value), 64)
+					if err == nil {
+						denominator = val
+					}
+				}
+			}
+		}
+
+		result = numerator / denominator
 	}
 
 	return &result, nil

@@ -169,3 +169,27 @@ func TestDATE_DIFF_YEARS(t *testing.T) {
 		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, *result)
 	}
 }
+
+func TestDIV(t *testing.T) {
+	tokens := parser.GetTokens("DIV({{loanAmount}},{{repaymentPeriodInMonths}})")
+
+	data := map[string]any{
+		"repaymentPeriodInMonths": 12,
+		"loanAmount":              120000,
+	}
+
+	result, err := parser.ResultFromFormulae(tokens, data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	var target float64 = 10000
+
+	if *result != target {
+		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, *result)
+	}
+}
