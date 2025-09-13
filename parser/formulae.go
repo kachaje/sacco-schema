@@ -235,7 +235,63 @@ func GenerateSchedule(query string, data map[string]any) (map[string]any, error)
 
 	switch strings.ToUpper(op) {
 	case "REDUCING_SCHEDULE":
-		fmt.Println(amount, duration, oneTimeRates, recurringRates)
+		keys := []string{amount, duration}
+		keys = append(keys, oneTimeRates...)
+		keys = append(keys, recurringRates...)
+
+		values := map[string]float64{}
+
+		for _, key := range keys {
+			if data[key] == nil {
+				return nil, fmt.Errorf("missing required %s value", key)
+			} else {
+				var val float64
+				var err error
+
+				if val, err = strconv.ParseFloat(fmt.Sprintf("%v", data[key]), 64); err != nil {
+					return nil, err
+				} else {
+					values[key] = val
+				}
+			}
+		}
+
+		baseAmount := values[amount]
+		period := values[duration]
+
+		installmentPerMonth := baseAmount / period
+
+		for i := range int(period) {
+			principal := baseAmount - (float64(i) * installmentPerMonth)
+
+			row := map[string]float64{
+				"principal":   principal,
+				"installment": installmentPerMonth,
+				"totalDue":    installmentPerMonth,
+			}
+
+			if i == 0 {
+				for _, key := range oneTimeRates {
+					localKey := regexp.MustCompile(`Rate$`).ReplaceAllLiteralString(key, "")
+					localKey = regexp.MustCompile(`^monthlyI`).ReplaceAllLiteralString(localKey, "i")
+
+					row[localKey] = principal * values[key]
+
+					row["totalDue"] += row[localKey]
+				}
+			}
+
+			for _, key := range recurringRates {
+				localKey := regexp.MustCompile(`Rate$`).ReplaceAllLiteralString(key, "")
+				localKey = regexp.MustCompile(`^monthlyI`).ReplaceAllLiteralString(localKey, "i")
+
+				row[localKey] = principal * values[key]
+
+				row["totalDue"] += row[localKey]
+			}
+
+			schedule[fmt.Sprintf("Month %v", i+1)] = row
+		}
 	}
 
 	return schedule, nil

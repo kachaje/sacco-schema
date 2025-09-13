@@ -2,7 +2,6 @@ package parser_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"math"
 	"reflect"
 	"sacco/parser"
@@ -232,5 +231,53 @@ func TestGenerateSchedule(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	fmt.Println(result)
+	target := map[string]any{
+		"Month 1": map[string]float64{
+			"installment":   33333.333333333336,
+			"insurance":     30000.0,
+			"interest":      10000.0,
+			"principal":     200000.0,
+			"processingFee": 10000.0,
+			"totalDue":      83333.33333333334,
+		},
+		"Month 2": map[string]float64{
+			"installment": 33333.333333333336,
+			"insurance":   24999.999999999996,
+			"interest":    8333.333333333334,
+			"principal":   166666.66666666666,
+			"totalDue":    66666.66666666667,
+		},
+		"Month 3": map[string]float64{
+			"installment": 33333.333333333336,
+			"insurance":   19999.999999999996,
+			"interest":    6666.666666666666,
+			"principal":   133333.3333333333,
+			"totalDue":    60000.0,
+		},
+		"Month 4": map[string]float64{
+			"installment": 33333.333333333336,
+			"insurance":   15000.0,
+			"interest":    5000.0,
+			"principal":   100000.0,
+			"totalDue":    53333.333333333336,
+		},
+		"Month 5": map[string]float64{
+			"installment": 33333.333333333336,
+			"insurance":   9999.999999999998,
+			"interest":    3333.333333333333,
+			"principal":   66666.66666666666,
+			"totalDue":    46666.66666666667,
+		},
+		"Month 6": map[string]float64{
+			"installment": 33333.333333333336,
+			"insurance":   4999.999999999998,
+			"interest":    1666.666666666666,
+			"principal":   33333.33333333332,
+			"totalDue":    40000.0,
+		},
+	}
+
+	if !reflect.DeepEqual(target, result) {
+		t.Fatal("Test failed")
+	}
 }
