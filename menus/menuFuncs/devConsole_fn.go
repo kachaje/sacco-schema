@@ -178,6 +178,18 @@ response: %s`, text, payload)
 
 			content = string(payload)
 
+		case "console.11":
+			title = "Loan Rates"
+
+			if session.LoanRates != nil {
+				payload, err := json.MarshalIndent(session.LoanRates, "", "  ")
+				if err != nil {
+					content = err.Error()
+				} else {
+					content = string(payload)
+				}
+			}
+
 		default:
 			session.CurrentMenu = "console"
 
@@ -191,7 +203,8 @@ response: %s`, text, payload)
 				"7. PhoneNumber\n" +
 				"8. SQL Query\n" +
 				"9. Member By PhoneNumber\n" +
-				"10. Active Sessions"
+				"10. Active Sessions\n" +
+				"11. Loan Rates"
 		}
 	} else {
 		content = "No active session provided"

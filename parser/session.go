@@ -1,6 +1,8 @@
 package parser
 
 import (
+	"fmt"
+	"log"
 	"regexp"
 	"sacco/utils"
 	"sync"
@@ -53,7 +55,7 @@ func NewSession(
 		ActiveData:       map[string]any{},
 		LoanRates:        map[string]any{},
 		Data:             map[string]string{},
-		SkipFields:       []string{"active"},
+		SkipFields:       []string{"active", "createdAt", "updatedAt"},
 		CurrentMenu:      "main",
 		WorkflowsMapping: map[string]*WorkFlow{},
 		Cache:            map[string]any{},
@@ -157,6 +159,28 @@ func (s *Session) ClearSession() {
 
 func (s *Session) RefreshSession() (map[string]any, error) {
 	if s.CurrentPhoneNumber != "" && s.QueryFn != nil {
+		if s.GenericQueryFn != nil {
+			rows, err := s.GenericQueryFn("SELECT * FROM memberLoanType WHERE active = 1")
+			if err != nil {
+				s.LoanRates = map[string]any{}
+
+				log.Println(err)
+			} else {
+				loanRates := map[string]any{}
+
+				for _, row := range rows {
+					key := fmt.Sprintf("%v:%v", row["name"], row["category"])
+
+					loanRates[key] = row
+				}
+
+				s.LoanRates = map[string]any{
+					"loanRates": loanRates,
+				}
+
+			}
+		}
+
 		data, err := s.QueryFn(s.CurrentPhoneNumber, s.SkipFields)
 		if err != nil {
 			s.updateActiveData(map[string]any{}, 0)

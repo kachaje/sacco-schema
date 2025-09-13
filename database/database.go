@@ -9,12 +9,12 @@ import (
 	"log"
 	"regexp"
 	"sacco/utils"
+	"slices"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
 
-	"golang.org/x/exp/slices"
 	_ "modernc.org/sqlite"
 )
 
@@ -72,7 +72,7 @@ func NewDatabase(dbname string) *Database {
 		GenericModels: map[string]*Model{},
 		Mu:            &sync.Mutex{},
 		SkipFields: []string{
-			"active", "createdAt", "updatedAt",
+			"active", "createdAt", "updatedAt", "dateJoined",
 		},
 	}
 
