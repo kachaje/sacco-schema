@@ -200,8 +200,26 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 		wait <- true
 	}()
 
+	data := map[string]any{}
+
+	if w.Sessions != nil && w.CurrentPhoneNumber != "" {
+		session := w.Sessions[w.CurrentPhoneNumber]
+
+		if w.CurrentModel == "memberLoan" {
+			if loanRates, ok := session.LoanRates["loanRates"].(map[string]any); ok {
+				key := fmt.Sprintf("%v:%v", data["loanType1"], data["loanCategory1"])
+
+				if row, ok := loanRates[key]; ok {
+					fmt.Println("########", key, row)
+				}
+			}
+		}
+	}
+
+	fmt.Println()
+
 	for key, query := range w.ScheduleFormulaFields {
-		result, err := GenerateSchedule(query, w.Data)
+		result, err := GenerateSchedule(query, data)
 		if err != nil {
 			return err
 		}
