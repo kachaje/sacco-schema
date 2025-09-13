@@ -256,15 +256,15 @@ func GenerateSchedule(query string, data map[string]any) (map[string]any, error)
 			}
 		}
 
-		baseAmount := values[amount]
+		baseAmount := math.Round(values[amount]*100) / 100
 		period := values[duration]
 
-		installmentPerMonth := baseAmount / period
+		installmentPerMonth := math.Round((baseAmount/period)*100) / 100
 
 		for i := range int(period) {
-			principal := baseAmount - (float64(i) * installmentPerMonth)
+			principal := math.Round((baseAmount-(float64(i)*installmentPerMonth))*100) / 100
 
-			row := map[string]float64{
+			row := map[string]any{
 				"principal":   principal,
 				"installment": installmentPerMonth,
 				"totalDue":    installmentPerMonth,
@@ -275,9 +275,9 @@ func GenerateSchedule(query string, data map[string]any) (map[string]any, error)
 					localKey := regexp.MustCompile(`Rate$`).ReplaceAllLiteralString(key, "")
 					localKey = regexp.MustCompile(`^monthlyI`).ReplaceAllLiteralString(localKey, "i")
 
-					row[localKey] = principal * values[key]
+					row[localKey] = math.Round(principal*values[key]*100) / 100
 
-					row["totalDue"] += row[localKey]
+					row["totalDue"] = row["totalDue"].(float64) + math.Round(row[localKey].(float64)*100)/100
 				}
 			}
 
@@ -285,9 +285,9 @@ func GenerateSchedule(query string, data map[string]any) (map[string]any, error)
 				localKey := regexp.MustCompile(`Rate$`).ReplaceAllLiteralString(key, "")
 				localKey = regexp.MustCompile(`^monthlyI`).ReplaceAllLiteralString(localKey, "i")
 
-				row[localKey] = principal * values[key]
+				row[localKey] = math.Round(principal*values[key]*100) / 100
 
-				row["totalDue"] += row[localKey]
+				row["totalDue"] = row["totalDue"].(float64) + math.Round(row[localKey].(float64)*100)/100
 			}
 
 			schedule[fmt.Sprintf("Month %v", i+1)] = row

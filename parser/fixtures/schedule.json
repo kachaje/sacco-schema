@@ -1,0 +1,45 @@
+{
+  "Month 1": {
+    "installment": 33333.33,
+    "insurance": 30000.0,
+    "interest": 10000.0,
+    "principal": 200000.0,
+    "processingFee": 10000.0,
+    "totalDue": 83333.33
+  },
+  "Month 2": {
+    "installment": 33333.33,
+    "insurance": 25000.0,
+    "interest": 8333.33,
+    "principal": 166666.67,
+    "totalDue": 66666.66
+  },
+  "Month 3": {
+    "installment": 33333.33,
+    "insurance": 20000.0,
+    "interest": 6666.67,
+    "principal": 133333.34,
+    "totalDue": 60000.0
+  },
+  "Month 4": {
+    "installment": 33333.33,
+    "insurance": 15000.0,
+    "interest": 5000.0,
+    "principal": 100000.01,
+    "totalDue": 53333.33
+  },
+  "Month 5": {
+    "installment": 33333.33,
+    "insurance": 10000.0,
+    "interest": 3333.33,
+    "principal": 66666.68,
+    "totalDue": 46666.66
+  },
+  "Month 6": {
+    "installment": 33333.33,
+    "insurance": 5000.0,
+    "interest": 1666.67,
+    "principal": 33333.35,
+    "totalDue": 40000.0
+  }
+}
