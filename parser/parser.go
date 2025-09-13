@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"regexp"
+	"sacco/utils"
 	"sort"
 	"strconv"
 	"strings"
@@ -28,18 +29,19 @@ type WorkFlow struct {
 	Data           map[string]any
 	OptionalFields map[string]bool
 
-	CurrentScreen      string
-	NextScreen         string
-	PreviousScreen     string
-	CurrentLanguage    string
-	CurrentPhoneNumber string
-	CurrentModel       string
-	CurrentSessionId   string
-	ScreenIdMap        map[string]string
-	FormulaFields      map[string]string
-	ScreenOrder        map[int]string
-	ReadOnlyFields     []string
-	SubmitCallback     func(
+	CurrentScreen         string
+	NextScreen            string
+	PreviousScreen        string
+	CurrentLanguage       string
+	CurrentPhoneNumber    string
+	CurrentModel          string
+	CurrentSessionId      string
+	ScreenIdMap           map[string]string
+	FormulaFields         map[string]string
+	ScheduleFormulaFields map[string]string
+	ScreenOrder           map[int]string
+	ReadOnlyFields        []string
+	SubmitCallback        func(
 		d any, m *string, p *string, f *string,
 		addFn func(
 			map[string]any,
@@ -80,18 +82,19 @@ func NewWorkflow(
 	) (*int64, error), sessions map[string]*Session, refData map[string]any) *WorkFlow {
 
 	w := &WorkFlow{
-		Tree:            tree,
-		Data:            map[string]any{},
-		OptionalFields:  map[string]bool{},
-		CurrentScreen:   INITIAL_SCREEN,
-		CurrentLanguage: LANG_EN,
-		ScreenIdMap:     map[string]string{},
-		ScreenOrder:     map[int]string{},
-		SubmitCallback:  callbackFunc,
-		History:         map[int]string{},
-		HistoryIndex:    -1,
-		FormulaFields:   map[string]string{},
-		ReadOnlyFields:  []string{},
+		Tree:                  tree,
+		Data:                  map[string]any{},
+		OptionalFields:        map[string]bool{},
+		CurrentScreen:         INITIAL_SCREEN,
+		CurrentLanguage:       LANG_EN,
+		ScreenIdMap:           map[string]string{},
+		ScreenOrder:           map[int]string{},
+		SubmitCallback:        callbackFunc,
+		History:               map[int]string{},
+		HistoryIndex:          -1,
+		FormulaFields:         map[string]string{},
+		ScheduleFormulaFields: map[string]string{},
+		ReadOnlyFields:        []string{},
 	}
 
 	if sessions != nil {
@@ -143,6 +146,10 @@ func NewWorkflow(
 						w.FormulaFields[id] = row["formula"].(string)
 					}
 
+					if row["scheduleFormula"] != nil {
+						w.ScheduleFormulaFields[id] = row["scheduleFormula"].(string)
+					}
+
 					if row["order"] != nil {
 						if row["skipSummary"] != nil {
 							val, ok := row["skipSummary"].(bool)
@@ -183,6 +190,23 @@ func (w *WorkFlow) CalculateFormulae(wait chan bool) error {
 		}
 
 		w.Data[key] = fmt.Sprintf("%0.2f", *result)
+	}
+
+	return nil
+}
+
+func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
+	defer func() {
+		wait <- true
+	}()
+
+	for key, query := range w.ScheduleFormulaFields {
+		result, err := GenerateSchedule(query, w.Data)
+		if err != nil {
+			return err
+		}
+
+		w.Data[key] = utils.Map2Table(result)
 	}
 
 	return nil
