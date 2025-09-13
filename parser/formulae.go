@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 	"time"
@@ -179,16 +180,62 @@ func GetScheduleParams(query string) map[string]any {
 	return result
 }
 
-func GenerateSchedule(
-	op string,
-	data map[string]any,
-	amount, duration string,
-	oneTimeRates, recurringRates []string,
-) (map[string]any, error) {
+func GenerateSchedule(query string, data map[string]any) (map[string]any, error) {
 	var schedule = map[string]any{}
+	var op, amount, duration string
+	var oneTimeRates []string
+	var recurringRates []string
+
+	tokens := GetScheduleParams(query)
+
+	if tokens == nil {
+		return nil, fmt.Errorf("invalid query")
+	}
+
+	for _, key := range []string{
+		"amount", "duration", "op",
+		"oneTimeRates", "recurringRates",
+	} {
+		if tokens[key] == nil {
+			return nil, fmt.Errorf("missing required %s in query", key)
+		}
+
+		if slices.Contains([]string{"oneTimeRates", "recurringRates"}, key) {
+			arrVal := []string{}
+
+			if val, ok := tokens[key].([]string); ok {
+				arrVal = val
+			} else if val, ok := tokens[key].([]any); ok {
+				for _, k := range val {
+					arrVal = append(arrVal, fmt.Sprintf("%v", k))
+				}
+			} else {
+				return nil, fmt.Errorf("failed to parse required %s from query", key)
+			}
+
+			switch key {
+			case "oneTimeRates":
+				oneTimeRates = arrVal
+			case "recurringRates":
+				recurringRates = arrVal
+			}
+		} else if val, ok := tokens[key].(string); ok {
+			switch key {
+			case "op":
+				op = val
+			case "amount":
+				amount = val
+			case "duration":
+				duration = val
+			}
+		} else {
+			return nil, fmt.Errorf("failed to parse required %s from query", key)
+		}
+	}
 
 	switch strings.ToUpper(op) {
 	case "REDUCING_SCHEDULE":
+		fmt.Println(amount, duration, oneTimeRates, recurringRates)
 	}
 
 	return schedule, nil

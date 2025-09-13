@@ -217,7 +217,7 @@ func TestGetScheduleParams(t *testing.T) {
 }
 
 func TestGenerateSchedule(t *testing.T) {
-	tokens := parser.GetScheduleParams("REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])")
+	query := "REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])"
 
 	data := map[string]any{
 		"loanAmount":              200000,
@@ -227,9 +227,10 @@ func TestGenerateSchedule(t *testing.T) {
 		"monthlyInsuranceRate":    0.15,
 	}
 
-	_ = data
+	result, err := parser.GenerateSchedule(query, data)
+	if err != nil {
+		t.Fatal(err)
+	}
 
-	// result, err := parser.GenerateSchedule(tokens, data)
-
-	fmt.Printf("%#v\n", tokens)
+	fmt.Println(result)
 }
