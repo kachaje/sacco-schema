@@ -603,6 +603,10 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 	}
 
 	for key, value := range data {
+		if _, ok := w.ScheduleFormulaFields[key]; ok {
+			continue
+		}
+
 		nodeId := w.ScreenIdMap[key]
 
 		if nodeId != "" {
