@@ -10,7 +10,7 @@ import (
 func TestLanding(t *testing.T) {
 	m := menus.NewMenus(nil, nil)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	result := m.LoadMenu("main", session, "", "", "")
 
@@ -31,7 +31,7 @@ func TestMainMenu(t *testing.T) {
 
 	m := menus.NewMenus(nil, &demo)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	role := "admin"
 
@@ -61,7 +61,7 @@ func TestBusinessMenu(t *testing.T) {
 
 	m := menus.NewMenus(nil, &demo)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	session.GlobalIds = map[string]any{
 		"memberId": map[string]any{
@@ -101,7 +101,7 @@ func TestEmployementMenu(t *testing.T) {
 
 	m := menus.NewMenus(nil, &demo)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	result := m.LoadMenu("employment", session, "", "", "")
 
@@ -175,7 +175,7 @@ func TestLoanMenu(t *testing.T) {
 
 	m := menus.NewMenus(nil, &demo)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	session.GlobalIds = map[string]any{
 		"memberId": map[string]any{

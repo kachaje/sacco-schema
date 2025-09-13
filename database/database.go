@@ -14,6 +14,7 @@ import (
 	"sync"
 	"time"
 
+	"golang.org/x/exp/slices"
 	_ "modernc.org/sqlite"
 )
 
@@ -272,6 +273,10 @@ func (d *Database) SQLQuery(query string) ([]map[string]any, error) {
 
 		rowMap := make(map[string]any)
 		for i, col := range cols {
+			if slices.Contains(d.SkipFields, col) {
+				continue
+			}
+
 			val := values[i]
 			if b, ok := val.([]byte); ok {
 				rowMap[col] = string(b)

@@ -25,8 +25,9 @@ type Session struct {
 	ActiveData map[string]any
 	LoanRates  map[string]any
 
-	QueryFn    func(string, []string) (map[string]any, error)
-	SkipFields []string
+	QueryFn        func(string, []string) (map[string]any, error)
+	GenericQueryFn func(query string) ([]map[string]any, error)
+	SkipFields     []string
 
 	Mu *sync.Mutex
 
@@ -42,9 +43,11 @@ type Session struct {
 func NewSession(
 	queryFn func(string, []string) (map[string]any, error),
 	phoneNumber, sessionId *string,
+	genericQueryFn func(query string) ([]map[string]any, error),
 ) *Session {
 	s := &Session{
 		QueryFn:          queryFn,
+		GenericQueryFn:   genericQueryFn,
 		Mu:               &sync.Mutex{},
 		AddedModels:      map[string]bool{},
 		ActiveData:       map[string]any{},

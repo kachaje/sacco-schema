@@ -32,7 +32,7 @@ func TestSignInFn(t *testing.T) {
 
 	m := menus.NewMenus(nil, nil)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	result := m.LoadMenu("signIn", session, "", text, "")
 

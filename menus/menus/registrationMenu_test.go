@@ -12,7 +12,7 @@ func TestRegistrationSubMenu(t *testing.T) {
 
 	m := menus.NewMenus(nil, &demo)
 
-	session := parser.NewSession(nil, nil, nil)
+	session := parser.NewSession(nil, nil, nil, nil)
 
 	session.GlobalIds = map[string]any{
 		"memberId": map[string]any{
