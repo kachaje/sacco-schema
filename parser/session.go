@@ -23,6 +23,7 @@ type Session struct {
 	AddedModels map[string]bool
 
 	ActiveData map[string]any
+	LoanRates  map[string]any
 
 	QueryFn    func(string, []string) (map[string]any, error)
 	SkipFields []string
@@ -47,6 +48,7 @@ func NewSession(
 		Mu:               &sync.Mutex{},
 		AddedModels:      map[string]bool{},
 		ActiveData:       map[string]any{},
+		LoanRates:        map[string]any{},
 		Data:             map[string]string{},
 		SkipFields:       []string{"active"},
 		CurrentMenu:      "main",
