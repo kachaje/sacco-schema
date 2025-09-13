@@ -70,8 +70,9 @@ enterLoanPurpose1:
 enterLoanSchedule1:
   inputIdentifier: loanSchedule1
   nextScreen: formSummary
+  optional: true
   order: 6
-  scheduleFormula: REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
+  scheduleFormula: REDUCING_SCHEDULE({{loanAmount1}},{{repaymentPeriodInMonths1}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
   text:
     en: Loan Schedule
   type: inputScreen

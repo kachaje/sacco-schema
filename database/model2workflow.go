@@ -226,6 +226,7 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 
 								if value["scheduleFormula"] != nil {
 									data[tag].(map[string]any)["scheduleFormula"] = value["scheduleFormula"].(string)
+									data[tag].(map[string]any)["optional"] = true
 								}
 
 								if value["options"] != nil {
