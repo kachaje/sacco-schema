@@ -39,7 +39,7 @@ enterLoanAmount1:
   validationRule: ^\d+\.*\d*$
 enterLoanCategory1:
   inputIdentifier: loanCategory1
-  nextScreen: enterMonthlyInsuranceRate1
+  nextScreen: formSummary
   optional: true
   options:
     - label:
@@ -113,36 +113,21 @@ enterMonthlyInstalments1:
     en: Monthly Instalments
   type: inputScreen
 enterMonthlyInsuranceRate1:
+  hidden: true
   inputIdentifier: monthlyInsuranceRate1
-  nextScreen: enterProcessingFeeRate1
-  optional: true
-  order: 6
-  text:
-    en: Monthly Insurance Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  type: hiddenField
 enterMonthlyInterestRate1:
   hidden: true
   inputIdentifier: monthlyInterestRate1
   type: hiddenField
 enterPenaltyRate1:
+  hidden: true
   inputIdentifier: penaltyRate1
-  nextScreen: formSummary
-  optional: true
-  order: 8
-  text:
-    en: Penalty Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  type: hiddenField
 enterProcessingFeeRate1:
+  hidden: true
   inputIdentifier: processingFeeRate1
-  nextScreen: enterPenaltyRate1
-  optional: true
-  order: 7
-  text:
-    en: Processing Fee Rate
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  type: hiddenField
 enterRepaymentPeriodInMonths1:
   inputIdentifier: repaymentPeriodInMonths1
   nextScreen: enterLoanType1

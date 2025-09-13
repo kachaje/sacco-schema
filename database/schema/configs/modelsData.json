@@ -604,6 +604,7 @@
       },
       "monthlyInsuranceRate": {
         "default": "0",
+        "hidden": true,
         "order": 12,
         "type": "real"
       },
@@ -615,11 +616,13 @@
       },
       "penaltyRate": {
         "default": "0",
+        "hidden": true,
         "order": 14,
         "type": "real"
       },
       "processingFeeRate": {
         "default": "0",
+        "hidden": true,
         "order": 13,
         "type": "real"
       },

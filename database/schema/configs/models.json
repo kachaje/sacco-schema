@@ -975,6 +975,7 @@
       },
       {
         "monthlyInsuranceRate": {
+          "hidden": true,
           "numericField": true,
           "optional": true,
           "order": 12
@@ -982,6 +983,7 @@
       },
       {
         "processingFeeRate": {
+          "hidden": true,
           "numericField": true,
           "optional": true,
           "order": 13
@@ -989,6 +991,7 @@
       },
       {
         "penaltyRate": {
+          "hidden": true,
           "numericField": true,
           "optional": true,
           "order": 14
