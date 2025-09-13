@@ -357,6 +357,7 @@ CREATE TABLE IF NOT EXISTS memberLoan (
     penaltyRate REAL DEFAULT 0,
     amountPaid REAL DEFAULT 0,
     balanceAmount REAL DEFAULT 0,
+    loanSchedule TEXT NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

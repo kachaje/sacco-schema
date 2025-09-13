@@ -1007,6 +1007,12 @@
           "optional": true,
           "order": 16
         }
+      },
+      {
+        "loanSchedule": {
+          "order": 17,
+          "type": "tex t"
+        }
       }
     ],
     "hasMany": [

@@ -7,6 +7,7 @@ cacheQueries:
   loanDueDate1: member.memberLoan.0.loanDueDate
   loanNumber1: member.memberLoan.0.loanNumber
   loanPurpose1: member.memberLoan.0.loanPurpose
+  loanSchedule1: member.memberLoan.0.loanSchedule
   loanStartDate1: member.memberLoan.0.loanStartDate
   loanType1: member.memberLoan.0.loanType
   memberId1: member.memberLoan.0.memberId
@@ -66,6 +67,13 @@ enterLoanPurpose1:
   text:
     en: Loan Purpose
   type: inputScreen
+enterLoanSchedule1:
+  inputIdentifier: loanSchedule1
+  nextScreen: formSummary
+  order: 9
+  text:
+    en: Loan Schedule
+  type: inputScreen
 enterLoanStartDate1:
   hidden: true
   inputIdentifier: loanStartDate1
@@ -119,7 +127,7 @@ enterMonthlyInterestRate1:
   type: hiddenField
 enterPenaltyRate1:
   inputIdentifier: penaltyRate1
-  nextScreen: formSummary
+  nextScreen: enterLoanSchedule1
   optional: true
   order: 8
   text:

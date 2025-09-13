@@ -567,6 +567,11 @@
         "order": 5,
         "type": "text"
       },
+      "loanSchedule": {
+        " sche duleFormula": "REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]",
+        "order": 17,
+        "type": "tex t"
+      },
       "loanStartDate": {
         "default": "CURRENT_TIMESTAMP",
         "hidden": true,

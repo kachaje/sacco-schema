@@ -97,3 +97,8 @@ balanceAmount:
   hidden: true
   order: 16
   type: real
+
+loanSchedule:
+  " sche duleFormula": REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
+  order: 17
+  type: tex t
