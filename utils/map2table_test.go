@@ -2,7 +2,6 @@ package utils_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/utils"
@@ -24,5 +23,14 @@ func TestMap2Table(t *testing.T) {
 
 	result := utils.Map2Table(data)
 
-	fmt.Println(result)
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "schedule.txt"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatal("Test failed")
+	}
 }
