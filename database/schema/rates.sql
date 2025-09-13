@@ -5,17 +5,43 @@ INSERT INTO
     amountLimit,
     periodLimitInMonths,
     maxInstalmentMonths,
-    monthlyInterestRate
+    monthlyInterestRate,
+    monthlyInsuranceRate
   )
 VALUES
-  ("School fees", "Individual", 2000000, 6, 6, 0.05),
-  ("Personal", "Individual", 2000000, 12, 12, 0.048),
-  ("Emergency", "Individual", 50000, 3, 3, 0.1),
+  (
+    "School fees",
+    "Individual",
+    2000000,
+    6,
+    6,
+    0.05,
+    0.015
+  ),
+  (
+    "Personal",
+    "Individual",
+    2000000,
+    12,
+    12,
+    0.048,
+    0.015
+  ),
+  (
+    "Emergency",
+    "Individual",
+    50000,
+    3,
+    3,
+    0.1,
+    0.015
+  ),
   (
     "Emergency",
     "Group/Institution",
     200000,
     3,
     3,
-    0.1
+    0.1,
+    0.015
   );

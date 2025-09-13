@@ -36,7 +36,8 @@ SET
     WHERE
       lt.name = NEW.loanType
       AND category = NEW.loanCategory
-  )
+  ),
+  monthlyInstalments = NEW.loanAmount / NEW.repaymentPeriodInMonths
 WHERE
   memberLoan.id = NEW.id;
 
