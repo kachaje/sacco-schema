@@ -3,8 +3,9 @@ package database
 import (
 	"context"
 	"database/sql"
-	_ "embed"
+	"embed"
 	"fmt"
+	"io/fs"
 	"log"
 	"regexp"
 	"sacco/utils"
@@ -28,8 +29,8 @@ var triggersString string
 //go:embed schema/rates.sql
 var ratesString string
 
-//go:embed schema/customTriggers.sql
-var customTriggersString string
+//go:embed schema/customTriggers/*
+var customTriggerFiles embed.FS
 
 //go:embed schema/configs/models.yml
 var modelTemplates string
@@ -118,12 +119,36 @@ func (d *Database) initDb() error {
 		seedString,
 		ratesString,
 		triggersString,
-		customTriggersString,
 	} {
 		_, err := d.DB.Exec(statement)
 		if err != nil {
 			return err
 		}
+	}
+
+	err := fs.WalkDir(customTriggerFiles, ".", func(path string, folder fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if folder.IsDir() {
+			return nil
+		}
+
+		content, err := fs.ReadFile(customTriggerFiles, path)
+		if err != nil {
+			return err
+		}
+
+		_, err = d.DB.Exec(string(content))
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
+	if err != nil {
+		return err
 	}
 
 	for {
