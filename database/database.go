@@ -113,12 +113,11 @@ func (d *Database) Close() {
 }
 
 func (d *Database) initDb() error {
-
 	for _, statement := range []string{
 		schemaString,
 		seedString,
-		triggersString,
 		ratesString,
+		triggersString,
 		customTriggersString,
 	} {
 		_, err := d.DB.Exec(statement)
@@ -136,7 +135,7 @@ func (d *Database) initDb() error {
 				count++
 			}
 
-			if count >= 14 {
+			if count >= 43 {
 				time.Sleep(1 * time.Second)
 
 				break
