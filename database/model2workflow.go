@@ -168,8 +168,7 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 							}
 
 							if value["readOnly"] != nil ||
-								value["formula"] != nil ||
-								value["scheduleFormula"] != nil {
+								value["formula"] != nil {
 								data[tag].(map[string]any)["readOnly"] = true
 								data[tag].(map[string]any)["type"] = "inputScreen"
 
@@ -181,8 +180,6 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 
 								if value["formula"] != nil {
 									data[tag].(map[string]any)["formula"] = value["formula"].(string)
-								} else if value["scheduleFormula"] != nil {
-									data[tag].(map[string]any)["scheduleFormula"] = value["scheduleFormula"].(string)
 								}
 
 								if value["numericField"] != nil {

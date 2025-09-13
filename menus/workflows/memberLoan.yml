@@ -39,7 +39,7 @@ enterLoanAmount1:
   validationRule: ^\d+\.*\d*$
 enterLoanCategory1:
   inputIdentifier: loanCategory1
-  nextScreen: formSummary
+  nextScreen: enterLoanSchedule1
   optional: true
   options:
     - label:
@@ -69,7 +69,8 @@ enterLoanPurpose1:
   type: inputScreen
 enterLoanSchedule1:
   inputIdentifier: loanSchedule1
-  readOnly: true
+  nextScreen: formSummary
+  order: 6
   scheduleFormula: REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
   text:
     en: Loan Schedule
