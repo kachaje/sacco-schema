@@ -461,6 +461,8 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 					node = w.GetNode(nextScreen)
 				}
+			} else if node["scheduleFormula"] != nil {
+				fmt.Println("########")
 			} else {
 				if node["validationRule"] != nil {
 					val, ok := node["validationRule"].(string)
@@ -541,6 +543,14 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 	wait := make(chan bool, 1)
 
 	err := w.CalculateFormulae(wait)
+	<-wait
+	if err != nil {
+		log.Println(err)
+	}
+
+	wait = make(chan bool, 1)
+
+	err = w.EvaluateScheduleFormulae(wait)
 	<-wait
 	if err != nil {
 		log.Println(err)
