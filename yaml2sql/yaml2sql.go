@@ -128,7 +128,8 @@ func Yml2Sql(model, content string) (*string, error) {
 
 			fieldData := fieldType
 
-			if val["primaryKey"] != nil {
+			if val["scheduleFormula"] != nil {
+			} else if val["primaryKey"] != nil {
 				if vPk, ok := val["primaryKey"].(bool); ok && vPk {
 					fieldData = fmt.Sprintf(`%s PRIMARY KEY`, fieldData)
 				}

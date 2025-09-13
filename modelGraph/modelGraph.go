@@ -311,10 +311,12 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 								} else {
 									if vf, ok := v.(map[string]any); ok {
 										for kf, vf := range vf {
-											switch kf {
+											switch strings.TrimSpace(kf) {
 											case "hidden":
 												row["optional"] = true
 												row["hidden"] = true
+											case "scheduleFormula":
+												row["scheduleFormula"] = vf
 											case "formula":
 												row["formula"] = vf
 											case "default", "optional":

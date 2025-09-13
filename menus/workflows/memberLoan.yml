@@ -69,8 +69,8 @@ enterLoanPurpose1:
   type: inputScreen
 enterLoanSchedule1:
   inputIdentifier: loanSchedule1
-  nextScreen: formSummary
-  order: 9
+  readOnly: true
+  scheduleFormula: REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
   text:
     en: Loan Schedule
   type: inputScreen
@@ -127,7 +127,7 @@ enterMonthlyInterestRate1:
   type: hiddenField
 enterPenaltyRate1:
   inputIdentifier: penaltyRate1
-  nextScreen: enterLoanSchedule1
+  nextScreen: formSummary
   optional: true
   order: 8
   text:
