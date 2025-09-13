@@ -633,7 +633,7 @@ memberLoan:
         order: 16
     - loanSchedule:
         order: 17
-        scheduleFormula: REDUCING_SCHEDULE({{loanAmount1}},{{repaymentPeriodInMonths1}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
+        scheduleFormula: REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}]
         type: text
   hasMany:
     - memberLoanInsurance

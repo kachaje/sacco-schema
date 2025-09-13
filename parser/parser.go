@@ -207,7 +207,7 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 
 		if w.CurrentModel == "memberLoan" {
 			if loanRates, ok := session.LoanRates["loanRates"].(map[string]any); ok {
-				key := fmt.Sprintf("%v:%v", data["loanType1"], data["loanCategory1"])
+				key := fmt.Sprintf("%v:%v", w.Data["loanType1"], w.Data["loanCategory1"])
 
 				if row, ok := loanRates[key]; ok {
 					fmt.Println("########", key, row)
