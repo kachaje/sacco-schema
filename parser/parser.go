@@ -415,6 +415,16 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 			node = w.GetNode(nextScreen)
 
+			if node["scheduleFormula"] != nil {
+				wait := make(chan bool, 1)
+
+				err := w.EvaluateScheduleFormulae(wait)
+				<-wait
+				if err != nil {
+					log.Println(err)
+				}
+			}
+
 			return node, nil
 		}
 	}
