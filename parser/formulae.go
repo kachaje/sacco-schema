@@ -138,3 +138,58 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 
 	return &result, nil
 }
+
+func GetScheduleParams(query string) map[string]any {
+	var result = map[string]any{}
+
+	query = regexp.MustCompile(`\{|\}`).ReplaceAllLiteralString(query, "")
+
+	re := regexp.MustCompile(`^([A-Za-z_]+)\(([^,]+),([^,]+),\[([^\]]+)\],\[([^\]]+)\]\)$`)
+
+	if re.MatchString(query) {
+		var op, amount, duration string
+		var oneTimeRates []string
+		var recurringRates []string
+
+		parts := re.FindAllStringSubmatch(query, -1)[0]
+
+		if len(parts) == 6 {
+			op = parts[1]
+			amount = parts[2]
+			duration = parts[3]
+
+			for key := range strings.SplitSeq(parts[4], ",") {
+				oneTimeRates = append(oneTimeRates, key)
+			}
+
+			for key := range strings.SplitSeq(parts[5], ",") {
+				recurringRates = append(recurringRates, key)
+			}
+
+			result = map[string]any{
+				"op":             op,
+				"amount":         amount,
+				"duration":       duration,
+				"oneTimeRates":   oneTimeRates,
+				"recurringRates": recurringRates,
+			}
+		}
+	}
+
+	return result
+}
+
+func GenerateSchedule(
+	op string,
+	data map[string]any,
+	amount, duration string,
+	oneTimeRates, recurringRates []string,
+) (map[string]any, error) {
+	var schedule = map[string]any{}
+
+	switch strings.ToUpper(op) {
+	case "REDUCING_SCHEDULE":
+	}
+
+	return schedule, nil
+}

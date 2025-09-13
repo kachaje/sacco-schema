@@ -2,6 +2,7 @@ package parser_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"math"
 	"reflect"
 	"sacco/parser"
@@ -192,4 +193,43 @@ func TestDIV(t *testing.T) {
 	if *result != target {
 		t.Fatalf("Test failed. Expected: %v; Actual: %v", target, *result)
 	}
+}
+
+func TestGetScheduleParams(t *testing.T) {
+	tokens := parser.GetScheduleParams("REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])")
+
+	target := map[string]any{
+		"amount":   "loanAmount",
+		"duration": "repaymentPeriodInMonths",
+		"oneTimeRates": []string{
+			"processingFeeRate",
+		},
+		"op": "REDUCING_SCHEDULE",
+		"recurringRates": []string{
+			"monthlyInterestRate",
+			"monthlyInsuranceRate",
+		},
+	}
+
+	if !reflect.DeepEqual(tokens, target) {
+		t.Fatal("Test failed")
+	}
+}
+
+func TestGenerateSchedule(t *testing.T) {
+	tokens := parser.GetScheduleParams("REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])")
+
+	data := map[string]any{
+		"loanAmount":              200000,
+		"repaymentPeriodInMonths": 6,
+		"processingFeeRate":       0.05,
+		"monthlyInterestRate":     0.05,
+		"monthlyInsuranceRate":    0.15,
+	}
+
+	_ = data
+
+	// result, err := parser.GenerateSchedule(tokens, data)
+
+	fmt.Printf("%#v\n", tokens)
 }
