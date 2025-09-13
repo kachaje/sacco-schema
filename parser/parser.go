@@ -209,14 +209,23 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 			if loanRates, ok := session.LoanRates["loanRates"].(map[string]any); ok {
 				key := fmt.Sprintf("%v:%v", w.Data["loanType1"], w.Data["loanCategory1"])
 
+				data["loanAmount"] = w.Data["loanAmount1"]
+				data["repaymentPeriodInMonths"] = w.Data["repaymentPeriodInMonths1"]
+
 				if row, ok := loanRates[key]; ok {
-					fmt.Println("########", key, row)
+					if val, ok := row.(map[string]any); ok {
+						for _, key := range []string{
+							"processingFeeRate",
+							"monthlyInterestRate",
+							"monthlyInsuranceRate",
+						} {
+							data[key] = val[key]
+						}
+					}
 				}
 			}
 		}
 	}
-
-	fmt.Println()
 
 	for key, query := range w.ScheduleFormulaFields {
 		result, err := GenerateSchedule(query, data)

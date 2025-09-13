@@ -197,7 +197,10 @@ func TestDIV(t *testing.T) {
 }
 
 func TestGetScheduleParams(t *testing.T) {
-	tokens := parser.GetScheduleParams("REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])")
+	tokens, err := parser.GetScheduleParams("REDUCING_SCHEDULE({{loanAmount}},{{repaymentPeriodInMonths}},[{{processingFeeRate}}],[{{monthlyInterestRate}},{{monthlyInsuranceRate}}])")
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	target := map[string]any{
 		"amount":   "loanAmount",

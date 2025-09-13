@@ -140,12 +140,12 @@ func ResultFromFormulae(tokens, data map[string]any) (*float64, error) {
 	return &result, nil
 }
 
-func GetScheduleParams(query string) map[string]any {
+func GetScheduleParams(query string) (map[string]any, error) {
 	var result = map[string]any{}
 
 	query = regexp.MustCompile(`\{|\}`).ReplaceAllLiteralString(query, "")
 
-	re := regexp.MustCompile(`^([A-Za-z_]+)\(([^,]+),([^,]+),\[([^\]]+)\],\[([^\]]+)\]\)$`)
+	re := regexp.MustCompile(`^([A-Za-z_]+)\(([^,]+),([^,]+),\[([^\]]+)\],\[([^\]]+)\]\)*$`)
 
 	if re.MatchString(query) {
 		var op, amount, duration string
@@ -175,9 +175,11 @@ func GetScheduleParams(query string) map[string]any {
 				"recurringRates": recurringRates,
 			}
 		}
+	} else {
+		return nil, fmt.Errorf(`no match found for query "%s"`, query)
 	}
 
-	return result
+	return result, nil
 }
 
 func GenerateSchedule(query string, data map[string]any) (map[string]any, error) {
@@ -186,10 +188,13 @@ func GenerateSchedule(query string, data map[string]any) (map[string]any, error)
 	var oneTimeRates []string
 	var recurringRates []string
 
-	tokens := GetScheduleParams(query)
+	tokens, err := GetScheduleParams(query)
+	if err != nil {
+		return nil, err
+	}
 
 	if tokens == nil {
-		return nil, fmt.Errorf("invalid query")
+		return nil, fmt.Errorf(`invalid query "%s"`, query)
 	}
 
 	for _, key := range []string{
