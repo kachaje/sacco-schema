@@ -66,23 +66,23 @@ monthlyInstalments:
   type: real
 
 monthlyInterestRate:
-  default: "0.045"
+  default: "0"
   hidden: true
   order: 11
   type: real
 
 monthlyInsuranceRate:
-  default: "0.015"
+  default: "0"
   order: 12
   type: real
 
 processingFeeRate:
-  default: "0.05"
+  default: "0"
   order: 13
   type: real
 
 penaltyRate:
-  default: "0.1"
+  default: "0"
   order: 14
   type: real
 
