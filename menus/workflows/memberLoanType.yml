@@ -3,6 +3,7 @@ cacheQueries:
   category: memberLoanType.category
   id: memberLoanType.id
   maxInstalmentMonths: memberLoanType.maxInstalmentMonths
+  monthlyInsuranceRate: memberLoanType.monthlyInsuranceRate
   monthlyInterestRate: memberLoanType.monthlyInterestRate
   name: memberLoanType.name
   penaltyRate: memberLoanType.penaltyRate
@@ -42,9 +43,18 @@ enterMaxInstalmentMonths:
     en: Max Instalment Months
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterMonthlyInsuranceRate:
+  inputIdentifier: monthlyInsuranceRate
+  nextScreen: formSummary
+  optional: true
+  order: 9
+  text:
+    en: Monthly Insurance Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterMonthlyInterestRate:
   inputIdentifier: monthlyInterestRate
-  nextScreen: formSummary
+  nextScreen: enterMonthlyInsuranceRate
   optional: true
   order: 8
   text:

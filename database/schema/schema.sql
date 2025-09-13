@@ -592,6 +592,7 @@ CREATE TABLE IF NOT EXISTS memberLoanType (
     processingFeeRate REAL DEFAULT 0.05,
     penaltyRate REAL DEFAULT 0.1,
     monthlyInterestRate REAL DEFAULT 0.05,
+    monthlyInsuranceRate REAL DEFAULT 0.015,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP

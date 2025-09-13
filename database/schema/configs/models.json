@@ -1441,6 +1441,13 @@
           "optional": true,
           "order": 8
         }
+      },
+      {
+        "monthlyInsuranceRate": {
+          "numericField": true,
+          "optional": true,
+          "order": 9
+        }
       }
     ],
     "rootQuery": "memberLoanType"

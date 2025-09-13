@@ -952,6 +952,11 @@
         "order": 5,
         "type": "int"
       },
+      "monthlyInsuranceRate": {
+        "default": "0.015",
+        "order": 9,
+        "type": "real"
+      },
       "monthlyInterestRate": {
         "default": "0.05",
         "order": 8,

@@ -47,3 +47,8 @@ monthlyInterestRate:
   default: "0.05"
   order: 8
   type: real
+
+monthlyInsuranceRate:
+  default: "0.015"
+  order: 9
+  type: real
