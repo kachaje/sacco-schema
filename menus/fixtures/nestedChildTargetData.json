@@ -1,0 +1,10 @@
+{
+  "description1": "Liability 1",
+  "id1": 1,
+  "memberLoanId1": 1,
+  "value1": 50000,
+  "description2": "Liability 2",
+  "id2": 2,
+  "memberLoanId2": 1,
+  "value2": 20000
+}

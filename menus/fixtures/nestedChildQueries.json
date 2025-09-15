@@ -1,0 +1,12 @@
+{
+  "cacheQueries": {
+    "description1": "member.memberLoan.0.memberLoanLiability.0.description",
+    "description2": "member.memberLoan.0.memberLoanLiability.0.description",
+    "id1": "member.memberLoan.0.memberLoanLiability.0.id",
+    "id2": "member.memberLoan.0.memberLoanLiability.0.id",
+    "memberLoanId1": "member.memberLoan.0.memberLoanLiability.0.memberLoanId",
+    "memberLoanId2": "member.memberLoan.0.memberLoanLiability.0.memberLoanId",
+    "value1": "member.memberLoan.0.memberLoanLiability.0.value",
+    "value2": "member.memberLoan.0.memberLoanLiability.0.value"
+  }
+}
