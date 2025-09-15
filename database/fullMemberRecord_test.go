@@ -36,6 +36,14 @@ func deleteLoanNumber(target map[string]any) {
 							if v1["loanNumber"] != nil {
 								delete(v1, "loanNumber")
 							}
+
+							if v1["memberLoanApproval"] != nil {
+								if vl, ok := v1["memberLoanApproval"].(map[string]any); ok {
+									if vl["loanNumber"] != nil {
+										delete(vl, "loanNumber")
+									}
+								}
+							}
 						}
 					}
 				}
