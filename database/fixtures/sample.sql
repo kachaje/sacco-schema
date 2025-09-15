@@ -168,6 +168,7 @@ VALUES
 INSERT INTO
   memberLoanApproval (
     memberLoanId,
+    loanNumber,
     loanStatus,
     amountRecommended,
     approvedBy,
@@ -179,6 +180,7 @@ INSERT INTO
 VALUES
   (
     1,
+    (SELECT loanNumber FROM memberLoan WHERE id = 1),
     "APPROVED",
     200000,
     "me",
