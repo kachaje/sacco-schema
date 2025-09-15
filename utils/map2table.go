@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Map2Table(data map[string]any) string {
+func Map2Table(data map[string]any, selectFields []string) string {
 	pattern := func(left bool) string {
 		if left {
 			return "%-13v"
@@ -50,6 +50,10 @@ func Map2Table(data map[string]any) string {
 			}
 
 			for _, field := range fields {
+				if selectFields != nil && !slices.Contains(selectFields, field) {
+					continue
+				}
+
 				if i == 0 {
 					rows[0] = append(rows[0], fmt.Sprintf(pattern(true), field))
 					rows[1] = append(rows[1], line)

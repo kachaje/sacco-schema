@@ -233,7 +233,7 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 			return err
 		}
 
-		w.Data[key] = utils.Map2Table(result)
+		w.Data[key] = utils.Map2Table(result, nil)
 	}
 
 	return nil
