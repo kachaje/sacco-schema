@@ -284,7 +284,7 @@ VALUES
   (1, "Security 2", 50000, "456789");
 
 INSERT INTO
-  memberLoanWitness (memberLoanId, witnessName, telephone)
+  memberLoanWitness (memberLoanId, witnessName, telephone, date)
 VALUES
-  (1, "Witness 1", "09928388727"),
-  (1, "Witness 2", "08858574646");
+  (1, "Witness 1", "09928388727", "2025-09-15 14:21:52"),
+  (1, "Witness 2", "08858574646", "2025-09-15 14:21:52");

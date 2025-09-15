@@ -1,6 +1,5 @@
 {
   "member": {
-    "dateJoined": "2025-09-13 07:55:47",
     "dateOfBirth": "1999-09-01",
     "firstName": "Mary",
     "gender": "Female",
@@ -58,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM525784",
+    "memberIdNumber": "KSM807962",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -67,6 +66,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
+        "loanNumber": "KLN035462",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -120,6 +120,52 @@
           "loanStatus": "APPROVED",
           "memberLoanId": 1,
           "verifiedBy": "me"
+        },
+        "memberLoanLiability": {
+          "1": {
+            "description": "Liability 1",
+            "id": 1,
+            "memberLoanId": 1,
+            "value": 100000
+          },
+          "2": {
+            "description": "Liability 2",
+            "id": 2,
+            "memberLoanId": 1,
+            "value": 50000
+          }
+        },
+        "memberLoanSecurity": {
+          "1": {
+            "description": "Security 1",
+            "id": 1,
+            "memberLoanId": 1,
+            "serialNumber": "123456",
+            "value": 50000
+          },
+          "2": {
+            "description": "Security 2",
+            "id": 2,
+            "memberLoanId": 1,
+            "serialNumber": "456789",
+            "value": 50000
+          }
+        },
+        "memberLoanWitness": {
+          "1": {
+            "date": "2025-09-15 14:21:52",
+            "id": 1,
+            "memberLoanId": 1,
+            "telephone": "09928388727",
+            "witnessName": "Witness 1"
+          },
+          "2": {
+            "date": "2025-09-15 14:21:52",
+            "id": 2,
+            "memberLoanId": 1,
+            "telephone": "08858574646",
+            "witnessName": "Witness 2"
+          }
         },
         "memberOccupation": {
           "employerAddress": "Kanengo",

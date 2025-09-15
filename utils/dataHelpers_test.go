@@ -23,6 +23,10 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 
 	result := utils.FlattenMap(data, true)
 
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	os.WriteFile(filepath.Join(".", "fixtures", "flatIdsMap.json"), payload, 0644)
+
 	target := map[string]any{}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatIdsMap.json"))
@@ -36,7 +40,11 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
+		diff := utils.GetMapDiff(target, result)
+
+		payload, _ := json.MarshalIndent(diff, "", "  ")
+
+		t.Fatalf("Test failed; Diff: %s", payload)
 	}
 }
 

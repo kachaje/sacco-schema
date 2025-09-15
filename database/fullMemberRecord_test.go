@@ -122,6 +122,10 @@ func TestFullMemberRecord(t *testing.T) {
 	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
+		diff := utils.GetMapDiff(target, result)
+
+		payload, _ := json.MarshalIndent(diff, "", "  ")
+
+		t.Fatalf("Test failed; Diff: %s", payload)
 	}
 }
