@@ -1,4 +1,4 @@
-              | installment   | insurance     | interest      | principal     | processingFee | totalDue     
+              | Installment   | Insurance     | Interest      | Principal     | Processing Fee | Total Due    
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 Month 1       |      33333.33 |         30000 |         10000 |        200000 |         10000 |      83333.33
 Month 2       |      33333.33 |         25000 |       8333.33 |     166666.67 |             0 |      66666.66

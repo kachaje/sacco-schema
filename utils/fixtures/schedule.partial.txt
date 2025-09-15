@@ -1,4 +1,4 @@
-              | principal     | totalDue     
+              | Principal     | Total Due    
 ------------- | ------------- | -------------
 Month 1       |        200000 |      83333.33
 Month 2       |     166666.67 |      66666.66

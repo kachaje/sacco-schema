@@ -55,7 +55,7 @@ func Map2Table(data map[string]any, selectFields []string) string {
 				}
 
 				if i == 0 {
-					rows[0] = append(rows[0], fmt.Sprintf(pattern(true), field))
+					rows[0] = append(rows[0], fmt.Sprintf(pattern(true), IdentifierToLabel(field)))
 					rows[1] = append(rows[1], line)
 				}
 
