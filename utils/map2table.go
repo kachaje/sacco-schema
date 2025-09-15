@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	NUMBER_FORMAT_ESCAPE = `phone|bill|serial`
+	NUMBER_FORMAT_ESCAPE = `phone|bill|serial|year`
 )
 
 func Map2Table(data map[string]any, selectFields []string) string {
