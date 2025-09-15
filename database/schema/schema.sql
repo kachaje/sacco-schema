@@ -377,6 +377,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberLoanApproval (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
+    loanNumber TEXT NOT NULL,
     loanStatus TEXT DEFAULT 'PENDING' CHECK (loanStatus IN ('PENDING', 'APPROVED', 'REJECTED')),
     amountRecommended REAL NOT NULL,
     approvedBy TEXT NOT NULL,

@@ -5,13 +5,14 @@ cacheQueries:
   dateVerified: member.memberLoan.0.memberLoanApproval.dateVerified
   denialOrPartialReason: member.memberLoan.0.memberLoanApproval.denialOrPartialReason
   id: member.memberLoan.0.memberLoanApproval.id
+  loanNumber: member.memberLoan.0.memberLoanApproval.loanNumber
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
   verifiedBy: member.memberLoan.0.memberLoanApproval.verifiedBy
 enterAmountRecommended:
   inputIdentifier: amountRecommended
   nextScreen: enterApprovedBy
-  order: 2
+  order: 3
   text:
     en: Amount Recommended
   type: inputScreen
@@ -19,7 +20,7 @@ enterAmountRecommended:
 enterApprovedBy:
   inputIdentifier: approvedBy
   nextScreen: enterVerifiedBy
-  order: 3
+  order: 4
   text:
     en: Approved By
   type: inputScreen
@@ -35,7 +36,7 @@ enterDenialOrPartialReason:
   inputIdentifier: denialOrPartialReason
   nextScreen: formSummary
   optional: true
-  order: 5
+  order: 6
   text:
     en: Denial Or Partial Reason
   type: inputScreen
@@ -43,6 +44,13 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
+enterLoanNumber:
+  inputIdentifier: loanNumber
+  nextScreen: enterLoanStatus
+  order: 1
+  text:
+    en: Loan Number
+  type: inputScreen
 enterLoanStatus:
   inputIdentifier: loanStatus
   nextScreen: enterAmountRecommended
@@ -57,7 +65,7 @@ enterLoanStatus:
     - label:
         en: REJECTED
       position: 3
-  order: 1
+  order: 2
   text:
     en: Loan Status
   type: inputScreen
@@ -68,13 +76,13 @@ enterMemberLoanId:
 enterVerifiedBy:
   inputIdentifier: verifiedBy
   nextScreen: enterDenialOrPartialReason
-  order: 4
+  order: 5
   text:
     en: Verified By
   type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterLoanStatus
+initialScreen: enterLoanNumber
 model: memberLoanApproval
 parentIds:
   - memberLoanId

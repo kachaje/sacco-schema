@@ -1052,22 +1052,28 @@
         }
       },
       {
+        "loanNumber": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
         "loanStatus": {
           "optional": true,
           "options": ["PENDING", "APPROVED", "REJECTED"],
-          "order": 2,
+          "order": 3,
           "type": "text"
         }
       },
       {
         "amountRecommended": {
           "numericField": true,
-          "order": 3
+          "order": 4
         }
       },
       {
         "approvedBy": {
-          "order": 4,
+          "order": 5,
           "type": "text"
         }
       },
@@ -1075,13 +1081,13 @@
         "dateOfApproval": {
           "hidden": true,
           "optional": true,
-          "order": 5,
+          "order": 6,
           "type": "text"
         }
       },
       {
         "verifiedBy": {
-          "order": 6,
+          "order": 7,
           "type": "text"
         }
       },
@@ -1089,14 +1095,14 @@
         "dateVerified": {
           "hidden": true,
           "optional": true,
-          "order": 7,
+          "order": 8,
           "type": "text"
         }
       },
       {
         "denialOrPartialReason": {
           "optional": true,
-          "order": 8,
+          "order": 9,
           "type": "text"
         }
       }
