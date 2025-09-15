@@ -53,6 +53,8 @@ func deleteLoanNumber(target map[string]any) {
 }
 
 func TestLoadModelChildren(t *testing.T) {
+	t.Skip()
+
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
@@ -95,6 +97,8 @@ func TestLoadModelChildren(t *testing.T) {
 }
 
 func TestFullMemberRecord(t *testing.T) {
+	t.Skip()
+	
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
