@@ -1609,12 +1609,14 @@
       },
       {
         "address1": {
+          "optional": true,
           "order": 4,
           "type": "text"
         }
       },
       {
         "date1": {
+          "hidden": true,
           "optional": true,
           "order": 5,
           "type": "text"
@@ -1647,12 +1649,14 @@
       },
       {
         "address2": {
+          "optional": true,
           "order": 10,
           "type": "text"
         }
       },
       {
         "date2": {
+          "hidden": true,
           "optional": true,
           "order": 11,
           "type": "text"
@@ -1688,12 +1692,14 @@
       },
       {
         "address": {
+          "optional": true,
           "order": 4,
           "type": "text"
         }
       },
       {
         "date": {
+          "hidden": true,
           "optional": true,
           "order": 5,
           "type": "text"

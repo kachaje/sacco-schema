@@ -13,34 +13,28 @@ cacheQueries:
   witnessName2: member.memberLoan.0.memberLoanWitness.0.witnessName
 enterAddress1:
   inputIdentifier: address1
-  nextScreen: enterDate1
+  nextScreen: enterWitnessName2
+  optional: true
   order: 3
   text:
     en: Address
   type: inputScreen
 enterAddress2:
   inputIdentifier: address2
-  nextScreen: enterDate2
-  order: 7
+  nextScreen: formSummary
+  optional: true
+  order: 6
   text:
     en: Address
   type: inputScreen
 enterDate1:
+  hidden: true
   inputIdentifier: date1
-  nextScreen: enterWitnessName2
-  optional: true
-  order: 4
-  text:
-    en: Date
-  type: inputScreen
+  type: hiddenField
 enterDate2:
+  hidden: true
   inputIdentifier: date2
-  nextScreen: formSummary
-  optional: true
-  order: 8
-  text:
-    en: Date
-  type: inputScreen
+  type: hiddenField
 enterId1:
   hidden: true
   inputIdentifier: id1
@@ -67,7 +61,7 @@ enterTelephone1:
 enterTelephone2:
   inputIdentifier: telephone2
   nextScreen: enterAddress2
-  order: 6
+  order: 5
   text:
     en: Telephone
   type: inputScreen
@@ -82,7 +76,7 @@ enterWitnessName1:
 enterWitnessName2:
   inputIdentifier: witnessName2
   nextScreen: enterTelephone2
-  order: 5
+  order: 4
   terminateBlockOnEmpty: true
   text:
     en: Witness Name

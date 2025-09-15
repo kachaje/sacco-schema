@@ -614,7 +614,7 @@ CREATE TABLE IF NOT EXISTS memberLoanWitness (
     memberLoanId INTEGER NOT NULL,
     witnessName TEXT NOT NULL,
     telephone TEXT NOT NULL,
-    address TEXT NOT NULL,
+    address TEXT,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,

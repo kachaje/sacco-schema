@@ -1006,11 +1006,13 @@
   "memberLoanWitness": {
     "fields": {
       "address": {
+        "optional": true,
         "order": 4,
         "type": "text"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
+        "hidden": true,
         "order": 5,
         "type": "text"
       },
