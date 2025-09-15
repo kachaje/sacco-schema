@@ -22,7 +22,7 @@ Welcome! Select Action
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -52,7 +52,7 @@ CON Welcome to Kaso SACCO
 `
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -92,7 +92,7 @@ CON Business
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -112,7 +112,7 @@ func TestEmployementMenu(t *testing.T) {
 00. Main Menu`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	session.GlobalIds = map[string]any{
@@ -136,7 +136,7 @@ func TestEmployementMenu(t *testing.T) {
 00. Main Menu`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	session.GlobalIds = map[string]any{
@@ -166,7 +166,7 @@ func TestEmployementMenu(t *testing.T) {
 00. Main Menu`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -205,7 +205,7 @@ CON Loans
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	role := "admin"
@@ -229,6 +229,6 @@ CON Loans
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

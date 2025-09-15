@@ -219,7 +219,7 @@ func TestHandleMemberDetails(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -286,7 +286,7 @@ func TestChildNestedModel(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, session.GlobalIds) {
-		t.Fatalf("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, session.GlobalIds)
 	}
 }
 

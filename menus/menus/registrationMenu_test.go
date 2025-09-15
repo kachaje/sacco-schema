@@ -72,6 +72,6 @@ CON Choose Activity
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

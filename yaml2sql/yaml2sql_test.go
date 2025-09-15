@@ -31,7 +31,7 @@ func TestYml2Sql(t *testing.T) {
 	target := string(content)
 
 	if utils.CleanString(target) != utils.CleanString((*result)) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %s; Actual: %s", target, *result)
 	}
 }
 
@@ -49,6 +49,6 @@ func TestLoadModels(t *testing.T) {
 	target := string(content)
 
 	if utils.CleanString(target) != utils.CleanString((*result)) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %s; Actual: %s", target, *result)
 	}
 }

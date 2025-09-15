@@ -82,7 +82,7 @@ func TestLoadModelChildren(t *testing.T) {
 	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target["member"].(map[string]any), result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target["member"], result)
 	}
 }
 
@@ -122,6 +122,6 @@ func TestFullMemberRecord(t *testing.T) {
 	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

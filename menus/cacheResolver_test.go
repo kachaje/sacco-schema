@@ -52,7 +52,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 	fmt.Println(string(payload))
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -94,7 +94,7 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -136,7 +136,7 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -178,6 +178,6 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.")
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

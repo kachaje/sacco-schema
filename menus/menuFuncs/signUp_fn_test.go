@@ -34,7 +34,7 @@ Welcome! Select Action
 `
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = "2"
@@ -50,7 +50,7 @@ Username: (Required Field)
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = username
@@ -66,7 +66,7 @@ What's your name? :
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = "Test User"
@@ -82,7 +82,7 @@ PIN Code:
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = password
@@ -98,7 +98,7 @@ Confirm PIN:
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = password
@@ -114,6 +114,6 @@ Welcome on board!
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

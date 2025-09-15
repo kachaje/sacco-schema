@@ -70,7 +70,7 @@ func TestValueMapFromString(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -90,7 +90,7 @@ func TestD2J(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -125,7 +125,7 @@ func TestExtractJsonModels(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 

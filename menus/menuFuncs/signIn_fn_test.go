@@ -44,7 +44,7 @@ Welcome! Select Action
 `
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = "1"
@@ -60,7 +60,7 @@ Username:
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = username
@@ -76,7 +76,7 @@ PIN Code:
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	text = password
@@ -96,6 +96,6 @@ CON Welcome to Kaso SACCO
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

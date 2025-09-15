@@ -30,7 +30,7 @@ func TestGetTokens(t *testing.T) {
 	result := parser.GetTokens("SUM({{totalCostOfGoods}}, {{employeeWages}}, {{ownSalary}}, {{transport}}, {{loanInterest}}, {{utilities}}, {{rentals}}, {{otherCosts}})")
 
 	if reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -216,7 +216,7 @@ func TestGetScheduleParams(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(tokens, target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, tokens)
 	}
 }
 
@@ -249,6 +249,6 @@ func TestGenerateSchedule(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

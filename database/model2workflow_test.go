@@ -45,6 +45,6 @@ func TestModel2Workflow(t *testing.T) {
 	}
 
 	if utils.CleanString(*result) != utils.CleanScript(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, *result)
 	}
 }

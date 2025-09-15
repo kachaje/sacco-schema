@@ -43,7 +43,7 @@ func TestCreateGraph(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 
 	models := map[string]bool{}
@@ -382,6 +382,6 @@ func TestUpdateRootQuery(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

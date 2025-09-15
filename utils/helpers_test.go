@@ -49,7 +49,7 @@ func TestLoadYaml(t *testing.T) {
 	}
 
 	if !compareObjects(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -218,7 +218,7 @@ func TestUnpackData(t *testing.T) {
 	result = utils.UnpackData(data)
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -315,6 +315,6 @@ func TestGetSkippedRefIds(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

@@ -42,7 +42,7 @@ func TestLoadGroupMembers(t *testing.T) {
 	result := menufuncs.LoadGroupMembers(data, "memberDependant")
 
 	if !reflect.DeepEqual(targetData, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", targetData, result)
 	}
 }
 
@@ -98,7 +98,7 @@ func TestLoadTemplateData(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(targetData, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", targetData, result)
 	}
 }
 
@@ -127,7 +127,7 @@ func TestTabulateData(t *testing.T) {
 	target := string(content)
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -169,7 +169,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(targetData, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", targetData, result)
 	}
 }
 
@@ -211,7 +211,7 @@ func TestBusinessSummary(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -238,6 +238,6 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	result := menufuncs.TabulateData(data)
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }

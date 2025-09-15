@@ -36,7 +36,7 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
@@ -61,7 +61,7 @@ func TestFlattenMapAllData(t *testing.T) {
 	}
 
 	if utils.CleanScript(payload) != utils.CleanScript(target) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %s; Actual: %s", target, payload)
 	}
 }
 
@@ -141,6 +141,6 @@ func TestSetNestedValue(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(target, data) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, data)
 	}
 }
