@@ -244,7 +244,7 @@ func TestUnpackData2(t *testing.T) {
 	result := utils.UnpackData(data)
 
 	if !reflect.DeepEqual(target, result) {
-		t.Fatal("Test failed")
+		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
 	}
 }
 
