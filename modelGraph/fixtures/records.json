@@ -12,7 +12,7 @@
   "memberDependant": [1],
   "memberLastYearBusinessHistory": [1],
   "memberLoan": [1, 2],
-  "memberLoanApproval": [1],
+  "memberLoanApproval": [1, 2],
   "memberLoanDisbursement": [1],
   "memberLoanInsurance": [1, 2],
   "memberLoanLiability": [1],

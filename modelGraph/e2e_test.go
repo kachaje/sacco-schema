@@ -189,7 +189,7 @@ func TestSchemaE2E(t *testing.T) {
 			resultCount := len(child)
 
 			if resultCount != targetCount {
-				t.Fatalf("Test failed. Expected: %v; Actual: %v", targetCount, resultCount)
+				t.Fatalf("Test failed. %s Expected: %v; Actual: %v", key, targetCount, resultCount)
 			}
 		}
 	}
