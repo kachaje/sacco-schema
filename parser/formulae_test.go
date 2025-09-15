@@ -225,7 +225,7 @@ func TestGenerateSchedule(t *testing.T) {
 
 	data := map[string]any{
 		"loanAmount":              200000,
-		"repaymentPeriodInMonths": 6,
+		"repaymentPeriodInMonths": 12,
 		"processingFeeRate":       0.05,
 		"monthlyInterestRate":     0.05,
 		"monthlyInsuranceRate":    0.15,
