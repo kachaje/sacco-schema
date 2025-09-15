@@ -647,6 +647,7 @@ memberLoan:
     - memberBusiness
     - memberLoanApproval
     - memberLoanDisbursement
+    - memberLoanVerification
     - memberOccupation
   rootQuery: member.memberLoan.0
 memberLoanApproval:
@@ -668,32 +669,30 @@ memberLoanApproval:
         options:
           - PENDING
           - APPROVED
+          - PARTIAL-APPROVAL
           - REJECTED
         order: 3
         type: text
     - amountRecommended:
         numericField: true
+        optional: true
         order: 4
-    - approvedBy:
+    - denialOrPartialReason:
+        optional: true
         order: 5
         type: text
-    - dateOfApproval:
+    - approvedBy:
         hidden: true
         optional: true
         order: 6
         type: text
-    - verifiedBy:
-        order: 7
-        type: text
-    - dateVerified:
+    - dateOfApproval:
         hidden: true
         optional: true
-        order: 8
+        order: 7
         type: text
-    - denialOrPartialReason:
-        optional: true
-        order: 9
-        type: text
+  hasOne:
+    - memberLoanVerification
   rootQuery: member.memberLoan.0.memberLoanApproval
 memberLoanDisbursement:
   belongsTo:
@@ -965,6 +964,41 @@ memberLoanType:
         optional: true
         order: 9
   rootQuery: memberLoanType
+memberLoanVerification:
+  belongsTo:
+    - memberLoan
+    - memberLoanApproval
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberLoanId:
+        hidden: true
+        order: 1
+    - memberLoanApprovalId:
+        hidden: true
+        order: 2
+    - loanNumber:
+        matchModel: memberLoan
+        order: 3
+        type: text
+    - verified:
+        options:
+          - "Yes"
+          - "No"
+        order: 4
+        type: text
+    - verifiedBy:
+        hidden: true
+        optional: true
+        order: 5
+        type: text
+    - dateVerified:
+        hidden: true
+        optional: true
+        order: 6
+        type: text
+  rootQuery: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification
 memberLoanWitness:
   arrayFields:
     - id1:

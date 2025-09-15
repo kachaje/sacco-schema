@@ -46,8 +46,12 @@
       "memberBusiness",
       "memberLoanApproval",
       "memberLoanDisbursement",
+      "memberLoanVerification",
       "memberOccupation"
     ]
+  },
+  "memberLoanApproval": {
+    "singleChildren": ["memberLoanVerification"]
   },
   "memberLoanPaymentSchedule": {
     "arrayChildren": ["memberLoanReceipt"]

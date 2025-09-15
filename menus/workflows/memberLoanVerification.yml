@@ -1,0 +1,58 @@
+cacheQueries:
+  dateVerified: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.dateVerified
+  id: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.id
+  loanNumber: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.loanNumber
+  memberLoanApprovalId: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.memberLoanApprovalId
+  memberLoanId: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.memberLoanId
+  verified: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.verified
+  verifiedBy: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification.verifiedBy
+enterDateVerified:
+  hidden: true
+  inputIdentifier: dateVerified
+  type: hiddenField
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterLoanNumber:
+  inputIdentifier: loanNumber
+  matchModel: memberLoan
+  nextScreen: enterVerified
+  order: 1
+  text:
+    en: Loan Number
+  type: inputScreen
+enterMemberLoanApprovalId:
+  hidden: true
+  inputIdentifier: memberLoanApprovalId
+  type: hiddenField
+enterMemberLoanId:
+  hidden: true
+  inputIdentifier: memberLoanId
+  type: hiddenField
+enterVerified:
+  inputIdentifier: verified
+  nextScreen: formSummary
+  options:
+    - label:
+        en: "Yes"
+      position: 1
+    - label:
+        en: "No"
+      position: 2
+  order: 2
+  text:
+    en: Verified
+  type: inputScreen
+enterVerifiedBy:
+  hidden: true
+  inputIdentifier: verifiedBy
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterLoanNumber
+model: memberLoanVerification
+parentIds:
+  - memberLoanId
+  - memberLoanApprovalId
+rootQuery: member.memberLoan.0.member.memberLoan.0.memberLoanApproval.memberLoanVerification

@@ -30,6 +30,9 @@ var (
 	MemberIdsCacheSingleChildren = []string{
 		"member",
 	}
+	MemberLoanApprovalSingleChildren = []string{
+		"memberLoanVerification",
+	}
 	MemberLoanArrayChildren = []string{
 		"memberLoanInsurance",
 		"memberLoanLiability",
@@ -46,6 +49,7 @@ var (
 		"memberBusiness",
 		"memberLoanApproval",
 		"memberLoanDisbursement",
+		"memberLoanVerification",
 		"memberOccupation",
 	}
 	MemberOccupationSingleChildren = []string{
@@ -75,6 +79,7 @@ var (
 		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
 		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
 		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
+		"MemberLoanApprovalSingleChildren":    MemberLoanApprovalSingleChildren,
 		"MemberLoanSingleChildren":            MemberLoanSingleChildren,
 		"MemberOccupationSingleChildren":      MemberOccupationSingleChildren,
 		"MemberSavingsIdsCacheSingleChildren": MemberSavingsIdsCacheSingleChildren,
@@ -205,6 +210,10 @@ var (
 		},
 		"memberLoanTax": {
 			"memberLoan",
+		},
+		"memberLoanVerification": {
+			"memberLoan",
+			"memberLoanApproval",
 		},
 		"memberLoanWitness": {
 			"memberLoan",

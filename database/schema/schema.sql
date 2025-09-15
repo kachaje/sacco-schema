@@ -378,13 +378,18 @@ CREATE TABLE IF NOT EXISTS memberLoanApproval (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
     loanNumber TEXT NOT NULL,
-    loanStatus TEXT DEFAULT 'PENDING' CHECK (loanStatus IN ('PENDING', 'APPROVED', 'REJECTED')),
-    amountRecommended REAL NOT NULL,
-    approvedBy TEXT NOT NULL,
-    dateOfApproval TEXT NOT NULL,
-    verifiedBy TEXT NOT NULL,
-    dateVerified TEXT NOT NULL,
+    loanStatus TEXT DEFAULT 'PENDING' CHECK (
+        loanStatus IN (
+            'PENDING',
+            'APPROVED',
+            'PARTIAL-APPROVAL',
+            'REJECTED'
+        )
+    ),
+    amountRecommended REAL DEFAULT memberLoan.loanAmount,
     denialOrPartialReason TEXT,
+    approvedBy TEXT DEFAULT 'CURRENT_USER',
+    dateOfApproval TEXT DEFAULT CURRENT_TIMESTAMP,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -603,6 +608,31 @@ CREATE TABLE IF NOT EXISTS memberLoanType (
 CREATE TRIGGER IF NOT EXISTS memberLoanTypeUpdated AFTER
 UPDATE ON memberLoanType FOR EACH ROW BEGIN
 UPDATE memberLoanType
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberLoanVerification (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanId INTEGER NOT NULL,
+    memberLoanApprovalId INTEGER NOT NULL,
+    loanNumber TEXT NOT NULL,
+    verified TEXT NOT NULL CHECK (verified IN ('Yes', 'No')),
+    verifiedBy TEXT DEFAULT 'CURRENT_USER',
+    dateVerified TEXT DEFAULT CURRENT_TIMESTAMP,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE,
+    FOREIGN KEY (memberLoanApprovalId) REFERENCES memberLoanApproval (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberLoanVerificationUpdated AFTER
+UPDATE ON memberLoanVerification FOR EACH ROW BEGIN
+UPDATE memberLoanVerification
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

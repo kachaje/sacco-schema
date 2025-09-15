@@ -638,26 +638,27 @@
   "memberLoanApproval": {
     "fields": {
       "amountRecommended": {
+        "condition": "loanStatus=APPROVED",
+        "default": "memberLoan.loanAmount",
         "order": 4,
         "type": "real"
       },
       "approvedBy": {
-        "order": 5,
-        "type": "text"
-      },
-      "dateOfApproval": {
+        "default": "CURRENT_USER",
         "hidden": true,
         "order": 6,
         "type": "text"
       },
-      "dateVerified": {
+      "dateOfApproval": {
+        "default": "CURRENT_TIMESTAMP",
         "hidden": true,
-        "order": 8,
+        "order": 7,
         "type": "text"
       },
       "denialOrPartialReason": {
+        "condition": "loanStatus=IN(REJECTED,PARTIAL-APPROVAL",
         "optional": true,
-        "order": 9,
+        "order": 5,
         "type": "text"
       },
       "id": {
@@ -673,7 +674,7 @@
       },
       "loanStatus": {
         "default": "PENDING",
-        "options": ["PENDING", "APPROVED", "REJECTED"],
+        "options": ["PENDING", "APPROVED", "PARTIAL-APPROVAL", "REJECTED"],
         "order": 3,
         "type": "text"
       },
@@ -682,10 +683,6 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
-      },
-      "verifiedBy": {
-        "order": 7,
-        "type": "text"
       }
     },
     "model": "memberLoanApproval",
@@ -1007,6 +1004,52 @@
     },
     "model": "memberLoanType",
     "parents": []
+  },
+  "memberLoanVerification": {
+    "fields": {
+      "dateVerified": {
+        "default": "CURRENT_TIMESTAMP",
+        "hidden": true,
+        "order": 6,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanNumber": {
+        "matchModel": "memberLoan",
+        "order": 3,
+        "type": "text"
+      },
+      "memberLoanApprovalId": {
+        "hidden": true,
+        "order": 2,
+        "referenceTable": "memberLoanApproval",
+        "type": "int"
+      },
+      "memberLoanId": {
+        "hidden": true,
+        "order": 1,
+        "referenceTable": "memberLoan",
+        "type": "int"
+      },
+      "verified": {
+        "options": ["Yes", "No"],
+        "order": 4,
+        "type": "text"
+      },
+      "verifiedBy": {
+        "default": "CURRENT_USER",
+        "hidden": true,
+        "order": 5,
+        "type": "text"
+      }
+    },
+    "model": "memberLoanVerification",
+    "parents": ["memberLoan", "memberLoanApproval"]
   },
   "memberLoanWitness": {
     "fields": {

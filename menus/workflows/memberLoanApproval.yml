@@ -2,41 +2,33 @@ cacheQueries:
   amountRecommended: member.memberLoan.0.memberLoanApproval.amountRecommended
   approvedBy: member.memberLoan.0.memberLoanApproval.approvedBy
   dateOfApproval: member.memberLoan.0.memberLoanApproval.dateOfApproval
-  dateVerified: member.memberLoan.0.memberLoanApproval.dateVerified
   denialOrPartialReason: member.memberLoan.0.memberLoanApproval.denialOrPartialReason
   id: member.memberLoan.0.memberLoanApproval.id
   loanNumber: member.memberLoan.0.memberLoanApproval.loanNumber
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
-  verifiedBy: member.memberLoan.0.memberLoanApproval.verifiedBy
 enterAmountRecommended:
   inputIdentifier: amountRecommended
-  nextScreen: enterApprovedBy
+  nextScreen: enterDenialOrPartialReason
+  optional: true
   order: 3
   text:
     en: Amount Recommended
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterApprovedBy:
+  hidden: true
   inputIdentifier: approvedBy
-  nextScreen: enterVerifiedBy
-  order: 4
-  text:
-    en: Approved By
-  type: inputScreen
+  type: hiddenField
 enterDateOfApproval:
   hidden: true
   inputIdentifier: dateOfApproval
-  type: hiddenField
-enterDateVerified:
-  hidden: true
-  inputIdentifier: dateVerified
   type: hiddenField
 enterDenialOrPartialReason:
   inputIdentifier: denialOrPartialReason
   nextScreen: formSummary
   optional: true
-  order: 6
+  order: 4
   text:
     en: Denial Or Partial Reason
   type: inputScreen
@@ -64,8 +56,11 @@ enterLoanStatus:
         en: APPROVED
       position: 2
     - label:
-        en: REJECTED
+        en: PARTIAL-APPROVAL
       position: 3
+    - label:
+        en: REJECTED
+      position: 4
   order: 2
   text:
     en: Loan Status
@@ -74,13 +69,6 @@ enterMemberLoanId:
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
-enterVerifiedBy:
-  inputIdentifier: verifiedBy
-  nextScreen: enterDenialOrPartialReason
-  order: 5
-  text:
-    en: Verified By
-  type: inputScreen
 formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber
