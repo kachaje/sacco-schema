@@ -12,6 +12,8 @@ import (
 	"path/filepath"
 	"reflect"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 	"time"
 	"unicode"
@@ -416,4 +418,53 @@ func MapsEqual(m1, m2 map[string]any) bool {
 		}
 	}
 	return true
+}
+
+func extractNumber(s string) (int, string, bool) {
+	var numStr string
+	for i, r := range s {
+		if r >= '0' && r <= '9' {
+			numStr += string(r)
+		} else {
+			if numStr != "" {
+				num, err := strconv.Atoi(numStr)
+				if err == nil {
+					return num, s[i:], true
+				}
+			}
+			return 0, s, false
+		}
+	}
+	if numStr != "" {
+		num, err := strconv.Atoi(numStr)
+		if err == nil {
+			return num, "", true
+		}
+	}
+	return 0, s, false
+}
+
+func SortSlice(data []string) {
+	sort.Slice(data, func(i, j int) bool {
+		s1 := data[i]
+		s2 := data[j]
+
+		parts1 := strings.FieldsFunc(s1, func(r rune) bool { return r == '_' || r == '.' || (r < '0' || r > '9') })
+		parts2 := strings.FieldsFunc(s2, func(r rune) bool { return r == '_' || r == '.' || (r < '0' || r > '9') })
+
+		for k := 0; k < len(parts1) && k < len(parts2); k++ {
+			num1, _, isNum1 := extractNumber(parts1[k])
+			num2, _, isNum2 := extractNumber(parts2[k])
+
+			if isNum1 && isNum2 {
+				if num1 != num2 {
+					return num1 < num2
+				}
+			} else if parts1[k] != parts2[k] {
+				return parts1[k] < parts2[k]
+			}
+		}
+
+		return len(s1) < len(s2)
+	})
 }
