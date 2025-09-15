@@ -13,6 +13,10 @@ import (
 	"golang.org/x/text/number"
 )
 
+var (
+	NUMBER_FORMAT_ESCAPE = `phone|bill|serial`
+)
+
 func Map2Table(data map[string]any, selectFields []string) string {
 	pattern := func(left bool) string {
 		if left {
@@ -72,7 +76,7 @@ func Map2Table(data map[string]any, selectFields []string) string {
 				}
 
 				if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", v)) &&
-					!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(field)) {
+					!regexp.MustCompile(NUMBER_FORMAT_ESCAPE).MatchString(strings.ToLower(field)) {
 					p := message.NewPrinter(language.English)
 
 					var vn float64

@@ -605,7 +605,7 @@ func (w *WorkFlow) ResolveData(data map[string]any, preferCode bool) map[string]
 	formatLabel := func(key string, value any) {
 		if !preferCode &&
 			regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", value)) &&
-			!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(key)) {
+			!regexp.MustCompile(utils.NUMBER_FORMAT_ESCAPE).MatchString(strings.ToLower(key)) {
 			p := message.NewPrinter(language.English)
 
 			var vn float64
@@ -790,7 +790,7 @@ func (w *WorkFlow) GetLabel(node map[string]any, input string) string {
 							var value string
 
 							if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", w.Data[id])) &&
-								!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(id)) {
+								!regexp.MustCompile(utils.NUMBER_FORMAT_ESCAPE).MatchString(strings.ToLower(id)) {
 								p := message.NewPrinter(language.English)
 
 								var vn float64
