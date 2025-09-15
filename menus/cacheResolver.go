@@ -26,10 +26,11 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 	for key, value := range data {
 		var re1 = regexp.MustCompile(fmt.Sprintf(`%s(\d+)\.([A-Za-z]+)$`, groupRoot))
 		var re2 = regexp.MustCompile(fmt.Sprintf(`%s([A-Za-z]+)$`, groupRoot))
+		var re3 = regexp.MustCompile(`\\.\(\\d\+\)\\.$`)
 
 		if regexp.MustCompile(groupRoot).MatchString(key) &&
 			(re1.MatchString(key) || regexp.MustCompile(`\\d+`).MatchString(key) ||
-				regexp.MustCompile(`\\.\(\\d\+\)\\.$`).MatchString(groupRoot)) {
+				re3.MatchString(groupRoot)) {
 			var parts [][]string
 
 			if re1.MatchString(key) {
@@ -40,8 +41,10 @@ func ResolveCacheData(data map[string]any, groupRoot string) map[string]any {
 				continue
 			}
 
-			indexKey := parts[0][1]
-			field := parts[0][2]
+			size := len(parts[0])
+
+			indexKey := parts[0][size-2]
+			field := parts[0][size-1]
 
 			if incomingData[indexKey] == nil {
 				incomingData[indexKey] = map[string]any{}
