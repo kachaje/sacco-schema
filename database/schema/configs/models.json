@@ -1178,6 +1178,58 @@
     "rootQuery": "member.memberLoan.0.insuranceProvider.memberLoanInsurance.0"
   },
   "memberLoanLiability": {
+    "arrayFields": [
+      {
+        "id1": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberLoanId1": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "description1": {
+          "order": 2,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "value1": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "id2": {
+          "hidden": true,
+          "order": 4
+        }
+      },
+      {
+        "memberLoanId2": {
+          "hidden": true,
+          "order": 5
+        }
+      },
+      {
+        "description2": {
+          "order": 6,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "value2": {
+          "numericField": true,
+          "order": 7
+        }
+      }
+    ],
     "belongsTo": ["memberLoan"],
     "fields": [
       {
@@ -1195,6 +1247,7 @@
       {
         "description": {
           "order": 2,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -1313,6 +1366,70 @@
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0"
   },
   "memberLoanSecurity": {
+    "arrayFields": [
+      {
+        "id1": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberLoanId1": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "description1": {
+          "order": 2,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "value1": {
+          "numericField": true,
+          "order": 3
+        }
+      },
+      {
+        "serialNumber1": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "id2": {
+          "hidden": true,
+          "order": 5
+        }
+      },
+      {
+        "memberLoanId2": {
+          "hidden": true,
+          "order": 6
+        }
+      },
+      {
+        "description2": {
+          "order": 7,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "value2": {
+          "numericField": true,
+          "order": 8
+        }
+      },
+      {
+        "serialNumber2": {
+          "order": 9,
+          "type": "text"
+        }
+      }
+    ],
     "belongsTo": ["memberLoan"],
     "fields": [
       {
@@ -1330,6 +1447,7 @@
       {
         "description": {
           "order": 2,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },
@@ -1463,6 +1581,84 @@
     "rootQuery": "memberLoanType"
   },
   "memberLoanWitness": {
+    "arrayFields": [
+      {
+        "id1": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberLoanId1": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "witnessName1": {
+          "order": 2,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "telephone1": {
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "address1": {
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "date1": {
+          "optional": true,
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "id2": {
+          "hidden": true,
+          "order": 6
+        }
+      },
+      {
+        "memberLoanId2": {
+          "hidden": true,
+          "order": 7
+        }
+      },
+      {
+        "witnessName2": {
+          "order": 8,
+          "terminateBlockOnEmpty": true,
+          "type": "text"
+        }
+      },
+      {
+        "telephone2": {
+          "order": 9,
+          "type": "text"
+        }
+      },
+      {
+        "address2": {
+          "order": 10,
+          "type": "text"
+        }
+      },
+      {
+        "date2": {
+          "optional": true,
+          "order": 11,
+          "type": "text"
+        }
+      }
+    ],
     "belongsTo": ["memberLoan"],
     "fields": [
       {
@@ -1480,6 +1676,7 @@
       {
         "witnessName": {
           "order": 2,
+          "terminateBlockOnEmpty": true,
           "type": "text"
         }
       },

@@ -1,12 +1,25 @@
 cacheQueries:
   description1: member.memberLoan.0.memberLoanLiability.0.description
+  description2: member.memberLoan.0.memberLoanLiability.0.description
   id1: member.memberLoan.0.memberLoanLiability.0.id
+  id2: member.memberLoan.0.memberLoanLiability.0.id
   memberLoanId1: member.memberLoan.0.memberLoanLiability.0.memberLoanId
+  memberLoanId2: member.memberLoan.0.memberLoanLiability.0.memberLoanId
   value1: member.memberLoan.0.memberLoanLiability.0.value
+  value2: member.memberLoan.0.memberLoanLiability.0.value
 enterDescription1:
   inputIdentifier: description1
   nextScreen: enterValue1
   order: 1
+  terminateBlockOnEmpty: true
+  text:
+    en: Description
+  type: inputScreen
+enterDescription2:
+  inputIdentifier: description2
+  nextScreen: enterValue2
+  order: 3
+  terminateBlockOnEmpty: true
   text:
     en: Description
   type: inputScreen
@@ -14,14 +27,30 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
+enterId2:
+  hidden: true
+  inputIdentifier: id2
+  type: hiddenField
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
   type: hiddenField
+enterMemberLoanId2:
+  hidden: true
+  inputIdentifier: memberLoanId2
+  type: hiddenField
 enterValue1:
   inputIdentifier: value1
-  nextScreen: formSummary
+  nextScreen: enterDescription2
   order: 2
+  text:
+    en: Value
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterValue2:
+  inputIdentifier: value2
+  nextScreen: formSummary
+  order: 4
   text:
     en: Value
   type: inputScreen

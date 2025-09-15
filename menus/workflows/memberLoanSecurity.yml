@@ -1,13 +1,27 @@
 cacheQueries:
   description1: member.memberLoan.0.memberLoanSecurity.0.description
+  description2: member.memberLoan.0.memberLoanSecurity.0.description
   id1: member.memberLoan.0.memberLoanSecurity.0.id
+  id2: member.memberLoan.0.memberLoanSecurity.0.id
   memberLoanId1: member.memberLoan.0.memberLoanSecurity.0.memberLoanId
+  memberLoanId2: member.memberLoan.0.memberLoanSecurity.0.memberLoanId
   serialNumber1: member.memberLoan.0.memberLoanSecurity.0.serialNumber
+  serialNumber2: member.memberLoan.0.memberLoanSecurity.0.serialNumber
   value1: member.memberLoan.0.memberLoanSecurity.0.value
+  value2: member.memberLoan.0.memberLoanSecurity.0.value
 enterDescription1:
   inputIdentifier: description1
   nextScreen: enterValue1
   order: 1
+  terminateBlockOnEmpty: true
+  text:
+    en: Description
+  type: inputScreen
+enterDescription2:
+  inputIdentifier: description2
+  nextScreen: enterValue2
+  order: 4
+  terminateBlockOnEmpty: true
   text:
     en: Description
   type: inputScreen
@@ -15,14 +29,29 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
+enterId2:
+  hidden: true
+  inputIdentifier: id2
+  type: hiddenField
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
   type: hiddenField
+enterMemberLoanId2:
+  hidden: true
+  inputIdentifier: memberLoanId2
+  type: hiddenField
 enterSerialNumber1:
   inputIdentifier: serialNumber1
-  nextScreen: formSummary
+  nextScreen: enterDescription2
   order: 3
+  text:
+    en: Serial Number
+  type: inputScreen
+enterSerialNumber2:
+  inputIdentifier: serialNumber2
+  nextScreen: formSummary
+  order: 6
   text:
     en: Serial Number
   type: inputScreen
@@ -30,6 +59,14 @@ enterValue1:
   inputIdentifier: value1
   nextScreen: enterSerialNumber1
   order: 2
+  text:
+    en: Value
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterValue2:
+  inputIdentifier: value2
+  nextScreen: enterSerialNumber2
+  order: 5
   text:
     en: Value
   type: inputScreen

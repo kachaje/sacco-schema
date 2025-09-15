@@ -1,10 +1,16 @@
 cacheQueries:
   address1: member.memberLoan.0.memberLoanWitness.0.address
+  address2: member.memberLoan.0.memberLoanWitness.0.address
   date1: member.memberLoan.0.memberLoanWitness.0.date
+  date2: member.memberLoan.0.memberLoanWitness.0.date
   id1: member.memberLoan.0.memberLoanWitness.0.id
+  id2: member.memberLoan.0.memberLoanWitness.0.id
   memberLoanId1: member.memberLoan.0.memberLoanWitness.0.memberLoanId
+  memberLoanId2: member.memberLoan.0.memberLoanWitness.0.memberLoanId
   telephone1: member.memberLoan.0.memberLoanWitness.0.telephone
+  telephone2: member.memberLoan.0.memberLoanWitness.0.telephone
   witnessName1: member.memberLoan.0.memberLoanWitness.0.witnessName
+  witnessName2: member.memberLoan.0.memberLoanWitness.0.witnessName
 enterAddress1:
   inputIdentifier: address1
   nextScreen: enterDate1
@@ -12,11 +18,26 @@ enterAddress1:
   text:
     en: Address
   type: inputScreen
+enterAddress2:
+  inputIdentifier: address2
+  nextScreen: enterDate2
+  order: 7
+  text:
+    en: Address
+  type: inputScreen
 enterDate1:
   inputIdentifier: date1
-  nextScreen: formSummary
+  nextScreen: enterWitnessName2
   optional: true
   order: 4
+  text:
+    en: Date
+  type: inputScreen
+enterDate2:
+  inputIdentifier: date2
+  nextScreen: formSummary
+  optional: true
+  order: 8
   text:
     en: Date
   type: inputScreen
@@ -24,9 +45,17 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
+enterId2:
+  hidden: true
+  inputIdentifier: id2
+  type: hiddenField
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
+  type: hiddenField
+enterMemberLoanId2:
+  hidden: true
+  inputIdentifier: memberLoanId2
   type: hiddenField
 enterTelephone1:
   inputIdentifier: telephone1
@@ -35,10 +64,26 @@ enterTelephone1:
   text:
     en: Telephone
   type: inputScreen
+enterTelephone2:
+  inputIdentifier: telephone2
+  nextScreen: enterAddress2
+  order: 6
+  text:
+    en: Telephone
+  type: inputScreen
 enterWitnessName1:
   inputIdentifier: witnessName1
   nextScreen: enterTelephone1
   order: 1
+  terminateBlockOnEmpty: true
+  text:
+    en: Witness Name
+  type: inputScreen
+enterWitnessName2:
+  inputIdentifier: witnessName2
+  nextScreen: enterTelephone2
+  order: 5
+  terminateBlockOnEmpty: true
   text:
     en: Witness Name
   type: inputScreen

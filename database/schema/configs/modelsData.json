@@ -777,9 +777,11 @@
         "type": "real"
       }
     },
+    "hasLoops": true,
     "many": true,
     "model": "memberLoanLiability",
-    "parents": ["memberLoan"]
+    "parents": ["memberLoan"],
+    "totalLoops": 2
   },
   "memberLoanPaymentSchedule": {
     "fields": {
@@ -903,9 +905,11 @@
         "type": "real"
       }
     },
+    "hasLoops": true,
     "many": true,
     "model": "memberLoanSecurity",
-    "parents": ["memberLoan"]
+    "parents": ["memberLoan"],
+    "totalLoops": 2
   },
   "memberLoanTax": {
     "fields": {
@@ -1031,9 +1035,11 @@
         "type": "text"
       }
     },
+    "hasLoops": true,
     "many": true,
     "model": "memberLoanWitness",
-    "parents": ["memberLoan"]
+    "parents": ["memberLoan"],
+    "totalLoops": 2
   },
   "memberNextYearBusinessProjection": {
     "fields": {
