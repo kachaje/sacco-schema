@@ -7,19 +7,7 @@
     "key": "member.memberContact.id",
     "value": "1"
   },
-  "memberDependant.1.Id": {
-    "key": "member.memberDependant.1.id",
-    "value": "1"
-  },
-  "memberDependant.2.Id": {
-    "key": "member.memberDependant.2.id",
-    "value": "2"
-  },
-  "memberDependant.3.Id": {
-    "key": "member.memberDependant.3.id",
-    "value": "3"
-  },
-  "memberDependant.4.Id": {
+  "memberDependantId": {
     "key": "member.memberDependant.4.id",
     "value": "4"
   },
@@ -31,12 +19,12 @@
     "key": "member.memberLoan.1.memberBusiness.memberLastYearBusinessHistory.id",
     "value": "1"
   },
-  "memberLoan.1.Id": {
-    "key": "member.memberLoan.1.id",
-    "value": "1"
-  },
   "memberLoanApprovalId": {
     "key": "member.memberLoan.1.memberLoanApproval.id",
+    "value": "1"
+  },
+  "memberLoanId": {
+    "key": "member.memberLoan.1.id",
     "value": "1"
   },
   "memberNextYearBusinessProjectionId": {
