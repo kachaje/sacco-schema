@@ -787,7 +787,25 @@ func (w *WorkFlow) GetLabel(node map[string]any, input string) string {
 						if node["scheduleFormula"] != nil {
 							existingData = fmt.Sprintf("\n\n%v", w.Data[id])
 						} else {
-							existingData = fmt.Sprintf("(%v)", w.Data[id])
+							var value string
+
+							if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", w.Data[id])) &&
+								!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(id)) {
+								p := message.NewPrinter(language.English)
+
+								var vn float64
+
+								vr, err := strconv.ParseFloat(fmt.Sprintf("%v", w.Data[id]), 64)
+								if err == nil {
+									vn = vr
+								}
+
+								value = p.Sprintf("%f", number.Decimal(vn))
+							} else {
+								value = fmt.Sprintf("%v", w.Data[id])
+							}
+
+							existingData = fmt.Sprintf("(%v)", value)
 						}
 					}
 				}
