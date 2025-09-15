@@ -57,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM807962",
+    "memberIdNumber": "KSM242089",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +66,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN035462",
+        "loanNumber": "KLN678223",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -115,11 +115,10 @@
           "amountRecommended": 200000,
           "approvedBy": "me",
           "dateOfApproval": "2025-08-30",
-          "dateVerified": "2025-08-30",
           "id": 1,
+          "loanNumber": "KLN678223",
           "loanStatus": "APPROVED",
-          "memberLoanId": 1,
-          "verifiedBy": "me"
+          "memberLoanId": 1
         },
         "memberLoanLiability": {
           "1": {

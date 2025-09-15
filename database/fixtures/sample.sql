@@ -173,9 +173,7 @@ INSERT INTO
     amountRecommended,
     approvedBy,
     dateOfApproval,
-    amountRecommended,
-    verifiedBy,
-    dateVerified
+    amountRecommended
   )
 VALUES
   (
@@ -185,9 +183,7 @@ VALUES
     200000,
     "me",
     "2025-08-30",
-    200000,
-    "me",
-    "2025-08-30"
+    200000
   );
 
 INSERT INTO

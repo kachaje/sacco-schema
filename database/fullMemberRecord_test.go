@@ -53,8 +53,6 @@ func deleteLoanNumber(target map[string]any) {
 }
 
 func TestLoadModelChildren(t *testing.T) {
-	t.Skip()
-
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
@@ -92,13 +90,15 @@ func TestLoadModelChildren(t *testing.T) {
 	deleteLoanNumber(target)
 
 	if !utils.MapsEqual(target["member"].(map[string]any), result) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target["member"], result)
+		diff := utils.GetMapDiff(target["member"].(map[string]any), result)
+
+		payload, _ := json.MarshalIndent(diff, "", "  ")
+
+		t.Fatalf("Test failed; Diff: %s", payload)
 	}
 }
 
 func TestFullMemberRecord(t *testing.T) {
-	t.Skip()
-	
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
