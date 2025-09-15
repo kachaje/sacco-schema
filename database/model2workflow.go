@@ -229,6 +229,10 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 									data[tag].(map[string]any)["optional"] = true
 								}
 
+								if value["matchModel"] != nil {
+									data[tag].(map[string]any)["matchModel"] = value["matchModel"].(string)
+								}
+
 								if value["options"] != nil {
 									if opts, ok := value["options"].([]any); ok {
 										options := []any{}

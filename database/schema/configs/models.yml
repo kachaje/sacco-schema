@@ -660,6 +660,7 @@ memberLoanApproval:
         hidden: true
         order: 1
     - loanNumber:
+        matchModel: memberLoan
         order: 2
         type: text
     - loanStatus:

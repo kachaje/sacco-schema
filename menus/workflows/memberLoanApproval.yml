@@ -46,6 +46,7 @@ enterId:
   type: hiddenField
 enterLoanNumber:
   inputIdentifier: loanNumber
+  matchModel: memberLoan
   nextScreen: enterLoanStatus
   order: 1
   text:
