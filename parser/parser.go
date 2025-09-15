@@ -201,6 +201,30 @@ func (w *WorkFlow) CalculateFormulae(wait chan bool) error {
 	return nil
 }
 
+func (w *WorkFlow) FetchModelId(model, field, value string) (*int64, error) {
+	if w.Sessions != nil && w.CurrentPhoneNumber != "" {
+		session := w.Sessions[w.CurrentPhoneNumber]
+
+		if session.GenericQueryFn != nil {
+			result, err := session.GenericQueryFn(fmt.Sprintf(`SELECT id FROM %s WHERE %s = "%s"`, model, field, value))
+			if err != nil {
+				return nil, err
+			}
+
+			if len(result) > 0 && result[0]["id"] != nil {
+				id, err := strconv.ParseInt(fmt.Sprintf("%v", result[0]["id"]), 10, 64)
+				if err != nil {
+					return nil, err
+				}
+
+				return &id, nil
+			}
+		}
+	}
+
+	return nil, nil
+}
+
 func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 	defer func() {
 		wait <- true
@@ -529,12 +553,23 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 					return node, nil
 				}
 
-				if node != nil && node["matchModel"] != nil {
-					fmt.Println("##########", node["matchModel"], input)
-				}
-
 				if node != nil && node["inputIdentifier"] != nil {
 					inputIdentifier := fmt.Sprintf("%v", node["inputIdentifier"])
+
+					if node["matchModel"] != nil {
+						if model, ok := node["matchModel"].(string); ok {
+							id, err := w.FetchModelId(model, inputIdentifier, input)
+							if err != nil {
+								return nil, err
+							}
+
+							if id != nil {
+								w.Data[fmt.Sprintf("%sId", model)] = *id
+							} else {
+								return node, nil
+							}
+						}
+					}
 
 					w.Data[inputIdentifier] = input
 
