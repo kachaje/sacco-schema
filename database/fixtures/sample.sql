@@ -270,3 +270,21 @@ VALUES
     "No",
     "Other"
   );
+
+INSERT INTO
+  memberLoanLiability (memberLoanId, description, value)
+VALUES
+  (1, "Liability 1", 100000),
+  (1, "Liability 2", 50000);
+
+INSERT INTO
+  memberLoanSecurity (memberLoanId, description, value, serialNumber)
+VALUES
+  (1, "Security 1", 50000, "123456"),
+  (1, "Security 2", 50000, "456789");
+
+INSERT INTO
+  memberLoanWitness (memberLoanId, witnessName, telephone)
+VALUES
+  (1, "Witness 1", "09928388727"),
+  (1, "Witness 2", "08858574646");
