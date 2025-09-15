@@ -97,6 +97,7 @@ func NewWorkflow(
 		FormulaFields:         map[string]string{},
 		ScheduleFormulaFields: map[string]string{},
 		MatchModelFields:      map[string]string{},
+		ConditionFields:       map[string]string{},
 		ReadOnlyFields:        []string{},
 	}
 
