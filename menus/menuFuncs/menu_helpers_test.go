@@ -117,8 +117,6 @@ func TestTabulateData(t *testing.T) {
 
 	result := menufuncs.TabulateData(data)
 
-	os.WriteFile(filepath.Join("..", "fixtures", "member.txt"), []byte(strings.Join(result, "\n")), 0644)
-
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
 	if err != nil {
 		t.Fatal(err)

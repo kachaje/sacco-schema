@@ -36,8 +36,8 @@
     "value": "2"
   },
   "memberLoanWitnessId": {
-    "key": "member.memberLoan.1.memberLoanWitness.2.id",
-    "value": "2"
+    "key": "member.memberLoan.1.memberLoanWitness.1.id",
+    "value": "1"
   },
   "memberNextYearBusinessProjectionId": {
     "key": "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
