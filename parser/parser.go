@@ -39,6 +39,7 @@ type WorkFlow struct {
 	ScreenIdMap           map[string]string
 	FormulaFields         map[string]string
 	ScheduleFormulaFields map[string]string
+	MatchModelFields      map[string]string
 	ScreenOrder           map[int]string
 	ReadOnlyFields        []string
 	SubmitCallback        func(
@@ -94,6 +95,7 @@ func NewWorkflow(
 		HistoryIndex:          -1,
 		FormulaFields:         map[string]string{},
 		ScheduleFormulaFields: map[string]string{},
+		MatchModelFields:      map[string]string{},
 		ReadOnlyFields:        []string{},
 	}
 
@@ -148,6 +150,10 @@ func NewWorkflow(
 
 					if row["scheduleFormula"] != nil {
 						w.ScheduleFormulaFields[id] = row["scheduleFormula"].(string)
+					}
+
+					if row["matchModel"] != nil {
+						w.MatchModelFields[id] = row["matchModel"].(string)
 					}
 
 					if row["order"] != nil {
@@ -521,6 +527,10 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 				if node["optional"] == nil && len(strings.TrimSpace(input)) == 0 {
 					return node, nil
+				}
+
+				if node != nil && node["matchModel"] != nil {
+					fmt.Println("##########", node["matchModel"], input)
 				}
 
 				if node != nil && node["inputIdentifier"] != nil {

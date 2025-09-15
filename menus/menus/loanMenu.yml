@@ -60,7 +60,7 @@ fields:
     id: loan.5
     label:
       en: Loan Approvals
-    workflow: loanApproval
+    workflow: memberLoanApproval
     allowedRoles:
       - admin
     targetKeys:
