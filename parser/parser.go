@@ -225,15 +225,24 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 				}
 			}
 		}
-	}
 
-	for key, query := range w.ScheduleFormulaFields {
-		result, err := GenerateSchedule(query, data)
-		if err != nil {
-			return err
+		for key, query := range w.ScheduleFormulaFields {
+			result, err := GenerateSchedule(query, data)
+			if err != nil {
+				return err
+			}
+
+			w.Data[key] = utils.Map2Table(result, []string{"principal", "totalDue"})
 		}
+	} else {
+		for key, query := range w.ScheduleFormulaFields {
+			result, err := GenerateSchedule(query, data)
+			if err != nil {
+				return err
+			}
 
-		w.Data[key] = utils.Map2Table(result, nil)
+			w.Data[key] = utils.Map2Table(result, nil)
+		}
 	}
 
 	return nil
@@ -775,7 +784,11 @@ func (w *WorkFlow) GetLabel(node map[string]any, input string) string {
 					if strings.ToLower(id) == "password" {
 						existingData = "(*******)"
 					} else {
-						existingData = fmt.Sprintf("(%v)", w.Data[id])
+						if node["scheduleFormula"] != nil {
+							existingData = fmt.Sprintf("\n\n%v", w.Data[id])
+						} else {
+							existingData = fmt.Sprintf("(%v)", w.Data[id])
+						}
 					}
 				}
 
