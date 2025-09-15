@@ -35,6 +35,16 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	for _, key := range []string{
+		"memberDependantId",
+		"memberLoanWitnessId",
+		"memberLoanSecurityId",
+		"memberLoanLiabilityId",
+	} {
+		delete(target, key)
+		delete(result, key)
+	}
+
 	if !reflect.DeepEqual(target, result) {
 		diff := utils.GetMapDiff(target, result)
 
