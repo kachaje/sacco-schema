@@ -48,7 +48,7 @@ func Map2Table(data map[string]any, selectFields []string) string {
 		}
 	}
 
-	sort.Strings(keys)
+	SortSlice(keys)
 	sort.Strings(fields)
 
 	for i, key := range keys {
