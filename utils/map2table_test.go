@@ -23,8 +23,6 @@ func TestMap2Table(t *testing.T) {
 
 	result := utils.Map2Table(data, []string{"principal", "totalDue"})
 
-	os.WriteFile(filepath.Join(".", "fixtures", "schedule.partial.txt"), []byte(result), 0644)
-
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "schedule.partial.txt"))
 	if err != nil {
 		t.Fatal(err)
@@ -44,8 +42,6 @@ Actual:
 
 	result = utils.Map2Table(data, nil)
 
-	os.WriteFile(filepath.Join(".", "fixtures", "schedule.txt"), []byte(result), 0644)
-
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "schedule.txt"))
 	if err != nil {
 		t.Fatal(err)
@@ -54,6 +50,12 @@ Actual:
 	target = string(content)
 
 	if utils.CleanString(target) != utils.CleanString(result) {
-		t.Fatal("Test failed")
+		t.Fatalf(`
+Test failed; 
+Expected: 
+%v
+Actual: 
+%v
+`, target, result)
 	}
 }

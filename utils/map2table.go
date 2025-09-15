@@ -2,9 +2,15 @@ package utils
 
 import (
 	"fmt"
+	"regexp"
 	"slices"
 	"sort"
+	"strconv"
 	"strings"
+
+	"golang.org/x/text/language"
+	"golang.org/x/text/message"
+	"golang.org/x/text/number"
 )
 
 func Map2Table(data map[string]any, selectFields []string) string {
@@ -65,7 +71,21 @@ func Map2Table(data map[string]any, selectFields []string) string {
 					v = 0
 				}
 
-				row = append(row, fmt.Sprintf(pattern(false), v))
+				if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", v)) &&
+					!regexp.MustCompile(`phone|bill`).MatchString(strings.ToLower(field)) {
+					p := message.NewPrinter(language.English)
+
+					var vn float64
+
+					vr, err := strconv.ParseFloat(fmt.Sprintf("%v", v), 64)
+					if err == nil {
+						vn = vr
+					}
+
+					row = append(row, fmt.Sprintf(pattern(false), p.Sprintf("%0.2f", number.Decimal(vn))))
+				} else {
+					row = append(row, fmt.Sprintf(pattern(false), v))
+				}
 			}
 
 			rows = append(rows, row)
