@@ -315,12 +315,16 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 											case "hidden":
 												row["optional"] = true
 												row["hidden"] = true
-											case "scheduleFormula", "matchModel":
+											case "scheduleFormula", "matchModel", "condition":
 												row[kf] = vf
 											case "formula":
 												row["formula"] = vf
 											case "default", "optional":
 												row["optional"] = true
+
+												if regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", vf)) {
+													row["dynamicDefault"] = fmt.Sprintf("%v", vf)
+												}
 											case "type":
 												if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
 													row["numericField"] = true

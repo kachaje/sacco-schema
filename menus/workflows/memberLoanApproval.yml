@@ -8,9 +8,9 @@ cacheQueries:
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
 enterAmountRecommended:
+  condition: loanStatus=APPROVED
   inputIdentifier: amountRecommended
   nextScreen: enterDenialOrPartialReason
-  optional: true
   order: 3
   text:
     en: Amount Recommended
@@ -25,6 +25,7 @@ enterDateOfApproval:
   inputIdentifier: dateOfApproval
   type: hiddenField
 enterDenialOrPartialReason:
+  condition: loanStatus=IN[REJECTED,PARTIAL-APPROVAL]
   inputIdentifier: denialOrPartialReason
   nextScreen: formSummary
   optional: true

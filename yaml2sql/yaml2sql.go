@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sacco/utils"
 	"strconv"
 	"strings"
@@ -134,7 +135,8 @@ func Yml2Sql(model, content string) (*string, error) {
 					fieldData = fmt.Sprintf(`%s PRIMARY KEY`, fieldData)
 				}
 			} else if val["default"] != nil {
-				if fieldType == "TEXT" && fmt.Sprintf(`%v`, val["default"]) != "CURRENT_TIMESTAMP" {
+				if regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", val["default"])) {
+				} else if fieldType == "TEXT" && fmt.Sprintf(`%v`, val["default"]) != "CURRENT_TIMESTAMP" {
 					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
 				} else {
 					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])

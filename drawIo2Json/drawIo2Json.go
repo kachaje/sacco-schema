@@ -166,7 +166,11 @@ func ValueMapFromString(value string) (map[string]any, error) {
 								} else if key == "options" {
 									attributes[key] = strings.Split(opt[1], ",")
 								} else {
-									attributes[key] = opt[1]
+									if key == "default" && regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", opt[1])) {
+										attributes["dynamicDefault"] = opt[1]
+									} else {
+										attributes[key] = opt[1]
+									}
 								}
 							}
 

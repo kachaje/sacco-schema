@@ -639,7 +639,7 @@
     "fields": {
       "amountRecommended": {
         "condition": "loanStatus=APPROVED",
-        "default": "memberLoan.loanAmount",
+        "dynamicDefault": "memberLoan@loanAmount",
         "order": 4,
         "type": "real"
       },
@@ -656,7 +656,7 @@
         "type": "text"
       },
       "denialOrPartialReason": {
-        "condition": "loanStatus=IN(REJECTED,PARTIAL-APPROVAL",
+        "condition": "loanStatus=IN[REJECTED,PARTIAL-APPROVAL]",
         "optional": true,
         "order": 5,
         "type": "text"

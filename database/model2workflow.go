@@ -233,6 +233,14 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 									data[tag].(map[string]any)["matchModel"] = value["matchModel"].(string)
 								}
 
+								if value["condition"] != nil {
+									data[tag].(map[string]any)["condition"] = value["condition"].(string)
+								}
+
+								if value["dynamicDefault"] != nil {
+									data[tag].(map[string]any)["dynamicDefault"] = value["dynamicDefault"].(string)
+								}
+
 								if value["options"] != nil {
 									if opts, ok := value["options"].([]any); ok {
 										options := []any{}
