@@ -145,7 +145,9 @@ func NewWorkflow(
 							if w.Sessions != nil && w.CurrentPhoneNumber != "" {
 								session := w.Sessions[w.CurrentPhoneNumber]
 
-								w.Data[id] = session.SessionUserId
+								if session != nil && session.SessionUser != nil {
+									w.Data[id] = *session.SessionUser
+								}
 							}
 						} else if fmt.Sprintf("%v", row["default"]) == "CURRENT_TIMESTAMP" {
 							w.Data[id] = time.Now()
