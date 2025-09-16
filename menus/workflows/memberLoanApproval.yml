@@ -9,6 +9,7 @@ cacheQueries:
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
 enterAmountRecommended:
   condition: loanStatus=[APPROVED,PARTIAL-APPROVAL]
+  dynamicDefault: memberLoan@loanAmount
   inputIdentifier: amountRecommended
   nextScreen: enterDenialOrPartialReason
   order: 3
@@ -38,6 +39,7 @@ enterId:
   inputIdentifier: id
   type: hiddenField
 enterLoanNumber:
+  dynamicDefault: memberLoan@loanNumber
   inputIdentifier: loanNumber
   matchModel: memberLoan
   nextScreen: enterLoanStatus

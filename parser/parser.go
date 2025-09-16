@@ -618,6 +618,10 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 		}
 	}
 
+	if node["dynamicDefault"] != nil {
+		fmt.Println("***********", node["dynamicDefault"])
+	}
+
 	return node, nil
 }
 

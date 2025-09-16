@@ -312,6 +312,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 									if vf, ok := v.(map[string]any); ok {
 										for kf, vf := range vf {
 											switch strings.TrimSpace(kf) {
+											case "dynamicDefault":
+												row[kf] = vf
 											case "hidden":
 												row["optional"] = true
 												row["hidden"] = true
@@ -321,10 +323,6 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 												row["formula"] = vf
 											case "default", "optional":
 												row["optional"] = true
-
-												if regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", vf)) {
-													row["dynamicDefault"] = fmt.Sprintf("%v", vf)
-												}
 											case "type":
 												if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
 													row["numericField"] = true

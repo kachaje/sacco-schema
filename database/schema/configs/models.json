@@ -1054,6 +1054,7 @@
       },
       {
         "loanNumber": {
+          "dynamicDefault": "memberLoan@loanNumber",
           "matchModel": "memberLoan",
           "order": 2,
           "type": "text"
@@ -1070,6 +1071,7 @@
       {
         "amountRecommended": {
           "condition": "loanStatus=[APPROVED,PARTIAL-APPROVAL]",
+          "dynamicDefault": "memberLoan@loanAmount",
           "numericField": true,
           "order": 4
         }
