@@ -136,8 +136,7 @@ func Yml2Sql(model, content string) (*string, error) {
 				}
 			} else if val["default"] != nil {
 				if regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", val["default"])) {
-				} else if fieldType == "TEXT" && fmt.Sprintf(`%v`, val["default"]) != "CURRENT_TIMESTAMP" {
-					fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
+				} else if fmt.Sprintf(`%v`, val["default"]) == "CURRENT_USER" {
 				} else {
 					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
 				}

@@ -150,7 +150,7 @@ func NewWorkflow(
 								}
 							}
 						} else if fmt.Sprintf("%v", row["default"]) == "CURRENT_TIMESTAMP" {
-							w.Data[id] = time.Now()
+							w.Data[id] = time.Now().Format("2006-01-02 15:04:05")
 						}
 
 						if w.Data[id] == nil {
@@ -456,11 +456,11 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 								session := w.Sessions[w.CurrentPhoneNumber]
 
 								if session != nil && session.SessionUser != nil {
-									w.Data[key] = *session.SessionUser
+									data[key] = *session.SessionUser
 								}
 							}
 						case "CURRENT_TIMESTAMP":
-							w.Data[key] = time.Now()
+							data[key] = time.Now().Format("2006-01-02 15:04:05")
 						}
 					}
 				}
