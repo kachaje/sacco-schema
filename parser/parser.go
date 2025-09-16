@@ -152,6 +152,10 @@ func NewWorkflow(
 						} else if fmt.Sprintf("%v", row["default"]) == "CURRENT_TIMESTAMP" {
 							w.Data[id] = time.Now()
 						}
+
+						if w.Data[id] == nil {
+							w.Data[id] = fmt.Sprintf("%v", row["default"])
+						}
 					}
 
 					if row["hidden"] == nil {
@@ -442,6 +446,23 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 				if w.Data["id"] != nil {
 					data["id"] = w.Data["id"]
+				}
+
+				for key, value := range data {
+					if slices.Contains([]string{"CURRENT_USER", "CURRENT_TIMESTAMP"}, fmt.Sprintf("%v", value)) {
+						switch fmt.Sprintf("%v", value) {
+						case "CURRENT_USER":
+							if w.Sessions != nil && w.CurrentPhoneNumber != "" {
+								session := w.Sessions[w.CurrentPhoneNumber]
+
+								if session != nil && session.SessionUser != nil {
+									w.Data[key] = *session.SessionUser
+								}
+							}
+						case "CURRENT_TIMESTAMP":
+							w.Data[key] = time.Now()
+						}
+					}
 				}
 
 				err := w.SubmitCallback(
