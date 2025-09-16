@@ -393,6 +393,76 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 		}
 	}
 
+	filterValues := func(values []string) []string {
+		newValues := []string{}
+
+		keys = []string{}
+
+		if m.LabelWorkflow[menuName] != nil && session != nil {
+			for _, value := range values {
+				if m.LabelWorkflow[menuName].(map[string]any)[value] != nil {
+					model := fmt.Sprintf("%v", m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["model"])
+
+					suffix := ""
+
+					if session.AddedModels[model] {
+						suffix = "(*)"
+					}
+
+					if m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"] != nil {
+						found := true
+
+						checkIfExists := func(val []string) bool {
+							found := true
+
+							for _, key := range val {
+								if session == nil || len(session.GlobalIds) <= 0 {
+									found = false
+								} else {
+									_, found = session.GlobalIds[fmt.Sprintf("%v", key)]
+								}
+
+								if !found {
+									break
+								}
+							}
+
+							return found
+						}
+
+						if val, ok := m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"].([]any); ok {
+							vals := []string{}
+
+							for _, key := range val {
+								vals = append(vals, fmt.Sprintf("%v", key))
+							}
+
+							found = checkIfExists(vals)
+						} else if val, ok := m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"].([]string); ok {
+							found = checkIfExists(val)
+						}
+
+						if !found {
+							continue
+						}
+					}
+
+					newValues = append(newValues, fmt.Sprintf("%s %s\n", strings.TrimSpace(value), suffix))
+				} else {
+					newValues = append(newValues, value)
+				}
+
+				keys = append(keys, strings.Split(value, ".")[0])
+			}
+		} else {
+			newValues = values
+		}
+
+		return newValues
+	}
+
+	newValues := filterValues(values)
+
 	if slices.Contains(keys, text) {
 		target := text
 		text = "000"
@@ -506,66 +576,6 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 				}
 			}
 		} else {
-			newValues := []string{}
-
-			if m.LabelWorkflow[menuName] != nil && session != nil {
-				for _, value := range values {
-					if m.LabelWorkflow[menuName].(map[string]any)[value] != nil {
-						model := fmt.Sprintf("%v", m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["model"])
-
-						suffix := ""
-
-						if session.AddedModels[model] {
-							suffix = "(*)"
-						}
-
-						if m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"] != nil {
-							found := true
-
-							checkIfExists := func(val []string) bool {
-								found := true
-
-								for _, key := range val {
-									if session == nil || len(session.GlobalIds) <= 0 {
-										found = false
-									} else {
-										_, found = session.GlobalIds[fmt.Sprintf("%v", key)]
-									}
-
-									if !found {
-										break
-									}
-								}
-
-								return found
-							}
-
-							if val, ok := m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"].([]any); ok {
-								vals := []string{}
-
-								for _, key := range val {
-									vals = append(vals, fmt.Sprintf("%v", key))
-								}
-
-								found = checkIfExists(vals)
-							} else if val, ok := m.LabelWorkflow[menuName].(map[string]any)[value].(map[string]any)["parentIds"].([]string); ok {
-								found = checkIfExists(val)
-							}
-
-							if !found {
-								continue
-							}
-						}
-
-						newValues = append(newValues, fmt.Sprintf("%s %s\n", strings.TrimSpace(value), suffix))
-					} else {
-						newValues = append(newValues, value)
-					}
-				}
-			} else {
-				newValues = values
-			}
-
 			slices.Sort(newValues)
 
 			index := utils.Index(newValues, "99. Cancel\n")
