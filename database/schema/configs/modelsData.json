@@ -668,6 +668,7 @@
         "type": "int"
       },
       "loanNumber": {
+        "dynamicDefault": "memberLoan@loanNumber",
         "matchModel": "memberLoan",
         "order": 2,
         "type": "text"

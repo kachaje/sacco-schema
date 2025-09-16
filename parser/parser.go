@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"regexp"
@@ -621,8 +622,6 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 }
 
 func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
-	result := false
-
 	if regexp.MustCompile(`=`).MatchString(condition) {
 		parts := strings.Split(condition, "=")
 
@@ -647,7 +646,13 @@ func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
 
 						switch op {
 						case "IN":
-							return slices.Contains(values, v)
+							result := slices.Contains(values, v)
+
+							payload, _ := json.MarshalIndent(data, "", "  ")
+
+							fmt.Println("###########", condition, result, string(payload))
+
+							return result
 						}
 					}
 				}
@@ -655,7 +660,7 @@ func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
 		}
 	}
 
-	return result
+	return false
 }
 
 func (w *WorkFlow) OptionValue(options []any, input string) (string, *string) {
