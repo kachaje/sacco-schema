@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"regexp"
@@ -688,13 +687,7 @@ func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
 
 						switch op {
 						case "IN":
-							result := slices.Contains(values, v)
-
-							payload, _ := json.MarshalIndent(data, "", "  ")
-
-							fmt.Println("###########", condition, result, string(payload))
-
-							return result
+							return slices.Contains(values, v)
 						}
 					}
 				}
