@@ -1077,10 +1077,18 @@
         }
       },
       {
-        "denialOrPartialReason": {
-          "condition": "loanStatus=IN[REJECTED,PARTIAL-APPROVAL]",
+        "denialReason": {
+          "condition": "loanStatus=REJECTED",
           "optional": true,
           "order": 5,
+          "type": "text"
+        }
+      },
+      {
+        "partialApprovalReason": {
+          "condition": "loanStatus=PARTIAL-APPROVAL",
+          "optional": true,
+          "order": 6,
           "type": "text"
         }
       },
@@ -1088,7 +1096,7 @@
         "approvedBy": {
           "hidden": true,
           "optional": true,
-          "order": 6,
+          "order": 7,
           "type": "text"
         }
       },
@@ -1096,7 +1104,7 @@
         "dateOfApproval": {
           "hidden": true,
           "optional": true,
-          "order": 7,
+          "order": 8,
           "type": "text"
         }
       }

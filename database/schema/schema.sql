@@ -387,7 +387,8 @@ CREATE TABLE IF NOT EXISTS memberLoanApproval (
         )
     ),
     amountRecommended REAL NOT NULL,
-    denialOrPartialReason TEXT,
+    denialReason TEXT,
+    partialApprovalReason TEXT,
     approvedBy TEXT DEFAULT 'CURRENT_USER',
     dateOfApproval TEXT DEFAULT CURRENT_TIMESTAMP,
     active INTEGER DEFAULT 1,

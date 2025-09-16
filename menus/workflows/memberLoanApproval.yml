@@ -2,16 +2,17 @@ cacheQueries:
   amountRecommended: member.memberLoan.0.memberLoanApproval.amountRecommended
   approvedBy: member.memberLoan.0.memberLoanApproval.approvedBy
   dateOfApproval: member.memberLoan.0.memberLoanApproval.dateOfApproval
-  denialOrPartialReason: member.memberLoan.0.memberLoanApproval.denialOrPartialReason
+  denialReason: member.memberLoan.0.memberLoanApproval.denialReason
   id: member.memberLoan.0.memberLoanApproval.id
   loanNumber: member.memberLoan.0.memberLoanApproval.loanNumber
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
+  partialApprovalReason: member.memberLoan.0.memberLoanApproval.partialApprovalReason
 enterAmountRecommended:
   condition: loanStatus=IN[APPROVED,PARTIAL-APPROVAL]
   dynamicDefault: memberLoan@loanAmount
   inputIdentifier: amountRecommended
-  nextScreen: enterDenialOrPartialReason
+  nextScreen: enterDenialReason
   order: 3
   text:
     en: Amount Recommended
@@ -25,14 +26,14 @@ enterDateOfApproval:
   hidden: true
   inputIdentifier: dateOfApproval
   type: hiddenField
-enterDenialOrPartialReason:
-  condition: loanStatus=IN[REJECTED,PARTIAL-APPROVAL]
-  inputIdentifier: denialOrPartialReason
-  nextScreen: formSummary
+enterDenialReason:
+  condition: loanStatus=REJECTED
+  inputIdentifier: denialReason
+  nextScreen: enterPartialApprovalReason
   optional: true
   order: 4
   text:
-    en: Denial Or Partial Reason
+    en: Denial Reason
   type: inputScreen
 enterId:
   hidden: true
@@ -72,6 +73,15 @@ enterMemberLoanId:
   hidden: true
   inputIdentifier: memberLoanId
   type: hiddenField
+enterPartialApprovalReason:
+  condition: loanStatus=PARTIAL-APPROVAL
+  inputIdentifier: partialApprovalReason
+  nextScreen: formSummary
+  optional: true
+  order: 5
+  text:
+    en: Partial Approval Reason
+  type: inputScreen
 formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber
