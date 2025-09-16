@@ -400,7 +400,9 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 				if node["inputIdentifier"] != nil {
 					id := fmt.Sprintf("%v", node["inputIdentifier"])
 
-					w.Data[id] = value
+					if w.Data[id] == nil {
+						w.Data[id] = value
+					}
 				}
 			}
 		}
@@ -672,7 +674,7 @@ func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
 
 			if val, ok := data[identifier]; ok {
 				if v, ok := val.(string); ok {
-					if regexp.MustCompile(`^[A-Za-z]+$`).MatchString(value) {
+					if regexp.MustCompile(`^[A-Za-z-]+$`).MatchString(value) {
 						return v == value
 					} else if regexp.MustCompile(`^([A-Z]+)\[(.+)\]$`).MatchString(value) {
 						var values = []string{}
