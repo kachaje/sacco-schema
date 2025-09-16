@@ -757,27 +757,27 @@ func TestBack(t *testing.T) {
 func TestEvalCondition(t *testing.T) {
 	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
 
-	wf.Data = map[string]any{
+	data = map[string]any{
 		"loanStatus": "APPROVED",
 	}
 
-	result := wf.EvalCondition("loanStatus=APPROVED")
+	result := wf.EvalCondition("loanStatus=APPROVED", data)
 
 	if !result {
 		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)
 	}
 
-	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]")
+	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]", data)
 
 	if result {
 		t.Fatalf("Test failed. Expecting: false; Actual: %v", result)
 	}
 
-	wf.Data = map[string]any{
+	data = map[string]any{
 		"loanStatus": "PARTIAL-APPROVAL",
 	}
 
-	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]")
+	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]", data)
 
 	if !result {
 		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)

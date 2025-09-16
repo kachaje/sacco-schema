@@ -8,7 +8,7 @@ cacheQueries:
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
 enterAmountRecommended:
-  condition: loanStatus=APPROVED
+  condition: loanStatus=[APPROVED,PARTIAL-APPROVAL]
   inputIdentifier: amountRecommended
   nextScreen: enterDenialOrPartialReason
   order: 3

@@ -610,7 +610,9 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	w.HistoryIndex++
 
 	if node["condition"] != nil {
-		if !w.EvalCondition(fmt.Sprintf("%v", node["condition"])) {
+		data := w.ResolveData(w.Data, false)
+
+		if !w.EvalCondition(fmt.Sprintf("%v", node["condition"]), data) {
 			return w.NextNode("")
 		}
 	}
@@ -618,7 +620,7 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	return node, nil
 }
 
-func (w *WorkFlow) EvalCondition(condition string) bool {
+func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {
 	result := false
 
 	if regexp.MustCompile(`=`).MatchString(condition) {
@@ -628,7 +630,7 @@ func (w *WorkFlow) EvalCondition(condition string) bool {
 			identifier := parts[0]
 			value := parts[1]
 
-			if val, ok := w.Data[identifier]; ok {
+			if val, ok := data[identifier]; ok {
 				if v, ok := val.(string); ok {
 					if regexp.MustCompile(`^[A-Za-z]+$`).MatchString(value) {
 						return v == value

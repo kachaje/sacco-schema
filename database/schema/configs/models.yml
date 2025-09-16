@@ -674,7 +674,7 @@ memberLoanApproval:
         order: 3
         type: text
     - amountRecommended:
-        condition: loanStatus=APPROVED
+        condition: loanStatus=[APPROVED,PARTIAL-APPROVAL]
         numericField: true
         order: 4
     - denialOrPartialReason:

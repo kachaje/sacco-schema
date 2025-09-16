@@ -26,7 +26,7 @@ loanStatus:
   type: text
 
 amountRecommended:
-  condition: loanStatus=APPROVED
+  condition: loanStatus=[APPROVED,PARTIAL-APPROVAL]
   dynamicDefault: memberLoan@loanAmount
   order: 4
   type: real

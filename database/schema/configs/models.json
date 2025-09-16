@@ -1069,7 +1069,7 @@
       },
       {
         "amountRecommended": {
-          "condition": "loanStatus=APPROVED",
+          "condition": "loanStatus=[APPROVED,PARTIAL-APPROVAL]",
           "numericField": true,
           "order": 4
         }
