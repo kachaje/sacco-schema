@@ -618,7 +618,6 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoanVerification (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberLoanId INTEGER NOT NULL,
     memberLoanApprovalId INTEGER NOT NULL,
     loanNumber TEXT NOT NULL,
     verified TEXT NOT NULL CHECK (verified IN ('Yes', 'No')),
@@ -627,7 +626,6 @@ CREATE TABLE IF NOT EXISTS memberLoanVerification (
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE,
     FOREIGN KEY (memberLoanApprovalId) REFERENCES memberLoanApproval (id) ON DELETE CASCADE
 );
 

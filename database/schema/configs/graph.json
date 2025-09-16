@@ -46,7 +46,6 @@
       "memberBusiness",
       "memberLoanApproval",
       "memberLoanDisbursement",
-      "memberLoanVerification",
       "memberOccupation"
     ]
   },

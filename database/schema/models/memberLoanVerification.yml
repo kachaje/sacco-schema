@@ -4,38 +4,32 @@ id:
   primaryKey: true
   type: int
 
-memberLoanId:
-  hidden: true
-  order: 1
-  referenceTable: memberLoan
-  type: int
-
 memberLoanApprovalId:
   hidden: true
-  order: 2
+  order: 1
   referenceTable: memberLoanApproval
   type: int
 
 loanNumber:
-  matchModel: memberLoan
-  order: 3
+  matchModel: memberLoanApproval
+  order: 2
   type: text
 
 verified:
   options:
     - "Yes"
     - "No"
-  order: 4
+  order: 3
   type: text
 
 verifiedBy:
   default: CURRENT_USER
   hidden: true
-  order: 5
+  order: 4
   type: text
 
 dateVerified:
   default: CURRENT_TIMESTAMP
   hidden: true
-  order: 6
+  order: 5
   type: text

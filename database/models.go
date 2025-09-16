@@ -49,7 +49,6 @@ var (
 		"memberBusiness",
 		"memberLoanApproval",
 		"memberLoanDisbursement",
-		"memberLoanVerification",
 		"memberOccupation",
 	}
 	MemberOccupationSingleChildren = []string{
@@ -212,7 +211,6 @@ var (
 			"memberLoan",
 		},
 		"memberLoanVerification": {
-			"memberLoan",
 			"memberLoanApproval",
 		},
 		"memberLoanWitness": {
