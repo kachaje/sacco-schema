@@ -5,6 +5,7 @@ import (
 	"log"
 	"regexp"
 	"sacco/utils"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -609,8 +610,9 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	w.HistoryIndex++
 
 	if node["condition"] != nil {
-
-		fmt.Println("###########", node["condition"])
+		if !w.EvalCondition(fmt.Sprintf("%v", node["condition"])) {
+			return w.NextNode("")
+		}
 	}
 
 	return node, nil
@@ -626,10 +628,25 @@ func (w *WorkFlow) EvalCondition(condition string) bool {
 			identifier := parts[0]
 			value := parts[1]
 
-			if regexp.MustCompile(`^[A-Za-z]+$`).MatchString(value) {
-				if val, ok := w.Data[identifier]; ok {
-					if v, ok := val.(string); ok {
+			if val, ok := w.Data[identifier]; ok {
+				if v, ok := val.(string); ok {
+					if regexp.MustCompile(`^[A-Za-z]+$`).MatchString(value) {
 						return v == value
+					} else if regexp.MustCompile(`^([A-Z]+)\[(.+)\]$`).MatchString(value) {
+						var values = []string{}
+
+						parts := regexp.MustCompile(`^([A-Z]+)\[(.+)\]$`).FindAllStringSubmatch(value, -1)[0]
+
+						op := parts[1]
+
+						for key := range strings.SplitSeq(parts[2], ",") {
+							values = append(values, key)
+						}
+
+						switch op {
+						case "IN":
+							return slices.Contains(values, v)
+						}
 					}
 				}
 			}

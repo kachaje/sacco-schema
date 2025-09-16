@@ -766,4 +766,20 @@ func TestEvalCondition(t *testing.T) {
 	if !result {
 		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)
 	}
+
+	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]")
+
+	if result {
+		t.Fatalf("Test failed. Expecting: false; Actual: %v", result)
+	}
+
+	wf.Data = map[string]any{
+		"loanStatus": "PARTIAL-APPROVAL",
+	}
+
+	result = wf.EvalCondition("loanStatus=IN[REJECTED,PARTIAL-APPROVAL]")
+
+	if !result {
+		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)
+	}
 }
