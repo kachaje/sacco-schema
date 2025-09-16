@@ -8,7 +8,7 @@ cacheQueries:
   loanStatus: member.memberLoan.0.memberLoanApproval.loanStatus
   memberLoanId: member.memberLoan.0.memberLoanApproval.memberLoanId
 enterAmountRecommended:
-  condition: loanStatus=[APPROVED,PARTIAL-APPROVAL]
+  condition: loanStatus=IN[APPROVED,PARTIAL-APPROVAL]
   dynamicDefault: memberLoan@loanAmount
   inputIdentifier: amountRecommended
   nextScreen: enterDenialOrPartialReason

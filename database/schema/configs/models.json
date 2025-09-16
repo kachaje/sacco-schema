@@ -1070,7 +1070,7 @@
       },
       {
         "amountRecommended": {
-          "condition": "loanStatus=[APPROVED,PARTIAL-APPROVAL]",
+          "condition": "loanStatus=IN[APPROVED,PARTIAL-APPROVAL]",
           "dynamicDefault": "memberLoan@loanAmount",
           "numericField": true,
           "order": 4

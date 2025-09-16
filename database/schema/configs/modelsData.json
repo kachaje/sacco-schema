@@ -638,7 +638,7 @@
   "memberLoanApproval": {
     "fields": {
       "amountRecommended": {
-        "condition": "loanStatus=[APPROVED,PARTIAL-APPROVAL]",
+        "condition": "loanStatus=IN[APPROVED,PARTIAL-APPROVAL]",
         "dynamicDefault": "memberLoan@loanAmount",
         "order": 4,
         "type": "real"

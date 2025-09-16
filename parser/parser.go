@@ -389,6 +389,22 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 	defer func() {
 		w.History[w.HistoryIndex] = w.CurrentScreen
+
+		if node["dynamicDefault"] != nil && w.Sessions != nil && w.CurrentPhoneNumber != "" {
+			session := w.Sessions[w.CurrentPhoneNumber]
+
+			xpath := fmt.Sprintf("%v", node["dynamicDefault"])
+
+			value := w.LoadDynaDefault(xpath, session.ActiveData)
+
+			if value != nil {
+				if node["inputIdentifier"] != nil {
+					id := fmt.Sprintf("%v", node["inputIdentifier"])
+
+					w.Data[id] = value
+				}
+			}
+		}
 	}()
 
 	switch input {
@@ -595,6 +611,26 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 		}
 	}
 
+	var checkCondition func()
+
+	checkCondition = func() {
+		if node["condition"] != nil {
+			data := w.ResolveData(w.Data, true)
+
+			if !w.EvalCondition(fmt.Sprintf("%v", node["condition"]), data) {
+				if node["nextScreen"] != nil {
+					nextScreen = fmt.Sprintf("%v", node["nextScreen"])
+
+					node = w.GetNode(nextScreen)
+
+					checkCondition()
+				}
+			}
+		}
+	}
+
+	checkCondition()
+
 	if node["scheduleFormula"] != nil {
 		wait := make(chan bool, 1)
 
@@ -609,24 +645,6 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	w.CurrentScreen = nextScreen
 
 	w.HistoryIndex++
-
-	if node["condition"] != nil {
-		data := w.ResolveData(w.Data, true)
-
-		if !w.EvalCondition(fmt.Sprintf("%v", node["condition"]), data) {
-			return w.NextNode("")
-		}
-	}
-
-	if node["dynamicDefault"] != nil {
-		xpath := fmt.Sprintf("%v", node["dynamicDefault"])
-
-		value := w.LoadDynaDefault(xpath, w.Data)
-
-		if value != nil {
-			w.Data[w.CurrentScreen] = value
-		}
-	}
 
 	return node, nil
 }
