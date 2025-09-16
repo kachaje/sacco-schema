@@ -139,8 +139,12 @@ func NewWorkflow(
 				if row["inputIdentifier"] != nil {
 					id := fmt.Sprintf("%v", row["inputIdentifier"])
 
-					if row["default"] != nil && fmt.Sprintf("%v", row["default"]) == "CURRENT_USER" {
-						fmt.Println("###########", key)
+					if row["default"] != nil {
+						fmt.Println("********", row["default"])
+
+						if fmt.Sprintf("%v", row["default"]) == "CURRENT_USER" {
+							fmt.Println("###########", key)
+						}
 					}
 
 					if row["hidden"] == nil {

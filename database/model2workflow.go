@@ -167,7 +167,9 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 								cacheQueries[inputIdentifier] = cacheQuery
 							}
 
-							if value["readOnly"] != nil ||
+							if value["default"] != nil {
+								data[tag].(map[string]any)["default"] = value["formula"]
+							} else if value["readOnly"] != nil ||
 								value["formula"] != nil {
 								data[tag].(map[string]any)["readOnly"] = true
 								data[tag].(map[string]any)["type"] = "inputScreen"

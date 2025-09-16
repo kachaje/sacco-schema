@@ -29,6 +29,10 @@ func SaveModelData(data any, model, phoneNumber *string,
 			}
 		}
 
+		payload, _ := json.MarshalIndent(dataRows, "", "  ")
+
+		fmt.Println("########", string(payload))
+
 		for _, modelData := range dataRows {
 			if model != nil {
 				for _, key := range database.FloatFields {

@@ -41,9 +41,8 @@ enterVerified:
     en: Verified
   type: inputScreen
 enterVerifiedBy:
-  hidden: true
+  default: null
   inputIdentifier: verifiedBy
-  type: hiddenField
 formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber

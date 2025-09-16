@@ -19,9 +19,8 @@ enterAmountRecommended:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterApprovedBy:
-  hidden: true
+  default: null
   inputIdentifier: approvedBy
-  type: hiddenField
 enterDateOfApproval:
   hidden: true
   inputIdentifier: dateOfApproval
