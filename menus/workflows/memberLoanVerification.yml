@@ -14,6 +14,7 @@ enterId:
   inputIdentifier: id
   type: hiddenField
 enterLoanNumber:
+  dynamicDefault: memberLoanApproval@loanNumber
   inputIdentifier: loanNumber
   matchModel: memberLoanApproval
   nextScreen: enterVerified

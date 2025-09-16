@@ -1605,6 +1605,7 @@
       },
       {
         "loanNumber": {
+          "dynamicDefault": "memberLoanApproval@loanNumber",
           "matchModel": "memberLoanApproval",
           "order": 2,
           "type": "text"

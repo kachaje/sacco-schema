@@ -982,6 +982,7 @@ memberLoanVerification:
         hidden: true
         order: 1
     - loanNumber:
+        dynamicDefault: memberLoanApproval@loanNumber
         matchModel: memberLoanApproval
         order: 2
         type: text

@@ -67,23 +67,36 @@ fields:
       - id
       - memberId
       - memberLoanId
+      - loanNumber
       - loanStatus
       - amountRecommended
+      - denialReason
+      - partialApprovalReason
       - approvedBy
       - dateOfApproval
-      - amountRecommended
+  "6":
+    id: loan.6
+    label:
+      en: Loan Verification
+    workflow: memberLoanVerification
+    allowedRoles:
+      - admin
+    targetKeys:
+      - id
+      - memberLoanApprovalId
+      - loanNumber
+      - verified
       - verifiedBy
       - dateVerified
-      - denialOrPartialReason
-  "6":
+  "7":
     id: employment
     label:
       en: Employment Details
-  "7":
+  "8":
     id: business
     label:
       en: Business Details
-  "8":
+  "9":
     id: memberLoansSummary
     label:
       en: Member Loans Summary
