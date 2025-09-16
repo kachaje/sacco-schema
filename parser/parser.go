@@ -603,16 +603,40 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 		}
 	}
 
-	if node["condition"] != nil {
-		fmt.Println("###########", node["condition"])
-	}
-
 	w.PreviousScreen = w.CurrentScreen
 	w.CurrentScreen = nextScreen
 
 	w.HistoryIndex++
 
+	if node["condition"] != nil {
+
+		fmt.Println("###########", node["condition"])
+	}
+
 	return node, nil
+}
+
+func (w *WorkFlow) EvalCondition(condition string) bool {
+	result := false
+
+	if regexp.MustCompile(`=`).MatchString(condition) {
+		parts := strings.Split(condition, "=")
+
+		if len(parts) > 1 {
+			identifier := parts[0]
+			value := parts[1]
+
+			if regexp.MustCompile(`^[A-Za-z]+$`).MatchString(value) {
+				if val, ok := w.Data[identifier]; ok {
+					if v, ok := val.(string); ok {
+						return v == value
+					}
+				}
+			}
+		}
+	}
+
+	return result
 }
 
 func (w *WorkFlow) OptionValue(options []any, input string) (string, *string) {

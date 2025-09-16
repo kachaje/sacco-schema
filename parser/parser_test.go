@@ -753,3 +753,17 @@ func TestBack(t *testing.T) {
 		t.Fatalf("Test failed. Expected: %s; Actual: %s", target, wf.CurrentScreen)
 	}
 }
+
+func TestEvalCondition(t *testing.T) {
+	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
+
+	wf.Data = map[string]any{
+		"loanStatus": "APPROVED",
+	}
+
+	result := wf.EvalCondition("loanStatus=APPROVED")
+
+	if !result {
+		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)
+	}
+}
