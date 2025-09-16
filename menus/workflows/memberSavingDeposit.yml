@@ -7,22 +7,18 @@ cacheQueries:
 enterAmount1:
   inputIdentifier: amount1
   nextScreen: formSummary
-  order: 3
+  order: 2
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
   inputIdentifier: date1
-  nextScreen: enterAmount1
-  optional: true
-  order: 2
-  text:
-    en: Date
-  type: inputScreen
 enterDescription1:
   inputIdentifier: description1
-  nextScreen: enterDate1
+  nextScreen: enterAmount1
   order: 1
   text:
     en: Description

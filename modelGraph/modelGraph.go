@@ -324,7 +324,7 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 											case "default", "optional":
 												row["optional"] = true
 
-												if kf == "default" && slices.Contains([]string{"CURRENT_USER"}, fmt.Sprintf("%v", vf)) {
+												if kf == "default" && slices.Contains([]string{"CURRENT_USER", "CURRENT_TIMESTAMP"}, fmt.Sprintf("%v", vf)) {
 													row[kf] = vf
 												}
 											case "type":

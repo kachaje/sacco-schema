@@ -14,9 +14,9 @@ cacheQueries:
   utilityBillNumber: member.utilityBillNumber
   utilityBillType: member.utilityBillType
 enterDateJoined:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: dateJoined
-  type: hiddenField
 enterDateOfBirth:
   inputIdentifier: dateOfBirth
   nextScreen: enterNationalIdentifier

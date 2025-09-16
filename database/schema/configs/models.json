@@ -52,6 +52,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -83,6 +84,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 1,
           "type": "text"
@@ -119,6 +121,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 1,
           "type": "text"
@@ -151,6 +154,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 2,
           "type": "text"
@@ -322,6 +326,7 @@
       },
       {
         "dateJoined": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 13,
@@ -904,6 +909,7 @@
       },
       {
         "loanStartDate": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 3,
@@ -912,6 +918,7 @@
       },
       {
         "loanDueDate": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 4,
@@ -1102,6 +1109,7 @@
       },
       {
         "dateOfApproval": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 8,
@@ -1135,6 +1143,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -1172,6 +1181,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -1323,6 +1333,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 2,
           "type": "text"
@@ -1360,6 +1371,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -1498,6 +1510,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -1630,6 +1643,7 @@
       },
       {
         "dateVerified": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 5,
@@ -1675,6 +1689,7 @@
       },
       {
         "date1": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 5,
@@ -1715,6 +1730,7 @@
       },
       {
         "date2": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 11,
@@ -1758,6 +1774,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "hidden": true,
           "optional": true,
           "order": 5,
@@ -2032,6 +2049,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -2069,6 +2087,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -2106,6 +2125,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -2244,6 +2264,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 2,
           "type": "text"
@@ -2363,6 +2384,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"
@@ -2400,6 +2422,7 @@
       },
       {
         "date": {
+          "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
           "type": "text"

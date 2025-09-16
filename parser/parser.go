@@ -9,6 +9,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -140,10 +141,14 @@ func NewWorkflow(
 					id := fmt.Sprintf("%v", row["inputIdentifier"])
 
 					if row["default"] != nil {
-						fmt.Println("********", row["default"])
-
 						if fmt.Sprintf("%v", row["default"]) == "CURRENT_USER" {
-							fmt.Println("###########", key)
+							if w.Sessions != nil && w.CurrentPhoneNumber != "" {
+								session := w.Sessions[w.CurrentPhoneNumber]
+
+								w.Data[id] = session.SessionUserId
+							}
+						} else if fmt.Sprintf("%v", row["default"]) == "CURRENT_TIMESTAMP" {
+							w.Data[id] = time.Now()
 						}
 					}
 

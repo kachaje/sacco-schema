@@ -6,13 +6,9 @@ cacheQueries:
   msgDelivered1: member.notification.0.msgDelivered
   msgRead1: member.notification.0.msgRead
 enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
   inputIdentifier: date1
-  nextScreen: enterMessage1
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
 enterId1:
   hidden: true
   inputIdentifier: id1
@@ -24,7 +20,7 @@ enterMemberId1:
 enterMessage1:
   inputIdentifier: message1
   nextScreen: enterMsgDelivered1
-  order: 2
+  order: 1
   text:
     en: Message
   type: inputScreen
@@ -39,7 +35,7 @@ enterMsgDelivered1:
     - label:
         en: "No"
       position: 2
-  order: 3
+  order: 2
   text:
     en: Msg Delivered
   type: inputScreen
@@ -54,7 +50,7 @@ enterMsgRead1:
     - label:
         en: "No"
       position: 2
-  order: 4
+  order: 3
   text:
     en: Msg Read
   type: inputScreen

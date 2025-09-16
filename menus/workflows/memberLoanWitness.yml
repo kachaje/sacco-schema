@@ -28,13 +28,13 @@ enterAddress2:
     en: Address
   type: inputScreen
 enterDate1:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: date1
-  type: hiddenField
 enterDate2:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: date2
-  type: hiddenField
 enterId1:
   hidden: true
   inputIdentifier: id1

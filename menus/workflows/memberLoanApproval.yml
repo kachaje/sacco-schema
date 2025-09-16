@@ -19,12 +19,13 @@ enterAmountRecommended:
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterApprovedBy:
-  default: null
+  default: CURRENT_USER
+  hidden: true
   inputIdentifier: approvedBy
 enterDateOfApproval:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: dateOfApproval
-  type: hiddenField
 enterDenialReason:
   condition: loanStatus=REJECTED
   inputIdentifier: denialReason

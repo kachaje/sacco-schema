@@ -6,9 +6,9 @@ cacheQueries:
   verified: member.memberLoan.0.memberLoanApproval.memberLoanVerification.verified
   verifiedBy: member.memberLoan.0.memberLoanApproval.memberLoanVerification.verifiedBy
 enterDateVerified:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: dateVerified
-  type: hiddenField
 enterId:
   hidden: true
   inputIdentifier: id
@@ -41,7 +41,8 @@ enterVerified:
     en: Verified
   type: inputScreen
 enterVerifiedBy:
-  default: null
+  default: CURRENT_USER
+  hidden: true
   inputIdentifier: verifiedBy
 formSummary:
   type: quitScreen

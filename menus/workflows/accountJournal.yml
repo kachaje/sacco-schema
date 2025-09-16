@@ -16,23 +16,19 @@ enterAccountTransactionId1:
 enterAmount1:
   inputIdentifier: amount1
   nextScreen: enterDirection1
-  order: 2
+  order: 1
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
   inputIdentifier: date1
-  nextScreen: enterAmount1
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
 enterDirection1:
   inputIdentifier: direction1
   nextScreen: formSummary
-  order: 3
+  order: 2
   text:
     en: Direction
   type: inputScreen

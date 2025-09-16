@@ -168,7 +168,8 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 							}
 
 							if value["default"] != nil {
-								data[tag].(map[string]any)["default"] = value["formula"]
+								data[tag].(map[string]any)["default"] = value["default"]
+								data[tag].(map[string]any)["hidden"] = true
 							} else if value["readOnly"] != nil ||
 								value["formula"] != nil {
 								data[tag].(map[string]any)["readOnly"] = true

@@ -11,23 +11,19 @@ enterAccountId1:
 enterClosingBalance1:
   inputIdentifier: closingBalance1
   nextScreen: enterTotalCredit1
-  order: 2
+  order: 1
   text:
     en: Closing Balance
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
   inputIdentifier: date1
-  nextScreen: enterClosingBalance1
-  optional: true
-  order: 1
-  text:
-    en: Date
-  type: inputScreen
 enterTotalCredit1:
   inputIdentifier: totalCredit1
   nextScreen: enterTotalDebit1
-  order: 3
+  order: 2
   text:
     en: Total Credit
   type: inputScreen
@@ -35,7 +31,7 @@ enterTotalCredit1:
 enterTotalDebit1:
   inputIdentifier: totalDebit1
   nextScreen: formSummary
-  order: 4
+  order: 3
   text:
     en: Total Debit
   type: inputScreen

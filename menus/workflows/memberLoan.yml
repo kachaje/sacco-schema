@@ -53,9 +53,9 @@ enterLoanCategory1:
     en: Loan Category
   type: inputScreen
 enterLoanDueDate1:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: loanDueDate1
-  type: hiddenField
 enterLoanNumber1:
   hidden: true
   inputIdentifier: loanNumber1
@@ -77,9 +77,9 @@ enterLoanSchedule1:
     en: Loan Schedule
   type: inputScreen
 enterLoanStartDate1:
+  default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: loanStartDate1
-  type: hiddenField
 enterLoanType1:
   inputIdentifier: loanType1
   nextScreen: enterLoanCategory1
