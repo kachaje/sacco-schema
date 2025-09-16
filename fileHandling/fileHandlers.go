@@ -72,7 +72,7 @@ func SaveModelData(data any, model, phoneNumber *string,
 
 				_, err := saveFunc(modelData, *model, 0)
 				if err != nil {
-					return err
+					log.Println(err)
 				}
 
 				if *model == "member" && modelData["phoneNumber"] != nil && sessions[*phoneNumber] != nil {
