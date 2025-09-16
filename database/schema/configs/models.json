@@ -1093,6 +1093,7 @@
       },
       {
         "approvedBy": {
+          "default": "CURRENT_USER",
           "hidden": true,
           "optional": true,
           "order": 7,
@@ -1620,6 +1621,7 @@
       },
       {
         "verifiedBy": {
+          "default": "CURRENT_USER",
           "hidden": true,
           "optional": true,
           "order": 4,

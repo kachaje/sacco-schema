@@ -689,6 +689,7 @@ memberLoanApproval:
         order: 6
         type: text
     - approvedBy:
+        default: CURRENT_USER
         hidden: true
         optional: true
         order: 7
@@ -993,6 +994,7 @@ memberLoanVerification:
         order: 3
         type: text
     - verifiedBy:
+        default: CURRENT_USER
         hidden: true
         optional: true
         order: 4

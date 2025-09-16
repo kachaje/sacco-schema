@@ -323,6 +323,10 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 												row["formula"] = vf
 											case "default", "optional":
 												row["optional"] = true
+
+												if kf == "default" && slices.Contains([]string{"CURRENT_USER"}, fmt.Sprintf("%v", vf)) {
+													row[kf] = vf
+												}
 											case "type":
 												if slices.Contains([]string{"int", "real"}, fmt.Sprintf("%v", vf)) {
 													row["numericField"] = true
