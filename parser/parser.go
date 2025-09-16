@@ -619,10 +619,30 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	}
 
 	if node["dynamicDefault"] != nil {
-		fmt.Println("***********", node["dynamicDefault"])
+		xpath := fmt.Sprintf("%v", node["dynamicDefault"])
+
+		value := w.LoadDynaDefault(xpath, w.Data)
+
+		if value != nil {
+			w.Data[w.CurrentScreen] = value
+		}
 	}
 
 	return node, nil
+}
+
+func (w *WorkFlow) LoadDynaDefault(xpath string, data map[string]any) any {
+	pattern := regexp.MustCompile(`@`).ReplaceAllLiteralString(xpath, ".+")
+
+	re := regexp.MustCompile(pattern)
+
+	for key, value := range data {
+		if re.MatchString(key) {
+			return value
+		}
+	}
+
+	return nil
 }
 
 func (w *WorkFlow) EvalCondition(condition string, data map[string]any) bool {

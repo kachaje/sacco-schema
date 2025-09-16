@@ -783,3 +783,49 @@ func TestEvalCondition(t *testing.T) {
 		t.Fatalf("Test failed. Expecting: true; Actual: %v", result)
 	}
 }
+
+func TestLoadDynaDefault(t *testing.T) {
+	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
+
+	data = map[string]any{}
+
+	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := wf.LoadDynaDefault("memberLoan@loanNumber", data)
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target := "KLN678223"
+
+	if result.(string) != target {
+		t.Fatalf("Test failed. Expecting: %s; Actual: %v", target, result)
+	}
+
+	result = wf.LoadDynaDefault("memberLoan@loanAmount", data)
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	target = "200000"
+
+	if fmt.Sprintf("%v", result) != target {
+		t.Fatalf("Test failed. Expecting: %s; Actual: %v", target, result)
+	}
+
+	result = wf.LoadDynaDefault("memberLoan@nonExistent", data)
+
+	if result != nil {
+		t.Fatal("Test failed")
+	}
+}
