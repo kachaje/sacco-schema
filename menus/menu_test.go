@@ -197,9 +197,9 @@ func TestLoanMenu(t *testing.T) {
 	target := `
 CON Loans
 1. Loan Application
-6. Employment Details
-7. Business Details
-8. Member Loans Summary
+7. Employment Details
+8. Business Details
+9. Member Loans Summary
 
 00. Main Menu
 	`
@@ -221,9 +221,9 @@ CON Loans
 3. Loan Security
 4. Loan Witness
 5. Loan Approvals
-6. Employment Details
-7. Business Details
-8. Member Loans Summary
+7. Employment Details
+8. Business Details
+9. Member Loans Summary
 
 00. Main Menu
 	`
