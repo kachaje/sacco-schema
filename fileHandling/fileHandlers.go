@@ -70,6 +70,10 @@ func SaveModelData(data any, model, phoneNumber *string,
 					}
 				}
 
+				if len(modelData) < 2 {
+					continue
+				}
+
 				_, err := saveFunc(modelData, *model, 0)
 				if err != nil {
 					log.Println(err)
