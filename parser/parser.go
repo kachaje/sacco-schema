@@ -237,17 +237,17 @@ func (w *WorkFlow) EvaluateScheduleFormulae(wait chan bool) error {
 		wait <- true
 	}()
 
-	data := map[string]any{}
+	data := w.ResolveData(w.Data, true)
 
 	if w.Sessions != nil && w.CurrentPhoneNumber != "" {
 		session := w.Sessions[w.CurrentPhoneNumber]
 
 		if w.CurrentModel == "memberLoan" {
 			if loanRates, ok := session.LoanRates["loanRates"].(map[string]any); ok {
-				key := fmt.Sprintf("%v:%v", w.Data["loanType1"], w.Data["loanCategory1"])
+				key := fmt.Sprintf("%v:%v", data["loanType1"], data["loanCategory1"])
 
-				data["loanAmount"] = w.Data["loanAmount1"]
-				data["repaymentPeriodInMonths"] = w.Data["repaymentPeriodInMonths1"]
+				data["loanAmount"] = data["loanAmount1"]
+				data["repaymentPeriodInMonths"] = data["repaymentPeriodInMonths1"]
 
 				if row, ok := loanRates[key]; ok {
 					if val, ok := row.(map[string]any); ok {
@@ -610,7 +610,7 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 	w.HistoryIndex++
 
 	if node["condition"] != nil {
-		data := w.ResolveData(w.Data, false)
+		data := w.ResolveData(w.Data, true)
 
 		if !w.EvalCondition(fmt.Sprintf("%v", node["condition"]), data) {
 			return w.NextNode("")
