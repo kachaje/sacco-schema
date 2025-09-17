@@ -805,7 +805,7 @@ func TestLoadDynaDefault(t *testing.T) {
 		t.Fatal("Test failed")
 	}
 
-	target := "KLN678223"
+	target := "KLN502738"
 
 	if result.(string) != target {
 		t.Fatalf("Test failed. Expecting: %s; Actual: %v", target, result)
