@@ -20,14 +20,15 @@ var (
 func Map2Table(data map[string]any, selectFields []string) string {
 	pattern := func(left bool) string {
 		if left {
-			return "%-13v"
+			return "%-14v"
 		} else {
-			return "%13v"
+			return "%14v"
 		}
 	}
-	line := strings.Repeat("-", 13)
+	line := strings.Repeat("-", 14)
 
 	var rows = [][]string{
+		{fmt.Sprintf(pattern(true), line)},
 		{fmt.Sprintf(pattern(true), "")},
 		{fmt.Sprintf(pattern(true), line)},
 	}
@@ -65,8 +66,9 @@ func Map2Table(data map[string]any, selectFields []string) string {
 				}
 
 				if i == 0 {
-					rows[0] = append(rows[0], fmt.Sprintf(pattern(true), IdentifierToLabel(field)))
-					rows[1] = append(rows[1], line)
+					rows[0] = append(rows[0], line)
+					rows[1] = append(rows[1], fmt.Sprintf(pattern(true), IdentifierToLabel(field)))
+					rows[2] = append(rows[2], line)
 				}
 
 				v := val[field]
@@ -97,7 +99,11 @@ func Map2Table(data map[string]any, selectFields []string) string {
 	}
 
 	for _, row := range rows {
-		result = fmt.Sprintf("%s%s\n", result, strings.Join(row, " | "))
+		if regexp.MustCompile(line).MatchString(strings.Join(row, "")) {
+			result = fmt.Sprintf("%s%s\n", result, strings.Join(row, "-+-"))
+		} else {
+			result = fmt.Sprintf("%s%s\n", result, strings.Join(row, " | "))
+		}
 	}
 
 	return result
