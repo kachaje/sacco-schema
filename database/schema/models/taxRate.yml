@@ -1,0 +1,13 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+name:
+  order: 1
+  type: text
+
+value:
+  order: 2
+  type: real

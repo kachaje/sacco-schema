@@ -143,6 +143,7 @@ var (
 		"totalValue",
 		"transport",
 		"utilities",
+		"value",
 		"value1",
 		"value2",
 		"yearsInBusiness",

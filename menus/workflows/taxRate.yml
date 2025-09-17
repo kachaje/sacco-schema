@@ -1,0 +1,28 @@
+cacheQueries:
+  id: taxRate.id
+  name: taxRate.name
+  value: taxRate.value
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterName:
+  inputIdentifier: name
+  nextScreen: enterValue
+  order: 1
+  text:
+    en: Name
+  type: inputScreen
+enterValue:
+  inputIdentifier: value
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Value
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterName
+model: taxRate
+rootQuery: taxRate

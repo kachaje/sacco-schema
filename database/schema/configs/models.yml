@@ -1482,6 +1482,18 @@ sharesDepositWithdraw:
         numericField: true
         order: 4
   rootQuery: member.savingsType.memberSaving.0.sharesDepositWithdraw.0
+taxRate:
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - name:
+        order: 1
+        type: text
+    - value:
+        numericField: true
+        order: 2
+  rootQuery: taxRate
 user:
   fields:
     - id:
