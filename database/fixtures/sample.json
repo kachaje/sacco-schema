@@ -57,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM086580",
+    "memberIdNumber": "KSM434674",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +66,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN502738",
+        "loanNumber": "KLN404667",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -114,15 +114,15 @@
         "memberLoanApproval": {
           "amountRecommended": 10000,
           "approvedBy": "admin",
-          "dateOfApproval": "2025-09-17 08:04:12",
+          "dateOfApproval": "2025-09-17 10:16:03",
           "id": 1,
-          "loanNumber": "KLN502738",
+          "loanNumber": "KLN404667",
           "loanStatus": "PARTIAL-APPROVAL",
           "memberLoanId": 1,
           "memberLoanVerification": {
-            "dateVerified": "2025-09-17 08:04:12",
+            "dateVerified": "2025-09-17 10:16:03",
             "id": 1,
-            "loanNumber": "KLN502738",
+            "loanNumber": "KLN404667",
             "memberLoanApprovalId": 1,
             "verified": "Yes",
             "verifiedBy": "admin"
@@ -131,8 +131,8 @@
         },
         "memberLoanDisbursement": {
           "amount": 10000,
-          "date": "2025-09-17 08:04:12",
-          "description": "Disbursement for loan number KLN502738",
+          "date": "2025-09-17 10:16:03",
+          "description": "Disbursement for loan number KLN404667",
           "id": 1,
           "memberLoanId": 1
         },
@@ -150,6 +150,14 @@
             "value": 50000
           }
         },
+        "memberLoanProcessingFee": {
+          "1": {
+            "amount": 500,
+            "date": "2025-09-17 10:16:03",
+            "id": 1,
+            "memberLoanId": 1
+          }
+        },
         "memberLoanSecurity": {
           "1": {
             "description": "Security 1",
@@ -164,6 +172,15 @@
             "memberLoanId": 1,
             "serialNumber": "456789",
             "value": 50000
+          }
+        },
+        "memberLoanTax": {
+          "1": {
+            "amount": 165,
+            "date": "2025-09-17 10:16:03",
+            "description": "Disbursement for loan number KLN404667",
+            "id": 1,
+            "memberLoanId": 1
           }
         },
         "memberLoanWitness": {

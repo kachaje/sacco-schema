@@ -52,12 +52,32 @@ func deleteLoanNumber(target map[string]any) {
 							}
 
 							if v1["memberLoanDisbursement"] != nil {
-								if vl, ok := v1["memberLoanDisbursement"].(map[string]any); ok {
-									if vl["date"] != nil {
-										delete(vl, "date")
+								if vc, ok := v1["memberLoanDisbursement"].(map[string]any); ok {
+									if vc["date"] != nil {
+										delete(vc, "date")
 									}
-									if vl["description"] != nil {
-										delete(vl, "description")
+									if vc["description"] != nil {
+										delete(vc, "description")
+									}
+								}
+							}
+
+							for _, model := range []string{
+								"memberLoanProcessingFee",
+								"memberLoanTax",
+							} {
+								if v1[model] != nil {
+									if vc, ok := v1[model].(map[string]any); ok {
+										for _, v := range vc {
+											if vs, ok := v.(map[string]any); ok {
+												if vs["date"] != nil {
+													delete(vs, "date")
+												}
+												if vs["description"] != nil {
+													delete(vs, "description")
+												}
+											}
+										}
 									}
 								}
 							}
