@@ -11,4 +11,13 @@ FROM
 WHERE
   v.id = NEW.id;
 
+INSERT INTO
+  memberLoanProcessingFee (memberLoanId, amount)
+SELECT
+  l.id AS memberLoanId,
+  l.processingFeeRate * a.amountRecommended AS amount
+FROM
+  memberLoan l
+  LEFT JOIN memberLoanApproval a;
+
 END;
