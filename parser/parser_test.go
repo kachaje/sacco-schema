@@ -808,7 +808,7 @@ func TestLoadDynaDefault(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := fmt.Appendf(nil, "%v", result)
 
-		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "loanNumber.txt"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanNumber.txt"))

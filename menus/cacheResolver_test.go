@@ -84,6 +84,8 @@ func TestResolveCacheDataFlat(t *testing.T) {
 
 	result := menus.ResolveCacheData(data, "member.")
 
+	delete(result, "memberIdNumber")
+
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 

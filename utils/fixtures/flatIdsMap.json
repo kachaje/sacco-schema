@@ -8,8 +8,8 @@
     "value": "1"
   },
   "memberDependantId": {
-    "key": "member.memberDependant.1.id",
-    "value": "1"
+    "key": "member.memberDependant.2.id",
+    "value": "2"
   },
   "memberId": {
     "key": "member.id",
@@ -36,11 +36,7 @@
     "value": "2"
   },
   "memberLoanPaymentScheduleId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.8.id",
-    "value": "8"
-  },
-  "memberLoanProcessingFeeId": {
-    "key": "member.memberLoan.1.memberLoanProcessingFee.1.id",
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.1.id",
     "value": "1"
   },
   "memberLoanSecurityId": {
