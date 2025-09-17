@@ -166,27 +166,6 @@ VALUES
   );
 
 INSERT INTO
-  memberLoanApproval (
-    memberLoanId,
-    loanNumber,
-    loanStatus,
-    amountRecommended,
-    approvedBy,
-    dateOfApproval,
-    amountRecommended
-  )
-VALUES
-  (
-    1,
-    (SELECT loanNumber FROM memberLoan WHERE id = 1),
-    "APPROVED",
-    200000,
-    "me",
-    "2025-08-30",
-    200000
-  );
-
-INSERT INTO
   memberOccupation (
     memberLoanId,
     employerName,
@@ -284,5 +263,53 @@ VALUES
 INSERT INTO
   memberLoanWitness (memberLoanId, witnessName, telephone, date)
 VALUES
-  (1, "Witness 1", "09928388727", "2025-09-15 14:21:52"),
-  (1, "Witness 2", "08858574646", "2025-09-15 14:21:52");
+  (
+    1,
+    "Witness 1",
+    "09928388727",
+    "2025-09-15 14:21:52"
+  ),
+  (
+    1,
+    "Witness 2",
+    "08858574646",
+    "2025-09-15 14:21:52"
+  );
+
+INSERT INTO
+  memberLoanApproval (
+    memberLoanId,
+    loanNumber,
+    loanStatus,
+    amountRecommended,
+    partialApprovalReason,
+    approvedBy
+  )
+SELECT
+  id AS memberLoanId,
+  loanNumber,
+  "PARTIAL-APPROVAL",
+  10000,
+  "Shortage of funds",
+  "admin"
+FROM
+  memberLoan
+WHERE
+  id = 1;
+
+INSERT INTO
+  memberLoanVerification (
+    memberLoanApprovalId,
+    loanNumber,
+    verified,
+    verifiedBy
+  )
+SELECT
+  id,
+  loanNumber,
+  "Yes",
+  "admin"
+FROM
+  memberLoanApproval
+WHERE
+  id = 1;
