@@ -646,7 +646,6 @@ memberLoan:
     - memberLoanInsurance
     - memberLoanLiability
     - memberLoanPaymentSchedule
-    - memberLoanProcessingFee
     - memberLoanSecurity
     - memberLoanTax
     - memberLoanWitness
@@ -710,35 +709,6 @@ memberLoanApproval:
   hasOne:
     - memberLoanVerification
   rootQuery: member.memberLoan.0.memberLoanApproval
-memberLoanComponent:
-  belongsTo:
-    - memberLoanReceipt
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberLoanReceiptId:
-        hidden: true
-        order: 1
-    - loanComponent:
-        options:
-          - Interest
-          - Instalment
-          - Insurance
-        order: 2
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 3
-        type: text
-    - amount:
-        numericField: true
-        order: 4
-    - paid:
-        hidden: true
-        order: 5
-  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.memberLoanComponent.0
 memberLoanDisbursement:
   belongsTo:
     - memberLoan
@@ -784,6 +754,66 @@ memberLoanInsurance:
         numericField: true
         order: 4
   rootQuery: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0
+memberLoanInvoice:
+  belongsTo:
+    - memberLoanPaymentSchedule
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberLoanPaymentScheduleId:
+        hidden: true
+        order: 1
+    - loanNumber:
+        dynamicDefault: memberLoan@loanNumber
+        matchModel: memberLoan
+        order: 2
+        type: text
+    - description:
+        order: 3
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 4
+        type: text
+    - amount:
+        numericField: true
+        order: 5
+  hasMany:
+    - memberLoanInvoiceDetail
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0
+memberLoanInvoiceDetail:
+  belongsTo:
+    - memberLoanInvoice
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberLoanInvoiceId:
+        hidden: true
+        order: 1
+    - loanComponent:
+        options:
+          - Interest
+          - Instalment
+          - Insurance
+          - Processing Fee
+        order: 2
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 3
+        type: text
+    - billedAmount:
+        numericField: true
+        order: 4
+    - paidAmount:
+        numericField: true
+        optional: true
+        order: 5
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0
 memberLoanLiability:
   arrayFields:
     - id1:
@@ -859,56 +889,8 @@ memberLoanPaymentSchedule:
         numericField: true
         order: 7
   hasMany:
-    - memberLoanReceipt
+    - memberLoanInvoice
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
-memberLoanProcessingFee:
-  belongsTo:
-    - memberLoan
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberLoanId:
-        hidden: true
-        order: 1
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 2
-        type: text
-    - amount:
-        numericField: true
-        order: 3
-  rootQuery: member.memberLoan.0.memberLoanProcessingFee.0
-memberLoanReceipt:
-  belongsTo:
-    - memberLoanPaymentSchedule
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberLoanPaymentScheduleId:
-        hidden: true
-        order: 1
-    - loanNumber:
-        dynamicDefault: memberLoan@loanNumber
-        matchModel: memberLoan
-        order: 2
-        type: text
-    - description:
-        order: 3
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 4
-        type: text
-    - amount:
-        numericField: true
-        order: 5
-  hasMany:
-    - memberLoanComponent
-  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0
 memberLoanSecurity:
   arrayFields:
     - id1:

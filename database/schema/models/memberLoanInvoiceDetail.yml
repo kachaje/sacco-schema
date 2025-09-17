@@ -1,0 +1,34 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+memberLoanInvoiceId:
+  many: true
+  order: 1
+  referenceTable: memberLoanInvoice
+  type: int
+
+loanComponent:
+  options:
+    - Interest
+    - Instalment
+    - Insurance
+    - Processing Fee
+  order: 2
+  type: text
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 3
+  type: text
+
+billedAmount:
+  order: 4
+  type: real
+
+paidAmount:
+  default: "0"
+  order: 5
+  type: real

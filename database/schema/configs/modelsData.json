@@ -695,45 +695,6 @@
     "model": "memberLoanApproval",
     "parents": ["memberLoan"]
   },
-  "memberLoanComponent": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanComponent": {
-        "options": ["Interest", "Instalment", "Insurance"],
-        "order": 2,
-        "type": "text"
-      },
-      "memberLoanReceiptId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberLoanReceipt",
-        "type": "int"
-      },
-      "paid": {
-        "default": "No",
-        "options": ["Yes", "No"],
-        "order": 5,
-        "type": "text"
-      }
-    },
-    "many": true,
-    "model": "memberLoanComponent",
-    "parents": ["memberLoanReceipt"]
-  },
   "memberLoanDisbursement": {
     "fields": {
       "amount": {
@@ -800,6 +761,82 @@
     "many": true,
     "model": "memberLoanInsurance",
     "parents": ["memberLoan", "insuranceProvider"]
+  },
+  "memberLoanInvoice": {
+    "fields": {
+      "amount": {
+        "order": 5,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 4,
+        "type": "text"
+      },
+      "description": {
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanNumber": {
+        "dynamicDefault": "memberLoan@loanNumber",
+        "matchModel": "memberLoan",
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanPaymentScheduleId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberLoanPaymentSchedule",
+        "type": "int"
+      }
+    },
+    "many": true,
+    "model": "memberLoanInvoice",
+    "parents": ["memberLoanPaymentSchedule"]
+  },
+  "memberLoanInvoiceDetail": {
+    "fields": {
+      "billedAmount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanComponent": {
+        "options": ["Interest", "Instalment", "Insurance", "Processing Fee"],
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanInvoiceId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberLoanInvoice",
+        "type": "int"
+      },
+      "paidAmount": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
+      }
+    },
+    "many": true,
+    "model": "memberLoanInvoiceDetail",
+    "parents": ["memberLoanInvoice"]
   },
   "memberLoanLiability": {
     "fields": {
@@ -875,72 +912,6 @@
     "many": true,
     "model": "memberLoanPaymentSchedule",
     "parents": ["memberLoan"]
-  },
-  "memberLoanProcessingFee": {
-    "fields": {
-      "amount": {
-        "order": 3,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberLoanId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberLoan",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "memberLoanProcessingFee",
-    "parents": ["memberLoan"]
-  },
-  "memberLoanReceipt": {
-    "fields": {
-      "amount": {
-        "order": 5,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 4,
-        "type": "text"
-      },
-      "description": {
-        "order": 3,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanNumber": {
-        "dynamicDefault": "memberLoan@loanNumber",
-        "matchModel": "memberLoan",
-        "order": 2,
-        "type": "text"
-      },
-      "memberLoanPaymentScheduleId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberLoanPaymentSchedule",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "memberLoanReceipt",
-    "parents": ["memberLoanPaymentSchedule"]
   },
   "memberLoanSecurity": {
     "fields": {

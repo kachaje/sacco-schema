@@ -37,7 +37,6 @@
       "memberLoanInsurance",
       "memberLoanLiability",
       "memberLoanPaymentSchedule",
-      "memberLoanProcessingFee",
       "memberLoanSecurity",
       "memberLoanTax",
       "memberLoanWitness"
@@ -52,11 +51,11 @@
   "memberLoanApproval": {
     "singleChildren": ["memberLoanVerification"]
   },
-  "memberLoanPaymentSchedule": {
-    "arrayChildren": ["memberLoanReceipt"]
+  "memberLoanInvoice": {
+    "arrayChildren": ["memberLoanInvoiceDetail"]
   },
-  "memberLoanReceipt": {
-    "arrayChildren": ["memberLoanComponent"]
+  "memberLoanPaymentSchedule": {
+    "arrayChildren": ["memberLoanInvoice"]
   },
   "memberLoanType": {},
   "memberOccupation": {

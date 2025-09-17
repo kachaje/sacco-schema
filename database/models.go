@@ -37,16 +37,15 @@ var (
 		"memberLoanInsurance",
 		"memberLoanLiability",
 		"memberLoanPaymentSchedule",
-		"memberLoanProcessingFee",
 		"memberLoanSecurity",
 		"memberLoanTax",
 		"memberLoanWitness",
 	}
-	MemberLoanPaymentScheduleArrayChildren = []string{
-		"memberLoanReceipt",
+	MemberLoanInvoiceArrayChildren = []string{
+		"memberLoanInvoiceDetail",
 	}
-	MemberLoanReceiptArrayChildren = []string{
-		"memberLoanComponent",
+	MemberLoanPaymentScheduleArrayChildren = []string{
+		"memberLoanInvoice",
 	}
 	MemberLoanSingleChildren = []string{
 		"memberBusiness",
@@ -94,8 +93,8 @@ var (
 		"InsuranceProviderArrayChildren":         InsuranceProviderArrayChildren,
 		"MemberArrayChildren":                    MemberArrayChildren,
 		"MemberLoanArrayChildren":                MemberLoanArrayChildren,
+		"MemberLoanInvoiceArrayChildren":         MemberLoanInvoiceArrayChildren,
 		"MemberLoanPaymentScheduleArrayChildren": MemberLoanPaymentScheduleArrayChildren,
-		"MemberLoanReceiptArrayChildren":         MemberLoanReceiptArrayChildren,
 		"MemberSavingArrayChildren":              MemberSavingArrayChildren,
 		"SavingsTypeArrayChildren":               SavingsTypeArrayChildren,
 	}
@@ -105,6 +104,7 @@ var (
 		"amountRecommended",
 		"amountSize",
 		"balance",
+		"billedAmount",
 		"claimed",
 		"closingBalance",
 		"direction",
@@ -131,6 +131,7 @@ var (
 		"numberOfShares",
 		"otherCosts",
 		"ownSalary",
+		"paidAmount",
 		"penaltyRate",
 		"percentage1",
 		"percentage2",
@@ -194,9 +195,6 @@ var (
 		"memberLoanApproval": {
 			"memberLoan",
 		},
-		"memberLoanComponent": {
-			"memberLoanReceipt",
-		},
 		"memberLoanDisbursement": {
 			"memberLoan",
 		},
@@ -204,17 +202,17 @@ var (
 			"memberLoan",
 			"insuranceProvider",
 		},
+		"memberLoanInvoice": {
+			"memberLoanPaymentSchedule",
+		},
+		"memberLoanInvoiceDetail": {
+			"memberLoanInvoice",
+		},
 		"memberLoanLiability": {
 			"memberLoan",
 		},
 		"memberLoanPaymentSchedule": {
 			"memberLoan",
-		},
-		"memberLoanProcessingFee": {
-			"memberLoan",
-		},
-		"memberLoanReceipt": {
-			"memberLoanPaymentSchedule",
 		},
 		"memberLoanSecurity": {
 			"memberLoan",
