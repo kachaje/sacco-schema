@@ -42,6 +42,23 @@ func deleteLoanNumber(target map[string]any) {
 									if vl["loanNumber"] != nil {
 										delete(vl, "loanNumber")
 									}
+									if vl["dateOfApproval"] != nil {
+										delete(vl, "dateOfApproval")
+									}
+									if vl["memberLoanVerification"] != nil {
+										delete(vl, "memberLoanVerification")
+									}
+								}
+							}
+
+							if v1["memberLoanDisbursement"] != nil {
+								if vl, ok := v1["memberLoanDisbursement"].(map[string]any); ok {
+									if vl["date"] != nil {
+										delete(vl, "date")
+									}
+									if vl["description"] != nil {
+										delete(vl, "description")
+									}
 								}
 							}
 						}

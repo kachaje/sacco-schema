@@ -57,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM242089",
+    "memberIdNumber": "KSM333106",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +66,6 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN678223",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -112,12 +111,26 @@
         },
         "memberId": 1,
         "memberLoanApproval": {
-          "amountRecommended": 200000,
-          "approvedBy": "me",
-          "dateOfApproval": "2025-08-30",
+          "amountRecommended": 10000,
+          "approvedBy": "admin",
+          "dateOfApproval": "2025-09-17 07:14:56",
           "id": 1,
-          "loanNumber": "KLN678223",
-          "loanStatus": "APPROVED",
+          "loanStatus": "PARTIAL-APPROVAL",
+          "memberLoanId": 1,
+          "memberLoanVerification": {
+            "dateVerified": "2025-09-17 07:14:56",
+            "id": 1,
+            "memberLoanApprovalId": 1,
+            "verified": "Yes",
+            "verifiedBy": "admin"
+          },
+          "partialApprovalReason": "Shortage of funds"
+        },
+        "memberLoanDisbursement": {
+          "amount": 10000,
+          "date": "2025-09-17 07:14:56",
+          "description": "Disbursement for loan number KLN181521",
+          "id": 1,
           "memberLoanId": 1
         },
         "memberLoanLiability": {
