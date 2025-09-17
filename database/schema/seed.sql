@@ -98,3 +98,8 @@ FROM
   cnt
 ORDER BY
   RANDOM ();
+
+INSERT INTO
+  taxRate (name, value)
+VALUES
+  ("VAT", 16.5);
