@@ -804,6 +804,10 @@
         "primaryKey": true,
         "type": "int"
       },
+      "instalment": {
+        "order": 8,
+        "type": "real"
+      },
       "insurance": {
         "order": 6,
         "type": "real"

@@ -1,6 +1,7 @@
 cacheQueries:
   dueDate1: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
   id1: member.memberLoan.0.memberLoanPaymentSchedule.0.id
+  instalment1: member.memberLoan.0.memberLoanPaymentSchedule.0.instalment
   insurance1: member.memberLoan.0.memberLoanPaymentSchedule.0.insurance
   interest1: member.memberLoan.0.memberLoanPaymentSchedule.0.interest
   memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
@@ -18,6 +19,14 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
+enterInstalment1:
+  inputIdentifier: instalment1
+  nextScreen: formSummary
+  order: 6
+  text:
+    en: Instalment
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterInsurance1:
   inputIdentifier: insurance1
   nextScreen: enterProcessingFee1
@@ -52,7 +61,7 @@ enterPrincipal1:
   validationRule: ^\d+\.*\d*$
 enterProcessingFee1:
   inputIdentifier: processingFee1
-  nextScreen: formSummary
+  nextScreen: enterInstalment1
   optional: true
   order: 5
   text:

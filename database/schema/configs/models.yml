@@ -829,6 +829,9 @@ memberLoanPaymentSchedule:
         numericField: true
         optional: true
         order: 7
+    - instalment:
+        numericField: true
+        order: 8
   hasMany:
     - memberLoanReceipt
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0

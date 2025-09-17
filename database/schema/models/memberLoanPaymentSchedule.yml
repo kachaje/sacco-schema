@@ -39,3 +39,7 @@ processingFee:
   default: "0"
   order: 7
   type: real
+
+instalment:
+  order: 8
+  type: real

@@ -482,6 +482,7 @@ CREATE TABLE IF NOT EXISTS memberLoanPaymentSchedule (
     interest REAL NOT NULL,
     insurance REAL NOT NULL,
     processingFee REAL DEFAULT 0,
+    instalment REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

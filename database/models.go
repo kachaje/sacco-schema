@@ -107,6 +107,7 @@ var (
 		"employeeWages",
 		"financialYear",
 		"grossPay",
+		"instalment",
 		"insurance",
 		"interest",
 		"loanAmount",

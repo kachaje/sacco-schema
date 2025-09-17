@@ -60,15 +60,6 @@ WITH RECURSIVE
           a.id = NEW.id
       )
   )
-INSERT INTO
-  memberLoanPaymentSchedule (
-    memberLoanId,
-    dueDate,
-    principal,
-    interest,
-    insurance,
-    processingFee
-  )
 SELECT
   i.memberLoanId,
   DATE (

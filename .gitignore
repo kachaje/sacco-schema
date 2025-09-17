@@ -9,3 +9,4 @@ convert
 group*.json
 cli
 svr
+test.sql
