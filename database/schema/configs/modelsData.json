@@ -981,6 +981,7 @@
       "monthlyInterestRate": {
         "default": "0.05",
         "order": 8,
+        "taxable": true,
         "type": "real"
       },
       "name": {
@@ -997,6 +998,7 @@
       "penaltyRate": {
         "default": "0.1",
         "order": 7,
+        "taxable": true,
         "type": "real"
       },
       "periodLimitInMonths": {
@@ -1006,6 +1008,7 @@
       "processingFeeRate": {
         "default": "0.05",
         "order": 6,
+        "taxable": true,
         "type": "real"
       }
     },

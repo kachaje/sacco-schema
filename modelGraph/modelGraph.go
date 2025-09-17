@@ -312,7 +312,7 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 									if vf, ok := v.(map[string]any); ok {
 										for kf, vf := range vf {
 											switch strings.TrimSpace(kf) {
-											case "dynamicDefault":
+											case "dynamicDefault", "taxable":
 												row[kf] = vf
 											case "hidden":
 												row["optional"] = true

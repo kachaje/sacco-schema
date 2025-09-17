@@ -1575,21 +1575,24 @@
         "processingFeeRate": {
           "numericField": true,
           "optional": true,
-          "order": 6
+          "order": 6,
+          "taxable": true
         }
       },
       {
         "penaltyRate": {
           "numericField": true,
           "optional": true,
-          "order": 7
+          "order": 7,
+          "taxable": true
         }
       },
       {
         "monthlyInterestRate": {
           "numericField": true,
           "optional": true,
-          "order": 8
+          "order": 8,
+          "taxable": true
         }
       },
       {
