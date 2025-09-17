@@ -21,8 +21,9 @@ FROM
   LEFT JOIN memberLoanApproval a;
 
 INSERT INTO
-  memberLoanTax (amount, description)
+  memberLoanTax (memberLoanId, amount, description)
 SELECT
+  memberLoanId,
   amount * (
     SELECT
       value
