@@ -805,7 +805,18 @@ func TestLoadDynaDefault(t *testing.T) {
 		t.Fatal("Test failed")
 	}
 
-	target := "KLN460196"
+	if os.Getenv("DEBUG") == "true" {
+		payload := fmt.Appendf(nil, "%v", result)
+
+		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanNumber.txt"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
 
 	if result.(string) != target {
 		t.Fatalf("Test failed. Expecting: %s; Actual: %v", target, result)
