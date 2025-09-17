@@ -813,12 +813,22 @@ memberLoanPaymentSchedule:
     - dueDate:
         order: 2
         type: text
-    - amountDue:
-        numericField: true
-        order: 3
     - paid:
         hidden: true
+        order: 3
+    - principal:
+        numericField: true
         order: 4
+    - interest:
+        numericField: true
+        order: 5
+    - insurance:
+        numericField: true
+        order: 6
+    - processingFee:
+        numericField: true
+        optional: true
+        order: 7
   hasMany:
     - memberLoanReceipt
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0

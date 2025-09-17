@@ -36,6 +36,14 @@
       "parent": "1",
       "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003etaxRate\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003evalue (REAL)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
     },
+    "S3g4H0ixQyDzbknx_vcE-2": {
+      "parent": "1",
+      "value": ""
+    },
+    "S3g4H0ixQyDzbknx_vcE-3": {
+      "parent": "1",
+      "value": ""
+    },
     "VWTOzFLMBTiaBGIDhV4F-2": {
       "parent": "1",
       "value": ""
@@ -178,7 +186,7 @@
     },
     "sz-M_Azw0uYvEaWHzbE8-37": {
       "parent": "1",
-      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanPaymentSchedule\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003ememberLoanId (INT;many:true;hidden:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edueDate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eamountDue (REAL)\u003cbr\u003epaid (TEXT;options:Yes,No;default:No)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003ememberLoanPaymentSchedule\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003ememberLoanId (INT;many:true;hidden:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edueDate (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003epaid (TEXT;options:Yes,No;default:No)\u003cbr\u003eprincipal (REAL)\u003cbr\u003einterest (REAL)\u003cbr\u003einsurance (REAL)\u003cbr\u003eprocessingFee (REAL;default:0)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
     },
     "sz-M_Azw0uYvEaWHzbE8-38": {
       "parent": "1",
@@ -319,14 +327,6 @@
     "sz-M_Azw0uYvEaWHzbE8-8": {
       "parent": "1",
       "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccount\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003enumber (INT)\u003cbr\u003enormal (INT)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
-    },
-    "sz-M_Azw0uYvEaWHzbE8-85": {
-      "parent": "1",
-      "value": ""
-    },
-    "sz-M_Azw0uYvEaWHzbE8-86": {
-      "parent": "1",
-      "value": ""
     },
     "sz-M_Azw0uYvEaWHzbE8-88": {
       "parent": "1",

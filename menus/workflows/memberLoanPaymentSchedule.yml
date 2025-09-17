@@ -1,20 +1,15 @@
 cacheQueries:
-  amountDue1: member.memberLoan.0.memberLoanPaymentSchedule.0.amountDue
   dueDate1: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
   id1: member.memberLoan.0.memberLoanPaymentSchedule.0.id
+  insurance1: member.memberLoan.0.memberLoanPaymentSchedule.0.insurance
+  interest1: member.memberLoan.0.memberLoanPaymentSchedule.0.interest
   memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
   paid1: member.memberLoan.0.memberLoanPaymentSchedule.0.paid
-enterAmountDue1:
-  inputIdentifier: amountDue1
-  nextScreen: formSummary
-  order: 2
-  text:
-    en: Amount Due
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  principal1: member.memberLoan.0.memberLoanPaymentSchedule.0.principal
+  processingFee1: member.memberLoan.0.memberLoanPaymentSchedule.0.processingFee
 enterDueDate1:
   inputIdentifier: dueDate1
-  nextScreen: enterAmountDue1
+  nextScreen: enterPrincipal1
   order: 1
   text:
     en: Due Date
@@ -23,6 +18,22 @@ enterId1:
   hidden: true
   inputIdentifier: id1
   type: hiddenField
+enterInsurance1:
+  inputIdentifier: insurance1
+  nextScreen: enterProcessingFee1
+  order: 4
+  text:
+    en: Insurance
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterInterest1:
+  inputIdentifier: interest1
+  nextScreen: enterInsurance1
+  order: 3
+  text:
+    en: Interest
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
@@ -31,6 +42,23 @@ enterPaid1:
   hidden: true
   inputIdentifier: paid1
   type: hiddenField
+enterPrincipal1:
+  inputIdentifier: principal1
+  nextScreen: enterInterest1
+  order: 2
+  text:
+    en: Principal
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterProcessingFee1:
+  inputIdentifier: processingFee1
+  nextScreen: formSummary
+  optional: true
+  order: 5
+  text:
+    en: Processing Fee
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
 initialScreen: enterDueDate1

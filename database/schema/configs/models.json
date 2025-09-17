@@ -1301,15 +1301,34 @@
         }
       },
       {
-        "amountDue": {
-          "numericField": true,
+        "paid": {
+          "hidden": true,
           "order": 3
         }
       },
       {
-        "paid": {
-          "hidden": true,
+        "principal": {
+          "numericField": true,
           "order": 4
+        }
+      },
+      {
+        "interest": {
+          "numericField": true,
+          "order": 5
+        }
+      },
+      {
+        "insurance": {
+          "numericField": true,
+          "order": 6
+        }
+      },
+      {
+        "processingFee": {
+          "numericField": true,
+          "optional": true,
+          "order": 7
         }
       }
     ],

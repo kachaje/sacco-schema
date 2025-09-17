@@ -794,10 +794,6 @@
   },
   "memberLoanPaymentSchedule": {
     "fields": {
-      "amountDue": {
-        "order": 3,
-        "type": "real"
-      },
       "dueDate": {
         "order": 2,
         "type": "text"
@@ -807,6 +803,14 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "insurance": {
+        "order": 6,
+        "type": "real"
+      },
+      "interest": {
+        "order": 5,
+        "type": "real"
       },
       "memberLoanId": {
         "hidden": true,
@@ -818,8 +822,17 @@
       "paid": {
         "default": "No",
         "options": ["Yes", "No"],
-        "order": 4,
+        "order": 3,
         "type": "text"
+      },
+      "principal": {
+        "order": 4,
+        "type": "real"
+      },
+      "processingFee": {
+        "default": "0",
+        "order": 7,
+        "type": "real"
       }
     },
     "many": true,

@@ -97,7 +97,6 @@ var (
 	}
 	FloatFields = []string{
 		"amount",
-		"amountDue",
 		"amountLimit",
 		"amountRecommended",
 		"amountSize",
@@ -108,6 +107,8 @@ var (
 		"employeeWages",
 		"financialYear",
 		"grossPay",
+		"insurance",
+		"interest",
 		"loanAmount",
 		"loanInterest",
 		"maxInstalmentMonths",
@@ -132,6 +133,8 @@ var (
 		"percentage4",
 		"periodEmployedInMonths",
 		"periodLimitInMonths",
+		"principal",
+		"processingFee",
 		"processingFeeRate",
 		"rentals",
 		"repaymentPeriodInMonths",
