@@ -20,4 +20,21 @@ FROM
   memberLoan l
   LEFT JOIN memberLoanApproval a;
 
+INSERT INTO
+  memberLoanTax (amount, description)
+SELECT
+  amount * (
+    SELECT
+      value
+    FROM
+      taxRate
+    WHERE
+      name = "VAT"
+    LIMIT
+      1
+  ),
+  description
+FROM
+  memberLoanDisbursement;
+
 END;
