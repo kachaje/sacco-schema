@@ -57,7 +57,17 @@ WITH RECURSIVE
           id = 1
       )
   )
+INSERT INTO
+  memberLoanPaymentSchedule (
+    memberLoanId,
+    dueDate,
+    principal,
+    interest,
+    insurance,
+    processingFee
+  )
 SELECT
+  i.memberLoanId,
   DATE (
     current_timestamp,
     CONCAT ('+', x, ' month'),
@@ -74,6 +84,7 @@ FROM
   cnt,
   (
     SELECT
+      l.id AS memberLoanId,
       a.amountRecommended / l.repaymentPeriodInMonths AS instalment,
       l.repaymentPeriodInMonths,
       a.amountRecommended,
