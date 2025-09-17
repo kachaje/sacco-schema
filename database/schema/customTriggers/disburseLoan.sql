@@ -18,7 +18,9 @@ SELECT
   l.processingFeeRate * a.amountRecommended AS amount
 FROM
   memberLoan l
-  LEFT JOIN memberLoanApproval a;
+  LEFT JOIN memberLoanApproval a
+WHERE
+  a.memberLoanId = l.id;
 
 INSERT INTO
   memberLoanTax (memberLoanId, amount, description)
@@ -50,11 +52,12 @@ WITH RECURSIVE
     LIMIT
       (
         SELECT
-          repaymentPeriodInMonths
+          l.repaymentPeriodInMonths
         FROM
-          memberLoan
+          memberLoan l
+          LEFT JOIN memberLoanApproval a ON a.memberLoanId = l.id
         WHERE
-          id = 1
+          a.id = NEW.id
       )
   )
 INSERT INTO
@@ -69,7 +72,7 @@ INSERT INTO
 SELECT
   i.memberLoanId,
   DATE (
-    current_timestamp,
+    CURRENT_TIMESTAMP,
     CONCAT ('+', x, ' month'),
     'start of month'
   ) AS dueDate,
