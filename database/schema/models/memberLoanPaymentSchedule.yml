@@ -15,31 +15,23 @@ dueDate:
   order: 2
   type: text
 
-paid:
-  default: "No"
-  options:
-    - "Yes"
-    - "No"
-  order: 3
-  type: text
-
 principal:
-  order: 4
+  order: 3
   type: real
 
 interest:
-  order: 5
+  order: 4
   type: real
 
 insurance:
-  order: 6
+  order: 5
   type: real
 
 processingFee:
   default: "0"
-  order: 7
+  order: 6
   type: real
 
 instalment:
-  order: 8
+  order: 7
   type: real

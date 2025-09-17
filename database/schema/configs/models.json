@@ -1120,6 +1120,51 @@
     "hasOne": ["memberLoanVerification"],
     "rootQuery": "member.memberLoan.0.memberLoanApproval"
   },
+  "memberLoanComponent": {
+    "belongsTo": ["memberLoanReceipt"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberLoanReceiptId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "loanComponent": {
+          "options": ["Interest", "Instalment", "Insurance"],
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "date": {
+          "default": "CURRENT_TIMESTAMP",
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "paid": {
+          "hidden": true,
+          "order": 5
+        }
+      }
+    ],
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0.memberLoanComponent.0"
+  },
   "memberLoanDisbursement": {
     "belongsTo": ["memberLoan"],
     "fields": [
@@ -1301,40 +1346,34 @@
         }
       },
       {
-        "paid": {
-          "hidden": true,
-          "order": 3
-        }
-      },
-      {
         "principal": {
           "numericField": true,
-          "order": 4
+          "order": 3
         }
       },
       {
         "interest": {
           "numericField": true,
-          "order": 5
+          "order": 4
         }
       },
       {
         "insurance": {
           "numericField": true,
-          "order": 6
+          "order": 5
         }
       },
       {
         "processingFee": {
           "numericField": true,
           "optional": true,
-          "order": 7
+          "order": 6
         }
       },
       {
         "instalment": {
           "numericField": true,
-          "order": 8
+          "order": 7
         }
       }
     ],
@@ -1389,8 +1428,16 @@
         }
       },
       {
-        "description": {
+        "loanNumber": {
+          "dynamicDefault": "memberLoan@loanNumber",
+          "matchModel": "memberLoan",
           "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "order": 3,
           "type": "text"
         }
       },
@@ -1398,17 +1445,18 @@
         "date": {
           "default": "CURRENT_TIMESTAMP",
           "optional": true,
-          "order": 3,
+          "order": 4,
           "type": "text"
         }
       },
       {
         "amount": {
           "numericField": true,
-          "order": 4
+          "order": 5
         }
       }
     ],
+    "hasMany": ["memberLoanComponent"],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanReceipt.0"
   },
   "memberLoanSecurity": {

@@ -1,0 +1,36 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+memberLoanReceiptId:
+  many: true
+  order: 1
+  referenceTable: memberLoanReceipt
+  type: int
+
+loanComponent:
+  options:
+    - Interest
+    - Instalment
+    - Insurance
+  order: 2
+  type: text
+
+date:
+  default: CURRENT_TIMESTAMP
+  order: 3
+  type: text
+
+amount:
+  order: 4
+  type: real
+
+paid:
+  default: "No"
+  options:
+    - "Yes"
+    - "No"
+  order: 5
+  type: text

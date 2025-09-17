@@ -695,6 +695,45 @@
     "model": "memberLoanApproval",
     "parents": ["memberLoan"]
   },
+  "memberLoanComponent": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanComponent": {
+        "options": ["Interest", "Instalment", "Insurance"],
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanReceiptId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberLoanReceipt",
+        "type": "int"
+      },
+      "paid": {
+        "default": "No",
+        "options": ["Yes", "No"],
+        "order": 5,
+        "type": "text"
+      }
+    },
+    "many": true,
+    "model": "memberLoanComponent",
+    "parents": ["memberLoanReceipt"]
+  },
   "memberLoanDisbursement": {
     "fields": {
       "amount": {
@@ -805,15 +844,15 @@
         "type": "int"
       },
       "instalment": {
-        "order": 8,
+        "order": 7,
         "type": "real"
       },
       "insurance": {
-        "order": 6,
+        "order": 5,
         "type": "real"
       },
       "interest": {
-        "order": 5,
+        "order": 4,
         "type": "real"
       },
       "memberLoanId": {
@@ -823,19 +862,13 @@
         "referenceTable": "memberLoan",
         "type": "int"
       },
-      "paid": {
-        "default": "No",
-        "options": ["Yes", "No"],
-        "order": 3,
-        "type": "text"
-      },
       "principal": {
-        "order": 4,
+        "order": 3,
         "type": "real"
       },
       "processingFee": {
         "default": "0",
-        "order": 7,
+        "order": 6,
         "type": "real"
       }
     },
@@ -874,16 +907,16 @@
   "memberLoanReceipt": {
     "fields": {
       "amount": {
-        "order": 4,
+        "order": 5,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 3,
+        "order": 4,
         "type": "text"
       },
       "description": {
-        "order": 2,
+        "order": 3,
         "type": "text"
       },
       "id": {
@@ -891,6 +924,12 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "loanNumber": {
+        "dynamicDefault": "memberLoan@loanNumber",
+        "matchModel": "memberLoan",
+        "order": 2,
+        "type": "text"
       },
       "memberLoanPaymentScheduleId": {
         "many": true,

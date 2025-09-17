@@ -407,6 +407,31 @@ WHERE
 
 END;
 
+CREATE TABLE IF NOT EXISTS memberLoanComponent (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanReceiptId INTEGER NOT NULL,
+    loanComponent TEXT NOT NULL CHECK (
+        loanComponent IN ('Interest', 'Instalment', 'Insurance')
+    ),
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    paid TEXT DEFAULT No CHECK (paid IN ('Yes', 'No')),
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanReceiptId) REFERENCES memberLoanReceipt (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberLoanComponentUpdated AFTER
+UPDATE ON memberLoanComponent FOR EACH ROW BEGIN
+UPDATE memberLoanComponent
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
 CREATE TABLE IF NOT EXISTS memberLoanDisbursement (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
@@ -477,7 +502,6 @@ CREATE TABLE IF NOT EXISTS memberLoanPaymentSchedule (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
     dueDate TEXT NOT NULL,
-    paid TEXT DEFAULT No CHECK (paid IN ('Yes', 'No')),
     principal REAL NOT NULL,
     interest REAL NOT NULL,
     insurance REAL NOT NULL,
@@ -523,6 +547,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberLoanReceipt (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanPaymentScheduleId INTEGER NOT NULL,
+    loanNumber TEXT NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,

@@ -45,6 +45,9 @@ var (
 	MemberLoanPaymentScheduleArrayChildren = []string{
 		"memberLoanReceipt",
 	}
+	MemberLoanReceiptArrayChildren = []string{
+		"memberLoanComponent",
+	}
 	MemberLoanSingleChildren = []string{
 		"memberBusiness",
 		"memberLoanApproval",
@@ -92,6 +95,7 @@ var (
 		"MemberArrayChildren":                    MemberArrayChildren,
 		"MemberLoanArrayChildren":                MemberLoanArrayChildren,
 		"MemberLoanPaymentScheduleArrayChildren": MemberLoanPaymentScheduleArrayChildren,
+		"MemberLoanReceiptArrayChildren":         MemberLoanReceiptArrayChildren,
 		"MemberSavingArrayChildren":              MemberSavingArrayChildren,
 		"SavingsTypeArrayChildren":               SavingsTypeArrayChildren,
 	}
@@ -189,6 +193,9 @@ var (
 		},
 		"memberLoanApproval": {
 			"memberLoan",
+		},
+		"memberLoanComponent": {
+			"memberLoanReceipt",
 		},
 		"memberLoanDisbursement": {
 			"memberLoan",

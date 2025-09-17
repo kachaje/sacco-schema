@@ -55,6 +55,9 @@
   "memberLoanPaymentSchedule": {
     "arrayChildren": ["memberLoanReceipt"]
   },
+  "memberLoanReceipt": {
+    "arrayChildren": ["memberLoanComponent"]
+  },
   "memberLoanType": {},
   "memberOccupation": {
     "singleChildren": ["memberOccupationVerification"]
