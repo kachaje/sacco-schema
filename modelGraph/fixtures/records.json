@@ -18,7 +18,7 @@
   "memberLoanLiability": [1],
   "memberLoanPaymentSchedule": [1, 2],
   "memberLoanProcessingFee": [1],
-  "memberLoanReceipt": [1],
+  "memberLoanReceipt": [1, 2],
   "memberLoanSecurity": [1],
   "memberLoanTax": [1],
   "memberLoanWitness": [1],
