@@ -29,6 +29,14 @@ func TestLoadGroupMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menufuncs.LoadGroupMembers(data, "memberDependant")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join("..", "..", "database", "fixtures", "memberDependants.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "memberDependants.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -38,8 +46,6 @@ func TestLoadGroupMembers(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menufuncs.LoadGroupMembers(data, "memberDependant")
 
 	if !reflect.DeepEqual(targetData, result) {
 		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", targetData, result)
@@ -87,6 +93,12 @@ func TestLoadTemplateData(t *testing.T) {
 
 	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join("..", "fixtures", "member.template.output.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -116,6 +128,12 @@ func TestTabulateData(t *testing.T) {
 	}
 
 	result := menufuncs.TabulateData(data)
+
+	if os.Getenv("DEBUG") == "true" {
+		payload := []byte(strings.Join(result, "\n"))
+
+		os.WriteFile(filepath.Join("..", "fixtures", "member.txt"), payload, 0644)
+	}
 
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
 	if err != nil {
@@ -155,6 +173,12 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	}
 
 	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"), payload, 0644)
+	}
 
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
@@ -198,6 +222,12 @@ func TestBusinessSummary(t *testing.T) {
 
 	result := menufuncs.LoadTemplateData(data, templateData, &refDate)
 
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -227,6 +257,12 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	}
 
 	result := menufuncs.TabulateData(data)
+
+	if os.Getenv("DEBUG") == "true" {
+		payload := []byte(strings.Join(result, "\n"))
+
+		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+	}
 
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.txt"))
 	if err != nil {

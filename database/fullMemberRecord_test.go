@@ -149,6 +149,12 @@ func TestFullMemberRecord(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "sample.json"), payload, 0644)
+	}
+
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
 	if err != nil {
 		t.Fatal(err)

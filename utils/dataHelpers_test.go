@@ -23,6 +23,12 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 
 	result := utils.FlattenMap(data, true)
 
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "flatIdsMap.json"), payload, 0644)
+	}
+
 	target := map[string]any{}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatIdsMap.json"))
@@ -67,6 +73,12 @@ func TestFlattenMapAllData(t *testing.T) {
 	}
 
 	result := utils.FlattenMap(data, false)
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"), payload, 0644)
+	}
 
 	payload, _ := json.MarshalIndent(result, "", "  ")
 

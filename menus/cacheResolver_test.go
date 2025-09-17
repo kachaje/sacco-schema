@@ -2,7 +2,6 @@ package menus_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"sacco/menus"
@@ -35,6 +34,14 @@ func TestResolveCacheDataArray(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menus.ResolveCacheData(data, "member.memberDependant.0.")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "arrayTargetData.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "arrayTargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -44,12 +51,6 @@ func TestResolveCacheDataArray(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menus.ResolveCacheData(data, "member.memberDependant.0.")
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	fmt.Println(string(payload))
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
@@ -82,6 +83,12 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	}
 
 	result := menus.ResolveCacheData(data, "member.")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "flatTargetData.json"), payload, 0644)
+	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatTargetData.json"))
 	if err != nil {
@@ -125,6 +132,12 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 
 	result := menus.ResolveCacheData(data, "member.memberLoan.")
 
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -165,6 +178,14 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "nestedL2TargetData.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedL2TargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -174,8 +195,6 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberBusiness.memberLastYearBusinessHistory.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
@@ -207,6 +226,14 @@ func TestNestedChild(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberLoanLiability.0.")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "nestedChildTargetData.json"), payload, 0644)
+	}
+
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedChildTargetData.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -216,8 +243,6 @@ func TestNestedChild(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	result := menus.ResolveCacheData(data, "member.memberLoan.0.memberLoanLiability.0.")
 
 	if !utils.MapsEqual(target, result) {
 		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
