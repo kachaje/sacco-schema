@@ -188,6 +188,11 @@ func Main() {
 		panic(err)
 	}
 
+	_, err = menufuncs.DB.DB.Exec("PRAGMA recursive_triggers=ON")
+	if err != nil {
+		panic(err)
+	}
+
 	activeMenu = menus.NewMenus(&devMode, &menufuncs.DemoMode)
 
 	http.HandleFunc("/ws", wsHandler)

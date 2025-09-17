@@ -1,4 +1,4 @@
-CREATE TRIGGER IF NOT EXISTS disburseLoan AFTER INSERT ON memberLoanVerification WHEN NEW.verified = "Yes" BEGIN
+CREATE TRIGGER IF NOT EXISTS disburseLoan AFTER INSERT ON memberLoanVerification FOR EACH ROW WHEN NEW.verified = "Yes" BEGIN
 INSERT INTO
   memberLoanDisbursement (memberLoanId, description, amount)
 SELECT
@@ -40,6 +40,16 @@ SELECT
 FROM
   memberLoanDisbursement;
 
+INSERT INTO
+  memberLoanPaymentSchedule (
+    memberLoanId,
+    dueDate,
+    principal,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
 WITH RECURSIVE
   cnt (x) AS (
     SELECT
@@ -56,8 +66,9 @@ WITH RECURSIVE
         FROM
           memberLoan l
           LEFT JOIN memberLoanApproval a ON a.memberLoanId = l.id
+          LEFT JOIN memberLoanVerification v ON v.memberLoanApprovalId = a.id
         WHERE
-          a.id = NEW.id
+          v.id = NEW.id
       )
   )
 SELECT
@@ -73,7 +84,8 @@ SELECT
   CASE
     WHEN x = 1 THEN (i.amountRecommended - ((x -1) * i.instalment)) * i.processingFeeRate
     ELSE 0
-  END AS processingFee
+  END AS processingFee,
+  i.instalment
 FROM
   cnt,
   (
@@ -88,6 +100,9 @@ FROM
     FROM
       memberLoan l
       LEFT JOIN memberLoanApproval a ON a.memberLoanId = l.id
+      LEFT JOIN memberLoanVerification v ON v.memberLoanApprovalId = a.id
+    WHERE
+      v.id = NEW.id
   ) AS i;
 
 END;
