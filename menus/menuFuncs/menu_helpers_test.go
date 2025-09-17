@@ -226,14 +226,14 @@ func TestTabulateBusinessSummary(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	result := menufuncs.TabulateData(data)
+
 	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	target := string(content)
-
-	result := menufuncs.TabulateData(data)
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
 		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)

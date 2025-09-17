@@ -57,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM434674",
+    "memberIdNumber": "KSM471353",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +66,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN404667",
+        "loanNumber": "KLN617731",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -114,15 +114,15 @@
         "memberLoanApproval": {
           "amountRecommended": 10000,
           "approvedBy": "admin",
-          "dateOfApproval": "2025-09-17 10:16:03",
+          "dateOfApproval": "2025-09-17 17:07:28",
           "id": 1,
-          "loanNumber": "KLN404667",
+          "loanNumber": "KLN617731",
           "loanStatus": "PARTIAL-APPROVAL",
           "memberLoanId": 1,
           "memberLoanVerification": {
-            "dateVerified": "2025-09-17 10:16:03",
+            "dateVerified": "2025-09-17 17:07:28",
             "id": 1,
-            "loanNumber": "KLN404667",
+            "loanNumber": "KLN617731",
             "memberLoanApprovalId": 1,
             "verified": "Yes",
             "verifiedBy": "admin"
@@ -131,8 +131,8 @@
         },
         "memberLoanDisbursement": {
           "amount": 10000,
-          "date": "2025-09-17 10:16:03",
-          "description": "Disbursement for loan number KLN404667",
+          "date": "2025-09-17 17:07:28",
+          "description": "Disbursement for loan number KLN617731",
           "id": 1,
           "memberLoanId": 1
         },
@@ -150,10 +150,144 @@
             "value": 50000
           }
         },
+        "memberLoanPaymentSchedule": {
+          "1": {
+            "dueDate": "2025-10-01",
+            "id": 1,
+            "instalment": 833.3333333333334,
+            "insurance": 150,
+            "interest": 480,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 10000,
+            "processingFee": 500
+          },
+          "10": {
+            "dueDate": "2026-07-01",
+            "id": 10,
+            "instalment": 833.3333333333334,
+            "insurance": 37.5,
+            "interest": 120,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 2500,
+            "processingFee": 0
+          },
+          "11": {
+            "dueDate": "2026-08-01",
+            "id": 11,
+            "instalment": 833.3333333333334,
+            "insurance": 24.99999999999999,
+            "interest": 79.99999999999997,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 1666.666666666666,
+            "processingFee": 0
+          },
+          "12": {
+            "dueDate": "2026-09-01",
+            "id": 12,
+            "instalment": 833.3333333333334,
+            "insurance": 12.49999999999998,
+            "interest": 39.99999999999994,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 833.3333333333321,
+            "processingFee": 0
+          },
+          "2": {
+            "dueDate": "2025-11-01",
+            "id": 2,
+            "instalment": 833.3333333333334,
+            "insurance": 137.5,
+            "interest": 440,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 9166.666666666666,
+            "processingFee": 0
+          },
+          "3": {
+            "dueDate": "2025-12-01",
+            "id": 3,
+            "instalment": 833.3333333333334,
+            "insurance": 125,
+            "interest": 400.00000000000006,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 8333.333333333334,
+            "processingFee": 0
+          },
+          "4": {
+            "dueDate": "2026-01-01",
+            "id": 4,
+            "instalment": 833.3333333333334,
+            "insurance": 112.5,
+            "interest": 360,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 7500,
+            "processingFee": 0
+          },
+          "5": {
+            "dueDate": "2026-02-01",
+            "id": 5,
+            "instalment": 833.3333333333334,
+            "insurance": 99.99999999999999,
+            "interest": 320,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 6666.666666666666,
+            "processingFee": 0
+          },
+          "6": {
+            "dueDate": "2026-03-01",
+            "id": 6,
+            "instalment": 833.3333333333334,
+            "insurance": 87.49999999999999,
+            "interest": 280,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 5833.333333333333,
+            "processingFee": 0
+          },
+          "7": {
+            "dueDate": "2026-04-01",
+            "id": 7,
+            "instalment": 833.3333333333334,
+            "insurance": 75,
+            "interest": 240,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 5000,
+            "processingFee": 0
+          },
+          "8": {
+            "dueDate": "2026-05-01",
+            "id": 8,
+            "instalment": 833.3333333333334,
+            "insurance": 62.499999999999986,
+            "interest": 199.99999999999997,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 4166.666666666666,
+            "processingFee": 0
+          },
+          "9": {
+            "dueDate": "2026-06-01",
+            "id": 9,
+            "instalment": 833.3333333333334,
+            "insurance": 49.99999999999999,
+            "interest": 160,
+            "memberLoanId": 1,
+            "paid": "No",
+            "principal": 3333.333333333333,
+            "processingFee": 0
+          }
+        },
         "memberLoanProcessingFee": {
           "1": {
             "amount": 500,
-            "date": "2025-09-17 10:16:03",
+            "date": "2025-09-17 17:07:28",
             "id": 1,
             "memberLoanId": 1
           }
@@ -177,8 +311,8 @@
         "memberLoanTax": {
           "1": {
             "amount": 165,
-            "date": "2025-09-17 10:16:03",
-            "description": "Disbursement for loan number KLN404667",
+            "date": "2025-09-17 17:07:28",
+            "description": "Disbursement for loan number KLN617731",
             "id": 1,
             "memberLoanId": 1
           }

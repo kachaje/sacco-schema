@@ -35,6 +35,10 @@
     "key": "member.memberLoan.1.memberLoanLiability.2.id",
     "value": "2"
   },
+  "memberLoanPaymentScheduleId": {
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.8.id",
+    "value": "8"
+  },
   "memberLoanProcessingFeeId": {
     "key": "member.memberLoan.1.memberLoanProcessingFee.1.id",
     "value": "1"
