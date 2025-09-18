@@ -22,8 +22,3 @@ date:
 amount:
   order: 4
   type: real
-
-paidAmount:
-  default: "0"
-  order: 5
-  type: real

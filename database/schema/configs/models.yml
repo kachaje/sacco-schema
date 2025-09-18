@@ -774,7 +774,6 @@ memberLoanInvoice:
         order: 2
         type: text
     - description:
-        matchModel: memberLoanPaymentSchedule
         order: 3
         type: text
     - date:
@@ -887,10 +886,6 @@ memberLoanPayment:
     - amount:
         numericField: true
         order: 4
-    - paidAmount:
-        numericField: true
-        optional: true
-        order: 5
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0
 memberLoanPaymentSchedule:
   belongsTo:

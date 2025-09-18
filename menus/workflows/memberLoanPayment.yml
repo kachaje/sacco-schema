@@ -4,10 +4,9 @@ cacheQueries:
   description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0.description
   id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0.id
   memberLoanInvoiceId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0.memberLoanInvoiceId
-  paidAmount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0.paidAmount
 enterAmount1:
   inputIdentifier: amount1
-  nextScreen: enterPaidAmount1
+  nextScreen: formSummary
   order: 2
   text:
     en: Amount
@@ -32,15 +31,6 @@ enterMemberLoanInvoiceId1:
   hidden: true
   inputIdentifier: memberLoanInvoiceId1
   type: hiddenField
-enterPaidAmount1:
-  inputIdentifier: paidAmount1
-  nextScreen: formSummary
-  optional: true
-  order: 3
-  text:
-    en: Paid Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
 initialScreen: enterDescription1

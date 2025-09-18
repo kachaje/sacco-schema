@@ -20,7 +20,6 @@ enterDate:
   inputIdentifier: date
 enterDescription:
   inputIdentifier: description
-  matchModel: memberLoanPaymentSchedule
   nextScreen: enterAmount
   order: 2
   text:

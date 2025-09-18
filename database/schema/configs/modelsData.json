@@ -780,9 +780,6 @@
         "type": "text"
       },
       "description": {
-        "linkThru": "loanNumber",
-        "matchModel": "memberLoanPaymentSchedule",
-        "optionsList": true,
         "order": 3,
         "type": "text"
       },
@@ -901,11 +898,6 @@
         "order": 1,
         "referenceTable": "memberLoanInvoice",
         "type": "int"
-      },
-      "paidAmount": {
-        "default": "0",
-        "order": 5,
-        "type": "real"
       }
     },
     "many": true,
