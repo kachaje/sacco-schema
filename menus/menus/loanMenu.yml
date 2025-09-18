@@ -89,14 +89,24 @@ fields:
       - verifiedBy
       - dateVerified
   "7":
+    id: loan.7
+    label:
+      en: Loan Repayment
+    workflow: memberLoanRepayment
+    targetKeys:
+      - id
+      - memberLoanInvoiceId
+      - loanNumber
+      - amount
+  "8":
     id: employment
     label:
       en: Employment Details
-  "8":
+  "9":
     id: business
     label:
       en: Business Details
-  "9":
+  "10":
     id: memberLoansSummary
     label:
       en: Member Loans Summary
