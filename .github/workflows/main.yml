@@ -35,3 +35,5 @@ jobs:
       - name: Test
         run: |
           go test -failfast ./tests/*.go
+
+          UITESTS=true go test -failfast ./tests/server_test.go
