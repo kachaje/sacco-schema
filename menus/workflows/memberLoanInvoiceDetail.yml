@@ -1,10 +1,10 @@
 cacheQueries:
-  billedAmount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.billedAmount
-  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.date
-  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.id
-  loanComponent1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.loanComponent
-  memberLoanInvoiceId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.memberLoanInvoiceId
-  paidAmount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0.paidAmount
+  billedAmount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.billedAmount
+  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.date
+  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.id
+  loanComponent1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.loanComponent
+  memberLoanInvoiceId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.memberLoanInvoiceId
+  paidAmount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0.paidAmount
 enterBilledAmount1:
   inputIdentifier: billedAmount1
   nextScreen: enterPaidAmount1
@@ -60,4 +60,4 @@ initialScreen: enterLoanComponent1
 model: memberLoanInvoiceDetail
 parentIds:
   - memberLoanInvoiceId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0
+rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0

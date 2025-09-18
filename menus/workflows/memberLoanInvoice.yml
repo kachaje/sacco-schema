@@ -1,50 +1,50 @@
 cacheQueries:
-  amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.amount
-  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.date
-  description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.description
-  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.id
-  loanNumber1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.loanNumber
-  memberLoanPaymentScheduleId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanPaymentScheduleId
-enterAmount1:
-  inputIdentifier: amount1
+  amount: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.amount
+  date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.date
+  description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.description
+  id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.id
+  loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.loanNumber
+  memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPaymentScheduleId
+enterAmount:
+  inputIdentifier: amount
   nextScreen: formSummary
   order: 3
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate1:
+enterDate:
   default: CURRENT_TIMESTAMP
   hidden: true
-  inputIdentifier: date1
-enterDescription1:
-  inputIdentifier: description1
-  nextScreen: enterAmount1
+  inputIdentifier: date
+enterDescription:
+  inputIdentifier: description
+  nextScreen: enterAmount
   order: 2
   text:
     en: Description
   type: inputScreen
-enterId1:
+enterId:
   hidden: true
-  inputIdentifier: id1
+  inputIdentifier: id
   type: hiddenField
-enterLoanNumber1:
+enterLoanNumber:
   dynamicDefault: memberLoan@loanNumber
-  inputIdentifier: loanNumber1
+  inputIdentifier: loanNumber
   matchModel: memberLoan
-  nextScreen: enterDescription1
+  nextScreen: enterDescription
   order: 1
   text:
     en: Loan Number
   type: inputScreen
-enterMemberLoanPaymentScheduleId1:
+enterMemberLoanPaymentScheduleId:
   hidden: true
-  inputIdentifier: memberLoanPaymentScheduleId1
+  inputIdentifier: memberLoanPaymentScheduleId
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterLoanNumber1
+initialScreen: enterLoanNumber
 model: memberLoanInvoice
 parentIds:
   - memberLoanPaymentScheduleId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0
+rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice

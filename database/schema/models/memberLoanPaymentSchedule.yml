@@ -35,3 +35,11 @@ processingFee:
 instalment:
   order: 7
   type: real
+
+paid:
+  default: "No"
+  options:
+    - "Yes"
+    - "No"
+  order: 8
+  type: text

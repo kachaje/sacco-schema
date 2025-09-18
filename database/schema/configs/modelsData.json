@@ -756,6 +756,11 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
+      },
+      "paidAmount": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
       }
     },
     "many": true,
@@ -790,13 +795,11 @@
         "type": "text"
       },
       "memberLoanPaymentScheduleId": {
-        "many": true,
         "order": 1,
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
       }
     },
-    "many": true,
     "model": "memberLoanInvoice",
     "parents": ["memberLoanPaymentSchedule"]
   },
@@ -868,6 +871,43 @@
     "parents": ["memberLoan"],
     "totalLoops": 2
   },
+  "memberLoanPayment": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "memberLoanInvoiceId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberLoanInvoice",
+        "type": "int"
+      },
+      "paidAmount": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
+      }
+    },
+    "many": true,
+    "model": "memberLoanPayment",
+    "parents": ["memberLoanInvoice"]
+  },
   "memberLoanPaymentSchedule": {
     "fields": {
       "dueDate": {
@@ -898,6 +938,12 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
+      },
+      "paid": {
+        "default": "No",
+        "options": ["Yes", "No"],
+        "order": 8,
+        "type": "text"
       },
       "principal": {
         "order": 3,
@@ -973,6 +1019,11 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
+      },
+      "paidAmount": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
       }
     },
     "many": true,

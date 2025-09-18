@@ -52,10 +52,10 @@
     "singleChildren": ["memberLoanVerification"]
   },
   "memberLoanInvoice": {
-    "arrayChildren": ["memberLoanInvoiceDetail"]
+    "arrayChildren": ["memberLoanInvoiceDetail", "memberLoanPayment"]
   },
   "memberLoanPaymentSchedule": {
-    "arrayChildren": ["memberLoanInvoice"]
+    "singleChildren": ["memberLoanInvoice"]
   },
   "memberLoanType": {},
   "memberOccupation": {

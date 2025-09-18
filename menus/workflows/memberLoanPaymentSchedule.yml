@@ -5,6 +5,7 @@ cacheQueries:
   insurance1: member.memberLoan.0.memberLoanPaymentSchedule.0.insurance
   interest1: member.memberLoan.0.memberLoanPaymentSchedule.0.interest
   memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
+  paid1: member.memberLoan.0.memberLoanPaymentSchedule.0.paid
   principal1: member.memberLoan.0.memberLoanPaymentSchedule.0.principal
   processingFee1: member.memberLoan.0.memberLoanPaymentSchedule.0.processingFee
 enterDueDate1:
@@ -45,6 +46,10 @@ enterInterest1:
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
+  type: hiddenField
+enterPaid1:
+  hidden: true
+  inputIdentifier: paid1
   type: hiddenField
 enterPrincipal1:
   inputIdentifier: principal1

@@ -4,9 +4,10 @@ cacheQueries:
   id1: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.id
   insuranceProviderId1: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.insuranceProviderId
   memberLoanId1: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.memberLoanId
+  paidAmount1: member.memberLoan.0.insuranceProvider.memberLoanInsurance.0.paidAmount
 enterAmount1:
   inputIdentifier: amount1
-  nextScreen: formSummary
+  nextScreen: enterPaidAmount1
   order: 1
   text:
     en: Amount
@@ -28,6 +29,15 @@ enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
   type: hiddenField
+enterPaidAmount1:
+  inputIdentifier: paidAmount1
+  nextScreen: formSummary
+  optional: true
+  order: 2
+  text:
+    en: Paid Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
 initialScreen: enterDate1

@@ -43,8 +43,9 @@ var (
 	}
 	MemberLoanInvoiceArrayChildren = []string{
 		"memberLoanInvoiceDetail",
+		"memberLoanPayment",
 	}
-	MemberLoanPaymentScheduleArrayChildren = []string{
+	MemberLoanPaymentScheduleSingleChildren = []string{
 		"memberLoanInvoice",
 	}
 	MemberLoanSingleChildren = []string{
@@ -77,26 +78,26 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
-		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
-		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
-		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
-		"MemberLoanApprovalSingleChildren":    MemberLoanApprovalSingleChildren,
-		"MemberLoanSingleChildren":            MemberLoanSingleChildren,
-		"MemberOccupationSingleChildren":      MemberOccupationSingleChildren,
-		"MemberSavingsIdsCacheSingleChildren": MemberSavingsIdsCacheSingleChildren,
-		"MemberSharesIdsCacheSingleChildren":  MemberSharesIdsCacheSingleChildren,
-		"MemberSingleChildren":                MemberSingleChildren,
+		"LoanNumberIdsCacheSingleChildren":        LoanNumberIdsCacheSingleChildren,
+		"MemberBusinessSingleChildren":            MemberBusinessSingleChildren,
+		"MemberIdsCacheSingleChildren":            MemberIdsCacheSingleChildren,
+		"MemberLoanApprovalSingleChildren":        MemberLoanApprovalSingleChildren,
+		"MemberLoanPaymentScheduleSingleChildren": MemberLoanPaymentScheduleSingleChildren,
+		"MemberLoanSingleChildren":                MemberLoanSingleChildren,
+		"MemberOccupationSingleChildren":          MemberOccupationSingleChildren,
+		"MemberSavingsIdsCacheSingleChildren":     MemberSavingsIdsCacheSingleChildren,
+		"MemberSharesIdsCacheSingleChildren":      MemberSharesIdsCacheSingleChildren,
+		"MemberSingleChildren":                    MemberSingleChildren,
 	}
 	ArrayChildren = map[string][]string{
-		"AccountArrayChildren":                   AccountArrayChildren,
-		"AccountTransactionArrayChildren":        AccountTransactionArrayChildren,
-		"InsuranceProviderArrayChildren":         InsuranceProviderArrayChildren,
-		"MemberArrayChildren":                    MemberArrayChildren,
-		"MemberLoanArrayChildren":                MemberLoanArrayChildren,
-		"MemberLoanInvoiceArrayChildren":         MemberLoanInvoiceArrayChildren,
-		"MemberLoanPaymentScheduleArrayChildren": MemberLoanPaymentScheduleArrayChildren,
-		"MemberSavingArrayChildren":              MemberSavingArrayChildren,
-		"SavingsTypeArrayChildren":               SavingsTypeArrayChildren,
+		"AccountArrayChildren":            AccountArrayChildren,
+		"AccountTransactionArrayChildren": AccountTransactionArrayChildren,
+		"InsuranceProviderArrayChildren":  InsuranceProviderArrayChildren,
+		"MemberArrayChildren":             MemberArrayChildren,
+		"MemberLoanArrayChildren":         MemberLoanArrayChildren,
+		"MemberLoanInvoiceArrayChildren":  MemberLoanInvoiceArrayChildren,
+		"MemberSavingArrayChildren":       MemberSavingArrayChildren,
+		"SavingsTypeArrayChildren":        SavingsTypeArrayChildren,
 	}
 	FloatFields = []string{
 		"amount",
@@ -210,6 +211,9 @@ var (
 		},
 		"memberLoanLiability": {
 			"memberLoan",
+		},
+		"memberLoanPayment": {
+			"memberLoanInvoice",
 		},
 		"memberLoanPaymentSchedule": {
 			"memberLoan",

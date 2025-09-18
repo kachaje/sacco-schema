@@ -1191,6 +1191,13 @@
           "numericField": true,
           "order": 4
         }
+      },
+      {
+        "paidAmount": {
+          "numericField": true,
+          "optional": true,
+          "order": 5
+        }
       }
     ],
     "rootQuery": "member.memberLoan.0.insuranceProvider.memberLoanInsurance.0"
@@ -1239,8 +1246,8 @@
         }
       }
     ],
-    "hasMany": ["memberLoanInvoiceDetail"],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0"
+    "hasMany": ["memberLoanInvoiceDetail", "memberLoanPayment"],
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice"
   },
   "memberLoanInvoiceDetail": {
     "belongsTo": ["memberLoanInvoice"],
@@ -1286,7 +1293,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.0.memberLoanInvoiceDetail.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanInvoiceDetail.0"
   },
   "memberLoanLiability": {
     "arrayFields": [
@@ -1371,6 +1378,51 @@
     ],
     "rootQuery": "member.memberLoan.0.memberLoanLiability.0"
   },
+  "memberLoanPayment": {
+    "belongsTo": ["memberLoanInvoice"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberLoanInvoiceId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "description": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "date": {
+          "default": "CURRENT_TIMESTAMP",
+          "optional": true,
+          "order": 3,
+          "type": "text"
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "order": 4
+        }
+      },
+      {
+        "paidAmount": {
+          "numericField": true,
+          "optional": true,
+          "order": 5
+        }
+      }
+    ],
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0"
+  },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
     "fields": [
@@ -1422,9 +1474,15 @@
           "numericField": true,
           "order": 7
         }
+      },
+      {
+        "paid": {
+          "hidden": true,
+          "order": 8
+        }
       }
     ],
-    "hasMany": ["memberLoanInvoice"],
+    "hasOne": ["memberLoanInvoice"],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0"
   },
   "memberLoanSecurity": {
@@ -1561,6 +1619,13 @@
         "amount": {
           "numericField": true,
           "order": 4
+        }
+      },
+      {
+        "paidAmount": {
+          "numericField": true,
+          "optional": true,
+          "order": 5
         }
       }
     ],

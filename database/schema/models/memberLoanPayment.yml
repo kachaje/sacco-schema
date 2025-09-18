@@ -4,26 +4,26 @@ id:
   primaryKey: true
   type: int
 
-memberLoanPaymentScheduleId:
+memberLoanInvoiceId:
+  many: true
   order: 1
-  referenceTable: memberLoanPaymentSchedule
+  referenceTable: memberLoanInvoice
   type: int
 
-loanNumber:
-  dynamicDefault: memberLoan@loanNumber
-  matchModel: memberLoan
-  order: 2
-  type: text
-
 description:
-  order: 3
+  order: 2
   type: text
 
 date:
   default: CURRENT_TIMESTAMP
-  order: 4
+  order: 3
   type: text
 
 amount:
+  order: 4
+  type: real
+
+paidAmount:
+  default: "0"
   order: 5
   type: real
