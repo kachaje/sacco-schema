@@ -10,3 +10,4 @@ group*.json
 cli
 svr
 test.sql
+*.log

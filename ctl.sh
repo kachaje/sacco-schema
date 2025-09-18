@@ -38,4 +38,20 @@ elif [[ "$1" == "-rename" ]]; then
     fi 
   done
 
+elif [[ "$1" == "-t" ]]; then
+
+  pushd tests 2>&1 >/dev/null
+
+  rm -rf tests.log
+
+  for t in $(ls *.go); do
+    echo $t 
+    go test $t 2>&1 > tests.log
+    if [[ $? -ne 0 ]]; then 
+      break
+    fi
+  done
+
+  popd  2>&1 >/dev/null
+
 fi
