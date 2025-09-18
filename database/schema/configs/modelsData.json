@@ -892,16 +892,17 @@
   "memberLoanPayment": {
     "fields": {
       "amount": {
-        "order": 4,
+        "order": 5,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 3,
+        "order": 4,
         "type": "text"
       },
       "description": {
-        "order": 2,
+        "optional": true,
+        "order": 3,
         "type": "text"
       },
       "id": {
@@ -909,6 +910,12 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "loanNumber": {
+        "dynamicDefault": "memberLoanInvoice@loanNumber",
+        "matchModel": "memberLoanInvoice",
+        "order": 2,
+        "type": "text"
       },
       "memberLoanInvoiceId": {
         "many": true,

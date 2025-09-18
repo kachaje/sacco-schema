@@ -559,7 +559,8 @@ END;
 CREATE TABLE IF NOT EXISTS memberLoanPayment (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanInvoiceId INTEGER NOT NULL,
-    description TEXT NOT NULL,
+    loanNumber TEXT NOT NULL,
+    description TEXT,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
     active INTEGER DEFAULT 1,

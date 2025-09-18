@@ -1420,8 +1420,17 @@
         }
       },
       {
-        "description": {
+        "loanNumber": {
+          "dynamicDefault": "memberLoanInvoice@loanNumber",
+          "matchModel": "memberLoanInvoice",
           "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "description": {
+          "optional": true,
+          "order": 3,
           "type": "text"
         }
       },
@@ -1429,14 +1438,14 @@
         "date": {
           "default": "CURRENT_TIMESTAMP",
           "optional": true,
-          "order": 3,
+          "order": 4,
           "type": "text"
         }
       },
       {
         "amount": {
           "numericField": true,
-          "order": 4
+          "order": 5
         }
       }
     ],
