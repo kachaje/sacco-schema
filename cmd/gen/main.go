@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"os"
 	"path/filepath"
 	drawio2json "sacco/drawIo2Json"
 	modelgraph "sacco/modelGraph"
@@ -36,7 +37,14 @@ func main() {
 		targetFolder = filepath.Join(".", "database", "schema", "models")
 	}
 
-	err := drawio2json.Main(filename, configsFolder, targetFolder)
+	_, err := os.Stat(targetFolder)
+	if !os.IsNotExist(err) {
+		os.RemoveAll(targetFolder)
+	}
+
+	os.MkdirAll(targetFolder, 0755)
+
+	err = drawio2json.Main(filename, configsFolder, targetFolder)
 	if err != nil {
 		log.Fatal(err)
 	}

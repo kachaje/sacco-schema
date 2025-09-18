@@ -26,13 +26,6 @@ func Main(folder, targetFile *string) error {
 		return fmt.Errorf("folder %s not found", workingFolder)
 	}
 
-	_, err := os.Stat(workingFolder)
-	if !os.IsNotExist(err) {
-		os.RemoveAll(workingFolder)
-	}
-
-	os.MkdirAll(workingFolder, 0755)
-
 	result, err := LoadModels(workingFolder)
 	if err != nil {
 		return err
