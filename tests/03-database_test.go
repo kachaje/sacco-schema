@@ -2,8 +2,11 @@ package tests
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"sacco/database"
 	"slices"
+	"strings"
 	"testing"
 )
 
@@ -28,7 +31,20 @@ func TestDatabase(t *testing.T) {
 		tables = append(tables, result)
 	}
 
-	for _, table := range []string{"account", "sqlite_sequence", "accountJournal", "accountStatement", "accountTransaction", "dividends", "insuranceProvider", "memberLoanType", "member", "memberBusiness", "memberBusinessVerification", "memberContact", "memberDependant", "memberIdsCache", "memberLastYearBusinessHistory", "memberLoan", "memberLoanApproval", "memberLoanDisbursement", "memberLoanInsurance", "memberLoanLiability", "memberLoanPaymentSchedule", "memberLoanProcessingFee", "memberLoanReceipt", "memberLoanSecurity", "memberLoanTax", "memberLoanWitness", "memberNextYearBusinessProjection", "memberOccupation", "memberOccupationVerification", "memberSaving", "memberSavingDeposit", "memberSavingInterest", "memberSavingWithdrawal", "memberSavingsIdsCache", "memberShares", "memberSharesIdsCache", "notification", "savingsRate", "savingsType", "sharesDepositReceipt", "sharesDepositWithdraw", "user", "userRole"} {
+	refTables := []string{}
+
+	files, err := os.ReadDir(filepath.Join("..", "database", "schema", "models"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, file := range files {
+		table := strings.Split(file.Name(), ".")[0]
+
+		refTables = append(refTables, table)
+	}
+
+	for _, table := range refTables {
 		if !slices.Contains(tables, table) {
 			t.Fatalf("Test failed. Missing: %s", table)
 		}
