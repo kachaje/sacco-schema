@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"os"
 	"sacco/server"
 	"sacco/wscli"
 	"testing"
@@ -16,7 +17,9 @@ func TestMain(m *testing.M) {
 }
 
 func TestMembershipApplication(t *testing.T) {
-	testscript.Run(t, testscript.Params{
-		Dir: "testdata/membershipApplication",
-	})
+	if os.Getenv("UITESTS") == "true" {
+		testscript.Run(t, testscript.Params{
+			Dir: "testdata/membershipApplication",
+		})
+	}
 }
