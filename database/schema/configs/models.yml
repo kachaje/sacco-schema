@@ -800,7 +800,7 @@ memberLoanInvoice:
         order: 9
   hasMany:
     - memberLoanInvoiceDetail
-    - memberLoanPayment
+    - memberLoanRepayment
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice
 memberLoanInvoiceDetail:
   belongsTo:
@@ -878,34 +878,6 @@ memberLoanLiability:
         numericField: true
         order: 3
   rootQuery: member.memberLoan.0.memberLoanLiability.0
-memberLoanPayment:
-  belongsTo:
-    - memberLoanInvoice
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberLoanInvoiceId:
-        hidden: true
-        order: 1
-    - loanNumber:
-        dynamicDefault: memberLoanInvoice@loanNumber
-        matchModel: memberLoanInvoice
-        order: 2
-        type: text
-    - description:
-        optional: true
-        order: 3
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 4
-        type: text
-    - amount:
-        numericField: true
-        order: 5
-  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPayment.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -941,6 +913,34 @@ memberLoanPaymentSchedule:
   hasOne:
     - memberLoanInvoice
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
+memberLoanRepayment:
+  belongsTo:
+    - memberLoanInvoice
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberLoanInvoiceId:
+        hidden: true
+        order: 1
+    - loanNumber:
+        dynamicDefault: memberLoanInvoice@loanNumber
+        matchModel: memberLoanInvoice
+        order: 2
+        type: text
+    - description:
+        optional: true
+        order: 3
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 4
+        type: text
+    - amount:
+        numericField: true
+        order: 5
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0
 memberLoanSecurity:
   arrayFields:
     - id1:

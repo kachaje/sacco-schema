@@ -52,7 +52,7 @@
     "singleChildren": ["memberLoanVerification"]
   },
   "memberLoanInvoice": {
-    "arrayChildren": ["memberLoanInvoiceDetail", "memberLoanPayment"]
+    "arrayChildren": ["memberLoanInvoiceDetail", "memberLoanRepayment"]
   },
   "memberLoanPaymentSchedule": {
     "singleChildren": ["memberLoanInvoice"]

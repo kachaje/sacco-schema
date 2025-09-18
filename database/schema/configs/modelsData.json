@@ -889,45 +889,6 @@
     "parents": ["memberLoan"],
     "totalLoops": 2
   },
-  "memberLoanPayment": {
-    "fields": {
-      "amount": {
-        "order": 5,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 4,
-        "type": "text"
-      },
-      "description": {
-        "optional": true,
-        "order": 3,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanNumber": {
-        "dynamicDefault": "memberLoanInvoice@loanNumber",
-        "matchModel": "memberLoanInvoice",
-        "order": 2,
-        "type": "text"
-      },
-      "memberLoanInvoiceId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberLoanInvoice",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "memberLoanPayment",
-    "parents": ["memberLoanInvoice"]
-  },
   "memberLoanPaymentSchedule": {
     "fields": {
       "dueDate": {
@@ -978,6 +939,45 @@
     "many": true,
     "model": "memberLoanPaymentSchedule",
     "parents": ["memberLoan"]
+  },
+  "memberLoanRepayment": {
+    "fields": {
+      "amount": {
+        "order": 5,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 4,
+        "type": "text"
+      },
+      "description": {
+        "optional": true,
+        "order": 3,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "loanNumber": {
+        "dynamicDefault": "memberLoanInvoice@loanNumber",
+        "matchModel": "memberLoanInvoice",
+        "order": 2,
+        "type": "text"
+      },
+      "memberLoanInvoiceId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberLoanInvoice",
+        "type": "int"
+      }
+    },
+    "many": true,
+    "model": "memberLoanRepayment",
+    "parents": ["memberLoanInvoice"]
   },
   "memberLoanSecurity": {
     "fields": {

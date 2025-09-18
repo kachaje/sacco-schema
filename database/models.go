@@ -43,7 +43,7 @@ var (
 	}
 	MemberLoanInvoiceArrayChildren = []string{
 		"memberLoanInvoiceDetail",
-		"memberLoanPayment",
+		"memberLoanRepayment",
 	}
 	MemberLoanPaymentScheduleSingleChildren = []string{
 		"memberLoanInvoice",
@@ -213,11 +213,11 @@ var (
 		"memberLoanLiability": {
 			"memberLoan",
 		},
-		"memberLoanPayment": {
-			"memberLoanInvoice",
-		},
 		"memberLoanPaymentSchedule": {
 			"memberLoan",
+		},
+		"memberLoanRepayment": {
+			"memberLoanInvoice",
 		},
 		"memberLoanSecurity": {
 			"memberLoan",
