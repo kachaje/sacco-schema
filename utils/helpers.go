@@ -30,15 +30,16 @@ type DiffResult struct {
 }
 
 func CleanScript(content []byte) string {
-	stage1 := regexp.MustCompile(`\n|\r`).ReplaceAllLiteralString(string(content), " ")
+	s := string(content)
 
-	return strings.TrimSpace(regexp.MustCompile(`\s+`).ReplaceAllLiteralString(stage1, " "))
+	return CleanString(s)
 }
 
-func CleanString(content string) string {
-	stage1 := regexp.MustCompile(`\n|\r`).ReplaceAllLiteralString(string(content), " ")
-
-	return strings.TrimSpace(regexp.MustCompile(`\s+`).ReplaceAllLiteralString(stage1, " "))
+func CleanString(s string) string {
+	s = strings.ReplaceAll(s, "\r\n", "\n")
+	s = strings.TrimSpace(s)
+	s = regexp.MustCompile(`\s+`).ReplaceAllString(s, " ")
+	return s
 }
 
 func DumpYaml(data map[string]any) (*string, error) {
