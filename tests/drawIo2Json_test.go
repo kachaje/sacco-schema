@@ -1,4 +1,4 @@
-package drawio2json_test
+package tests
 
 import (
 	"encoding/json"

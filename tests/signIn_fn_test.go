@@ -1,4 +1,4 @@
-package menufuncs_test
+package tests
 
 import (
 	"sacco/database"

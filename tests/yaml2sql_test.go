@@ -1,4 +1,4 @@
-package yaml2sql_test
+package tests
 
 import (
 	"os"

@@ -1,4 +1,4 @@
-package menus_test
+package tests
 
 import (
 	"sacco/menus"

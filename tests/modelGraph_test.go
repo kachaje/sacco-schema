@@ -1,4 +1,4 @@
-package modelgraph_test
+package tests
 
 import (
 	"encoding/json"

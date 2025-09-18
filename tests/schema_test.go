@@ -1,8 +1,10 @@
-package schema_test
+package tests
 
 import (
 	"database/sql"
 	"fmt"
+	"os"
+	"path/filepath"
 	"regexp"
 	"testing"
 
@@ -11,16 +13,32 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-//go:embed schema.sql
-var schemaStmt string
-
-//go:embed seed.sql
-var seedStmt string
-
-//go:embed triggers.sql
-var triggersStmt string
-
 func TestSchema(t *testing.T) {
+	var schemaStmt string
+	var seedStmt string
+	var triggersStmt string
+
+	content, err := os.ReadFile(filepath.Join("..", "database", "schema", "schema.sql"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	schemaStmt = string(content)
+
+	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "seed.sql"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	seedStmt = string(content)
+
+	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "triggers.sql"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	triggersStmt = string(content)
+
 	dbname := ":memory:"
 	db, err := sql.Open("sqlite", dbname)
 	if err != nil {

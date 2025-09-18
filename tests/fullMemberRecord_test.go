@@ -1,4 +1,4 @@
-package database_test
+package tests
 
 import (
 	"encoding/json"

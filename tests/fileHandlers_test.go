@@ -1,4 +1,4 @@
-package filehandling_test
+package tests
 
 import (
 	"encoding/json"
