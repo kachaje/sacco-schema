@@ -1,26 +1,21 @@
 cacheQueries:
-  amount: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.amount
   date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.date
   description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.description
   id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.id
+  instalment: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.instalment
+  insurance: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.insurance
+  interest: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.interest
   loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.loanNumber
   memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanPaymentScheduleId
-enterAmount:
-  inputIdentifier: amount
-  nextScreen: formSummary
-  optional: true
-  order: 3
-  text:
-    en: Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  processingFee: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.processingFee
+  totalDue: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.totalDue
 enterDate:
   default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: date
 enterDescription:
   inputIdentifier: description
-  nextScreen: enterAmount
+  nextScreen: enterTotalDue
   order: 2
   text:
     en: Description
@@ -29,6 +24,30 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
+enterInstalment:
+  inputIdentifier: instalment
+  nextScreen: formSummary
+  order: 7
+  text:
+    en: Instalment
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterInsurance:
+  inputIdentifier: insurance
+  nextScreen: enterProcessingFee
+  order: 5
+  text:
+    en: Insurance
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterInterest:
+  inputIdentifier: interest
+  nextScreen: enterInsurance
+  order: 4
+  text:
+    en: Interest
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterLoanNumber:
   dynamicDefault: memberLoan@loanNumber
   inputIdentifier: loanNumber
@@ -42,6 +61,24 @@ enterMemberLoanPaymentScheduleId:
   hidden: true
   inputIdentifier: memberLoanPaymentScheduleId
   type: hiddenField
+enterProcessingFee:
+  inputIdentifier: processingFee
+  nextScreen: enterInstalment
+  optional: true
+  order: 6
+  text:
+    en: Processing Fee
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterTotalDue:
+  inputIdentifier: totalDue
+  nextScreen: enterInterest
+  optional: true
+  order: 3
+  text:
+    en: Total Due
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber

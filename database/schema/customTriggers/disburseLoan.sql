@@ -12,35 +12,6 @@ WHERE
   v.id = NEW.id;
 
 INSERT INTO
-  memberLoanProcessingFee (memberLoanId, amount)
-SELECT
-  l.id AS memberLoanId,
-  l.processingFeeRate * a.amountRecommended AS amount
-FROM
-  memberLoan l
-  LEFT JOIN memberLoanApproval a
-WHERE
-  a.memberLoanId = l.id;
-
-INSERT INTO
-  memberLoanTax (memberLoanId, amount, description)
-SELECT
-  memberLoanId,
-  amount * (
-    SELECT
-      value
-    FROM
-      taxRate
-    WHERE
-      name = "VAT"
-    LIMIT
-      1
-  ),
-  description
-FROM
-  memberLoanDisbursement;
-
-INSERT INTO
   memberLoanPaymentSchedule (
     memberLoanId,
     dueDate,

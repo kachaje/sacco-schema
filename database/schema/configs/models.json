@@ -1240,10 +1240,35 @@
         }
       },
       {
-        "amount": {
+        "totalDue": {
           "numericField": true,
           "optional": true,
           "order": 5
+        }
+      },
+      {
+        "interest": {
+          "numericField": true,
+          "order": 6
+        }
+      },
+      {
+        "insurance": {
+          "numericField": true,
+          "order": 7
+        }
+      },
+      {
+        "processingFee": {
+          "numericField": true,
+          "optional": true,
+          "order": 8
+        }
+      },
+      {
+        "instalment": {
+          "numericField": true,
+          "order": 9
         }
       }
     ],

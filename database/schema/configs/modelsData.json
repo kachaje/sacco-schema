@@ -769,11 +769,6 @@
   },
   "memberLoanInvoice": {
     "fields": {
-      "amount": {
-        "default": "0",
-        "order": 5,
-        "type": "real"
-      },
       "date": {
         "default": "CURRENT_TIMESTAMP",
         "order": 4,
@@ -789,6 +784,18 @@
         "primaryKey": true,
         "type": "int"
       },
+      "instalment": {
+        "order": 9,
+        "type": "real"
+      },
+      "insurance": {
+        "order": 7,
+        "type": "real"
+      },
+      "interest": {
+        "order": 6,
+        "type": "real"
+      },
       "loanNumber": {
         "dynamicDefault": "memberLoan@loanNumber",
         "matchModel": "memberLoan",
@@ -799,6 +806,16 @@
         "order": 1,
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
+      },
+      "processingFee": {
+        "default": "0",
+        "order": 8,
+        "type": "real"
+      },
+      "totalDue": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
       }
     },
     "model": "memberLoanInvoice",

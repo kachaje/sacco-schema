@@ -24,7 +24,24 @@ date:
   order: 4
   type: text
 
-amount:
+totalDue:
   default: "0"
   order: 5
+  type: real
+
+interest:
+  order: 6
+  type: real
+
+insurance:
+  order: 7
+  type: real
+
+processingFee:
+  default: "0"
+  order: 8
+  type: real
+
+instalment:
+  order: 9
   type: real

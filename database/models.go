@@ -149,6 +149,7 @@ var (
 		"totalCosts",
 		"totalCredit",
 		"totalDebit",
+		"totalDue",
 		"totalIncome",
 		"totalValue",
 		"transport",
