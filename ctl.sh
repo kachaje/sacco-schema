@@ -28,4 +28,14 @@ elif [[ "$1" == "-c" ]]; then
 
   rm -rf *.db* **/*.db* settings/ **/**/settings/ **/**/data/ **/**/*.db* **/tmp*/ *.out
 
+elif [[ "$1" == "-rename" ]]; then
+
+  i=0
+  for f in $(ls); do 
+    if [[ ! -d $f ]] && [[ ! $f =~ "01" ]]; then 
+      ((i++))
+      mv $f $(printf "%02d-$f" "$i")
+    fi 
+  done
+
 fi
