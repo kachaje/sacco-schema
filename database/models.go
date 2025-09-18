@@ -38,12 +38,12 @@ var (
 		"memberLoanLiability",
 		"memberLoanPaymentSchedule",
 		"memberLoanSecurity",
-		"memberLoanTax",
 		"memberLoanWitness",
 	}
 	MemberLoanInvoiceArrayChildren = []string{
 		"memberLoanInvoiceDetail",
 		"memberLoanRepayment",
+		"memberLoanTax",
 	}
 	MemberLoanPaymentScheduleSingleChildren = []string{
 		"memberLoanInvoice",
@@ -223,7 +223,7 @@ var (
 			"memberLoan",
 		},
 		"memberLoanTax": {
-			"memberLoan",
+			"memberLoanInvoice",
 		},
 		"memberLoanVerification": {
 			"memberLoanApproval",

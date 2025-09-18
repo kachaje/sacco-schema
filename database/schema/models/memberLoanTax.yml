@@ -4,10 +4,10 @@ id:
   primaryKey: true
   type: int
 
-memberLoanId:
+memberLoanInvoiceId:
   many: true
   order: 1
-  referenceTable: memberLoan
+  referenceTable: memberLoanInvoice
   type: int
 
 description:
@@ -23,7 +23,9 @@ amount:
   order: 4
   type: real
 
-paidAmount:
-  default: "0"
+taxCategory:
+  options:
+    - Interest
+    - Processing Fee
   order: 5
-  type: real
+  type: text

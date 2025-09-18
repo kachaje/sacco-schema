@@ -647,7 +647,6 @@ memberLoan:
     - memberLoanLiability
     - memberLoanPaymentSchedule
     - memberLoanSecurity
-    - memberLoanTax
     - memberLoanWitness
   hasOne:
     - memberBusiness
@@ -801,6 +800,7 @@ memberLoanInvoice:
   hasMany:
     - memberLoanInvoiceDetail
     - memberLoanRepayment
+    - memberLoanTax
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice
 memberLoanInvoiceDetail:
   belongsTo:
@@ -997,12 +997,12 @@ memberLoanSecurity:
   rootQuery: member.memberLoan.0.memberLoanSecurity.0
 memberLoanTax:
   belongsTo:
-    - memberLoan
+    - memberLoanInvoice
   fields:
     - id:
         hidden: true
         order: 0
-    - memberLoanId:
+    - memberLoanInvoiceId:
         hidden: true
         order: 1
     - description:
@@ -1016,11 +1016,13 @@ memberLoanTax:
     - amount:
         numericField: true
         order: 4
-    - paidAmount:
-        numericField: true
-        optional: true
+    - taxCategory:
+        options:
+          - Interest
+          - Processing Fee
         order: 5
-  rootQuery: member.memberLoan.0.memberLoanTax.0
+        type: text
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0
 memberLoanType:
   fields:
     - id:

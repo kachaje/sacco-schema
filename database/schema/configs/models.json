@@ -1031,7 +1031,6 @@
       "memberLoanLiability",
       "memberLoanPaymentSchedule",
       "memberLoanSecurity",
-      "memberLoanTax",
       "memberLoanWitness"
     ],
     "hasOne": [
@@ -1272,7 +1271,11 @@
         }
       }
     ],
-    "hasMany": ["memberLoanInvoiceDetail", "memberLoanRepayment"],
+    "hasMany": [
+      "memberLoanInvoiceDetail",
+      "memberLoanRepayment",
+      "memberLoanTax"
+    ],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice"
   },
   "memberLoanInvoiceDetail": {
@@ -1615,7 +1618,7 @@
     "rootQuery": "member.memberLoan.0.memberLoanSecurity.0"
   },
   "memberLoanTax": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": ["memberLoanInvoice"],
     "fields": [
       {
         "id": {
@@ -1624,7 +1627,7 @@
         }
       },
       {
-        "memberLoanId": {
+        "memberLoanInvoiceId": {
           "hidden": true,
           "order": 1
         }
@@ -1650,14 +1653,14 @@
         }
       },
       {
-        "paidAmount": {
-          "numericField": true,
-          "optional": true,
-          "order": 5
+        "taxCategory": {
+          "options": ["Interest", "Processing Fee"],
+          "order": 5,
+          "type": "text"
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanTax.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0"
   },
   "memberLoanType": {
     "fields": [

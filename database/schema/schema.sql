@@ -604,15 +604,15 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoanTax (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberLoanId INTEGER NOT NULL,
+    memberLoanInvoiceId INTEGER NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
-    paidAmount REAL DEFAULT 0,
+    taxCategory TEXT NOT NULL CHECK (taxCategory IN ('Interest', 'Processing Fee')),
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
+    FOREIGN KEY (memberLoanInvoiceId) REFERENCES memberLoanInvoice (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanTaxUpdated AFTER
