@@ -24,14 +24,14 @@ var schemaString string
 //go:embed schema/seed.sql
 var seedString string
 
-//go:embed schema/triggers.sql
-var triggersString string
-
 //go:embed schema/rates.sql
 var ratesString string
 
 //go:embed schema/customTriggers/*
 var customTriggerFiles embed.FS
+
+//go:embed schema/triggers/*
+var triggerFiles embed.FS
 
 //go:embed schema/configs/models.yml
 var modelTemplates string
@@ -119,7 +119,6 @@ func (d *Database) initDb() error {
 		schemaString,
 		seedString,
 		ratesString,
-		triggersString,
 	} {
 		_, err := d.DB.Exec(statement)
 		if err != nil {
@@ -127,29 +126,31 @@ func (d *Database) initDb() error {
 		}
 	}
 
-	err := fs.WalkDir(customTriggerFiles, ".", func(path string, folder fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
+	for _, files := range []embed.FS{triggerFiles, customTriggerFiles} {
+		err := fs.WalkDir(files, ".", func(path string, folder fs.DirEntry, err error) error {
+			if err != nil {
+				return err
+			}
 
-		if folder.IsDir() {
+			if folder.IsDir() {
+				return nil
+			}
+
+			content, err := fs.ReadFile(files, path)
+			if err != nil {
+				return err
+			}
+
+			_, err = d.DB.Exec(string(content))
+			if err != nil {
+				return err
+			}
+
 			return nil
-		}
-
-		content, err := fs.ReadFile(customTriggerFiles, path)
+		})
 		if err != nil {
 			return err
 		}
-
-		_, err = d.DB.Exec(string(content))
-		if err != nil {
-			return err
-		}
-
-		return nil
-	})
-	if err != nil {
-		return err
 	}
 
 	for {
