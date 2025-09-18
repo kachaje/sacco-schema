@@ -103,7 +103,7 @@ func TestLoadModelChildren(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -152,10 +152,10 @@ func TestFullMemberRecord(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "sample.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "sample.data.json"), payload, 0644)
 	}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -11,7 +11,7 @@ import (
 func TestMap2Table(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "parser", "fixtures", "schedule.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "schedule.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

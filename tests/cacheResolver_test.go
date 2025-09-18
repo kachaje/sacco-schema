@@ -14,7 +14,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 	cacheData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -62,7 +62,7 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	cacheData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -112,7 +112,7 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 	cacheData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -160,7 +160,7 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 	cacheData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

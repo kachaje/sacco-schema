@@ -789,7 +789,7 @@ func TestLoadDynaDefault(t *testing.T) {
 
 	data = map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

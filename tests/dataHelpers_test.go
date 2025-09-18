@@ -11,7 +11,7 @@ import (
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -62,7 +62,7 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 }
 
 func TestFlattenMapAllData(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -77,12 +77,12 @@ func TestFlattenMapAllData(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"), payload, 0644)
 	}
 
 	payload, _ := json.MarshalIndent(result, "", "  ")
 
-	target, err := os.ReadFile(filepath.Join("..", "database", "fixtures", "sample.flatmap.json"))
+	target, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}

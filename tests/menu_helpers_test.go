@@ -19,7 +19,7 @@ func TestLoadGroupMembers(t *testing.T) {
 	data := map[string]any{}
 	targetData := []map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -34,10 +34,10 @@ func TestLoadGroupMembers(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join("..", "..", "database", "fixtures", "memberDependants.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "memberDependants.json"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "memberDependants.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "memberDependants.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -71,7 +71,7 @@ func TestLoadTemplateData(t *testing.T) {
 	templateData := map[string]any{}
 	targetData := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,7 +81,7 @@ func TestLoadTemplateData(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "templates", "member.template.json"))
+	content, err = os.ReadFile(filepath.Join("..", "menus", "menuFuncs", "templates", "member.template.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -96,10 +96,10 @@ func TestLoadTemplateData(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join("..", "fixtures", "member.template.output.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "member.template.output.json"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -117,7 +117,7 @@ func TestLoadTemplateData(t *testing.T) {
 func TestTabulateData(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "fixtures", "member.template.output.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "member.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -132,10 +132,10 @@ func TestTabulateData(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(strings.Join(result, "\n"))
 
-		os.WriteFile(filepath.Join("..", "fixtures", "member.txt"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "member.txt"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "member.txt"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "member.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -152,7 +152,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	templateData := map[string]any{}
 	targetData := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -162,7 +162,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "templates", "loanApplication.template.json"))
+	content, err = os.ReadFile(filepath.Join("..", "menus", "menuFuncs", "templates", "loanApplication.template.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -177,10 +177,10 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "loanApplication.template.output.json"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "loanApplication.template.output.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanApplication.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -200,7 +200,7 @@ func TestBusinessSummary(t *testing.T) {
 	templateData := map[string]any{}
 	target := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -210,7 +210,7 @@ func TestBusinessSummary(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	content, err = os.ReadFile(filepath.Join(".", "templates", "businessSummary.template.json"))
+	content, err = os.ReadFile(filepath.Join("..", "menus", "menuFuncs", "templates", "businessSummary.template.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -225,10 +225,10 @@ func TestBusinessSummary(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -246,7 +246,7 @@ func TestBusinessSummary(t *testing.T) {
 func TestTabulateBusinessSummary(t *testing.T) {
 	data := map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.template.output.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -261,10 +261,10 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(strings.Join(result, "\n"))
 
-		os.WriteFile(filepath.Join("..", "fixtures", "businessSummary.txt"), payload, 0644)
+		os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.txt"), payload, 0644)
 	}
 
-	content, err = os.ReadFile(filepath.Join("..", "fixtures", "businessSummary.txt"))
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.txt"))
 	if err != nil {
 		t.Fatal(err)
 	}
