@@ -62,6 +62,10 @@ func deleteLoanNumber(target map[string]any) {
 								}
 							}
 
+							if v1["memberLoanPaymentSchedule"] != nil {
+								delete(v1, "memberLoanPaymentSchedule")
+							}
+
 							for _, model := range []string{
 								"memberLoanProcessingFee",
 								"memberLoanTax",
