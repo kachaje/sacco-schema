@@ -313,3 +313,20 @@ FROM
   memberLoanApproval
 WHERE
   id = 1;
+
+INSERT INTO
+  memberLoanRepayment (
+    memberLoanInvoiceId,
+    loanNumber,
+    description,
+    amount
+  )
+SELECT
+  1,
+  loanNumber,
+  'Repayment',
+  2000
+FROM
+  memberLoan
+WHERE
+  id = 1;
