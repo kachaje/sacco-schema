@@ -32,12 +32,12 @@
     "value": "1"
   },
   "memberLoanLiabilityId": {
-    "key": "member.memberLoan.1.memberLoanLiability.1.id",
-    "value": "1"
+    "key": "member.memberLoan.1.memberLoanLiability.2.id",
+    "value": "2"
   },
   "memberLoanPaymentScheduleId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.11.id",
-    "value": "11"
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.3.id",
+    "value": "3"
   },
   "memberLoanSecurityId": {
     "key": "member.memberLoan.1.memberLoanSecurity.2.id",
@@ -52,8 +52,8 @@
     "value": "1"
   },
   "memberLoanWitnessId": {
-    "key": "member.memberLoan.1.memberLoanWitness.1.id",
-    "value": "1"
+    "key": "member.memberLoan.1.memberLoanWitness.2.id",
+    "value": "2"
   },
   "memberNextYearBusinessProjectionId": {
     "key": "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
