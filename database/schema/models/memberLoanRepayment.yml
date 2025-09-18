@@ -29,3 +29,8 @@ date:
 amount:
   order: 5
   type: real
+
+amountAllocated:
+  default: "0"
+  order: 6
+  type: real

@@ -940,6 +940,10 @@ memberLoanRepayment:
     - amount:
         numericField: true
         order: 5
+    - amountAllocated:
+        numericField: true
+        optional: true
+        order: 6
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0
 memberLoanSecurity:
   arrayFields:

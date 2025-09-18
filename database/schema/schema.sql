@@ -564,6 +564,7 @@ CREATE TABLE IF NOT EXISTS memberLoanRepayment (
     description TEXT,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
+    amountAllocated REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

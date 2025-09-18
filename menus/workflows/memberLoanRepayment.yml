@@ -1,5 +1,6 @@
 cacheQueries:
   amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.amount
+  amountAllocated1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.amountAllocated
   date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.date
   description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.description
   id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.id
@@ -7,10 +8,19 @@ cacheQueries:
   memberLoanInvoiceId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanRepayment.0.memberLoanInvoiceId
 enterAmount1:
   inputIdentifier: amount1
-  nextScreen: formSummary
+  nextScreen: enterAmountAllocated1
   order: 3
   text:
     en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterAmountAllocated1:
+  inputIdentifier: amountAllocated1
+  nextScreen: formSummary
+  optional: true
+  order: 4
+  text:
+    en: Amount Allocated
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDate1:

@@ -101,6 +101,7 @@ var (
 	}
 	FloatFields = []string{
 		"amount",
+		"amountAllocated",
 		"amountLimit",
 		"amountRecommended",
 		"amountSize",

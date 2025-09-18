@@ -946,6 +946,11 @@
         "order": 5,
         "type": "real"
       },
+      "amountAllocated": {
+        "default": "0",
+        "order": 6,
+        "type": "real"
+      },
       "date": {
         "default": "CURRENT_TIMESTAMP",
         "order": 4,
