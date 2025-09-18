@@ -107,4 +107,19 @@ FROM
 WHERE
   processingFee > 0;
 
+UPDATE memberLoanRepayment
+SET
+  amountAllocated = (
+    SELECT
+      (
+        processingFee * 1.0165 + interest * 1.0165 + instalment + insurance
+      ) AS totalDue
+    FROM
+      memberLoanInvoice
+    WHERE
+      id = NEW.memberLoanInvoiceId
+  )
+WHERE
+  id = NEW.id;
+
 END;
