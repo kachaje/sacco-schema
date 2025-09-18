@@ -770,6 +770,7 @@
   "memberLoanInvoice": {
     "fields": {
       "amount": {
+        "default": "0",
         "order": 5,
         "type": "real"
       },
@@ -779,6 +780,9 @@
         "type": "text"
       },
       "description": {
+        "linkThru": "loanNumber",
+        "matchModel": "memberLoanPaymentSchedule",
+        "optionsList": true,
         "order": 3,
         "type": "text"
       },

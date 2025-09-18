@@ -1227,6 +1227,7 @@
       },
       {
         "description": {
+          "matchModel": "memberLoanPaymentSchedule",
           "order": 3,
           "type": "text"
         }
@@ -1242,6 +1243,7 @@
       {
         "amount": {
           "numericField": true,
+          "optional": true,
           "order": 5
         }
       }

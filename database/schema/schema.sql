@@ -484,7 +484,7 @@ CREATE TABLE IF NOT EXISTS memberLoanInvoice (
     loanNumber TEXT NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
+    amount REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

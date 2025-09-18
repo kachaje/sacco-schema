@@ -8,6 +8,7 @@ cacheQueries:
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary
+  optional: true
   order: 3
   text:
     en: Amount
@@ -19,6 +20,7 @@ enterDate:
   inputIdentifier: date
 enterDescription:
   inputIdentifier: description
+  matchModel: memberLoanPaymentSchedule
   nextScreen: enterAmount
   order: 2
   text:

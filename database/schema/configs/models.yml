@@ -774,6 +774,7 @@ memberLoanInvoice:
         order: 2
         type: text
     - description:
+        matchModel: memberLoanPaymentSchedule
         order: 3
         type: text
     - date:
@@ -783,6 +784,7 @@ memberLoanInvoice:
         type: text
     - amount:
         numericField: true
+        optional: true
         order: 5
   hasMany:
     - memberLoanInvoiceDetail

@@ -16,6 +16,9 @@ loanNumber:
   type: text
 
 description:
+  linkThru: loanNumber
+  matchModel: memberLoanPaymentSchedule
+  optionsList: true
   order: 3
   type: text
 
@@ -25,5 +28,6 @@ date:
   type: text
 
 amount:
+  default: "0"
   order: 5
   type: real
