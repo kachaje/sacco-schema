@@ -576,7 +576,7 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 				}
 			}
 		} else {
-			slices.Sort(newValues)
+			utils.SortSlice(newValues)
 
 			index := utils.Index(newValues, "99. Cancel\n")
 

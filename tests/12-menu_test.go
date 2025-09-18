@@ -197,9 +197,9 @@ func TestLoanMenu(t *testing.T) {
 	target := `
 CON Loans
 1. Loan Application
-7. Employment Details
-8. Business Details
-9. Member Loans Summary
+8. Employment Details
+9. Business Details
+10. Member Loans Summary
 
 00. Main Menu
 	`
@@ -212,6 +212,11 @@ CON Loans
 
 	session.SessionUserRole = &role
 
+	session.GlobalIds["memberLoanInvoiceId"] = map[string]any{
+		"key":   "memberLoanInvoice.id",
+		"value": "1",
+	}
+
 	result = m.LoadMenu("loan", session, "", "", "")
 
 	target = `
@@ -221,14 +226,19 @@ CON Loans
 3. Loan Security
 4. Loan Witness
 5. Loan Approvals
-7. Employment Details
-8. Business Details
-9. Member Loans Summary
+7. Loan Repayment
+8. Employment Details
+9. Business Details
+10. Member Loans Summary
 
 00. Main Menu
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
+		t.Fatalf(`Test failed. 
+Expected: 
+%s 
+Actual: 
+%s`, target, result)
 	}
 }
