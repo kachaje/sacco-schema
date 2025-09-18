@@ -53,7 +53,7 @@ func TestSchemaE2E(t *testing.T) {
 	for _, filename := range []string{
 		filepath.Join("..", "database", "schema", "schema.sql"),
 		filepath.Join("..", "database", "schema", "seed.sql"),
-		filepath.Join("..", "database", "schema", "triggers.sql"),
+		filepath.Join("..", "database", "schema", "triggers", "triggers.sql"),
 	} {
 		content, err = os.ReadFile(filename)
 		if err != nil {

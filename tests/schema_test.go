@@ -32,7 +32,7 @@ func TestSchema(t *testing.T) {
 
 	seedStmt = string(content)
 
-	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "triggers.sql"))
+	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "triggers", "triggers.sql"))
 	if err != nil {
 		t.Fatal(err)
 	}
