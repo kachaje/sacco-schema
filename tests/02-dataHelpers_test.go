@@ -48,6 +48,7 @@ func TestFlattenMapIdMapOnly(t *testing.T) {
 		"memberLoanLiabilityId",
 		"memberLoanPaymentScheduleId",
 		"memberLoanPaymentDetailId",
+		"memberLoanSettlementId",
 	} {
 		delete(target, key)
 		delete(result, key)
