@@ -8,9 +8,9 @@ E. BUSINESS INFORMATION
    Net Income Verified:        | 
 
    Profit and Loss
-     Previous 12 Months
-        Total Sales/Income:         |    2,000,000
-        Total Cost of Goods:        |    1,000,000
+     Next 12 Months Projections
+        Total Sales/Income:         |    2,500,000
+        Total Cost of Gooods:       |    1,500,000
         Employees Wages:            |       50,000
         Own Salary:                 |      100,000
         Transport:                  |       50,000
@@ -21,9 +21,9 @@ E. BUSINESS INFORMATION
         Total Costs:                |    1,285,000
         Net Profit:                 |      715,000
      
-     Next 12 Months Projections
-        Total Sales/Income:         |    2,500,000
-        Total Cost of Gooods:       |    1,500,000
+     Previous 12 Months
+        Total Sales/Income:         |    2,000,000
+        Total Cost of Goods:        |    1,000,000
         Employees Wages:            |       50,000
         Own Salary:                 |      100,000
         Transport:                  |       50,000

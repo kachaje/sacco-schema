@@ -8,8 +8,8 @@
     "value": "1"
   },
   "memberDependantId": {
-    "key": "member.memberDependant.2.id",
-    "value": "2"
+    "key": "member.memberDependant.4.id",
+    "value": "4"
   },
   "memberId": {
     "key": "member.id",
@@ -35,25 +35,17 @@
     "key": "member.memberLoan.1.memberLoanLiability.2.id",
     "value": "2"
   },
-  "memberLoanPaymentDetailId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.1.memberLoanPayment.memberLoanPaymentDetail.5.id",
-    "value": "5"
-  },
   "memberLoanPaymentId": {
     "key": "member.memberLoan.1.memberLoanPaymentSchedule.1.memberLoanPayment.id",
     "value": "1"
   },
   "memberLoanPaymentScheduleId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.9.id",
-    "value": "9"
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.5.id",
+    "value": "5"
   },
   "memberLoanSecurityId": {
     "key": "member.memberLoan.1.memberLoanSecurity.2.id",
     "value": "2"
-  },
-  "memberLoanSettlementId": {
-    "key": "member.memberLoanSettlement.id",
-    "value": "1"
   },
   "memberLoanVerificationId": {
     "key": "member.memberLoan.1.memberLoanApproval.memberLoanVerification.id",
