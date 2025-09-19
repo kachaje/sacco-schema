@@ -102,4 +102,4 @@ ORDER BY
 INSERT INTO
   taxRate (name, value)
 VALUES
-  ("VAT", 0.0165);
+  ("VAT", 0.0);

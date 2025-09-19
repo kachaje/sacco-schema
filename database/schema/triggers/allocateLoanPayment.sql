@@ -1,11 +1,6 @@
 CREATE TRIGGER IF NOT EXISTS allocateLoanPayment AFTER INSERT ON memberLoanPayment FOR EACH ROW BEGIN
 INSERT INTO
-  memberLoanPaymentDetail (
-    memberLoanPaymentId,
-    loanComponent,
-    billedAmount,
-    paidAmount
-  )
+  memberLoanPaymentDetail (memberLoanPaymentId, loanComponent, amount)
 WITH
   schedule AS (
     WITH
@@ -48,27 +43,44 @@ WITH
       1
   )
 SELECT
-  memberLoanPaymentId,
+  NEW.id,
   'Interest',
-  interest,
   interest
 FROM
   schedule
 UNION ALL
 SELECT
-  memberLoanPaymentId,
+  NEW.id,
   'Instalment',
-  instalment,
   instalment
 FROM
   schedule
 UNION ALL
 SELECT
-  memberLoanPaymentId,
+  NEW.id,
   'Insurance',
-  insurance,
   insurance
 FROM
-  schedule;
+  schedule
+WHERE
+  insurance > 0
+UNION ALL
+SELECT
+  NEW.id,
+  'Processing Fee',
+  processingFee
+FROM
+  schedule
+WHERE
+  processingFee > 0
+UNION ALL
+SELECT
+  NEW.id,
+  'Settlement Overflow',
+  (NEW.amountPaid - totalDue)
+FROM
+  schedule
+WHERE
+  (NEW.amountPaid - totalDue) > 0;
 
 END;

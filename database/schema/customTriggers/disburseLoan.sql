@@ -20,7 +20,8 @@ INSERT INTO
     insurance,
     processingFee,
     instalment,
-    amountRecommended
+    amountRecommended,
+    loanNumber
   )
 WITH RECURSIVE
   cnt (x) AS (
@@ -52,13 +53,17 @@ SELECT
   ) AS dueDate,
   (i.amountRecommended - ((x -1) * i.instalment)) AS principal,
   (i.amountRecommended - ((x -1) * i.instalment)) * i.monthlyInterestRate AS interest,
-  (i.amountRecommended - ((x -1) * i.instalment)) * i.monthlyInsuranceRate AS insurance,
   CASE
-    WHEN x = 1 THEN (i.amountRecommended - ((x -1) * i.instalment)) * i.processingFeeRate
+    WHEN x = 1 THEN i.amountRecommended * i.monthlyInsuranceRate
+    ELSE 0
+  END AS insurance,
+  CASE
+    WHEN x = 1 THEN i.amountRecommended * i.processingFeeRate
     ELSE 0
   END AS processingFee,
   i.instalment,
-  i.amountRecommended
+  i.amountRecommended,
+  i.loanNumber
 FROM
   cnt,
   (
@@ -69,7 +74,8 @@ FROM
       a.amountRecommended,
       l.monthlyInterestRate,
       l.monthlyInsuranceRate,
-      l.processingFeeRate
+      l.processingFeeRate,
+      l.loanNumber
     FROM
       memberLoan l
       LEFT JOIN memberLoanApproval a ON a.memberLoanId = l.id
