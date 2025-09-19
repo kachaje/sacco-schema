@@ -182,10 +182,6 @@ func TestLoanMenu(t *testing.T) {
 			"key":   "member.id",
 			"value": "1",
 		},
-		"memberLoanId": map[string]any{
-			"key":   "member.memberLoan.0.id",
-			"value": "1",
-		},
 		"memberBusinessId": map[string]any{
 			"key":   "member.memberLoan.0.memberBusiness.id",
 			"value": "1",
@@ -212,8 +208,8 @@ CON Loans
 
 	session.SessionUserRole = &role
 
-	session.GlobalIds["memberLoanInvoiceId"] = map[string]any{
-		"key":   "memberLoanInvoice.id",
+	session.GlobalIds["memberLoanId"] = map[string]any{
+		"key":   "memberLoan.id",
 		"value": "1",
 	}
 

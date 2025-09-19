@@ -26,7 +26,7 @@ elif [[ "$1" == "-g" ]]; then
 
 elif [[ "$1" == "-c" ]]; then
 
-  rm -rf *.db* **/*.db* settings/ **/**/settings/ **/**/data/ **/**/*.db* **/tmp*/ *.out
+  rm -rf *.db* **/*.db* settings/ **/**/settings/ **/**/data/ **/**/*.db* **/tmp*/ *.out *.log **/*.log
 
 elif [[ "$1" == "-rename" ]]; then
 
