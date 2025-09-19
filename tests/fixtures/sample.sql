@@ -325,7 +325,7 @@ SELECT
   1,
   loanNumber,
   'Repayment',
-  2000
+  5000
 FROM
   memberLoan
 WHERE

@@ -11,3 +11,4 @@ cli
 svr
 test.sql
 *.log
+backups/
