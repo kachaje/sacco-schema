@@ -3,12 +3,8 @@ cacheQueries:
   date: member.memberLoan.0.memberLoanPayment.date
   description: member.memberLoan.0.memberLoanPayment.description
   id: member.memberLoan.0.memberLoanPayment.id
-  instalment: member.memberLoan.0.memberLoanPayment.instalment
-  insurance: member.memberLoan.0.memberLoanPayment.insurance
-  interest: member.memberLoan.0.memberLoanPayment.interest
   loanNumber: member.memberLoan.0.memberLoanPayment.loanNumber
   memberLoanId: member.memberLoan.0.memberLoanPayment.memberLoanId
-  processingFee: member.memberLoan.0.memberLoanPayment.processingFee
 enterAmountPaid:
   hidden: true
   inputIdentifier: amountPaid
@@ -28,18 +24,6 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
-enterInstalment:
-  hidden: true
-  inputIdentifier: instalment
-  type: hiddenField
-enterInsurance:
-  hidden: true
-  inputIdentifier: insurance
-  type: hiddenField
-enterInterest:
-  hidden: true
-  inputIdentifier: interest
-  type: hiddenField
 enterLoanNumber:
   dynamicDefault: memberLoan@loanNumber
   inputIdentifier: loanNumber
@@ -52,10 +36,6 @@ enterLoanNumber:
 enterMemberLoanId:
   hidden: true
   inputIdentifier: memberLoanId
-  type: hiddenField
-enterProcessingFee:
-  hidden: true
-  inputIdentifier: processingFee
   type: hiddenField
 formSummary:
   type: quitScreen

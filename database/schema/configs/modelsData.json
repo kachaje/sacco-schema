@@ -759,7 +759,7 @@
   "memberLoanPayment": {
     "fields": {
       "amountPaid": {
-        "order": 9,
+        "order": 5,
         "type": "real"
       },
       "date": {
@@ -777,24 +777,6 @@
         "primaryKey": true,
         "type": "int"
       },
-      "instalment": {
-        "default": "0",
-        "hidden": true,
-        "order": 8,
-        "type": "real"
-      },
-      "insurance": {
-        "default": "0",
-        "hidden": true,
-        "order": 6,
-        "type": "real"
-      },
-      "interest": {
-        "default": "0",
-        "hidden": true,
-        "order": 5,
-        "type": "real"
-      },
       "loanNumber": {
         "dynamicDefault": "memberLoan@loanNumber",
         "matchModel": "memberLoan",
@@ -805,12 +787,6 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
-      },
-      "processingFee": {
-        "default": "0",
-        "hidden": true,
-        "order": 7,
-        "type": "real"
       }
     },
     "model": "memberLoanPayment",

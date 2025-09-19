@@ -24,30 +24,6 @@ date:
   order: 4
   type: text
 
-interest:
-  default: "0"
-  hidden: true
-  order: 5
-  type: real
-
-insurance:
-  default: "0"
-  hidden: true
-  order: 6
-  type: real
-
-processingFee:
-  default: "0"
-  hidden: true
-  order: 7
-  type: real
-
-instalment:
-  default: "0"
-  hidden: true
-  order: 8
-  type: real
-
 amountPaid:
-  order: 9
+  order: 5
   type: real
