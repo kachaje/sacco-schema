@@ -795,6 +795,12 @@
         "order": 1,
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
+      },
+      "totalDue": {
+        "default": "0",
+        "hidden": true,
+        "order": 7,
+        "type": "real"
       }
     },
     "model": "memberLoanPayment",

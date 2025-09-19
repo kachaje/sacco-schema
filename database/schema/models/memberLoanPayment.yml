@@ -35,3 +35,9 @@ availableCash:
   hidden: true
   order: 6
   type: real
+
+totalDue:
+  default: "0"
+  hidden: true
+  order: 7
+  type: real

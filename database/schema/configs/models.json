@@ -1287,6 +1287,14 @@
           "optional": true,
           "order": 6
         }
+      },
+      {
+        "totalDue": {
+          "hidden": true,
+          "numericField": true,
+          "optional": true,
+          "order": 7
+        }
       }
     ],
     "hasMany": ["memberLoanPaymentDetail", "memberLoanTax"],

@@ -6,6 +6,7 @@ cacheQueries:
   id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.id
   loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.loanNumber
   memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentScheduleId
+  totalDue: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.totalDue
 enterAmountPaid:
   hidden: true
   inputIdentifier: amountPaid
@@ -41,6 +42,10 @@ enterLoanNumber:
 enterMemberLoanPaymentScheduleId:
   hidden: true
   inputIdentifier: memberLoanPaymentScheduleId
+  type: hiddenField
+enterTotalDue:
+  hidden: true
+  inputIdentifier: totalDue
   type: hiddenField
 formSummary:
   type: quitScreen
