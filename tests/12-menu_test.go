@@ -213,6 +213,16 @@ CON Loans
 		"value": "1",
 	}
 
+	session.GlobalIds["memberLoanApprovalId"] = map[string]any{
+		"key":   "memberLoanApproval.id",
+		"value": "1",
+	}
+
+	session.GlobalIds["memberLoanPaymentScheduleId"] = map[string]any{
+		"key":   "memberLoanPaymentSchedule.id",
+		"value": "1",
+	}
+
 	result = m.LoadMenu("loan", session, "", "", "")
 
 	target = `
@@ -222,6 +232,7 @@ CON Loans
 3. Loan Security
 4. Loan Witness
 5. Loan Approvals
+6. Loan Verification
 7. Loan Repayment
 8. Employment Details
 9. Business Details

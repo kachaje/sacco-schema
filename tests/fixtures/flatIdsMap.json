@@ -8,8 +8,8 @@
     "value": "1"
   },
   "memberDependantId": {
-    "key": "member.memberDependant.4.id",
-    "value": "4"
+    "key": "member.memberDependant.2.id",
+    "value": "2"
   },
   "memberId": {
     "key": "member.id",
@@ -35,13 +35,17 @@
     "key": "member.memberLoan.1.memberLoanLiability.2.id",
     "value": "2"
   },
+  "memberLoanPaymentDetailId": {
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.1.memberLoanPayment.memberLoanPaymentDetail.3.id",
+    "value": "3"
+  },
   "memberLoanPaymentId": {
-    "key": "member.memberLoan.1.memberLoanPayment.id",
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.1.memberLoanPayment.id",
     "value": "1"
   },
   "memberLoanPaymentScheduleId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.7.id",
-    "value": "7"
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.10.id",
+    "value": "10"
   },
   "memberLoanSecurityId": {
     "key": "member.memberLoan.1.memberLoanSecurity.2.id",
@@ -52,8 +56,8 @@
     "value": "1"
   },
   "memberLoanWitnessId": {
-    "key": "member.memberLoan.1.memberLoanWitness.2.id",
-    "value": "2"
+    "key": "member.memberLoan.1.memberLoanWitness.1.id",
+    "value": "1"
   },
   "memberNextYearBusinessProjectionId": {
     "key": "member.memberLoan.1.memberBusiness.memberNextYearBusinessProjection.id",
