@@ -36,7 +36,7 @@ WITH
       vat
     WHERE
       memberLoanId = 1
-      AND amountPaid < totalDue
+      AND amountPaid <= totalDue
     ORDER BY
       dueDate ASC
     LIMIT
@@ -82,5 +82,63 @@ FROM
   schedule
 WHERE
   (NEW.amountPaid - totalDue) > 0;
+
+INSERT INTO
+  memberLoanTax (
+    memberLoanPaymentId,
+    description,
+    amount,
+    taxCategory
+  )
+WITH
+  schedule AS (
+    WITH
+      vat AS (
+        SELECT
+          value AS tax
+        FROM
+          taxRate
+        WHERE
+          active = 1
+          AND name = 'VAT'
+        LIMIT
+          1
+      )
+    SELECT
+      processingFee * tax processingFeeTax,
+      interest * tax interestTax,
+      (
+        (processingFee * (1 + tax)) + (interest * (1 + tax)) + instalment + insurance
+      ) AS totalDue
+    FROM
+      memberLoanPaymentSchedule,
+      vat
+    WHERE
+      memberLoanId = 1
+      AND amountPaid >= totalDue
+    ORDER BY
+      dueDate ASC
+    LIMIT
+      1
+  )
+SELECT
+  NEW.id,
+  'Tax on Interest',
+  interestTax,
+  'Interest'
+FROM
+  schedule
+WHERE
+  interestTax > 0
+UNION ALL
+SELECT
+  NEW.id,
+  'Tax on Processing Fee',
+  processingFeeTax,
+  'Processing Fee'
+FROM
+  schedule
+WHERE
+  processingFeeTax > 0;
 
 END;
