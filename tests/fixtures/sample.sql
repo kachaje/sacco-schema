@@ -335,3 +335,14 @@ FROM
   memberLoanPaymentSchedule
 WHERE
   id = 1;
+
+INSERT INTO
+  memberLoanPayment (loanNumber, description, amountPaid)
+SELECT
+  loanNumber,
+  'Repayment Month 3',
+  2000
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 1;

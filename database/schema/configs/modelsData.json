@@ -790,6 +790,8 @@
         "type": "text"
       },
       "memberLoanPaymentScheduleId": {
+        "hidden": true,
+        "optional": true,
         "order": 1,
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
