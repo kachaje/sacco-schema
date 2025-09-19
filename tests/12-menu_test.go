@@ -193,6 +193,7 @@ func TestLoanMenu(t *testing.T) {
 	target := `
 CON Loans
 1. Loan Application
+7. Loan Repayment
 8. Employment Details
 9. Business Details
 10. Member Loans Summary
