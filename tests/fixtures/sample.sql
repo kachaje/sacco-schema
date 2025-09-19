@@ -319,7 +319,7 @@ INSERT INTO
 SELECT
   loanNumber,
   'Repayment Month 1',
-  5000
+  1963.33
 FROM
   memberLoanPaymentSchedule
 WHERE
@@ -330,7 +330,7 @@ INSERT INTO
 SELECT
   loanNumber,
   'Repayment Month 2',
-  1
+  1273
 FROM
   memberLoanPaymentSchedule
 WHERE
@@ -341,29 +341,7 @@ INSERT INTO
 SELECT
   loanNumber,
   'Repayment Month 3',
-  2000
-FROM
-  memberLoanPaymentSchedule
-WHERE
-  id = 1;
-
-INSERT INTO
-  memberLoanPayment (loanNumber, description, amountPaid)
-SELECT
-  loanNumber,
-  'Repayment Month 4',
-  507
-FROM
-  memberLoanPaymentSchedule
-WHERE
-  id = 1;
-
-INSERT INTO
-  memberLoanPayment (loanNumber, description, amountPaid)
-SELECT
-  loanNumber,
-  'Repayment Month 5',
-  1000
+  5000
 FROM
   memberLoanPaymentSchedule
 WHERE

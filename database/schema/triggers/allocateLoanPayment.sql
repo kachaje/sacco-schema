@@ -248,4 +248,31 @@ WHERE
       1
   );
 
+INSERT INTO
+  memberLoanSettlement (loanNumber, amountReserved)
+WITH
+  settlement AS (
+    SELECT
+      COALESCE(
+        (
+          SELECT
+            SUM(amountReserved) - SUM(amountClaimed)
+          FROM
+            memberLoanSettlement
+          WHERE
+            loanNumber = NEW.loanNumber
+          GROUP BY
+            loanNumber
+        ),
+        0
+      ) - NEW.totalDue AS balance
+  )
+SELECT
+  NEW.loanNumber,
+  balance
+FROM
+  settlement
+WHERE
+  balance > 0;
+
 END;
