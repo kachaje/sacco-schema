@@ -346,3 +346,25 @@ FROM
   memberLoanPaymentSchedule
 WHERE
   id = 1;
+
+INSERT INTO
+  memberLoanPayment (loanNumber, description, amountPaid)
+SELECT
+  loanNumber,
+  'Repayment Month 4',
+  507
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 1;
+
+INSERT INTO
+  memberLoanPayment (loanNumber, description, amountPaid)
+SELECT
+  loanNumber,
+  'Repayment Month 5',
+  1000
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 1;

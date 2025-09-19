@@ -67,7 +67,6 @@ var (
 	}
 	MemberSingleChildren = []string{
 		"memberContact",
-		"memberLoanSettlement",
 	}
 	SavingsTypeArrayChildren = []string{
 		"memberSaving",
@@ -208,9 +207,6 @@ var (
 		},
 		"memberLoanSecurity": {
 			"memberLoan",
-		},
-		"memberLoanSettlement": {
-			"member",
 		},
 		"memberLoanTax": {
 			"memberLoanPayment",

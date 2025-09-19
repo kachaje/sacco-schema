@@ -18,7 +18,7 @@
       "memberShares",
       "notification"
     ],
-    "singleChildren": ["memberContact", "memberLoanSettlement"]
+    "singleChildren": ["memberContact"]
   },
   "memberBusiness": {
     "singleChildren": [
@@ -53,6 +53,7 @@
   "memberLoanPaymentSchedule": {
     "singleChildren": ["memberLoanPayment"]
   },
+  "memberLoanSettlement": {},
   "memberLoanType": {},
   "memberOccupation": {
     "singleChildren": ["memberOccupationVerification"]

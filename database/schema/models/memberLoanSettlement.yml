@@ -4,9 +4,8 @@ id:
   primaryKey: true
   type: int
 
-memberId:
+loanNumber:
   order: 1
-  referenceTable: member
   type: text
 
 amountReserved:

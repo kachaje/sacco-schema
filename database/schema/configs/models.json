@@ -341,7 +341,7 @@
       "memberShares",
       "notification"
     ],
-    "hasOne": ["memberContact", "memberLoanSettlement"],
+    "hasOne": ["memberContact"],
     "rootQuery": "member"
   },
   "memberBusiness": {
@@ -1521,7 +1521,6 @@
     "rootQuery": "member.memberLoan.0.memberLoanSecurity.0"
   },
   "memberLoanSettlement": {
-    "belongsTo": ["member"],
     "fields": [
       {
         "id": {
@@ -1530,9 +1529,9 @@
         }
       },
       {
-        "memberId": {
-          "hidden": true,
-          "order": 1
+        "loanNumber": {
+          "order": 1,
+          "type": "text"
         }
       },
       {
@@ -1549,7 +1548,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoanSettlement"
+    "rootQuery": "memberLoanSettlement"
   },
   "memberLoanTax": {
     "belongsTo": ["memberLoanPayment"],

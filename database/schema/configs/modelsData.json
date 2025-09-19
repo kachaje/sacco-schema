@@ -954,14 +954,13 @@
         "primaryKey": true,
         "type": "int"
       },
-      "memberId": {
+      "loanNumber": {
         "order": 1,
-        "referenceTable": "member",
         "type": "text"
       }
     },
     "model": "memberLoanSettlement",
-    "parents": ["member"]
+    "parents": []
   },
   "memberLoanTax": {
     "fields": {

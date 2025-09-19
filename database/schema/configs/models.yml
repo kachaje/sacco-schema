@@ -215,7 +215,6 @@ member:
     - notification
   hasOne:
     - memberContact
-    - memberLoanSettlement
   rootQuery: member
 memberBusiness:
   belongsTo:
@@ -937,15 +936,13 @@ memberLoanSecurity:
         type: text
   rootQuery: member.memberLoan.0.memberLoanSecurity.0
 memberLoanSettlement:
-  belongsTo:
-    - member
   fields:
     - id:
         hidden: true
         order: 0
-    - memberId:
-        hidden: true
+    - loanNumber:
         order: 1
+        type: text
     - amountReserved:
         numericField: true
         order: 2
@@ -953,7 +950,7 @@ memberLoanSettlement:
         numericField: true
         optional: true
         order: 3
-  rootQuery: member.memberLoanSettlement
+  rootQuery: memberLoanSettlement
 memberLoanTax:
   belongsTo:
     - memberLoanPayment

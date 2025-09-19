@@ -1,13 +1,13 @@
 cacheQueries:
-  amountClaimed: member.memberLoanSettlement.amountClaimed
-  amountReserved: member.memberLoanSettlement.amountReserved
-  id: member.memberLoanSettlement.id
-  memberId: member.memberLoanSettlement.memberId
+  amountClaimed: memberLoanSettlement.amountClaimed
+  amountReserved: memberLoanSettlement.amountReserved
+  id: memberLoanSettlement.id
+  loanNumber: memberLoanSettlement.loanNumber
 enterAmountClaimed:
   inputIdentifier: amountClaimed
   nextScreen: formSummary
   optional: true
-  order: 2
+  order: 3
   text:
     en: Amount Claimed
   type: inputScreen
@@ -15,7 +15,7 @@ enterAmountClaimed:
 enterAmountReserved:
   inputIdentifier: amountReserved
   nextScreen: enterAmountClaimed
-  order: 1
+  order: 2
   text:
     en: Amount Reserved
   type: inputScreen
@@ -24,14 +24,15 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
-enterMemberId:
-  hidden: true
-  inputIdentifier: memberId
-  type: hiddenField
+enterLoanNumber:
+  inputIdentifier: loanNumber
+  nextScreen: enterAmountReserved
+  order: 1
+  text:
+    en: Loan Number
+  type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterAmountReserved
+initialScreen: enterLoanNumber
 model: memberLoanSettlement
-parentIds:
-  - memberId
-rootQuery: member.memberLoanSettlement
+rootQuery: memberLoanSettlement

@@ -22,16 +22,9 @@ SET
         FROM
           memberLoanSettlement
         WHERE
-          memberId = (
-            SELECT
-              id
-            FROM
-              memberLoan
-            WHERE
-              loanNumber = NEW.loanNumber
-          )
+          loanNumber = NEW.loanNumber
         GROUP BY
-          memberId
+          loanNumber
       ),
       0
     )
@@ -229,5 +222,30 @@ FROM
   schedule
 WHERE
   processingFeeTax > 0;
+
+UPDATE memberLoanSettlement
+SET
+  amountClaimed = (
+    SELECT
+      totalDue
+    FROM
+      memberLoanPayment
+    WHERE
+      id = NEW.id
+  )
+WHERE
+  id = (
+    SELECT
+      id
+    FROM
+      memberLoanSettlement
+    WHERE
+      loanNumber = NEW.loanNumber
+      AND COALESCE(amountClaimed, 0) = 0
+    ORDER BY
+      id
+    LIMIT
+      1
+  );
 
 END;
