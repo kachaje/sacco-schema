@@ -818,6 +818,7 @@ memberLoanPaymentDetail:
           - Instalment
           - Insurance
           - Processing Fee
+          - Settlement Overflow
         order: 2
         type: text
     - date:

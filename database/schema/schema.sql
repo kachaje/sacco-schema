@@ -481,7 +481,8 @@ CREATE TABLE IF NOT EXISTS memberLoanPaymentDetail (
             'Interest',
             'Instalment',
             'Insurance',
-            'Processing Fee'
+            'Processing Fee',
+            'Settlement Overflow'
         )
     ),
     date TEXT DEFAULT CURRENT_TIMESTAMP,

@@ -36,6 +36,9 @@ enterLoanComponent1:
     - label:
         en: Processing Fee
       position: 4
+    - label:
+        en: Settlement Overflow
+      position: 5
   order: 1
   text:
     en: Loan Component

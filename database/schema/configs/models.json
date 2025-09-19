@@ -1301,7 +1301,13 @@
       },
       {
         "loanComponent": {
-          "options": ["Interest", "Instalment", "Insurance", "Processing Fee"],
+          "options": [
+            "Interest",
+            "Instalment",
+            "Insurance",
+            "Processing Fee",
+            "Settlement Overflow"
+          ],
           "order": 2,
           "type": "text"
         }
