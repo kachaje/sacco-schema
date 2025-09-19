@@ -11,6 +11,7 @@ WHERE
       LEFT OUTER JOIN memberLoanPayment p ON p.memberLoanPaymentScheduleId = s.id
     WHERE
       p.id = NEW.memberLoanPaymentId
+      AND NEW.loanComponent IN ('Interest', 'Processing Fee', 'Instalment')
   );
 
 END;
