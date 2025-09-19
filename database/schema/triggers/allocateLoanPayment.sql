@@ -38,15 +38,16 @@ SET
           )
         SELECT
           (
-            (processingFee * (1 + tax)) + (interest * (1 + tax)) + instalment + insurance
+            (s.processingFee * (1 + tax)) + (s.interest * (1 + tax)) + s.instalment + s.insurance
           ) AS totalDue
         FROM
-          memberLoanPaymentSchedule,
+          memberLoanPaymentSchedule s,
           vat
+          LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
         WHERE
-          dueDate = NEW.dueDate
-          AND loanNumber = NEW.loanNumber
-          AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
+          s.dueDate = NEW.dueDate
+          AND s.loanNumber = NEW.loanNumber
+          AND p.availableCash >= totalDue
       )
     SELECT
       totalDue
@@ -81,20 +82,21 @@ WITH
       insurance,
       processingFee * tax processingFeeTax,
       interest * tax interestTax,
-      dueDate,
+      s.dueDate,
       amountRecommended,
       tax,
-      amountPaid,
+      s.amountPaid,
       (
         (processingFee * (1 + tax)) + (interest * (1 + tax)) + instalment + insurance
       ) AS totalDue
     FROM
-      memberLoanPaymentSchedule,
+      memberLoanPaymentSchedule s,
       vat
+      LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
     WHERE
-      dueDate = NEW.dueDate
-      AND loanNumber = NEW.loanNumber
-      AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
+      s.dueDate = NEW.dueDate
+      AND s.loanNumber = NEW.loanNumber
+      AND p.availableCash >= totalDue
   )
 SELECT
   NEW.id,
@@ -165,12 +167,13 @@ WITH
         (processingFee * (1 + tax)) + (interest * (1 + tax)) + instalment + insurance
       ) AS totalDue
     FROM
-      memberLoanPaymentSchedule,
+      memberLoanPaymentSchedule s,
       vat
+      LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
     WHERE
-      dueDate = NEW.dueDate
-      AND loanNumber = NEW.loanNumber
-      AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
+      s.dueDate = NEW.dueDate
+      AND s.loanNumber = NEW.loanNumber
+      AND p.availableCash >= totalDue
   )
 SELECT
   NEW.id,

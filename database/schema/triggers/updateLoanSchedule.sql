@@ -8,9 +8,10 @@ WHERE
       s.id
     FROM
       memberLoanPaymentSchedule s
-      LEFT OUTER JOIN memberLoanPayment p ON p.memberLoanPaymentScheduleId = s.id
+      LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
     WHERE
       p.id = NEW.memberLoanPaymentId
+      AND s.dueDate = p.dueDate
       AND NEW.loanComponent IN ('Interest', 'Processing Fee', 'Instalment')
   );
 

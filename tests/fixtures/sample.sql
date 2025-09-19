@@ -320,7 +320,7 @@ SELECT
   loanNumber,
   dueDate,
   'Repayment Month 1',
-  1963.33
+  1964
 FROM
   memberLoanPaymentSchedule
 WHERE
