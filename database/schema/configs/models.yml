@@ -774,35 +774,40 @@ memberLoanLiability:
         order: 3
   rootQuery: member.memberLoan.0.memberLoanLiability.0
 memberLoanPayment:
+  belongsTo:
+    - memberLoanPaymentSchedule
   fields:
     - id:
         hidden: true
         order: 0
+    - memberLoanPaymentScheduleId:
+        hidden: true
+        order: 1
     - loanNumber:
         dynamicDefault: memberLoanPaymentSchedule@loanNumber
         matchModel: memberLoanPaymentSchedule
-        order: 1
+        order: 2
         type: text
     - description:
-        order: 2
+        order: 3
         type: text
     - date:
         default: CURRENT_TIMESTAMP
         optional: true
-        order: 3
+        order: 4
         type: text
     - amountPaid:
         hidden: true
-        order: 4
+        order: 5
     - availableCash:
         hidden: true
         numericField: true
         optional: true
-        order: 5
+        order: 6
   hasMany:
     - memberLoanPaymentDetail
     - memberLoanTax
-  rootQuery: memberLoanPayment
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
 memberLoanPaymentDetail:
   belongsTo:
     - memberLoanPayment
@@ -830,7 +835,7 @@ memberLoanPaymentDetail:
     - amount:
         numericField: true
         order: 4
-  rootQuery: memberLoanPayment.memberLoanPaymentDetail.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -869,6 +874,8 @@ memberLoanPaymentSchedule:
     - loanNumber:
         order: 10
         type: text
+  hasOne:
+    - memberLoanPayment
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
 memberLoanSecurity:
   arrayFields:
@@ -969,7 +976,7 @@ memberLoanTax:
           - Processing Fee
         order: 5
         type: text
-  rootQuery: memberLoanPayment.memberLoanTax.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0
 memberLoanType:
   fields:
     - id:

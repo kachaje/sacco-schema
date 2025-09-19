@@ -759,22 +759,22 @@
   "memberLoanPayment": {
     "fields": {
       "amountPaid": {
-        "order": 4,
+        "order": 5,
         "type": "real"
       },
       "availableCash": {
         "default": "0",
         "hidden": true,
-        "order": 5,
+        "order": 6,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 3,
+        "order": 4,
         "type": "text"
       },
       "description": {
-        "order": 2,
+        "order": 3,
         "type": "text"
       },
       "id": {
@@ -786,12 +786,17 @@
       "loanNumber": {
         "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
         "matchModel": "memberLoanPaymentSchedule",
-        "order": 1,
+        "order": 2,
         "type": "text"
+      },
+      "memberLoanPaymentScheduleId": {
+        "order": 1,
+        "referenceTable": "memberLoanPaymentSchedule",
+        "type": "int"
       }
     },
     "model": "memberLoanPayment",
-    "parents": []
+    "parents": ["memberLoanPaymentSchedule"]
   },
   "memberLoanPaymentDetail": {
     "fields": {

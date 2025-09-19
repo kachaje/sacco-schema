@@ -1238,6 +1238,7 @@
     "rootQuery": "member.memberLoan.0.memberLoanLiability.0"
   },
   "memberLoanPayment": {
+    "belongsTo": ["memberLoanPaymentSchedule"],
     "fields": [
       {
         "id": {
@@ -1246,16 +1247,22 @@
         }
       },
       {
+        "memberLoanPaymentScheduleId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
         "loanNumber": {
           "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
           "matchModel": "memberLoanPaymentSchedule",
-          "order": 1,
+          "order": 2,
           "type": "text"
         }
       },
       {
         "description": {
-          "order": 2,
+          "order": 3,
           "type": "text"
         }
       },
@@ -1263,14 +1270,14 @@
         "date": {
           "default": "CURRENT_TIMESTAMP",
           "optional": true,
-          "order": 3,
+          "order": 4,
           "type": "text"
         }
       },
       {
         "amountPaid": {
           "hidden": true,
-          "order": 4
+          "order": 5
         }
       },
       {
@@ -1278,12 +1285,12 @@
           "hidden": true,
           "numericField": true,
           "optional": true,
-          "order": 5
+          "order": 6
         }
       }
     ],
     "hasMany": ["memberLoanPaymentDetail", "memberLoanTax"],
-    "rootQuery": "memberLoanPayment"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment"
   },
   "memberLoanPaymentDetail": {
     "belongsTo": ["memberLoanPayment"],
@@ -1328,7 +1335,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoanPayment.memberLoanPaymentDetail.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0"
   },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
@@ -1401,6 +1408,7 @@
         }
       }
     ],
+    "hasOne": ["memberLoanPayment"],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0"
   },
   "memberLoanSecurity": {
@@ -1578,7 +1586,7 @@
         }
       }
     ],
-    "rootQuery": "memberLoanPayment.memberLoanTax.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0"
   },
   "memberLoanType": {
     "fields": [

@@ -1,10 +1,10 @@
 cacheQueries:
-  amount1: memberLoanPayment.memberLoanTax.0.amount
-  date1: memberLoanPayment.memberLoanTax.0.date
-  description1: memberLoanPayment.memberLoanTax.0.description
-  id1: memberLoanPayment.memberLoanTax.0.id
-  memberLoanPaymentId1: memberLoanPayment.memberLoanTax.0.memberLoanPaymentId
-  taxCategory1: memberLoanPayment.memberLoanTax.0.taxCategory
+  amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.amount
+  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.date
+  description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.description
+  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.id
+  memberLoanPaymentId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.memberLoanPaymentId
+  taxCategory1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0.taxCategory
 enterAmount1:
   inputIdentifier: amount1
   nextScreen: enterTaxCategory1
@@ -52,4 +52,4 @@ initialScreen: enterDescription1
 model: memberLoanTax
 parentIds:
   - memberLoanPaymentId
-rootQuery: memberLoanPayment.memberLoanTax.0
+rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0

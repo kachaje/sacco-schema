@@ -452,6 +452,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoanPayment (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberLoanPaymentScheduleId INTEGER NOT NULL,
     loanNumber TEXT NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -459,7 +460,8 @@ CREATE TABLE IF NOT EXISTS memberLoanPayment (
     availableCash REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberLoanPaymentScheduleId) REFERENCES memberLoanPaymentSchedule (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanPaymentUpdated AFTER
