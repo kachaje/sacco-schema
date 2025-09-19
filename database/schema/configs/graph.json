@@ -50,9 +50,6 @@
   "memberLoanPayment": {
     "arrayChildren": ["memberLoanPaymentDetail", "memberLoanTax"]
   },
-  "memberLoanPaymentSchedule": {
-    "singleChildren": ["memberLoanPayment"]
-  },
   "memberLoanSettlement": {},
   "memberLoanType": {},
   "memberOccupation": {

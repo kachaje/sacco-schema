@@ -777,6 +777,11 @@
         "order": 3,
         "type": "text"
       },
+      "dueDate": {
+        "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
+        "order": 2,
+        "type": "text"
+      },
       "id": {
         "autoIncrement": true,
         "order": 0,
@@ -786,15 +791,8 @@
       "loanNumber": {
         "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
         "matchModel": "memberLoanPaymentSchedule",
-        "order": 2,
-        "type": "text"
-      },
-      "memberLoanPaymentScheduleId": {
-        "hidden": true,
-        "optional": true,
         "order": 1,
-        "referenceTable": "memberLoanPaymentSchedule",
-        "type": "int"
+        "type": "text"
       },
       "totalDue": {
         "default": "0",
@@ -804,7 +802,7 @@
       }
     },
     "model": "memberLoanPayment",
-    "parents": ["memberLoanPaymentSchedule"]
+    "parents": []
   },
   "memberLoanPaymentDetail": {
     "fields": {

@@ -1,12 +1,12 @@
 cacheQueries:
-  amountPaid: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.amountPaid
-  availableCash: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.availableCash
-  date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.date
-  description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.description
-  id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.id
-  loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.loanNumber
-  memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentScheduleId
-  totalDue: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.totalDue
+  amountPaid: memberLoanPayment.amountPaid
+  availableCash: memberLoanPayment.availableCash
+  date: memberLoanPayment.date
+  description: memberLoanPayment.description
+  dueDate: memberLoanPayment.dueDate
+  id: memberLoanPayment.id
+  loanNumber: memberLoanPayment.loanNumber
+  totalDue: memberLoanPayment.totalDue
 enterAmountPaid:
   hidden: true
   inputIdentifier: amountPaid
@@ -22,9 +22,16 @@ enterDate:
 enterDescription:
   inputIdentifier: description
   nextScreen: formSummary
-  order: 2
+  order: 3
   text:
     en: Description
+  type: inputScreen
+enterDueDate:
+  inputIdentifier: dueDate
+  nextScreen: enterDescription
+  order: 2
+  text:
+    en: Due Date
   type: inputScreen
 enterId:
   hidden: true
@@ -34,15 +41,11 @@ enterLoanNumber:
   dynamicDefault: memberLoanPaymentSchedule@loanNumber
   inputIdentifier: loanNumber
   matchModel: memberLoanPaymentSchedule
-  nextScreen: enterDescription
+  nextScreen: enterDueDate
   order: 1
   text:
     en: Loan Number
   type: inputScreen
-enterMemberLoanPaymentScheduleId:
-  hidden: true
-  inputIdentifier: memberLoanPaymentScheduleId
-  type: hiddenField
 enterTotalDue:
   hidden: true
   inputIdentifier: totalDue
@@ -51,6 +54,4 @@ formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber
 model: memberLoanPayment
-parentIds:
-  - memberLoanPaymentScheduleId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
+rootQuery: memberLoanPayment

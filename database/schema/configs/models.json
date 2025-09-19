@@ -1238,7 +1238,6 @@
     "rootQuery": "member.memberLoan.0.memberLoanLiability.0"
   },
   "memberLoanPayment": {
-    "belongsTo": ["memberLoanPaymentSchedule"],
     "fields": [
       {
         "id": {
@@ -1247,15 +1246,15 @@
         }
       },
       {
-        "memberLoanPaymentScheduleId": {
-          "hidden": true,
-          "order": 1
-        }
-      },
-      {
         "loanNumber": {
           "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
           "matchModel": "memberLoanPaymentSchedule",
+          "order": 1,
+          "type": "text"
+        }
+      },
+      {
+        "dueDate": {
           "order": 2,
           "type": "text"
         }
@@ -1298,7 +1297,7 @@
       }
     ],
     "hasMany": ["memberLoanPaymentDetail", "memberLoanTax"],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment"
+    "rootQuery": "memberLoanPayment"
   },
   "memberLoanPaymentDetail": {
     "belongsTo": ["memberLoanPayment"],
@@ -1343,7 +1342,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0"
+    "rootQuery": "memberLoanPayment.memberLoanPaymentDetail.0"
   },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
@@ -1416,7 +1415,6 @@
         }
       }
     ],
-    "hasOne": ["memberLoanPayment"],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0"
   },
   "memberLoanSecurity": {
@@ -1593,7 +1591,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0"
+    "rootQuery": "memberLoanPayment.memberLoanTax.0"
   },
   "memberLoanType": {
     "fields": [

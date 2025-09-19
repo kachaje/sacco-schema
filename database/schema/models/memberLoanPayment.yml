@@ -4,16 +4,14 @@ id:
   primaryKey: true
   type: int
 
-memberLoanPaymentScheduleId:
-  hidden: true
-  optional: true
-  order: 1
-  referenceTable: memberLoanPaymentSchedule
-  type: int
-
 loanNumber:
   dynamicDefault: memberLoanPaymentSchedule@loanNumber
   matchModel: memberLoanPaymentSchedule
+  order: 1
+  type: text
+
+dueDate:
+  ajaxOptions: memberLoanPaymentSchedule@loanNumber
   order: 2
   type: text
 
