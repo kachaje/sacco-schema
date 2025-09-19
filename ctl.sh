@@ -14,7 +14,7 @@ elif [[ "$1" == "-g" ]]; then
 
   go run cmd/gen/*.go -f designs/sacco.drawio
 
-  pushd menus/workflows 2>&1 >/dev/null
+  pushd workflows 2>&1 >/dev/null
 
   go run *.go
 

@@ -14,7 +14,7 @@ import (
 )
 
 func buildFuncs() {
-	folder := filepath.Join("..", "menufuncs")
+	folder := filepath.Join("..", "menus", "menufuncs")
 
 	rows := []string{}
 
@@ -82,7 +82,7 @@ func init() {
 }
 `, strings.Join(rows, "\n"))
 
-	filename := filepath.Join("..", "menufuncs", "menufuncs.go")
+	filename := filepath.Join("..", "menus", "menufuncs", "menufuncs.go")
 
 	rawData, err := format.Source([]byte(content))
 	if err != nil {
@@ -96,19 +96,19 @@ func init() {
 }
 
 func buildWorkflows() {
-	workingFolder := filepath.Join(".")
+	workingFolder := filepath.Join("..", "menus", "workflows")
 
 	_, err := os.Stat(workingFolder)
-	if os.IsNotExist(err) {
-		err = os.MkdirAll(workingFolder, 0755)
-		if err != nil {
-			log.Panic(err)
-		}
-	} else if err != nil {
+	if !os.IsNotExist(err) {
+		os.RemoveAll(workingFolder)
+	}
+
+	err = os.MkdirAll(workingFolder, 0755)
+	if err != nil {
 		log.Panic(err)
 	}
 
-	content, err := os.ReadFile(filepath.Join("..", "..", "database", "schema", "configs", "models.yml"))
+	content, err := os.ReadFile(filepath.Join("..", "database", "schema", "configs", "models.yml"))
 	if err != nil {
 		log.Panic(err)
 	}
@@ -214,7 +214,7 @@ func buildWorkflows() {
 	sort.Strings(floatKeys)
 	sort.Strings(parentModels)
 
-	targetName := filepath.Join("..", "..", "database", "models.go")
+	targetName := filepath.Join("..", "database", "models.go")
 
 	content, err = format.Source(fmt.Appendf(nil, `package database
 	
