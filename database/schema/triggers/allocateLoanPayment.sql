@@ -39,6 +39,49 @@ SET
 WHERE
   id = NEW.id;
 
+UPDATE memberLoanPayment
+SET
+  totalDue = (
+    WITH
+      schedule AS (
+        WITH
+          vat AS (
+            SELECT
+              value AS tax
+            FROM
+              taxRate
+            WHERE
+              active = 1
+              AND name = 'VAT'
+            LIMIT
+              1
+          )
+        SELECT
+          (
+            (processingFee * (1 + tax)) + (interest * (1 + tax)) + instalment + insurance
+          ) AS totalDue
+        FROM
+          memberLoanPaymentSchedule,
+          vat
+        WHERE
+          id = (
+            SELECT
+              memberLoanPaymentScheduleId
+            FROM
+              memberLoanPayment
+            WHERE
+              id = NEW.id
+              AND availableCash >= totalDue
+          )
+      )
+    SELECT
+      totalDue
+    FROM
+      schedule
+  )
+WHERE
+  id = NEW.id;
+
 INSERT INTO
   memberLoanPaymentDetail (memberLoanPaymentId, loanComponent, amount)
 WITH
