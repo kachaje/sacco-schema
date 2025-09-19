@@ -341,7 +341,7 @@
       "memberShares",
       "notification"
     ],
-    "hasOne": ["memberContact"],
+    "hasOne": ["memberContact", "memberLoanSettlement"],
     "rootQuery": "member"
   },
   "memberBusiness": {
@@ -1503,6 +1503,37 @@
       }
     ],
     "rootQuery": "member.memberLoan.0.memberLoanSecurity.0"
+  },
+  "memberLoanSettlement": {
+    "belongsTo": ["member"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "overFlowAmount": {
+          "numericField": true,
+          "order": 2
+        }
+      },
+      {
+        "amountPaidOut": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      }
+    ],
+    "rootQuery": "member.memberLoanSettlement"
   },
   "memberLoanTax": {
     "belongsTo": ["memberLoanPayment"],

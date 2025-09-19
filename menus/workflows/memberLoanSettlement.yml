@@ -1,0 +1,37 @@
+cacheQueries:
+  amountPaidOut: member.memberLoanSettlement.amountPaidOut
+  id: member.memberLoanSettlement.id
+  memberId: member.memberLoanSettlement.memberId
+  overFlowAmount: member.memberLoanSettlement.overFlowAmount
+enterAmountPaidOut:
+  inputIdentifier: amountPaidOut
+  nextScreen: formSummary
+  optional: true
+  order: 2
+  text:
+    en: Amount Paid Out
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterMemberId:
+  hidden: true
+  inputIdentifier: memberId
+  type: hiddenField
+enterOverFlowAmount:
+  inputIdentifier: overFlowAmount
+  nextScreen: enterAmountPaidOut
+  order: 1
+  text:
+    en: Over Flow Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterOverFlowAmount
+model: memberLoanSettlement
+parentIds:
+  - memberId
+rootQuery: member.memberLoanSettlement

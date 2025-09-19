@@ -67,6 +67,7 @@ var (
 	}
 	MemberSingleChildren = []string{
 		"memberContact",
+		"memberLoanSettlement",
 	}
 	SavingsTypeArrayChildren = []string{
 		"memberSaving",
@@ -96,6 +97,7 @@ var (
 	FloatFields = []string{
 		"amount",
 		"amountLimit",
+		"amountPaidOut",
 		"amountRecommended",
 		"amountSize",
 		"balance",
@@ -124,6 +126,7 @@ var (
 		"number",
 		"numberOfShares",
 		"otherCosts",
+		"overFlowAmount",
 		"ownSalary",
 		"penaltyRate",
 		"percentage1",
@@ -205,6 +208,9 @@ var (
 		},
 		"memberLoanSecurity": {
 			"memberLoan",
+		},
+		"memberLoanSettlement": {
+			"member",
 		},
 		"memberLoanTax": {
 			"memberLoanPayment",

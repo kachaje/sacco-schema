@@ -553,6 +553,27 @@ WHERE
 
 END;
 
+CREATE TABLE IF NOT EXISTS memberLoanSettlement (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId TEXT NOT NULL,
+    overFlowAmount REAL NOT NULL,
+    amountPaidOut REAL DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberLoanSettlementUpdated AFTER
+UPDATE ON memberLoanSettlement FOR EACH ROW BEGIN
+UPDATE memberLoanSettlement
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
 CREATE TABLE IF NOT EXISTS memberLoanTax (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanPaymentId INTEGER NOT NULL,

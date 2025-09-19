@@ -1,0 +1,19 @@
+id:
+  autoIncrement: true
+  order: 0
+  primaryKey: true
+  type: int
+
+memberId:
+  order: 1
+  referenceTable: member
+  type: text
+
+overFlowAmount:
+  order: 2
+  type: real
+
+amountPaidOut:
+  default: "0"
+  order: 3
+  type: real
