@@ -315,14 +315,8 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (
-    memberLoanPaymentScheduleId,
-    loanNumber,
-    description,
-    amountPaid
-  )
+  memberLoanPayment (loanNumber, description, amountPaid)
 SELECT
-  id,
   loanNumber,
   'Repayment Month 1',
   5000
@@ -332,18 +326,12 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (
-    memberLoanPaymentScheduleId,
-    loanNumber,
-    description,
-    amountPaid
-  )
+  memberLoanPayment (loanNumber, description, amountPaid)
 SELECT
-  id,
   loanNumber,
   'Repayment Month 2',
-  2000
+  1
 FROM
   memberLoanPaymentSchedule
 WHERE
-  id = 2;
+  id = 1;

@@ -1,13 +1,17 @@
 cacheQueries:
-  amountPaid: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.amountPaid
-  date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.date
-  description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.description
-  id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.id
-  loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.loanNumber
-  memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentScheduleId
+  amountPaid: memberLoanPayment.amountPaid
+  availableCash: memberLoanPayment.availableCash
+  date: memberLoanPayment.date
+  description: memberLoanPayment.description
+  id: memberLoanPayment.id
+  loanNumber: memberLoanPayment.loanNumber
 enterAmountPaid:
   hidden: true
   inputIdentifier: amountPaid
+  type: hiddenField
+enterAvailableCash:
+  hidden: true
+  inputIdentifier: availableCash
   type: hiddenField
 enterDate:
   default: CURRENT_TIMESTAMP
@@ -33,14 +37,8 @@ enterLoanNumber:
   text:
     en: Loan Number
   type: inputScreen
-enterMemberLoanPaymentScheduleId:
-  hidden: true
-  inputIdentifier: memberLoanPaymentScheduleId
-  type: hiddenField
 formSummary:
   type: quitScreen
 initialScreen: enterLoanNumber
 model: memberLoanPayment
-parentIds:
-  - memberLoanPaymentScheduleId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
+rootQuery: memberLoanPayment
