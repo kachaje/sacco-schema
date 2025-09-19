@@ -759,7 +759,7 @@
   "memberLoanPayment": {
     "fields": {
       "amountPaid": {
-        "order": 10,
+        "order": 9,
         "type": "real"
       },
       "date": {
@@ -778,15 +778,21 @@
         "type": "int"
       },
       "instalment": {
-        "order": 9,
+        "default": "0",
+        "hidden": true,
+        "order": 8,
         "type": "real"
       },
       "insurance": {
-        "order": 7,
+        "default": "0",
+        "hidden": true,
+        "order": 6,
         "type": "real"
       },
       "interest": {
-        "order": 6,
+        "default": "0",
+        "hidden": true,
+        "order": 5,
         "type": "real"
       },
       "loanNumber": {
@@ -795,24 +801,20 @@
         "order": 2,
         "type": "text"
       },
-      "memberLoanPaymentScheduleId": {
+      "memberLoanId": {
         "order": 1,
-        "referenceTable": "memberLoanPaymentSchedule",
+        "referenceTable": "memberLoan",
         "type": "int"
       },
       "processingFee": {
         "default": "0",
-        "order": 8,
-        "type": "real"
-      },
-      "totalDue": {
-        "default": "0",
-        "order": 5,
+        "hidden": true,
+        "order": 7,
         "type": "real"
       }
     },
     "model": "memberLoanPayment",
-    "parents": ["memberLoanPaymentSchedule"]
+    "parents": ["memberLoan"]
   },
   "memberLoanPaymentDetail": {
     "fields": {
@@ -852,6 +854,10 @@
       "amountPaid": {
         "default": "0",
         "order": 8,
+        "type": "real"
+      },
+      "amountRecommended": {
+        "order": 9,
         "type": "real"
       },
       "dueDate": {
@@ -952,10 +958,10 @@
         "primaryKey": true,
         "type": "int"
       },
-      "memberLoanInvoiceId": {
+      "memberLoanPaymentId": {
         "many": true,
         "order": 1,
-        "referenceTable": "memberLoanInvoice",
+        "referenceTable": "memberLoanPayment",
         "type": "int"
       },
       "taxCategory": {
@@ -966,7 +972,7 @@
     },
     "many": true,
     "model": "memberLoanTax",
-    "parents": ["memberLoanInvoice"]
+    "parents": ["memberLoanPayment"]
   },
   "memberLoanType": {
     "fields": {

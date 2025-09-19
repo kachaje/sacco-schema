@@ -4,9 +4,9 @@ id:
   primaryKey: true
   type: int
 
-memberLoanPaymentScheduleId:
+memberLoanId:
   order: 1
-  referenceTable: memberLoanPaymentSchedule
+  referenceTable: memberLoan
   type: int
 
 loanNumber:
@@ -24,28 +24,30 @@ date:
   order: 4
   type: text
 
-totalDue:
+interest:
   default: "0"
+  hidden: true
   order: 5
   type: real
 
-interest:
-  order: 6
-  type: real
-
 insurance:
-  order: 7
+  default: "0"
+  hidden: true
+  order: 6
   type: real
 
 processingFee:
   default: "0"
-  order: 8
+  hidden: true
+  order: 7
   type: real
 
 instalment:
-  order: 9
+  default: "0"
+  hidden: true
+  order: 8
   type: real
 
 amountPaid:
-  order: 10
+  order: 9
   type: real

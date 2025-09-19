@@ -649,6 +649,7 @@ memberLoan:
     - memberBusiness
     - memberLoanApproval
     - memberLoanDisbursement
+    - memberLoanPayment
     - memberOccupation
   rootQuery: member.memberLoan.0
 memberLoanApproval:
@@ -774,12 +775,12 @@ memberLoanLiability:
   rootQuery: member.memberLoan.0.memberLoanLiability.0
 memberLoanPayment:
   belongsTo:
-    - memberLoanPaymentSchedule
+    - memberLoan
   fields:
     - id:
         hidden: true
         order: 0
-    - memberLoanPaymentScheduleId:
+    - memberLoanId:
         hidden: true
         order: 1
     - loanNumber:
@@ -795,29 +796,33 @@ memberLoanPayment:
         optional: true
         order: 4
         type: text
-    - totalDue:
+    - interest:
+        hidden: true
         numericField: true
         optional: true
         order: 5
-    - interest:
-        numericField: true
-        order: 6
     - insurance:
+        hidden: true
         numericField: true
-        order: 7
+        optional: true
+        order: 6
     - processingFee:
+        hidden: true
+        numericField: true
+        optional: true
+        order: 7
+    - instalment:
+        hidden: true
         numericField: true
         optional: true
         order: 8
-    - instalment:
-        numericField: true
-        order: 9
     - amountPaid:
         hidden: true
-        order: 10
+        order: 9
   hasMany:
     - memberLoanPaymentDetail
-  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
+    - memberLoanTax
+  rootQuery: member.memberLoan.0.memberLoanPayment
 memberLoanPaymentDetail:
   belongsTo:
     - memberLoanPayment
@@ -844,7 +849,7 @@ memberLoanPaymentDetail:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0
+  rootQuery: member.memberLoan.0.memberLoanPayment.memberLoanPaymentDetail.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -877,8 +882,9 @@ memberLoanPaymentSchedule:
     - amountPaid:
         hidden: true
         order: 8
-  hasOne:
-    - memberLoanPayment
+    - amountRecommended:
+        numericField: true
+        order: 9
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
 memberLoanSecurity:
   arrayFields:
@@ -936,12 +942,12 @@ memberLoanSecurity:
   rootQuery: member.memberLoan.0.memberLoanSecurity.0
 memberLoanTax:
   belongsTo:
-    - memberLoanInvoice
+    - memberLoanPayment
   fields:
     - id:
         hidden: true
         order: 0
-    - memberLoanInvoiceId:
+    - memberLoanPaymentId:
         hidden: true
         order: 1
     - description:
@@ -961,7 +967,7 @@ memberLoanTax:
           - Processing Fee
         order: 5
         type: text
-  rootQuery: memberLoanInvoice.memberLoanTax
+  rootQuery: member.memberLoan.0.memberLoanPayment.memberLoanTax.0
 memberLoanType:
   fields:
     - id:

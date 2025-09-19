@@ -452,20 +452,19 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoanPayment (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberLoanPaymentScheduleId INTEGER NOT NULL,
+    memberLoanId INTEGER NOT NULL,
     loanNumber TEXT NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
-    totalDue REAL DEFAULT 0,
-    interest REAL NOT NULL,
-    insurance REAL NOT NULL,
+    interest REAL DEFAULT 0,
+    insurance REAL DEFAULT 0,
     processingFee REAL DEFAULT 0,
-    instalment REAL NOT NULL,
+    instalment REAL DEFAULT 0,
     amountPaid REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberLoanPaymentScheduleId) REFERENCES memberLoanPaymentSchedule (id) ON DELETE CASCADE
+    FOREIGN KEY (memberLoanId) REFERENCES memberLoan (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanPaymentUpdated AFTER
@@ -517,6 +516,7 @@ CREATE TABLE IF NOT EXISTS memberLoanPaymentSchedule (
     processingFee REAL DEFAULT 0,
     instalment REAL NOT NULL,
     amountPaid REAL DEFAULT 0,
+    amountRecommended REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -557,7 +557,7 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberLoanTax (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberLoanInvoiceId INTEGER NOT NULL,
+    memberLoanPaymentId INTEGER NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
@@ -565,7 +565,7 @@ CREATE TABLE IF NOT EXISTS memberLoanTax (
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberLoanInvoiceId) REFERENCES memberLoanInvoice (id) ON DELETE CASCADE
+    FOREIGN KEY (memberLoanPaymentId) REFERENCES memberLoanPayment (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberLoanTaxUpdated AFTER

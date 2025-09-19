@@ -1,39 +1,39 @@
 cacheQueries:
-  amount: memberLoanInvoice.memberLoanTax.amount
-  date: memberLoanInvoice.memberLoanTax.date
-  description: memberLoanInvoice.memberLoanTax.description
-  id: memberLoanInvoice.memberLoanTax.id
-  memberLoanInvoiceId: memberLoanInvoice.memberLoanTax.memberLoanInvoiceId
-  taxCategory: memberLoanInvoice.memberLoanTax.taxCategory
-enterAmount:
-  inputIdentifier: amount
-  nextScreen: enterTaxCategory
+  amount1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.amount
+  date1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.date
+  description1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.description
+  id1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.id
+  memberLoanPaymentId1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.memberLoanPaymentId
+  taxCategory1: member.memberLoan.0.memberLoanPayment.memberLoanTax.0.taxCategory
+enterAmount1:
+  inputIdentifier: amount1
+  nextScreen: enterTaxCategory1
   order: 2
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate:
+enterDate1:
   default: CURRENT_TIMESTAMP
   hidden: true
-  inputIdentifier: date
-enterDescription:
-  inputIdentifier: description
-  nextScreen: enterAmount
+  inputIdentifier: date1
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterAmount1
   order: 1
   text:
     en: Description
   type: inputScreen
-enterId:
+enterId1:
   hidden: true
-  inputIdentifier: id
+  inputIdentifier: id1
   type: hiddenField
-enterMemberLoanInvoiceId:
+enterMemberLoanPaymentId1:
   hidden: true
-  inputIdentifier: memberLoanInvoiceId
+  inputIdentifier: memberLoanPaymentId1
   type: hiddenField
-enterTaxCategory:
-  inputIdentifier: taxCategory
+enterTaxCategory1:
+  inputIdentifier: taxCategory1
   nextScreen: formSummary
   options:
     - label:
@@ -48,8 +48,8 @@ enterTaxCategory:
   type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterDescription
+initialScreen: enterDescription1
 model: memberLoanTax
 parentIds:
-  - memberLoanInvoiceId
-rootQuery: memberLoanInvoice.memberLoanTax
+  - memberLoanPaymentId
+rootQuery: member.memberLoan.0.memberLoanPayment.memberLoanTax.0

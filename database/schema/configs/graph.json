@@ -41,20 +41,15 @@
       "memberBusiness",
       "memberLoanApproval",
       "memberLoanDisbursement",
+      "memberLoanPayment",
       "memberOccupation"
     ]
   },
   "memberLoanApproval": {
     "singleChildren": ["memberLoanVerification"]
   },
-  "memberLoanInvoice": {
-    "arrayChildren": ["memberLoanTax"]
-  },
   "memberLoanPayment": {
-    "arrayChildren": ["memberLoanPaymentDetail"]
-  },
-  "memberLoanPaymentSchedule": {
-    "singleChildren": ["memberLoanPayment"]
+    "arrayChildren": ["memberLoanPaymentDetail", "memberLoanTax"]
   },
   "memberLoanType": {},
   "memberOccupation": {

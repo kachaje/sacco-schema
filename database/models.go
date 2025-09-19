@@ -38,14 +38,13 @@ var (
 	}
 	MemberLoanPaymentArrayChildren = []string{
 		"memberLoanPaymentDetail",
-	}
-	MemberLoanPaymentScheduleSingleChildren = []string{
-		"memberLoanPayment",
+		"memberLoanTax",
 	}
 	MemberLoanSingleChildren = []string{
 		"memberBusiness",
 		"memberLoanApproval",
 		"memberLoanDisbursement",
+		"memberLoanPayment",
 		"memberOccupation",
 	}
 	MemberOccupationSingleChildren = []string{
@@ -72,16 +71,15 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
-		"LoanNumberIdsCacheSingleChildren":        LoanNumberIdsCacheSingleChildren,
-		"MemberBusinessSingleChildren":            MemberBusinessSingleChildren,
-		"MemberIdsCacheSingleChildren":            MemberIdsCacheSingleChildren,
-		"MemberLoanApprovalSingleChildren":        MemberLoanApprovalSingleChildren,
-		"MemberLoanPaymentScheduleSingleChildren": MemberLoanPaymentScheduleSingleChildren,
-		"MemberLoanSingleChildren":                MemberLoanSingleChildren,
-		"MemberOccupationSingleChildren":          MemberOccupationSingleChildren,
-		"MemberSavingsIdsCacheSingleChildren":     MemberSavingsIdsCacheSingleChildren,
-		"MemberSharesIdsCacheSingleChildren":      MemberSharesIdsCacheSingleChildren,
-		"MemberSingleChildren":                    MemberSingleChildren,
+		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
+		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
+		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
+		"MemberLoanApprovalSingleChildren":    MemberLoanApprovalSingleChildren,
+		"MemberLoanSingleChildren":            MemberLoanSingleChildren,
+		"MemberOccupationSingleChildren":      MemberOccupationSingleChildren,
+		"MemberSavingsIdsCacheSingleChildren": MemberSavingsIdsCacheSingleChildren,
+		"MemberSharesIdsCacheSingleChildren":  MemberSharesIdsCacheSingleChildren,
+		"MemberSingleChildren":                MemberSingleChildren,
 	}
 	ArrayChildren = map[string][]string{
 		"AccountArrayChildren":            AccountArrayChildren,
@@ -140,7 +138,6 @@ var (
 		"totalCosts",
 		"totalCredit",
 		"totalDebit",
-		"totalDue",
 		"totalIncome",
 		"totalValue",
 		"transport",
@@ -195,7 +192,7 @@ var (
 			"memberLoan",
 		},
 		"memberLoanPayment": {
-			"memberLoanPaymentSchedule",
+			"memberLoan",
 		},
 		"memberLoanPaymentDetail": {
 			"memberLoanPayment",
@@ -207,7 +204,7 @@ var (
 			"memberLoan",
 		},
 		"memberLoanTax": {
-			"memberLoanInvoice",
+			"memberLoanPayment",
 		},
 		"memberLoanVerification": {
 			"memberLoanApproval",

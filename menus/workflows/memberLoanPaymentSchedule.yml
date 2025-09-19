@@ -1,5 +1,6 @@
 cacheQueries:
   amountPaid1: member.memberLoan.0.memberLoanPaymentSchedule.0.amountPaid
+  amountRecommended1: member.memberLoan.0.memberLoanPaymentSchedule.0.amountRecommended
   dueDate1: member.memberLoan.0.memberLoanPaymentSchedule.0.dueDate
   id1: member.memberLoan.0.memberLoanPaymentSchedule.0.id
   instalment1: member.memberLoan.0.memberLoanPaymentSchedule.0.instalment
@@ -12,6 +13,14 @@ enterAmountPaid1:
   hidden: true
   inputIdentifier: amountPaid1
   type: hiddenField
+enterAmountRecommended1:
+  inputIdentifier: amountRecommended1
+  nextScreen: formSummary
+  order: 7
+  text:
+    en: Amount Recommended
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterDueDate1:
   inputIdentifier: dueDate1
   nextScreen: enterPrincipal1
@@ -25,7 +34,7 @@ enterId1:
   type: hiddenField
 enterInstalment1:
   inputIdentifier: instalment1
-  nextScreen: formSummary
+  nextScreen: enterAmountRecommended1
   order: 6
   text:
     en: Instalment

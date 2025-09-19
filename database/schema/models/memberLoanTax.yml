@@ -4,10 +4,10 @@ id:
   primaryKey: true
   type: int
 
-memberLoanInvoiceId:
+memberLoanPaymentId:
   many: true
   order: 1
-  referenceTable: memberLoanInvoice
+  referenceTable: memberLoanPayment
   type: int
 
 description:

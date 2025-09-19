@@ -40,3 +40,7 @@ amountPaid:
   default: "0"
   order: 8
   type: real
+
+amountRecommended:
+  order: 9
+  type: real
