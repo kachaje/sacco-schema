@@ -1,19 +1,6 @@
 CREATE TRIGGER IF NOT EXISTS allocateLoanPayment AFTER INSERT ON memberLoanPayment FOR EACH ROW BEGIN
 UPDATE memberLoanPayment
 SET
-  memberLoanPaymentScheduleId = (
-    SELECT
-      id
-    FROM
-      memberLoanPaymentSchedule
-    WHERE
-      loanNumber = NEW.loanNumber
-      AND amountPaid = 0
-    ORDER BY
-      dueDate
-    LIMIT
-      1
-  ),
   availableCash = (
     amountPaid + COALESCE(
       (
@@ -57,15 +44,9 @@ SET
           memberLoanPaymentSchedule,
           vat
         WHERE
-          id = (
-            SELECT
-              memberLoanPaymentScheduleId
-            FROM
-              memberLoanPayment
-            WHERE
-              id = NEW.id
-              AND availableCash >= totalDue
-          )
+          dueDate = NEW.dueDate
+          AND loanNumber = NEW.loanNumber
+          AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
       )
     SELECT
       totalDue
@@ -111,15 +92,9 @@ WITH
       memberLoanPaymentSchedule,
       vat
     WHERE
-      id = (
-        SELECT
-          memberLoanPaymentScheduleId
-        FROM
-          memberLoanPayment
-        WHERE
-          id = NEW.id
-          AND availableCash >= totalDue
-      )
+      dueDate = NEW.dueDate
+      AND loanNumber = NEW.loanNumber
+      AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
   )
 SELECT
   NEW.id,
@@ -193,15 +168,9 @@ WITH
       memberLoanPaymentSchedule,
       vat
     WHERE
-      id = (
-        SELECT
-          memberLoanPaymentScheduleId
-        FROM
-          memberLoanPayment
-        WHERE
-          id = NEW.id
-          AND availableCash >= totalDue
-      )
+      dueDate = NEW.dueDate
+      AND loanNumber = NEW.loanNumber
+      AND memberLoanPayment.availableCash >= memberLoanPayment.totalDue
   )
 SELECT
   NEW.id,

@@ -315,9 +315,10 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, description, amountPaid)
+  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
 SELECT
   loanNumber,
+  dueDate,
   'Repayment Month 1',
   1963.33
 FROM
@@ -326,23 +327,25 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, description, amountPaid)
+  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
 SELECT
   loanNumber,
+  dueDate,
   'Repayment Month 2',
   1273
 FROM
   memberLoanPaymentSchedule
 WHERE
-  id = 1;
+  id = 2;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, description, amountPaid)
+  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
 SELECT
   loanNumber,
+  dueDate,
   'Repayment Month 3',
   5000
 FROM
   memberLoanPaymentSchedule
 WHERE
-  id = 1;
+  id = 3;
