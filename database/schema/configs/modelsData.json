@@ -925,9 +925,13 @@
   },
   "memberLoanSettlement": {
     "fields": {
-      "amountPaidOut": {
+      "amountClaimed": {
         "default": "0",
         "order": 3,
+        "type": "real"
+      },
+      "amountReserved": {
+        "order": 2,
         "type": "real"
       },
       "id": {
@@ -940,10 +944,6 @@
         "order": 1,
         "referenceTable": "member",
         "type": "text"
-      },
-      "overFlowAmount": {
-        "order": 2,
-        "type": "real"
       }
     },
     "model": "memberLoanSettlement",

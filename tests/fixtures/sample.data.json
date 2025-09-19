@@ -57,7 +57,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM578204",
+    "memberIdNumber": "KSM630047",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -66,7 +66,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN624671",
+        "loanNumber": "KLN730940",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -114,15 +114,15 @@
         "memberLoanApproval": {
           "amountRecommended": 10000,
           "approvedBy": "admin",
-          "dateOfApproval": "2025-09-19 13:02:28",
+          "dateOfApproval": "2025-09-19 13:53:07",
           "id": 1,
-          "loanNumber": "KLN624671",
+          "loanNumber": "KLN730940",
           "loanStatus": "PARTIAL-APPROVAL",
           "memberLoanId": 1,
           "memberLoanVerification": {
-            "dateVerified": "2025-09-19 13:02:28",
+            "dateVerified": "2025-09-19 13:53:07",
             "id": 1,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanApprovalId": 1,
             "verified": "Yes",
             "verifiedBy": "admin"
@@ -131,8 +131,8 @@
         },
         "memberLoanDisbursement": {
           "amount": 10000,
-          "date": "2025-09-19 13:02:28",
-          "description": "Disbursement for loan number KLN624671",
+          "date": "2025-09-19 13:53:07",
+          "description": "Disbursement for loan number KLN730940",
           "id": 1,
           "memberLoanId": 1
         },
@@ -152,53 +152,53 @@
         },
         "memberLoanPaymentSchedule": {
           "1": {
-            "amountPaid": 5000,
+            "amountPaid": 1813.3333333333335,
             "amountRecommended": 10000,
             "dueDate": "2025-10-01",
             "id": 1,
             "instalment": 833.3333333333334,
             "insurance": 150,
             "interest": 480,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 5000,
-              "date": "2025-09-19 13:02:28",
+              "date": "2025-09-19 13:53:07",
               "description": "Repayment",
               "id": 1,
-              "loanNumber": "KLN624671",
+              "loanNumber": "KLN730940",
               "memberLoanPaymentDetail": {
                 "1": {
                   "amount": 480,
-                  "date": "2025-09-19 13:02:28",
+                  "date": "2025-09-19 13:53:07",
                   "id": 1,
                   "loanComponent": "Interest",
                   "memberLoanPaymentId": 1
                 },
                 "2": {
                   "amount": 833.3333333333334,
-                  "date": "2025-09-19 13:02:28",
+                  "date": "2025-09-19 13:53:07",
                   "id": 2,
                   "loanComponent": "Instalment",
                   "memberLoanPaymentId": 1
                 },
                 "3": {
                   "amount": 150,
-                  "date": "2025-09-19 13:02:28",
+                  "date": "2025-09-19 13:53:07",
                   "id": 3,
                   "loanComponent": "Insurance",
                   "memberLoanPaymentId": 1
                 },
                 "4": {
                   "amount": 500,
-                  "date": "2025-09-19 13:02:28",
+                  "date": "2025-09-19 13:53:07",
                   "id": 4,
                   "loanComponent": "Processing Fee",
                   "memberLoanPaymentId": 1
                 },
                 "5": {
                   "amount": 3036.6666666666665,
-                  "date": "2025-09-19 13:02:28",
+                  "date": "2025-09-19 13:53:07",
                   "id": 5,
                   "loanComponent": "Settlement Overflow",
                   "memberLoanPaymentId": 1
@@ -217,7 +217,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 120,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 2500,
             "processingFee": 0
@@ -230,7 +230,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 79.99999999999997,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 1666.666666666666,
             "processingFee": 0
@@ -243,7 +243,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 39.99999999999994,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 833.3333333333321,
             "processingFee": 0
@@ -256,7 +256,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 440,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 9166.666666666666,
             "processingFee": 0
@@ -269,7 +269,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 400.00000000000006,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 8333.333333333334,
             "processingFee": 0
@@ -282,7 +282,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 360,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 7500,
             "processingFee": 0
@@ -295,7 +295,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 320,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 6666.666666666666,
             "processingFee": 0
@@ -308,7 +308,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 280,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 5833.333333333333,
             "processingFee": 0
@@ -321,7 +321,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 240,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 5000,
             "processingFee": 0
@@ -334,7 +334,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 199.99999999999997,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 4166.666666666666,
             "processingFee": 0
@@ -347,7 +347,7 @@
             "instalment": 833.3333333333334,
             "insurance": 0,
             "interest": 160,
-            "loanNumber": "KLN624671",
+            "loanNumber": "KLN730940",
             "memberLoanId": 1,
             "principal": 3333.333333333333,
             "processingFee": 0
@@ -411,6 +411,12 @@
         "processingFeeRate": 0.05,
         "repaymentPeriodInMonths": 12
       }
+    },
+    "memberLoanSettlement": {
+      "amountClaimed": 0,
+      "amountReserved": 3036.6666666666665,
+      "id": 1,
+      "memberId": "1"
     },
     "memberNominee": {
       "address": "P.O. Box 1",

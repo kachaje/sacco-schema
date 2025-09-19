@@ -9,11 +9,11 @@ memberId:
   referenceTable: member
   type: text
 
-overFlowAmount:
+amountReserved:
   order: 2
   type: real
 
-amountPaidOut:
+amountClaimed:
   default: "0"
   order: 3
   type: real

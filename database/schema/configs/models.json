@@ -1520,13 +1520,13 @@
         }
       },
       {
-        "overFlowAmount": {
+        "amountReserved": {
           "numericField": true,
           "order": 2
         }
       },
       {
-        "amountPaidOut": {
+        "amountClaimed": {
           "numericField": true,
           "optional": true,
           "order": 3

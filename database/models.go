@@ -96,9 +96,10 @@ var (
 	}
 	FloatFields = []string{
 		"amount",
+		"amountClaimed",
 		"amountLimit",
-		"amountPaidOut",
 		"amountRecommended",
+		"amountReserved",
 		"amountSize",
 		"balance",
 		"claimed",
@@ -126,7 +127,6 @@ var (
 		"number",
 		"numberOfShares",
 		"otherCosts",
-		"overFlowAmount",
 		"ownSalary",
 		"penaltyRate",
 		"percentage1",

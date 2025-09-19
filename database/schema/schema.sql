@@ -556,8 +556,8 @@ END;
 CREATE TABLE IF NOT EXISTS memberLoanSettlement (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId TEXT NOT NULL,
-    overFlowAmount REAL NOT NULL,
-    amountPaidOut REAL DEFAULT 0,
+    amountReserved REAL NOT NULL,
+    amountClaimed REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

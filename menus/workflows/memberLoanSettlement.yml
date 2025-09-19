@@ -1,15 +1,23 @@
 cacheQueries:
-  amountPaidOut: member.memberLoanSettlement.amountPaidOut
+  amountClaimed: member.memberLoanSettlement.amountClaimed
+  amountReserved: member.memberLoanSettlement.amountReserved
   id: member.memberLoanSettlement.id
   memberId: member.memberLoanSettlement.memberId
-  overFlowAmount: member.memberLoanSettlement.overFlowAmount
-enterAmountPaidOut:
-  inputIdentifier: amountPaidOut
+enterAmountClaimed:
+  inputIdentifier: amountClaimed
   nextScreen: formSummary
   optional: true
   order: 2
   text:
-    en: Amount Paid Out
+    en: Amount Claimed
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterAmountReserved:
+  inputIdentifier: amountReserved
+  nextScreen: enterAmountClaimed
+  order: 1
+  text:
+    en: Amount Reserved
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterId:
@@ -20,17 +28,9 @@ enterMemberId:
   hidden: true
   inputIdentifier: memberId
   type: hiddenField
-enterOverFlowAmount:
-  inputIdentifier: overFlowAmount
-  nextScreen: enterAmountPaidOut
-  order: 1
-  text:
-    en: Over Flow Amount
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
-initialScreen: enterOverFlowAmount
+initialScreen: enterAmountReserved
 model: memberLoanSettlement
 parentIds:
   - memberId
