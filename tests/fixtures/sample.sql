@@ -315,11 +315,11 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanRepayment (
-    memberLoanInvoiceId,
+  memberLoanPayment (
+    memberLoanId,
     loanNumber,
     description,
-    amount
+    amountPaid
   )
 SELECT
   1,

@@ -92,12 +92,12 @@ fields:
     id: loan.7
     label:
       en: Loan Repayment
-    workflow: memberLoanRepayment
+    workflow: memberLoanPayment
     targetKeys:
       - id
-      - memberLoanInvoiceId
+      - memberLoanId
       - loanNumber
-      - amount
+      - amountPaid
   "8":
     id: employment
     label:
