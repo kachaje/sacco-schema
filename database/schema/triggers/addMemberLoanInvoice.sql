@@ -1,34 +1,34 @@
-CREATE TRIGGER IF NOT EXISTS addMemberLoanInvoice AFTER INSERT ON memberLoanPaymentSchedule FOR EACH ROW BEGIN
-INSERT INTO
-  memberLoanInvoice (
-    memberLoanPaymentScheduleId,
-    loanNumber,
-    description,
-    totalDue,
-    interest,
-    insurance,
-    processingFee,
-    instalment
-  )
-SELECT
-  NEW.id,
-  loanNumber,
-  CONCAT (
-    "Loan payment on ",
-    NEW.dueDate,
-    " for ",
-    loanNumber
-  ) AS description,
-  (
-    NEW.interest + NEW.insurance + NEW.processingFee + NEW.instalment
-  ) AS totalDue,
-  NEW.interest,
-  NEW.insurance,
-  NEW.processingFee,
-  NEW.instalment
-FROM
-  memberLoan
-WHERE
-  id = NEW.memberLoanId;
+-- CREATE TRIGGER IF NOT EXISTS addMemberLoanInvoice AFTER INSERT ON memberLoanPaymentSchedule FOR EACH ROW BEGIN
+-- INSERT INTO
+--   memberLoanInvoice (
+--     memberLoanPaymentScheduleId,
+--     loanNumber,
+--     description,
+--     totalDue,
+--     interest,
+--     insurance,
+--     processingFee,
+--     instalment
+--   )
+-- SELECT
+--   NEW.id,
+--   loanNumber,
+--   CONCAT (
+--     "Loan payment on ",
+--     NEW.dueDate,
+--     " for ",
+--     loanNumber
+--   ) AS description,
+--   (
+--     NEW.interest + NEW.insurance + NEW.processingFee + NEW.instalment
+--   ) AS totalDue,
+--   NEW.interest,
+--   NEW.insurance,
+--   NEW.processingFee,
+--   NEW.instalment
+-- FROM
+--   memberLoan
+-- WHERE
+--   id = NEW.memberLoanId;
 
-END;
+-- END;

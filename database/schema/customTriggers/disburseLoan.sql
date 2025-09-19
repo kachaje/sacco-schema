@@ -19,7 +19,8 @@ INSERT INTO
     interest,
     insurance,
     processingFee,
-    instalment
+    instalment,
+    amountRecommended
   )
 WITH RECURSIVE
   cnt (x) AS (
@@ -56,7 +57,8 @@ SELECT
     WHEN x = 1 THEN (i.amountRecommended - ((x -1) * i.instalment)) * i.processingFeeRate
     ELSE 0
   END AS processingFee,
-  i.instalment
+  i.instalment,
+  i.amountRecommended
 FROM
   cnt,
   (

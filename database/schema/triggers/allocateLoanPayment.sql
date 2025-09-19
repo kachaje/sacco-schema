@@ -1,0 +1,125 @@
+-- CREATE TRIGGER IF NOT EXISTS addMemberLoanInvoiceDetail AFTER INSERT ON memberLoanPayment FOR EACH ROW BEGIN
+-- INSERT INTO
+--   memberLoanInvoiceDetail (
+--     memberLoanInvoiceId,
+--     loanComponent,
+--     billedAmount,
+--     paidAmount
+--   )
+-- WITH
+--   invoice AS (
+--     SELECT
+--       id AS memberLoanInvoiceId,
+--       loanNumber,
+--       processingFee,
+--       interest,
+--       instalment,
+--       insurance,
+--       (
+--         processingFee * 1.0165 + interest * 1.0165 + instalment + insurance
+--       ) AS totalDue,
+--       processingFee * 0.0165 processingFeeTax,
+--       interest * 0.0165 interestTax,
+--       description
+--     FROM
+--       memberLoanInvoice
+--     WHERE
+--       id = NEW.memberLoanInvoiceId
+--       AND totalDue <= NEW.amount
+--   )
+-- SELECT
+--   memberLoanInvoiceId,
+--   'Processing Fee',
+--   processingFee,
+--   processingFee
+-- FROM
+--   invoice
+-- WHERE
+--   processingFee > 0
+-- UNION ALL
+-- SELECT
+--   memberLoanInvoiceId,
+--   'Interest',
+--   interest,
+--   interest
+-- FROM
+--   invoice
+-- UNION ALL
+-- SELECT
+--   memberLoanInvoiceId,
+--   'Instalment',
+--   instalment,
+--   instalment
+-- FROM
+--   invoice
+-- UNION ALL
+-- SELECT
+--   memberLoanInvoiceId,
+--   'Insurance',
+--   insurance,
+--   insurance
+-- FROM
+--   invoice;
+
+-- INSERT INTO
+--   memberLoanTax (
+--     memberLoanInvoiceId,
+--     description,
+--     amount,
+--     taxCategory
+--   )
+-- WITH
+--   invoice AS (
+--     SELECT
+--       id AS memberLoanInvoiceId,
+--       loanNumber,
+--       processingFee,
+--       interest,
+--       instalment,
+--       insurance,
+--       (
+--         processingFee * 1.0165 + interest * 1.0165 + instalment + insurance
+--       ) AS totalDue,
+--       processingFee * 0.0165 processingFeeTax,
+--       interest * 0.0165 interestTax,
+--       description
+--     FROM
+--       memberLoanInvoice
+--     WHERE
+--       id = NEW.memberLoanInvoiceId
+--       AND totalDue <= NEW.amount
+--   )
+-- SELECT
+--   memberLoanInvoiceId,
+--   CONCAT (description, '; tax on interest'),
+--   interestTax,
+--   'Interest'
+-- FROM
+--   invoice
+-- UNION ALL
+-- SELECT
+--   memberLoanInvoiceId,
+--   CONCAT (description, '; tax on processing fee'),
+--   processingFeeTax,
+--   'Processing Fee'
+-- FROM
+--   invoice
+-- WHERE
+--   processingFee > 0;
+
+-- UPDATE memberLoanRepayment
+-- SET
+--   amountAllocated = (
+--     SELECT
+--       (
+--         processingFee * 1.0165 + interest * 1.0165 + instalment + insurance
+--       ) AS totalDue
+--     FROM
+--       memberLoanInvoice
+--     WHERE
+--       id = NEW.memberLoanInvoiceId
+--   )
+-- WHERE
+--   id = NEW.id;
+
+-- END;
