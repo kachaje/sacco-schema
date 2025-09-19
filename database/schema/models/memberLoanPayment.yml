@@ -4,14 +4,14 @@ id:
   primaryKey: true
   type: int
 
-memberLoanId:
+memberLoanPaymentScheduleId:
   order: 1
-  referenceTable: memberLoan
+  referenceTable: memberLoanPaymentSchedule
   type: int
 
 loanNumber:
-  dynamicDefault: memberLoan@loanNumber
-  matchModel: memberLoan
+  dynamicDefault: memberLoanPaymentSchedule@loanNumber
+  matchModel: memberLoanPaymentSchedule
   order: 2
   type: text
 

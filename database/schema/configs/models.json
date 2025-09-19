@@ -1035,7 +1035,6 @@
       "memberBusiness",
       "memberLoanApproval",
       "memberLoanDisbursement",
-      "memberLoanPayment",
       "memberOccupation"
     ],
     "rootQuery": "member.memberLoan.0"
@@ -1239,7 +1238,7 @@
     "rootQuery": "member.memberLoan.0.memberLoanLiability.0"
   },
   "memberLoanPayment": {
-    "belongsTo": ["memberLoan"],
+    "belongsTo": ["memberLoanPaymentSchedule"],
     "fields": [
       {
         "id": {
@@ -1248,15 +1247,15 @@
         }
       },
       {
-        "memberLoanId": {
+        "memberLoanPaymentScheduleId": {
           "hidden": true,
           "order": 1
         }
       },
       {
         "loanNumber": {
-          "dynamicDefault": "memberLoan@loanNumber",
-          "matchModel": "memberLoan",
+          "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
+          "matchModel": "memberLoanPaymentSchedule",
           "order": 2,
           "type": "text"
         }
@@ -1283,7 +1282,7 @@
       }
     ],
     "hasMany": ["memberLoanPaymentDetail", "memberLoanTax"],
-    "rootQuery": "member.memberLoan.0.memberLoanPayment"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment"
   },
   "memberLoanPaymentDetail": {
     "belongsTo": ["memberLoanPayment"],
@@ -1322,7 +1321,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPayment.memberLoanPaymentDetail.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0"
   },
   "memberLoanPaymentSchedule": {
     "belongsTo": ["memberLoan"],
@@ -1387,8 +1386,15 @@
           "numericField": true,
           "order": 9
         }
+      },
+      {
+        "loanNumber": {
+          "order": 10,
+          "type": "text"
+        }
       }
     ],
+    "hasOne": ["memberLoanPayment"],
     "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0"
   },
   "memberLoanSecurity": {
@@ -1535,7 +1541,7 @@
         }
       }
     ],
-    "rootQuery": "member.memberLoan.0.memberLoanPayment.memberLoanTax.0"
+    "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0"
   },
   "memberLoanType": {
     "fields": [

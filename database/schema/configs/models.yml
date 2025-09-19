@@ -649,7 +649,6 @@ memberLoan:
     - memberBusiness
     - memberLoanApproval
     - memberLoanDisbursement
-    - memberLoanPayment
     - memberOccupation
   rootQuery: member.memberLoan.0
 memberLoanApproval:
@@ -775,17 +774,17 @@ memberLoanLiability:
   rootQuery: member.memberLoan.0.memberLoanLiability.0
 memberLoanPayment:
   belongsTo:
-    - memberLoan
+    - memberLoanPaymentSchedule
   fields:
     - id:
         hidden: true
         order: 0
-    - memberLoanId:
+    - memberLoanPaymentScheduleId:
         hidden: true
         order: 1
     - loanNumber:
-        dynamicDefault: memberLoan@loanNumber
-        matchModel: memberLoan
+        dynamicDefault: memberLoanPaymentSchedule@loanNumber
+        matchModel: memberLoanPaymentSchedule
         order: 2
         type: text
     - description:
@@ -802,7 +801,7 @@ memberLoanPayment:
   hasMany:
     - memberLoanPaymentDetail
     - memberLoanTax
-  rootQuery: member.memberLoan.0.memberLoanPayment
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
 memberLoanPaymentDetail:
   belongsTo:
     - memberLoanPayment
@@ -829,7 +828,7 @@ memberLoanPaymentDetail:
     - amount:
         numericField: true
         order: 4
-  rootQuery: member.memberLoan.0.memberLoanPayment.memberLoanPaymentDetail.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0
 memberLoanPaymentSchedule:
   belongsTo:
     - memberLoan
@@ -865,6 +864,11 @@ memberLoanPaymentSchedule:
     - amountRecommended:
         numericField: true
         order: 9
+    - loanNumber:
+        order: 10
+        type: text
+  hasOne:
+    - memberLoanPayment
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0
 memberLoanSecurity:
   arrayFields:
@@ -947,7 +951,7 @@ memberLoanTax:
           - Processing Fee
         order: 5
         type: text
-  rootQuery: member.memberLoan.0.memberLoanPayment.memberLoanTax.0
+  rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0
 memberLoanType:
   fields:
     - id:

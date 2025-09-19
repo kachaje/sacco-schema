@@ -6,6 +6,7 @@ cacheQueries:
   instalment1: member.memberLoan.0.memberLoanPaymentSchedule.0.instalment
   insurance1: member.memberLoan.0.memberLoanPaymentSchedule.0.insurance
   interest1: member.memberLoan.0.memberLoanPaymentSchedule.0.interest
+  loanNumber1: member.memberLoan.0.memberLoanPaymentSchedule.0.loanNumber
   memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
   principal1: member.memberLoan.0.memberLoanPaymentSchedule.0.principal
   processingFee1: member.memberLoan.0.memberLoanPaymentSchedule.0.processingFee
@@ -15,7 +16,7 @@ enterAmountPaid1:
   type: hiddenField
 enterAmountRecommended1:
   inputIdentifier: amountRecommended1
-  nextScreen: formSummary
+  nextScreen: enterLoanNumber1
   order: 7
   text:
     en: Amount Recommended
@@ -56,6 +57,13 @@ enterInterest1:
     en: Interest
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterLoanNumber1:
+  inputIdentifier: loanNumber1
+  nextScreen: formSummary
+  order: 8
+  text:
+    en: Loan Number
+  type: inputScreen
 enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1

@@ -41,7 +41,6 @@
       "memberBusiness",
       "memberLoanApproval",
       "memberLoanDisbursement",
-      "memberLoanPayment",
       "memberOccupation"
     ]
   },
@@ -50,6 +49,9 @@
   },
   "memberLoanPayment": {
     "arrayChildren": ["memberLoanPaymentDetail", "memberLoanTax"]
+  },
+  "memberLoanPaymentSchedule": {
+    "singleChildren": ["memberLoanPayment"]
   },
   "memberLoanType": {},
   "memberOccupation": {

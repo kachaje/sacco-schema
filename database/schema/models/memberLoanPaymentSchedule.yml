@@ -44,3 +44,7 @@ amountPaid:
 amountRecommended:
   order: 9
   type: real
+
+loanNumber:
+  order: 10
+  type: text

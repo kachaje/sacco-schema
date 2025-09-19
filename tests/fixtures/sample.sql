@@ -316,17 +316,17 @@ WHERE
 
 INSERT INTO
   memberLoanPayment (
-    memberLoanId,
+    memberLoanPaymentScheduleId,
     loanNumber,
     description,
     amountPaid
   )
 SELECT
-  1,
+  id,
   loanNumber,
   'Repayment',
   5000
 FROM
-  memberLoan
+  memberLoanPaymentSchedule
 WHERE
   id = 1;

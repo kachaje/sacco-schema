@@ -778,19 +778,19 @@
         "type": "int"
       },
       "loanNumber": {
-        "dynamicDefault": "memberLoan@loanNumber",
-        "matchModel": "memberLoan",
+        "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
+        "matchModel": "memberLoanPaymentSchedule",
         "order": 2,
         "type": "text"
       },
-      "memberLoanId": {
+      "memberLoanPaymentScheduleId": {
         "order": 1,
-        "referenceTable": "memberLoan",
+        "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
       }
     },
     "model": "memberLoanPayment",
-    "parents": ["memberLoan"]
+    "parents": ["memberLoanPaymentSchedule"]
   },
   "memberLoanPaymentDetail": {
     "fields": {
@@ -857,6 +857,10 @@
       "interest": {
         "order": 4,
         "type": "real"
+      },
+      "loanNumber": {
+        "order": 10,
+        "type": "text"
       },
       "memberLoanId": {
         "hidden": true,
