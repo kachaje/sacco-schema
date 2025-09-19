@@ -324,9 +324,26 @@ INSERT INTO
 SELECT
   id,
   loanNumber,
-  'Repayment',
+  'Repayment Month 1',
   5000
 FROM
   memberLoanPaymentSchedule
 WHERE
   id = 1;
+
+INSERT INTO
+  memberLoanPayment (
+    memberLoanPaymentScheduleId,
+    loanNumber,
+    description,
+    amountPaid
+  )
+SELECT
+  id,
+  loanNumber,
+  'Repayment Month 2',
+  2000
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 2;

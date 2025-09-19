@@ -35,7 +35,7 @@ WITH
       memberLoanPaymentSchedule,
       vat
     WHERE
-      memberLoanId = 1
+      id = NEW.memberLoanPaymentScheduleId
       AND amountPaid <= totalDue
     ORDER BY
       dueDate ASC
@@ -114,7 +114,7 @@ WITH
       memberLoanPaymentSchedule,
       vat
     WHERE
-      memberLoanId = 1
+      id = NEW.memberLoanPaymentScheduleId
       AND amountPaid >= totalDue
     ORDER BY
       dueDate ASC
