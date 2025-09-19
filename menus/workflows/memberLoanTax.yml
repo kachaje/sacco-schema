@@ -1,39 +1,39 @@
 cacheQueries:
-  amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.amount
-  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.date
-  description1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.description
-  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.id
-  memberLoanInvoiceId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.memberLoanInvoiceId
-  taxCategory1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0.taxCategory
-enterAmount1:
-  inputIdentifier: amount1
-  nextScreen: enterTaxCategory1
+  amount: memberLoanInvoice.memberLoanTax.amount
+  date: memberLoanInvoice.memberLoanTax.date
+  description: memberLoanInvoice.memberLoanTax.description
+  id: memberLoanInvoice.memberLoanTax.id
+  memberLoanInvoiceId: memberLoanInvoice.memberLoanTax.memberLoanInvoiceId
+  taxCategory: memberLoanInvoice.memberLoanTax.taxCategory
+enterAmount:
+  inputIdentifier: amount
+  nextScreen: enterTaxCategory
   order: 2
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterDate1:
+enterDate:
   default: CURRENT_TIMESTAMP
   hidden: true
-  inputIdentifier: date1
-enterDescription1:
-  inputIdentifier: description1
-  nextScreen: enterAmount1
+  inputIdentifier: date
+enterDescription:
+  inputIdentifier: description
+  nextScreen: enterAmount
   order: 1
   text:
     en: Description
   type: inputScreen
-enterId1:
+enterId:
   hidden: true
-  inputIdentifier: id1
+  inputIdentifier: id
   type: hiddenField
-enterMemberLoanInvoiceId1:
+enterMemberLoanInvoiceId:
   hidden: true
-  inputIdentifier: memberLoanInvoiceId1
+  inputIdentifier: memberLoanInvoiceId
   type: hiddenField
-enterTaxCategory1:
-  inputIdentifier: taxCategory1
+enterTaxCategory:
+  inputIdentifier: taxCategory
   nextScreen: formSummary
   options:
     - label:
@@ -48,8 +48,8 @@ enterTaxCategory1:
   type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterDescription1
+initialScreen: enterDescription
 model: memberLoanTax
 parentIds:
   - memberLoanInvoiceId
-rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanInvoice.memberLoanTax.0
+rootQuery: memberLoanInvoice.memberLoanTax

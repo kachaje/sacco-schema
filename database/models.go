@@ -8,9 +8,6 @@ var (
 	AccountTransactionArrayChildren = []string{
 		"accountJournal",
 	}
-	InsuranceProviderArrayChildren = []string{
-		"memberLoanInsurance",
-	}
 	LoanNumberIdsCacheSingleChildren = []string{
 		"memberLoan",
 	}
@@ -34,19 +31,16 @@ var (
 		"memberLoanVerification",
 	}
 	MemberLoanArrayChildren = []string{
-		"memberLoanInsurance",
 		"memberLoanLiability",
 		"memberLoanPaymentSchedule",
 		"memberLoanSecurity",
 		"memberLoanWitness",
 	}
-	MemberLoanInvoiceArrayChildren = []string{
-		"memberLoanInvoiceDetail",
-		"memberLoanRepayment",
-		"memberLoanTax",
+	MemberLoanPaymentArrayChildren = []string{
+		"memberLoanPaymentDetail",
 	}
 	MemberLoanPaymentScheduleSingleChildren = []string{
-		"memberLoanInvoice",
+		"memberLoanPayment",
 	}
 	MemberLoanSingleChildren = []string{
 		"memberBusiness",
@@ -92,21 +86,18 @@ var (
 	ArrayChildren = map[string][]string{
 		"AccountArrayChildren":            AccountArrayChildren,
 		"AccountTransactionArrayChildren": AccountTransactionArrayChildren,
-		"InsuranceProviderArrayChildren":  InsuranceProviderArrayChildren,
 		"MemberArrayChildren":             MemberArrayChildren,
 		"MemberLoanArrayChildren":         MemberLoanArrayChildren,
-		"MemberLoanInvoiceArrayChildren":  MemberLoanInvoiceArrayChildren,
+		"MemberLoanPaymentArrayChildren":  MemberLoanPaymentArrayChildren,
 		"MemberSavingArrayChildren":       MemberSavingArrayChildren,
 		"SavingsTypeArrayChildren":        SavingsTypeArrayChildren,
 	}
 	FloatFields = []string{
 		"amount",
-		"amountAllocated",
 		"amountLimit",
 		"amountRecommended",
 		"amountSize",
 		"balance",
-		"billedAmount",
 		"claimed",
 		"closingBalance",
 		"direction",
@@ -133,7 +124,6 @@ var (
 		"numberOfShares",
 		"otherCosts",
 		"ownSalary",
-		"paidAmount",
 		"penaltyRate",
 		"percentage1",
 		"percentage2",
@@ -201,24 +191,17 @@ var (
 		"memberLoanDisbursement": {
 			"memberLoan",
 		},
-		"memberLoanInsurance": {
-			"memberLoan",
-			"insuranceProvider",
-		},
-		"memberLoanInvoice": {
-			"memberLoanPaymentSchedule",
-		},
-		"memberLoanInvoiceDetail": {
-			"memberLoanInvoice",
-		},
 		"memberLoanLiability": {
 			"memberLoan",
 		},
+		"memberLoanPayment": {
+			"memberLoanPaymentSchedule",
+		},
+		"memberLoanPaymentDetail": {
+			"memberLoanPayment",
+		},
 		"memberLoanPaymentSchedule": {
 			"memberLoan",
-		},
-		"memberLoanRepayment": {
-			"memberLoanInvoice",
 		},
 		"memberLoanSecurity": {
 			"memberLoan",

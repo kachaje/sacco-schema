@@ -45,3 +45,7 @@ processingFee:
 instalment:
   order: 9
   type: real
+
+amountPaid:
+  order: 10
+  type: real

@@ -1,0 +1,93 @@
+cacheQueries:
+  amountPaid: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.amountPaid
+  date: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.date
+  description: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.description
+  id: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.id
+  instalment: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.instalment
+  insurance: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.insurance
+  interest: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.interest
+  loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.loanNumber
+  memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentScheduleId
+  processingFee: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.processingFee
+  totalDue: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.totalDue
+enterAmountPaid:
+  hidden: true
+  inputIdentifier: amountPaid
+  type: hiddenField
+enterDate:
+  default: CURRENT_TIMESTAMP
+  hidden: true
+  inputIdentifier: date
+enterDescription:
+  inputIdentifier: description
+  nextScreen: enterTotalDue
+  order: 2
+  text:
+    en: Description
+  type: inputScreen
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterInstalment:
+  inputIdentifier: instalment
+  nextScreen: formSummary
+  order: 7
+  text:
+    en: Instalment
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterInsurance:
+  inputIdentifier: insurance
+  nextScreen: enterProcessingFee
+  order: 5
+  text:
+    en: Insurance
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterInterest:
+  inputIdentifier: interest
+  nextScreen: enterInsurance
+  order: 4
+  text:
+    en: Interest
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterLoanNumber:
+  dynamicDefault: memberLoan@loanNumber
+  inputIdentifier: loanNumber
+  matchModel: memberLoan
+  nextScreen: enterDescription
+  order: 1
+  text:
+    en: Loan Number
+  type: inputScreen
+enterMemberLoanPaymentScheduleId:
+  hidden: true
+  inputIdentifier: memberLoanPaymentScheduleId
+  type: hiddenField
+enterProcessingFee:
+  inputIdentifier: processingFee
+  nextScreen: enterInstalment
+  optional: true
+  order: 6
+  text:
+    en: Processing Fee
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterTotalDue:
+  inputIdentifier: totalDue
+  nextScreen: enterInterest
+  optional: true
+  order: 3
+  text:
+    en: Total Due
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterLoanNumber
+model: memberLoanPayment
+parentIds:
+  - memberLoanPaymentScheduleId
+rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment

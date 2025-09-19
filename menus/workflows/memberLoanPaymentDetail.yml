@@ -1,0 +1,53 @@
+cacheQueries:
+  amount1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0.amount
+  date1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0.date
+  id1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0.id
+  loanComponent1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0.loanComponent
+  memberLoanPaymentId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0.memberLoanPaymentId
+enterAmount1:
+  inputIdentifier: amount1
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
+  inputIdentifier: date1
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterLoanComponent1:
+  inputIdentifier: loanComponent1
+  nextScreen: enterAmount1
+  options:
+    - label:
+        en: Interest
+      position: 1
+    - label:
+        en: Instalment
+      position: 2
+    - label:
+        en: Insurance
+      position: 3
+    - label:
+        en: Processing Fee
+      position: 4
+  order: 1
+  text:
+    en: Loan Component
+  type: inputScreen
+enterMemberLoanPaymentId1:
+  hidden: true
+  inputIdentifier: memberLoanPaymentId1
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterLoanComponent1
+model: memberLoanPaymentDetail
+parentIds:
+  - memberLoanPaymentId
+rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentDetail.0

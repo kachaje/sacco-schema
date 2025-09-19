@@ -4,19 +4,20 @@ id:
   primaryKey: true
   type: int
 
-memberLoanId:
-  hidden: true
+memberLoanPaymentId:
   many: true
   order: 1
-  referenceTable: memberLoan
+  referenceTable: memberLoanPayment
   type: int
 
-insuranceProviderId:
-  hidden: true
-  many: true
+loanComponent:
+  options:
+    - Interest
+    - Instalment
+    - Insurance
+    - Processing Fee
   order: 2
-  referenceTable: insuranceProvider
-  type: int
+  type: text
 
 date:
   default: CURRENT_TIMESTAMP
@@ -25,9 +26,4 @@ date:
 
 amount:
   order: 4
-  type: real
-
-paidAmount:
-  default: "0"
-  order: 5
   type: real

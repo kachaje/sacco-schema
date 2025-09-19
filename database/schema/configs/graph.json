@@ -5,9 +5,7 @@
   "accountTransaction": {
     "arrayChildren": ["accountJournal"]
   },
-  "insuranceProvider": {
-    "arrayChildren": ["memberLoanInsurance"]
-  },
+  "insuranceProvider": {},
   "loanNumberIdsCache": {
     "singleChildren": ["memberLoan"]
   },
@@ -34,7 +32,6 @@
   },
   "memberLoan": {
     "arrayChildren": [
-      "memberLoanInsurance",
       "memberLoanLiability",
       "memberLoanPaymentSchedule",
       "memberLoanSecurity",
@@ -51,14 +48,13 @@
     "singleChildren": ["memberLoanVerification"]
   },
   "memberLoanInvoice": {
-    "arrayChildren": [
-      "memberLoanInvoiceDetail",
-      "memberLoanRepayment",
-      "memberLoanTax"
-    ]
+    "arrayChildren": ["memberLoanTax"]
+  },
+  "memberLoanPayment": {
+    "arrayChildren": ["memberLoanPaymentDetail"]
   },
   "memberLoanPaymentSchedule": {
-    "singleChildren": ["memberLoanInvoice"]
+    "singleChildren": ["memberLoanPayment"]
   },
   "memberLoanType": {},
   "memberOccupation": {

@@ -36,10 +36,7 @@ instalment:
   order: 7
   type: real
 
-paid:
-  default: "No"
-  options:
-    - "Yes"
-    - "No"
+amountPaid:
+  default: "0"
   order: 8
-  type: text
+  type: real
