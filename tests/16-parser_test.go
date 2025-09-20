@@ -13,7 +13,10 @@ import (
 
 var content []byte
 var err error
-var data map[string]any
+var (
+	data     = map[string]any{}
+	loanData = map[string]any{}
+)
 
 func init() {
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.json"))
@@ -21,12 +24,136 @@ func init() {
 		panic(err)
 	}
 
-	data = map[string]any{}
-
 	err = json.Unmarshal(content, &data)
 	if err != nil {
 		panic(err)
 	}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "memberLoanPayment.json"))
+	if err != nil {
+		panic(err)
+	}
+
+	err = json.Unmarshal(content, &loanData)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func setupLoanEnv() (*parser.WorkFlow, *string, error) {
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
+	if err != nil {
+		return nil, nil, err
+	}
+
+	activeData := map[string]any{}
+
+	err = json.Unmarshal(content, &activeData)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanNumber.txt"))
+	if err != nil {
+		return nil, nil, err
+	}
+
+	loanNumber := string(content)
+
+	phoneNumber := "0999999999"
+
+	session := parser.Session{
+		ActiveData: activeData,
+	}
+
+	sessions := map[string]*parser.Session{
+		phoneNumber: &session,
+	}
+
+	wf := parser.NewWorkflow(loanData, nil, nil, &phoneNumber, nil, nil, nil, sessions, nil)
+
+	return wf, &loanNumber, nil
+}
+
+func TestLoadAjaxOptions(t *testing.T) {
+	wf, loanNumber, err := setupLoanEnv()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result, keys := wf.LoadAjaxOptions("memberLoanPaymentSchedule@loanNumber", *loanNumber, "dueDate", []string{
+		"interest",
+		"processingFee",
+		"insurance",
+		"instalment",
+	})
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.json"), payload, 0644)
+
+		payload, _ = json.MarshalIndent(keys, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.keys.json"), payload, 0644)
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := map[string]any{}
+
+	err = json.Unmarshal(content, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !reflect.DeepEqual(target, result) {
+		t.Fatalf(`Test failed.
+Expected: 
+%v
+Actual: 
+%v`, target, result)
+	}
+
+	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.keys.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	targetKeys := []string{}
+
+	err = json.Unmarshal(content, &targetKeys)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !reflect.DeepEqual(targetKeys, keys) {
+		t.Fatalf(`Test failed.
+Expected: 
+%v
+Actual: 
+%v`, targetKeys, keys)
+	}
+}
+
+func TestAjaxOptions(t *testing.T) {
+	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
+
+	result, err := wf.NextNode("")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if result == nil {
+		t.Fatal("Test failed")
+	}
+
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 }
 
 func TestGetNode(t *testing.T) {
@@ -101,113 +228,6 @@ func TestInputIncluded(t *testing.T) {
 	if nextRoute != "enterGender" {
 		t.Fatalf("Test failed. Expected: enterGender; Actual: %s", nextRoute)
 	}
-}
-
-func TestLoadAjaxOptions(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	activeData := map[string]any{}
-
-	err = json.Unmarshal(content, &activeData)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanNumber.txt"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	loanNumber := string(content)
-
-	phoneNumber := "0999999999"
-
-	session := parser.Session{
-		ActiveData: activeData,
-	}
-
-	sessions := map[string]*parser.Session{
-		phoneNumber: &session,
-	}
-
-	wf := parser.NewWorkflow(data, nil, nil, &phoneNumber, nil, nil, nil, sessions, nil)
-
-	result, keys := wf.LoadAjaxOptions("memberLoanPaymentSchedule@loanNumber", loanNumber, "dueDate", []string{
-		"interest",
-		"processingFee",
-		"insurance",
-		"instalment",
-	})
-
-	if os.Getenv("DEBUG") == "true" {
-		payload, _ := json.MarshalIndent(result, "", "  ")
-
-		os.WriteFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.json"), payload, 0644)
-
-		payload, _ = json.MarshalIndent(keys, "", "  ")
-
-		os.WriteFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.keys.json"), payload, 0644)
-	}
-
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	target := map[string]any{}
-
-	err = json.Unmarshal(content, &target)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	if !reflect.DeepEqual(target, result) {
-		t.Fatalf(`Test failed.
-Expected: 
-%v
-Actual: 
-%v`, target, result)
-	}
-
-	content, err = os.ReadFile(filepath.Join(".", "fixtures", "sample.ajaxOptions.keys.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	targetKeys := []string{}
-
-	err = json.Unmarshal(content, &targetKeys)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	if !reflect.DeepEqual(targetKeys, keys) {
-		t.Fatalf(`Test failed.
-Expected: 
-%v
-Actual: 
-%v`, targetKeys, keys)
-	}
-}
-
-func TestAjaxOptions(t *testing.T) {
-	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
-
-	result, err := wf.NextNode("")
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	if result == nil {
-		t.Fatal("Test failed")
-	}
-
-	payload, _ := json.MarshalIndent(result, "", "  ")
-
-	fmt.Println(string(payload))
 }
 
 func TestNodeOptions(t *testing.T) {
