@@ -4,7 +4,19 @@ SET
   penalty = COALESCE(
     (
       SELECT
-        COALESCE(penaltyRate, 0)
+        COALESCE(penaltyRate, 0) * (
+          1 + COALESCE(
+            (
+              SELECT
+                value
+              FROM
+                taxRate
+              WHERE
+                name = 'VAT'
+            ),
+            0
+          )
+        )
       FROM
         memberLoan
       WHERE
