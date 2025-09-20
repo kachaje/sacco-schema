@@ -1266,7 +1266,8 @@
             "interest",
             "insurance",
             "instalment",
-            "processingFee"
+            "processingFee",
+            "penalty"
           ],
           "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
           "order": 3,

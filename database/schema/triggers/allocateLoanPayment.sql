@@ -16,7 +16,7 @@ SET
       0
     )
   ),
-  totalDue = (interest + insurance + processingFee + instalment)
+  totalDue = (interest + insurance + processingFee + instalment + penalty)
 WHERE
   id = NEW.id;
 

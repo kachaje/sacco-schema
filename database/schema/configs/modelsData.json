@@ -778,7 +778,7 @@
         "type": "text"
       },
       "dueDate": {
-        "ajaxFields": "interest,insurance,instalment,processingFee",
+        "ajaxFields": "interest,insurance,instalment,processingFee,penalty",
         "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
         "order": 3,
         "type": "text"

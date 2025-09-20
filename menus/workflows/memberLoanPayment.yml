@@ -38,6 +38,7 @@ enterDueDate:
     - insurance
     - instalment
     - processingFee
+    - penalty
   ajaxOptions: memberLoanPaymentSchedule@loanNumber
   inputIdentifier: dueDate
   nextScreen: enterDescription

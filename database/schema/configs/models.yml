@@ -793,6 +793,7 @@ memberLoanPayment:
           - insurance
           - instalment
           - processingFee
+          - penalty
         ajaxOptions: memberLoanPaymentSchedule@loanNumber
         order: 3
         type: text
