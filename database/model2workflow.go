@@ -248,6 +248,10 @@ func Main(model, destinationFile string, sourceData map[string]any) (*string, ma
 									data[tag].(map[string]any)["ajaxOptions"] = value["ajaxOptions"].(string)
 								}
 
+								if value["ajaxFields"] != nil {
+									data[tag].(map[string]any)["ajaxFields"] = value["ajaxFields"]
+								}
+
 								if value["options"] != nil {
 									if opts, ok := value["options"].([]any); ok {
 										options := []any{}

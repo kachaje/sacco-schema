@@ -444,6 +444,11 @@ func (w *WorkFlow) NodeOptions(input string) []string {
 				}
 			}
 		}
+	} else if node != nil && node["ajaxOptions"] != nil {
+		if val, ok := node["ajaxOptions"].(string); ok {
+			_ = val
+			// opts, keys := w.LoadAjaxOptions(val, )
+		}
 	}
 
 	return options

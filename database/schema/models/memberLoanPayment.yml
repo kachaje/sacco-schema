@@ -18,6 +18,7 @@ loanNumber:
   type: text
 
 dueDate:
+  ajaxFields: interest,insurance,instalment,processingFee
   ajaxOptions: memberLoanPaymentSchedule@loanNumber
   order: 3
   type: text

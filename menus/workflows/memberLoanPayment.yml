@@ -32,6 +32,11 @@ enterDescription:
     en: Description
   type: inputScreen
 enterDueDate:
+  ajaxFields:
+    - interest
+    - insurance
+    - instalment
+    - processingFee
   ajaxOptions: memberLoanPaymentSchedule@loanNumber
   inputIdentifier: dueDate
   nextScreen: enterDescription

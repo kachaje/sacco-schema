@@ -312,6 +312,8 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 									if vf, ok := v.(map[string]any); ok {
 										for kf, vf := range vf {
 											switch strings.TrimSpace(kf) {
+											case "ajaxFields":
+												row[kf] = strings.Split(fmt.Sprintf("%v", vf), ",")
 											case "dynamicDefault", "taxable", "ajaxOptions":
 												row[kf] = vf
 											case "hidden":
