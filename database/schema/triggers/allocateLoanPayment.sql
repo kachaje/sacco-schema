@@ -13,6 +13,7 @@ SET
                 taxRate
               WHERE
                 name = 'VAT'
+                AND active = 1
             ),
             0
           )
@@ -95,5 +96,52 @@ FROM
 WHERE
   id = NEW.id
   AND availableCash > 0;
+
+INSERT INTO
+  memberLoanTax (
+    memberLoanPaymentId,
+    description,
+    amount,
+    taxCategory
+  )
+WITH
+  vat AS (
+    SELECT
+      value AS tax
+    FROM
+      taxRate
+    WHERE
+      name = 'VAT'
+      AND active = 1
+  )
+SELECT
+  NEW.id,
+  CONCAT ('Tax: ', NEW.description),
+  COALESCE(vat.tax, 0) * NEW.interest,
+  'Interest'
+FROM
+  vat
+WHERE
+  vat.tax > 0
+UNION ALL
+SELECT
+  NEW.id,
+  CONCAT ('Tax: ', NEW.description),
+  COALESCE(vat.tax, 0) * NEW.processingFee,
+  'Processing Fee'
+FROM
+  vat
+WHERE
+  vat.tax > 0
+UNION ALL
+SELECT
+  NEW.id,
+  CONCAT ('Tax: ', NEW.description),
+  COALESCE(vat.tax, 0) * NEW.penalty,
+  'Penalty'
+FROM
+  vat
+WHERE
+  vat.tax > 0;
 
 END
