@@ -140,7 +140,7 @@ Actual:
 }
 
 func TestAjaxOptions(t *testing.T) {
-	wf, _, err := setupLoanEnv()
+	wf, loanNumber, err := setupLoanEnv()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -151,11 +151,11 @@ func TestAjaxOptions(t *testing.T) {
 
 	result := wf.NavNext(text)
 
-	target := `
-Loan Number: (KLN934139)
+	target := fmt.Sprintf(`
+Loan Number: (%s)
 
 01. Keep
-99. Cancel`
+99. Cancel`, *loanNumber)
 
 	if utils.CleanString(target) != utils.CleanString(result) {
 		t.Fatalf(`Test failed.
