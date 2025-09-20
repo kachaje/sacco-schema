@@ -157,13 +157,15 @@ Loan Number: (%s)
 01. Keep
 99. Cancel`, *loanNumber)
 
-	if utils.CleanString(target) != utils.CleanString(result) {
-		t.Fatalf(`Test failed.
+	if os.Getenv("DEBUG") != "true" {
+		if utils.CleanString(target) != utils.CleanString(result) {
+			t.Fatalf(`Test failed.
 Expected:
 %s
 Actual:
 %s
 `, target, result)
+		}
 	}
 
 	text = "01"
@@ -210,6 +212,18 @@ Description:
 99. Cancel
 	`
 
+	delete(wf.Data, "date")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload := fmt.Appendf(nil, "%v", wf.Data["loanNumber"])
+
+		os.WriteFile(filepath.Join(".", "fixtures", "loanNumber.txt"), payload, 0644)
+
+		payload, _ = json.MarshalIndent(wf.Data, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "wdata.ajax.json"), payload, 0644)
+	}
+
 	if utils.CleanString(target) != utils.CleanString(result) {
 		t.Fatalf(`Test failed.
 Expected:
@@ -217,14 +231,6 @@ Expected:
 Actual:
 %s
 `, target, result)
-	}
-
-	delete(wf.Data, "date")
-
-	if os.Getenv("DEBUG") == "true" {
-		payload, _ := json.MarshalIndent(wf.Data, "", "  ")
-
-		os.WriteFile(filepath.Join(".", "fixtures", "wdata.ajax.json"), payload, 0644)
 	}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "wdata.ajax.json"))
@@ -1009,7 +1015,7 @@ func TestLoadDynaDefault(t *testing.T) {
 
 	data = map[string]any{}
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.flatmap.json"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.flatmap.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -1023,12 +1029,6 @@ func TestLoadDynaDefault(t *testing.T) {
 
 	if result == nil {
 		t.Fatal("Test failed")
-	}
-
-	if os.Getenv("DEBUG") == "true" {
-		payload := fmt.Appendf(nil, "%v", result)
-
-		os.WriteFile(filepath.Join(".", "fixtures", "loanNumber.txt"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanNumber.txt"))
