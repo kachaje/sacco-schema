@@ -1,18 +1,18 @@
-CREATE TRIGGER IF NOT EXISTS updateLoanSchedule AFTER INSERT ON memberLoanPaymentDetail FOR EACH ROW BEGIN
-UPDATE memberLoanPaymentSchedule
-SET
-  amountPaid = amountPaid + NEW.amount
-WHERE
-  id IN (
-    SELECT
-      s.id
-    FROM
-      memberLoanPaymentSchedule s
-      LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
-    WHERE
-      p.id = NEW.memberLoanPaymentId
-      AND s.dueDate = p.dueDate
-      AND NEW.loanComponent IN ('Interest', 'Processing Fee', 'Instalment')
-  );
+-- CREATE TRIGGER IF NOT EXISTS updateLoanSchedule AFTER INSERT ON memberLoanPaymentDetail FOR EACH ROW BEGIN
+-- UPDATE memberLoanPaymentSchedule
+-- SET
+--   amountPaid = amountPaid + NEW.amount
+-- WHERE
+--   id IN (
+--     SELECT
+--       s.id
+--     FROM
+--       memberLoanPaymentSchedule s
+--       LEFT OUTER JOIN memberLoanPayment p ON p.loanNumber = s.loanNumber
+--     WHERE
+--       p.id = NEW.memberLoanPaymentId
+--       AND s.dueDate = p.dueDate
+--       AND NEW.loanComponent IN ('Interest', 'Processing Fee', 'Instalment')
+--   );
 
-END;
+-- END;

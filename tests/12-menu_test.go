@@ -193,7 +193,6 @@ func TestLoanMenu(t *testing.T) {
 	target := `
 CON Loans
 1. Loan Application
-7. Loan Repayment
 8. Employment Details
 9. Business Details
 10. Member Loans Summary
@@ -202,7 +201,11 @@ CON Loans
 	`
 
 	if utils.CleanString(result) != utils.CleanString(target) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
+		t.Fatalf(`Test failed
+Expected: 
+%s 
+Actual: 
+%s`, target, result)
 	}
 
 	role := "admin"

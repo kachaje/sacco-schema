@@ -823,6 +823,7 @@ memberLoanPayment:
         optional: true
         order: 10
     - processingFee:
+        hidden: true
         numericField: true
         optional: true
         order: 11

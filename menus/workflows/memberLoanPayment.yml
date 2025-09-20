@@ -26,7 +26,7 @@ enterDate:
   inputIdentifier: date
 enterDescription:
   inputIdentifier: description
-  nextScreen: enterProcessingFee
+  nextScreen: formSummary
   order: 3
   text:
     en: Description
@@ -69,14 +69,9 @@ enterMemberLoanPaymentScheduleId:
   inputIdentifier: memberLoanPaymentScheduleId
   type: hiddenField
 enterProcessingFee:
+  hidden: true
   inputIdentifier: processingFee
-  nextScreen: formSummary
-  optional: true
-  order: 4
-  text:
-    en: Processing Fee
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
+  type: hiddenField
 enterTotalDue:
   hidden: true
   inputIdentifier: totalDue

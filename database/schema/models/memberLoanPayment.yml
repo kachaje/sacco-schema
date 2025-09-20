@@ -6,6 +6,7 @@ id:
 
 memberLoanPaymentScheduleId:
   hidden: true
+  optional: true
   order: 1
   referenceTable: memberLoanPaymentSchedule
   type: int
@@ -60,6 +61,7 @@ insurance:
 
 processingFee:
   default: "0"
+  hidden: true
   order: 11
   type: real
 

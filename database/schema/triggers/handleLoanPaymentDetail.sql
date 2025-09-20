@@ -1,13 +1,13 @@
-CREATE TRIGGER IF NOT EXISTS handleLoanPaymentDetail AFTER INSERT ON memberLoanPaymentDetail FOR EACH ROW BEGIN
-INSERT INTO
-  memberLoanSettlement (loanNumber, amountReserved)
-SELECT
-  loanNumber,
-  NEW.amount
-FROM
-  memberLoanPayment
-WHERE
-  id = NEW.memberLoanPaymentId
-  AND NEW.loanComponent = 'Settlement Overflow';
+-- CREATE TRIGGER IF NOT EXISTS handleLoanPaymentDetail AFTER INSERT ON memberLoanPaymentDetail FOR EACH ROW BEGIN
+-- INSERT INTO
+--   memberLoanSettlement (loanNumber, amountReserved)
+-- SELECT
+--   loanNumber,
+--   NEW.amount
+-- FROM
+--   memberLoanPayment
+-- WHERE
+--   id = NEW.memberLoanPaymentId
+--   AND NEW.loanComponent = 'Settlement Overflow';
 
-END;
+-- END;

@@ -1321,6 +1321,7 @@
       },
       {
         "processingFee": {
+          "hidden": true,
           "numericField": true,
           "optional": true,
           "order": 11
