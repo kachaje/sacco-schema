@@ -315,37 +315,217 @@ WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
 SELECT
   loanNumber,
   dueDate,
   'Repayment Month 1',
-  1964
+  5000,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
 FROM
   memberLoanPaymentSchedule
 WHERE
   id = 1;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
 SELECT
   loanNumber,
   dueDate,
   'Repayment Month 2',
-  1273
+  100,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
 FROM
   memberLoanPaymentSchedule
 WHERE
   id = 2;
 
 INSERT INTO
-  memberLoanPayment (loanNumber, dueDate, description, amountPaid)
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
 SELECT
   loanNumber,
   dueDate,
   'Repayment Month 3',
-  5000
+  3000,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
 FROM
   memberLoanPaymentSchedule
 WHERE
   id = 3;
+
+INSERT INTO
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
+SELECT
+  loanNumber,
+  dueDate,
+  'Repayment Month 4',
+  0,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 4;
+
+INSERT INTO
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
+SELECT
+  loanNumber,
+  dueDate,
+  'Repayment Month 5',
+  0,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 5;
+
+INSERT INTO
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
+SELECT
+  loanNumber,
+  dueDate,
+  'Repayment Month 6',
+  0,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 6;
+
+INSERT INTO
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
+SELECT
+  loanNumber,
+  dueDate,
+  'Repayment Month 7',
+  0,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 7;
+
+INSERT INTO
+  memberLoanPayment (
+    loanNumber,
+    dueDate,
+    description,
+    amountPaid,
+    memberLoanPaymentScheduleId,
+    interest,
+    insurance,
+    processingFee,
+    instalment
+  )
+SELECT
+  loanNumber,
+  dueDate,
+  'Repayment Month 8',
+  0,
+  id,
+  interest,
+  insurance,
+  processingFee,
+  instalment
+FROM
+  memberLoanPaymentSchedule
+WHERE
+  id = 8;
