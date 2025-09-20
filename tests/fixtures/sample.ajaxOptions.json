@@ -1,0 +1,98 @@
+{
+  "2025-10-01": {
+    "dueDate": "2025-10-01",
+    "id": 1,
+    "instalment": 833.3333333333334,
+    "insurance": 150,
+    "interest": 480,
+    "processingFee": 500
+  },
+  "2025-11-01": {
+    "dueDate": "2025-11-01",
+    "id": 2,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 440,
+    "processingFee": 0
+  },
+  "2025-12-01": {
+    "dueDate": "2025-12-01",
+    "id": 3,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 400.00000000000006,
+    "processingFee": 0
+  },
+  "2026-01-01": {
+    "dueDate": "2026-01-01",
+    "id": 4,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 360,
+    "processingFee": 0
+  },
+  "2026-02-01": {
+    "dueDate": "2026-02-01",
+    "id": 5,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 320,
+    "processingFee": 0
+  },
+  "2026-03-01": {
+    "dueDate": "2026-03-01",
+    "id": 6,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 280,
+    "processingFee": 0
+  },
+  "2026-04-01": {
+    "dueDate": "2026-04-01",
+    "id": 7,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 240,
+    "processingFee": 0
+  },
+  "2026-05-01": {
+    "dueDate": "2026-05-01",
+    "id": 8,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 199.99999999999997,
+    "processingFee": 0
+  },
+  "2026-06-01": {
+    "dueDate": "2026-06-01",
+    "id": 9,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 160,
+    "processingFee": 0
+  },
+  "2026-07-01": {
+    "dueDate": "2026-07-01",
+    "id": 10,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 120,
+    "processingFee": 0
+  },
+  "2026-08-01": {
+    "dueDate": "2026-08-01",
+    "id": 11,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 79.99999999999997,
+    "processingFee": 0
+  },
+  "2026-09-01": {
+    "dueDate": "2026-09-01",
+    "id": 12,
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 39.99999999999994,
+    "processingFee": 0
+  }
+}

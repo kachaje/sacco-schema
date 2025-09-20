@@ -43,6 +43,8 @@ type WorkFlow struct {
 	ScheduleFormulaFields map[string]string
 	MatchModelFields      map[string]string
 	ConditionFields       map[string]string
+	AjaxOptionFields      map[string]string
+	AjaxOptionsCache      map[string]map[string]any
 	ScreenOrder           map[int]string
 	ReadOnlyFields        []string
 	SubmitCallback        func(
@@ -100,6 +102,8 @@ func NewWorkflow(
 		ScheduleFormulaFields: map[string]string{},
 		MatchModelFields:      map[string]string{},
 		ConditionFields:       map[string]string{},
+		AjaxOptionFields:      map[string]string{},
+		AjaxOptionsCache:      map[string]map[string]any{},
 		ReadOnlyFields:        []string{},
 	}
 
@@ -160,6 +164,10 @@ func NewWorkflow(
 
 					if row["hidden"] == nil {
 						w.ScreenIdMap[id] = key
+					}
+
+					if row["ajaxOptions"] != nil {
+						w.AjaxOptionFields[id] = row["ajaxOptions"].(string)
 					}
 
 					if row["readOnly"] != nil {
@@ -346,6 +354,61 @@ func (w *WorkFlow) InputIncluded(input string, options []any) (bool, string) {
 	}
 
 	return found, nextRoute
+}
+
+func (w *WorkFlow) LoadAjaxOptions(input, value, keyField string, selectFields []string) (map[string]any, []string) {
+	options := map[string]any{}
+	keys := []string{}
+
+	if selectFields == nil {
+		selectFields = []string{}
+	}
+
+	if !slices.Contains(selectFields, keyField) {
+		selectFields = append(selectFields, keyField)
+	}
+	if !slices.Contains(selectFields, "id") {
+		selectFields = append(selectFields, "id")
+	}
+
+	if regexp.MustCompile(`@`).MatchString(input) {
+		parts := strings.Split(input, "@")
+
+		if len(parts) > 1 {
+			model := parts[0]
+			searchField := parts[1]
+
+			if w.Sessions != nil && w.CurrentPhoneNumber != "" && w.Sessions[w.CurrentPhoneNumber] != nil && w.Sessions[w.CurrentPhoneNumber].ActiveData != nil {
+				for key := range w.Sessions[w.CurrentPhoneNumber].ActiveData {
+					reRoot := regexp.MustCompile(fmt.Sprintf(`^(.+%s\.\d+\.)%s$`, model, searchField))
+
+					if reRoot.MatchString(key) {
+						searchRoot := reRoot.FindAllStringSubmatch(key, -1)[0][1]
+
+						row := map[string]any{}
+
+						for _, kv := range selectFields {
+							nodeKey := fmt.Sprintf(`%s%s`, searchRoot, kv)
+
+							if w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey] != nil {
+								row[kv] = w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey]
+							}
+						}
+
+						if row[keyField] != nil {
+							keys = append(keys, row[keyField].(string))
+
+							options[row[keyField].(string)] = row
+						}
+					}
+				}
+
+				utils.SortSlice(keys)
+			}
+		}
+	}
+
+	return options, keys
 }
 
 func (w *WorkFlow) NodeOptions(input string) []string {
@@ -598,6 +661,8 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 
 					node = w.GetNode(nextScreen)
 				}
+			} else if node["ajaxOptions"] != nil {
+				fmt.Println("########", node["ajaxOptions"])
 			} else {
 				if node["validationRule"] != nil {
 					val, ok := node["validationRule"].(string)
