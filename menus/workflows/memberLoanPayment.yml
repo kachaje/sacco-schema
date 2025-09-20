@@ -32,6 +32,7 @@ enterDescription:
     en: Description
   type: inputScreen
 enterDueDate:
+  ajaxOptions: memberLoanPaymentSchedule@loanNumber
   inputIdentifier: dueDate
   nextScreen: enterDescription
   order: 2

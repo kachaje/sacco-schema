@@ -1262,6 +1262,7 @@
       },
       {
         "dueDate": {
+          "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
           "order": 3,
           "type": "text"
         }

@@ -788,6 +788,7 @@ memberLoanPayment:
         order: 2
         type: text
     - dueDate:
+        ajaxOptions: memberLoanPaymentSchedule@loanNumber
         order: 3
         type: text
     - description:
