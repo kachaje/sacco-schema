@@ -445,9 +445,38 @@ func (w *WorkFlow) NodeOptions(input string) []string {
 			}
 		}
 	} else if node != nil && node["ajaxOptions"] != nil {
-		if val, ok := node["ajaxOptions"].(string); ok {
-			_ = val
-			// opts, keys := w.LoadAjaxOptions(val, )
+		if ajaxOptions, ok := node["ajaxOptions"].(string); ok &&
+			node["inputIdentifier"] != nil {
+			selectFields := []string{}
+
+			if node["ajaxFields"] != nil {
+				if val, ok := node["ajaxFields"].([]any); ok {
+					for _, k := range val {
+						selectFields = append(selectFields, fmt.Sprintf("%v", k))
+					}
+				} else if val, ok := node["ajaxFields"].([]string); ok {
+					selectFields = val
+				}
+			}
+			targetField := strings.Split(ajaxOptions, "@")[1]
+
+			if targetField != "" && w.Data != nil && w.Data[targetField] != nil {
+				id := fmt.Sprintf("%v", node["inputIdentifier"])
+
+				opts, keys := w.LoadAjaxOptions(
+					ajaxOptions,
+					fmt.Sprintf("%v", w.Data[targetField]),
+					id,
+					selectFields)
+
+				w.AjaxOptionsCache[id] = opts
+
+				for i, key := range keys {
+					entry := fmt.Sprintf("%d. %s", i+1, key)
+
+					options = append(options, entry)
+				}
+			}
 		}
 	}
 
