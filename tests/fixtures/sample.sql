@@ -351,7 +351,8 @@ INSERT INTO
     interest,
     insurance,
     processingFee,
-    instalment
+    instalment,
+    date
   )
 SELECT
   loanNumber,
@@ -362,7 +363,8 @@ SELECT
   interest,
   insurance,
   processingFee,
-  instalment
+  instalment,
+  '2025-12-30'
 FROM
   memberLoanPaymentSchedule
 WHERE

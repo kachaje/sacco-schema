@@ -1,4 +1,37 @@
 CREATE TRIGGER IF NOT EXISTS allocateLoanPayment AFTER INSERT ON memberLoanPayment FOR EACH ROW BEGIN
+UPDATE memberLoanPaymentSchedule
+SET
+  penalty = COALESCE(
+    (
+      SELECT
+        COALESCE(penaltyRate, 0)
+      FROM
+        memberLoan
+      WHERE
+        loanNumber = NEW.loanNumber
+    ),
+    0
+  ) * instalment
+WHERE
+  JULIANDAY (NEW.date) - JULIANDAY (dueDate) > 30
+  AND id = NEW.memberLoanPaymentScheduleId;
+
+UPDATE memberLoanPayment
+SET
+  penalty = COALESCE(
+    (
+      SELECT
+        penalty
+      FROM
+        memberLoanPaymentSchedule
+      WHERE
+        id = NEW.memberLoanPaymentScheduleId
+    ),
+    0
+  )
+WHERE
+  id = NEW.id;
+
 UPDATE memberLoanPayment
 SET
   availableCash = (
@@ -16,7 +49,9 @@ SET
       0
     )
   ),
-  totalDue = (interest + insurance + processingFee + instalment + penalty)
+  totalDue = (
+    interest + insurance + processingFee + instalment + penalty
+  )
 WHERE
   id = NEW.id;
 
@@ -46,6 +81,7 @@ SELECT
 FROM
   memberLoanPayment
 WHERE
-  id = NEW.id AND availableCash > 0;
+  id = NEW.id
+  AND availableCash > 0;
 
 END
