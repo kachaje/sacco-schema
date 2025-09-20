@@ -71,3 +71,9 @@ instalment:
   hidden: true
   order: 12
   type: real
+
+penalty:
+  default: "0"
+  hidden: true
+  order: 13
+  type: real

@@ -39,12 +39,7 @@
     "type": "inputScreen"
   },
   "enterDueDate": {
-    "ajaxFields": [
-      "interest",
-      "insurance",
-      "instalment",
-      "processingFee"
-    ],
+    "ajaxFields": ["interest", "insurance", "instalment", "processingFee"],
     "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
     "inputIdentifier": "dueDate",
     "nextScreen": "enterDescription",
@@ -105,8 +100,6 @@
   },
   "initialScreen": "enterLoanNumber",
   "model": "memberLoanPayment",
-  "parentIds": [
-    "memberLoanPaymentScheduleId"
-  ],
+  "parentIds": ["memberLoanPaymentScheduleId"],
   "rootQuery": "member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment"
 }

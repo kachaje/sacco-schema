@@ -820,6 +820,12 @@
         "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
       },
+      "penalty": {
+        "default": "0",
+        "hidden": true,
+        "order": 13,
+        "type": "real"
+      },
       "processingFee": {
         "default": "0",
         "hidden": true,
@@ -879,6 +885,11 @@
         "order": 1,
         "referenceTable": "memberLoan",
         "type": "int"
+      },
+      "penalty": {
+        "default": "0",
+        "order": 11,
+        "type": "real"
       },
       "principal": {
         "order": 3,

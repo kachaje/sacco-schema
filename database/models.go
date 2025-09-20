@@ -126,6 +126,7 @@ var (
 		"numberOfShares",
 		"otherCosts",
 		"ownSalary",
+		"penalty",
 		"penaltyRate",
 		"percentage1",
 		"percentage2",

@@ -837,6 +837,11 @@ memberLoanPayment:
         numericField: true
         optional: true
         order: 12
+    - penalty:
+        hidden: true
+        numericField: true
+        optional: true
+        order: 13
   hasMany:
     - memberLoanTax
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment
@@ -878,6 +883,10 @@ memberLoanPaymentSchedule:
     - loanNumber:
         order: 10
         type: text
+    - penalty:
+        numericField: true
+        optional: true
+        order: 11
   hasOne:
     - memberLoanPayment
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0

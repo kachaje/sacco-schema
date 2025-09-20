@@ -1340,6 +1340,14 @@
           "optional": true,
           "order": 12
         }
+      },
+      {
+        "penalty": {
+          "hidden": true,
+          "numericField": true,
+          "optional": true,
+          "order": 13
+        }
       }
     ],
     "hasMany": ["memberLoanTax"],
@@ -1413,6 +1421,13 @@
         "loanNumber": {
           "order": 10,
           "type": "text"
+        }
+      },
+      {
+        "penalty": {
+          "numericField": true,
+          "optional": true,
+          "order": 11
         }
       }
     ],

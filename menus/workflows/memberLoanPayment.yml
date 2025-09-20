@@ -10,6 +10,7 @@ cacheQueries:
   interest: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.interest
   loanNumber: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.loanNumber
   memberLoanPaymentScheduleId: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanPaymentScheduleId
+  penalty: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.penalty
   processingFee: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.processingFee
   totalDue: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.totalDue
 enterAmountPaid:
@@ -72,6 +73,10 @@ enterLoanNumber:
 enterMemberLoanPaymentScheduleId:
   hidden: true
   inputIdentifier: memberLoanPaymentScheduleId
+  type: hiddenField
+enterPenalty:
+  hidden: true
+  inputIdentifier: penalty
   type: hiddenField
 enterProcessingFee:
   hidden: true

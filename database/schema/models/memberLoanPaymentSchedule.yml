@@ -48,3 +48,8 @@ amountRecommended:
 loanNumber:
   order: 10
   type: text
+
+penalty:
+  default: "0"
+  order: 11
+  type: real

@@ -8,6 +8,7 @@ cacheQueries:
   interest1: member.memberLoan.0.memberLoanPaymentSchedule.0.interest
   loanNumber1: member.memberLoan.0.memberLoanPaymentSchedule.0.loanNumber
   memberLoanId1: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanId
+  penalty1: member.memberLoan.0.memberLoanPaymentSchedule.0.penalty
   principal1: member.memberLoan.0.memberLoanPaymentSchedule.0.principal
   processingFee1: member.memberLoan.0.memberLoanPaymentSchedule.0.processingFee
 enterAmountPaid1:
@@ -59,7 +60,7 @@ enterInterest1:
   validationRule: ^\d+\.*\d*$
 enterLoanNumber1:
   inputIdentifier: loanNumber1
-  nextScreen: formSummary
+  nextScreen: enterPenalty1
   order: 8
   text:
     en: Loan Number
@@ -68,6 +69,15 @@ enterMemberLoanId1:
   hidden: true
   inputIdentifier: memberLoanId1
   type: hiddenField
+enterPenalty1:
+  inputIdentifier: penalty1
+  nextScreen: formSummary
+  optional: true
+  order: 9
+  text:
+    en: Penalty
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterPrincipal1:
   inputIdentifier: principal1
   nextScreen: enterInterest1
