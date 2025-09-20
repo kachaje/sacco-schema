@@ -4,38 +4,67 @@ id:
   primaryKey: true
   type: int
 
+memberLoanPaymentScheduleId:
+  hidden: true
+  order: 1
+  referenceTable: memberLoanPaymentSchedule
+  type: int
+
 loanNumber:
   dynamicDefault: memberLoanPaymentSchedule@loanNumber
   matchModel: memberLoanPaymentSchedule
-  order: 1
+  order: 2
   type: text
 
 dueDate:
   ajaxOptions: memberLoanPaymentSchedule@loanNumber
-  order: 2
+  order: 3
   type: text
 
 description:
-  order: 3
+  order: 4
   type: text
 
 date:
   default: CURRENT_TIMESTAMP
-  order: 4
+  order: 5
   type: text
 
 amountPaid:
-  order: 5
+  order: 6
   type: real
 
 availableCash:
   default: "0"
   hidden: true
-  order: 6
+  order: 7
   type: real
 
 totalDue:
   default: "0"
   hidden: true
-  order: 7
+  order: 8
+  type: real
+
+interest:
+  default: "0"
+  hidden: true
+  order: 9
+  type: real
+
+insurance:
+  default: "0"
+  hidden: true
+  order: 10
+  type: real
+
+processingFee:
+  default: "0"
+  order: 11
+  type: real
+
+instalment:
+  default: "0"
+  hidden: true
+  order: 12
   type: real

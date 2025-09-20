@@ -759,59 +759,26 @@
   "memberLoanPayment": {
     "fields": {
       "amountPaid": {
-        "order": 5,
+        "order": 6,
         "type": "real"
       },
       "availableCash": {
         "default": "0",
         "hidden": true,
-        "order": 6,
+        "order": 7,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 4,
+        "order": 5,
         "type": "text"
       },
       "description": {
-        "order": 3,
+        "order": 4,
         "type": "text"
       },
       "dueDate": {
         "ajaxOptions": "memberLoanPaymentSchedule@loanNumber",
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "loanNumber": {
-        "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
-        "matchModel": "memberLoanPaymentSchedule",
-        "order": 1,
-        "type": "text"
-      },
-      "totalDue": {
-        "default": "0",
-        "hidden": true,
-        "order": 7,
-        "type": "real"
-      }
-    },
-    "model": "memberLoanPayment",
-    "parents": []
-  },
-  "memberLoanPaymentDetail": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
         "order": 3,
         "type": "text"
       },
@@ -821,27 +788,50 @@
         "primaryKey": true,
         "type": "int"
       },
-      "loanComponent": {
-        "options": [
-          "Interest",
-          "Instalment",
-          "Insurance",
-          "Processing Fee",
-          "Settlement Overflow"
-        ],
+      "instalment": {
+        "default": "0",
+        "hidden": true,
+        "order": 12,
+        "type": "real"
+      },
+      "insurance": {
+        "default": "0",
+        "hidden": true,
+        "order": 10,
+        "type": "real"
+      },
+      "interest": {
+        "default": "0",
+        "hidden": true,
+        "order": 9,
+        "type": "real"
+      },
+      "loanNumber": {
+        "dynamicDefault": "memberLoanPaymentSchedule@loanNumber",
+        "matchModel": "memberLoanPaymentSchedule",
         "order": 2,
         "type": "text"
       },
-      "memberLoanPaymentId": {
-        "many": true,
+      "memberLoanPaymentScheduleId": {
+        "hidden": true,
         "order": 1,
-        "referenceTable": "memberLoanPayment",
+        "referenceTable": "memberLoanPaymentSchedule",
         "type": "int"
+      },
+      "processingFee": {
+        "default": "0",
+        "order": 11,
+        "type": "real"
+      },
+      "totalDue": {
+        "default": "0",
+        "hidden": true,
+        "order": 8,
+        "type": "real"
       }
     },
-    "many": true,
-    "model": "memberLoanPaymentDetail",
-    "parents": ["memberLoanPayment"]
+    "model": "memberLoanPayment",
+    "parents": ["memberLoanPaymentSchedule"]
   },
   "memberLoanPaymentSchedule": {
     "fields": {

@@ -37,8 +37,10 @@ var (
 		"memberLoanWitness",
 	}
 	MemberLoanPaymentArrayChildren = []string{
-		"memberLoanPaymentDetail",
 		"memberLoanTax",
+	}
+	MemberLoanPaymentScheduleSingleChildren = []string{
+		"memberLoanPayment",
 	}
 	MemberLoanSingleChildren = []string{
 		"memberBusiness",
@@ -70,15 +72,16 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
-		"LoanNumberIdsCacheSingleChildren":    LoanNumberIdsCacheSingleChildren,
-		"MemberBusinessSingleChildren":        MemberBusinessSingleChildren,
-		"MemberIdsCacheSingleChildren":        MemberIdsCacheSingleChildren,
-		"MemberLoanApprovalSingleChildren":    MemberLoanApprovalSingleChildren,
-		"MemberLoanSingleChildren":            MemberLoanSingleChildren,
-		"MemberOccupationSingleChildren":      MemberOccupationSingleChildren,
-		"MemberSavingsIdsCacheSingleChildren": MemberSavingsIdsCacheSingleChildren,
-		"MemberSharesIdsCacheSingleChildren":  MemberSharesIdsCacheSingleChildren,
-		"MemberSingleChildren":                MemberSingleChildren,
+		"LoanNumberIdsCacheSingleChildren":        LoanNumberIdsCacheSingleChildren,
+		"MemberBusinessSingleChildren":            MemberBusinessSingleChildren,
+		"MemberIdsCacheSingleChildren":            MemberIdsCacheSingleChildren,
+		"MemberLoanApprovalSingleChildren":        MemberLoanApprovalSingleChildren,
+		"MemberLoanPaymentScheduleSingleChildren": MemberLoanPaymentScheduleSingleChildren,
+		"MemberLoanSingleChildren":                MemberLoanSingleChildren,
+		"MemberOccupationSingleChildren":          MemberOccupationSingleChildren,
+		"MemberSavingsIdsCacheSingleChildren":     MemberSavingsIdsCacheSingleChildren,
+		"MemberSharesIdsCacheSingleChildren":      MemberSharesIdsCacheSingleChildren,
+		"MemberSingleChildren":                    MemberSingleChildren,
 	}
 	ArrayChildren = map[string][]string{
 		"AccountArrayChildren":            AccountArrayChildren,
@@ -192,8 +195,8 @@ var (
 		"memberLoanLiability": {
 			"memberLoan",
 		},
-		"memberLoanPaymentDetail": {
-			"memberLoanPayment",
+		"memberLoanPayment": {
+			"memberLoanPaymentSchedule",
 		},
 		"memberLoanPaymentSchedule": {
 			"memberLoan",
