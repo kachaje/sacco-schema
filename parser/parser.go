@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"maps"
 	"fmt"
 	"log"
 	"regexp"
@@ -391,7 +392,11 @@ func (w *WorkFlow) LoadAjaxOptions(input, value, keyField string, selectFields [
 							nodeKey := fmt.Sprintf(`%s%s`, searchRoot, kv)
 
 							if w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey] != nil {
-								row[kv] = w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey]
+								if kv == "id" {
+									row[fmt.Sprintf("%sId", model)] = w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey]
+								} else {
+									row[kv] = w.Sessions[w.CurrentPhoneNumber].ActiveData[nodeKey]
+								}
 							}
 						}
 
@@ -469,7 +474,10 @@ func (w *WorkFlow) NodeOptions(input string) []string {
 					id,
 					selectFields)
 
-				w.AjaxOptionsCache[id] = opts
+				w.AjaxOptionsCache[id] = map[string]any{
+					"options": opts,
+					"keys":    keys,
+				}
 
 				for i, key := range keys {
 					entry := fmt.Sprintf("%d. %s", i+1, key)
@@ -696,7 +704,47 @@ func (w *WorkFlow) NextNode(input string) (map[string]any, error) {
 					node = w.GetNode(nextScreen)
 				}
 			} else if node["ajaxOptions"] != nil {
-				fmt.Println("########", node["ajaxOptions"])
+				if node != nil && node["inputIdentifier"] != nil {
+					id := fmt.Sprintf("%v", node["inputIdentifier"])
+
+					if w.AjaxOptionsCache[id] != nil &&
+						regexp.MustCompile(`^\d+$`).MatchString(input) {
+						index, err := strconv.Atoi(input)
+						if err == nil && w.AjaxOptionsCache[id] != nil {
+							keys := []string{}
+
+							if val, ok := w.AjaxOptionsCache[id]["keys"].([]any); ok {
+								for _, key := range val {
+									keys = append(keys, fmt.Sprintf("%v", key))
+								}
+							} else if val, ok := w.AjaxOptionsCache[id]["keys"].([]string); ok {
+								keys = val
+							}
+
+							if index > len(keys) {
+								return node, nil
+							}
+
+							value := keys[index-1]
+
+							w.Data[id] = value
+
+							if val, ok := w.AjaxOptionsCache[id]["options"].(map[string]any); ok {
+								if row, ok := val[value]; ok {
+									if vv, ok := row.(map[string]any); ok {
+										maps.Copy(w.Data, vv)
+									}
+								}
+							}
+
+							if node["nextScreen"] != nil {
+								nextScreen = fmt.Sprintf("%v", node["nextScreen"])
+
+								node = w.GetNode(nextScreen)
+							}
+						}
+					}
+				}
 			} else {
 				if node["validationRule"] != nil {
 					val, ok := node["validationRule"].(string)

@@ -140,20 +140,112 @@ Actual:
 }
 
 func TestAjaxOptions(t *testing.T) {
-	wf := parser.NewWorkflow(data, nil, nil, nil, nil, nil, nil, nil, nil)
-
-	result, err := wf.NextNode("")
+	wf, _, err := setupLoanEnv()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if result == nil {
-		t.Fatal("Test failed")
+	wf.CurrentScreen = "enterLoanNumber"
+
+	text := ""
+
+	result := wf.NavNext(text)
+
+	target := `
+Loan Number: (KLN934139)
+
+01. Keep
+99. Cancel`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s
+`, target, result)
 	}
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
+	text = "01"
 
-	fmt.Println(string(payload))
+	result = wf.NavNext(text)
+
+	target = `
+Due Date:
+1. 2025-10-01
+2. 2025-11-01
+3. 2025-12-01
+4. 2026-01-01
+5. 2026-02-01
+6. 2026-03-01
+7. 2026-04-01
+8. 2026-05-01
+9. 2026-06-01
+10. 2026-07-01
+11. 2026-08-01
+12. 2026-09-01
+
+00. Main Menu
+98. Back
+99. Cancel`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s
+`, target, result)
+	}
+
+	text = "1"
+
+	result = wf.NavNext(text)
+
+	target = `
+Description:
+
+00. Main Menu
+98. Back
+99. Cancel
+	`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s
+`, target, result)
+	}
+
+	delete(wf.Data, "date")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(wf.Data, "", "  ")
+
+		os.WriteFile(filepath.Join(".", "fixtures", "wdata.ajax.json"), payload, 0644)
+	}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "wdata.ajax.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	targetData := map[string]any{}
+
+	err = json.Unmarshal(content, &targetData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !reflect.DeepEqual(targetData, wf.Data) {
+		t.Fatalf(`Test failed.
+Expected:
+%v
+Actual:
+%v`, targetData, wf.Data)
+	}
 }
 
 func TestGetNode(t *testing.T) {
