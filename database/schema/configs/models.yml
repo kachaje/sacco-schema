@@ -986,6 +986,7 @@ memberLoanTax:
         options:
           - Interest
           - Processing Fee
+          - Penalty
         order: 5
         type: text
   rootQuery: member.memberLoan.0.memberLoanPaymentSchedule.0.memberLoanPayment.memberLoanTax.0

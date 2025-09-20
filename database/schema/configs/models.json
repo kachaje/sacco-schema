@@ -1603,7 +1603,7 @@
       },
       {
         "taxCategory": {
-          "options": ["Interest", "Processing Fee"],
+          "options": ["Interest", "Processing Fee", "Penalty"],
           "order": 5,
           "type": "text"
         }

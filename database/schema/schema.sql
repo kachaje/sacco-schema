@@ -558,7 +558,9 @@ CREATE TABLE IF NOT EXISTS memberLoanTax (
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
-    taxCategory TEXT NOT NULL CHECK (taxCategory IN ('Interest', 'Processing Fee')),
+    taxCategory TEXT NOT NULL CHECK (
+        taxCategory IN ('Interest', 'Processing Fee', 'Penalty')
+    ),
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

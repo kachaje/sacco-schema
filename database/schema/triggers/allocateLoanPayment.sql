@@ -116,32 +116,45 @@ WITH
   )
 SELECT
   NEW.id,
-  CONCAT ('Tax: ', NEW.description),
-  COALESCE(vat.tax, 0) * NEW.interest,
+  CONCAT ('Tax on Interest: ', NEW.description),
+  COALESCE(vat.tax, 0) * NEW.interest AS taxValue,
   'Interest'
 FROM
   vat
 WHERE
   vat.tax > 0
+  AND taxValue > 0
 UNION ALL
 SELECT
   NEW.id,
-  CONCAT ('Tax: ', NEW.description),
-  COALESCE(vat.tax, 0) * NEW.processingFee,
+  CONCAT ('Tax on Processing Fee: ', NEW.description),
+  COALESCE(vat.tax, 0) * NEW.processingFee AS taxValue,
   'Processing Fee'
 FROM
   vat
 WHERE
   vat.tax > 0
+  AND taxValue > 0
 UNION ALL
 SELECT
   NEW.id,
-  CONCAT ('Tax: ', NEW.description),
-  COALESCE(vat.tax, 0) * NEW.penalty,
+  CONCAT ('Tax on Penalty: ', NEW.description),
+  COALESCE(vat.tax, 0) * COALESCE(
+    (
+      SELECT
+        penalty
+      FROM
+        memberLoanPayment
+      WHERE
+        id = NEW.id
+    ),
+    0
+  ) AS taxValue,
   'Penalty'
 FROM
   vat
 WHERE
-  vat.tax > 0;
+  vat.tax > 0
+  AND taxValue > 0;
 
 END
