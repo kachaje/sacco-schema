@@ -9,6 +9,8 @@ import (
 	"sacco/utils"
 	"strconv"
 	"strings"
+
+	"golang.org/x/exp/slices"
 )
 
 func Main(folder, targetFile *string) error {
@@ -138,7 +140,11 @@ func Yml2Sql(model, content string) (*string, error) {
 				if regexp.MustCompile(`@`).MatchString(fmt.Sprintf("%v", val["default"])) {
 				} else if fmt.Sprintf(`%v`, val["default"]) == "CURRENT_USER" {
 				} else {
-					fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
+					if fieldType == "TEXT" && !slices.Contains([]string{"CURRENT_TIMESTAMP"}, fmt.Sprintf("%v", val["default"])) {
+						fieldData = fmt.Sprintf(`%s DEFAULT '%v'`, fieldData, val["default"])
+					} else {
+						fieldData = fmt.Sprintf(`%s DEFAULT %v`, fieldData, val["default"])
+					}
 				}
 			} else if val["optional"] == nil {
 				fieldData = fmt.Sprintf(`%s NOT NULL`, fieldData)

@@ -206,8 +206,8 @@ END;
 CREATE TABLE IF NOT EXISTS memberBusinessVerification (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberBusinessId INTEGER NOT NULL,
-    businessVerified TEXT DEFAULT No CHECK (businessVerified IN ('Yes', 'No')),
-    grossIncomeVerified TEXT DEFAULT No CHECK (grossIncomeVerified IN ('Yes', 'No')),
+    businessVerified TEXT DEFAULT 'No' CHECK (businessVerified IN ('Yes', 'No')),
+    grossIncomeVerified TEXT DEFAULT 'No' CHECK (grossIncomeVerified IN ('Yes', 'No')),
     netIncomeVerified TEXT NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS memberContributionDeposit (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberContributionId INTEGER NOT NULL,
     description TEXT,
-    contributionCategory TEXT DEFAULT Regular Deposit CHECK (
+    contributionCategory TEXT DEFAULT 'Regular Deposit' CHECK (
         contributionCategory IN ('Non-Redeemable Deposit', 'Regular Deposit')
     ),
     date TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -350,7 +350,7 @@ CREATE TABLE IF NOT EXISTS memberDependant (
     phoneNumber TEXT NOT NULL,
     address TEXT,
     percentage REAL NOT NULL,
-    isNominee TEXT DEFAULT No CHECK (isNominee IN ('Yes', 'No')),
+    isNominee TEXT DEFAULT 'No' CHECK (isNominee IN ('Yes', 'No')),
     relationship TEXT NOT NULL CHECK (
         relationship IN ('Spouse', 'Child', 'Sibling', 'Other')
     ),
@@ -440,7 +440,7 @@ CREATE TABLE IF NOT EXISTS memberLoan (
             'Emergency'
         )
     ),
-    loanCategory TEXT DEFAULT Individual CHECK (
+    loanCategory TEXT DEFAULT 'Individual' CHECK (
         loanCategory IN ('Individual', 'Group/Institution')
     ),
     monthlyInstalments REAL DEFAULT 0,
@@ -471,7 +471,7 @@ CREATE TABLE IF NOT EXISTS memberLoanApproval (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberLoanId INTEGER NOT NULL,
     loanNumber TEXT NOT NULL,
-    loanStatus TEXT DEFAULT PENDING CHECK (
+    loanStatus TEXT DEFAULT 'PENDING' CHECK (
         loanStatus IN (
             'PENDING',
             'APPROVED',
@@ -813,7 +813,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberOccupationVerification (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberOccupationId INTEGER NOT NULL,
-    jobVerified TEXT DEFAULT No CHECK (jobVerified IN ('Yes', 'No')),
+    jobVerified TEXT DEFAULT 'No' CHECK (jobVerified IN ('Yes', 'No')),
     grossVerified TEXT NOT NULL,
     netVerified TEXT NOT NULL,
     active INTEGER DEFAULT 1,
@@ -947,8 +947,8 @@ CREATE TABLE IF NOT EXISTS notification (
     memberId INTEGER NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     message TEXT NOT NULL,
-    msgDelivered TEXT DEFAULT No CHECK (msgDelivered IN ('Yes', 'No')),
-    msgRead TEXT DEFAULT No CHECK (msgRead IN ('Yes', 'No')),
+    msgDelivered TEXT DEFAULT 'No' CHECK (msgDelivered IN ('Yes', 'No')),
+    msgRead TEXT DEFAULT 'No' CHECK (msgRead IN ('Yes', 'No')),
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

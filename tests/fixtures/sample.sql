@@ -561,5 +561,5 @@ INSERT INTO
     amount
   )
 VALUES
-  (1, "Non-redeemable deposit", 20000),
-  (1, "Monthly deposit", 10000);
+  (1, "Non-Redeemable Deposit", 20000),
+  (1, "Regular Deposit", 35000);
