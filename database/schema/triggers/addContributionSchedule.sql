@@ -1,6 +1,12 @@
-CREATE TRIGGER IF NOT EXISTS addContributionSchedule AFTER INSERT ON memberContribution FOR EACH ROW BEGIN
+CREATE TRIGGER IF NOT EXISTS addContributionSchedule AFTER INSERT ON memberContributionDeposit FOR EACH ROW BEGIN
 INSERT INTO
-  memberContributionSchedule (memberContributionId, dueDate, expectedAmount)
+  memberContributionSchedule (
+    memberContributionId,
+    dueDate,
+    expectedAmount,
+    paidAmount,
+    overflowAmount
+  )
 WITH RECURSIVE
   cnt (x) AS (
     SELECT
@@ -11,17 +17,71 @@ WITH RECURSIVE
     FROM
       cnt
     LIMIT
-      12
+      (
+        SELECT
+          CEILING(d.amount / c.monthlyContribution)
+        FROM
+          memberContribution c
+          LEFT OUTER JOIN memberContributionDeposit d ON d.memberContributionId = c.id
+        WHERE
+          d.contributionCategory = "Regular Deposit"
+          AND d.id = NEW.id
+      )
+  ),
+  schedule AS (
+    SELECT
+      SUM(paidAmount - overflowAmount) AS balance,
+      dueDate
+    FROM
+      memberContributionSchedule
+    WHERE
+      paidAmount < expectedAmount
+      AND DATE (dueDate) > DATE (CURRENT_TIMESTAMP)
+      AND memberContributionId = NEW.id
+    ORDER BY
+      dueDate ASC
+    LIMIT
+      1
+  ),
+  contribution AS (
+    SELECT
+      c.id AS memberContributionId,
+      d.amount,
+      c.monthlyContribution
+    FROM
+      memberContribution c
+      LEFT OUTER JOIN memberContributionDeposit d ON d.memberContributionId = c.id
+    WHERE
+      d.contributionCategory = "Regular Deposit"
+      AND d.id = NEW.id
   )
 SELECT
-  NEW.id,
-  DATE (
-    CURRENT_TIMESTAMP,
-    CONCAT ('+', x, ' month'),
-    'start of month'
+  memberContributionId,
+  CAST(
+    DATE (
+      COALESCE(dueDate, CURRENT_TIMESTAMP),
+      CONCAT ('+', x, ' month'),
+      'start of month'
+    ) AS TEXT
   ) AS dueDate,
-  NEW.monthlyContribution
+  monthlyContribution AS expectedAmount,
+  CAST(
+    CASE
+      WHEN x * monthlyContribution <= amount THEN monthlyContribution
+      ELSE 0
+    END AS REAL
+  ) AS paidAmount,
+  CAST(
+    CASE
+      WHEN x * monthlyContribution <= amount THEN 0
+      ELSE amount - ((x -1) * monthlyContribution)
+    END AS REAL
+  ) AS overflowAmount
 FROM
-  cnt;
+  cnt,
+  schedule,
+  contribution
+WHERE
+  overflowAmount = 0;
 
 END;
