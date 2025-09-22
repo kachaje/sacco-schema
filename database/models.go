@@ -8,6 +8,9 @@ var (
 	AccountTransactionArrayChildren = []string{
 		"accountJournal",
 	}
+	ContributionNumberIdsCacheSingleChildren = []string{
+		"memberContribution",
+	}
 	LoanNumberIdsCacheSingleChildren = []string{
 		"memberLoan",
 	}
@@ -22,9 +25,6 @@ var (
 		"memberBusinessVerification",
 		"memberLastYearBusinessHistory",
 		"memberNextYearBusinessProjection",
-	}
-	MemberContributionIdsCacheSingleChildren = []string{
-		"memberContribution",
 	}
 	MemberIdsCacheSingleChildren = []string{
 		"member",
@@ -70,9 +70,9 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
+		"ContributionNumberIdsCacheSingleChildren": ContributionNumberIdsCacheSingleChildren,
 		"LoanNumberIdsCacheSingleChildren":         LoanNumberIdsCacheSingleChildren,
 		"MemberBusinessSingleChildren":             MemberBusinessSingleChildren,
-		"MemberContributionIdsCacheSingleChildren": MemberContributionIdsCacheSingleChildren,
 		"MemberIdsCacheSingleChildren":             MemberIdsCacheSingleChildren,
 		"MemberLoanApprovalSingleChildren":         MemberLoanApprovalSingleChildren,
 		"MemberLoanPaymentScheduleSingleChildren":  MemberLoanPaymentScheduleSingleChildren,
@@ -157,6 +157,9 @@ var (
 		"accountStatement": {
 			"account",
 		},
+		"contributionNumberIdsCache": {
+			"memberContribution",
+		},
 		"contributionWithdraw": {
 			"memberSaving",
 		},
@@ -174,9 +177,6 @@ var (
 		},
 		"memberContribution": {
 			"member",
-		},
-		"memberContributionIdsCache": {
-			"memberContribution",
 		},
 		"memberDependant": {
 			"member",

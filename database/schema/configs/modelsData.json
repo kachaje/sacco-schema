@@ -137,6 +137,33 @@
     "model": "contributionDeposit",
     "parents": []
   },
+  "contributionNumberIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberContributionId": {
+        "optional": true,
+        "order": 1,
+        "referenceTable": "memberContribution",
+        "type": "int"
+      }
+    },
+    "model": "contributionNumberIdsCache",
+    "parents": ["memberContribution"]
+  },
   "contributionWithdraw": {
     "fields": {
       "amount": {
@@ -409,7 +436,7 @@
   },
   "memberContribution": {
     "fields": {
-      "contributionIdNumber": {
+      "contributionNumber": {
         "optional": true,
         "order": 2,
         "type": "text"
@@ -450,33 +477,6 @@
     "many": true,
     "model": "memberContribution",
     "parents": ["member"]
-  },
-  "memberContributionIdsCache": {
-    "fields": {
-      "claimed": {
-        "default": "0",
-        "order": 3,
-        "type": "int"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "idNumber": {
-        "order": 2,
-        "type": "text"
-      },
-      "memberContributionId": {
-        "optional": true,
-        "order": 1,
-        "referenceTable": "memberContribution",
-        "type": "int"
-      }
-    },
-    "model": "memberContributionIdsCache",
-    "parents": ["memberContribution"]
   },
   "memberDependant": {
     "fields": {

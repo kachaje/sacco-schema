@@ -103,6 +103,27 @@ WHERE
 
 END;
 
+CREATE TABLE IF NOT EXISTS contributionNumberIdsCache (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberContributionId INTEGER,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS contributionNumberIdsCacheUpdated AFTER
+UPDATE ON contributionNumberIdsCache FOR EACH ROW BEGIN
+UPDATE contributionNumberIdsCache
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
 CREATE TABLE IF NOT EXISTS contributionWithdraw (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberSavingId INTEGER NOT NULL,
@@ -274,7 +295,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberContribution (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
-    contributionIdNumber TEXT,
+    contributionNumber TEXT,
     memberIdNumber TEXT NOT NULL,
     monthlyContribution REAL NOT NULL,
     nonRedeemableAmount REAL NOT NULL,
@@ -288,27 +309,6 @@ CREATE TABLE IF NOT EXISTS memberContribution (
 CREATE TRIGGER IF NOT EXISTS memberContributionUpdated AFTER
 UPDATE ON memberContribution FOR EACH ROW BEGIN
 UPDATE memberContribution
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS memberContributionIdsCache (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberContributionId INTEGER,
-    idNumber TEXT NOT NULL,
-    claimed INTEGER DEFAULT 0,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberContributionIdsCacheUpdated AFTER
-UPDATE ON memberContributionIdsCache FOR EACH ROW BEGIN
-UPDATE memberContributionIdsCache
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

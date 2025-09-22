@@ -105,3 +105,39 @@ WHERE
 
 ---- END addLoanNumber TRIGGER ----
 END;
+
+---- START addContributionNumber TRIGGER ----
+CREATE TRIGGER IF NOT EXISTS addContributionNumber AFTER INSERT ON memberContribution FOR EACH ROW BEGIN
+UPDATE contributionNumberIdsCache
+SET
+  claimed = 1,
+  memberContributionId = NEW.id
+WHERE
+  id = (
+    SELECT
+      id
+    FROM
+      contributionNumberIdsCache
+    WHERE
+      claimed = 0
+    ORDER BY
+      id
+    LIMIT
+      1
+  );
+
+UPDATE memberContribution
+SET
+  contributionNumber = (
+    SELECT
+      idNumber
+    FROM
+      contributionNumberIdsCache
+    WHERE
+      memberContributionId = NEW.id
+  )
+WHERE
+  id = NEW.id;
+
+---- END addContributionNumber TRIGGER ----
+END;

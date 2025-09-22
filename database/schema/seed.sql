@@ -51,7 +51,7 @@ WITH RECURSIVE
     LIMIT
       999999
   ) INSERT
-  OR IGNORE INTO memberContributionIdsCache (idNumber)
+  OR IGNORE INTO contributionNumberIdsCache (idNumber)
 SELECT
   CONCAT ('KSH', SUBSTR ('000000' || x, -6)) AS id
 FROM

@@ -1,18 +1,18 @@
 cacheQueries:
-  contributionIdNumber1: member.memberContribution.0.contributionIdNumber
+  contributionNumber1: member.memberContribution.0.contributionNumber
   id1: member.memberContribution.0.id
   memberId1: member.memberContribution.0.memberId
   memberIdNumber1: member.memberContribution.0.memberIdNumber
   monthlyContribution1: member.memberContribution.0.monthlyContribution
   nonRedeemableAmount1: member.memberContribution.0.nonRedeemableAmount
   totalAmount1: member.memberContribution.0.totalAmount
-enterContributionIdNumber1:
-  inputIdentifier: contributionIdNumber1
+enterContributionNumber1:
+  inputIdentifier: contributionNumber1
   nextScreen: enterMemberIdNumber1
   optional: true
   order: 1
   text:
-    en: Contribution Id Number
+    en: Contribution Number
   type: inputScreen
 enterId1:
   hidden: true
@@ -52,7 +52,7 @@ enterTotalAmount1:
   type: hiddenField
 formSummary:
   type: quitScreen
-initialScreen: enterContributionIdNumber1
+initialScreen: enterContributionNumber1
 model: memberContribution
 parentIds:
   - memberId

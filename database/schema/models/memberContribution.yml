@@ -11,7 +11,7 @@ memberId:
   referenceTable: member
   type: int
 
-contributionIdNumber:
+contributionNumber:
   optional: true
   order: 2
   type: text

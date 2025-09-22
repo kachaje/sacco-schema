@@ -168,6 +168,38 @@
     ],
     "rootQuery": "contributionDeposit"
   },
+  "contributionNumberIdsCache": {
+    "belongsTo": ["memberContribution"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberContributionId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "idNumber": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "claimed": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      }
+    ],
+    "hasOne": ["memberContribution"],
+    "rootQuery": "member.memberContribution.0.contributionNumberIdsCache"
+  },
   "contributionWithdraw": {
     "belongsTo": ["memberSaving"],
     "fields": [
@@ -538,7 +570,7 @@
         }
       },
       {
-        "contributionIdNumber": {
+        "contributionNumber": {
           "optional": true,
           "order": 2,
           "type": "text"
@@ -573,38 +605,6 @@
       }
     ],
     "rootQuery": "member.memberContribution.0"
-  },
-  "memberContributionIdsCache": {
-    "belongsTo": ["memberContribution"],
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "memberContributionId": {
-          "hidden": true,
-          "order": 1
-        }
-      },
-      {
-        "idNumber": {
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "claimed": {
-          "numericField": true,
-          "optional": true,
-          "order": 3
-        }
-      }
-    ],
-    "hasOne": ["memberContribution"],
-    "rootQuery": "member.memberContribution.0.memberContributionIdsCache"
   },
   "memberDependant": {
     "arrayFields": [

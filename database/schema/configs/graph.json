@@ -6,6 +6,9 @@
     "arrayChildren": ["accountJournal"]
   },
   "contributionDeposit": {},
+  "contributionNumberIdsCache": {
+    "singleChildren": ["memberContribution"]
+  },
   "insuranceProvider": {},
   "loanNumberIdsCache": {
     "singleChildren": ["memberLoan"]
@@ -26,9 +29,6 @@
       "memberLastYearBusinessHistory",
       "memberNextYearBusinessProjection"
     ]
-  },
-  "memberContributionIdsCache": {
-    "singleChildren": ["memberContribution"]
   },
   "memberIdsCache": {
     "singleChildren": ["member"]
