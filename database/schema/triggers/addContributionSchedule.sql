@@ -19,7 +19,7 @@ WITH RECURSIVE
     LIMIT
       (
         SELECT
-          CEILING(d.amount / c.monthlyContribution)
+          FLOOR(d.amount / c.monthlyContribution)
         FROM
           memberContribution c
           LEFT OUTER JOIN memberContributionDeposit d ON d.memberContributionId = c.id
@@ -73,15 +73,13 @@ SELECT
   ) AS paidAmount,
   CAST(
     CASE
-      WHEN x * monthlyContribution <= amount THEN 0
-      ELSE amount - ((x -1) * monthlyContribution)
+      WHEN (x + 1) * monthlyContribution > amount THEN amount - (x * monthlyContribution)
+      ELSE 0
     END AS REAL
   ) AS overflowAmount
 FROM
   cnt,
   schedule,
-  contribution
-WHERE
-  overflowAmount = 0;
+  contribution;
 
 END;
