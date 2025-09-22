@@ -424,16 +424,16 @@
   "memberContributionDeposit": {
     "fields": {
       "amount": {
-        "order": 3,
+        "order": 4,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
-        "order": 2,
+        "order": 3,
         "type": "text"
       },
       "description": {
-        "order": 1,
+        "order": 2,
         "type": "text"
       },
       "id": {
@@ -441,10 +441,49 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "memberContributionId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberContribution",
+        "type": "int"
       }
     },
+    "many": true,
     "model": "memberContributionDeposit",
-    "parents": []
+    "parents": ["memberContribution"]
+  },
+  "memberContributionSchedule": {
+    "fields": {
+      "dueDate": {
+        "order": 2,
+        "type": "text"
+      },
+      "expectedAmount": {
+        "order": 3,
+        "type": "real"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "memberContributionId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberContribution",
+        "type": "int"
+      },
+      "paidAmount": {
+        "default": "0",
+        "order": 4,
+        "type": "real"
+      }
+    },
+    "many": true,
+    "model": "memberContributionSchedule",
+    "parents": ["memberContribution"]
   },
   "memberContributionWithdraw": {
     "fields": {

@@ -10,15 +10,15 @@ memberContributionId:
   referenceTable: memberContribution
   type: int
 
-description:
+dueDate:
   order: 2
   type: text
 
-date:
-  default: CURRENT_TIMESTAMP
+expectedAmount:
   order: 3
-  type: text
+  type: real
 
-amount:
+paidAmount:
+  default: "0"
   order: 4
   type: real

@@ -330,24 +330,53 @@ memberContribution:
         numericField: true
         optional: true
         order: 6
+  hasMany:
+    - memberContributionDeposit
+    - memberContributionSchedule
   rootQuery: member.memberContribution.0
 memberContributionDeposit:
+  belongsTo:
+    - memberContribution
   fields:
     - id:
         hidden: true
         order: 0
-    - description:
+    - memberContributionId:
+        hidden: true
         order: 1
+    - description:
+        order: 2
         type: text
     - date:
         default: CURRENT_TIMESTAMP
         optional: true
-        order: 2
+        order: 3
         type: text
     - amount:
         numericField: true
+        order: 4
+  rootQuery: member.memberContribution.0.memberContributionDeposit.0
+memberContributionSchedule:
+  belongsTo:
+    - memberContribution
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberContributionId:
+        hidden: true
+        order: 1
+    - dueDate:
+        order: 2
+        type: text
+    - expectedAmount:
+        numericField: true
         order: 3
-  rootQuery: memberContributionDeposit
+    - paidAmount:
+        numericField: true
+        optional: true
+        order: 4
+  rootQuery: member.memberContribution.0.memberContributionSchedule.0
 memberContributionWithdraw:
   belongsTo:
     - memberSaving

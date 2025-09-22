@@ -26,6 +26,10 @@ var (
 		"memberLastYearBusinessHistory",
 		"memberNextYearBusinessProjection",
 	}
+	MemberContributionArrayChildren = []string{
+		"memberContributionDeposit",
+		"memberContributionSchedule",
+	}
 	MemberIdsCacheSingleChildren = []string{
 		"member",
 	}
@@ -85,6 +89,7 @@ var (
 		"AccountArrayChildren":            AccountArrayChildren,
 		"AccountTransactionArrayChildren": AccountTransactionArrayChildren,
 		"MemberArrayChildren":             MemberArrayChildren,
+		"MemberContributionArrayChildren": MemberContributionArrayChildren,
 		"MemberLoanArrayChildren":         MemberLoanArrayChildren,
 		"MemberLoanPaymentArrayChildren":  MemberLoanPaymentArrayChildren,
 		"MemberSavingArrayChildren":       MemberSavingArrayChildren,
@@ -102,6 +107,7 @@ var (
 		"closingBalance",
 		"direction",
 		"employeeWages",
+		"expectedAmount",
 		"financialYear",
 		"grossPay",
 		"instalment",
@@ -124,6 +130,7 @@ var (
 		"number",
 		"otherCosts",
 		"ownSalary",
+		"paidAmount",
 		"penalty",
 		"penaltyRate",
 		"percentage1",
@@ -174,6 +181,12 @@ var (
 		},
 		"memberContribution": {
 			"member",
+		},
+		"memberContributionDeposit": {
+			"memberContribution",
+		},
+		"memberContributionSchedule": {
+			"memberContribution",
 		},
 		"memberContributionWithdraw": {
 			"memberSaving",

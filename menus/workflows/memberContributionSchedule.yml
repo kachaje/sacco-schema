@@ -1,0 +1,45 @@
+cacheQueries:
+  dueDate1: member.memberContribution.0.memberContributionSchedule.0.dueDate
+  expectedAmount1: member.memberContribution.0.memberContributionSchedule.0.expectedAmount
+  id1: member.memberContribution.0.memberContributionSchedule.0.id
+  memberContributionId1: member.memberContribution.0.memberContributionSchedule.0.memberContributionId
+  paidAmount1: member.memberContribution.0.memberContributionSchedule.0.paidAmount
+enterDueDate1:
+  inputIdentifier: dueDate1
+  nextScreen: enterExpectedAmount1
+  order: 1
+  text:
+    en: Due Date
+  type: inputScreen
+enterExpectedAmount1:
+  inputIdentifier: expectedAmount1
+  nextScreen: enterPaidAmount1
+  order: 2
+  text:
+    en: Expected Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterMemberContributionId1:
+  hidden: true
+  inputIdentifier: memberContributionId1
+  type: hiddenField
+enterPaidAmount1:
+  inputIdentifier: paidAmount1
+  nextScreen: formSummary
+  optional: true
+  order: 3
+  text:
+    en: Paid Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterDueDate1
+model: memberContributionSchedule
+parentIds:
+  - memberContributionId
+rootQuery: member.memberContribution.0.memberContributionSchedule.0

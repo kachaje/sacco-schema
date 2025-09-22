@@ -29,7 +29,9 @@
       "memberNextYearBusinessProjection"
     ]
   },
-  "memberContributionDeposit": {},
+  "memberContribution": {
+    "arrayChildren": ["memberContributionDeposit", "memberContributionSchedule"]
+  },
   "memberIdsCache": {
     "singleChildren": ["member"]
   },

@@ -276,17 +276,41 @@ END;
 
 CREATE TABLE IF NOT EXISTS memberContributionDeposit (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberContributionId INTEGER NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS memberContributionDepositUpdated AFTER
 UPDATE ON memberContributionDeposit FOR EACH ROW BEGIN
 UPDATE memberContributionDeposit
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberContributionSchedule (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberContributionId INTEGER NOT NULL,
+    dueDate TEXT NOT NULL,
+    expectedAmount REAL NOT NULL,
+    paidAmount REAL DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberContributionScheduleUpdated AFTER
+UPDATE ON memberContributionSchedule FOR EACH ROW BEGIN
+UPDATE memberContributionSchedule
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

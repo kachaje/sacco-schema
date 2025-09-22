@@ -553,3 +553,9 @@ VALUES
     10000,
     20000
   );
+
+INSERT INTO
+  memberContributionDeposit (memberContributionId, description, amount)
+VALUES
+  (1, "Non-redeemable deposit", 20000),
+  (1, "Monthly deposit", 10000);
