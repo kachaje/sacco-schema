@@ -305,6 +305,7 @@ CREATE TABLE IF NOT EXISTS memberContributionSchedule (
     dueDate TEXT NOT NULL,
     expectedAmount REAL NOT NULL,
     paidAmount REAL DEFAULT 0,
+    overflowAmount REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,

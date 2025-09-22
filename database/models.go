@@ -129,6 +129,7 @@ var (
 		"normal",
 		"number",
 		"otherCosts",
+		"overflowAmount",
 		"ownSalary",
 		"paidAmount",
 		"penalty",

@@ -482,6 +482,11 @@
         "referenceTable": "memberContribution",
         "type": "int"
       },
+      "overflowAmount": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
+      },
       "paidAmount": {
         "default": "0",
         "order": 4,

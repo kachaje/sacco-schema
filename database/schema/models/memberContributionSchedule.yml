@@ -22,3 +22,8 @@ paidAmount:
   default: "0"
   order: 4
   type: real
+
+overflowAmount:
+  default: "0"
+  order: 5
+  type: real

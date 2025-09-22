@@ -3,6 +3,7 @@ cacheQueries:
   expectedAmount1: member.memberContribution.0.memberContributionSchedule.0.expectedAmount
   id1: member.memberContribution.0.memberContributionSchedule.0.id
   memberContributionId1: member.memberContribution.0.memberContributionSchedule.0.memberContributionId
+  overflowAmount1: member.memberContribution.0.memberContributionSchedule.0.overflowAmount
   paidAmount1: member.memberContribution.0.memberContributionSchedule.0.paidAmount
 enterDueDate1:
   inputIdentifier: dueDate1
@@ -27,9 +28,18 @@ enterMemberContributionId1:
   hidden: true
   inputIdentifier: memberContributionId1
   type: hiddenField
+enterOverflowAmount1:
+  inputIdentifier: overflowAmount1
+  nextScreen: formSummary
+  optional: true
+  order: 4
+  text:
+    en: Overflow Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterPaidAmount1:
   inputIdentifier: paidAmount1
-  nextScreen: formSummary
+  nextScreen: enterOverflowAmount1
   optional: true
   order: 3
   text:
