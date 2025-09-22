@@ -277,6 +277,7 @@ CREATE TABLE IF NOT EXISTS memberContribution (
     contributionIdNumber TEXT,
     memberIdNumber TEXT NOT NULL,
     monthlyContribution REAL NOT NULL,
+    nonRedeemableAmount REAL NOT NULL,
     totalAmount REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,

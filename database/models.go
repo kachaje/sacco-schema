@@ -119,6 +119,7 @@ var (
 		"monthlyRate",
 		"netPay",
 		"netProfitLoss",
+		"nonRedeemableAmount",
 		"normal",
 		"number",
 		"otherCosts",

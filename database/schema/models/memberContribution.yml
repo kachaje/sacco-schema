@@ -25,8 +25,12 @@ monthlyContribution:
   order: 4
   type: real
 
+nonRedeemableAmount:
+  order: 5
+  type: real
+
 totalAmount:
   default: "0"
   hidden: true
-  order: 5
+  order: 6
   type: real

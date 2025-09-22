@@ -4,6 +4,7 @@ cacheQueries:
   memberId1: member.memberContribution.0.memberId
   memberIdNumber1: member.memberContribution.0.memberIdNumber
   monthlyContribution1: member.memberContribution.0.monthlyContribution
+  nonRedeemableAmount1: member.memberContribution.0.nonRedeemableAmount
   totalAmount1: member.memberContribution.0.totalAmount
 enterContributionIdNumber1:
   inputIdentifier: contributionIdNumber1
@@ -31,10 +32,18 @@ enterMemberIdNumber1:
   type: inputScreen
 enterMonthlyContribution1:
   inputIdentifier: monthlyContribution1
-  nextScreen: formSummary
+  nextScreen: enterNonRedeemableAmount1
   order: 3
   text:
     en: Monthly Contribution
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterNonRedeemableAmount1:
+  inputIdentifier: nonRedeemableAmount1
+  nextScreen: formSummary
+  order: 4
+  text:
+    en: Non Redeemable Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterTotalAmount1:
