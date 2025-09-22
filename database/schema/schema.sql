@@ -277,7 +277,10 @@ END;
 CREATE TABLE IF NOT EXISTS memberContributionDeposit (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberContributionId INTEGER NOT NULL,
-    description TEXT NOT NULL,
+    description TEXT,
+    contributionCategory TEXT DEFAULT Regular Deposit CHECK (
+        contributionCategory IN ('Non-Redeemable Deposit', 'Regular Deposit')
+    ),
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
     active INTEGER DEFAULT 1,

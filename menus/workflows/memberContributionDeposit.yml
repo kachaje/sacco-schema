@@ -1,5 +1,6 @@
 cacheQueries:
   amount1: member.memberContribution.0.memberContributionDeposit.0.amount
+  contributionCategory1: member.memberContribution.0.memberContributionDeposit.0.contributionCategory
   date1: member.memberContribution.0.memberContributionDeposit.0.date
   description1: member.memberContribution.0.memberContributionDeposit.0.description
   id1: member.memberContribution.0.memberContributionDeposit.0.id
@@ -7,18 +8,34 @@ cacheQueries:
 enterAmount1:
   inputIdentifier: amount1
   nextScreen: formSummary
-  order: 2
+  order: 3
   text:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterContributionCategory1:
+  inputIdentifier: contributionCategory1
+  nextScreen: enterAmount1
+  optional: true
+  options:
+    - label:
+        en: Non-Redeemable Deposit
+      position: 1
+    - label:
+        en: Regular Deposit
+      position: 2
+  order: 2
+  text:
+    en: Contribution Category
+  type: inputScreen
 enterDate1:
   default: CURRENT_TIMESTAMP
   hidden: true
   inputIdentifier: date1
 enterDescription1:
   inputIdentifier: description1
-  nextScreen: enterAmount1
+  nextScreen: enterContributionCategory1
+  optional: true
   order: 1
   text:
     en: Description

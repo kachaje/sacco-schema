@@ -555,7 +555,16 @@
       },
       {
         "description": {
+          "optional": true,
           "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "contributionCategory": {
+          "optional": true,
+          "options": ["Non-Redeemable Deposit", "Regular Deposit"],
+          "order": 3,
           "type": "text"
         }
       },
@@ -563,14 +572,14 @@
         "date": {
           "default": "CURRENT_TIMESTAMP",
           "optional": true,
-          "order": 3,
+          "order": 4,
           "type": "text"
         }
       },
       {
         "amount": {
           "numericField": true,
-          "order": 4
+          "order": 5
         }
       }
     ],

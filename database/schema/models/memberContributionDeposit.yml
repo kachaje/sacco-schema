@@ -11,14 +11,23 @@ memberContributionId:
   type: int
 
 description:
+  optional: true
   order: 2
+  type: text
+
+contributionCategory:
+  default: Regular Deposit
+  options:
+    - Non-Redeemable Deposit
+    - Regular Deposit
+  order: 3
   type: text
 
 date:
   default: CURRENT_TIMESTAMP
-  order: 3
+  order: 4
   type: text
 
 amount:
-  order: 4
+  order: 5
   type: real

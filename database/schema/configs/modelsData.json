@@ -424,15 +424,22 @@
   "memberContributionDeposit": {
     "fields": {
       "amount": {
-        "order": 4,
+        "order": 5,
         "type": "real"
       },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
+      "contributionCategory": {
+        "default": "Regular Deposit",
+        "options": ["Non-Redeemable Deposit", "Regular Deposit"],
         "order": 3,
         "type": "text"
       },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 4,
+        "type": "text"
+      },
       "description": {
+        "optional": true,
         "order": 2,
         "type": "text"
       },

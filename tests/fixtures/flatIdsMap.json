@@ -7,6 +7,18 @@
     "key": "member.memberContact.id",
     "value": "1"
   },
+  "memberContributionDepositId": {
+    "key": "member.memberContribution.1.memberContributionDeposit.2.id",
+    "value": "2"
+  },
+  "memberContributionId": {
+    "key": "member.memberContribution.1.id",
+    "value": "1"
+  },
+  "memberContributionScheduleId": {
+    "key": "member.memberContribution.1.memberContributionSchedule.1.id",
+    "value": "1"
+  },
   "memberDependantId": {
     "key": "member.memberDependant.4.id",
     "value": "4"
@@ -36,16 +48,16 @@
     "value": "2"
   },
   "memberLoanPaymentId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.7.memberLoanPayment.id",
-    "value": "7"
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.3.memberLoanPayment.id",
+    "value": "3"
   },
   "memberLoanPaymentScheduleId": {
-    "key": "member.memberLoan.1.memberLoanPaymentSchedule.10.id",
-    "value": "10"
+    "key": "member.memberLoan.1.memberLoanPaymentSchedule.3.id",
+    "value": "3"
   },
   "memberLoanSecurityId": {
-    "key": "member.memberLoan.1.memberLoanSecurity.1.id",
-    "value": "1"
+    "key": "member.memberLoan.1.memberLoanSecurity.2.id",
+    "value": "2"
   },
   "memberLoanVerificationId": {
     "key": "member.memberLoan.1.memberLoanApproval.memberLoanVerification.id",
