@@ -1,0 +1,33 @@
+cacheQueries:
+  amount: contributionDeposit.amount
+  date: contributionDeposit.date
+  description: contributionDeposit.description
+  id: contributionDeposit.id
+enterAmount:
+  inputIdentifier: amount
+  nextScreen: formSummary
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterDate:
+  default: CURRENT_TIMESTAMP
+  hidden: true
+  inputIdentifier: date
+enterDescription:
+  inputIdentifier: description
+  nextScreen: enterAmount
+  order: 1
+  text:
+    en: Description
+  type: inputScreen
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterDescription
+model: contributionDeposit
+rootQuery: contributionDeposit

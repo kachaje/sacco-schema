@@ -1,0 +1,50 @@
+cacheQueries:
+  contributionIdNumber1: member.memberContribution.0.contributionIdNumber
+  id1: member.memberContribution.0.id
+  memberId1: member.memberContribution.0.memberId
+  memberIdNumber1: member.memberContribution.0.memberIdNumber
+  monthlyContribution1: member.memberContribution.0.monthlyContribution
+  totalAmount1: member.memberContribution.0.totalAmount
+enterContributionIdNumber1:
+  inputIdentifier: contributionIdNumber1
+  nextScreen: enterMemberIdNumber1
+  optional: true
+  order: 1
+  text:
+    en: Contribution Id Number
+  type: inputScreen
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterMemberId1:
+  hidden: true
+  inputIdentifier: memberId1
+  type: hiddenField
+enterMemberIdNumber1:
+  ajaxOptions: member@memberIdNumber
+  inputIdentifier: memberIdNumber1
+  nextScreen: enterMonthlyContribution1
+  order: 2
+  text:
+    en: Member Id Number
+  type: inputScreen
+enterMonthlyContribution1:
+  inputIdentifier: monthlyContribution1
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Monthly Contribution
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterTotalAmount1:
+  hidden: true
+  inputIdentifier: totalAmount1
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterContributionIdNumber1
+model: memberContribution
+parentIds:
+  - memberId
+rootQuery: member.memberContribution.0

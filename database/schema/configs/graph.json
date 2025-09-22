@@ -5,17 +5,17 @@
   "accountTransaction": {
     "arrayChildren": ["accountJournal"]
   },
+  "contributionDeposit": {},
   "insuranceProvider": {},
   "loanNumberIdsCache": {
     "singleChildren": ["memberLoan"]
   },
   "member": {
     "arrayChildren": [
-      "dividends",
+      "memberContribution",
       "memberDependant",
       "memberLoan",
       "memberSaving",
-      "memberShares",
       "notification"
     ],
     "singleChildren": ["memberContact"]
@@ -26,6 +26,9 @@
       "memberLastYearBusinessHistory",
       "memberNextYearBusinessProjection"
     ]
+  },
+  "memberContributionIdsCache": {
+    "singleChildren": ["memberContribution"]
   },
   "memberIdsCache": {
     "singleChildren": ["member"]
@@ -60,18 +63,14 @@
   },
   "memberSaving": {
     "arrayChildren": [
+      "contributionWithdraw",
       "memberSavingDeposit",
       "memberSavingInterest",
-      "memberSavingWithdrawal",
-      "sharesDepositReceipt",
-      "sharesDepositWithdraw"
+      "memberSavingWithdrawal"
     ]
   },
   "memberSavingsIdsCache": {
     "singleChildren": ["memberSaving"]
-  },
-  "memberSharesIdsCache": {
-    "singleChildren": ["memberShares"]
   },
   "savingsType": {
     "arrayChildren": ["memberSaving", "savingsRate"]

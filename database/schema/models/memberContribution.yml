@@ -5,24 +5,28 @@ id:
   type: int
 
 memberId:
+  hidden: true
   many: true
   order: 1
   referenceTable: member
   type: int
 
-memberSharesIdNumber:
+contributionIdNumber:
   optional: true
   order: 2
   type: text
 
-monthlyPremium:
+memberIdNumber:
+  ajaxOptions: member@memberIdNumber
   order: 3
-  type: real
+  type: text
 
-totalValue:
+monthlyContribution:
   order: 4
   type: real
 
-numberOfShares:
+totalAmount:
+  default: "0"
+  hidden: true
   order: 5
-  type: int
+  type: real

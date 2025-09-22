@@ -1,0 +1,36 @@
+cacheQueries:
+  claimed: member.memberContribution.0.memberContributionIdsCache.claimed
+  id: member.memberContribution.0.memberContributionIdsCache.id
+  idNumber: member.memberContribution.0.memberContributionIdsCache.idNumber
+  memberContributionId: member.memberContribution.0.memberContributionIdsCache.memberContributionId
+enterClaimed:
+  inputIdentifier: claimed
+  nextScreen: formSummary
+  optional: true
+  order: 2
+  text:
+    en: Claimed
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterId:
+  hidden: true
+  inputIdentifier: id
+  type: hiddenField
+enterIdNumber:
+  inputIdentifier: idNumber
+  nextScreen: enterClaimed
+  order: 1
+  text:
+    en: Id Number
+  type: inputScreen
+enterMemberContributionId:
+  hidden: true
+  inputIdentifier: memberContributionId
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterIdNumber
+model: memberContributionIdsCache
+parentIds:
+  - memberContributionId
+rootQuery: member.memberContribution.0.memberContributionIdsCache

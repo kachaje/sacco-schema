@@ -4,21 +4,15 @@ id:
   primaryKey: true
   type: int
 
-memberSavingId:
-  many: true
-  order: 1
-  referenceTable: memberSaving
-  type: int
-
 description:
-  order: 2
+  order: 1
   type: text
 
 date:
   default: CURRENT_TIMESTAMP
-  order: 3
+  order: 2
   type: text
 
 amount:
-  order: 4
+  order: 3
   type: real

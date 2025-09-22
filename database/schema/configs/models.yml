@@ -80,16 +80,14 @@ accountTransaction:
   hasMany:
     - accountJournal
   rootQuery: accountTransaction
-dividends:
-  belongsTo:
-    - member
+contributionDeposit:
   fields:
     - id:
         hidden: true
         order: 0
-    - memberId:
-        hidden: true
+    - description:
         order: 1
+        type: text
     - date:
         default: CURRENT_TIMESTAMP
         optional: true
@@ -98,7 +96,29 @@ dividends:
     - amount:
         numericField: true
         order: 3
-  rootQuery: member.dividends.0
+  rootQuery: contributionDeposit
+contributionWithdraw:
+  belongsTo:
+    - memberSaving
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberSavingId:
+        hidden: true
+        order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
+  rootQuery: member.savingsType.memberSaving.0.contributionWithdraw.0
 insuranceProvider:
   fields:
     - id:
@@ -207,11 +227,10 @@ member:
         order: 13
         type: text
   hasMany:
-    - dividends
+    - memberContribution
     - memberDependant
     - memberLoan
     - memberSaving
-    - memberShares
     - notification
   hasOne:
     - memberContact
@@ -301,6 +320,53 @@ memberContact:
         order: 7
         type: text
   rootQuery: member.memberContact
+memberContribution:
+  belongsTo:
+    - member
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberId:
+        hidden: true
+        order: 1
+    - contributionIdNumber:
+        optional: true
+        order: 2
+        type: text
+    - memberIdNumber:
+        ajaxOptions: member@memberIdNumber
+        order: 3
+        type: text
+    - monthlyContribution:
+        numericField: true
+        order: 4
+    - totalAmount:
+        hidden: true
+        numericField: true
+        optional: true
+        order: 5
+  rootQuery: member.memberContribution.0
+memberContributionIdsCache:
+  belongsTo:
+    - memberContribution
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberContributionId:
+        hidden: true
+        order: 1
+    - idNumber:
+        order: 2
+        type: text
+    - claimed:
+        numericField: true
+        optional: true
+        order: 3
+  hasOne:
+    - memberContribution
+  rootQuery: member.memberContribution.0.memberContributionIdsCache
 memberDependant:
   arrayFields:
     - id1:
@@ -1285,11 +1351,10 @@ memberSaving:
         numericField: true
         order: 4
   hasMany:
+    - contributionWithdraw
     - memberSavingDeposit
     - memberSavingInterest
     - memberSavingWithdrawal
-    - sharesDepositReceipt
-    - sharesDepositWithdraw
   rootQuery: member.savingsType.memberSaving.0
 memberSavingDeposit:
   belongsTo:
@@ -1377,50 +1442,6 @@ memberSavingsIdsCache:
   hasOne:
     - memberSaving
   rootQuery: member.savingsType.memberSaving.0.memberSavingsIdsCache
-memberShares:
-  belongsTo:
-    - member
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberId:
-        hidden: true
-        order: 1
-    - memberSharesIdNumber:
-        optional: true
-        order: 2
-        type: text
-    - monthlyPremium:
-        numericField: true
-        order: 3
-    - totalValue:
-        numericField: true
-        order: 4
-    - numberOfShares:
-        numericField: true
-        order: 5
-  rootQuery: member.memberShares.0
-memberSharesIdsCache:
-  belongsTo:
-    - memberShares
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberSharesId:
-        hidden: true
-        order: 1
-    - idNumber:
-        order: 2
-        type: text
-    - claimed:
-        numericField: true
-        optional: true
-        order: 3
-  hasOne:
-    - memberShares
-  rootQuery: member.memberShares.0.memberSharesIdsCache
 notification:
   belongsTo:
     - member
@@ -1492,50 +1513,6 @@ savingsType:
     - memberSaving
     - savingsRate
   rootQuery: savingsType
-sharesDepositReceipt:
-  belongsTo:
-    - memberSaving
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberSavingId:
-        hidden: true
-        order: 1
-    - description:
-        order: 2
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 3
-        type: text
-    - amount:
-        numericField: true
-        order: 4
-  rootQuery: member.savingsType.memberSaving.0.sharesDepositReceipt.0
-sharesDepositWithdraw:
-  belongsTo:
-    - memberSaving
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberSavingId:
-        hidden: true
-        order: 1
-    - description:
-        order: 2
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 3
-        type: text
-    - amount:
-        numericField: true
-        order: 4
-  rootQuery: member.savingsType.memberSaving.0.sharesDepositWithdraw.0
 taxRate:
   fields:
     - id:

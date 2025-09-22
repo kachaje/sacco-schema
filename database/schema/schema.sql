@@ -83,20 +83,41 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS dividends (
+CREATE TABLE IF NOT EXISTS contributionDeposit (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberId INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date TEXT DEFAULT CURRENT_TIMESTAMP,
+    amount REAL NOT NULL,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TRIGGER IF NOT EXISTS contributionDepositUpdated AFTER
+UPDATE ON contributionDeposit FOR EACH ROW BEGIN
+UPDATE contributionDeposit
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS contributionWithdraw (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER NOT NULL,
+    description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
-CREATE TRIGGER IF NOT EXISTS dividendsUpdated AFTER
-UPDATE ON dividends FOR EACH ROW BEGIN
-UPDATE dividends
+CREATE TRIGGER IF NOT EXISTS contributionWithdrawUpdated AFTER
+UPDATE ON contributionWithdraw FOR EACH ROW BEGIN
+UPDATE contributionWithdraw
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE
@@ -243,6 +264,50 @@ CREATE TABLE IF NOT EXISTS memberContact (
 CREATE TRIGGER IF NOT EXISTS memberContactUpdated AFTER
 UPDATE ON memberContact FOR EACH ROW BEGIN
 UPDATE memberContact
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberContribution (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberId INTEGER NOT NULL,
+    contributionIdNumber TEXT,
+    memberIdNumber TEXT NOT NULL,
+    monthlyContribution REAL NOT NULL,
+    totalAmount REAL DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberContributionUpdated AFTER
+UPDATE ON memberContribution FOR EACH ROW BEGIN
+UPDATE memberContribution
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberContributionIdsCache (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberContributionId INTEGER,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberContributionIdsCacheUpdated AFTER
+UPDATE ON memberContributionIdsCache FOR EACH ROW BEGIN
+UPDATE memberContributionIdsCache
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE
@@ -849,50 +914,6 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS memberShares (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberId INTEGER NOT NULL,
-    memberSharesIdNumber TEXT,
-    monthlyPremium REAL NOT NULL,
-    totalValue REAL NOT NULL,
-    numberOfShares INTEGER NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberId) REFERENCES member (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberSharesUpdated AFTER
-UPDATE ON memberShares FOR EACH ROW BEGIN
-UPDATE memberShares
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS memberSharesIdsCache (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSharesId INTEGER,
-    idNumber TEXT NOT NULL,
-    claimed INTEGER DEFAULT 0,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSharesId) REFERENCES memberShares (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberSharesIdsCacheUpdated AFTER
-UPDATE ON memberSharesIdsCache FOR EACH ROW BEGIN
-UPDATE memberSharesIdsCache
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
 CREATE TABLE IF NOT EXISTS notification (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
@@ -951,50 +972,6 @@ CREATE TABLE IF NOT EXISTS savingsType (
 CREATE TRIGGER IF NOT EXISTS savingsTypeUpdated AFTER
 UPDATE ON savingsType FOR EACH ROW BEGIN
 UPDATE savingsType
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS sharesDepositReceipt (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingId INTEGER NOT NULL,
-    description TEXT NOT NULL,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS sharesDepositReceiptUpdated AFTER
-UPDATE ON sharesDepositReceipt FOR EACH ROW BEGIN
-UPDATE sharesDepositReceipt
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS sharesDepositWithdraw (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingId INTEGER NOT NULL,
-    description TEXT NOT NULL,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS sharesDepositWithdrawUpdated AFTER
-UPDATE ON sharesDepositWithdraw FOR EACH ROW BEGIN
-UPDATE sharesDepositWithdraw
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

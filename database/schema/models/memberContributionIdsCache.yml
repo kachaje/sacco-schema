@@ -4,10 +4,10 @@ id:
   primaryKey: true
   type: int
 
-memberSharesId:
+memberContributionId:
   optional: true
   order: 1
-  referenceTable: memberShares
+  referenceTable: memberContribution
   type: int
 
 idNumber:

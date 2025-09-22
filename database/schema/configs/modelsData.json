@@ -112,7 +112,7 @@
     "model": "accountTransaction",
     "parents": []
   },
-  "dividends": {
+  "contributionDeposit": {
     "fields": {
       "amount": {
         "order": 3,
@@ -123,22 +123,51 @@
         "order": 2,
         "type": "text"
       },
+      "description": {
+        "order": 1,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      }
+    },
+    "model": "contributionDeposit",
+    "parents": []
+  },
+  "contributionWithdraw": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
       "id": {
         "autoIncrement": true,
         "order": 0,
         "primaryKey": true,
         "type": "int"
       },
-      "memberId": {
+      "memberSavingId": {
         "many": true,
         "order": 1,
-        "referenceTable": "member",
+        "referenceTable": "memberSaving",
         "type": "int"
       }
     },
     "many": true,
-    "model": "dividends",
-    "parents": ["member"]
+    "model": "contributionWithdraw",
+    "parents": ["memberSaving"]
   },
   "insuranceProvider": {
     "fields": {
@@ -377,6 +406,73 @@
     },
     "model": "memberContact",
     "parents": ["member"]
+  },
+  "memberContribution": {
+    "fields": {
+      "contributionIdNumber": {
+        "optional": true,
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "memberId": {
+        "hidden": true,
+        "many": true,
+        "order": 1,
+        "referenceTable": "member",
+        "type": "int"
+      },
+      "memberIdNumber": {
+        "ajaxOptions": "member@memberIdNumber",
+        "order": 3,
+        "type": "text"
+      },
+      "monthlyContribution": {
+        "order": 4,
+        "type": "real"
+      },
+      "totalAmount": {
+        "default": "0",
+        "hidden": true,
+        "order": 5,
+        "type": "real"
+      }
+    },
+    "many": true,
+    "model": "memberContribution",
+    "parents": ["member"]
+  },
+  "memberContributionIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberContributionId": {
+        "optional": true,
+        "order": 1,
+        "referenceTable": "memberContribution",
+        "type": "int"
+      }
+    },
+    "model": "memberContributionIdsCache",
+    "parents": ["memberContribution"]
   },
   "memberDependant": {
     "fields": {
@@ -1450,69 +1546,6 @@
     "model": "memberSavingsIdsCache",
     "parents": ["memberSaving"]
   },
-  "memberShares": {
-    "fields": {
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "member",
-        "type": "int"
-      },
-      "memberSharesIdNumber": {
-        "optional": true,
-        "order": 2,
-        "type": "text"
-      },
-      "monthlyPremium": {
-        "order": 3,
-        "type": "real"
-      },
-      "numberOfShares": {
-        "order": 5,
-        "type": "int"
-      },
-      "totalValue": {
-        "order": 4,
-        "type": "real"
-      }
-    },
-    "many": true,
-    "model": "memberShares",
-    "parents": ["member"]
-  },
-  "memberSharesIdsCache": {
-    "fields": {
-      "claimed": {
-        "default": "0",
-        "order": 3,
-        "type": "int"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "idNumber": {
-        "order": 2,
-        "type": "text"
-      },
-      "memberSharesId": {
-        "optional": true,
-        "order": 1,
-        "referenceTable": "memberShares",
-        "type": "int"
-      }
-    },
-    "model": "memberSharesIdsCache",
-    "parents": ["memberShares"]
-  },
   "notification": {
     "fields": {
       "date": {
@@ -1609,70 +1642,6 @@
     },
     "model": "savingsType",
     "parents": []
-  },
-  "sharesDepositReceipt": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "description": {
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberSavingId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "sharesDepositReceipt",
-    "parents": ["memberSaving"]
-  },
-  "sharesDepositWithdraw": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "description": {
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberSavingId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "sharesDepositWithdraw",
-    "parents": ["memberSaving"]
   },
   "taxRate": {
     "fields": {

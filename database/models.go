@@ -12,17 +12,19 @@ var (
 		"memberLoan",
 	}
 	MemberArrayChildren = []string{
-		"dividends",
+		"memberContribution",
 		"memberDependant",
 		"memberLoan",
 		"memberSaving",
-		"memberShares",
 		"notification",
 	}
 	MemberBusinessSingleChildren = []string{
 		"memberBusinessVerification",
 		"memberLastYearBusinessHistory",
 		"memberNextYearBusinessProjection",
+	}
+	MemberContributionIdsCacheSingleChildren = []string{
+		"memberContribution",
 	}
 	MemberIdsCacheSingleChildren = []string{
 		"member",
@@ -52,17 +54,13 @@ var (
 		"memberOccupationVerification",
 	}
 	MemberSavingArrayChildren = []string{
+		"contributionWithdraw",
 		"memberSavingDeposit",
 		"memberSavingInterest",
 		"memberSavingWithdrawal",
-		"sharesDepositReceipt",
-		"sharesDepositWithdraw",
 	}
 	MemberSavingsIdsCacheSingleChildren = []string{
 		"memberSaving",
-	}
-	MemberSharesIdsCacheSingleChildren = []string{
-		"memberShares",
 	}
 	MemberSingleChildren = []string{
 		"memberContact",
@@ -72,16 +70,16 @@ var (
 		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
-		"LoanNumberIdsCacheSingleChildren":        LoanNumberIdsCacheSingleChildren,
-		"MemberBusinessSingleChildren":            MemberBusinessSingleChildren,
-		"MemberIdsCacheSingleChildren":            MemberIdsCacheSingleChildren,
-		"MemberLoanApprovalSingleChildren":        MemberLoanApprovalSingleChildren,
-		"MemberLoanPaymentScheduleSingleChildren": MemberLoanPaymentScheduleSingleChildren,
-		"MemberLoanSingleChildren":                MemberLoanSingleChildren,
-		"MemberOccupationSingleChildren":          MemberOccupationSingleChildren,
-		"MemberSavingsIdsCacheSingleChildren":     MemberSavingsIdsCacheSingleChildren,
-		"MemberSharesIdsCacheSingleChildren":      MemberSharesIdsCacheSingleChildren,
-		"MemberSingleChildren":                    MemberSingleChildren,
+		"LoanNumberIdsCacheSingleChildren":         LoanNumberIdsCacheSingleChildren,
+		"MemberBusinessSingleChildren":             MemberBusinessSingleChildren,
+		"MemberContributionIdsCacheSingleChildren": MemberContributionIdsCacheSingleChildren,
+		"MemberIdsCacheSingleChildren":             MemberIdsCacheSingleChildren,
+		"MemberLoanApprovalSingleChildren":         MemberLoanApprovalSingleChildren,
+		"MemberLoanPaymentScheduleSingleChildren":  MemberLoanPaymentScheduleSingleChildren,
+		"MemberLoanSingleChildren":                 MemberLoanSingleChildren,
+		"MemberOccupationSingleChildren":           MemberOccupationSingleChildren,
+		"MemberSavingsIdsCacheSingleChildren":      MemberSavingsIdsCacheSingleChildren,
+		"MemberSingleChildren":                     MemberSingleChildren,
 	}
 	ArrayChildren = map[string][]string{
 		"AccountArrayChildren":            AccountArrayChildren,
@@ -114,16 +112,15 @@ var (
 		"maxInstalmentMonths",
 		"maxWithdrawMonths",
 		"minWithdrawMonths",
+		"monthlyContribution",
 		"monthlyInstalments",
 		"monthlyInsuranceRate",
 		"monthlyInterestRate",
-		"monthlyPremium",
 		"monthlyRate",
 		"netPay",
 		"netProfitLoss",
 		"normal",
 		"number",
-		"numberOfShares",
 		"otherCosts",
 		"ownSalary",
 		"penalty",
@@ -144,7 +141,6 @@ var (
 		"totalCredit",
 		"totalDebit",
 		"totalIncome",
-		"totalValue",
 		"transport",
 		"utilities",
 		"value",
@@ -160,8 +156,8 @@ var (
 		"accountStatement": {
 			"account",
 		},
-		"dividends": {
-			"member",
+		"contributionWithdraw": {
+			"memberSaving",
 		},
 		"loanNumberIdsCache": {
 			"memberLoan",
@@ -174,6 +170,12 @@ var (
 		},
 		"memberContact": {
 			"member",
+		},
+		"memberContribution": {
+			"member",
+		},
+		"memberContributionIdsCache": {
+			"memberContribution",
 		},
 		"memberDependant": {
 			"member",
@@ -239,23 +241,11 @@ var (
 		"memberSavingsIdsCache": {
 			"memberSaving",
 		},
-		"memberShares": {
-			"member",
-		},
-		"memberSharesIdsCache": {
-			"memberShares",
-		},
 		"notification": {
 			"member",
 		},
 		"savingsRate": {
 			"savingsType",
-		},
-		"sharesDepositReceipt": {
-			"memberSaving",
-		},
-		"sharesDepositWithdraw": {
-			"memberSaving",
 		},
 	}
 )
