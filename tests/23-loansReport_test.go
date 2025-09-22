@@ -32,17 +32,19 @@ func TestLoansReport(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	for i, row := range result.Data {
-		newRow := reports.LoansReportRow{
-			LastName:      row.LastName,
-			FirstName:     row.FirstName,
-			LoanAmount:    row.LoanAmount,
-			LoanStartDate: row.LoanStartDate,
-			LoanDueDate:   row.LoanDueDate,
-			BalanceAmount: row.BalanceAmount,
-		}
+	removeIds := func(result *reports.LoansReportData) {
+		for i, row := range result.Data {
+			newRow := reports.LoansReportRow{
+				LastName:      row.LastName,
+				FirstName:     row.FirstName,
+				LoanAmount:    row.LoanAmount,
+				LoanStartDate: row.LoanStartDate,
+				LoanDueDate:   row.LoanDueDate,
+				BalanceAmount: row.BalanceAmount,
+			}
 
-		result.Data[i] = newRow
+			result.Data[i] = newRow
+		}
 	}
 
 	fixturesFile := filepath.Join(".", "fixtures", "loansReport.data.json")
@@ -64,6 +66,9 @@ func TestLoansReport(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	removeIds(result)
+	removeIds(&target)
 
 	if !reflect.DeepEqual(&target, result) {
 		resultContent, _ := json.MarshalIndent(result, "", "  ")

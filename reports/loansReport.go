@@ -67,3 +67,4 @@ LEFT OUTER JOIN schedule s ON s.memberLoanId = l.id`,
 
 	return &report, nil
 }
+
