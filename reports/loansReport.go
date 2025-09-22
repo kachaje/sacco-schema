@@ -17,7 +17,7 @@ type LoansReportRow struct {
 }
 
 type LoansReportData struct {
-	TargetDate         string
+	TargetDate         string           `json:"targetDate"`
 	Data               []LoansReportRow `json:"data"`
 	TotalLoanAmount    float64          `json:"totalLoanAmount"`
 	TotalBalanceAmount float64          `json:"totalBalanceAmount"`
