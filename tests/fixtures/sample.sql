@@ -531,3 +531,25 @@ FROM
   memberLoanPaymentSchedule
 WHERE
   id = 8;
+
+INSERT INTO
+  memberContribution (
+    memberId,
+    memberIdNumber,
+    monthlyContribution,
+    nonRedeemableAmount
+  )
+VALUES
+  (
+    1,
+    (
+      SELECT
+        memberIdNumber
+      FROM
+        member
+      WHERE
+        id = 1
+    ),
+    5000,
+    20000
+  );
