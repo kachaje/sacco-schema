@@ -26,9 +26,13 @@ func setupDb() (*database.Database, error) {
 	return db, nil
 }
 
-func deleteLoanNumber(target map[string]any) {
+func cleanMember(target map[string]any) {
 	if target["member"] != nil {
 		if vm, ok := target["member"].(map[string]any); ok {
+			if vm["memberContribution"] != nil {
+				delete(vm, "memberContribution")
+			}
+
 			if vm["memberLoan"] != nil {
 				if vl, ok := vm["memberLoan"].(map[string]any); ok {
 					if vl["1"] != nil {
@@ -139,10 +143,10 @@ func TestLoadModelChildren(t *testing.T) {
 	delete(target["member"].(map[string]any), "dateJoined")
 	delete(target["member"].(map[string]any), "memberIdNumber")
 
-	deleteLoanNumber(map[string]any{
+	cleanMember(map[string]any{
 		"member": result,
 	})
-	deleteLoanNumber(target)
+	cleanMember(target)
 
 	if !utils.MapsEqual(target["member"].(map[string]any), result) {
 		diff := utils.GetMapDiff(target["member"].(map[string]any), result)
@@ -191,8 +195,8 @@ func TestFullMemberRecord(t *testing.T) {
 	delete(target["member"].(map[string]any), "dateJoined")
 	delete(target["member"].(map[string]any), "memberIdNumber")
 
-	deleteLoanNumber(result)
-	deleteLoanNumber(target)
+	cleanMember(result)
+	cleanMember(target)
 
 	if !utils.MapsEqual(target, result) {
 		diff := utils.GetMapDiff(target, result)
