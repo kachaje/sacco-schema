@@ -1,9 +1,9 @@
 package parser
 
 import (
-	"maps"
 	"fmt"
 	"log"
+	"maps"
 	"regexp"
 	"sacco/utils"
 	"slices"

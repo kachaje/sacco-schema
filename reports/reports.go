@@ -6,8 +6,8 @@ type Reports struct {
 	DB *database.Database
 }
 
-func NewReports(dbname string) *Reports {
+func NewReports(db *database.Database) *Reports {
 	return &Reports{
-		DB: database.NewDatabase(dbname),
+		DB: db,
 	}
 }
