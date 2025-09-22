@@ -54,7 +54,7 @@ var (
 		"memberOccupationVerification",
 	}
 	MemberSavingArrayChildren = []string{
-		"contributionWithdraw",
+		"memberContributionWithdraw",
 		"memberSavingDeposit",
 		"memberSavingInterest",
 		"memberSavingWithdrawal",
@@ -160,9 +160,6 @@ var (
 		"contributionNumberIdsCache": {
 			"memberContribution",
 		},
-		"contributionWithdraw": {
-			"memberSaving",
-		},
 		"loanNumberIdsCache": {
 			"memberLoan",
 		},
@@ -177,6 +174,9 @@ var (
 		},
 		"memberContribution": {
 			"member",
+		},
+		"memberContributionWithdraw": {
+			"memberSaving",
 		},
 		"memberDependant": {
 			"member",

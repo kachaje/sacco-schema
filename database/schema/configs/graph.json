@@ -5,7 +5,6 @@
   "accountTransaction": {
     "arrayChildren": ["accountJournal"]
   },
-  "contributionDeposit": {},
   "contributionNumberIdsCache": {
     "singleChildren": ["memberContribution"]
   },
@@ -30,6 +29,7 @@
       "memberNextYearBusinessProjection"
     ]
   },
+  "memberContributionDeposit": {},
   "memberIdsCache": {
     "singleChildren": ["member"]
   },
@@ -63,7 +63,7 @@
   },
   "memberSaving": {
     "arrayChildren": [
-      "contributionWithdraw",
+      "memberContributionWithdraw",
       "memberSavingDeposit",
       "memberSavingInterest",
       "memberSavingWithdrawal"

@@ -112,31 +112,6 @@
     "model": "accountTransaction",
     "parents": []
   },
-  "contributionDeposit": {
-    "fields": {
-      "amount": {
-        "order": 3,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 2,
-        "type": "text"
-      },
-      "description": {
-        "order": 1,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      }
-    },
-    "model": "contributionDeposit",
-    "parents": []
-  },
   "contributionNumberIdsCache": {
     "fields": {
       "claimed": {
@@ -163,38 +138,6 @@
     },
     "model": "contributionNumberIdsCache",
     "parents": ["memberContribution"]
-  },
-  "contributionWithdraw": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "description": {
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberSavingId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "contributionWithdraw",
-    "parents": ["memberSaving"]
   },
   "insuranceProvider": {
     "fields": {
@@ -477,6 +420,63 @@
     "many": true,
     "model": "memberContribution",
     "parents": ["member"]
+  },
+  "memberContributionDeposit": {
+    "fields": {
+      "amount": {
+        "order": 3,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 2,
+        "type": "text"
+      },
+      "description": {
+        "order": 1,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      }
+    },
+    "model": "memberContributionDeposit",
+    "parents": []
+  },
+  "memberContributionWithdraw": {
+    "fields": {
+      "amount": {
+        "order": 4,
+        "type": "real"
+      },
+      "date": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
+      },
+      "description": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "memberSavingId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "many": true,
+    "model": "memberContributionWithdraw",
+    "parents": ["memberSaving"]
   },
   "memberDependant": {
     "fields": {

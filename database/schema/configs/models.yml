@@ -80,23 +80,6 @@ accountTransaction:
   hasMany:
     - accountJournal
   rootQuery: accountTransaction
-contributionDeposit:
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - description:
-        order: 1
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 2
-        type: text
-    - amount:
-        numericField: true
-        order: 3
-  rootQuery: contributionDeposit
 contributionNumberIdsCache:
   belongsTo:
     - memberContribution
@@ -117,28 +100,6 @@ contributionNumberIdsCache:
   hasOne:
     - memberContribution
   rootQuery: member.memberContribution.0.contributionNumberIdsCache
-contributionWithdraw:
-  belongsTo:
-    - memberSaving
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberSavingId:
-        hidden: true
-        order: 1
-    - description:
-        order: 2
-        type: text
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 3
-        type: text
-    - amount:
-        numericField: true
-        order: 4
-  rootQuery: member.savingsType.memberSaving.0.contributionWithdraw.0
 insuranceProvider:
   fields:
     - id:
@@ -370,6 +331,45 @@ memberContribution:
         optional: true
         order: 6
   rootQuery: member.memberContribution.0
+memberContributionDeposit:
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - description:
+        order: 1
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 2
+        type: text
+    - amount:
+        numericField: true
+        order: 3
+  rootQuery: memberContributionDeposit
+memberContributionWithdraw:
+  belongsTo:
+    - memberSaving
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberSavingId:
+        hidden: true
+        order: 1
+    - description:
+        order: 2
+        type: text
+    - date:
+        default: CURRENT_TIMESTAMP
+        optional: true
+        order: 3
+        type: text
+    - amount:
+        numericField: true
+        order: 4
+  rootQuery: member.savingsType.memberSaving.0.memberContributionWithdraw.0
 memberDependant:
   arrayFields:
     - id1:
@@ -1354,7 +1354,7 @@ memberSaving:
         numericField: true
         order: 4
   hasMany:
-    - contributionWithdraw
+    - memberContributionWithdraw
     - memberSavingDeposit
     - memberSavingInterest
     - memberSavingWithdrawal

@@ -1,8 +1,8 @@
 cacheQueries:
-  amount: contributionDeposit.amount
-  date: contributionDeposit.date
-  description: contributionDeposit.description
-  id: contributionDeposit.id
+  amount: memberContributionDeposit.amount
+  date: memberContributionDeposit.date
+  description: memberContributionDeposit.description
+  id: memberContributionDeposit.id
 enterAmount:
   inputIdentifier: amount
   nextScreen: formSummary
@@ -29,5 +29,5 @@ enterId:
 formSummary:
   type: quitScreen
 initialScreen: enterDescription
-model: contributionDeposit
-rootQuery: contributionDeposit
+model: memberContributionDeposit
+rootQuery: memberContributionDeposit
