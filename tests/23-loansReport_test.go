@@ -2,6 +2,7 @@ package tests
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -79,4 +80,27 @@ Expected:
 Actual:
 %s`, targetContent, resultContent)
 	}
+}
+
+func TestLoansReport2Table(t *testing.T) {
+	reportData := reports.LoansReportData{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "loansReport.data.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &reportData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rpt := reports.Reports{}
+
+	result, err := rpt.LoansReport2Table(reportData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	fmt.Println(*result)
 }

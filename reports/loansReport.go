@@ -3,6 +3,8 @@ package reports
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
+	"time"
 )
 
 type LoansReportRow struct {
@@ -17,16 +19,16 @@ type LoansReportRow struct {
 }
 
 type LoansReportData struct {
-	TargetDate         string           `json:"targetDate"`
-	Data               []LoansReportRow `json:"data"`
-	TotalLoanAmount    float64          `json:"totalLoanAmount"`
-	TotalBalanceAmount float64          `json:"totalBalanceAmount"`
+	TargetDate         string                    `json:"targetDate"`
+	Data               map[string]LoansReportRow `json:"data"`
+	TotalLoanAmount    float64                   `json:"totalLoanAmount"`
+	TotalBalanceAmount float64                   `json:"totalBalanceAmount"`
 }
 
 func (r *Reports) LoansReport(targetDate string) (*LoansReportData, error) {
 	report := LoansReportData{
 		TargetDate:         targetDate,
-		Data:               []LoansReportRow{},
+		Data:               map[string]LoansReportRow{},
 		TotalLoanAmount:    0,
 		TotalBalanceAmount: 0,
 	}
@@ -46,7 +48,7 @@ LEFT OUTER JOIN schedule s ON s.memberLoanId = l.id`,
 		return nil, err
 	}
 
-	for _, data := range rawData {
+	for i, data := range rawData {
 		jsonBytes, err := json.Marshal(data)
 		if err != nil {
 			return nil, err
@@ -62,9 +64,24 @@ LEFT OUTER JOIN schedule s ON s.memberLoanId = l.id`,
 		report.TotalBalanceAmount += reportRow.BalanceAmount
 		report.TotalLoanAmount += reportRow.LoanAmount
 
-		report.Data = append(report.Data, reportRow)
+		report.Data[fmt.Sprint(i+1)] = reportRow
 	}
 
 	return &report, nil
 }
 
+func (r *Reports) LoansReport2Table(data LoansReportData) (*string, error) {
+	targetDate, err := time.Parse("2006-01-02", data.TargetDate)
+	if err != nil {
+		return nil, err
+	}
+
+	lines := []string{
+		"Loans Report",
+		targetDate.Format("02-Jan-2006"),
+	}
+
+	result := strings.Join(lines, "\n")
+
+	return &result, nil
+}

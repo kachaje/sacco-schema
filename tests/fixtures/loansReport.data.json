@@ -1,9 +1,9 @@
 {
   "targetDate": "2025-11-01",
-  "data": [
-    {
-      "memberIdNumber": "KSM187180",
-      "loanNumber": "KLN148644",
+  "data": {
+    "1": {
+      "memberIdNumber": "KSM660315",
+      "loanNumber": "KLN217557",
       "lastName": "Banda",
       "firstName": "Mary",
       "loanAmount": 10000,
@@ -11,7 +11,7 @@
       "loanDueDate": "2025-09-08 07:09:32",
       "balanceAmount": 8333.333333333334
     }
-  ],
+  },
   "totalLoanAmount": 10000,
   "totalBalanceAmount": 8333.333333333334
 }
