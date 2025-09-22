@@ -2,7 +2,6 @@ package tests
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -102,5 +101,26 @@ func TestLoansReport2Table(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	fmt.Println(*result)
+	fixturesFile := filepath.Join(".", "fixtures", "loansReport.data.txt")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload := []byte(string(*result))
+
+		os.WriteFile(fixturesFile, payload, 0644)
+	}
+
+	content, err = os.ReadFile(fixturesFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
+
+	if target != *result {
+		t.Fatalf(`Test failed.
+Expected:
+%v
+Actual:
+%v`, target, *result)
+	}
 }

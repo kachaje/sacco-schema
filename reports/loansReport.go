@@ -143,7 +143,7 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 	utils.SortSlice(keys)
 	sort.Strings(fields)
 
-	parseMoney := func(row []string, v any) []string {
+	formatNumber := func(row []string, v any, decimals bool) []string {
 		p := message.NewPrinter(language.English)
 
 		var vn float64
@@ -153,7 +153,11 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 			vn = vr
 		}
 
-		row = append(row, fmt.Sprintf(pattern(false, size), p.Sprintf("%0.2f", number.Decimal(vn))))
+		if decimals {
+			row = append(row, fmt.Sprintf(pattern(false, size), p.Sprintf("%0.2f", number.Decimal(vn))))
+		} else {
+			row = append(row, fmt.Sprintf(pattern(false, size), p.Sprintf("%f", number.Decimal(vn))))
+		}
 
 		return row
 	}
@@ -163,7 +167,7 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 
 		if val, ok := value.(map[string]any); ok {
 			row := []string{
-				fmt.Sprintf(pattern(true, 3), key),
+				fmt.Sprintf(pattern(false, 3), key),
 			}
 
 			for _, f := range fields {
@@ -202,7 +206,7 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 						row = append(row, fmt.Sprintf(pattern(false, size), p.Sprintf("%0.2f", number.Decimal(vn))))
 					}
 
-					row = parseMoney(row, v)
+					row = formatNumber(row, v, true)
 				} else {
 					if regexp.MustCompile(`Date$`).MatchString(fmt.Sprintf("%v", field)) {
 						v = fmt.Sprintf("%v", v)[0:10]
@@ -232,9 +236,9 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 		case 0:
 			row = append(row, fmt.Sprintf(pattern(true, size), "Total:"))
 		case 4:
-			row = parseMoney(row, reportData.TotalLoanAmount)
+			row = formatNumber(row, reportData.TotalLoanAmount, true)
 		case 7:
-			row = parseMoney(row, reportData.TotalBalanceAmount)
+			row = formatNumber(row, reportData.TotalBalanceAmount, true)
 		default:
 			row = append(row, fmt.Sprintf(pattern(true, size), ""))
 		}
@@ -257,7 +261,7 @@ func (r *Reports) LoansReport2Table(reportData LoansReportData) (*string, error)
 		case 0:
 			row = append(row, fmt.Sprintf(pattern(true, size), "Count:"))
 		case 1:
-			row = parseMoney(row, len(reportData.Data))
+			row = formatNumber(row, len(reportData.Data), false)
 		default:
 			row = append(row, fmt.Sprintf(pattern(true, size), ""))
 		}
