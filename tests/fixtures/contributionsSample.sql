@@ -1112,7 +1112,7 @@ VALUES
   );
 
 INSERT
-OR IGNORE INTO "memberContributionSchedule" (
+OR REPLACE INTO "memberContributionSchedule" (
   "id",
   "memberContributionId",
   "dueDate",
