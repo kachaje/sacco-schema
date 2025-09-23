@@ -79,3 +79,47 @@ Actual:
 %s`, targetContent, resultContent)
 	}
 }
+
+func TestContributionsReport2Table(t *testing.T) {
+	reportData := reports.ContributionReportData{}
+
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "contributions.data.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(content, &reportData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rpt := reports.Reports{}
+
+	result, err := rpt.ContributionsReport2Table(reportData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	fixturesFile := filepath.Join(".", "fixtures", "contributions.data.txt")
+
+	if os.Getenv("DEBUG") == "true" || true {
+		payload := []byte(string(*result))
+
+		os.WriteFile(fixturesFile, payload, 0644)
+	}
+
+	content, err = os.ReadFile(fixturesFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	target := string(content)
+
+	if target != *result {
+		t.Fatalf(`Test failed.
+Expected:
+%v
+Actual:
+%v`, target, *result)
+	}
+}
