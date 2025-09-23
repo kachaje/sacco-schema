@@ -1111,18 +1111,18 @@ VALUES
     '2025-09-23 13:06:35'
   );
 
-INSERT INTO
-  "memberContributionSchedule" (
-    "id",
-    "memberContributionId",
-    "dueDate",
-    "expectedAmount",
-    "paidAmount",
-    "overflowAmount",
-    "active",
-    "createdAt",
-    "updatedAt"
-  )
+INSERT
+OR IGNORE INTO "memberContributionSchedule" (
+  "id",
+  "memberContributionId",
+  "dueDate",
+  "expectedAmount",
+  "paidAmount",
+  "overflowAmount",
+  "active",
+  "createdAt",
+  "updatedAt"
+)
 VALUES
   (
     1,
