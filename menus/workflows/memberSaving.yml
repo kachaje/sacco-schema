@@ -4,10 +4,13 @@ cacheQueries:
   memberId1: member.savingsType.memberSaving.0.memberId
   memberSavingsIdNumber1: member.savingsType.memberSaving.0.memberSavingsIdNumber
   savingsTypeId1: member.savingsType.memberSaving.0.savingsTypeId
+  savingsTypeName1: member.savingsType.memberSaving.0.savingsTypeName
+  withdrawPattern1: member.savingsType.memberSaving.0.withdrawPattern
 enterBalance1:
   inputIdentifier: balance1
   nextScreen: formSummary
-  order: 2
+  optional: true
+  order: 4
   text:
     en: Balance
   type: inputScreen
@@ -22,7 +25,7 @@ enterMemberId1:
   type: hiddenField
 enterMemberSavingsIdNumber1:
   inputIdentifier: memberSavingsIdNumber1
-  nextScreen: enterBalance1
+  nextScreen: enterSavingsTypeName1
   optional: true
   order: 1
   text:
@@ -32,6 +35,25 @@ enterSavingsTypeId1:
   hidden: true
   inputIdentifier: savingsTypeId1
   type: hiddenField
+enterSavingsTypeName1:
+  ajaxFields:
+    - id
+    - withdrawPattern
+  ajaxOptions: savingsType@ savingsTypeName
+  inputIdentifier: savingsTypeName1
+  nextScreen: enterWithdrawPattern1
+  order: 2
+  text:
+    en: Savings Type Name
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterWithdrawPattern1:
+  inputIdentifier: withdrawPattern1
+  nextScreen: enterBalance1
+  order: 3
+  text:
+    en: Withdraw Pattern
+  type: inputScreen
 formSummary:
   type: quitScreen
 initialScreen: enterMemberSavingsIdNumber1

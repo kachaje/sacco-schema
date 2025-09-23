@@ -2,11 +2,12 @@ cacheQueries:
   amount1: member.savingsType.memberSaving.0.memberSavingInterest.0.amount
   date1: member.savingsType.memberSaving.0.memberSavingInterest.0.date
   description1: member.savingsType.memberSaving.0.memberSavingInterest.0.description
+  dueDate1: member.savingsType.memberSaving.0.memberSavingInterest.0.dueDate
   id1: member.savingsType.memberSaving.0.memberSavingInterest.0.id
   memberSavingId1: member.savingsType.memberSaving.0.memberSavingInterest.0.memberSavingId
 enterAmount1:
   inputIdentifier: amount1
-  nextScreen: formSummary
+  nextScreen: enterDueDate1
   order: 2
   text:
     en: Amount
@@ -22,6 +23,13 @@ enterDescription1:
   order: 1
   text:
     en: Description
+  type: inputScreen
+enterDueDate1:
+  inputIdentifier: dueDate1
+  nextScreen: formSummary
+  order: 3
+  text:
+    en: Due Date
   type: inputScreen
 enterId1:
   hidden: true

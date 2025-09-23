@@ -75,7 +75,7 @@
     "singleChildren": ["memberSaving"]
   },
   "savingsType": {
-    "arrayChildren": ["memberSaving", "savingsRate"]
+    "arrayChildren": ["memberSaving"]
   },
   "taxRate": {},
   "user": {},

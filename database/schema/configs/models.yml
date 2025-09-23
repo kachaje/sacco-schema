@@ -1391,9 +1391,20 @@ memberSaving:
     - savingsTypeId:
         hidden: true
         order: 3
-    - balance:
+    - savingsTypeName:
+        ajaxFields:
+          - id
+          - withdrawPattern
+        ajaxOptions: savingsType@ savingsTypeName
         numericField: true
         order: 4
+    - withdrawPattern:
+        order: 5
+        type: text
+    - balance:
+        numericField: true
+        optional: true
+        order: 6
   hasMany:
     - memberContributionWithdraw
     - memberSavingDeposit
@@ -1443,6 +1454,9 @@ memberSavingInterest:
     - amount:
         numericField: true
         order: 4
+    - dueDate:
+        order: 5
+        type: text
   rootQuery: member.savingsType.memberSaving.0.memberSavingInterest.0
 memberSavingWithdrawal:
   belongsTo:
@@ -1519,26 +1533,12 @@ notification:
         order: 5
         type: text
   rootQuery: member.notification.0
-savingsRate:
-  belongsTo:
-    - savingsType
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - savingsTypeId:
-        hidden: true
-        order: 1
-    - monthlyRate:
-        numericField: true
-        order: 2
-  rootQuery: savingsType.savingsRate.0
 savingsType:
   fields:
     - id:
         hidden: true
         order: 0
-    - name:
+    - savingsTypeName:
         order: 1
         type: text
     - amountSize:
@@ -1553,9 +1553,11 @@ savingsType:
     - maxWithdrawMonths:
         numericField: true
         order: 5
+    - interestRate:
+        numericField: true
+        order: 6
   hasMany:
     - memberSaving
-    - savingsRate
   rootQuery: savingsType
 taxRate:
   fields:

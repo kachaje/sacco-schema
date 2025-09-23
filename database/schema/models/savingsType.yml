@@ -4,7 +4,7 @@ id:
   primaryKey: true
   type: int
 
-name:
+savingsTypeName:
   order: 1
   type: text
 
@@ -23,3 +23,7 @@ minWithdrawMonths:
 maxWithdrawMonths:
   order: 5
   type: int
+
+interestRate:
+  order: 6
+  type: real

@@ -71,7 +71,6 @@ var (
 	}
 	SavingsTypeArrayChildren = []string{
 		"memberSaving",
-		"savingsRate",
 	}
 	SingleChildren = map[string][]string{
 		"ContributionNumberIdsCacheSingleChildren": ContributionNumberIdsCacheSingleChildren,
@@ -113,6 +112,7 @@ var (
 		"instalment",
 		"insurance",
 		"interest",
+		"interestRate",
 		"loanAmount",
 		"loanInterest",
 		"maxInstalmentMonths",
@@ -122,7 +122,6 @@ var (
 		"monthlyInstalments",
 		"monthlyInsuranceRate",
 		"monthlyInterestRate",
-		"monthlyRate",
 		"netPay",
 		"netProfitLoss",
 		"nonRedeemableAmount",
@@ -145,6 +144,7 @@ var (
 		"processingFeeRate",
 		"rentals",
 		"repaymentPeriodInMonths",
+		"savingsTypeName",
 		"totalCostOfGoods",
 		"totalCosts",
 		"totalCredit",
@@ -258,9 +258,6 @@ var (
 		},
 		"notification": {
 			"member",
-		},
-		"savingsRate": {
-			"savingsType",
 		},
 	}
 )

@@ -103,3 +103,15 @@ INSERT INTO
   taxRate (name, value)
 VALUES
   ("VAT", 0.0);
+
+INSERT INTO
+  savingsType (
+    savingsTypeName,
+    amountSize,
+    withdrawPattern,
+    minWithdrawMonths,
+    maxWithdrawMonths,
+    interestRate
+  )
+VALUES
+  ('Fixed Deposit', 50000, '3 to 12 months', );

@@ -838,7 +838,9 @@ CREATE TABLE IF NOT EXISTS memberSaving (
     memberId INTEGER NOT NULL,
     memberSavingsIdNumber TEXT,
     savingsTypeId INTEGER NOT NULL,
-    balance REAL NOT NULL,
+    savingsTypeName INTEGER NOT NULL,
+    withdrawPattern TEXT NOT NULL,
+    balance REAL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -884,6 +886,7 @@ CREATE TABLE IF NOT EXISTS memberSavingInterest (
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
     amount REAL NOT NULL,
+    dueDate TEXT NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -966,33 +969,14 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS savingsRate (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    savingsTypeId INTEGER NOT NULL,
-    monthlyRate REAL NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (savingsTypeId) REFERENCES savingsType (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS savingsRateUpdated AFTER
-UPDATE ON savingsRate FOR EACH ROW BEGIN
-UPDATE savingsRate
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
 CREATE TABLE IF NOT EXISTS savingsType (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
+    savingsTypeName TEXT NOT NULL,
     amountSize REAL NOT NULL,
     withdrawPattern TEXT NOT NULL,
     minWithdrawMonths INTEGER NOT NULL,
     maxWithdrawMonths INTEGER NOT NULL,
+    interestRate REAL NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP

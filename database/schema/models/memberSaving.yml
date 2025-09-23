@@ -16,11 +16,24 @@ memberSavingsIdNumber:
   type: text
 
 savingsTypeId:
-  many: true
+  hidden: true
   order: 3
   referenceTable: savingsType
   type: int
 
-balance:
+savingsTypeName:
+  ajaxFields: id,withdrawPattern
+  ajaxOptions: savingsType@ savingsTypeName
   order: 4
+  type: int
+
+withdrawPattern:
+  order: 5
+  readOnly: true
+  type: text
+
+balance:
+  optional: true
+  order: 6
+  readOnly: true
   type: real

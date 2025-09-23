@@ -22,3 +22,7 @@ date:
 amount:
   order: 4
   type: real
+
+dueDate:
+  order: 5
+  type: text

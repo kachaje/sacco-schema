@@ -46,3 +46,24 @@ SELECT
   CONCAT ('099987', i)
 FROM
   cnt;
+
+INSERT INTO
+  memberSaving (memberId, savingsTypeId)
+WITH RECURSIVE
+  cnt (i) AS (
+    SELECT
+      1
+    UNION ALL
+    SELECT
+      i + 1
+    FROM
+      cnt
+    LIMIT
+      10
+    OFFSET
+      500
+  )
+SELECT
+  i
+FROM
+  cnt;

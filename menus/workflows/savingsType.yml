@@ -1,9 +1,10 @@
 cacheQueries:
   amountSize: savingsType.amountSize
   id: savingsType.id
+  interestRate: savingsType.interestRate
   maxWithdrawMonths: savingsType.maxWithdrawMonths
   minWithdrawMonths: savingsType.minWithdrawMonths
-  name: savingsType.name
+  savingsTypeName: savingsType.savingsTypeName
   withdrawPattern: savingsType.withdrawPattern
 enterAmountSize:
   inputIdentifier: amountSize
@@ -17,9 +18,17 @@ enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
+enterInterestRate:
+  inputIdentifier: interestRate
+  nextScreen: formSummary
+  order: 6
+  text:
+    en: Interest Rate
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterMaxWithdrawMonths:
   inputIdentifier: maxWithdrawMonths
-  nextScreen: formSummary
+  nextScreen: enterInterestRate
   order: 5
   text:
     en: Max Withdraw Months
@@ -33,12 +42,12 @@ enterMinWithdrawMonths:
     en: Min Withdraw Months
   type: inputScreen
   validationRule: ^\d+\.*\d*$
-enterName:
-  inputIdentifier: name
+enterSavingsTypeName:
+  inputIdentifier: savingsTypeName
   nextScreen: enterAmountSize
   order: 1
   text:
-    en: Name
+    en: Savings Type Name
   type: inputScreen
 enterWithdrawPattern:
   inputIdentifier: withdrawPattern
@@ -49,6 +58,6 @@ enterWithdrawPattern:
   type: inputScreen
 formSummary:
   type: quitScreen
-initialScreen: enterName
+initialScreen: enterSavingsTypeName
 model: savingsType
 rootQuery: savingsType
