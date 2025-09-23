@@ -48,7 +48,13 @@ FROM
   cnt;
 
 INSERT INTO
-  memberSaving (memberId, savingsTypeId, savingsTypeName, withdrawPattern,amountSize)
+  memberSaving (
+    memberId,
+    savingsTypeId,
+    savingsTypeName,
+    withdrawPattern,
+    amountSize
+  )
 WITH RECURSIVE
   cnt (i) AS (
     SELECT
@@ -64,6 +70,20 @@ WITH RECURSIVE
       500
   )
 SELECT
-  i, (SELECT id FROM savingsType WHERE name = 'Fixed Deposit'), 
+  i,
+  s.id,
+  s.savingsTypeName,
+  s.withdrawPattern,
+  s.amountSize
 FROM
-  cnt;
+  cnt,
+  savingsType s
+WHERE
+  s.id = (
+    SELECT
+      id
+    FROM
+      savingsType
+    WHERE
+      name = 'Fixed Deposit'
+  );
