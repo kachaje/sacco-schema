@@ -6,6 +6,7 @@ import (
 	"math"
 	"regexp"
 	"sacco/utils"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -121,10 +122,25 @@ WITH schedule AS (
 	return &report, nil
 }
 
-func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (*string, error) {
+func (r *Reports) ContributionsReport2Table(
+	reportData ContributionReportData,
+	selectFields []string,
+) (*string, error) {
 	targetDate, err := time.Parse("2006-01-02", reportData.TargetDate)
 	if err != nil {
 		return nil, err
+	}
+
+	if selectFields == nil {
+		selectFields = []string{
+			"memberName",
+			"contributionId",
+			"monthlyContribution",
+			"memberTotal",
+			"updatedOn",
+			"memberId",
+			"percentOfTotal",
+		}
 	}
 
 	pattern := func(left bool, size int) string {
@@ -225,6 +241,10 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 				}
 
 				field := parts[1]
+
+				if !slices.Contains(selectFields, field) {
+					continue
+				}
 
 				if i == 0 {
 					rows[0] = append(rows[0], line(localSize))

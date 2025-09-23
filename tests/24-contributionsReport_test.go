@@ -95,7 +95,7 @@ func TestContributionsReport2Table(t *testing.T) {
 
 	rpt := reports.Reports{}
 
-	result, err := rpt.ContributionsReport2Table(reportData)
+	result, err := rpt.ContributionsReport2Table(reportData, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
