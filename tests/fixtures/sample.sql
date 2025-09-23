@@ -563,4 +563,5 @@ INSERT INTO
 VALUES
   (1, 'Non-Redeemable Deposit', 20000),
   (1, 'Regular Deposit', 35000),
-  (1, 'Regular Deposit', 8000);
+  (1, 'Regular Deposit', 8000),
+  (1, 'Regular Deposit', 17000);

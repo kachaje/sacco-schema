@@ -57,7 +57,7 @@ WITH RECURSIVE
             DATE (dueDate) > DATE (CURRENT_TIMESTAMP)
             AND memberContributionId = NEW.memberContributionId
           ORDER BY
-            dueDate ASC
+            dueDate DESC
           LIMIT
             1
         ),
