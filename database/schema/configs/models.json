@@ -2297,6 +2297,7 @@
       {
         "amountSize": {
           "numericField": true,
+          "optional": true,
           "order": 6
         }
       },

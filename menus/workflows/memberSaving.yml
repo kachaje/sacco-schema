@@ -10,6 +10,7 @@ cacheQueries:
 enterAmountSize1:
   inputIdentifier: amountSize1
   nextScreen: enterBalance1
+  optional: true
   order: 4
   text:
     en: Amount Size

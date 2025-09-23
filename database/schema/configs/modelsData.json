@@ -1447,11 +1447,13 @@
   "memberSaving": {
     "fields": {
       "amountSize": {
+        "default": "0",
         "order": 6,
         "readOnly": true,
         "type": "real"
       },
       "balance": {
+        "default": "0",
         "optional": true,
         "order": 7,
         "readOnly": true,

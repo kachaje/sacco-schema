@@ -1404,6 +1404,7 @@ memberSaving:
         type: text
     - amountSize:
         numericField: true
+        optional: true
         order: 6
     - balance:
         numericField: true
