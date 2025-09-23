@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -26,10 +27,12 @@ func TestContributions(t *testing.T) {
 
 	rpt := reports.NewReports(db)
 
-	result, err := rpt.ContributionsReport("2025-11-01")
+	result, err := rpt.ContributionsReport("2026-10-01")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	fmt.Println(result)
+	payload, _ := json.MarshalIndent(result, "", "  ")
+
+	fmt.Println(string(payload))
 }
