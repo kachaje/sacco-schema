@@ -840,6 +840,7 @@ CREATE TABLE IF NOT EXISTS memberSaving (
     savingsTypeId INTEGER NOT NULL,
     savingsTypeName INTEGER NOT NULL,
     withdrawPattern TEXT NOT NULL,
+    amountSize REAL NOT NULL,
     balance REAL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,

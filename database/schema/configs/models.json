@@ -2282,7 +2282,7 @@
       },
       {
         "savingsTypeName": {
-          "ajaxFields": ["id", "withdrawPattern"],
+          "ajaxFields": ["id", "withdrawPattern", "amountSize"],
           "ajaxOptions": "savingsType@ savingsTypeName",
           "numericField": true,
           "order": 4
@@ -2295,10 +2295,16 @@
         }
       },
       {
+        "amountSize": {
+          "numericField": true,
+          "order": 6
+        }
+      },
+      {
         "balance": {
           "numericField": true,
           "optional": true,
-          "order": 6
+          "order": 7
         }
       }
     ],

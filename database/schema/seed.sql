@@ -114,4 +114,20 @@ INSERT INTO
     interestRate
   )
 VALUES
-  ('Fixed Deposit', 50000, '3 to 12 months', );
+  (
+    'Fixed Deposit',
+    50000,
+    '3 to 12 months',
+    3,
+    12,
+    0.1
+  ),
+  ('Ordinary Deposit', 2000, 'Anytime', 0, 12, 0.07),
+  (
+    '30 day Call Deposit',
+    25000,
+    '30 days',
+    1,
+    1,
+    0.07
+  );

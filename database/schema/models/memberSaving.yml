@@ -22,7 +22,7 @@ savingsTypeId:
   type: int
 
 savingsTypeName:
-  ajaxFields: id,withdrawPattern
+  ajaxFields: id,withdrawPattern,amountSize
   ajaxOptions: savingsType@ savingsTypeName
   order: 4
   type: int
@@ -32,8 +32,13 @@ withdrawPattern:
   readOnly: true
   type: text
 
+amountSize:
+  order: 6
+  readOnly: true
+  type: real
+
 balance:
   optional: true
-  order: 6
+  order: 7
   readOnly: true
   type: real

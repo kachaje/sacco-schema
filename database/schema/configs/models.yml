@@ -1395,16 +1395,20 @@ memberSaving:
         ajaxFields:
           - id
           - withdrawPattern
+          - amountSize
         ajaxOptions: savingsType@ savingsTypeName
         numericField: true
         order: 4
     - withdrawPattern:
         order: 5
         type: text
+    - amountSize:
+        numericField: true
+        order: 6
     - balance:
         numericField: true
         optional: true
-        order: 6
+        order: 7
   hasMany:
     - memberContributionWithdraw
     - memberSavingDeposit
