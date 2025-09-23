@@ -19,40 +19,74 @@ WITH RECURSIVE
     LIMIT
       (
         SELECT
-          FLOOR(d.amount / c.monthlyContribution)
+          FLOOR(
+            (
+              d.amount + COALESCE(
+                (
+                  SELECT
+                    SUM(overflowAmount)
+                  FROM
+                    memberContributionSchedule
+                  WHERE
+                    memberContributionId = NEW.memberContributionId
+                    AND COALESCE(overflowAmount, 0) > 0
+                  GROUP BY
+                    memberContributionId
+                ),
+                0
+              )
+            ) / c.monthlyContribution
+          )
         FROM
           memberContribution c
           LEFT OUTER JOIN memberContributionDeposit d ON d.memberContributionId = c.id
         WHERE
-          d.contributionCategory = "Regular Deposit"
+          d.contributionCategory = 'Regular Deposit'
           AND d.id = NEW.id
       )
   ),
   schedule AS (
     SELECT
-      SUM(paidAmount - overflowAmount) AS balance,
-      dueDate
-    FROM
-      memberContributionSchedule
-    WHERE
-      paidAmount < expectedAmount
-      AND DATE (dueDate) > DATE (CURRENT_TIMESTAMP)
-      AND memberContributionId = NEW.id
-    ORDER BY
-      dueDate ASC
-    LIMIT
-      1
+      COALESCE(
+        (
+          SELECT
+            dueDate
+          FROM
+            memberContributionSchedule
+          WHERE
+            DATE (dueDate) > DATE (CURRENT_TIMESTAMP)
+            AND memberContributionId = NEW.memberContributionId
+          ORDER BY
+            dueDate ASC
+          LIMIT
+            1
+        ),
+        CURRENT_TIMESTAMP
+      ) AS dueDate
   ),
   contribution AS (
     SELECT
       c.id AS memberContributionId,
-      d.amount,
+      d.amount + COALESCE(
+        (
+          SELECT
+            SUM(overflowAmount)
+          FROM
+            memberContributionSchedule
+          WHERE
+            memberContributionId = NEW.memberContributionId
+            AND COALESCE(overflowAmount, 0) > 0
+          GROUP BY
+            memberContributionId
+        ),
+        0
+      ) AS amount,
       c.monthlyContribution
     FROM
       memberContribution c
       LEFT OUTER JOIN memberContributionDeposit d ON d.memberContributionId = c.id
     WHERE
-      d.contributionCategory = "Regular Deposit"
+      d.contributionCategory = 'Regular Deposit'
       AND d.id = NEW.id
   )
 SELECT
@@ -81,5 +115,15 @@ FROM
   cnt,
   schedule,
   contribution;
+
+UPDATE memberContributionSchedule
+SET
+  overflowAmount = 0
+WHERE
+  memberContributionId = NEW.memberContributionId
+  AND id != (
+    SELECT
+      LAST_INSERT_ROWID ()
+  );
 
 END;
