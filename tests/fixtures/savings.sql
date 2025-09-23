@@ -85,5 +85,9 @@ WHERE
     FROM
       savingsType
     WHERE
-      savingsTypeName = 'Fixed Deposit'
+      savingsTypeName = CASE
+        WHEN MOD(i, 2) = 0 THEN 'Fixed Deposit'
+        WHEN MOD(i, 3) = 0 THEN '30 day Call Deposit'
+        ELSE 'Ordinary Deposit'
+      END
   );
