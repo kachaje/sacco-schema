@@ -1469,7 +1469,7 @@
         "referenceTable": "member",
         "type": "int"
       },
-      "memberSavingsIdNumber": {
+      "memberSavingIdNumber": {
         "optional": true,
         "order": 2,
         "type": "text"

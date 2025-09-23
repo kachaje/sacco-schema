@@ -34,8 +34,7 @@
   "memberSavingInterest": [1],
   "memberSavingWithdrawal": [1],
   "notification": [1],
-  "savingsRate": [1],
-  "savingsType": [1],
+  "savingsType": [4],
   "taxRate": [2],
   "user": [2],
   "userRole": [8]

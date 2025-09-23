@@ -2268,7 +2268,7 @@
         }
       },
       {
-        "memberSavingsIdNumber": {
+        "memberSavingIdNumber": {
           "optional": true,
           "order": 2,
           "type": "text"

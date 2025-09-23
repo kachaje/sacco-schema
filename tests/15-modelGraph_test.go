@@ -167,10 +167,10 @@ func TestCreateModelQueryNumbersOnly(t *testing.T) {
 	}
 
 	seed := map[string]any{
-		"savingsTypeId": 13,
+		"value": 13,
 	}
 
-	result, err := modelgraph.CreateModelQuery("savingsRate", data, seed)
+	result, err := modelgraph.CreateModelQuery("taxRate", data, seed)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -181,10 +181,10 @@ func TestCreateModelQueryNumbersOnly(t *testing.T) {
 
 	target := fmt.Sprintf(`
 INSERT INTO 
-	savingsRate (savingsTypeId, monthlyRate) 
+	taxRate (name, value) 
 VALUES 
-	(%v, 10);`,
-		seed["savingsTypeId"],
+	("name", %v);`,
+		seed["value"],
 	)
 
 	if utils.CleanString(*result) != utils.CleanString(target) {

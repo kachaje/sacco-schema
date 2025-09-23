@@ -272,6 +272,10 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	target := string(content)
 
 	if utils.CleanString(target) != utils.CleanString(strings.Join(result, "\n")) {
-		t.Fatalf("Test failed; Expected: %#v; Actual: %#v", target, result)
+		t.Fatalf(`Test failed; 
+Expected:
+%s
+Actual:
+%s`, target, strings.Join(result, "\n"))
 	}
 }

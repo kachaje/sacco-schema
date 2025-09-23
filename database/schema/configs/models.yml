@@ -1384,7 +1384,7 @@ memberSaving:
     - memberId:
         hidden: true
         order: 1
-    - memberSavingsIdNumber:
+    - memberSavingIdNumber:
         optional: true
         order: 2
         type: text

@@ -836,7 +836,7 @@ END;
 CREATE TABLE IF NOT EXISTS memberSaving (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberId INTEGER NOT NULL,
-    memberSavingsIdNumber TEXT,
+    memberSavingIdNumber TEXT,
     savingsTypeId INTEGER NOT NULL,
     savingsTypeName INTEGER NOT NULL,
     withdrawPattern TEXT NOT NULL,
