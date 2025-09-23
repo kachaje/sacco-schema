@@ -35,7 +35,7 @@ WHERE
 END;
 
 ---- START addMemberIdNumber TRIGGER ----
-CREATE TRIGGER IF NOT EXISTS addMemberIdNumber AFTER INSERT ON memberSaving FOR EACH ROW BEGIN
+CREATE TRIGGER IF NOT EXISTS addMemberSavingIdNumber AFTER INSERT ON memberSaving FOR EACH ROW BEGIN
 UPDATE memberSavingIdsCache
 SET
   claimed = 1,

@@ -63,7 +63,7 @@ var (
 		"memberSavingInterest",
 		"memberSavingWithdrawal",
 	}
-	MemberSavingsIdsCacheSingleChildren = []string{
+	MemberSavingIdsCacheSingleChildren = []string{
 		"memberSaving",
 	}
 	MemberSingleChildren = []string{
@@ -81,7 +81,7 @@ var (
 		"MemberLoanPaymentScheduleSingleChildren":  MemberLoanPaymentScheduleSingleChildren,
 		"MemberLoanSingleChildren":                 MemberLoanSingleChildren,
 		"MemberOccupationSingleChildren":           MemberOccupationSingleChildren,
-		"MemberSavingsIdsCacheSingleChildren":      MemberSavingsIdsCacheSingleChildren,
+		"MemberSavingIdsCacheSingleChildren":       MemberSavingIdsCacheSingleChildren,
 		"MemberSingleChildren":                     MemberSingleChildren,
 	}
 	ArrayChildren = map[string][]string{
@@ -144,7 +144,6 @@ var (
 		"processingFeeRate",
 		"rentals",
 		"repaymentPeriodInMonths",
-		"savingsTypeName",
 		"totalCostOfGoods",
 		"totalCosts",
 		"totalCredit",
@@ -247,13 +246,13 @@ var (
 		"memberSavingDeposit": {
 			"memberSaving",
 		},
+		"memberSavingIdsCache": {
+			"memberSaving",
+		},
 		"memberSavingInterest": {
 			"memberSaving",
 		},
 		"memberSavingWithdrawal": {
-			"memberSaving",
-		},
-		"memberSavingsIdsCache": {
 			"memberSaving",
 		},
 		"notification": {

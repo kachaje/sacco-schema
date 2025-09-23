@@ -1397,8 +1397,8 @@ memberSaving:
           - withdrawPattern
           - amountSize
         ajaxOptions: savingsType@ savingsTypeName
-        numericField: true
         order: 4
+        type: text
     - withdrawPattern:
         order: 5
         type: text
@@ -1438,6 +1438,26 @@ memberSavingDeposit:
         numericField: true
         order: 4
   rootQuery: member.savingsType.memberSaving.0.memberSavingDeposit.0
+memberSavingIdsCache:
+  belongsTo:
+    - memberSaving
+  fields:
+    - id:
+        hidden: true
+        order: 0
+    - memberSavingId:
+        hidden: true
+        order: 1
+    - idNumber:
+        order: 2
+        type: text
+    - claimed:
+        numericField: true
+        optional: true
+        order: 3
+  hasOne:
+    - memberSaving
+  rootQuery: member.savingsType.memberSaving.0.memberSavingIdsCache
 memberSavingInterest:
   belongsTo:
     - memberSaving
@@ -1485,26 +1505,6 @@ memberSavingWithdrawal:
         numericField: true
         order: 4
   rootQuery: member.savingsType.memberSaving.0.memberSavingWithdrawal.0
-memberSavingsIdsCache:
-  belongsTo:
-    - memberSaving
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - memberSavingId:
-        hidden: true
-        order: 1
-    - idNumber:
-        order: 2
-        type: text
-    - claimed:
-        numericField: true
-        optional: true
-        order: 3
-  hasOne:
-    - memberSaving
-  rootQuery: member.savingsType.memberSaving.0.memberSavingsIdsCache
 notification:
   belongsTo:
     - member

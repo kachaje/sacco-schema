@@ -838,7 +838,7 @@ CREATE TABLE IF NOT EXISTS memberSaving (
     memberId INTEGER NOT NULL,
     memberSavingIdNumber TEXT,
     savingsTypeId INTEGER NOT NULL,
-    savingsTypeName INTEGER NOT NULL,
+    savingsTypeName TEXT NOT NULL,
     withdrawPattern TEXT NOT NULL,
     amountSize REAL DEFAULT 0,
     balance REAL DEFAULT 0,
@@ -874,6 +874,27 @@ CREATE TABLE IF NOT EXISTS memberSavingDeposit (
 CREATE TRIGGER IF NOT EXISTS memberSavingDepositUpdated AFTER
 UPDATE ON memberSavingDeposit FOR EACH ROW BEGIN
 UPDATE memberSavingDeposit
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
+CREATE TABLE IF NOT EXISTS memberSavingIdsCache (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memberSavingId INTEGER,
+    idNumber TEXT NOT NULL,
+    claimed INTEGER DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberSavingIdsCacheUpdated AFTER
+UPDATE ON memberSavingIdsCache FOR EACH ROW BEGIN
+UPDATE memberSavingIdsCache
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE
@@ -919,27 +940,6 @@ CREATE TABLE IF NOT EXISTS memberSavingWithdrawal (
 CREATE TRIGGER IF NOT EXISTS memberSavingWithdrawalUpdated AFTER
 UPDATE ON memberSavingWithdrawal FOR EACH ROW BEGIN
 UPDATE memberSavingWithdrawal
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS memberSavingsIdsCache (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingId INTEGER,
-    idNumber TEXT NOT NULL,
-    claimed INTEGER DEFAULT 0,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberSavingsIdsCacheUpdated AFTER
-UPDATE ON memberSavingsIdsCache FOR EACH ROW BEGIN
-UPDATE memberSavingsIdsCache
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

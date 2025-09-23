@@ -85,5 +85,5 @@ WHERE
     FROM
       savingsType
     WHERE
-      name = 'Fixed Deposit'
+      savingsTypeName = 'Fixed Deposit'
   );

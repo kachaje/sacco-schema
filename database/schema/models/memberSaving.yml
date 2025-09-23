@@ -25,7 +25,7 @@ savingsTypeName:
   ajaxFields: id,withdrawPattern,amountSize
   ajaxOptions: savingsType@ savingsTypeName
   order: 4
-  type: int
+  type: text
 
 withdrawPattern:
   order: 5

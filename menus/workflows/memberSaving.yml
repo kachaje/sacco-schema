@@ -57,7 +57,6 @@ enterSavingsTypeName1:
   text:
     en: Savings Type Name
   type: inputScreen
-  validationRule: ^\d+\.*\d*$
 enterWithdrawPattern1:
   inputIdentifier: withdrawPattern1
   nextScreen: enterAmountSize1

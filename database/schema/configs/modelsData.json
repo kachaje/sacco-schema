@@ -1486,7 +1486,7 @@
         "ajaxFields": "id,withdrawPattern,amountSize",
         "ajaxOptions": "savingsType@ savingsTypeName",
         "order": 4,
-        "type": "int"
+        "type": "text"
       },
       "withdrawPattern": {
         "order": 5,
@@ -1528,6 +1528,33 @@
     },
     "many": true,
     "model": "memberSavingDeposit",
+    "parents": ["memberSaving"]
+  },
+  "memberSavingIdsCache": {
+    "fields": {
+      "claimed": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
+      "id": {
+        "autoIncrement": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "int"
+      },
+      "idNumber": {
+        "order": 2,
+        "type": "text"
+      },
+      "memberSavingId": {
+        "optional": true,
+        "order": 1,
+        "referenceTable": "memberSaving",
+        "type": "int"
+      }
+    },
+    "model": "memberSavingIdsCache",
     "parents": ["memberSaving"]
   },
   "memberSavingInterest": {
@@ -1596,33 +1623,6 @@
     },
     "many": true,
     "model": "memberSavingWithdrawal",
-    "parents": ["memberSaving"]
-  },
-  "memberSavingsIdsCache": {
-    "fields": {
-      "claimed": {
-        "default": "0",
-        "order": 3,
-        "type": "int"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "idNumber": {
-        "order": 2,
-        "type": "text"
-      },
-      "memberSavingId": {
-        "optional": true,
-        "order": 1,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      }
-    },
-    "model": "memberSavingsIdsCache",
     "parents": ["memberSaving"]
   },
   "notification": {

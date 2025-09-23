@@ -71,7 +71,7 @@
       "memberSavingWithdrawal"
     ]
   },
-  "memberSavingsIdsCache": {
+  "memberSavingIdsCache": {
     "singleChildren": ["memberSaving"]
   },
   "savingsType": {
