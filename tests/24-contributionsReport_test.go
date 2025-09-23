@@ -2,9 +2,9 @@ package tests
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"sacco/database"
 	"sacco/reports"
 	"testing"
@@ -32,7 +32,50 @@ func TestContributions(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	payload, _ := json.MarshalIndent(result, "", "  ")
+	fixturesFile := filepath.Join(".", "fixtures", "contributions.data.json")
 
-	fmt.Println(string(payload))
+	if os.Getenv("DEBUG") == "true" {
+		payload, _ := json.MarshalIndent(result, "", "  ")
+
+		os.WriteFile(fixturesFile, payload, 0644)
+	}
+
+	target := reports.ContributionReportData{}
+
+	targetContent, err := os.ReadFile(fixturesFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(targetContent, &target)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	removeIds := func(result *reports.ContributionReportData) {
+		for i, row := range result.Data {
+			newRow := reports.ContributionReportRow{
+				MemberName:          row.MemberName,
+				MonthlyContribution: row.MonthlyContribution,
+				MemberTotal:         row.MemberTotal,
+				UpdatedOn:           row.UpdatedOn,
+				PercentOfTotal:      row.PercentOfTotal,
+			}
+
+			result.Data[i] = newRow
+		}
+	}
+
+	removeIds(result)
+	removeIds(&target)
+
+	if !reflect.DeepEqual(&target, result) {
+		resultContent, _ := json.MarshalIndent(result, "", "  ")
+
+		t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s`, targetContent, resultContent)
+	}
 }
