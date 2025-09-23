@@ -13,7 +13,7 @@ func TestContributions(t *testing.T) {
 	dbname := ":memory:"
 	db := database.NewDatabase(dbname)
 
-	content, err := os.ReadFile(filepath.Join(".", "fixtures", "contributions.sql"))
+	content, err := os.ReadFile(filepath.Join(".", "fixtures", "contributionsSample.sql"))
 	if err != nil {
 		t.Fatal(err)
 	}
