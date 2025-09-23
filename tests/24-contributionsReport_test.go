@@ -102,7 +102,7 @@ func TestContributionsReport2Table(t *testing.T) {
 
 	fixturesFile := filepath.Join(".", "fixtures", "contributions.data.txt")
 
-	if os.Getenv("DEBUG") == "true" || true {
+	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(string(*result))
 
 		os.WriteFile(fixturesFile, payload, 0644)

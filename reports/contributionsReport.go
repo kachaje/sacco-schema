@@ -181,7 +181,7 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 	utils.SortSlice(keys)
 	sort.Strings(fields)
 
-	formatNumber := func(row []string, v any, decimals bool, localSize int) []string {
+	formatNumber := func(row []string, v any, decimals bool, localSize int, suffix string) []string {
 		p := message.NewPrinter(language.English)
 
 		var vn float64
@@ -192,9 +192,9 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 		}
 
 		if decimals {
-			row = append(row, fmt.Sprintf(pattern(false, localSize), p.Sprintf("%0.2f", number.Decimal(vn))))
+			row = append(row, fmt.Sprintf(pattern(false, localSize), p.Sprintf("%0.2f%s", number.Decimal(vn), suffix)))
 		} else {
-			row = append(row, fmt.Sprintf(pattern(false, localSize), p.Sprintf("%f", number.Decimal(vn))))
+			row = append(row, fmt.Sprintf(pattern(false, localSize), p.Sprintf("%f%s", number.Decimal(vn), suffix)))
 		}
 
 		return row
@@ -240,20 +240,21 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 
 				if regexp.MustCompile(`^[0-9\.\+e]+$`).MatchString(fmt.Sprintf("%v", v)) &&
 					!regexp.MustCompile(NUMBER_FORMAT_ESCAPE).MatchString(strings.ToLower(field)) {
-					if false {
-						p := message.NewPrinter(language.English)
+					if field == "percentOfTotal" {
+						if vf, ok := v.(float64); ok {
+							v = vf * 100
 
-						var vn float64
+							_, fraction := math.Modf(vf * 100)
 
-						vr, err := strconv.ParseFloat(fmt.Sprintf("%v", v), 64)
-						if err == nil {
-							vn = vr
+							decimals := fraction > 0.01
+
+							row = formatNumber(row, v, decimals, localSize, "%")
+
+							continue
 						}
-
-						row = append(row, fmt.Sprintf(pattern(false, localSize), p.Sprintf("%0.2f", number.Decimal(vn))))
 					}
 
-					row = formatNumber(row, v, true, localSize)
+					row = formatNumber(row, v, true, localSize, "")
 				} else {
 					if regexp.MustCompile(`Date$`).MatchString(fmt.Sprintf("%v", field)) {
 						v = fmt.Sprintf("%v", v)[0:10]
@@ -303,9 +304,9 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 		case 1:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), ""))
 		case 3:
-			row = formatNumber(row, reportData.TotalAmount, true, localSize)
+			row = formatNumber(row, reportData.TotalAmount, true, localSize, "")
 		case 7:
-			row = formatNumber(row, reportData.AveragePerMonth, true, localSize)
+			row = formatNumber(row, reportData.AveragePerMonth, true, localSize, "")
 		default:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), ""))
 		}
@@ -346,7 +347,7 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 		case 0:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), "Avg. Monthly Contribution:"))
 		case 2:
-			row = formatNumber(row, reportData.AveragePerMonth, false, localSize)
+			row = formatNumber(row, reportData.AveragePerMonth, false, localSize, "")
 		default:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), ""))
 		}
@@ -387,7 +388,7 @@ func (r *Reports) ContributionsReport2Table(reportData ContributionReportData) (
 		case 0:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), "Count of Members:"))
 		case 5:
-			row = formatNumber(row, len(reportData.Data), false, localSize)
+			row = formatNumber(row, len(reportData.Data), false, localSize, "")
 		default:
 			row = append(row, fmt.Sprintf(pattern(true, localSize), ""))
 		}
