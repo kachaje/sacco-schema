@@ -114,7 +114,7 @@ SELECT
   s.minimumAmount * CASE
     WHEN s.savingsTypeName = 'Fixed Deposit' THEN 3
     WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4
-    ELSE 10
+    ELSE 20
   END,
   '2025-09-01'
 FROM
@@ -145,15 +145,55 @@ SELECT
   CASE
     WHEN s.savingsTypeName = 'Fixed Deposit' THEN 2 * s.minimumAmount
     WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4 * s.minimumAmount
-    ELSE 5 * s.minimumAmount
+    ELSE s.minimumAmount
   END,
   CASE
     WHEN s.savingsTypeName = 'Fixed Deposit' THEN DATE ('2025-09-01', CONCAT ('+', 3, ' month'))
     WHEN s.savingsTypeName = '30 day Call Deposit' THEN DATE ('2025-09-01', CONCAT ('+', 1, ' month'))
-    ELSE DATE ('2025-09-01', CONCAT ('+', 6, ' month'))
+    ELSE DATE ('2025-09-01', CONCAT ('+', 1, ' month'))
   END
 FROM
   cnt,
   memberSaving s
 WHERE
   s.memberId = i;
+
+INSERT INTO
+  memberSavingWithdrawal (memberSavingId, description, amount, date)
+WITH RECURSIVE
+  cnt (i) AS (
+    SELECT
+      1
+    UNION ALL
+    SELECT
+      i + 1
+    FROM
+      cnt
+    LIMIT
+      10
+    OFFSET
+      500
+  ),
+  pos (x) AS (
+    SELECT
+      1
+    UNION ALL
+    SELECT
+      x + 1
+    FROM
+      pos
+    LIMIT
+      10
+  )
+SELECT
+  s.id,
+  CONCAT (s.savingsTypeName, ' withdrawal'),
+  s.minimumAmount * 2,
+  DATE ('2025-09-01', CONCAT ('+', x, ' month'))
+FROM
+  cnt,
+  pos,
+  memberSaving s
+WHERE
+  s.memberId = i
+  AND s.savingsTypeName = 'Ordinary Deposit';
