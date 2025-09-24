@@ -22,3 +22,9 @@ date:
 amount:
   order: 4
   type: real
+
+balance:
+  hidden: true
+  optional: true
+  order: 5
+  type: real

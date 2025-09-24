@@ -1,5 +1,6 @@
 cacheQueries:
   amount1: member.savingsType.memberSaving.0.memberSavingDeposit.0.amount
+  balance1: member.savingsType.memberSaving.0.memberSavingDeposit.0.balance
   date1: member.savingsType.memberSaving.0.memberSavingDeposit.0.date
   description1: member.savingsType.memberSaving.0.memberSavingDeposit.0.description
   id1: member.savingsType.memberSaving.0.memberSavingDeposit.0.id
@@ -12,6 +13,10 @@ enterAmount1:
     en: Amount
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterBalance1:
+  hidden: true
+  inputIdentifier: balance1
+  type: hiddenField
 enterDate1:
   default: CURRENT_TIMESTAMP
   hidden: true

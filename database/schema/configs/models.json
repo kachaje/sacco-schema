@@ -2351,6 +2351,14 @@
           "numericField": true,
           "order": 4
         }
+      },
+      {
+        "balance": {
+          "hidden": true,
+          "numericField": true,
+          "optional": true,
+          "order": 5
+        }
       }
     ],
     "rootQuery": "member.savingsType.memberSaving.0.memberSavingDeposit.0"
@@ -2464,6 +2472,14 @@
         "amount": {
           "numericField": true,
           "order": 4
+        }
+      },
+      {
+        "balance": {
+          "hidden": true,
+          "numericField": true,
+          "optional": true,
+          "order": 5
         }
       }
     ],

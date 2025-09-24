@@ -34,5 +34,12 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 }
 
 func (c *CronJobs) CalculateSavingsInterests(targetDate string) error {
+	_, err := c.DB.SQLQuery(`
+	
+	`)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

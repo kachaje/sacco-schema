@@ -5,6 +5,8 @@ SET
 WHERE
   id = NEW.memberSavingId;
 
+-- UPDATE memberSavingDeposit SET 
+
 END;
 
 CREATE TRIGGER IF NOT EXISTS handleSavingWithdrawal AFTER INSERT ON memberSavingWithdrawal FOR EACH ROW BEGIN
