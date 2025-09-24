@@ -143,7 +143,7 @@ SELECT
   s.id,
   CONCAT (s.savingsTypeName, ' withdrawal'),
   CASE
-    WHEN s.savingsTypeName = 'Fixed Deposit' THEN 3 * s.minimumAmount
+    WHEN s.savingsTypeName = 'Fixed Deposit' THEN 2 * s.minimumAmount
     WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4 * s.minimumAmount
     ELSE 5 * s.minimumAmount
   END,
