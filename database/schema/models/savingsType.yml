@@ -8,7 +8,7 @@ savingsTypeName:
   order: 1
   type: text
 
-amountSize:
+minimumAmount:
   order: 2
   type: real
 

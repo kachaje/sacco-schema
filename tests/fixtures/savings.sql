@@ -53,7 +53,7 @@ INSERT INTO
     savingsTypeId,
     savingsTypeName,
     withdrawPattern,
-    amountSize
+    minimumAmount
   )
 WITH RECURSIVE
   cnt (i) AS (
@@ -74,7 +74,7 @@ SELECT
   s.id,
   s.savingsTypeName,
   s.withdrawPattern,
-  s.amountSize
+  s.minimumAmount
 FROM
   cnt,
   savingsType s
@@ -91,3 +91,34 @@ WHERE
         ELSE 'Ordinary Deposit'
       END
   );
+
+INSERT INTO
+  memberSavingDeposit (memberSavingId, description, amount, date)
+WITH RECURSIVE
+  cnt (i) AS (
+    SELECT
+      1
+    UNION ALL
+    SELECT
+      i + 1
+    FROM
+      cnt
+    LIMIT
+      10
+    OFFSET
+      500
+  )
+SELECT
+  s.id,
+  s.savingsTypeName,
+  s.minimumAmount * CASE
+    WHEN s.savingsTypeName = 'Fixed Deposit' THEN 3
+    WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4
+    ELSE 10
+  END,
+  '2025-09-01'
+FROM
+  cnt,
+  memberSaving s
+WHERE
+  s.memberId = i;

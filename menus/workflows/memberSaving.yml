@@ -1,26 +1,17 @@
 cacheQueries:
-  amountSize1: member.savingsType.memberSaving.0.amountSize
   balance1: member.savingsType.memberSaving.0.balance
   id1: member.savingsType.memberSaving.0.id
   memberId1: member.savingsType.memberSaving.0.memberId
   memberSavingIdNumber1: member.savingsType.memberSaving.0.memberSavingIdNumber
+  minimumAmount1: member.savingsType.memberSaving.0.minimumAmount
   savingsTypeId1: member.savingsType.memberSaving.0.savingsTypeId
   savingsTypeName1: member.savingsType.memberSaving.0.savingsTypeName
   withdrawPattern1: member.savingsType.memberSaving.0.withdrawPattern
-enterAmountSize1:
-  inputIdentifier: amountSize1
-  nextScreen: enterBalance1
-  optional: true
-  order: 4
-  text:
-    en: Amount Size
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
 enterBalance1:
   inputIdentifier: balance1
-  nextScreen: formSummary
+  nextScreen: enterMinimumAmount1
   optional: true
-  order: 5
+  order: 4
   text:
     en: Balance
   type: inputScreen
@@ -41,6 +32,15 @@ enterMemberSavingIdNumber1:
   text:
     en: Member Saving Id Number
   type: inputScreen
+enterMinimumAmount1:
+  inputIdentifier: minimumAmount1
+  nextScreen: formSummary
+  optional: true
+  order: 5
+  text:
+    en: Minimum Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterSavingsTypeId1:
   hidden: true
   inputIdentifier: savingsTypeId1
@@ -49,7 +49,7 @@ enterSavingsTypeName1:
   ajaxFields:
     - id
     - withdrawPattern
-    - amountSize
+    - minimumAmount
   ajaxOptions: savingsType@ savingsTypeName
   inputIdentifier: savingsTypeName1
   nextScreen: enterWithdrawPattern1
@@ -59,7 +59,7 @@ enterSavingsTypeName1:
   type: inputScreen
 enterWithdrawPattern1:
   inputIdentifier: withdrawPattern1
-  nextScreen: enterAmountSize1
+  nextScreen: enterBalance1
   order: 3
   text:
     en: Withdraw Pattern

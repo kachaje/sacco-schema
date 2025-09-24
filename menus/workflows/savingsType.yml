@@ -1,19 +1,11 @@
 cacheQueries:
-  amountSize: savingsType.amountSize
   id: savingsType.id
   interestRate: savingsType.interestRate
   maxWithdrawMonths: savingsType.maxWithdrawMonths
   minWithdrawMonths: savingsType.minWithdrawMonths
+  minimumAmount: savingsType.minimumAmount
   savingsTypeName: savingsType.savingsTypeName
   withdrawPattern: savingsType.withdrawPattern
-enterAmountSize:
-  inputIdentifier: amountSize
-  nextScreen: enterWithdrawPattern
-  order: 2
-  text:
-    en: Amount Size
-  type: inputScreen
-  validationRule: ^\d+\.*\d*$
 enterId:
   hidden: true
   inputIdentifier: id
@@ -42,9 +34,17 @@ enterMinWithdrawMonths:
     en: Min Withdraw Months
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterMinimumAmount:
+  inputIdentifier: minimumAmount
+  nextScreen: enterWithdrawPattern
+  order: 2
+  text:
+    en: Minimum Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 enterSavingsTypeName:
   inputIdentifier: savingsTypeName
-  nextScreen: enterAmountSize
+  nextScreen: enterMinimumAmount
   order: 1
   text:
     en: Savings Type Name

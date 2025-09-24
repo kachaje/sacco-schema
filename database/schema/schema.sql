@@ -840,8 +840,8 @@ CREATE TABLE IF NOT EXISTS memberSaving (
     savingsTypeId INTEGER NOT NULL,
     savingsTypeName TEXT NOT NULL,
     withdrawPattern TEXT NOT NULL,
-    amountSize REAL DEFAULT 0,
     balance REAL DEFAULT 0,
+    minimumAmount REAL DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -973,7 +973,7 @@ END;
 CREATE TABLE IF NOT EXISTS savingsType (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     savingsTypeName TEXT NOT NULL,
-    amountSize REAL NOT NULL,
+    minimumAmount REAL NOT NULL,
     withdrawPattern TEXT NOT NULL,
     minWithdrawMonths INTEGER NOT NULL,
     maxWithdrawMonths INTEGER NOT NULL,

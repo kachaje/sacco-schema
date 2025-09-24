@@ -107,7 +107,7 @@ VALUES
 INSERT INTO
   savingsType (
     savingsTypeName,
-    amountSize,
+    minimumAmount,
     withdrawPattern,
     minWithdrawMonths,
     maxWithdrawMonths,

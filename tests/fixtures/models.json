@@ -1919,7 +1919,7 @@
         }
       },
       {
-        "amountSize": {
+        "minimumAmount": {
           "numericField": true,
           "order": 2
         }

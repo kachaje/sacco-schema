@@ -1395,18 +1395,18 @@ memberSaving:
         ajaxFields:
           - id
           - withdrawPattern
-          - amountSize
+          - minimumAmount
         ajaxOptions: savingsType@ savingsTypeName
         order: 4
         type: text
     - withdrawPattern:
         order: 5
         type: text
-    - amountSize:
+    - balance:
         numericField: true
         optional: true
         order: 6
-    - balance:
+    - minimumAmount:
         numericField: true
         optional: true
         order: 7
@@ -1546,7 +1546,7 @@ savingsType:
     - savingsTypeName:
         order: 1
         type: text
-    - amountSize:
+    - minimumAmount:
         numericField: true
         order: 2
     - withdrawPattern:

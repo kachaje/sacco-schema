@@ -2282,7 +2282,7 @@
       },
       {
         "savingsTypeName": {
-          "ajaxFields": ["id", "withdrawPattern", "amountSize"],
+          "ajaxFields": ["id", "withdrawPattern", "minimumAmount"],
           "ajaxOptions": "savingsType@ savingsTypeName",
           "order": 4,
           "type": "text"
@@ -2295,14 +2295,14 @@
         }
       },
       {
-        "amountSize": {
+        "balance": {
           "numericField": true,
           "optional": true,
           "order": 6
         }
       },
       {
-        "balance": {
+        "minimumAmount": {
           "numericField": true,
           "optional": true,
           "order": 7
@@ -2532,7 +2532,7 @@
         }
       },
       {
-        "amountSize": {
+        "minimumAmount": {
           "numericField": true,
           "order": 2
         }
