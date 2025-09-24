@@ -114,7 +114,7 @@ SELECT
   s.minimumAmount * CASE
     WHEN s.savingsTypeName = 'Fixed Deposit' THEN 3
     WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4
-    ELSE 20
+    ELSE 25
   END,
   '2025-09-01'
 FROM
