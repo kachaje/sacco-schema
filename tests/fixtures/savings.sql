@@ -122,3 +122,38 @@ FROM
   memberSaving s
 WHERE
   s.memberId = i;
+
+INSERT INTO
+  memberSavingWithdrawal (memberSavingId, description, amount, date)
+WITH RECURSIVE
+  cnt (i) AS (
+    SELECT
+      1
+    UNION ALL
+    SELECT
+      i + 1
+    FROM
+      cnt
+    LIMIT
+      10
+    OFFSET
+      500
+  )
+SELECT
+  s.id,
+  CONCAT (s.savingsTypeName, ' withdrawal'),
+  CASE
+    WHEN s.savingsTypeName = 'Fixed Deposit' THEN 3 * s.minimumAmount
+    WHEN s.savingsTypeName = '30 day Call Deposit' THEN 4 * s.minimumAmount
+    ELSE 5 * s.minimumAmount
+  END,
+  CASE
+    WHEN s.savingsTypeName = 'Fixed Deposit' THEN DATE ('2025-09-01', CONCAT ('+', 3, ' month'))
+    WHEN s.savingsTypeName = '30 day Call Deposit' THEN DATE ('2025-09-01', CONCAT ('+', 1, ' month'))
+    ELSE DATE ('2025-09-01', CONCAT ('+', 6, ' month'))
+  END
+FROM
+  cnt,
+  memberSaving s
+WHERE
+  s.memberId = i;
