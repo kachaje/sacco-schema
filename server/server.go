@@ -2,6 +2,7 @@ package server
 
 import (
 	"bytes"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
@@ -11,11 +12,13 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	cronjobs "sacco/cronJobs"
 	"sacco/database"
 	"sacco/menus"
 	menufuncs "sacco/menus/menuFuncs"
 	"sacco/utils"
 	"strings"
+	"time"
 
 	"html/template"
 
@@ -157,6 +160,45 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func cronJobsHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	data := map[string]any{}
+
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = json.Unmarshal(body, &data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	jobs := cronjobs.NewCronJobs(menufuncs.DB)
+
+	targetDate := time.Now().Format("2006-01-02")
+
+	if data["targetDate"] != nil {
+		if val, ok := data["targetDate"].(string); ok {
+			targetDate = val
+		}
+	}
+
+	err = jobs.RunCronJobs(targetDate)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Fprintln(w, "Done")
+}
+
 func Main() {
 	var err error
 	var dbname string = ":memory:"
@@ -200,6 +242,8 @@ func Main() {
 	http.HandleFunc("/ws", wsHandler)
 
 	indexHTML = regexp.MustCompile("8080").ReplaceAllString(indexHTML, fmt.Sprint(port))
+
+	http.HandleFunc("/cron/jobs", cronJobsHandler)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl, err := template.New("index").Parse(indexHTML)
