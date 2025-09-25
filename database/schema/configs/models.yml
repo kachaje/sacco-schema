@@ -1473,7 +1473,7 @@ memberSavingTransaction:
     - description:
         order: 2
         type: text
-    - date:
+    - transactionDate:
         default: CURRENT_TIMESTAMP
         optional: true
         order: 3
@@ -1491,6 +1491,11 @@ memberSavingTransaction:
         numericField: true
         optional: true
         order: 6
+    - savingsTypeName:
+        hidden: true
+        optional: true
+        order: 7
+        type: text
   rootQuery: member.savingsType.memberSaving.0.memberSavingTransaction.0
 notification:
   belongsTo:

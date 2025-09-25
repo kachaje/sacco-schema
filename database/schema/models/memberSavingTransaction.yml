@@ -14,7 +14,7 @@ description:
   order: 2
   type: text
 
-date:
+transactionDate:
   default: CURRENT_TIMESTAMP
   order: 3
   type: text
@@ -34,3 +34,9 @@ balance:
   optional: true
   order: 6
   type: real
+
+savingsTypeName:
+  hidden: true
+  optional: true
+  order: 7
+  type: text

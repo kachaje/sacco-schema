@@ -17,6 +17,14 @@ SET
         id = NEW.memberSavingId
     ),
     0
+  ),
+  savingsTypeName = (
+    SELECT
+      savingsTypeName
+    FROM
+      memberSaving
+    WHERE
+      id = NEW.memberSavingId
   )
 WHERE
   id = NEW.id;

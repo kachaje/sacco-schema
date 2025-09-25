@@ -1570,11 +1570,6 @@
         "order": 6,
         "type": "real"
       },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
       "deposit": {
         "default": "0",
         "order": 4,
@@ -1595,6 +1590,17 @@
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
+      },
+      "savingsTypeName": {
+        "hidden": true,
+        "optional": true,
+        "order": 7,
+        "type": "text"
+      },
+      "transactionDate": {
+        "default": "CURRENT_TIMESTAMP",
+        "order": 3,
+        "type": "text"
       },
       "withdrawal": {
         "default": "0",

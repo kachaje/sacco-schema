@@ -2414,7 +2414,7 @@
         }
       },
       {
-        "date": {
+        "transactionDate": {
           "default": "CURRENT_TIMESTAMP",
           "optional": true,
           "order": 3,
@@ -2441,6 +2441,14 @@
           "numericField": true,
           "optional": true,
           "order": 6
+        }
+      },
+      {
+        "savingsTypeName": {
+          "hidden": true,
+          "optional": true,
+          "order": 7,
+          "type": "text"
         }
       }
     ],
