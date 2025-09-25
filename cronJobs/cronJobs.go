@@ -3,8 +3,6 @@ package cronjobs
 import (
 	"fmt"
 	"log"
-	"os"
-	"path/filepath"
 	"sacco/database"
 )
 
@@ -39,7 +37,7 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 
 func (c *CronJobs) CalculateOrdinaryDepositsInterest(targetDate string) error {
 	query := fmt.Sprintf(`
-INSERT INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
+INSERT OR REPLACE INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
 WITH RECURSIVE savings AS ( SELECT 
 	memberSavingId, 
 	s.savingsTypeName,
@@ -53,15 +51,16 @@ WITH RECURSIVE savings AS ( SELECT
         WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
         ELSE 'Q4'
     END, ')') AS description,
-	CONCAT(STRFTIME('%%Y', transactionDate), '-',
-		CASE
-        WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 1 AND 3 THEN 'Q1'
-        WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 4 AND 6 THEN 'Q2'
-        WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
-        ELSE 'Q4'
-    END) AS tag,
-	SUM(t.balance)/COUNT(t.id) AS average,
-	(SUM(t.balance)/COUNT(t.id)) * COALESCE(
+	  CONCAT(STRFTIME('%%Y', transactionDate), '-',
+			CASE
+      WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 1 AND 3 THEN 'Q1'
+      WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 4 AND 6 THEN 'Q2'
+      WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
+      ELSE 'Q4' 
+			END
+		) AS tag,
+		SUM(t.balance)/COUNT(t.id) AS average,
+		(SUM(t.balance)/COUNT(t.id)) * COALESCE(
 				(
 					SELECT
 						interestRate
@@ -73,12 +72,12 @@ WITH RECURSIVE savings AS ( SELECT
 				),
 				0
 			) / 4 AS interest
-FROM memberSavingTransaction t
-LEFT OUTER JOIN memberSaving s ON s.id = t.memberSavingId
-WHERE t.savingsTypeName = 'Ordinary Deposit'
-GROUP BY transactionYear, description, memberSavingId
-) 
-SELECT CONCAT(memberSavingId, '-', tag), memberSavingId, description, interest, CURRENT_TIMESTAMP 
+	FROM memberSavingTransaction t
+	LEFT OUTER JOIN memberSaving s ON s.id = t.memberSavingId
+	WHERE t.savingsTypeName = 'Ordinary Deposit'
+	GROUP BY transactionYear, description, memberSavingId
+)
+SELECT CONCAT(memberSavingId, '-', tag) AS id, memberSavingId, description, interest, CURRENT_TIMESTAMP 
 FROM savings 
 WHERE description = CONCAT(
 		savingsTypeName, ' (',
@@ -91,8 +90,6 @@ WHERE description = CONCAT(
     END, ')')
 	`, targetDate, targetDate, targetDate, targetDate)
 
-	os.WriteFile(filepath.Join(".", "..", "backups", "deposits.sql"), []byte(query), 0644)
-
 	_, err := c.DB.SQLQuery(query)
 	if err != nil {
 		return err
@@ -103,7 +100,7 @@ WHERE description = CONCAT(
 
 func (c *CronJobs) CalculateFixedDepositInterests(targetDate string) error {
 	_, err := c.DB.SQLQuery(fmt.Sprintf(`
-INSERT INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
+INSERT OR REPLACE INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
 WITH
 	savings AS (
 		SELECT
@@ -118,11 +115,10 @@ WITH
 				')'
 			) AS description,
 			CONCAT (
-				s.savingsTypeName, '-',
+				s.savingsTypeId, '-',
 				STRFTIME ('%%Y', transactionDate),
 				'-',
-				STRFTIME ('%%m', transactionDate),
-				')'
+				STRFTIME ('%%m', transactionDate)
 			) AS tag,
 			SUM(t.balance) / COUNT(t.id) AS average,
 			(SUM(t.balance) / COUNT(t.id)) * COALESCE(
