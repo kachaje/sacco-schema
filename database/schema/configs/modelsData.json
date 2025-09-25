@@ -1546,10 +1546,12 @@
         "type": "text"
       },
       "id": {
-        "autoIncrement": true,
+        "hidden": true,
+        "optional": true,
         "order": 0,
         "primaryKey": true,
-        "type": "int"
+        "type": "text",
+        "unique": true
       },
       "memberSavingId": {
         "many": true,

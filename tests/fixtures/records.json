@@ -1,126 +1,40 @@
 {
-  "account": [
-    1
-  ],
-  "accountJournal": [
-    1,
-    2
-  ],
-  "accountStatement": [
-    1
-  ],
-  "accountTransaction": [
-    1
-  ],
-  "insuranceProvider": [
-    1
-  ],
-  "member": [
-    1
-  ],
-  "memberBusiness": [
-    1,
-    2
-  ],
-  "memberBusinessVerification": [
-    1
-  ],
-  "memberContact": [
-    1
-  ],
-  "memberContribution": [
-    1,
-    2
-  ],
-  "memberContributionDeposit": [
-    1
-  ],
-  "memberContributionSchedule": [
-    1
-  ],
-  "memberContributionWithdraw": [
-    1
-  ],
-  "memberDependant": [
-    1
-  ],
-  "memberLastYearBusinessHistory": [
-    1
-  ],
-  "memberLoan": [
-    1,
-    2
-  ],
-  "memberLoanApproval": [
-    1,
-    2
-  ],
-  "memberLoanDisbursement": [
-    1
-  ],
-  "memberLoanLiability": [
-    1
-  ],
-  "memberLoanPayment": [
-    1,
-    2
-  ],
-  "memberLoanPaymentSchedule": [
-    1,
-    2
-  ],
-  "memberLoanSecurity": [
-    1
-  ],
-  "memberLoanSettlement": [
-    1
-  ],
-  "memberLoanTax": [
-    1
-  ],
-  "memberLoanType": [
-    1
-  ],
-  "memberLoanVerification": [
-    1
-  ],
-  "memberLoanWitness": [
-    1
-  ],
-  "memberNextYearBusinessProjection": [
-    1
-  ],
-  "memberOccupation": [
-    1,
-    2
-  ],
-  "memberOccupationVerification": [
-    1
-  ],
-  "memberSaving": [
-    1,
-    2,
-    3
-  ],
-  "memberSavingInterest": [
-    1
-  ],
-  "memberSavingTransaction": [
-    1
-  ],
-  "notification": [
-    1
-  ],
-  "savingsType": [
-    4
-  ],
-  "taxRate": [
-    2
-  ],
-  "user": [
-    2
-  ],
-  "userRole": [
-    8
-  ]
+  "account": [1],
+  "accountJournal": [1, 2],
+  "accountStatement": [1],
+  "accountTransaction": [1],
+  "insuranceProvider": [1],
+  "member": [1],
+  "memberBusiness": [1, 2],
+  "memberBusinessVerification": [1],
+  "memberContact": [1],
+  "memberContribution": [1, 2],
+  "memberContributionDeposit": [1],
+  "memberContributionSchedule": [1],
+  "memberContributionWithdraw": [1],
+  "memberDependant": [1],
+  "memberLastYearBusinessHistory": [1],
+  "memberLoan": [1, 2],
+  "memberLoanApproval": [1, 2],
+  "memberLoanDisbursement": [1],
+  "memberLoanLiability": [1],
+  "memberLoanPayment": [1, 2],
+  "memberLoanPaymentSchedule": [1, 2],
+  "memberLoanSecurity": [1],
+  "memberLoanSettlement": [1],
+  "memberLoanTax": [1],
+  "memberLoanType": [1],
+  "memberLoanVerification": [1],
+  "memberLoanWitness": [1],
+  "memberNextYearBusinessProjection": [1],
+  "memberOccupation": [1, 2],
+  "memberOccupationVerification": [1],
+  "memberSaving": [1, 2, 3],
+  "memberSavingInterest": [1],
+  "memberSavingTransaction": [1],
+  "notification": [1],
+  "savingsType": [4],
+  "taxRate": [2],
+  "user": [2],
+  "userRole": [8]
 }
