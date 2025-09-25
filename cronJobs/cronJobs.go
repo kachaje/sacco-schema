@@ -18,6 +18,7 @@ func NewCronJobs(db *database.Database) *CronJobs {
 	}
 
 	jobs.Jobs["ordinaryDepositsInterest"] = jobs.CalculateOrdinaryDepositsInterest
+	jobs.Jobs["fixedDepositsInterest"] = jobs.CalculateFixedDepositInterests
 
 	return jobs
 }
