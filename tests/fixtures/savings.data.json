@@ -1,0 +1,83 @@
+{
+  "1": {
+    "active": 1,
+    "amount": 1250,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q3",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 1,
+    "memberSavingId": 3
+  },
+  "2": {
+    "active": 1,
+    "amount": 1250,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q3",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 2,
+    "memberSavingId": 5
+  },
+  "3": {
+    "active": 1,
+    "amount": 1250,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q3",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 3,
+    "memberSavingId": 9
+  },
+  "4": {
+    "active": 1,
+    "amount": 1050,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q4",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 4,
+    "memberSavingId": 3
+  },
+  "5": {
+    "active": 1,
+    "amount": 1050,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q4",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 5,
+    "memberSavingId": 5
+  },
+  "6": {
+    "active": 1,
+    "amount": 1050,
+    "date": "2025-09-25 11:08:54",
+    "description": "2025 - Q4",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 6,
+    "memberSavingId": 9
+  },
+  "7": {
+    "active": 1,
+    "amount": 500,
+    "date": "2025-09-25 11:08:54",
+    "description": "2026 - Q1",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 7,
+    "memberSavingId": 3
+  },
+  "8": {
+    "active": 1,
+    "amount": 500,
+    "date": "2025-09-25 11:08:54",
+    "description": "2026 - Q1",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 8,
+    "memberSavingId": 5
+  },
+  "9": {
+    "active": 1,
+    "amount": 500,
+    "date": "2025-09-25 11:08:54",
+    "description": "2026 - Q1",
+    "dueDate": "2025-09-25 11:08:54",
+    "id": 9,
+    "memberSavingId": 9
+  }
+}
