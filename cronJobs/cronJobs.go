@@ -37,8 +37,9 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 func (c *CronJobs) CalculateOrdinaryDepositsInterest(targetDate string) error {
 	_, err := c.DB.SQLQuery(fmt.Sprintf(`
 INSERT INTO memberSavingInterest (memberSavingId, description, amount, dueDate)
-WITH savings AS ( SELECT 
+WITH RECURSIVE savings AS ( SELECT 
 	memberSavingId, 
+	STRFTIME('%%Y', transactionDate) transactionYear,
 	CONCAT(STRFTIME('%%Y', transactionDate), ' - ',
 	CASE
         WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 1 AND 3 THEN 'Q1'
@@ -50,7 +51,7 @@ WITH savings AS ( SELECT
 	(SUM(balance)/COUNT(id)) * 0.1 * 0.25 AS interest
 FROM memberSavingTransaction 
 WHERE savingsTypeName = 'Ordinary Deposit'
-GROUP BY memberSavingId, description
+GROUP BY transactionYear, description, memberSavingId
 ) 
 SELECT memberSavingId, description, interest, CURRENT_TIMESTAMP 
 FROM savings 
