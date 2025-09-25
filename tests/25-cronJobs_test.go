@@ -28,11 +28,6 @@ func TestCalculateOrdinaryDepositsInterest(t *testing.T) {
 
 	jobs := cronjobs.NewCronJobs(db)
 
-	err = jobs.CalculateOrdinaryDepositsInterest("2025-08-30")
-	if err != nil {
-		t.Fatal(err)
-	}
-
 	err = jobs.CalculateOrdinaryDepositsInterest("2025-12-31")
 	if err != nil {
 		t.Fatal(err)
@@ -44,6 +39,11 @@ func TestCalculateOrdinaryDepositsInterest(t *testing.T) {
 	}
 
 	err = jobs.CalculateOrdinaryDepositsInterest("2026-05-30")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = jobs.CalculateOrdinaryDepositsInterest("2025-08-30")
 	if err != nil {
 		t.Fatal(err)
 	}

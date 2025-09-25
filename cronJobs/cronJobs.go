@@ -3,6 +3,8 @@ package cronjobs
 import (
 	"fmt"
 	"log"
+	"os"
+	"path/filepath"
 	"sacco/database"
 )
 
@@ -36,10 +38,11 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 }
 
 func (c *CronJobs) CalculateOrdinaryDepositsInterest(targetDate string) error {
-	_, err := c.DB.SQLQuery(fmt.Sprintf(`
+	query := fmt.Sprintf(`
 INSERT INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
 WITH RECURSIVE savings AS ( SELECT 
 	memberSavingId, 
+	s.savingsTypeName,
 	STRFTIME('%%Y', transactionDate) transactionYear,
 	CONCAT(
 		s.savingsTypeName, ' (',
@@ -77,14 +80,20 @@ GROUP BY transactionYear, description, memberSavingId
 ) 
 SELECT CONCAT(memberSavingId, '-', tag), memberSavingId, description, interest, CURRENT_TIMESTAMP 
 FROM savings 
-WHERE description = CONCAT(STRFTIME('%%Y', '%s'), ' - ',
-	CASE
+WHERE description = CONCAT(
+		savingsTypeName, ' (',
+		STRFTIME('%%Y', '%s'), '/',
+		CASE
         WHEN CAST(STRFTIME('%%m', '%s') AS INTEGER) BETWEEN 1 AND 3 THEN 'Q1'
         WHEN CAST(STRFTIME('%%m', '%s') AS INTEGER) BETWEEN 4 AND 6 THEN 'Q2'
         WHEN CAST(STRFTIME('%%m', '%s') AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
         ELSE 'Q4'
-  END)
-	`, targetDate, targetDate, targetDate, targetDate))
+    END, ')')
+	`, targetDate, targetDate, targetDate, targetDate)
+
+	os.WriteFile(filepath.Join(".", "..", "backups", "deposits.sql"), []byte(query), 0644)
+
+	_, err := c.DB.SQLQuery(query)
 	if err != nil {
 		return err
 	}
