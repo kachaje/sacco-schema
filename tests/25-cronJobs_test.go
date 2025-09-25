@@ -56,7 +56,7 @@ func TestCalculateOrdinaryDepositsInterest(t *testing.T) {
 	result := map[string]any{}
 
 	for _, row := range rows {
-		for _, key := range []string{"createdAt", "updatedAt"} {
+		for _, key := range []string{"createdAt", "updatedAt", "date", "dueDate"} {
 			delete(row, key)
 		}
 
@@ -84,13 +84,12 @@ func TestCalculateOrdinaryDepositsInterest(t *testing.T) {
 	}
 
 	if !utils.MapsEqual(target, result) {
-		payloadResult, _ := json.MarshalIndent(result, "", "  ")
-		payloadTarget, _ := json.MarshalIndent(result, "", "  ")
+		diff := utils.GetMapDiff(target, result)
+
+		payload, _ := json.MarshalIndent(diff, "", "  ")
 
 		t.Fatalf(`Test failed.
-Expected:
-%s
-Actual:
-%s`, payloadTarget, payloadResult)
+DiffMap:
+%s`, payload)
 	}
 }

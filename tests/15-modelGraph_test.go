@@ -249,10 +249,10 @@ func TestCreateModelQueryCombined(t *testing.T) {
 	}
 
 	seed := map[string]any{
-		"memberSavingId": 13,
+		"value": 16.5,
 	}
 
-	result, err := modelgraph.CreateModelQuery("memberSavingWithdrawal", data, seed)
+	result, err := modelgraph.CreateModelQuery("taxRate", data, seed)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -263,10 +263,10 @@ func TestCreateModelQueryCombined(t *testing.T) {
 
 	target := fmt.Sprintf(`
 INSERT INTO 
-	memberSavingWithdrawal (memberSavingId, description, amount) 
+	taxRate (name, value) 
 VALUES 
-	(%v, "description", 10);`,
-		seed["memberSavingId"],
+	("name", %v);`,
+		seed["value"],
 	)
 
 	if utils.CleanString(*result) != utils.CleanString(target) {

@@ -1609,7 +1609,6 @@
     "hasMany": [
       "memberSavingDeposit",
       "memberSavingInterest",
-      "memberSavingWithdrawal",
       "sharesDepositReceipt",
       "sharesDepositWithdraw"
     ],
@@ -1688,43 +1687,6 @@
       }
     ],
     "rootQuery": "member.savingsType.memberSaving.0.memberSavingInterest.0"
-  },
-  "memberSavingWithdrawal": {
-    "belongsTo": ["memberSaving"],
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "memberSavingId": {
-          "hidden": true,
-          "order": 1
-        }
-      },
-      {
-        "description": {
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "date": {
-          "optional": true,
-          "order": 3,
-          "type": "text"
-        }
-      },
-      {
-        "amount": {
-          "numericField": true,
-          "order": 4
-        }
-      }
-    ],
-    "rootQuery": "member.savingsType.memberSaving.0.memberSavingWithdrawal.0"
   },
   "memberSavingsIdsCache": {
     "belongsTo": ["memberSaving"],

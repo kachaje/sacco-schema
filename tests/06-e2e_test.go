@@ -89,7 +89,7 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
-	totalTables := 43
+	totalTables := 42
 
 	for {
 		if len(tables) < totalTables {
