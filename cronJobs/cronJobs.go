@@ -80,3 +80,59 @@ WHERE description = CONCAT(STRFTIME('%%Y', '%s'), ' - ',
 
 	return nil
 }
+
+func (c *CronJobs) CalculateFixedDepositInterests(targetDate string) error {
+	_, err := c.DB.SQLQuery(fmt.Sprintf(`
+INSERT INTO memberSavingInterest (memberSavingId, description, amount, dueDate)
+WITH
+	savings AS (
+		SELECT
+			memberSavingId,
+			STRFTIME ('%%Y', transactionDate) transactionYear,
+			CONCAT (
+				STRFTIME ('%%Y', transactionDate),
+				' - ',
+				STRFTIME ('%%m', transactionDate)
+			) AS description,
+			SUM(t.balance) / COUNT(t.id) AS average,
+			(SUM(t.balance) / COUNT(t.id)) * COALESCE(
+				(
+					SELECT
+						interestRate
+					FROM
+						savingsType
+					WHERE
+						savingsTypeName = s.savingsTypeName
+						AND active = 1
+				),
+				0
+			) / 12 AS interest
+		FROM
+			memberSavingTransaction t
+			LEFT OUTER JOIN memberSaving s ON s.id = t.memberSavingId
+		WHERE
+			t.savingsTypeName IN ('Fixed Deposit', '30 Day Call Deposit')
+		GROUP BY
+			transactionYear,
+			description,
+			memberSavingId
+	)
+SELECT
+	transactionYear,
+	memberSavingId,
+	description,
+	interest
+FROM
+	savings 
+WHERE description = CONCAT (
+				STRFTIME ('%%Y', '%s'),
+				' - ',
+				STRFTIME ('%%m', '%s')
+			)
+	`, targetDate, targetDate))
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
