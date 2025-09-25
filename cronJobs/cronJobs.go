@@ -48,7 +48,18 @@ WITH RECURSIVE savings AS ( SELECT
         ELSE 'Q4'
     END) AS description,
 	SUM(balance)/COUNT(id) AS average,
-	(SUM(balance)/COUNT(id)) * 0.1 * 0.25 AS interest
+	(SUM(balance)/COUNT(id)) * COALESCE(
+				(
+					SELECT
+						interestRate
+					FROM
+						savingsType
+					WHERE
+						savingsTypeName = s.savingsTypeName
+						AND active = 1
+				),
+				0
+			) / 4 AS interest
 FROM memberSavingTransaction 
 WHERE savingsTypeName = 'Ordinary Deposit'
 GROUP BY transactionYear, description, memberSavingId
