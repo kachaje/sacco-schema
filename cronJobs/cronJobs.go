@@ -57,7 +57,9 @@ WITH RECURSIVE savings AS ( SELECT
       WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 4 AND 6 THEN 'Q2'
       WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
       ELSE 'Q4' 
-			END
+			END, 
+			'-',
+			s.savingsTypeId
 		) AS tag,
 		SUM(t.balance)/COUNT(t.id) AS average,
 		(SUM(t.balance)/COUNT(t.id)) * COALESCE(
@@ -77,7 +79,7 @@ WITH RECURSIVE savings AS ( SELECT
 	WHERE t.savingsTypeName = 'Ordinary Deposit'
 	GROUP BY transactionYear, description, memberSavingId
 )
-SELECT CONCAT(memberSavingId, '-', tag) AS id, memberSavingId, description, interest, CURRENT_TIMESTAMP 
+SELECT CONCAT(tag, '-', memberSavingId) AS id, memberSavingId, description, interest, CURRENT_TIMESTAMP 
 FROM savings 
 WHERE description = CONCAT(
 		savingsTypeName, ' (',
@@ -115,10 +117,11 @@ WITH
 				')'
 			) AS description,
 			CONCAT (
-				s.savingsTypeId, '-',
 				STRFTIME ('%%Y', transactionDate),
 				'-',
-				STRFTIME ('%%m', transactionDate)
+				STRFTIME ('%%m', transactionDate), 
+				'-',
+				s.savingsTypeId
 			) AS tag,
 			SUM(t.balance) / COUNT(t.id) AS average,
 			(SUM(t.balance) / COUNT(t.id)) * COALESCE(
@@ -144,7 +147,7 @@ WITH
 			memberSavingId
 	)
 SELECT
-	CONCAT(memberSavingId, '-', tag), memberSavingId, description, interest, CURRENT_TIMESTAMP
+	CONCAT(tag, '-', memberSavingId), memberSavingId, description, interest, CURRENT_TIMESTAMP
 FROM
 	savings 
 WHERE description = CONCAT (
