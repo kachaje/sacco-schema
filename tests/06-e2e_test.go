@@ -89,10 +89,13 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
-	totalTables := 42
+	totalTables, err := os.ReadDir(filepath.Join("..", "database", "schema", "models"))
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	for {
-		if len(tables) < totalTables {
+		if len(tables) < len(totalTables) {
 			time.Sleep(1 * time.Second)
 		} else {
 			break
