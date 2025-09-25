@@ -47,8 +47,8 @@ WITH RECURSIVE savings AS ( SELECT
         WHEN CAST(STRFTIME('%%m', transactionDate) AS INTEGER) BETWEEN 7 AND 9 THEN 'Q3'
         ELSE 'Q4'
     END) AS description,
-	SUM(balance)/COUNT(id) AS average,
-	(SUM(balance)/COUNT(id)) * COALESCE(
+	SUM(t.balance)/COUNT(t.id) AS average,
+	(SUM(t.balance)/COUNT(t.id)) * COALESCE(
 				(
 					SELECT
 						interestRate
@@ -60,8 +60,9 @@ WITH RECURSIVE savings AS ( SELECT
 				),
 				0
 			) / 4 AS interest
-FROM memberSavingTransaction 
-WHERE savingsTypeName = 'Ordinary Deposit'
+FROM memberSavingTransaction t
+LEFT OUTER JOIN memberSaving s ON s.id = t.memberSavingId
+WHERE t.savingsTypeName = 'Ordinary Deposit'
 GROUP BY transactionYear, description, memberSavingId
 ) 
 SELECT memberSavingId, description, interest, CURRENT_TIMESTAMP 
@@ -87,12 +88,15 @@ INSERT INTO memberSavingInterest (memberSavingId, description, amount, dueDate)
 WITH
 	savings AS (
 		SELECT
+			t.savingsTypeName,
 			memberSavingId,
 			STRFTIME ('%%Y', transactionDate) transactionYear,
 			CONCAT (
+				s.savingsTypeName, ' (',
 				STRFTIME ('%%Y', transactionDate),
-				' - ',
-				STRFTIME ('%%m', transactionDate)
+				'/',
+				STRFTIME ('%%m', transactionDate),
+				')'
 			) AS description,
 			SUM(t.balance) / COUNT(t.id) AS average,
 			(SUM(t.balance) / COUNT(t.id)) * COALESCE(
@@ -111,23 +115,22 @@ WITH
 			memberSavingTransaction t
 			LEFT OUTER JOIN memberSaving s ON s.id = t.memberSavingId
 		WHERE
-			t.savingsTypeName IN ('Fixed Deposit', '30 Day Call Deposit')
+			t.savingsTypeName IN ('Fixed Deposit', '30 day Call Deposit')
 		GROUP BY
 			transactionYear,
 			description,
 			memberSavingId
 	)
 SELECT
-	transactionYear,
-	memberSavingId,
-	description,
-	interest
+	memberSavingId, description, interest, CURRENT_TIMESTAMP
 FROM
 	savings 
 WHERE description = CONCAT (
+				savingsTypeName, ' (',
 				STRFTIME ('%%Y', '%s'),
-				' - ',
-				STRFTIME ('%%m', '%s')
+				'/',
+				STRFTIME ('%%m', '%s'),
+				')'
 			)
 	`, targetDate, targetDate))
 	if err != nil {

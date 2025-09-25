@@ -1,0 +1,100 @@
+{
+  "1": {
+    "active": 1,
+    "amount": 583.3333333333334,
+    "description": "30 day Call Deposit (2025/09)",
+    "id": 1,
+    "memberSavingId": 1
+  },
+  "10": {
+    "active": 1,
+    "amount": 416.6666666666667,
+    "description": "Fixed Deposit (2025/12)",
+    "id": 10,
+    "memberSavingId": 2
+  },
+  "11": {
+    "active": 1,
+    "amount": 416.6666666666667,
+    "description": "Fixed Deposit (2025/12)",
+    "id": 11,
+    "memberSavingId": 4
+  },
+  "12": {
+    "active": 1,
+    "amount": 416.6666666666667,
+    "description": "Fixed Deposit (2025/12)",
+    "id": 12,
+    "memberSavingId": 6
+  },
+  "13": {
+    "active": 1,
+    "amount": 416.6666666666667,
+    "description": "Fixed Deposit (2025/12)",
+    "id": 13,
+    "memberSavingId": 8
+  },
+  "14": {
+    "active": 1,
+    "amount": 416.6666666666667,
+    "description": "Fixed Deposit (2025/12)",
+    "id": 14,
+    "memberSavingId": 10
+  },
+  "2": {
+    "active": 1,
+    "amount": 583.3333333333334,
+    "description": "30 day Call Deposit (2025/09)",
+    "id": 2,
+    "memberSavingId": 7
+  },
+  "3": {
+    "active": 1,
+    "amount": 1250,
+    "description": "Fixed Deposit (2025/09)",
+    "id": 3,
+    "memberSavingId": 2
+  },
+  "4": {
+    "active": 1,
+    "amount": 1250,
+    "description": "Fixed Deposit (2025/09)",
+    "id": 4,
+    "memberSavingId": 4
+  },
+  "5": {
+    "active": 1,
+    "amount": 1250,
+    "description": "Fixed Deposit (2025/09)",
+    "id": 5,
+    "memberSavingId": 6
+  },
+  "6": {
+    "active": 1,
+    "amount": 1250,
+    "description": "Fixed Deposit (2025/09)",
+    "id": 6,
+    "memberSavingId": 8
+  },
+  "7": {
+    "active": 1,
+    "amount": 1250,
+    "description": "Fixed Deposit (2025/09)",
+    "id": 7,
+    "memberSavingId": 10
+  },
+  "8": {
+    "active": 1,
+    "amount": 0,
+    "description": "30 day Call Deposit (2025/10)",
+    "id": 8,
+    "memberSavingId": 1
+  },
+  "9": {
+    "active": 1,
+    "amount": 0,
+    "description": "30 day Call Deposit (2025/10)",
+    "id": 9,
+    "memberSavingId": 7
+  }
+}
