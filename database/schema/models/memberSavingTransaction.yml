@@ -19,12 +19,18 @@ date:
   order: 3
   type: text
 
-amount:
+deposit:
+  default: "0"
   order: 4
+  type: real
+
+withdrawal:
+  default: "0"
+  order: 5
   type: real
 
 balance:
   hidden: true
   optional: true
-  order: 5
+  order: 6
   type: real

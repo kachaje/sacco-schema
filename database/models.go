@@ -59,9 +59,8 @@ var (
 	}
 	MemberSavingArrayChildren = []string{
 		"memberContributionWithdraw",
-		"memberSavingDeposit",
 		"memberSavingInterest",
-		"memberSavingWithdrawal",
+		"memberSavingTransaction",
 	}
 	MemberSavingIdsCacheSingleChildren = []string{
 		"memberSaving",
@@ -103,6 +102,7 @@ var (
 		"balance",
 		"claimed",
 		"closingBalance",
+		"deposit",
 		"direction",
 		"employeeWages",
 		"expectedAmount",
@@ -154,6 +154,7 @@ var (
 		"value",
 		"value1",
 		"value2",
+		"withdrawal",
 		"yearsInBusiness",
 	}
 	ParentModels = map[string][]string{
@@ -243,16 +244,13 @@ var (
 			"member",
 			"savingsType",
 		},
-		"memberSavingDeposit": {
-			"memberSaving",
-		},
 		"memberSavingIdsCache": {
 			"memberSaving",
 		},
 		"memberSavingInterest": {
 			"memberSaving",
 		},
-		"memberSavingWithdrawal": {
+		"memberSavingTransaction": {
 			"memberSaving",
 		},
 		"notification": {

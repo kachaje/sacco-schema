@@ -1499,44 +1499,6 @@
     "model": "memberSaving",
     "parents": ["member", "savingsType"]
   },
-  "memberSavingDeposit": {
-    "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
-      "balance": {
-        "hidden": true,
-        "optional": true,
-        "order": 5,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "description": {
-        "order": 2,
-        "type": "text"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      },
-      "memberSavingId": {
-        "many": true,
-        "order": 1,
-        "referenceTable": "memberSaving",
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "memberSavingDeposit",
-    "parents": ["memberSaving"]
-  },
   "memberSavingIdsCache": {
     "fields": {
       "claimed": {
@@ -1600,22 +1562,23 @@
     "model": "memberSavingInterest",
     "parents": ["memberSaving"]
   },
-  "memberSavingWithdrawal": {
+  "memberSavingTransaction": {
     "fields": {
-      "amount": {
-        "order": 4,
-        "type": "real"
-      },
       "balance": {
         "hidden": true,
         "optional": true,
-        "order": 5,
+        "order": 6,
         "type": "real"
       },
       "date": {
         "default": "CURRENT_TIMESTAMP",
         "order": 3,
         "type": "text"
+      },
+      "deposit": {
+        "default": "0",
+        "order": 4,
+        "type": "real"
       },
       "description": {
         "order": 2,
@@ -1632,10 +1595,15 @@
         "order": 1,
         "referenceTable": "memberSaving",
         "type": "int"
+      },
+      "withdrawal": {
+        "default": "0",
+        "order": 5,
+        "type": "real"
       }
     },
     "many": true,
-    "model": "memberSavingWithdrawal",
+    "model": "memberSavingTransaction",
     "parents": ["memberSaving"]
   },
   "notification": {

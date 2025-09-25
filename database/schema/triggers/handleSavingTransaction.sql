@@ -1,0 +1,8 @@
+CREATE TRIGGER IF NOT EXISTS handleSavingTransaction AFTER INSERT ON memberSavingTransaction FOR EACH ROW BEGIN
+UPDATE memberSaving
+SET
+  balance = COALESCE(balance, 0) + COALESCE(NEW.deposit, 0) - COALESCE(NEW.withdrawal, 0)
+WHERE
+  id = NEW.memberSavingId;
+
+END;

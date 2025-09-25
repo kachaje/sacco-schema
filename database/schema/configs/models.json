@@ -2311,57 +2311,10 @@
     ],
     "hasMany": [
       "memberContributionWithdraw",
-      "memberSavingDeposit",
       "memberSavingInterest",
-      "memberSavingWithdrawal"
+      "memberSavingTransaction"
     ],
     "rootQuery": "member.savingsType.memberSaving.0"
-  },
-  "memberSavingDeposit": {
-    "belongsTo": ["memberSaving"],
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "memberSavingId": {
-          "hidden": true,
-          "order": 1
-        }
-      },
-      {
-        "description": {
-          "order": 2,
-          "type": "text"
-        }
-      },
-      {
-        "date": {
-          "default": "CURRENT_TIMESTAMP",
-          "optional": true,
-          "order": 3,
-          "type": "text"
-        }
-      },
-      {
-        "amount": {
-          "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "balance": {
-          "hidden": true,
-          "numericField": true,
-          "optional": true,
-          "order": 5
-        }
-      }
-    ],
-    "rootQuery": "member.savingsType.memberSaving.0.memberSavingDeposit.0"
   },
   "memberSavingIdsCache": {
     "belongsTo": ["memberSaving"],
@@ -2439,7 +2392,7 @@
     ],
     "rootQuery": "member.savingsType.memberSaving.0.memberSavingInterest.0"
   },
-  "memberSavingWithdrawal": {
+  "memberSavingTransaction": {
     "belongsTo": ["memberSaving"],
     "fields": [
       {
@@ -2469,9 +2422,17 @@
         }
       },
       {
-        "amount": {
+        "deposit": {
           "numericField": true,
+          "optional": true,
           "order": 4
+        }
+      },
+      {
+        "withdrawal": {
+          "numericField": true,
+          "optional": true,
+          "order": 5
         }
       },
       {
@@ -2479,11 +2440,11 @@
           "hidden": true,
           "numericField": true,
           "optional": true,
-          "order": 5
+          "order": 6
         }
       }
     ],
-    "rootQuery": "member.savingsType.memberSaving.0.memberSavingWithdrawal.0"
+    "rootQuery": "member.savingsType.memberSaving.0.memberSavingTransaction.0"
   },
   "notification": {
     "belongsTo": ["member"],

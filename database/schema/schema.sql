@@ -859,29 +859,6 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS memberSavingDeposit (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    memberSavingId INTEGER NOT NULL,
-    description TEXT NOT NULL,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
-    balance REAL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS memberSavingDepositUpdated AFTER
-UPDATE ON memberSavingDeposit FOR EACH ROW BEGIN
-UPDATE memberSavingDeposit
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
 CREATE TABLE IF NOT EXISTS memberSavingIdsCache (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberSavingId INTEGER,
@@ -926,12 +903,13 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS memberSavingWithdrawal (
+CREATE TABLE IF NOT EXISTS memberSavingTransaction (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberSavingId INTEGER NOT NULL,
     description TEXT NOT NULL,
     date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
+    deposit REAL DEFAULT 0,
+    withdrawal REAL DEFAULT 0,
     balance REAL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -939,9 +917,9 @@ CREATE TABLE IF NOT EXISTS memberSavingWithdrawal (
     FOREIGN KEY (memberSavingId) REFERENCES memberSaving (id) ON DELETE CASCADE
 );
 
-CREATE TRIGGER IF NOT EXISTS memberSavingWithdrawalUpdated AFTER
-UPDATE ON memberSavingWithdrawal FOR EACH ROW BEGIN
-UPDATE memberSavingWithdrawal
+CREATE TRIGGER IF NOT EXISTS memberSavingTransactionUpdated AFTER
+UPDATE ON memberSavingTransaction FOR EACH ROW BEGIN
+UPDATE memberSavingTransaction
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

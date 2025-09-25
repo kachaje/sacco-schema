@@ -66,9 +66,8 @@
   "memberSaving": {
     "arrayChildren": [
       "memberContributionWithdraw",
-      "memberSavingDeposit",
       "memberSavingInterest",
-      "memberSavingWithdrawal"
+      "memberSavingTransaction"
     ]
   },
   "memberSavingIdsCache": {

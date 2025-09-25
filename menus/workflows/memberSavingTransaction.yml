@@ -1,0 +1,56 @@
+cacheQueries:
+  balance1: member.savingsType.memberSaving.0.memberSavingTransaction.0.balance
+  date1: member.savingsType.memberSaving.0.memberSavingTransaction.0.date
+  deposit1: member.savingsType.memberSaving.0.memberSavingTransaction.0.deposit
+  description1: member.savingsType.memberSaving.0.memberSavingTransaction.0.description
+  id1: member.savingsType.memberSaving.0.memberSavingTransaction.0.id
+  memberSavingId1: member.savingsType.memberSaving.0.memberSavingTransaction.0.memberSavingId
+  withdrawal1: member.savingsType.memberSaving.0.memberSavingTransaction.0.withdrawal
+enterBalance1:
+  hidden: true
+  inputIdentifier: balance1
+  type: hiddenField
+enterDate1:
+  default: CURRENT_TIMESTAMP
+  hidden: true
+  inputIdentifier: date1
+enterDeposit1:
+  inputIdentifier: deposit1
+  nextScreen: enterWithdrawal1
+  optional: true
+  order: 2
+  text:
+    en: Deposit
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterDeposit1
+  order: 1
+  text:
+    en: Description
+  type: inputScreen
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterMemberSavingId1:
+  hidden: true
+  inputIdentifier: memberSavingId1
+  type: hiddenField
+enterWithdrawal1:
+  inputIdentifier: withdrawal1
+  nextScreen: formSummary
+  optional: true
+  order: 3
+  text:
+    en: Withdrawal
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+formSummary:
+  type: quitScreen
+initialScreen: enterDescription1
+model: memberSavingTransaction
+parentIds:
+  - memberSavingId
+rootQuery: member.savingsType.memberSaving.0.memberSavingTransaction.0

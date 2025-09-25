@@ -12,3 +12,4 @@ svr
 test.sql
 *.log
 backups/
+.DS_Store
