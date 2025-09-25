@@ -5,4 +5,20 @@ SET
 WHERE
   id = NEW.memberSavingId;
 
+UPDATE memberSavingTransaction
+SET
+  balance = COALESCE(
+    (
+      SELECT
+        balance
+      FROM
+        memberSaving
+      WHERE
+        id = NEW.memberSavingId
+    ),
+    0
+  )
+WHERE
+  id = NEW.id;
+
 END;

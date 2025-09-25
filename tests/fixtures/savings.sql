@@ -93,7 +93,7 @@ WHERE
   );
 
 INSERT INTO
-  memberSavingDeposit (memberSavingId, description, amount, date)
+  memberSavingTransaction (memberSavingId, description, deposit, date)
 WITH RECURSIVE
   cnt (i) AS (
     SELECT
@@ -124,7 +124,7 @@ WHERE
   s.memberId = i;
 
 INSERT INTO
-  memberSavingWithdrawal (memberSavingId, description, amount, date)
+  memberSavingTransaction (memberSavingId, description, withdrawal, date)
 WITH RECURSIVE
   cnt (i) AS (
     SELECT
@@ -159,7 +159,7 @@ WHERE
   s.memberId = i;
 
 INSERT INTO
-  memberSavingWithdrawal (memberSavingId, description, amount, date)
+  memberSavingTransaction (memberSavingId, description, withdrawal, date)
 WITH RECURSIVE
   cnt (i) AS (
     SELECT
