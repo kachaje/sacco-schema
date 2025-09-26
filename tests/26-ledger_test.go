@@ -191,3 +191,59 @@ Actual:
 		}
 	}
 }
+
+func TestHandleGet(t *testing.T) {
+	var result []string
+
+	queryFn := func(query string) ([]map[string]any, error) {
+		result = append(result, strings.TrimSpace(query))
+
+		return nil, nil
+	}
+
+	ledger.QueryHandler = queryFn
+
+	req := httptest.NewRequest(http.MethodGet, "/api", nil)
+	rr := httptest.NewRecorder()
+
+	http.HandlerFunc(ledger.HandleGet).ServeHTTP(rr, req)
+
+	req = httptest.NewRequest(
+		http.MethodGet,
+		"/api?startDate=2025-01-01&endDate=2025-12-31",
+		nil,
+	)
+
+	http.HandlerFunc(ledger.HandleGet).ServeHTTP(rr, req)
+
+	fixturesFile := filepath.Join(".", "fixtures", "ledger.get.sql")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload := []byte(strings.Join(result, ";\n"))
+
+		os.WriteFile(fixturesFile, payload, 0644)
+	}
+
+	target := []string{}
+
+	content, err := os.ReadFile(fixturesFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for line := range strings.SplitSeq(string(content), ";") {
+		if len(strings.TrimSpace(line)) > 0 {
+			target = append(target, line)
+		}
+	}
+
+	for i := range result {
+		if strings.TrimSpace(target[i]) != strings.TrimSpace(result[i]) {
+			t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s`, target[i], result[i])
+		}
+	}
+}

@@ -89,6 +89,11 @@ INSERT INTO accountEntry (
 }
 
 func HandlePost(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
 	data := TransactionBodyType{}
 
 	body, err := io.ReadAll(r.Body)
@@ -117,7 +122,50 @@ func HandlePost(w http.ResponseWriter, r *http.Request) {
 }
 
 func HandleGet(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
 
+	params := r.URL.Query()
+
+	startDate := params.Get("startDate")
+	endDate := params.Get("endDate")
+
+	var query string
+
+	if startDate != "" && endDate != "" {
+		query = fmt.Sprintf(`
+			SELECT 
+				id, name, accountType, balance, createdAt, updatedAt 
+			FROM account 
+			WHERE DATE(updatedAt) >= DATE('%s') AND DATE(updatedAt) <= DATE('%s')
+			ORDER BY updatedAt DESC`,
+			startDate, endDate,
+		)
+	} else {
+		query = `
+			SELECT 
+				id, name, accountType, balance, createdAt, updatedAt 
+			FROM account 
+			ORDER BY updatedAt DESC`
+	}
+
+	if QueryHandler != nil {
+		result, err := QueryHandler(query)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+
+		err = json.NewEncoder(w).Encode(result)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	}
 }
 
 func ledgerHandler(w http.ResponseWriter, r *http.Request) {
