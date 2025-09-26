@@ -131,3 +131,9 @@ VALUES
     1,
     0.07
   );
+
+INSERT INTO
+  account (name, accountType)
+VALUES
+  ('Assets', 'ASSET'),
+  ('Liabilities', 'LIABILITY');
