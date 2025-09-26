@@ -10,10 +10,12 @@ name:
   unique: true
 
 accountType:
-  default: ASSET
   options:
     - ASSET
     - LIABILITY
+    - EXPENSE
+    - EQUITY
+    - REVENUE
   order: 2
   type: text
 
@@ -21,3 +23,13 @@ balance:
   default: "0"
   order: 3
   type: int
+
+increasedBy:
+  default: DEBIT
+  order: 4
+  type: text
+
+decreasedBy:
+  default: CREDIT
+  order: 5
+  type: text

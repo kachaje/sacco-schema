@@ -1,12 +1,13 @@
 cacheQueries:
   accountType: account.accountType
   balance: account.balance
+  decreasedBy: account.decreasedBy
   id: account.id
+  increasedBy: account.increasedBy
   name: account.name
 enterAccountType:
   inputIdentifier: accountType
   nextScreen: enterBalance
-  optional: true
   options:
     - label:
         en: ASSET
@@ -14,23 +15,48 @@ enterAccountType:
     - label:
         en: LIABILITY
       position: 2
+    - label:
+        en: EXPENSE
+      position: 3
+    - label:
+        en: EQUITY
+      position: 4
+    - label:
+        en: REVENUE
+      position: 5
   order: 2
   text:
     en: Account Type
   type: inputScreen
 enterBalance:
   inputIdentifier: balance
-  nextScreen: formSummary
+  nextScreen: enterIncreasedBy
   optional: true
   order: 3
   text:
     en: Balance
   type: inputScreen
   validationRule: ^\d+\.*\d*$
+enterDecreasedBy:
+  inputIdentifier: decreasedBy
+  nextScreen: formSummary
+  optional: true
+  order: 5
+  text:
+    en: Decreased By
+  type: inputScreen
 enterId:
   hidden: true
   inputIdentifier: id
   type: hiddenField
+enterIncreasedBy:
+  inputIdentifier: increasedBy
+  nextScreen: enterDecreasedBy
+  optional: true
+  order: 4
+  text:
+    en: Increased By
+  type: inputScreen
 enterName:
   inputIdentifier: name
   nextScreen: enterAccountType

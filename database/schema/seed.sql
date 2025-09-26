@@ -99,20 +99,20 @@ FROM
 ORDER BY
   RANDOM ();
 
-INSERT OR IGNORE INTO
-  taxRate (name, value)
+INSERT
+OR IGNORE INTO taxRate (name, value)
 VALUES
   ("VAT", 0.0);
 
-INSERT OR IGNORE INTO
-  savingsType (
-    savingsTypeName,
-    minimumAmount,
-    withdrawPattern,
-    minWithdrawMonths,
-    maxWithdrawMonths,
-    interestRate
-  )
+INSERT
+OR IGNORE INTO savingsType (
+  savingsTypeName,
+  minimumAmount,
+  withdrawPattern,
+  minWithdrawMonths,
+  maxWithdrawMonths,
+  interestRate
+)
 VALUES
   (
     'Fixed Deposit',
@@ -132,8 +132,11 @@ VALUES
     0.07
   );
 
-INSERT OR IGNORE INTO
-  account (name, accountType)
+INSERT
+OR IGNORE INTO account (name, accountType, increasedBy, decreasedBy)
 VALUES
-  ('Assets', 'ASSET'),
-  ('Liabilities', 'LIABILITY');
+  ('Assets', 'ASSET', 'DEBIT', 'CREDIT'),
+  ('Liabilities', 'LIABILITY', 'CREDIT', 'DEBIT'),
+  ('Expenses', 'EXPENSE', 'DEBIT', 'CREDIT'),
+  ('Equity', 'EQUITY', 'CREDIT', 'DEBIT'),
+  ('Revenue', 'REVENUE', 'CREDIT', 'DEBIT');

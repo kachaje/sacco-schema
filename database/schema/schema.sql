@@ -1,8 +1,18 @@
 CREATE TABLE IF NOT EXISTS account (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE,
-    accountType TEXT DEFAULT 'ASSET' CHECK (accountType IN ('ASSET', 'LIABILITY')),
+    accountType TEXT NOT NULL CHECK (
+        accountType IN (
+            'ASSET',
+            'LIABILITY',
+            'EXPENSE',
+            'EQUITY',
+            'REVENUE'
+        )
+    ),
     balance INTEGER DEFAULT 0,
+    increasedBy TEXT DEFAULT 'DEBIT',
+    decreasedBy TEXT DEFAULT 'CREDIT',
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP

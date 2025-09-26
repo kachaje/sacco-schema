@@ -4,7 +4,10 @@ type AccountType string
 
 const (
 	ASSET     AccountType = "ASSET"
+	EXPENSE   AccountType = "EXPENSE"
 	LIABILITY AccountType = "LIABILITY"
+	EQUITY    AccountType = "EQUITY"
+	REVENUE   AccountType = "REVENUE"
 )
 
 type Account struct {

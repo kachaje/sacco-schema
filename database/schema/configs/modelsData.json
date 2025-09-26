@@ -2,8 +2,7 @@
   "account": {
     "fields": {
       "accountType": {
-        "default": "ASSET",
-        "options": ["ASSET", "LIABILITY"],
+        "options": ["ASSET", "LIABILITY", "EXPENSE", "EQUITY", "REVENUE"],
         "order": 2,
         "type": "text"
       },
@@ -12,11 +11,21 @@
         "order": 3,
         "type": "int"
       },
+      "decreasedBy": {
+        "default": "CREDIT",
+        "order": 5,
+        "type": "text"
+      },
       "id": {
         "autoIncrement": true,
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "increasedBy": {
+        "default": "DEBIT",
+        "order": 4,
+        "type": "text"
       },
       "name": {
         "order": 1,
