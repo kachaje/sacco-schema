@@ -153,6 +153,8 @@ func (d *Database) initDb() error {
 		}
 	}
 
+	totalTables := len(modelTemplatesData)
+
 	for {
 		rows, err := d.DB.QueryContext(context.Background(), "SELECT name FROM sqlite_master WHERE type='table'")
 		if err == nil {
@@ -162,7 +164,7 @@ func (d *Database) initDb() error {
 				count++
 			}
 
-			if count >= 43 {
+			if count >= totalTables {
 				time.Sleep(1 * time.Second)
 
 				break
