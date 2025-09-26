@@ -14,6 +14,7 @@ import (
 	"regexp"
 	cronjobs "sacco/cronJobs"
 	"sacco/database"
+	"sacco/ledger"
 	"sacco/menus"
 	menufuncs "sacco/menus/menuFuncs"
 	"sacco/utils"
@@ -239,13 +240,15 @@ func Main() {
 
 	activeMenu = menus.NewMenus(&devMode, &menufuncs.DemoMode)
 
-	http.HandleFunc("/ws", wsHandler)
+	router := ledger.Main(menufuncs.DB.SQLQuery)
+
+	router.HandleFunc("/ws", wsHandler)
 
 	indexHTML = regexp.MustCompile("8080").ReplaceAllString(indexHTML, fmt.Sprint(port))
 
-	http.HandleFunc("/cron/jobs", cronJobsHandler)
+	router.HandleFunc("/cron/jobs", cronJobsHandler)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl, err := template.New("index").Parse(indexHTML)
 		if err != nil {
 			http.Error(w, "Error parsing template", http.StatusInternalServerError)
@@ -257,7 +260,7 @@ func Main() {
 		}
 	})
 
-	http.HandleFunc("/ussd", ussdHandler)
+	router.HandleFunc("/ussd", ussdHandler)
 	log.Printf("USSD server listening on :%d\n", port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), router))
 }
