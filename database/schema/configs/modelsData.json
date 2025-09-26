@@ -460,6 +460,36 @@
     "model": "memberContributionDeposit",
     "parents": ["memberContribution"]
   },
+  "memberContributionDividend": {
+    "fields": {
+      "amount": {
+        "default": "0",
+        "order": 3,
+        "type": "real"
+      },
+      "dueDate": {
+        "order": 2,
+        "type": "text"
+      },
+      "id": {
+        "hidden": true,
+        "optional": true,
+        "order": 0,
+        "primaryKey": true,
+        "type": "text",
+        "unique": true
+      },
+      "memberContributionId": {
+        "many": true,
+        "order": 1,
+        "referenceTable": "memberContribution",
+        "type": "int"
+      }
+    },
+    "many": true,
+    "model": "memberContributionDividend",
+    "parents": ["memberContribution"]
+  },
   "memberContributionSchedule": {
     "fields": {
       "dueDate": {

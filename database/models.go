@@ -28,6 +28,7 @@ var (
 	}
 	MemberContributionArrayChildren = []string{
 		"memberContributionDeposit",
+		"memberContributionDividend",
 		"memberContributionSchedule",
 	}
 	MemberIdsCacheSingleChildren = []string{
@@ -184,6 +185,9 @@ var (
 			"member",
 		},
 		"memberContributionDeposit": {
+			"memberContribution",
+		},
+		"memberContributionDividend": {
 			"memberContribution",
 		},
 		"memberContributionSchedule": {

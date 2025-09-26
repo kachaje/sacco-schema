@@ -535,7 +535,11 @@
         }
       }
     ],
-    "hasMany": ["memberContributionDeposit", "memberContributionSchedule"],
+    "hasMany": [
+      "memberContributionDeposit",
+      "memberContributionDividend",
+      "memberContributionSchedule"
+    ],
     "rootQuery": "member.memberContribution.0"
   },
   "memberContributionDeposit": {
@@ -584,6 +588,37 @@
       }
     ],
     "rootQuery": "member.memberContribution.0.memberContributionDeposit.0"
+  },
+  "memberContributionDividend": {
+    "belongsTo": ["memberContribution"],
+    "fields": [
+      {
+        "id": {
+          "hidden": true,
+          "order": 0
+        }
+      },
+      {
+        "memberContributionId": {
+          "hidden": true,
+          "order": 1
+        }
+      },
+      {
+        "dueDate": {
+          "order": 2,
+          "type": "text"
+        }
+      },
+      {
+        "amount": {
+          "numericField": true,
+          "optional": true,
+          "order": 3
+        }
+      }
+    ],
+    "rootQuery": "member.memberContribution.0.memberContributionDividend.0"
   },
   "memberContributionSchedule": {
     "belongsTo": ["memberContribution"],

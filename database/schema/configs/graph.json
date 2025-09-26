@@ -30,7 +30,11 @@
     ]
   },
   "memberContribution": {
-    "arrayChildren": ["memberContributionDeposit", "memberContributionSchedule"]
+    "arrayChildren": [
+      "memberContributionDeposit",
+      "memberContributionDividend",
+      "memberContributionSchedule"
+    ]
   },
   "memberIdsCache": {
     "singleChildren": ["member"]

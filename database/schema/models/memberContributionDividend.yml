@@ -1,0 +1,22 @@
+id:
+  hidden: true
+  optional: true
+  order: 0
+  primaryKey: true
+  type: text
+  unique: true
+
+memberContributionId:
+  many: true
+  order: 1
+  referenceTable: memberContribution
+  type: int
+
+dueDate:
+  order: 2
+  type: text
+
+amount:
+  default: "0"
+  order: 3
+  type: real

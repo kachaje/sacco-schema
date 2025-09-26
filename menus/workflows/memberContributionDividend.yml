@@ -1,0 +1,36 @@
+cacheQueries:
+  amount1: member.memberContribution.0.memberContributionDividend.0.amount
+  dueDate1: member.memberContribution.0.memberContributionDividend.0.dueDate
+  id1: member.memberContribution.0.memberContributionDividend.0.id
+  memberContributionId1: member.memberContribution.0.memberContributionDividend.0.memberContributionId
+enterAmount1:
+  inputIdentifier: amount1
+  nextScreen: formSummary
+  optional: true
+  order: 2
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterDueDate1:
+  inputIdentifier: dueDate1
+  nextScreen: enterAmount1
+  order: 1
+  text:
+    en: Due Date
+  type: inputScreen
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterMemberContributionId1:
+  hidden: true
+  inputIdentifier: memberContributionId1
+  type: hiddenField
+formSummary:
+  type: quitScreen
+initialScreen: enterDueDate1
+model: memberContributionDividend
+parentIds:
+  - memberContributionId
+rootQuery: member.memberContribution.0.memberContributionDividend.0

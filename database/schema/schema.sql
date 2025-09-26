@@ -299,6 +299,27 @@ WHERE
 
 END;
 
+CREATE TABLE IF NOT EXISTS memberContributionDividend (
+    id TEXT PRIMARY KEY UNIQUE,
+    memberContributionId INTEGER NOT NULL,
+    dueDate TEXT NOT NULL,
+    amount REAL DEFAULT 0,
+    active INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (memberContributionId) REFERENCES memberContribution (id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER IF NOT EXISTS memberContributionDividendUpdated AFTER
+UPDATE ON memberContributionDividend FOR EACH ROW BEGIN
+UPDATE memberContributionDividend
+SET
+    updatedAt=CURRENT_TIMESTAMP
+WHERE
+    id=OLD.id;
+
+END;
+
 CREATE TABLE IF NOT EXISTS memberContributionSchedule (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     memberContributionId INTEGER NOT NULL,
