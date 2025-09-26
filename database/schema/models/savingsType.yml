@@ -7,6 +7,7 @@ id:
 savingsTypeName:
   order: 1
   type: text
+  unique: true
 
 minimumAmount:
   order: 2

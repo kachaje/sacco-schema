@@ -13,6 +13,7 @@ memberContributionId:
 idNumber:
   order: 2
   type: text
+  unique: true
 
 claimed:
   default: "0"

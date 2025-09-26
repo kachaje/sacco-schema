@@ -85,7 +85,8 @@
       },
       "idNumber": {
         "order": 2,
-        "type": "text"
+        "type": "text",
+        "unique": true
       },
       "memberContributionId": {
         "optional": true,
@@ -589,7 +590,8 @@
       },
       "idNumber": {
         "order": 2,
-        "type": "text"
+        "type": "text",
+        "unique": true
       },
       "memberId": {
         "optional": true,
@@ -1514,7 +1516,8 @@
       },
       "idNumber": {
         "order": 2,
-        "type": "text"
+        "type": "text",
+        "unique": true
       },
       "memberSavingId": {
         "optional": true,
@@ -1684,7 +1687,8 @@
       },
       "savingsTypeName": {
         "order": 1,
-        "type": "text"
+        "type": "text",
+        "unique": true
       },
       "withdrawPattern": {
         "order": 3,
@@ -1753,7 +1757,8 @@
       },
       "name": {
         "order": 1,
-        "type": "text"
+        "type": "text",
+        "unique": true
       }
     },
     "model": "userRole",

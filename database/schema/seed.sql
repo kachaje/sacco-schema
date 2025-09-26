@@ -99,12 +99,12 @@ FROM
 ORDER BY
   RANDOM ();
 
-INSERT INTO
+INSERT OR IGNORE INTO
   taxRate (name, value)
 VALUES
   ("VAT", 0.0);
 
-INSERT INTO
+INSERT OR IGNORE INTO
   savingsType (
     savingsTypeName,
     minimumAmount,
@@ -132,7 +132,7 @@ VALUES
     0.07
   );
 
-INSERT INTO
+INSERT OR IGNORE INTO
   account (name, accountType)
 VALUES
   ('Assets', 'ASSET'),
