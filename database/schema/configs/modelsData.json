@@ -462,7 +462,7 @@
   },
   "memberContributionDividend": {
     "fields": {
-      "amount": {
+      "dividend": {
         "default": "0",
         "order": 3,
         "type": "real"
@@ -484,6 +484,11 @@
         "order": 1,
         "referenceTable": "memberContribution",
         "type": "int"
+      },
+      "percentContribution": {
+        "default": "0",
+        "order": 4,
+        "type": "real"
       }
     },
     "many": true,

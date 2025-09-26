@@ -1,20 +1,21 @@
 cacheQueries:
-  amount1: member.memberContribution.0.memberContributionDividend.0.amount
+  dividend1: member.memberContribution.0.memberContributionDividend.0.dividend
   dueDate1: member.memberContribution.0.memberContributionDividend.0.dueDate
   id1: member.memberContribution.0.memberContributionDividend.0.id
   memberContributionId1: member.memberContribution.0.memberContributionDividend.0.memberContributionId
-enterAmount1:
-  inputIdentifier: amount1
-  nextScreen: formSummary
+  percentContribution1: member.memberContribution.0.memberContributionDividend.0.percentContribution
+enterDividend1:
+  inputIdentifier: dividend1
+  nextScreen: enterPercentContribution1
   optional: true
   order: 2
   text:
-    en: Amount
+    en: Dividend
   type: inputScreen
   validationRule: ^\d+\.*\d*$
 enterDueDate1:
   inputIdentifier: dueDate1
-  nextScreen: enterAmount1
+  nextScreen: enterDividend1
   order: 1
   text:
     en: Due Date
@@ -27,6 +28,15 @@ enterMemberContributionId1:
   hidden: true
   inputIdentifier: memberContributionId1
   type: hiddenField
+enterPercentContribution1:
+  inputIdentifier: percentContribution1
+  nextScreen: formSummary
+  optional: true
+  order: 3
+  text:
+    en: Percent Contribution
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
 formSummary:
   type: quitScreen
 initialScreen: enterDueDate1

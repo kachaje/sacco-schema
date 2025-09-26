@@ -16,7 +16,12 @@ dueDate:
   order: 2
   type: text
 
-amount:
+dividend:
   default: "0"
   order: 3
+  type: real
+
+percentContribution:
+  default: "0"
+  order: 4
   type: real

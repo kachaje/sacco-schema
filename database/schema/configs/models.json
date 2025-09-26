@@ -611,10 +611,17 @@
         }
       },
       {
-        "amount": {
+        "dividend": {
           "numericField": true,
           "optional": true,
           "order": 3
+        }
+      },
+      {
+        "percentContribution": {
+          "numericField": true,
+          "optional": true,
+          "order": 4
         }
       }
     ],

@@ -378,10 +378,14 @@ memberContributionDividend:
     - dueDate:
         order: 2
         type: text
-    - amount:
+    - dividend:
         numericField: true
         optional: true
         order: 3
+    - percentContribution:
+        numericField: true
+        optional: true
+        order: 4
   rootQuery: member.memberContribution.0.memberContributionDividend.0
 memberContributionSchedule:
   belongsTo:
