@@ -73,6 +73,14 @@ INSERT INTO accountEntry (
 			return err
 		}
 
+		subQuery := GetAccountDirection(accountType, debitCredit, amount)
+
+		query = fmt.Sprintf(`UPDATE account SET %s WHERE id = (SELECT id FROM account WHERE accountType = '%s')`, subQuery, accountType)
+
+		_, err = SaveHandler(query)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil

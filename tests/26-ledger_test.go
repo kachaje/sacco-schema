@@ -66,10 +66,10 @@ func TestGetAccountDirection(t *testing.T) {
 }
 
 func TestCreateEntryTransactions(t *testing.T) {
-	var result string
+	var result []string
 
 	saveFn := func(query string) ([]map[string]any, error) {
-		result = query
+		result = append(result, query)
 
 		return nil, nil
 	}
@@ -110,11 +110,25 @@ INSERT INTO accountEntry (
 	'1172', 'Some ledger entry', 'Lots of groceries', 'DEBIT', 1234
 )`
 
-	if utils.CleanString(target) != utils.CleanString(result) {
+	if len(result) < 2 {
+		t.Fatal("Test failed")
+	}
+
+	if utils.CleanString(target) != utils.CleanString(result[0]) {
 		t.Fatalf(`Test failed.
 Expected:
 %s
 Actual:
-%s`, target, result)
+%s`, target, result[0])
+	}
+
+	target = `UPDATE account SET balance = COALESCE(balance, 0) + 1234 WHERE id = (SELECT id FROM account WHERE accountType = 'ASSET')`
+
+	if utils.CleanString(target) != utils.CleanString(result[1]) {
+		t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s`, target, result[1])
 	}
 }
