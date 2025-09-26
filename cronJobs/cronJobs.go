@@ -19,6 +19,7 @@ func NewCronJobs(db *database.Database) *CronJobs {
 
 	jobs.Jobs["ordinaryDepositsInterest"] = jobs.CalculateOrdinaryDepositsInterest
 	jobs.Jobs["fixedDepositsInterest"] = jobs.CalculateFixedDepositInterests
+	jobs.Jobs["contributionDividends"] = jobs.CalculateContributionDividends
 
 	return jobs
 }
@@ -30,6 +31,28 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 		if err := jobFn(targetDate); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (c *CronJobs) CalculateContributionDividends(targetDate string) error {
+	query := fmt.Sprintf(`
+INSERT OR REPLACE INTO memberContributionDividend (id, memberContributionId, dueDate, amount)
+WITH RECURSIVE schedule AS (
+	SELECT 
+		CONCAT(STRFTIME('%%Y', '%s'), '-', memberConributionId) AS tag, memberConributionId, dueDate, paidAmount
+	FROM memberContributionSchedule
+	WHERE DATE(dueDate) <= DATE('%s') AND active = 1
+)
+SELECT 
+	memberContributionId, dueDate, paidAmount
+FROM schedule
+	`, targetDate, targetDate)
+
+	_, err := c.DB.SQLQuery(query)
+	if err != nil {
+		return err
 	}
 
 	return nil
