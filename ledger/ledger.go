@@ -24,9 +24,9 @@ type TransactionBodyType struct {
 	LedgerEntries []models.AccountEntry `json:"ledgerEntries"`
 }
 
-var saveHandler func(query string) ([]map[string]any, error)
+var SaveHandler func(query string) ([]map[string]any, error)
 
-func CreateEntryTransactions(entry LedgerEntry) ([]map[string]any, error) {
+func CreateEntryTransactions(entry LedgerEntry) error {
 	amount := entry.Amount
 	debitCredit := entry.DebitCredit
 	name := entry.Name
@@ -34,7 +34,7 @@ func CreateEntryTransactions(entry LedgerEntry) ([]map[string]any, error) {
 	referenceNumber := entry.ReferenceNumber
 	description := entry.Description
 
-	if saveHandler != nil {
+	if SaveHandler != nil {
 		query := fmt.Sprintf(`
 INSERT INTO accountEntry (
 	accountId, 
@@ -49,10 +49,13 @@ INSERT INTO accountEntry (
 )`, accountType, referenceNumber, name,
 			description, debitCredit, amount)
 
-		return saveHandler(query)
+		_, err := SaveHandler(query)
+		if err != nil {
+			return err
+		}
 	}
 
-	return nil, nil
+	return nil
 }
 
 func HandlePost(w http.ResponseWriter, r *http.Request) {
@@ -78,7 +81,7 @@ func ledgerHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func Main(saveFn func(query string) ([]map[string]any, error)) *mux.Router {
-	saveHandler = saveFn
+	SaveHandler = saveFn
 
 	r := mux.NewRouter()
 
