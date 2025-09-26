@@ -30,13 +30,13 @@ var QueryHandler func(query string) ([]map[string]any, error)
 
 func GetAccountDirection(accountType models.AccountType, debitCredit models.DebitCredit, amount int) string {
 	switch accountType {
-	case models.ASSET:
+	case models.ASSET, models.EXPENSE:
 		if debitCredit == models.DEBIT {
 			return fmt.Sprintf(`balance = COALESCE(balance, 0) + %v`, amount)
 		} else {
 			return fmt.Sprintf(`balance = COALESCE(balance, 0) - %v`, amount)
 		}
-	case models.LIABILITY:
+	case models.LIABILITY, models.EQUITY, models.REVENUE:
 		if debitCredit == models.CREDIT {
 			return fmt.Sprintf(`balance = COALESCE(balance, 0) + %v`, amount)
 		} else {
