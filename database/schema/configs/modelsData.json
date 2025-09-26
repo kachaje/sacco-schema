@@ -381,6 +381,7 @@
   "memberContributionDeposit": {
     "fields": {
       "amount": {
+        "asset": true,
         "order": 5,
         "type": "real"
       },
@@ -421,6 +422,7 @@
     "fields": {
       "dividend": {
         "default": "0",
+        "liability": true,
         "order": 3,
         "type": "real"
       },
@@ -492,6 +494,7 @@
   "memberContributionWithdraw": {
     "fields": {
       "amount": {
+        "liability": true,
         "order": 4,
         "type": "real"
       },
@@ -841,6 +844,7 @@
   "memberLoanDisbursement": {
     "fields": {
       "amount": {
+        "liability": true,
         "order": 4,
         "type": "real"
       },
@@ -902,6 +906,7 @@
   "memberLoanPayment": {
     "fields": {
       "amountPaid": {
+        "asset": true,
         "order": 6,
         "type": "real"
       },
@@ -1090,6 +1095,7 @@
         "type": "real"
       },
       "amountReserved": {
+        "liability": true,
         "order": 2,
         "type": "real"
       },
@@ -1110,6 +1116,7 @@
   "memberLoanTax": {
     "fields": {
       "amount": {
+        "liability": true,
         "order": 4,
         "type": "real"
       },
@@ -1521,6 +1528,7 @@
   "memberSavingInterest": {
     "fields": {
       "amount": {
+        "liability": true,
         "order": 4,
         "type": "real"
       },
@@ -1566,6 +1574,7 @@
       },
       "deposit": {
         "default": "0",
+        "liability": true,
         "order": 4,
         "type": "real"
       },

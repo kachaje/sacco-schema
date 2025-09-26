@@ -9,6 +9,7 @@ loanNumber:
   type: text
 
 amountReserved:
+  liability: true
   order: 2
   type: real
 

@@ -21,6 +21,7 @@ transactionDate:
 
 deposit:
   default: "0"
+  liability: true
   order: 4
   type: real
 

@@ -20,6 +20,7 @@ date:
   type: text
 
 amount:
+  liability: true
   order: 4
   type: real
 

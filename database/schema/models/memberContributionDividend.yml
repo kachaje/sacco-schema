@@ -18,6 +18,7 @@ dueDate:
 
 dividend:
   default: "0"
+  liability: true
   order: 3
   type: real
 

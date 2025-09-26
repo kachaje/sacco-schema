@@ -33,6 +33,7 @@ date:
   type: text
 
 amountPaid:
+  asset: true
   order: 6
   type: real
 
