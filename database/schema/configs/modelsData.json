@@ -20,7 +20,8 @@
       },
       "name": {
         "order": 1,
-        "type": "text"
+        "type": "text",
+        "unique": true
       }
     },
     "model": "account",
