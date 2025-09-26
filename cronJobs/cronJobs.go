@@ -4,17 +4,18 @@ import (
 	"fmt"
 	"log"
 	"sacco/database"
+	"strconv"
 )
 
 type CronJobs struct {
-	Jobs map[string]func(targetDate string) error
+	Jobs map[string]func(targetDate string, options ...any) error
 	DB   *database.Database
 }
 
 func NewCronJobs(db *database.Database) *CronJobs {
 	jobs := &CronJobs{
 		DB:   db,
-		Jobs: map[string]func(targetDate string) error{},
+		Jobs: map[string]func(targetDate string, options ...any) error{},
 	}
 
 	jobs.Jobs["ordinaryDepositsInterest"] = jobs.CalculateOrdinaryDepositsInterest
@@ -24,11 +25,11 @@ func NewCronJobs(db *database.Database) *CronJobs {
 	return jobs
 }
 
-func (c *CronJobs) RunCronJobs(targetDate string) error {
+func (c *CronJobs) RunCronJobs(targetDate string, options ...any) error {
 	for job, jobFn := range c.Jobs {
 		log.Printf("Running job %s\n", job)
 
-		if err := jobFn(targetDate); err != nil {
+		if err := jobFn(targetDate, options...); err != nil {
 			return err
 		}
 	}
@@ -36,19 +37,40 @@ func (c *CronJobs) RunCronJobs(targetDate string) error {
 	return nil
 }
 
-func (c *CronJobs) CalculateContributionDividends(targetDate string) error {
+func (c *CronJobs) CalculateContributionDividends(targetDate string, options ...any) error {
+	var profit float64 = 0
+
+	if len(options) > 0 {
+		if val, ok := options[0].(map[string]any); ok {
+			if val["profit"] != nil {
+				v, err := strconv.ParseFloat(fmt.Sprintf("%v", val["profit"]), 64)
+				if err == nil {
+					profit = v
+				}
+			}
+		}
+	}
+
 	query := fmt.Sprintf(`
-INSERT OR REPLACE INTO memberContributionDividend (id, memberContributionId, dueDate, amount)
-WITH RECURSIVE schedule AS (
-	SELECT 
-		CONCAT(STRFTIME('%%Y', '%s'), '-', memberConributionId) AS tag, memberConributionId, dueDate, paidAmount
-	FROM memberContributionSchedule
-	WHERE DATE(dueDate) <= DATE('%s') AND active = 1
+INSERT OR REPLACE INTO memberContributionDividend (
+	id, memberContributionId, dueDate, percentContribution, dividend
 )
+WITH RECURSIVE 
+	schedule AS (
+		SELECT 
+			CONCAT(STRFTIME('%%Y', '%s'), '-', memberContributionId) AS tag, memberContributionId, dueDate, paidAmount
+		FROM memberContributionSchedule
+		WHERE DATE(dueDate) <= DATE('%s') AND active = 1
+	),
+	totalValue AS (
+		SELECT SUM(paidAmount) AS totalPaidAmount
+		FROM memberContributionSchedule
+		WHERE DATE(dueDate) <= DATE('%s') AND active = 1
+	)
 SELECT 
-	memberContributionId, dueDate, paidAmount
-FROM schedule
-	`, targetDate, targetDate)
+	tag, memberContributionId, dueDate, paidAmount/totalPaidAmount, %f * paidAmount/totalPaidAmount
+FROM schedule, totalValue
+	`, targetDate, targetDate, targetDate, profit)
 
 	_, err := c.DB.SQLQuery(query)
 	if err != nil {
@@ -58,7 +80,7 @@ FROM schedule
 	return nil
 }
 
-func (c *CronJobs) CalculateOrdinaryDepositsInterest(targetDate string) error {
+func (c *CronJobs) CalculateOrdinaryDepositsInterest(targetDate string, options ...any) error {
 	query := fmt.Sprintf(`
 INSERT OR REPLACE INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
 WITH RECURSIVE savings AS ( SELECT 
@@ -123,7 +145,7 @@ WHERE description = CONCAT(
 	return nil
 }
 
-func (c *CronJobs) CalculateFixedDepositInterests(targetDate string) error {
+func (c *CronJobs) CalculateFixedDepositInterests(targetDate string, options ...any) error {
 	_, err := c.DB.SQLQuery(fmt.Sprintf(`
 INSERT OR REPLACE INTO memberSavingInterest (id, memberSavingId, description, amount, dueDate)
 WITH

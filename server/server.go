@@ -190,7 +190,7 @@ func cronJobsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	err = jobs.RunCronJobs(targetDate)
+	err = jobs.RunCronJobs(targetDate, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
