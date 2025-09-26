@@ -1,5 +1,88 @@
 package ledger
 
-func Main() {
+import (
+	"fmt"
+	"net/http"
+	"sacco/ledger/models"
 
+	"github.com/gorilla/mux"
+)
+
+type LedgerEntry struct {
+	ReferenceNumber string             `json:"referenceNumber"`
+	Name            string             `json:"name"`
+	Description     string             `json:"description"`
+	DebitCredit     models.DebitCredit `json:"debitCredit"`
+	Amount          int                `json:"amount"`
+	AccountId       int                `json:"accountId"`
+	AccountType     models.AccountType `json:"accountType"`
+}
+
+type TransactionBodyType struct {
+	Name          string                `json:"name"`
+	Description   string                `json:"description"`
+	LedgerEntries []models.AccountEntry `json:"ledgerEntries"`
+}
+
+var saveHandler func(query string) ([]map[string]any, error)
+
+func CreateEntryTransactions(entry LedgerEntry) ([]map[string]any, error) {
+	amount := entry.Amount
+	debitCredit := entry.DebitCredit
+	name := entry.Name
+	accountType := entry.AccountType
+	referenceNumber := entry.ReferenceNumber
+	description := entry.Description
+
+	if saveHandler != nil {
+		query := fmt.Sprintf(`
+INSERT INTO accountEntry (
+	accountId, 
+	referenceNumber, 
+	name, 
+	description, 
+	debitCredit, 
+	amount
+) VALUES (
+	(SELECT id FROM account WHERE accountType = '%s'),
+	'%s', '%s', '%s', '%s', %v
+)`, accountType, referenceNumber, name,
+			description, debitCredit, amount)
+
+		return saveHandler(query)
+	}
+
+	return nil, nil
+}
+
+func HandlePost(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func HandleGet(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func ledgerHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodPost:
+		HandlePost(w, r)
+		return
+	case http.MethodGet:
+		HandleGet(w, r)
+		return
+	default:
+		http.Error(w, "Method Not Implemented", http.StatusNotImplemented)
+		return
+	}
+}
+
+func Main(saveFn func(query string) ([]map[string]any, error)) *mux.Router {
+	saveHandler = saveFn
+
+	r := mux.NewRouter()
+
+	r.HandleFunc("/api/transaction", ledgerHandler)
+
+	return r
 }
