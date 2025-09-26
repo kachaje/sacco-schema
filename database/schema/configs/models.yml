@@ -333,6 +333,7 @@ memberContributionDeposit:
         order: 4
         type: text
     - amount:
+        asset: true
         numericField: true
         order: 5
   rootQuery: member.memberContribution.0.memberContributionDeposit.0
@@ -350,6 +351,7 @@ memberContributionDividend:
         order: 2
         type: text
     - dividend:
+        liability: true
         numericField: true
         optional: true
         order: 3
@@ -402,6 +404,7 @@ memberContributionWithdraw:
         order: 3
         type: text
     - amount:
+        liability: true
         numericField: true
         order: 4
   rootQuery: member.savingsType.memberSaving.0.memberContributionWithdraw.0
@@ -828,6 +831,7 @@ memberLoanDisbursement:
         order: 3
         type: text
     - amount:
+        liability: true
         numericField: true
         order: 4
   rootQuery: member.memberLoan.0.memberLoanDisbursement
@@ -910,6 +914,7 @@ memberLoanPayment:
         order: 5
         type: text
     - amountPaid:
+        asset: true
         hidden: true
         order: 6
     - availableCash:
@@ -1058,6 +1063,7 @@ memberLoanSettlement:
         order: 1
         type: text
     - amountReserved:
+        liability: true
         numericField: true
         order: 2
     - amountClaimed:
@@ -1084,6 +1090,7 @@ memberLoanTax:
         order: 3
         type: text
     - amount:
+        liability: true
         numericField: true
         order: 4
     - taxCategory:
@@ -1448,6 +1455,7 @@ memberSavingInterest:
         order: 3
         type: text
     - amount:
+        liability: true
         numericField: true
         order: 4
     - dueDate:
@@ -1473,6 +1481,7 @@ memberSavingTransaction:
         order: 3
         type: text
     - deposit:
+        liability: true
         numericField: true
         optional: true
         order: 4

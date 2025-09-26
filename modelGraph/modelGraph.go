@@ -307,6 +307,12 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 										if vf["order"] != nil {
 											row["order"] = i + (j * len(keysOrder))
 										}
+										if vf["asset"] != nil {
+											row["asset"] = true
+										}
+										if vf["liability"] != nil {
+											row["liability"] = true
+										}
 									}
 								} else {
 									if vf, ok := v.(map[string]any); ok {
@@ -319,7 +325,7 @@ func CreateWorkflowGraph(modelsData, graphData map[string]any) (map[string]any, 
 											case "hidden":
 												row["optional"] = true
 												row["hidden"] = true
-											case "scheduleFormula", "matchModel", "condition":
+											case "scheduleFormula", "matchModel", "condition", "asset", "liability":
 												row[kf] = vf
 											case "formula":
 												row["formula"] = vf

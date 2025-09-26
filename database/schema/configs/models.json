@@ -528,6 +528,7 @@
       },
       {
         "amount": {
+          "asset": true,
           "numericField": true,
           "order": 5
         }
@@ -558,6 +559,7 @@
       },
       {
         "dividend": {
+          "liability": true,
           "numericField": true,
           "optional": true,
           "order": 3
@@ -648,6 +650,7 @@
       },
       {
         "amount": {
+          "liability": true,
           "numericField": true,
           "order": 4
         }
@@ -1316,6 +1319,7 @@
       },
       {
         "amount": {
+          "liability": true,
           "numericField": true,
           "order": 4
         }
@@ -1459,6 +1463,7 @@
       },
       {
         "amountPaid": {
+          "asset": true,
           "hidden": true,
           "order": 6
         }
@@ -1721,6 +1726,7 @@
       },
       {
         "amountReserved": {
+          "liability": true,
           "numericField": true,
           "order": 2
         }
@@ -1766,6 +1772,7 @@
       },
       {
         "amount": {
+          "liability": true,
           "numericField": true,
           "order": 4
         }
@@ -2367,6 +2374,7 @@
       },
       {
         "amount": {
+          "liability": true,
           "numericField": true,
           "order": 4
         }
@@ -2411,6 +2419,7 @@
       },
       {
         "deposit": {
+          "liability": true,
           "numericField": true,
           "optional": true,
           "order": 4
