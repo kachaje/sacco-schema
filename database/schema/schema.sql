@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS account (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    number INTEGER NOT NULL,
-    normal INTEGER NOT NULL,
+    accountType TEXT DEFAULT 'ASSET' CHECK (accountType IN ('ASSET', 'LIABILITY')),
+    balance INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
@@ -18,64 +18,23 @@ WHERE
 
 END;
 
-CREATE TABLE IF NOT EXISTS accountJournal (
+CREATE TABLE IF NOT EXISTS accountEntry (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     accountId INTEGER NOT NULL,
-    accountTransactionId INTEGER NOT NULL,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    amount REAL NOT NULL,
-    direction INTEGER NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE,
-    FOREIGN KEY (accountTransactionId) REFERENCES accountTransaction (id) ON DELETE CASCADE
-);
-
-CREATE TRIGGER IF NOT EXISTS accountJournalUpdated AFTER
-UPDATE ON accountJournal FOR EACH ROW BEGIN
-UPDATE accountJournal
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS accountStatement (
-    accountId INTEGER NOT NULL,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    closingBalance REAL NOT NULL,
-    totalCredit REAL NOT NULL,
-    totalDebit REAL NOT NULL,
+    referenceNumber TEXT NOT NULL,
+    name TEXT,
+    description TEXT,
+    debitCredit TEXT NOT NULL CHECK (debitCredit IN ('DEBIT', 'CREDIT')),
+    amount INTEGER NOT NULL,
     active INTEGER DEFAULT 1,
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (accountId) REFERENCES account (id) ON DELETE CASCADE
 );
 
-CREATE TRIGGER IF NOT EXISTS accountStatementUpdated AFTER
-UPDATE ON accountStatement FOR EACH ROW BEGIN
-UPDATE accountStatement
-SET
-    updatedAt=CURRENT_TIMESTAMP
-WHERE
-    id=OLD.id;
-
-END;
-
-CREATE TABLE IF NOT EXISTS accountTransaction (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    date TEXT DEFAULT CURRENT_TIMESTAMP,
-    description TEXT NOT NULL,
-    active INTEGER DEFAULT 1,
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TRIGGER IF NOT EXISTS accountTransactionUpdated AFTER
-UPDATE ON accountTransaction FOR EACH ROW BEGIN
-UPDATE accountTransaction
+CREATE TRIGGER IF NOT EXISTS accountEntryUpdated AFTER
+UPDATE ON accountEntry FOR EACH ROW BEGIN
+UPDATE accountEntry
 SET
     updatedAt=CURRENT_TIMESTAMP
 WHERE

@@ -6,20 +6,23 @@ account:
     - name:
         order: 1
         type: text
-    - number:
-        numericField: true
+    - accountType:
+        optional: true
+        options:
+          - ASSET
+          - LIABILITY
         order: 2
-    - normal:
+        type: text
+    - balance:
         numericField: true
+        optional: true
         order: 3
   hasMany:
-    - accountJournal
-    - accountStatement
+    - accountEntry
   rootQuery: account
-accountJournal:
+accountEntry:
   belongsTo:
     - account
-    - accountTransaction
   fields:
     - id:
         hidden: true
@@ -27,59 +30,27 @@ accountJournal:
     - accountId:
         hidden: true
         order: 1
-    - accountTransactionId:
-        hidden: true
+    - referenceNumber:
         order: 2
-    - date:
-        default: CURRENT_TIMESTAMP
+        type: text
+    - name:
         optional: true
         order: 3
+        type: text
+    - description:
+        optional: true
+        order: 4
+        type: text
+    - debitCredit:
+        options:
+          - DEBIT
+          - CREDIT
+        order: 5
         type: text
     - amount:
         numericField: true
-        order: 4
-    - direction:
-        numericField: true
-        order: 5
-  rootQuery: account.accountTransaction.accountJournal.0
-accountStatement:
-  belongsTo:
-    - account
-  fields:
-    - accountId:
-        hidden: true
-        order: 0
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 1
-        type: text
-    - closingBalance:
-        numericField: true
-        order: 2
-    - totalCredit:
-        numericField: true
-        order: 3
-    - totalDebit:
-        numericField: true
-        order: 4
-  rootQuery: account.accountStatement.0
-accountTransaction:
-  fields:
-    - id:
-        hidden: true
-        order: 0
-    - date:
-        default: CURRENT_TIMESTAMP
-        optional: true
-        order: 1
-        type: text
-    - description:
-        order: 2
-        type: text
-  hasMany:
-    - accountJournal
-  rootQuery: accountTransaction
+        order: 6
+  rootQuery: account.accountEntry.0
 contributionNumberIdsCache:
   belongsTo:
     - memberContribution

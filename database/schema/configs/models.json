@@ -14,23 +14,26 @@
         }
       },
       {
-        "number": {
-          "numericField": true,
-          "order": 2
+        "accountType": {
+          "optional": true,
+          "options": ["ASSET", "LIABILITY"],
+          "order": 2,
+          "type": "text"
         }
       },
       {
-        "normal": {
+        "balance": {
           "numericField": true,
+          "optional": true,
           "order": 3
         }
       }
     ],
-    "hasMany": ["accountJournal", "accountStatement"],
+    "hasMany": ["accountEntry"],
     "rootQuery": "account"
   },
-  "accountJournal": {
-    "belongsTo": ["account", "accountTransaction"],
+  "accountEntry": {
+    "belongsTo": ["account"],
     "fields": [
       {
         "id": {
@@ -45,97 +48,40 @@
         }
       },
       {
-        "accountTransactionId": {
-          "hidden": true,
-          "order": 2
+        "referenceNumber": {
+          "order": 2,
+          "type": "text"
         }
       },
       {
-        "date": {
-          "default": "CURRENT_TIMESTAMP",
+        "name": {
           "optional": true,
           "order": 3,
           "type": "text"
         }
       },
       {
+        "description": {
+          "optional": true,
+          "order": 4,
+          "type": "text"
+        }
+      },
+      {
+        "debitCredit": {
+          "options": ["DEBIT", "CREDIT"],
+          "order": 5,
+          "type": "text"
+        }
+      },
+      {
         "amount": {
           "numericField": true,
-          "order": 4
-        }
-      },
-      {
-        "direction": {
-          "numericField": true,
-          "order": 5
+          "order": 6
         }
       }
     ],
-    "rootQuery": "account.accountTransaction.accountJournal.0"
-  },
-  "accountStatement": {
-    "belongsTo": ["account"],
-    "fields": [
-      {
-        "accountId": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "date": {
-          "default": "CURRENT_TIMESTAMP",
-          "optional": true,
-          "order": 1,
-          "type": "text"
-        }
-      },
-      {
-        "closingBalance": {
-          "numericField": true,
-          "order": 2
-        }
-      },
-      {
-        "totalCredit": {
-          "numericField": true,
-          "order": 3
-        }
-      },
-      {
-        "totalDebit": {
-          "numericField": true,
-          "order": 4
-        }
-      }
-    ],
-    "rootQuery": "account.accountStatement.0"
-  },
-  "accountTransaction": {
-    "fields": [
-      {
-        "id": {
-          "hidden": true,
-          "order": 0
-        }
-      },
-      {
-        "date": {
-          "default": "CURRENT_TIMESTAMP",
-          "optional": true,
-          "order": 1,
-          "type": "text"
-        }
-      },
-      {
-        "description": {
-          "order": 2,
-          "type": "text"
-        }
-      }
-    ],
-    "hasMany": ["accountJournal"],
-    "rootQuery": "accountTransaction"
+    "rootQuery": "account.accountEntry.0"
   },
   "contributionNumberIdsCache": {
     "belongsTo": ["memberContribution"],

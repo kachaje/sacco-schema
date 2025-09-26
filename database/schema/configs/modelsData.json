@@ -1,6 +1,17 @@
 {
   "account": {
     "fields": {
+      "accountType": {
+        "default": "ASSET",
+        "options": ["ASSET", "LIABILITY"],
+        "order": 2,
+        "type": "text"
+      },
+      "balance": {
+        "default": "0",
+        "order": 3,
+        "type": "int"
+      },
       "id": {
         "autoIncrement": true,
         "order": 0,
@@ -10,96 +21,32 @@
       "name": {
         "order": 1,
         "type": "text"
-      },
-      "normal": {
-        "order": 3,
-        "type": "int"
-      },
-      "number": {
-        "order": 2,
-        "type": "int"
       }
     },
     "model": "account",
     "parents": []
   },
-  "accountJournal": {
+  "accountEntry": {
     "fields": {
       "accountId": {
+        "hidden": true,
         "many": true,
         "order": 1,
         "referenceTable": "account",
-        "type": "int"
-      },
-      "accountTransactionId": {
-        "many": true,
-        "order": 2,
-        "referenceTable": "accountTransaction",
         "type": "int"
       },
       "amount": {
-        "order": 4,
-        "type": "real"
+        "order": 6,
+        "type": "int"
       },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 3,
-        "type": "text"
-      },
-      "direction": {
+      "debitCredit": {
+        "options": ["DEBIT", "CREDIT"],
         "order": 5,
-        "type": "int"
-      },
-      "id": {
-        "autoIncrement": true,
-        "order": 0,
-        "primaryKey": true,
-        "type": "int"
-      }
-    },
-    "many": true,
-    "model": "accountJournal",
-    "parents": ["account", "accountTransaction"]
-  },
-  "accountStatement": {
-    "fields": {
-      "accountId": {
-        "many": true,
-        "order": 0,
-        "referenceTable": "account",
-        "type": "int"
-      },
-      "closingBalance": {
-        "order": 2,
-        "type": "real"
-      },
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 1,
-        "type": "text"
-      },
-      "totalCredit": {
-        "order": 3,
-        "type": "real"
-      },
-      "totalDebit": {
-        "order": 4,
-        "type": "real"
-      }
-    },
-    "many": true,
-    "model": "accountStatement",
-    "parents": ["account"]
-  },
-  "accountTransaction": {
-    "fields": {
-      "date": {
-        "default": "CURRENT_TIMESTAMP",
-        "order": 1,
         "type": "text"
       },
       "description": {
-        "order": 2,
+        "optional": true,
+        "order": 4,
         "type": "text"
       },
       "id": {
@@ -107,10 +54,20 @@
         "order": 0,
         "primaryKey": true,
         "type": "int"
+      },
+      "name": {
+        "optional": true,
+        "order": 3,
+        "type": "text"
+      },
+      "referenceNumber": {
+        "order": 2,
+        "type": "text"
       }
     },
-    "model": "accountTransaction",
-    "parents": []
+    "many": true,
+    "model": "accountEntry",
+    "parents": ["account"]
   },
   "contributionNumberIdsCache": {
     "fields": {

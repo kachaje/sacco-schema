@@ -2,11 +2,7 @@ package database
 
 var (
 	AccountArrayChildren = []string{
-		"accountJournal",
-		"accountStatement",
-	}
-	AccountTransactionArrayChildren = []string{
-		"accountJournal",
+		"accountEntry",
 	}
 	ContributionNumberIdsCacheSingleChildren = []string{
 		"memberContribution",
@@ -86,7 +82,6 @@ var (
 	}
 	ArrayChildren = map[string][]string{
 		"AccountArrayChildren":            AccountArrayChildren,
-		"AccountTransactionArrayChildren": AccountTransactionArrayChildren,
 		"MemberArrayChildren":             MemberArrayChildren,
 		"MemberContributionArrayChildren": MemberContributionArrayChildren,
 		"MemberLoanArrayChildren":         MemberLoanArrayChildren,
@@ -102,9 +97,7 @@ var (
 		"amountReserved",
 		"balance",
 		"claimed",
-		"closingBalance",
 		"deposit",
-		"direction",
 		"dividend",
 		"employeeWages",
 		"expectedAmount",
@@ -127,8 +120,6 @@ var (
 		"netPay",
 		"netProfitLoss",
 		"nonRedeemableAmount",
-		"normal",
-		"number",
 		"otherCosts",
 		"overflowAmount",
 		"ownSalary",
@@ -149,8 +140,6 @@ var (
 		"repaymentPeriodInMonths",
 		"totalCostOfGoods",
 		"totalCosts",
-		"totalCredit",
-		"totalDebit",
 		"totalIncome",
 		"transport",
 		"utilities",
@@ -161,11 +150,7 @@ var (
 		"yearsInBusiness",
 	}
 	ParentModels = map[string][]string{
-		"accountJournal": {
-			"account",
-			"accountTransaction",
-		},
-		"accountStatement": {
+		"accountEntry": {
 			"account",
 		},
 		"contributionNumberIdsCache": {

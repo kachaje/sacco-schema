@@ -88,19 +88,7 @@
       "parent": "1",
       "value": "\u003cb\u003e\u003cfont style=\"font-size: 20px; color: rgb(0, 92, 185);\"\u003eKaso SACCO\u003c/font\u003e\u003c/b\u003e"
     },
-    "sz-M_Azw0uYvEaWHzbE8-10": {
-      "parent": "1",
-      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountJournal\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003eFK2\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003eaccountId (INT;many:true)\u003cbr\u003eaccountTransactionId (INT;many:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT;default:CURRENT_TIMESTAMP)\u003cbr\u003eamount (REAL)\u003cbr\u003edirection (INT)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
-    },
-    "sz-M_Azw0uYvEaWHzbE8-101": {
-      "parent": "1",
-      "value": ""
-    },
     "sz-M_Azw0uYvEaWHzbE8-102": {
-      "parent": "1",
-      "value": ""
-    },
-    "sz-M_Azw0uYvEaWHzbE8-103": {
       "parent": "1",
       "value": ""
     },
@@ -310,11 +298,11 @@
     },
     "sz-M_Azw0uYvEaWHzbE8-8": {
       "parent": "1",
-      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccount\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003enumber (INT)\u003cbr\u003enormal (INT)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccount\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ename (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003eaccountType (TEXT;options:ASSET,LIABILITY;default:ASSET)\u003cbr\u003ebalance (INT;default:0)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
     },
     "sz-M_Azw0uYvEaWHzbE8-9": {
       "parent": "1",
-      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountTransaction\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003edate (TEXT;default:CURRENT_TIMESTAMP)\u003cbr\u003edescription (TEXT)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
+      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountEntry\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003c/td\u003e\u003ctd\u003eid (INT;autoIncrement:true)\u003cbr\u003eaccountId (INT;many:true;hidden:true)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003ereferenceNumber (TEXT)\u003cbr\u003ename (TEXT;optional:true)\u003cbr\u003edescription (TEXT;optional:true)\u003cbr\u003edebitCredit (TEXT;options:DEBIT,CREDIT)\u003cbr\u003eamount (INT)\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
     },
     "sz-M_Azw0uYvEaWHzbE8-91": {
       "parent": "1",
@@ -347,10 +335,6 @@
     "sz-M_Azw0uYvEaWHzbE8-98": {
       "parent": "1",
       "value": "finance"
-    },
-    "sz-M_Azw0uYvEaWHzbE8-99": {
-      "parent": "1",
-      "value": "\u003cdiv style=\"box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;\"\u003eaccountStatement\u003c/div\u003e\u003ctable style=\"width:100%;font-size:1em;\" cellpadding=\"2\" cellspacing=\"0\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003ePK\u003cbr\u003eFK1\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eaccountId (INT;many:true)\u003cbr\u003edate (TEXT;default:CURRENT_TIMESTAMP)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003eclosingBalance (REAL)\u003cbr\u003etotalCredit (REAL)\u003cbr\u003etotalDebit (REAL)\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd\u003e\u003cbr\u003e\u003cbr\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e"
     },
     "xSk708QCSlfvZO9ihoQS-1": {
       "parent": "1",

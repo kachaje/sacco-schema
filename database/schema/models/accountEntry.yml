@@ -5,26 +5,33 @@ id:
   type: int
 
 accountId:
+  hidden: true
   many: true
   order: 1
   referenceTable: account
   type: int
 
-accountTransactionId:
-  many: true
+referenceNumber:
   order: 2
-  referenceTable: accountTransaction
-  type: int
+  type: text
 
-date:
-  default: CURRENT_TIMESTAMP
+name:
+  optional: true
   order: 3
   type: text
 
-amount:
+description:
+  optional: true
   order: 4
-  type: real
+  type: text
 
-direction:
+debitCredit:
+  options:
+    - DEBIT
+    - CREDIT
   order: 5
+  type: text
+
+amount:
+  order: 6
   type: int

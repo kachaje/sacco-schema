@@ -1,0 +1,68 @@
+cacheQueries:
+  accountId1: account.accountEntry.0.accountId
+  amount1: account.accountEntry.0.amount
+  debitCredit1: account.accountEntry.0.debitCredit
+  description1: account.accountEntry.0.description
+  id1: account.accountEntry.0.id
+  name1: account.accountEntry.0.name
+  referenceNumber1: account.accountEntry.0.referenceNumber
+enterAccountId1:
+  hidden: true
+  inputIdentifier: accountId1
+  type: hiddenField
+enterAmount1:
+  inputIdentifier: amount1
+  nextScreen: formSummary
+  order: 5
+  text:
+    en: Amount
+  type: inputScreen
+  validationRule: ^\d+\.*\d*$
+enterDebitCredit1:
+  inputIdentifier: debitCredit1
+  nextScreen: enterAmount1
+  options:
+    - label:
+        en: DEBIT
+      position: 1
+    - label:
+        en: CREDIT
+      position: 2
+  order: 4
+  text:
+    en: Debit Credit
+  type: inputScreen
+enterDescription1:
+  inputIdentifier: description1
+  nextScreen: enterDebitCredit1
+  optional: true
+  order: 3
+  text:
+    en: Description
+  type: inputScreen
+enterId1:
+  hidden: true
+  inputIdentifier: id1
+  type: hiddenField
+enterName1:
+  inputIdentifier: name1
+  nextScreen: enterDescription1
+  optional: true
+  order: 2
+  text:
+    en: Name
+  type: inputScreen
+enterReferenceNumber1:
+  inputIdentifier: referenceNumber1
+  nextScreen: enterName1
+  order: 1
+  text:
+    en: Reference Number
+  type: inputScreen
+formSummary:
+  type: quitScreen
+initialScreen: enterReferenceNumber1
+model: accountEntry
+parentIds:
+  - accountId
+rootQuery: account.accountEntry.0

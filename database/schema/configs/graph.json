@@ -1,9 +1,6 @@
 {
   "account": {
-    "arrayChildren": ["accountJournal", "accountStatement"]
-  },
-  "accountTransaction": {
-    "arrayChildren": ["accountJournal"]
+    "arrayChildren": ["accountEntry"]
   },
   "contributionNumberIdsCache": {
     "singleChildren": ["memberContribution"]

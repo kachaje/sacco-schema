@@ -8,10 +8,15 @@ name:
   order: 1
   type: text
 
-number:
+accountType:
+  default: ASSET
+  options:
+    - ASSET
+    - LIABILITY
   order: 2
-  type: int
+  type: text
 
-normal:
+balance:
+  default: "0"
   order: 3
   type: int
