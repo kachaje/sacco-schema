@@ -3,6 +3,7 @@ package tests
 import (
 	"encoding/json"
 	"sacco/ledger"
+	"sacco/ledger/models"
 	"sacco/utils"
 	"testing"
 )
@@ -29,6 +30,40 @@ var (
 		},
 	}
 )
+
+func TestGetAccountDirection(t *testing.T) {
+	result := ledger.GetAccountDirection(models.ASSET, models.DEBIT, 1000)
+
+	target := `balance = COALESCE(balance, 0) + 1000`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed. Expected: '%s'; Actual: '%s'`, target, result)
+	}
+
+	result = ledger.GetAccountDirection(models.ASSET, models.CREDIT, 1000)
+
+	target = `balance = COALESCE(balance, 0) - 1000`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed. Expected: '%s'; Actual: '%s'`, target, result)
+	}
+
+	result = ledger.GetAccountDirection(models.LIABILITY, models.CREDIT, 1000)
+
+	target = `balance = COALESCE(balance, 0) + 1000`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed. Expected: '%s'; Actual: '%s'`, target, result)
+	}
+
+	result = ledger.GetAccountDirection(models.LIABILITY, models.DEBIT, 1000)
+
+	target = `balance = COALESCE(balance, 0) - 1000`
+
+	if utils.CleanString(target) != utils.CleanString(result) {
+		t.Fatalf(`Test failed. Expected: '%s'; Actual: '%s'`, target, result)
+	}
+}
 
 func TestCreateEntryTransactions(t *testing.T) {
 	var result string

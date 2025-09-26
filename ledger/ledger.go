@@ -26,6 +26,25 @@ type TransactionBodyType struct {
 
 var SaveHandler func(query string) ([]map[string]any, error)
 
+func GetAccountDirection(accountType models.AccountType, debitCredit models.DebitCredit, amount int) string {
+	switch accountType {
+	case models.ASSET:
+		if debitCredit == models.DEBIT {
+			return fmt.Sprintf(`balance = COALESCE(balance, 0) + %v`, amount)
+		} else {
+			return fmt.Sprintf(`balance = COALESCE(balance, 0) - %v`, amount)
+		}
+	case models.LIABILITY:
+		if debitCredit == models.CREDIT {
+			return fmt.Sprintf(`balance = COALESCE(balance, 0) + %v`, amount)
+		} else {
+			return fmt.Sprintf(`balance = COALESCE(balance, 0) - %v`, amount)
+		}
+	default:
+		return ""
+	}
+}
+
 func CreateEntryTransactions(entry LedgerEntry) error {
 	amount := entry.Amount
 	debitCredit := entry.DebitCredit
@@ -53,6 +72,7 @@ INSERT INTO accountEntry (
 		if err != nil {
 			return err
 		}
+
 	}
 
 	return nil
