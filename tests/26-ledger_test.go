@@ -1,10 +1,16 @@
 package tests
 
 import (
+	"bytes"
 	"encoding/json"
+	"net/http"
+	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"sacco/ledger"
 	"sacco/ledger/models"
 	"sacco/utils"
+	"strings"
 	"testing"
 )
 
@@ -68,13 +74,13 @@ func TestGetAccountDirection(t *testing.T) {
 func TestCreateEntryTransactions(t *testing.T) {
 	var result []string
 
-	saveFn := func(query string) ([]map[string]any, error) {
+	queryFn := func(query string) ([]map[string]any, error) {
 		result = append(result, query)
 
 		return nil, nil
 	}
 
-	ledger.SaveHandler = saveFn
+	ledger.QueryHandler = queryFn
 
 	data := ledgerData["ledgerEntries"].([]map[string]any)[0]
 
@@ -130,5 +136,58 @@ Expected:
 %s
 Actual:
 %s`, target, result[1])
+	}
+}
+
+func TestHandlePost(t *testing.T) {
+	var result []string
+
+	queryFn := func(query string) ([]map[string]any, error) {
+		result = append(result, strings.TrimSpace(query))
+
+		return nil, nil
+	}
+
+	ledger.QueryHandler = queryFn
+
+	payload, err := json.Marshal(ledgerData)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	req := httptest.NewRequest(http.MethodPost, "/api", bytes.NewBuffer(payload))
+	rr := httptest.NewRecorder()
+
+	http.HandlerFunc(ledger.HandlePost).ServeHTTP(rr, req)
+
+	fixturesFile := filepath.Join(".", "fixtures", "ledger.post.sql")
+
+	if os.Getenv("DEBUG") == "true" {
+		payload = []byte(strings.Join(result, ";\n"))
+
+		os.WriteFile(fixturesFile, payload, 0644)
+	}
+
+	target := []string{}
+
+	content, err := os.ReadFile(fixturesFile)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for line := range strings.SplitSeq(string(content), ";") {
+		if len(strings.TrimSpace(line)) > 0 {
+			target = append(target, line)
+		}
+	}
+
+	for i := range result {
+		if strings.TrimSpace(target[i]) != strings.TrimSpace(result[i]) {
+			t.Fatalf(`Test failed.
+Expected:
+%s
+Actual:
+%s`, target[i], result[i])
+		}
 	}
 }

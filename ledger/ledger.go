@@ -1,7 +1,9 @@
 package ledger
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"sacco/ledger/models"
 
@@ -19,12 +21,12 @@ type LedgerEntry struct {
 }
 
 type TransactionBodyType struct {
-	Name          string                `json:"name"`
-	Description   string                `json:"description"`
-	LedgerEntries []models.AccountEntry `json:"ledgerEntries"`
+	Name          string        `json:"name"`
+	Description   string        `json:"description"`
+	LedgerEntries []LedgerEntry `json:"ledgerEntries"`
 }
 
-var SaveHandler func(query string) ([]map[string]any, error)
+var QueryHandler func(query string) ([]map[string]any, error)
 
 func GetAccountDirection(accountType models.AccountType, debitCredit models.DebitCredit, amount int) string {
 	switch accountType {
@@ -53,7 +55,7 @@ func CreateEntryTransactions(entry LedgerEntry) error {
 	referenceNumber := entry.ReferenceNumber
 	description := entry.Description
 
-	if SaveHandler != nil {
+	if QueryHandler != nil {
 		query := fmt.Sprintf(`
 INSERT INTO accountEntry (
 	accountId, 
@@ -68,7 +70,7 @@ INSERT INTO accountEntry (
 )`, accountType, referenceNumber, name,
 			description, debitCredit, amount)
 
-		_, err := SaveHandler(query)
+		_, err := QueryHandler(query)
 		if err != nil {
 			return err
 		}
@@ -77,7 +79,7 @@ INSERT INTO accountEntry (
 
 		query = fmt.Sprintf(`UPDATE account SET %s WHERE id = (SELECT id FROM account WHERE accountType = '%s')`, subQuery, accountType)
 
-		_, err = SaveHandler(query)
+		_, err = QueryHandler(query)
 		if err != nil {
 			return err
 		}
@@ -87,7 +89,31 @@ INSERT INTO accountEntry (
 }
 
 func HandlePost(w http.ResponseWriter, r *http.Request) {
+	data := TransactionBodyType{}
 
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = json.Unmarshal(body, &data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	for _, entry := range data.LedgerEntries {
+		entry.Description = data.Description
+
+		err := CreateEntryTransactions(entry)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	}
+
+	fmt.Fprintln(w, "OK")
 }
 
 func HandleGet(w http.ResponseWriter, r *http.Request) {
@@ -108,8 +134,8 @@ func ledgerHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func Main(saveFn func(query string) ([]map[string]any, error)) *mux.Router {
-	SaveHandler = saveFn
+func Main(queryFn func(query string) ([]map[string]any, error)) *mux.Router {
+	QueryHandler = queryFn
 
 	r := mux.NewRouter()
 
