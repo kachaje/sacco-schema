@@ -102,7 +102,7 @@ ORDER BY
 INSERT
 OR IGNORE INTO taxRate (name, value)
 VALUES
-  ("VAT", 0.0);
+  ("VAT", 0.165);
 
 INSERT
 OR IGNORE INTO savingsType (
