@@ -32,7 +32,7 @@ jobs:
         with:
           repository: kachaje/firestore-webrtc
           token: ${{ secrets.PRIVARE_REPO_PAT }}
-          path: firestore-webrtc
+          path: ../firestore-webrtc
 
       - name: Set up Go
         uses: actions/setup-go@v2
