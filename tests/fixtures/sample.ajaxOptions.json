@@ -1,97 +1,97 @@
 {
-  "2025-10-01": {
-    "dueDate": "2025-10-01",
-    "instalment": 833.3333333333334,
-    "insurance": 150,
-    "interest": 480,
-    "memberLoanPaymentScheduleId": 1,
-    "processingFee": 500
-  },
   "2025-11-01": {
     "dueDate": "2025-11-01",
     "instalment": 833.3333333333334,
-    "insurance": 0,
-    "interest": 440,
-    "memberLoanPaymentScheduleId": 2,
-    "processingFee": 0
+    "insurance": 150,
+    "interest": 559.2,
+    "memberLoanPaymentScheduleId": 1,
+    "processingFee": 582.5
   },
   "2025-12-01": {
     "dueDate": "2025-12-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 400.00000000000006,
-    "memberLoanPaymentScheduleId": 3,
+    "interest": 512.6,
+    "memberLoanPaymentScheduleId": 2,
     "processingFee": 0
   },
   "2026-01-01": {
     "dueDate": "2026-01-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 360,
-    "memberLoanPaymentScheduleId": 4,
+    "interest": 466.00000000000006,
+    "memberLoanPaymentScheduleId": 3,
     "processingFee": 0
   },
   "2026-02-01": {
     "dueDate": "2026-02-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 320,
-    "memberLoanPaymentScheduleId": 5,
+    "interest": 419.40000000000003,
+    "memberLoanPaymentScheduleId": 4,
     "processingFee": 0
   },
   "2026-03-01": {
     "dueDate": "2026-03-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 280,
-    "memberLoanPaymentScheduleId": 6,
+    "interest": 372.8,
+    "memberLoanPaymentScheduleId": 5,
     "processingFee": 0
   },
   "2026-04-01": {
     "dueDate": "2026-04-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 240,
-    "memberLoanPaymentScheduleId": 7,
+    "interest": 326.2,
+    "memberLoanPaymentScheduleId": 6,
     "processingFee": 0
   },
   "2026-05-01": {
     "dueDate": "2026-05-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 199.99999999999997,
-    "memberLoanPaymentScheduleId": 8,
+    "interest": 279.6,
+    "memberLoanPaymentScheduleId": 7,
     "processingFee": 0
   },
   "2026-06-01": {
     "dueDate": "2026-06-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 160,
-    "memberLoanPaymentScheduleId": 9,
+    "interest": 232.99999999999997,
+    "memberLoanPaymentScheduleId": 8,
     "processingFee": 0
   },
   "2026-07-01": {
     "dueDate": "2026-07-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 120,
-    "memberLoanPaymentScheduleId": 10,
+    "interest": 186.4,
+    "memberLoanPaymentScheduleId": 9,
     "processingFee": 0
   },
   "2026-08-01": {
     "dueDate": "2026-08-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 79.99999999999997,
-    "memberLoanPaymentScheduleId": 11,
+    "interest": 139.8,
+    "memberLoanPaymentScheduleId": 10,
     "processingFee": 0
   },
   "2026-09-01": {
     "dueDate": "2026-09-01",
     "instalment": 833.3333333333334,
     "insurance": 0,
-    "interest": 39.99999999999994,
+    "interest": 93.19999999999997,
+    "memberLoanPaymentScheduleId": 11,
+    "processingFee": 0
+  },
+  "2026-10-01": {
+    "dueDate": "2026-10-01",
+    "instalment": 833.3333333333334,
+    "insurance": 0,
+    "interest": 46.59999999999994,
     "memberLoanPaymentScheduleId": 12,
     "processingFee": 0
   }

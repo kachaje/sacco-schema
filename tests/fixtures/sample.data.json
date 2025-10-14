@@ -17,41 +17,41 @@
     },
     "memberContribution": {
       "1": {
-        "contributionNumber": "KSH889790",
+        "contributionNumber": "KSH636606",
         "id": 1,
         "memberContributionDeposit": {
           "1": {
             "amount": 20000,
             "contributionCategory": "Non-Redeemable Deposit",
-            "date": "2025-09-26 13:04:46",
+            "date": "2025-10-14 12:46:48",
             "id": 1,
             "memberContributionId": 1
           },
           "2": {
             "amount": 35000,
             "contributionCategory": "Regular Deposit",
-            "date": "2025-09-26 13:04:46",
+            "date": "2025-10-14 12:46:48",
             "id": 2,
             "memberContributionId": 1
           },
           "3": {
             "amount": 8000,
             "contributionCategory": "Regular Deposit",
-            "date": "2025-09-26 13:04:46",
+            "date": "2025-10-14 12:46:48",
             "id": 3,
             "memberContributionId": 1
           },
           "4": {
             "amount": 17000,
             "contributionCategory": "Regular Deposit",
-            "date": "2025-09-26 13:04:46",
+            "date": "2025-10-14 12:46:48",
             "id": 4,
             "memberContributionId": 1
           }
         },
         "memberContributionSchedule": {
           "1": {
-            "dueDate": "2025-10-01",
+            "dueDate": "2025-11-01",
             "expectedAmount": 10000,
             "id": 1,
             "memberContributionId": 1,
@@ -59,7 +59,7 @@
             "paidAmount": 10000
           },
           "2": {
-            "dueDate": "2025-11-01",
+            "dueDate": "2025-12-01",
             "expectedAmount": 10000,
             "id": 2,
             "memberContributionId": 1,
@@ -67,7 +67,7 @@
             "paidAmount": 10000
           },
           "3": {
-            "dueDate": "2025-12-01",
+            "dueDate": "2026-01-01",
             "expectedAmount": 10000,
             "id": 3,
             "memberContributionId": 1,
@@ -75,7 +75,7 @@
             "paidAmount": 10000
           },
           "4": {
-            "dueDate": "2026-01-01",
+            "dueDate": "2026-02-01",
             "expectedAmount": 10000,
             "id": 4,
             "memberContributionId": 1,
@@ -83,7 +83,7 @@
             "paidAmount": 10000
           },
           "5": {
-            "dueDate": "2026-02-01",
+            "dueDate": "2026-03-01",
             "expectedAmount": 10000,
             "id": 5,
             "memberContributionId": 1,
@@ -91,7 +91,7 @@
             "paidAmount": 10000
           },
           "6": {
-            "dueDate": "2026-03-01",
+            "dueDate": "2026-04-01",
             "expectedAmount": 10000,
             "id": 6,
             "memberContributionId": 1,
@@ -100,7 +100,7 @@
           }
         },
         "memberId": 1,
-        "memberIdNumber": "KSM030754",
+        "memberIdNumber": "KSM044812",
         "monthlyContribution": 10000,
         "nonRedeemableAmount": 20000,
         "totalAmount": 0
@@ -148,7 +148,7 @@
         "relationship": "Other"
       }
     },
-    "memberIdNumber": "KSM030754",
+    "memberIdNumber": "KSM044812",
     "memberLoan": {
       "1": {
         "amountPaid": 0,
@@ -157,7 +157,7 @@
         "loanAmount": 200000,
         "loanCategory": "Individual",
         "loanDueDate": "2025-09-08 07:09:32",
-        "loanNumber": "KLN342431",
+        "loanNumber": "KLN411852",
         "loanPurpose": "School fees",
         "loanStartDate": "2025-09-08 07:09:32",
         "loanType": "Personal",
@@ -205,15 +205,15 @@
         "memberLoanApproval": {
           "amountRecommended": 10000,
           "approvedBy": "admin",
-          "dateOfApproval": "2025-09-26 13:04:46",
+          "dateOfApproval": "2025-10-14 12:46:48",
           "id": 1,
-          "loanNumber": "KLN342431",
+          "loanNumber": "KLN411852",
           "loanStatus": "PARTIAL-APPROVAL",
           "memberLoanId": 1,
           "memberLoanVerification": {
-            "dateVerified": "2025-09-26 13:04:46",
+            "dateVerified": "2025-10-14 12:46:48",
             "id": 1,
-            "loanNumber": "KLN342431",
+            "loanNumber": "KLN411852",
             "memberLoanApprovalId": 1,
             "verified": "Yes",
             "verifiedBy": "admin"
@@ -222,8 +222,8 @@
         },
         "memberLoanDisbursement": {
           "amount": 10000,
-          "date": "2025-09-26 13:04:46",
-          "description": "Disbursement for loan number KLN342431",
+          "date": "2025-10-14 12:46:48",
+          "description": "Disbursement for loan number KLN411852",
           "id": 1,
           "memberLoanId": 1
         },
@@ -243,44 +243,62 @@
         },
         "memberLoanPaymentSchedule": {
           "1": {
-            "amountPaid": 1963.3333333333335,
+            "amountPaid": 2125.0333333333333,
             "amountRecommended": 10000,
-            "dueDate": "2025-10-01",
+            "dueDate": "2025-11-01",
             "id": 1,
             "instalment": 833.3333333333334,
             "insurance": 150,
-            "interest": 480,
-            "loanNumber": "KLN342431",
+            "interest": 559.2,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 5000,
               "availableCash": 5000,
-              "date": "2025-09-26 13:04:46",
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 1",
-              "dueDate": "2025-10-01",
+              "dueDate": "2025-11-01",
               "id": 1,
               "instalment": 833.3333333333334,
               "insurance": 150,
-              "interest": 480,
-              "loanNumber": "KLN342431",
+              "interest": 559.2,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 1,
+              "memberLoanTax": {
+                "1": {
+                  "amount": 92.26800000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 1",
+                  "id": 1,
+                  "memberLoanPaymentId": 1,
+                  "taxCategory": "Interest"
+                },
+                "2": {
+                  "amount": 96.11250000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Processing Fee: Repayment Month 1",
+                  "id": 2,
+                  "memberLoanPaymentId": 1,
+                  "taxCategory": "Processing Fee"
+                }
+              },
               "penalty": 0,
-              "processingFee": 500,
-              "totalDue": 1963.3333333333335
+              "processingFee": 582.5,
+              "totalDue": 2125.0333333333333
             },
             "penalty": 0,
             "principal": 10000,
-            "processingFee": 500
+            "processingFee": 582.5
           },
           "10": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-07-01",
+            "dueDate": "2026-08-01",
             "id": 10,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 120,
-            "loanNumber": "KLN342431",
+            "interest": 139.8,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "penalty": 0,
             "principal": 2500,
@@ -289,12 +307,12 @@
           "11": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-08-01",
+            "dueDate": "2026-09-01",
             "id": 11,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 79.99999999999997,
-            "loanNumber": "KLN342431",
+            "interest": 93.19999999999997,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "penalty": 0,
             "principal": 1666.666666666666,
@@ -303,162 +321,212 @@
           "12": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-09-01",
+            "dueDate": "2026-10-01",
             "id": 12,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 39.99999999999994,
-            "loanNumber": "KLN342431",
+            "interest": 46.59999999999994,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "penalty": 0,
             "principal": 833.3333333333321,
             "processingFee": 0
           },
           "2": {
-            "amountPaid": 1356.6666666666667,
+            "amountPaid": 1345.9333333333334,
             "amountRecommended": 10000,
-            "dueDate": "2025-11-01",
+            "dueDate": "2025-12-01",
             "id": 2,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 440,
-            "loanNumber": "KLN342431",
+            "interest": 512.6,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 100,
-              "availableCash": 3136.6666666666665,
+              "availableCash": 2974.9666666666667,
               "date": "2025-12-30",
               "description": "Repayment Month 2",
-              "dueDate": "2025-11-01",
+              "dueDate": "2025-12-01",
               "id": 2,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 440,
-              "loanNumber": "KLN342431",
+              "interest": 512.6,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 2,
-              "penalty": 83.33333333333334,
+              "memberLoanTax": {
+                "3": {
+                  "amount": 84.57900000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 2",
+                  "id": 3,
+                  "memberLoanPaymentId": 2,
+                  "taxCategory": "Interest"
+                }
+              },
+              "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1356.6666666666667
+              "totalDue": 1345.9333333333334
             },
-            "penalty": 83.33333333333334,
+            "penalty": 0,
             "principal": 9166.666666666666,
             "processingFee": 0
           },
           "3": {
-            "amountPaid": 1233.3333333333335,
+            "amountPaid": 1299.3333333333335,
             "amountRecommended": 10000,
-            "dueDate": "2025-12-01",
+            "dueDate": "2026-01-01",
             "id": 3,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 400.00000000000006,
-            "loanNumber": "KLN342431",
+            "interest": 466.00000000000006,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 3000,
-              "availableCash": 4780,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": 4629.033333333333,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 3",
-              "dueDate": "2025-12-01",
+              "dueDate": "2026-01-01",
               "id": 3,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 400.00000000000006,
-              "loanNumber": "KLN342431",
+              "interest": 466.00000000000006,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 3,
+              "memberLoanTax": {
+                "4": {
+                  "amount": 76.89000000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 3",
+                  "id": 4,
+                  "memberLoanPaymentId": 3,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1233.3333333333335
+              "totalDue": 1299.3333333333335
             },
             "penalty": 0,
             "principal": 8333.333333333334,
             "processingFee": 0
           },
           "4": {
-            "amountPaid": 1193.3333333333335,
+            "amountPaid": 1252.7333333333333,
             "amountRecommended": 10000,
-            "dueDate": "2026-01-01",
+            "dueDate": "2026-02-01",
             "id": 4,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 360,
-            "loanNumber": "KLN342431",
+            "interest": 419.40000000000003,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 0,
-              "availableCash": 3546.666666666666,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": 3329.7,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 4",
-              "dueDate": "2026-01-01",
+              "dueDate": "2026-02-01",
               "id": 4,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 360,
-              "loanNumber": "KLN342431",
+              "interest": 419.40000000000003,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 4,
+              "memberLoanTax": {
+                "5": {
+                  "amount": 69.20100000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 4",
+                  "id": 5,
+                  "memberLoanPaymentId": 4,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1193.3333333333335
+              "totalDue": 1252.7333333333333
             },
             "penalty": 0,
             "principal": 7500,
             "processingFee": 0
           },
           "5": {
-            "amountPaid": 1153.3333333333335,
+            "amountPaid": 1206.1333333333334,
             "amountRecommended": 10000,
-            "dueDate": "2026-02-01",
+            "dueDate": "2026-03-01",
             "id": 5,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 320,
-            "loanNumber": "KLN342431",
+            "interest": 372.8,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 0,
-              "availableCash": 2353.333333333333,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": 2076.9666666666662,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 5",
-              "dueDate": "2026-02-01",
+              "dueDate": "2026-03-01",
               "id": 5,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 320,
-              "loanNumber": "KLN342431",
+              "interest": 372.8,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 5,
+              "memberLoanTax": {
+                "6": {
+                  "amount": 61.51200000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 5",
+                  "id": 6,
+                  "memberLoanPaymentId": 5,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1153.3333333333335
+              "totalDue": 1206.1333333333334
             },
             "penalty": 0,
             "principal": 6666.666666666666,
             "processingFee": 0
           },
           "6": {
-            "amountPaid": 1113.3333333333335,
+            "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-03-01",
+            "dueDate": "2026-04-01",
             "id": 6,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 280,
-            "loanNumber": "KLN342431",
+            "interest": 326.2,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 0,
-              "availableCash": 1199.999999999999,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": 870.833333333333,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 6",
-              "dueDate": "2026-03-01",
+              "dueDate": "2026-04-01",
               "id": 6,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 280,
-              "loanNumber": "KLN342431",
+              "interest": 326.2,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 6,
+              "memberLoanTax": {
+                "7": {
+                  "amount": 53.823,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 6",
+                  "id": 7,
+                  "memberLoanPaymentId": 6,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1113.3333333333335
+              "totalDue": 1159.5333333333333
             },
             "penalty": 0,
             "principal": 5833.333333333333,
@@ -467,28 +535,38 @@
           "7": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-04-01",
+            "dueDate": "2026-05-01",
             "id": 7,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 240,
-            "loanNumber": "KLN342431",
+            "interest": 279.6,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 0,
-              "availableCash": 86.66666666666606,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": -288.7000000000007,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 7",
-              "dueDate": "2026-04-01",
+              "dueDate": "2026-05-01",
               "id": 7,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 240,
-              "loanNumber": "KLN342431",
+              "interest": 279.6,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 7,
+              "memberLoanTax": {
+                "8": {
+                  "amount": 46.13400000000001,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 7",
+                  "id": 8,
+                  "memberLoanPaymentId": 7,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1073.3333333333335
+              "totalDue": 1112.9333333333334
             },
             "penalty": 0,
             "principal": 5000,
@@ -497,28 +575,38 @@
           "8": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-05-01",
+            "dueDate": "2026-06-01",
             "id": 8,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 199.99999999999997,
-            "loanNumber": "KLN342431",
+            "interest": 232.99999999999997,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "memberLoanPayment": {
               "amountPaid": 0,
-              "availableCash": -986.6666666666679,
-              "date": "2025-09-26 13:04:46",
+              "availableCash": -288.7000000000007,
+              "date": "2025-10-14 12:46:48",
               "description": "Repayment Month 8",
-              "dueDate": "2026-05-01",
+              "dueDate": "2026-06-01",
               "id": 8,
               "instalment": 833.3333333333334,
               "insurance": 0,
-              "interest": 199.99999999999997,
-              "loanNumber": "KLN342431",
+              "interest": 232.99999999999997,
+              "loanNumber": "KLN411852",
               "memberLoanPaymentScheduleId": 8,
+              "memberLoanTax": {
+                "9": {
+                  "amount": 38.445,
+                  "date": "2025-10-14 12:46:48",
+                  "description": "Tax on Interest: Repayment Month 8",
+                  "id": 9,
+                  "memberLoanPaymentId": 8,
+                  "taxCategory": "Interest"
+                }
+              },
               "penalty": 0,
               "processingFee": 0,
-              "totalDue": 1033.3333333333333
+              "totalDue": 1066.3333333333333
             },
             "penalty": 0,
             "principal": 4166.666666666666,
@@ -527,12 +615,12 @@
           "9": {
             "amountPaid": 0,
             "amountRecommended": 10000,
-            "dueDate": "2026-06-01",
+            "dueDate": "2026-07-01",
             "id": 9,
             "instalment": 833.3333333333334,
             "insurance": 0,
-            "interest": 160,
-            "loanNumber": "KLN342431",
+            "interest": 186.4,
+            "loanNumber": "KLN411852",
             "memberLoanId": 1,
             "penalty": 0,
             "principal": 3333.333333333333,
