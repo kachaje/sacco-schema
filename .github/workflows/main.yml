@@ -25,7 +25,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
+      - name: 
+        uses: actions/checkout@v4
+        with:
+          repository: github.com/kachaje/firestore-webrtc
+          token: ${{ secrets.PRIVARE_REPO_PAT }}
+          path: firestore-webrtc
 
       - name: Set up Go
         uses: actions/setup-go@v2
