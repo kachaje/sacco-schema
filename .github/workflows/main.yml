@@ -30,7 +30,7 @@ jobs:
       - name: 
         uses: actions/checkout@v4
         with:
-          repository: github.com/kachaje/firestore-webrtc
+          repository: kachaje/firestore-webrtc
           token: ${{ secrets.PRIVARE_REPO_PAT }}
           path: firestore-webrtc
 
