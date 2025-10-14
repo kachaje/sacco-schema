@@ -13,3 +13,4 @@ test.sql
 *.log
 backups/
 .DS_Store
+firestore-webrtc
