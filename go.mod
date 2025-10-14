@@ -47,4 +47,4 @@ require (
 	modernc.org/memory v1.11.0 // indirect
 )
 
-replace github.com/kachaje/firestore-webrtc => ../firestore-webrtc
+replace github.com/kachaje/firestore-webrtc => ./firestore-webrtc
