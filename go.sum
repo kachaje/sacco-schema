@@ -12,8 +12,6 @@ github.com/gorilla/websocket v1.5.3 h1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aN
 github.com/gorilla/websocket v1.5.3/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/joselitofilho/drawio-parser-go v0.3.2 h1:2qBOUIVdPmNRWdKNhs+V8V6OzSFj9TnkR+d0XyhfyYs=
 github.com/joselitofilho/drawio-parser-go v0.3.2/go.mod h1:zUjTGv39xACAEOCriA/tAqCVTFBwqUR/mHVowaziNXk=
-github.com/kachaje/firestore-webrtc v0.0.121 h1:eOgyRHCyS2u0LFWJ5KOedckxxOwP9loCLq83VzpqNR4=
-github.com/kachaje/firestore-webrtc v0.0.121/go.mod h1:DusLipNFThQbKZ833koDd6+7nzecuE5rMCUykoCVf2E=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
