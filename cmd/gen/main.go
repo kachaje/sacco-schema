@@ -5,9 +5,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	drawio2json "sacco/drawIo2Json"
-	modelgraph "sacco/modelGraph"
-	"sacco/yaml2sql"
+
+	drawio2json "github.com/kachaje/sacco-schema/drawIo2Json"
+	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
+	"github.com/kachaje/sacco-schema/yaml2sql"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 package main
 
-import "sacco/wscli"
+import "github.com/kachaje/sacco-schema/wscli"
 
 func main() {
 	wscli.Main()

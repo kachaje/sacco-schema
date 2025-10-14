@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"os"
 	"regexp"
-	"sacco/utils"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func Main(model, destinationFile string, sourceData map[string]any) (*string, map[string][]string, map[string]bool, []string, error) {

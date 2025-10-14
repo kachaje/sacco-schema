@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"log"
 	"maps"
-	"sacco/utils"
 	"strconv"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func (d *Database) LoadSingleChildren(parentKey, model string, parentId int64) (map[string]any, error) {

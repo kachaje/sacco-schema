@@ -2,7 +2,8 @@ package menufuncs
 
 import (
 	"fmt"
-	"sacco/parser"
+
+	"github.com/kachaje/sacco-schema/parser"
 
 	"github.com/google/uuid"
 )

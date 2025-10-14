@@ -6,9 +6,10 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sacco/utils"
 	"strconv"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/utils"
 
 	"golang.org/x/exp/slices"
 )

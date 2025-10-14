@@ -7,10 +7,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sacco/database"
-	"sacco/utils"
 	"sort"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func buildFuncs() {
@@ -50,8 +51,8 @@ func buildFuncs() {
 	content := fmt.Sprintf(`package menufuncs
 
 import (
-	"sacco/database"
-	"sacco/parser"
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/parser"
 	"time"
 )
 

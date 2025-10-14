@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"log"
 	"regexp"
-	"sacco/parser"
+
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 func SetPhoneNumber(

@@ -6,11 +6,12 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	modelgraph "sacco/modelGraph"
 	"slices"
 	"strings"
 	"testing"
 	"time"
+
+	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
 
 	_ "modernc.org/sqlite"
 )

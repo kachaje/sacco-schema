@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	cronjobs "sacco/cronJobs"
-	"sacco/database"
-	"sacco/utils"
 	"testing"
+
+	cronjobs "github.com/kachaje/sacco-schema/cronJobs"
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestCalculateOrdinaryDepositsInterest(t *testing.T) {

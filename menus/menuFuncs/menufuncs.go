@@ -1,9 +1,10 @@
 package menufuncs
 
 import (
-	"sacco/database"
-	"sacco/parser"
 	"time"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 var (

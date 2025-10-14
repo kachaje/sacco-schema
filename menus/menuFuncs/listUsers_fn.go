@@ -2,8 +2,9 @@ package menufuncs
 
 import (
 	"fmt"
-	"sacco/parser"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 func ListUsers(

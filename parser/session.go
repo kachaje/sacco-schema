@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"log"
 	"regexp"
-	"sacco/utils"
 	"sync"
 	"time"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 type Session struct {

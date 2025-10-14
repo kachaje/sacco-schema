@@ -1,10 +1,11 @@
 package tests
 
 import (
-	"sacco/menus"
-	"sacco/parser"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/menus"
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestRegistrationSubMenu(t *testing.T) {

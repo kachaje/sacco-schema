@@ -6,8 +6,9 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestLoadYaml(t *testing.T) {

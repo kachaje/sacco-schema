@@ -6,9 +6,10 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"sacco/parser"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 var content []byte

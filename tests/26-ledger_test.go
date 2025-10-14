@@ -7,11 +7,12 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
-	"sacco/ledger"
-	"sacco/ledger/models"
-	"sacco/utils"
 	"strings"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/ledger"
+	"github.com/kachaje/sacco-schema/ledger/models"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 var (

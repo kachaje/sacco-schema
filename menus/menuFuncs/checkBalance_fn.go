@@ -1,7 +1,7 @@
 package menufuncs
 
 import (
-	"sacco/parser"
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 func CheckBalance(

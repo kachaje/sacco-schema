@@ -6,10 +6,11 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"sacco/parser"
-	"sacco/utils"
 	"testing"
 	"time"
+
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestGetTokens(t *testing.T) {

@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
-	"sacco/menus"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/menus"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestResolveCacheDataArray(t *testing.T) {

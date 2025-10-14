@@ -4,8 +4,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sacco/parser"
 	"sync"
+
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 var mu sync.Mutex

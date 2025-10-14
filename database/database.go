@@ -8,12 +8,13 @@ import (
 	"io/fs"
 	"log"
 	"regexp"
-	"sacco/utils"
 	"slices"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/kachaje/sacco-schema/utils"
 
 	_ "modernc.org/sqlite"
 )

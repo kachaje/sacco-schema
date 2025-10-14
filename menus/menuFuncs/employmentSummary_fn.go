@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"sacco/parser"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/parser"
 
 	_ "embed"
 )

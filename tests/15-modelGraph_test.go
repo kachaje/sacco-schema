@@ -6,11 +6,12 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	modelgraph "sacco/modelGraph"
-	"sacco/utils"
 	"sort"
 	"strings"
 	"testing"
+
+	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestCreateGraph(t *testing.T) {

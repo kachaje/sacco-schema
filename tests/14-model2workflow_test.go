@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"sacco/database"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestModel2Workflow(t *testing.T) {

@@ -1,6 +1,6 @@
 package main
 
-import "sacco/server"
+import "github.com/kachaje/sacco-schema/server"
 
 func main() {
 	server.Main()

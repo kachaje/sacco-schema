@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"log"
 	"regexp"
-	"sacco/parser"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/parser"
 
 	_ "embed"
 )

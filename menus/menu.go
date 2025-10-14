@@ -7,12 +7,13 @@ import (
 	"log"
 	"path/filepath"
 	"regexp"
-	menufuncs "sacco/menus/menuFuncs"
-	"sacco/parser"
-	"sacco/utils"
 	"slices"
 	"strings"
 	"sync"
+
+	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 //go:embed workflows/*

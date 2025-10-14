@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
-	"sacco/database"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/utils"
 
 	_ "embed"
 )

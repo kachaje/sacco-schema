@@ -3,8 +3,9 @@ package menufuncs
 import (
 	"fmt"
 	"regexp"
-	"sacco/parser"
 	"slices"
+
+	"github.com/kachaje/sacco-schema/parser"
 )
 
 func SignUp(

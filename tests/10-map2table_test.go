@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestMap2Table(t *testing.T) {

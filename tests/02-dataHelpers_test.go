@@ -5,9 +5,10 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"sacco/utils"
 	"sort"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {

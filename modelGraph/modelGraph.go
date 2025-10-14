@@ -6,11 +6,12 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sacco/utils"
 	"slices"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func Main(folder *string) error {

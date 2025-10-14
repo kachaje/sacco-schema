@@ -3,9 +3,10 @@ package tests
 import (
 	"os"
 	"path/filepath"
-	"sacco/utils"
-	"sacco/yaml2sql"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/sacco-schema/yaml2sql"
 )
 
 func TestYml2Sql(t *testing.T) {

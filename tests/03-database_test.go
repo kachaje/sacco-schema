@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"sacco/database"
 	"slices"
 	"strings"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
 )
 
 func TestDatabase(t *testing.T) {

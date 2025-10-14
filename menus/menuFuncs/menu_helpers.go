@@ -7,12 +7,13 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sacco/parser"
-	"sacco/utils"
 	"sort"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"

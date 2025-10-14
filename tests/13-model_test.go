@@ -5,9 +5,10 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
-	"sacco/database"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/utils"
 
 	_ "modernc.org/sqlite"
 )

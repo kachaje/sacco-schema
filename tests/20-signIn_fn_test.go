@@ -1,12 +1,13 @@
 package tests
 
 import (
-	"sacco/database"
-	"sacco/menus"
-	menufuncs "sacco/menus/menuFuncs"
-	"sacco/parser"
-	"sacco/utils"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/menus"
+	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestSignInFn(t *testing.T) {

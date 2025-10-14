@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"sacco/ledger/models"
+
+	"github.com/kachaje/sacco-schema/ledger/models"
 
 	"github.com/gorilla/mux"
 )

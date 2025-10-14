@@ -5,11 +5,12 @@ import (
 	"database/sql"
 	"fmt"
 	"regexp"
-	"sacco/utils"
 	"slices"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/kachaje/sacco-schema/utils"
 
 	"github.com/google/uuid"
 )

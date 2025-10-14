@@ -2,9 +2,10 @@ package tests
 
 import (
 	"os"
-	"sacco/server"
-	"sacco/wscli"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/server"
+	"github.com/kachaje/sacco-schema/wscli"
 
 	"github.com/rogpeppe/go-internal/testscript"
 )

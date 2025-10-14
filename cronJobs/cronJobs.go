@@ -3,8 +3,9 @@ package cronjobs
 import (
 	"fmt"
 	"log"
-	"sacco/database"
 	"strconv"
+
+	"github.com/kachaje/sacco-schema/database"
 )
 
 type CronJobs struct {

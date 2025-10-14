@@ -6,10 +6,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sacco/database"
-	"sacco/parser"
-	"sacco/utils"
 	"strconv"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func SaveModelData(data any, model, phoneNumber *string,

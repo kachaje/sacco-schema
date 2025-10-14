@@ -1,4 +1,4 @@
-module sacco
+module github.com/kachaje/sacco-schema
 
 go 1.24.3
 

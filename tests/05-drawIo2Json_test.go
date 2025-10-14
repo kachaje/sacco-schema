@@ -7,9 +7,10 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	drawio2json "sacco/drawIo2Json"
-	"sacco/utils"
 	"testing"
+
+	drawio2json "github.com/kachaje/sacco-schema/drawIo2Json"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 func TestValueMapFromString(t *testing.T) {

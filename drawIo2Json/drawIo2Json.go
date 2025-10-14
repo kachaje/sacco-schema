@@ -7,10 +7,11 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sacco/utils"
 	"slices"
 	"strconv"
 	"strings"
+
+	"github.com/kachaje/sacco-schema/utils"
 
 	"github.com/joselitofilho/drawio-parser-go/pkg/parser/xml"
 	"golang.org/x/net/html"

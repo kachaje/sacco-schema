@@ -5,10 +5,11 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	menufuncs "sacco/menus/menuFuncs"
-	"sacco/utils"
 	"strings"
 	"testing"
+
+	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
+	"github.com/kachaje/sacco-schema/utils"
 )
 
 var (

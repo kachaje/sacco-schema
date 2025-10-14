@@ -9,9 +9,10 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
-	"sacco/utils"
 	"slices"
 	"time"
+
+	"github.com/kachaje/sacco-schema/utils"
 
 	"github.com/gorilla/websocket"
 )

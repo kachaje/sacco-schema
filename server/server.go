@@ -12,14 +12,15 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	cronjobs "sacco/cronJobs"
-	"sacco/database"
-	"sacco/ledger"
-	"sacco/menus"
-	menufuncs "sacco/menus/menuFuncs"
-	"sacco/utils"
 	"strings"
 	"time"
+
+	cronjobs "github.com/kachaje/sacco-schema/cronJobs"
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/ledger"
+	"github.com/kachaje/sacco-schema/menus"
+	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
+	"github.com/kachaje/sacco-schema/utils"
 
 	"html/template"
 

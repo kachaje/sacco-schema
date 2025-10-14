@@ -5,9 +5,10 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"sacco/database"
-	"sacco/reports"
 	"testing"
+
+	"github.com/kachaje/sacco-schema/database"
+	"github.com/kachaje/sacco-schema/reports"
 )
 
 func TestContributions(t *testing.T) {
