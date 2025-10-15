@@ -27,21 +27,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 
+      - name:
         uses: actions/checkout@v4
         with:
           repository: kachaje/firestore-webrtc
           token: ${{ secrets.PRIVARE_REPO_PAT }}
           path: firestore-webrtc
 
-      - name: 
+      - name:
         uses: actions/checkout@v4
         with:
           repository: kachaje/utils
           token: ${{ secrets.PRIVARE_REPO_PAT }}
           path: utils
 
-      - name: 
+      - name:
         uses: actions/checkout@v4
         with:
           repository: kachaje/workflow-parser

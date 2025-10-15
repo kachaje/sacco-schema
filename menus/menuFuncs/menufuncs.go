@@ -1,14 +1,11 @@
 package menufuncs
 
 import (
-	"time"
-
-	"github.com/kachaje/sacco-schema/database"
 	"github.com/kachaje/workflow-parser/parser"
+	"time"
 )
 
 var (
-	DB       *database.Database
 	Sessions = map[string]*parser.Session{}
 
 	WorkflowsData = map[string]map[string]any{}

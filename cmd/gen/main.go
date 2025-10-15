@@ -8,6 +8,7 @@ import (
 
 	drawio2json "github.com/kachaje/workflow-parser/drawIo2Json"
 	modelgraph "github.com/kachaje/workflow-parser/modelGraph"
+	"github.com/kachaje/workflow-parser/workflows"
 	"github.com/kachaje/workflow-parser/yaml2sql"
 )
 
@@ -59,4 +60,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	workflows.Main(nil, nil, nil)
 }

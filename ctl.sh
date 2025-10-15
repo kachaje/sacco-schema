@@ -14,12 +14,6 @@ elif [[ "$1" == "-g" ]]; then
 
   go run cmd/gen/*.go -f designs/sacco.drawio
 
-  pushd workflows 2>&1 >/dev/null
-
-  go run *.go
-
-  popd 2>&1 >/dev/null
-
   npx prettier -w .
 
   npx sql-formatter database/schema/schema.sql -l sql --output database/schema/schema.sql
