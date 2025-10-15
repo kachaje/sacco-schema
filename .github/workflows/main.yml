@@ -34,6 +34,13 @@ jobs:
           token: ${{ secrets.PRIVARE_REPO_PAT }}
           path: firestore-webrtc
 
+      - name: 
+        uses: actions/checkout@v4
+        with:
+          repository: kachaje/utils
+          token: ${{ secrets.PRIVARE_REPO_PAT }}
+          path: utils
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
