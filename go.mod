@@ -50,4 +50,4 @@ require (
 
 replace github.com/kachaje/firestore-webrtc => ./firestore-webrtc
 
-replace github.com/kachaje/utils/utils => ./utils/utils
+replace github.com/kachaje/utils => ./utils
