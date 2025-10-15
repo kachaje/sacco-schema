@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
+	modelgraph "github.com/kachaje/workflow-parser/modelGraph"
 
 	_ "modernc.org/sqlite"
 )

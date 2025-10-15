@@ -10,8 +10,8 @@ import (
 
 	"github.com/kachaje/sacco-schema/database"
 	filehandling "github.com/kachaje/sacco-schema/fileHandling"
-	"github.com/kachaje/sacco-schema/parser"
 	"github.com/kachaje/utils/utils"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func TestSaveDataOne(t *testing.T) {

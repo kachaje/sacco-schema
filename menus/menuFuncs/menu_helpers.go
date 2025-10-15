@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kachaje/sacco-schema/parser"
 	"github.com/kachaje/utils/utils"
+	"github.com/kachaje/workflow-parser/parser"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"

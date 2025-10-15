@@ -1,7 +1,7 @@
 package menufuncs
 
 import (
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func Landing(loadMenu func(

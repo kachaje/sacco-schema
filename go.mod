@@ -8,18 +8,17 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.1
 	github.com/gorilla/websocket v1.5.3
-	github.com/joselitofilho/drawio-parser-go v0.3.2
 	github.com/kachaje/firestore-webrtc v0.0.121
 	github.com/kachaje/utils v0.0.0-20251015065301-fa5a4a3c95d6
+	github.com/kachaje/workflow-parser v0.0.2
 	github.com/rogpeppe/go-internal v1.14.1
-	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b
-	golang.org/x/net v0.45.0
 	golang.org/x/text v0.30.0
 	modernc.org/sqlite v1.39.0
 )
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/joselitofilho/drawio-parser-go v0.3.2 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/pion/datachannel v1.5.10 // indirect
@@ -41,6 +40,8 @@ require (
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/wlynxg/anet v0.0.5 // indirect
 	golang.org/x/crypto v0.43.0 // indirect
+	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
+	golang.org/x/net v0.45.0 // indirect
 	golang.org/x/sys v0.37.0 // indirect
 	golang.org/x/tools v0.37.0 // indirect
 	modernc.org/libc v1.66.3 // indirect
@@ -51,3 +52,5 @@ require (
 replace github.com/kachaje/firestore-webrtc => ./firestore-webrtc
 
 replace github.com/kachaje/utils => ./utils
+
+replace github.com/kachaje/workflow-parser => ./workflow-parser

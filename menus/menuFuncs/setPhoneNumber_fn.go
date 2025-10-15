@@ -5,7 +5,7 @@ import (
 	"log"
 	"regexp"
 
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func SetPhoneNumber(

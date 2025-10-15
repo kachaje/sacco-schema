@@ -6,8 +6,8 @@ import (
 	"github.com/kachaje/sacco-schema/database"
 	"github.com/kachaje/sacco-schema/menus"
 	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
-	"github.com/kachaje/sacco-schema/parser"
 	"github.com/kachaje/utils/utils"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func TestSignUpFn(t *testing.T) {

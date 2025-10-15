@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 var mu sync.Mutex

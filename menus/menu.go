@@ -12,8 +12,8 @@ import (
 	"sync"
 
 	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
-	"github.com/kachaje/sacco-schema/parser"
 	"github.com/kachaje/utils/utils"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 //go:embed workflows/*

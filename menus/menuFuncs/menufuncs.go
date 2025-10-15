@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/kachaje/sacco-schema/database"
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 var (

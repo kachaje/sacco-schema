@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	drawio2json "github.com/kachaje/sacco-schema/drawIo2Json"
-	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
-	"github.com/kachaje/sacco-schema/yaml2sql"
+	drawio2json "github.com/kachaje/workflow-parser/drawIo2Json"
+	modelgraph "github.com/kachaje/workflow-parser/modelGraph"
+	"github.com/kachaje/workflow-parser/yaml2sql"
 )
 
 func main() {

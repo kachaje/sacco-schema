@@ -2,7 +2,7 @@ package menufuncs
 
 import (
 	filehandling "github.com/kachaje/sacco-schema/fileHandling"
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func CreateNewSession(phoneNumber, sessionId, preferencesFolder, preferredLanguage string, demoMode bool) *parser.Session {

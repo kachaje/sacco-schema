@@ -3,7 +3,7 @@ package menufuncs
 import (
 	"fmt"
 
-	"github.com/kachaje/sacco-schema/parser"
+	"github.com/kachaje/workflow-parser/parser"
 
 	"github.com/google/uuid"
 )

@@ -9,8 +9,8 @@ import (
 	"strconv"
 
 	"github.com/kachaje/sacco-schema/database"
-	"github.com/kachaje/sacco-schema/parser"
 	"github.com/kachaje/utils/utils"
+	"github.com/kachaje/workflow-parser/parser"
 )
 
 func SaveModelData(data any, model, phoneNumber *string,
