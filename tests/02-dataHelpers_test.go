@@ -8,7 +8,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestFlattenMapIdMapOnly(t *testing.T) {

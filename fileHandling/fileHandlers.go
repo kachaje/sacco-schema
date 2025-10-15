@@ -10,7 +10,7 @@ import (
 
 	"github.com/kachaje/sacco-schema/database"
 	"github.com/kachaje/sacco-schema/parser"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func SaveModelData(data any, model, phoneNumber *string,

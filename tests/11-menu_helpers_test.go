@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	menufuncs "github.com/kachaje/sacco-schema/menus/menuFuncs"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 var (

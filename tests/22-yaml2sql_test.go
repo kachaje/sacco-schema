@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/kachaje/sacco-schema/utils"
 	"github.com/kachaje/sacco-schema/yaml2sql"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestYml2Sql(t *testing.T) {

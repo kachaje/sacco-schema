@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/kachaje/sacco-schema/parser"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 var content []byte
@@ -565,7 +565,7 @@ func TestGetLabel(t *testing.T) {
 		t.Fatal("Test failed")
 	}
 
-	target := "Language: 1. English 2. Chichewa 99. Cancel"
+	target := utils.CleanScript([]byte("Language: 1. English 2. Chichewa 99. Cancel"))
 
 	result := wf.GetLabel(node, wf.CurrentScreen)
 
@@ -577,7 +577,7 @@ func TestGetLabel(t *testing.T) {
 
 	wf.CurrentLanguage = "2"
 
-	target = "Chiyankhulo: 1. English 2. Chichewa 99. Basi"
+	target = utils.CleanScript([]byte("Chiyankhulo: 1. English 2. Chichewa 99. Basi"))
 
 	result = wf.GetLabel(node, wf.CurrentScreen)
 
@@ -600,7 +600,7 @@ func TestGetLabel(t *testing.T) {
 
 	node = wf.GetNode(wf.CurrentScreen)
 
-	target = `Zomwe Mwalemba
+	target = utils.CleanScript([]byte(`Zomwe Mwalemba
 - Chiyankhulo: English
 - Dzina Loyamba: Mary
 - Dzina La Abambo: Banda
@@ -612,7 +612,7 @@ func TestGetLabel(t *testing.T) {
 00. Tiyambirenso
 98. Bwererani
 99. Basi
-`
+`))
 
 	result = wf.GetLabel(node, wf.CurrentScreen)
 

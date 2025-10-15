@@ -12,7 +12,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	"github.com/gorilla/websocket"
 )

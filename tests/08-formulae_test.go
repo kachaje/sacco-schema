@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/kachaje/sacco-schema/parser"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestGetTokens(t *testing.T) {

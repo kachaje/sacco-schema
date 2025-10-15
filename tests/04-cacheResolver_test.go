@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/kachaje/sacco-schema/menus"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestResolveCacheDataArray(t *testing.T) {

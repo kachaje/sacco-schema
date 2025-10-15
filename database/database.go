@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	_ "modernc.org/sqlite"
 )

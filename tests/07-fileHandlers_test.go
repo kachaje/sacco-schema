@@ -11,7 +11,7 @@ import (
 	"github.com/kachaje/sacco-schema/database"
 	filehandling "github.com/kachaje/sacco-schema/fileHandling"
 	"github.com/kachaje/sacco-schema/parser"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestSaveDataOne(t *testing.T) {

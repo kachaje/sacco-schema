@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func Main(model, destinationFile string, sourceData map[string]any) (*string, map[string][]string, map[string]bool, []string, error) {

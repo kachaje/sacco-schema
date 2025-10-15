@@ -11,7 +11,7 @@ import (
 	"testing"
 
 	modelgraph "github.com/kachaje/sacco-schema/modelGraph"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestCreateGraph(t *testing.T) {

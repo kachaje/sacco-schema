@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 type Session struct {

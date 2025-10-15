@@ -9,7 +9,7 @@ import (
 
 	cronjobs "github.com/kachaje/sacco-schema/cronJobs"
 	"github.com/kachaje/sacco-schema/database"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestCalculateOrdinaryDepositsInterest(t *testing.T) {

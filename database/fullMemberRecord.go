@@ -6,7 +6,7 @@ import (
 	"maps"
 	"strconv"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func (d *Database) LoadSingleChildren(parentKey, model string, parentId int64) (map[string]any, error) {

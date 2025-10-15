@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	"github.com/google/uuid"
 )

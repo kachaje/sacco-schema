@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/kachaje/sacco-schema/database"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func buildFuncs() {

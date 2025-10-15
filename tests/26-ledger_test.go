@@ -12,7 +12,7 @@ import (
 
 	"github.com/kachaje/sacco-schema/ledger"
 	"github.com/kachaje/sacco-schema/ledger/models"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 var (

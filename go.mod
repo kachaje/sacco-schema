@@ -2,7 +2,7 @@ module github.com/kachaje/sacco-schema
 
 go 1.24.3
 
-require gopkg.in/yaml.v3 v3.0.1
+require gopkg.in/yaml.v3 v3.0.1 // indirect
 
 require (
 	github.com/google/uuid v1.6.0
@@ -10,11 +10,11 @@ require (
 	github.com/gorilla/websocket v1.5.3
 	github.com/joselitofilho/drawio-parser-go v0.3.2
 	github.com/kachaje/firestore-webrtc v0.0.121
+	github.com/kachaje/utils v0.0.0-20251015065301-fa5a4a3c95d6
 	github.com/rogpeppe/go-internal v1.14.1
-	golang.org/x/crypto v0.42.0
 	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b
-	golang.org/x/net v0.44.0
-	golang.org/x/text v0.29.0
+	golang.org/x/net v0.45.0
+	golang.org/x/text v0.30.0
 	modernc.org/sqlite v1.39.0
 )
 
@@ -40,11 +40,14 @@ require (
 	github.com/pion/webrtc/v4 v4.1.4 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/wlynxg/anet v0.0.5 // indirect
-	golang.org/x/sys v0.36.0 // indirect
-	golang.org/x/tools v0.36.0 // indirect
+	golang.org/x/crypto v0.43.0 // indirect
+	golang.org/x/sys v0.37.0 // indirect
+	golang.org/x/tools v0.37.0 // indirect
 	modernc.org/libc v1.66.3 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
 
 replace github.com/kachaje/firestore-webrtc => ./firestore-webrtc
+
+replace github.com/kachaje/utils/utils => ./utils/utils

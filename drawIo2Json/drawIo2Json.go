@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	"github.com/joselitofilho/drawio-parser-go/pkg/parser/xml"
 	"golang.org/x/net/html"

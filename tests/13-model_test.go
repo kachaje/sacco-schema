@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/kachaje/sacco-schema/database"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	_ "modernc.org/sqlite"
 )

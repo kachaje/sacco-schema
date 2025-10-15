@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"

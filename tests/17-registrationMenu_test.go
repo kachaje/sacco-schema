@@ -5,7 +5,7 @@ import (
 
 	"github.com/kachaje/sacco-schema/menus"
 	"github.com/kachaje/sacco-schema/parser"
-	"github.com/kachaje/sacco-schema/utils"
+	"github.com/kachaje/utils/utils"
 )
 
 func TestRegistrationSubMenu(t *testing.T) {
