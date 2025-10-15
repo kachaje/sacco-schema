@@ -41,6 +41,13 @@ jobs:
           token: ${{ secrets.PRIVARE_REPO_PAT }}
           path: utils
 
+      - name: 
+        uses: actions/checkout@v4
+        with:
+          repository: kachaje/workflow-parser
+          token: ${{ secrets.PRIVARE_REPO_PAT }}
+          path: workflow-parser
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
