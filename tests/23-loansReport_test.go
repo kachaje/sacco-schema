@@ -53,7 +53,9 @@ func TestLoansReport(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(fixturesFile, payload, 0644)
+		if err := os.WriteFile(fixturesFile, payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	target := reports.LoansReportData{}
@@ -107,7 +109,9 @@ func TestLoansReport2Table(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(string(*result))
 
-		os.WriteFile(fixturesFile, payload, 0644)
+		if err := os.WriteFile(fixturesFile, payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(fixturesFile)

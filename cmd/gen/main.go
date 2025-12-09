@@ -44,7 +44,10 @@ func main() {
 		os.RemoveAll(targetFolder)
 	}
 
-	os.MkdirAll(targetFolder, 0755)
+	err = os.MkdirAll(targetFolder, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	err = drawio2json.Main(filename, configsFolder, targetFolder)
 	if err != nil {

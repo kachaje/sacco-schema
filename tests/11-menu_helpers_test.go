@@ -36,7 +36,9 @@ func TestLoadGroupMembers(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "memberDependants.json"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "memberDependants.json"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "memberDependants.json"))
@@ -100,7 +102,9 @@ func TestLoadTemplateData(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "member.template.output.json"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "member.template.output.json"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "member.template.output.json"))
@@ -137,7 +141,9 @@ func TestTabulateData(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(strings.Join(result, "\n"))
 
-		os.WriteFile(filepath.Join(".", "fixtures", "member.txt"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "member.txt"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "member.txt"))
@@ -183,7 +189,9 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "loanApplication.template.output.json"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "loanApplication.template.output.json"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "loanApplication.template.output.json"))
@@ -232,7 +240,9 @@ func TestBusinessSummary(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"))
@@ -269,7 +279,9 @@ func TestTabulateBusinessSummary(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(strings.Join(result, "\n"))
 
-		os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.txt"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "businessSummary.txt"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.txt"))

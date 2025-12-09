@@ -57,8 +57,6 @@ func SignIn(
 		} else {
 			session.Cache["username"] = text
 
-			text = ""
-
 			session.LastPrompt = "password"
 
 			content = askPassword("")

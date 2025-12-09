@@ -84,8 +84,6 @@ func SignUp(
 				} else {
 					session.Cache["username"] = text
 
-					text = ""
-
 					session.LastPrompt = "fullname"
 
 					content = askName("")
@@ -97,8 +95,6 @@ func SignUp(
 			} else {
 				session.Cache["name"] = text
 
-				text = ""
-
 				session.LastPrompt = "newPassword"
 
 				content = askNewPassword("")
@@ -108,8 +104,6 @@ func SignUp(
 				content = askNewPassword("(Required Field)")
 			} else {
 				session.Cache["password"] = text
-
-				text = ""
 
 				session.LastPrompt = "confirmPassword"
 

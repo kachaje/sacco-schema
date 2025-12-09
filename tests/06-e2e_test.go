@@ -175,7 +175,9 @@ func TestSchemaE2E(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(records, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "records.json"), payload, 0644)
+		if err := os.WriteFile(filepath.Join(".", "fixtures", "records.json"), payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	targetRecords := map[string]any{}

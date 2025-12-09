@@ -41,7 +41,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "arrayTargetData.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "arrayTargetData.json"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "arrayTargetData.json"))
@@ -92,7 +92,7 @@ func TestResolveCacheDataFlat(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "flatTargetData.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "flatTargetData.json"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "flatTargetData.json"))
@@ -141,7 +141,7 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedL1TargetData.json"))
@@ -190,7 +190,7 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "nestedL2TargetData.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "nestedL2TargetData.json"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedL2TargetData.json"))
@@ -239,7 +239,7 @@ func TestNestedChild(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "nestedChildTargetData.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "nestedChildTargetData.json"), payload, 0644)
 	}
 
 	content, err = os.ReadFile(filepath.Join(".", "fixtures", "nestedChildTargetData.json"))

@@ -110,7 +110,10 @@ func SaveModelData(data any, model, phoneNumber *string,
 			}
 
 			if sessions != nil && sessions[*phoneNumber] != nil {
-				sessions[*phoneNumber].RefreshSession()
+				_, err := sessions[*phoneNumber].RefreshSession()
+				if err != nil {
+					log.Println(err)
+				}
 			}
 		}
 	}
@@ -132,7 +135,10 @@ func SaveData(
 			if val["language"] != nil && phoneNumber != nil {
 				language, ok := val["language"].(string)
 				if ok {
-					SavePreference(*phoneNumber, "language", language, *preferenceFolder)
+					err := SavePreference(*phoneNumber, "language", language, *preferenceFolder)
+					if err != nil {
+						log.Println(err)
+					}
 				}
 			}
 		}

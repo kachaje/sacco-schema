@@ -60,13 +60,13 @@ func TestMemberRegistrationWorkflow(t *testing.T) {
 	}
 
 	for _, input := range workflowInputs {
-		response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
+		_ = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
 		// Don't break early - continue through all inputs including "0" for submit
 	}
 
 	// Refresh session to load any new data
 	if sessions, ok := menufuncs.Sessions[phoneNumber]; ok {
-		sessions.RefreshSession()
+		_, _ = sessions.RefreshSession()
 	}
 
 	// Verify member was created
@@ -122,7 +122,7 @@ func TestLoanApplicationWorkflow(t *testing.T) {
 	}
 
 	// Refresh session to load member data
-	session.RefreshSession()
+	_, _ = session.RefreshSession()
 
 	// Navigate to loan menu
 	response := activeMenu.LoadMenu("main", session, phoneNumber, "2", "")
@@ -149,13 +149,13 @@ func TestLoanApplicationWorkflow(t *testing.T) {
 	}
 
 	for _, input := range loanInputs {
-		response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
+		_ = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
 		// Don't break early - continue through all inputs including "0" for submit
 	}
 
 	// Refresh session to load any new data
 	if sessions, ok := menufuncs.Sessions[phoneNumber]; ok {
-		sessions.RefreshSession()
+		_, _ = sessions.RefreshSession()
 	}
 
 	// Verify loan was created
@@ -229,7 +229,7 @@ func TestContributionDepositWorkflow(t *testing.T) {
 	}
 
 	// Refresh session
-	session.RefreshSession()
+	_, _ = session.RefreshSession()
 
 	// Navigate to contribution deposit workflow
 	// (Assuming there's a contribution menu - adjust based on actual menu structure)
@@ -366,7 +366,7 @@ func TestWorkflowCancelCommand(t *testing.T) {
 	}
 
 	// Cancel workflow
-	response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, "99", "")
+	_ = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, "99", "")
 
 	// Should return to main menu or registration menu
 	if session.CurrentMenu == "registration" || session.CurrentMenu == "main" {
@@ -394,7 +394,7 @@ func TestWorkflowMainMenuCommand(t *testing.T) {
 	}
 
 	// Return to main menu
-	response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, "00", "")
+	_ = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, "00", "")
 
 	// Should be at main menu
 	if session.CurrentMenu != "main" {

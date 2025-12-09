@@ -55,7 +55,6 @@ func SetPhoneNumber(
 				log.Println(err)
 			}
 
-			text = ""
 			content = "Success. Phone Number set!\n"
 		}
 	} else {

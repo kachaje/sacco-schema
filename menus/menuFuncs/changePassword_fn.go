@@ -62,8 +62,6 @@ func ChangePassword(
 		} else {
 			session.Cache["confirmPassword"] = text
 
-			text = ""
-
 			if session.Cache["newPassword"] != session.Cache["confirmPassword"] {
 				session.LastPrompt = "newPassword"
 

@@ -45,7 +45,7 @@ func setupTestServer() (*httptest.Server, func()) {
 		response := activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, text, ".settings")
 
 		w.Header().Set("Content-Type", "text/plain")
-		w.Write([]byte(response))
+		_, _ = w.Write([]byte(response))
 	})
 
 	// Cron jobs handler
@@ -69,7 +69,7 @@ func setupTestServer() (*httptest.Server, func()) {
 		}
 
 		// For testing, just return success
-		w.Write([]byte("Done\n"))
+		_, _ = w.Write([]byte("Done\n"))
 	})
 
 	ts := httptest.NewServer(mux)

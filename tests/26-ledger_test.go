@@ -166,7 +166,9 @@ func TestHandlePost(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload = []byte(strings.Join(result, ";\n"))
 
-		os.WriteFile(fixturesFile, payload, 0644)
+		if err := os.WriteFile(fixturesFile, payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	target := []string{}
@@ -222,7 +224,9 @@ func TestHandleGet(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload := []byte(strings.Join(result, ";\n"))
 
-		os.WriteFile(fixturesFile, payload, 0644)
+		if err := os.WriteFile(fixturesFile, payload, 0644); err != nil {
+			t.Fatal(err)
+		}
 	}
 
 	target := []string{}

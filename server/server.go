@@ -222,7 +222,10 @@ func Main() {
 
 	_, err = os.Stat(preferencesFolder)
 	if os.IsNotExist(err) {
-		os.MkdirAll(preferencesFolder, 0755)
+		err = os.MkdirAll(preferencesFolder, 0755)
+		if err != nil {
+			log.Panic(err)
+		}
 	}
 
 	menufuncs.DB = database.NewDatabase(dbname)

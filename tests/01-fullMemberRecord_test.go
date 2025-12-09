@@ -177,7 +177,7 @@ func TestFullMemberRecord(t *testing.T) {
 	if os.Getenv("DEBUG") == "true" {
 		payload, _ := json.MarshalIndent(result, "", "  ")
 
-		os.WriteFile(filepath.Join(".", "fixtures", "sample.data.json"), payload, 0644)
+		_ = os.WriteFile(filepath.Join(".", "fixtures", "sample.data.json"), payload, 0644)
 	}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "sample.data.json"))
