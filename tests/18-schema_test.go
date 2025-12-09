@@ -1,57 +1,16 @@
 package tests
 
 import (
-	"database/sql"
 	"fmt"
-	"os"
-	"path/filepath"
 	"regexp"
 	"testing"
 
-	_ "embed"
-
-	_ "modernc.org/sqlite"
+	"github.com/kachaje/sacco-schema/database"
 )
 
 func TestSchema(t *testing.T) {
-	var schemaStmt string
-	var seedStmt string
-	var triggersStmt string
-
-	content, err := os.ReadFile(filepath.Join("..", "database", "schema", "schema.sql"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	schemaStmt = string(content)
-
-	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "seed.sql"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	seedStmt = string(content)
-
-	content, err = os.ReadFile(filepath.Join("..", "database", "schema", "triggers", "triggers.sql"))
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	triggersStmt = string(content)
-
-	dbname := ":memory:"
-	db, err := sql.Open("sqlite", dbname)
-	if err != nil {
-		t.Fatal(err)
-	}
+	db := database.NewDatabase(":memory:")
 	defer db.Close()
-
-	for _, statement := range []string{"PRAGMA journal_mode=WAL", schemaStmt, seedStmt, triggersStmt} {
-		_, err = db.Exec(statement)
-		if err != nil {
-			t.Fatal(err)
-		}
-	}
 
 	// Add new member
 	statement := `INSERT INTO member (
@@ -79,7 +38,7 @@ func TestSchema(t *testing.T) {
 		"949488473"
 	)`
 
-	result, err := db.Exec(statement)
+	result, err := db.DB.Exec(statement)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -93,10 +52,11 @@ func TestSchema(t *testing.T) {
 		t.Fatalf("Test failed. Got %v", id)
 	}
 
-	rows, err := db.Query(fmt.Sprintf(`SELECT memberIdNumber FROM member WHERE id = %v`, id))
+	rows, err := db.DB.Query(fmt.Sprintf(`SELECT memberIdNumber FROM member WHERE id = %v`, id))
 	if err != nil {
 		t.Fatal(err)
 	}
+	defer rows.Close()
 
 	var memberIdNumber string
 

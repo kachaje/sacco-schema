@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"os"
 	"testing"
 
 	"github.com/kachaje/sacco-schema/database"
@@ -50,29 +49,25 @@ func setupModelDb(dbname string) (*sql.DB, *database.Model, error) {
 }
 
 func TestNewModel(t *testing.T) {
-	dbname := "test.db"
+	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		os.Remove(dbname)
-	}()
+	defer db.Close()
 
 	_, _ = db, model
 }
 
 func TestAddRecord(t *testing.T) {
-	dbname := "testAdd.db"
+	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		os.Remove(dbname)
-	}()
+	defer db.Close()
 
 	data := map[string]any{
 		"firstName": "Mary",
@@ -135,15 +130,13 @@ func TestAddRecord(t *testing.T) {
 }
 
 func TestUpdateRecord(t *testing.T) {
-	dbname := "testUpdate.db"
+	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		os.Remove(dbname)
-	}()
+	defer db.Close()
 
 	data := map[string]any{
 		"firstName": "John",
@@ -224,15 +217,13 @@ func TestUpdateRecord(t *testing.T) {
 }
 
 func TestFetchById(t *testing.T) {
-	dbname := "testFetchById.db"
+	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		os.Remove(dbname)
-	}()
+	defer db.Close()
 
 	target := map[string]any{
 		"firstName": "John",
@@ -293,15 +284,13 @@ func TestFetchById(t *testing.T) {
 }
 
 func TestFilterBy(t *testing.T) {
-	dbname := "testFilterBy.db"
+	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer func() {
-		os.Remove(dbname)
-	}()
+	defer db.Close()
 
 	target := map[string]any{
 		"firstName": "John",

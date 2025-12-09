@@ -1,7 +1,6 @@
 package tests
 
 import (
-	"database/sql"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -11,6 +10,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/kachaje/sacco-schema/database"
 	modelgraph "github.com/kachaje/workflow-parser/modelGraph"
 
 	_ "modernc.org/sqlite"
@@ -40,33 +40,15 @@ func TestSchemaE2E(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	db, err := sql.Open("sqlite", ":memory:")
-	if err != nil {
-		t.Fatal(err)
-	}
-	defer db.Close()
+	// Use database package which already has embedded schema files
+	dbInstance := database.NewDatabase(":memory:")
+	defer dbInstance.Close()
+
+	db := dbInstance.DB
 
 	_, err = db.Exec("PRAGMA journal_mode=WAL")
 	if err != nil {
 		t.Fatal(err)
-	}
-
-	for _, filename := range []string{
-		filepath.Join("..", "database", "schema", "schema.sql"),
-		filepath.Join("..", "database", "schema", "seed.sql"),
-		filepath.Join("..", "database", "schema", "triggers", "triggers.sql"),
-	} {
-		content, err = os.ReadFile(filename)
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		statement := string(content)
-
-		_, err = db.Exec(statement)
-		if err != nil {
-			t.Fatal(err)
-		}
 	}
 
 	rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
@@ -90,16 +72,33 @@ func TestSchemaE2E(t *testing.T) {
 		}
 	}
 
-	totalTables, err := os.ReadDir(filepath.Join("..", "database", "schema", "models"))
-	if err != nil {
-		t.Fatal(err)
-	}
+	// Get total tables from the database instance's GenericModels
+	totalTables := len(dbInstance.GenericModels)
 
-	for {
-		if len(tables) < len(totalTables) {
-			time.Sleep(1 * time.Second)
-		} else {
+	// Wait for tables to be created (with timeout to prevent infinite hanging)
+	// Note: This loop may not be necessary since tables are created synchronously,
+	// but we keep it with a timeout to handle edge cases
+	maxIterations := 10
+	iteration := 0
+	for iteration < maxIterations {
+		if len(tables) >= totalTables {
 			break
+		}
+		time.Sleep(1 * time.Second)
+		iteration++
+
+		// Re-query tables to check if more were created
+		rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
+		if err == nil {
+			newTables := []string{}
+			for rows.Next() {
+				var table string
+				if rows.Scan(&table) == nil && !slices.Contains([]string{"sqlite_sequence"}, table) {
+					newTables = append(newTables, table)
+				}
+			}
+			rows.Close()
+			tables = newTables
 		}
 	}
 

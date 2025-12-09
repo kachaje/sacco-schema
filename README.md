@@ -39,4 +39,4 @@ See [Getting Started Guide](./docs/getting-started.md) for detailed instructions
 
 ## License
 
-[Add your license here]
+Private

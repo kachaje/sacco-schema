@@ -156,23 +156,40 @@ func (d *Database) initDb() error {
 
 	totalTables := len(modelTemplatesData)
 
-	for {
-		rows, err := d.DB.QueryContext(context.Background(), "SELECT name FROM sqlite_master WHERE type='table'")
+	// Wait for tables to be created (with timeout to prevent infinite hanging)
+	// Note: This loop may not be necessary since tables are created synchronously,
+	// but we keep it with a timeout to handle edge cases
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	maxIterations := 15
+	iteration := 0
+	for iteration < maxIterations {
+		select {
+		case <-ctx.Done():
+			// Timeout reached, proceed with whatever tables we have
+			return nil
+		default:
+		}
+
+		rows, err := d.DB.QueryContext(ctx, "SELECT name FROM sqlite_master WHERE type='table'")
 		if err == nil {
 			count := 0
 
 			for rows.Next() {
 				count++
 			}
+			rows.Close()
 
 			if count >= totalTables {
+				// All tables created, wait a bit for any final triggers/operations
 				time.Sleep(1 * time.Second)
-
-				break
+				return nil
 			}
 		}
 
 		time.Sleep(2 * time.Second)
+		iteration++
 	}
 
 	return nil
