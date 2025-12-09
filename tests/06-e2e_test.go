@@ -5,10 +5,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"slices"
 	"strings"
 	"testing"
-	"time"
 
 	"github.com/kachaje/sacco-schema/database"
 	modelgraph "github.com/kachaje/workflow-parser/modelGraph"
@@ -51,56 +49,8 @@ func TestSchemaE2E(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
-	if err != nil {
-		t.Fatal(err)
-	}
-	defer rows.Close()
-
-	tables := []string{}
-
-	for rows.Next() {
-		var table string
-
-		err = rows.Scan(&table)
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		if !slices.Contains([]string{"sqlite_sequence"}, table) {
-			tables = append(tables, table)
-		}
-	}
-
-	// Get total tables from the database instance's GenericModels
-	totalTables := len(dbInstance.GenericModels)
-
-	// Wait for tables to be created (with timeout to prevent infinite hanging)
-	// Note: This loop may not be necessary since tables are created synchronously,
-	// but we keep it with a timeout to handle edge cases
-	maxIterations := 10
-	iteration := 0
-	for iteration < maxIterations {
-		if len(tables) >= totalTables {
-			break
-		}
-		time.Sleep(1 * time.Second)
-		iteration++
-
-		// Re-query tables to check if more were created
-		rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
-		if err == nil {
-			newTables := []string{}
-			for rows.Next() {
-				var table string
-				if rows.Scan(&table) == nil && !slices.Contains([]string{"sqlite_sequence"}, table) {
-					newTables = append(newTables, table)
-				}
-			}
-			rows.Close()
-			tables = newTables
-		}
-	}
+	// Tables are created synchronously during database initialization,
+	// so no polling is needed
 
 	records := map[string][]int64{}
 

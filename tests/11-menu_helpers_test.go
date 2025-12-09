@@ -17,6 +17,7 @@ var (
 )
 
 func TestLoadGroupMembers(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	targetData := []map[string]any{}
 
@@ -54,6 +55,7 @@ func TestLoadGroupMembers(t *testing.T) {
 }
 
 func TestResolveNestedQuery(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{
 		"member.memberLoan.3.memberLoanWitness.5.name": "Mary Banda",
 	}
@@ -68,6 +70,7 @@ func TestResolveNestedQuery(t *testing.T) {
 }
 
 func TestLoadTemplateData(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	templateData := map[string]any{}
 	targetData := map[string]any{}
@@ -116,6 +119,7 @@ func TestLoadTemplateData(t *testing.T) {
 }
 
 func TestTabulateData(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "member.template.output.json"))
@@ -149,6 +153,7 @@ func TestTabulateData(t *testing.T) {
 }
 
 func TestLoadLoanApplicationForm(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	templateData := map[string]any{}
 	targetData := map[string]any{}
@@ -197,6 +202,7 @@ func TestLoadLoanApplicationForm(t *testing.T) {
 }
 
 func TestBusinessSummary(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	templateData := map[string]any{}
 	target := map[string]any{}
@@ -245,6 +251,7 @@ func TestBusinessSummary(t *testing.T) {
 }
 
 func TestTabulateBusinessSummary(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 
 	content, err := os.ReadFile(filepath.Join(".", "fixtures", "businessSummary.template.output.json"))

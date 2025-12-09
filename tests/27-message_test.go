@@ -10,6 +10,7 @@ import (
 )
 
 func TestMessageToJson(t *testing.T) {
+	t.Parallel()
 	timestamp := time.Now().UnixMilli()
 
 	msg := peer.NewMessage("Hello World", peer.TEXT_MESSAGE, "text/plain", "sample", &timestamp)
@@ -36,6 +37,7 @@ func TestMessageToJson(t *testing.T) {
 }
 
 func TestMessageToByte(t *testing.T) {
+	t.Parallel()
 	timestamp := time.Now().UnixMilli()
 
 	msg := peer.NewMessage("Hello World", peer.TEXT_MESSAGE, "text/plain", "sample", &timestamp)

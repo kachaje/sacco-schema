@@ -11,6 +11,7 @@ import (
 )
 
 func TestResolveCacheDataArray(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
@@ -59,6 +60,7 @@ func TestResolveCacheDataArray(t *testing.T) {
 }
 
 func TestResolveCacheDataFlat(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
@@ -109,6 +111,7 @@ func TestResolveCacheDataFlat(t *testing.T) {
 }
 
 func TestResolveCacheDataNestedL1(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
@@ -157,6 +160,7 @@ func TestResolveCacheDataNestedL1(t *testing.T) {
 }
 
 func TestResolveCacheDataNestedL2(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}
@@ -205,6 +209,7 @@ func TestResolveCacheDataNestedL2(t *testing.T) {
 }
 
 func TestNestedChild(t *testing.T) {
+	t.Parallel()
 	data := map[string]any{}
 	cacheData := map[string]any{}
 	target := map[string]any{}

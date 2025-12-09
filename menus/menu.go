@@ -484,7 +484,7 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 		}
 
 		return m.LoadMenu(kv[target], session, phoneNumber, text, preferencesFolder)
-	} else if session != nil && m.Workflows[session.CurrentMenu] != nil {
+	} else if session != nil && m.Workflows[session.CurrentMenu] != nil && menuName == session.CurrentMenu {
 		workingMenu := session.CurrentMenu
 		model := fmt.Sprintf("%v", m.Workflows[workingMenu])
 
@@ -513,13 +513,37 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 				session.CurrentMenu = "main"
 				text = "0"
 				return m.LoadMenu(session.CurrentMenu, session, phoneNumber, text, preferencesFolder)
+			} else if text == "99" {
+				// Cancel workflow - return to parent menu
+				parentMenu := "main"
+				currentMenu := session.CurrentMenu
+
+				// Extract parent menu by removing .d+ suffix
+				if strings.Contains(currentMenu, ".") {
+					parts := strings.Split(currentMenu, ".")
+					if len(parts) > 0 {
+						parentMenu = parts[0]
+					}
+				} else if strings.HasPrefix(currentMenu, "registration") && currentMenu != "registration" {
+					// If we're in a registration workflow, go back to registration menu
+					parentMenu = "registration"
+				}
+
+				// Set CurrentMenu before calling LoadMenu to ensure it's updated
+				session.CurrentMenu = parentMenu
+				text = ""
+
+				// Call LoadMenu with the parent menu name to display it
+				return m.LoadMenu(parentMenu, session, phoneNumber, text, preferencesFolder)
 			} else if strings.TrimSpace(response) == "" {
+				// Workflow completed/ended - return to parent menu
 				if text == "0" {
 					session.AddedModels[model] = true
 				}
 
 				parentMenu := "main"
 
+				// Extract parent menu by removing .d+ suffix
 				if regexp.MustCompile(`\.\d+$`).MatchString(session.CurrentMenu) {
 					parentMenu = regexp.MustCompile(`\.\d+$`).ReplaceAllLiteralString(session.CurrentMenu, "")
 				}

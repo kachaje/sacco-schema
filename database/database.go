@@ -1,7 +1,6 @@
 package database
 
 import (
-	"context"
 	"database/sql"
 	"embed"
 	"fmt"
@@ -24,6 +23,9 @@ var schemaString string
 
 //go:embed schema/seed.sql
 var seedString string
+
+//go:embed schema/seed.test.sql
+var seedTestString string
 
 //go:embed schema/rates.sql
 var ratesString string
@@ -77,7 +79,10 @@ func NewDatabase(dbname string) *Database {
 		},
 	}
 
-	err = instance.initDb()
+	// Automatically use test seed for in-memory databases (used by tests)
+	// This significantly speeds up test execution by using 1000 records instead of 999,999
+	useTestSeed := dbname == ":memory:"
+	err = instance.initDb(useTestSeed)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -115,10 +120,16 @@ func (d *Database) Close() {
 	d.DB.Close()
 }
 
-func (d *Database) initDb() error {
+func (d *Database) initDb(useTestSeed bool) error {
+	// Use test seed if requested (for faster test execution)
+	seedData := seedString
+	if useTestSeed {
+		seedData = seedTestString
+	}
+
 	for _, statement := range []string{
 		schemaString,
-		seedString,
+		seedData,
 		ratesString,
 	} {
 		_, err := d.DB.Exec(statement)
@@ -154,44 +165,8 @@ func (d *Database) initDb() error {
 		}
 	}
 
-	totalTables := len(modelTemplatesData)
-
-	// Wait for tables to be created (with timeout to prevent infinite hanging)
-	// Note: This loop may not be necessary since tables are created synchronously,
-	// but we keep it with a timeout to handle edge cases
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
-
-	maxIterations := 15
-	iteration := 0
-	for iteration < maxIterations {
-		select {
-		case <-ctx.Done():
-			// Timeout reached, proceed with whatever tables we have
-			return nil
-		default:
-		}
-
-		rows, err := d.DB.QueryContext(ctx, "SELECT name FROM sqlite_master WHERE type='table'")
-		if err == nil {
-			count := 0
-
-			for rows.Next() {
-				count++
-			}
-			rows.Close()
-
-			if count >= totalTables {
-				// All tables created, wait a bit for any final triggers/operations
-				time.Sleep(1 * time.Second)
-				return nil
-			}
-		}
-
-		time.Sleep(2 * time.Second)
-		iteration++
-	}
-
+	// Tables are created synchronously, so no polling is needed
+	// The previous polling loop was unnecessary and added significant delay
 	return nil
 }
 

@@ -23,9 +23,16 @@ func TestSaveModelDataWithRefData(t *testing.T) {
 
 	// Create initial member
 	memberData := map[string]any{
-		"firstName":   "John",
-		"lastName":    "Doe",
-		"phoneNumber": phoneNumber,
+		"firstName":          "John",
+		"lastName":           "Doe",
+		"phoneNumber":        phoneNumber,
+		"gender":             "Male",
+		"title":              "Mr",
+		"maritalStatus":      "Single",
+		"dateOfBirth":        "1990-01-01",
+		"nationalIdentifier": "ID123",
+		"utilityBillType":    "ESCOM",
+		"utilityBillNumber":  "BILL123",
 	}
 	model := "member"
 	err := filehandling.SaveModelData(memberData, &model, &phoneNumber, db.GenericsSaveData, sessions, nil)
@@ -37,12 +44,14 @@ func TestSaveModelDataWithRefData(t *testing.T) {
 	dependantData1 := map[string]any{
 		"name1":         "Dependant 1",
 		"memberId1":     1,
+		"phoneNumber1":  "0888777666",
 		"percentage1":   50,
 		"relationship1": "Spouse",
 	}
 	dependantData2 := map[string]any{
 		"name2":         "Dependant 2",
 		"memberId2":     1,
+		"phoneNumber2":  "0888777667",
 		"percentage2":   30,
 		"relationship2": "Child",
 	}
@@ -74,10 +83,12 @@ func TestSaveModelDataWithRefData(t *testing.T) {
 		"name1":         "Dependant 1",
 		"id1":           1,
 		"memberId1":     1,
+		"phoneNumber1":  "0888777666",
 		"percentage1":   50,
 		"relationship1": "Spouse",
 		"name3":         "Dependant 3",
 		"memberId3":     1,
+		"phoneNumber3":  "0888777668",
 		"percentage3":   20,
 		"relationship3": "Child",
 	}
@@ -117,6 +128,8 @@ func TestSaveModelDataWithFloatConversion(t *testing.T) {
 		"loanAmount":              "50000.50",
 		"repaymentPeriodInMonths": "12",
 		"monthlyInterestRate":     "2.5",
+		"loanPurpose":             "Business",
+		"loanType":                "Business",
 		"memberId":                1,
 	}
 
@@ -162,9 +175,16 @@ func TestSaveModelDataWithParentLinking(t *testing.T) {
 
 	// Create member first
 	memberData := map[string]any{
-		"firstName":   "Jane",
-		"lastName":    "Smith",
-		"phoneNumber": phoneNumber,
+		"firstName":          "Jane",
+		"lastName":           "Smith",
+		"phoneNumber":        phoneNumber,
+		"gender":             "Female",
+		"title":              "Mrs",
+		"maritalStatus":      "Married",
+		"dateOfBirth":        "1990-01-01",
+		"nationalIdentifier": "ID456",
+		"utilityBillType":    "Water Board",
+		"utilityBillNumber":  "BILL456",
 	}
 	model := "member"
 	err := filehandling.SaveModelData(memberData, &model, &phoneNumber, db.GenericsSaveData, sessions, nil)
@@ -174,8 +194,11 @@ func TestSaveModelDataWithParentLinking(t *testing.T) {
 
 	// Now create contact with parent linking
 	contactData := map[string]any{
-		"postalAddress":      "P.O. Box 123",
-		"residentialAddress": "123 Main St",
+		"postalAddress":            "P.O. Box 123",
+		"residentialAddress":       "123 Main St",
+		"homeVillage":              "Test Village",
+		"homeTraditionalAuthority": "Test TA",
+		"homeDistrict":             "Test District",
 		// memberId should be automatically set from GlobalIds
 	}
 
@@ -296,9 +319,16 @@ func TestSaveModelDataUpdatesPhoneNumber(t *testing.T) {
 
 	// Create member with different phone number
 	memberData := map[string]any{
-		"firstName":   "Test",
-		"lastName":    "User",
-		"phoneNumber": newPhoneNumber,
+		"firstName":          "Test",
+		"lastName":           "User",
+		"phoneNumber":        newPhoneNumber,
+		"gender":             "Male",
+		"title":              "Mr",
+		"maritalStatus":      "Single",
+		"dateOfBirth":        "1990-01-01",
+		"nationalIdentifier": "ID789",
+		"utilityBillType":    "ESCOM",
+		"utilityBillNumber":  "BILL789",
 	}
 	model := "member"
 	err := filehandling.SaveModelData(memberData, &model, &phoneNumber, db.GenericsSaveData, sessions, nil)

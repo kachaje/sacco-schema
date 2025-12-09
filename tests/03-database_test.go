@@ -12,6 +12,7 @@ import (
 )
 
 func TestDatabase(t *testing.T) {
+	t.Parallel()
 	db := database.NewDatabase(":memory:")
 	defer db.Close()
 
@@ -53,6 +54,7 @@ func TestDatabase(t *testing.T) {
 }
 
 func TestGenericsSaveData(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 	db := database.NewDatabase(dbname)
 	defer db.Close()
@@ -97,6 +99,7 @@ func TestGenericsSaveData(t *testing.T) {
 }
 
 func TestGenericModel(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 	db := database.NewDatabase(dbname)
 	defer db.Close()

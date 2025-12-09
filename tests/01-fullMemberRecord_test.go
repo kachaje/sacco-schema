@@ -113,6 +113,7 @@ func cleanMember(target map[string]any) {
 }
 
 func TestLoadModelChildren(t *testing.T) {
+	t.Parallel()
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)
@@ -159,6 +160,7 @@ func TestLoadModelChildren(t *testing.T) {
 }
 
 func TestFullMemberRecord(t *testing.T) {
+	t.Parallel()
 	db, err := setupDb()
 	if err != nil {
 		t.Fatal(err)

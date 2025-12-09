@@ -129,7 +129,10 @@ func TestUSSDHandler(t *testing.T) {
 			}
 
 			body := bytes.NewBufferString(buildFormData(formData))
-			req := httptest.NewRequest(http.MethodPost, ts.URL+"/ussd", body)
+			req, err := http.NewRequest(http.MethodPost, ts.URL+"/ussd", body)
+			if err != nil {
+				t.Fatal(err)
+			}
 			req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 			client := &http.Client{}
@@ -159,7 +162,10 @@ func TestUSSDHandlerInvalidMethod(t *testing.T) {
 	ts, cleanup := setupTestServer()
 	defer cleanup()
 
-	req := httptest.NewRequest(http.MethodGet, ts.URL+"/ussd", nil)
+	req, err := http.NewRequest(http.MethodGet, ts.URL+"/ussd", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
@@ -226,7 +232,10 @@ func TestCronJobsHandler(t *testing.T) {
 				}
 			}
 
-			req := httptest.NewRequest(tt.method, ts.URL+"/cron/jobs", bytes.NewBuffer(requestBody))
+			req, err := http.NewRequest(tt.method, ts.URL+"/cron/jobs", bytes.NewBuffer(requestBody))
+			if err != nil {
+				t.Fatal(err)
+			}
 			if tt.method == http.MethodPost {
 				req.Header.Set("Content-Type", "application/json")
 			}
@@ -255,7 +264,10 @@ func TestCronJobsHandlerInvalidJSON(t *testing.T) {
 	ts, cleanup := setupTestServer()
 	defer cleanup()
 
-	req := httptest.NewRequest(http.MethodPost, ts.URL+"/cron/jobs", bytes.NewBufferString("invalid json"))
+	req, err := http.NewRequest(http.MethodPost, ts.URL+"/cron/jobs", bytes.NewBufferString("invalid json"))
+	if err != nil {
+		t.Fatal(err)
+	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}

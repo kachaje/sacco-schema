@@ -9,6 +9,7 @@ import (
 )
 
 func TestSchema(t *testing.T) {
+	t.Parallel()
 	db := database.NewDatabase(":memory:")
 	defer db.Close()
 

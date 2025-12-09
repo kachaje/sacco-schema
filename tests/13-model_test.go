@@ -49,6 +49,7 @@ func setupModelDb(dbname string) (*sql.DB, *database.Model, error) {
 }
 
 func TestNewModel(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
@@ -61,6 +62,7 @@ func TestNewModel(t *testing.T) {
 }
 
 func TestAddRecord(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
@@ -130,6 +132,7 @@ func TestAddRecord(t *testing.T) {
 }
 
 func TestUpdateRecord(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
@@ -217,6 +220,7 @@ func TestUpdateRecord(t *testing.T) {
 }
 
 func TestFetchById(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)
@@ -284,6 +288,7 @@ func TestFetchById(t *testing.T) {
 }
 
 func TestFilterBy(t *testing.T) {
+	t.Parallel()
 	dbname := ":memory:"
 
 	db, model, err := setupModelDb(dbname)

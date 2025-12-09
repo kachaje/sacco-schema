@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/kachaje/sacco-schema/database"
@@ -50,7 +51,7 @@ func TestMemberRegistrationWorkflow(t *testing.T) {
 		"2",          // maritalStatus (Single)
 		"1990-01-01", // dateOfBirth
 		"ID123456",   // nationalIdentifier
-		"1",          // utilityBillType
+		"1",          // utilityBillType (ESCOM)
 		"BILL123",    // utilityBillNumber
 		"",           // Continue to summary
 		"0",          // Submit
@@ -101,11 +102,11 @@ func TestLoanApplicationWorkflow(t *testing.T) {
 		"lastName":           "Smith",
 		"phoneNumber":        phoneNumber,
 		"gender":             "Female",
-		"title":              "Ms",
+		"title":              "Miss",
 		"maritalStatus":      "Single",
 		"dateOfBirth":        "1990-01-01",
 		"nationalIdentifier": "ID789",
-		"utilityBillType":    "1",
+		"utilityBillType":    "ESCOM",
 		"utilityBillNumber":  "BILL789",
 	}
 
@@ -186,7 +187,7 @@ func TestContributionDepositWorkflow(t *testing.T) {
 		"maritalStatus":      "Single",
 		"dateOfBirth":        "1990-01-01",
 		"nationalIdentifier": "ID999",
-		"utilityBillType":    "1",
+		"utilityBillType":    "ESCOM",
 		"utilityBillNumber":  "BILL999",
 	}
 
@@ -195,10 +196,22 @@ func TestContributionDepositWorkflow(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	// Get memberIdNumber from the created member
+	memberRecords, err := db.GenericModels["member"].FilterBy(fmt.Sprintf("WHERE id = %d", *memberId))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(memberRecords) == 0 {
+		t.Fatal("Member not found")
+	}
+	memberIdNumber := memberRecords[0]["memberIdNumber"].(string)
+
 	contributionData := map[string]any{
 		"memberId":            *memberId,
+		"memberIdNumber":      memberIdNumber,
 		"contributionNumber":  "CN001",
 		"monthlyContribution": 5000,
+		"nonRedeemableAmount": 0,
 	}
 
 	_, err = db.GenericsSaveData(contributionData, "memberContribution", 0)
@@ -252,7 +265,7 @@ func TestMultiUserConcurrentSessions(t *testing.T) {
 		"maritalStatus":      "Single",
 		"dateOfBirth":        "1990-01-01",
 		"nationalIdentifier": "ID111",
-		"utilityBillType":    "1",
+		"utilityBillType":    "ESCOM",
 		"utilityBillNumber":  "BILL111",
 	}
 
@@ -261,11 +274,11 @@ func TestMultiUserConcurrentSessions(t *testing.T) {
 		"lastName":           "Two",
 		"phoneNumber":        phoneNumber2,
 		"gender":             "Female",
-		"title":              "Ms",
+		"title":              "Miss",
 		"maritalStatus":      "Single",
 		"dateOfBirth":        "1991-01-01",
 		"nationalIdentifier": "ID222",
-		"utilityBillType":    "1",
+		"utilityBillType":    "Water Board",
 		"utilityBillNumber":  "BILL222",
 	}
 
