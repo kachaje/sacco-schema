@@ -16,3 +16,4 @@ backups/
 firestore-webrtc
 utils
 workflow-parser
+.cursor/
