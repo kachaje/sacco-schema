@@ -20,9 +20,9 @@ VALUES
     ),
     CONCAT ('memberContributionDividend:', NEW.id),
     'Contribution Dividend',
-    NEW.description,
+    'Contribution Dividend',
     'CREDIT',
-    NEW.amount
+    NEW.dividend
   ),
   (
     (
@@ -35,9 +35,9 @@ VALUES
     ),
     CONCAT ('memberContributionDividend:', NEW.id),
     'Contribution Dividend',
-    NEW.description,
+    'Contribution Dividend',
     'DEBIT',
-    NEW.amount
+    NEW.dividend
   );
 
 END

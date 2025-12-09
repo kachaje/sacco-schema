@@ -19,14 +19,36 @@ func SaveModelData(data any, model, phoneNumber *string,
 		dataRows := utils.UnpackData(rawData)
 
 		if refData != nil {
-			unpackedRefData := utils.UnpackData(refData)
+			var unpackedRefData []map[string]any
+
+			// Check if refData is nested under model name (e.g., {"memberDependant": [...]})
+			if model != nil && refData[*model] != nil {
+				if arr, ok := refData[*model].([]map[string]any); ok {
+					unpackedRefData = arr
+				} else if arr, ok := refData[*model].([]any); ok {
+					// Convert []any to []map[string]any
+					unpackedRefData = make([]map[string]any, len(arr))
+					for i, v := range arr {
+						if m, ok := v.(map[string]any); ok {
+							unpackedRefData[i] = m
+						}
+					}
+				}
+			} else {
+				// Try to unpack as flat map
+				unpackedRefData = utils.UnpackData(refData)
+			}
 
 			missingIds := utils.GetSkippedRefIds(dataRows, unpackedRefData)
 
 			for _, row := range missingIds {
-				row["active"] = 0
-
-				dataRows = append(dataRows, row)
+				if row["id"] != nil {
+					updateData := map[string]any{
+						"id":     row["id"],
+						"active": 0,
+					}
+					dataRows = append(dataRows, updateData)
+				}
 			}
 		}
 

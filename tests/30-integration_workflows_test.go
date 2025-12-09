@@ -16,11 +16,13 @@ func TestMemberRegistrationWorkflow(t *testing.T) {
 
 	menufuncs.DB = db
 	demoMode := true
+	menufuncs.DemoMode = demoMode
+	// Clear sessions to avoid state from previous tests
+	menufuncs.Sessions = map[string]*parser.Session{}
 	activeMenu := menus.NewMenus(nil, &demoMode)
 
 	phoneNumber := "1234567890"
-	session := parser.NewSession(nil, &phoneNumber, nil, nil)
-	_ = map[string]*parser.Session{phoneNumber: session}
+	session := menufuncs.CreateNewSession(phoneNumber, "test123", ".settings", "", demoMode)
 
 	// Step 1: Load main menu
 	response := activeMenu.LoadMenu("main", session, phoneNumber, "", "")
@@ -59,10 +61,12 @@ func TestMemberRegistrationWorkflow(t *testing.T) {
 
 	for _, input := range workflowInputs {
 		response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
-		if response == "" && input != "0" {
-			// Workflow completed
-			break
-		}
+		// Don't break early - continue through all inputs including "0" for submit
+	}
+
+	// Refresh session to load any new data
+	if sessions, ok := menufuncs.Sessions[phoneNumber]; ok {
+		sessions.RefreshSession()
 	}
 
 	// Verify member was created
@@ -90,11 +94,13 @@ func TestLoanApplicationWorkflow(t *testing.T) {
 
 	menufuncs.DB = db
 	demoMode := true
+	menufuncs.DemoMode = demoMode
+	// Clear sessions to avoid state from previous tests
+	menufuncs.Sessions = map[string]*parser.Session{}
 	activeMenu := menus.NewMenus(nil, &demoMode)
 
 	phoneNumber := "1234567890"
-	session := parser.NewSession(nil, &phoneNumber, nil, nil)
-	_ = map[string]*parser.Session{phoneNumber: session}
+	session := menufuncs.CreateNewSession(phoneNumber, "test123", ".settings", "", demoMode)
 
 	// First create a member
 	memberData := map[string]any{
@@ -144,9 +150,12 @@ func TestLoanApplicationWorkflow(t *testing.T) {
 
 	for _, input := range loanInputs {
 		response = activeMenu.LoadMenu(session.CurrentMenu, session, phoneNumber, input, "")
-		if response == "" && input != "0" {
-			break
-		}
+		// Don't break early - continue through all inputs including "0" for submit
+	}
+
+	// Refresh session to load any new data
+	if sessions, ok := menufuncs.Sessions[phoneNumber]; ok {
+		sessions.RefreshSession()
 	}
 
 	// Verify loan was created
@@ -171,11 +180,11 @@ func TestContributionDepositWorkflow(t *testing.T) {
 
 	menufuncs.DB = db
 	demoMode := true
+	menufuncs.DemoMode = demoMode
 	activeMenu := menus.NewMenus(nil, &demoMode)
 
 	phoneNumber := "1234567890"
-	session := parser.NewSession(nil, &phoneNumber, nil, nil)
-	_ = map[string]*parser.Session{phoneNumber: session}
+	session := menufuncs.CreateNewSession(phoneNumber, "test123", ".settings", "", demoMode)
 
 	// Create member and contribution first
 	memberData := map[string]any{
@@ -342,10 +351,13 @@ func TestWorkflowCancelCommand(t *testing.T) {
 
 	menufuncs.DB = db
 	demoMode := true
+	menufuncs.DemoMode = demoMode
+	// Clear sessions to avoid state from previous tests
+	menufuncs.Sessions = map[string]*parser.Session{}
 	activeMenu := menus.NewMenus(nil, &demoMode)
 
 	phoneNumber := "1234567890"
-	session := parser.NewSession(nil, &phoneNumber, nil, nil)
+	session := menufuncs.CreateNewSession(phoneNumber, "test123", ".settings", "", demoMode)
 
 	// Start workflow
 	response := activeMenu.LoadMenu("registration", session, phoneNumber, "1", "")

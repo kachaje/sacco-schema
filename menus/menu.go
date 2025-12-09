@@ -516,7 +516,7 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 			} else if text == "99" {
 				// Cancel workflow - return to parent menu
 				parentMenu := "main"
-				currentMenu := session.CurrentMenu
+				currentMenu := workingMenu
 
 				// Extract parent menu by removing .d+ suffix
 				if strings.Contains(currentMenu, ".") {
@@ -527,6 +527,11 @@ func (m *Menus) LoadMenu(menuName string, session *parser.Session, phoneNumber, 
 				} else if strings.HasPrefix(currentMenu, "registration") && currentMenu != "registration" {
 					// If we're in a registration workflow, go back to registration menu
 					parentMenu = "registration"
+				}
+
+				// Clear workflow mapping for this model
+				if session.WorkflowsMapping != nil {
+					delete(session.WorkflowsMapping, model)
 				}
 
 				// Set CurrentMenu before calling LoadMenu to ensure it's updated

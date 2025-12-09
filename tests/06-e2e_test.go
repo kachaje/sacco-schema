@@ -49,14 +49,23 @@ func TestSchemaE2E(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	// Tables are created synchronously during database initialization,
-	// so no polling is needed
-
 	records := map[string][]int64{}
 
-	var addRecord func(model string, data map[string]any) (*int64, error)
+	var addRecord func(model string, data map[string]any, parentModel string, parentId int64) (*int64, error)
 
-	addRecord = func(model string, data map[string]any) (*int64, error) {
+	addRecord = func(model string, data map[string]any, parentModel string, parentId int64) (*int64, error) {
+		if len(data) > 0 {
+			id, err := dbInstance.GenericModels[model].AddRecord(data)
+			if err != nil {
+				return nil, err
+			}
+			if records[model] == nil {
+				records[model] = []int64{}
+			}
+			records[model] = append(records[model], *id)
+			return id, nil
+		}
+
 		query, err := modelgraph.CreateModelQuery(model, modelsData, nil)
 		if err != nil {
 			t.Fatal(err)
@@ -67,7 +76,7 @@ func TestSchemaE2E(t *testing.T) {
 			t.Fatal(err)
 		}
 
-		parentId, err := result.LastInsertId()
+		recordId, err := result.LastInsertId()
 		if err != nil {
 			return nil, err
 		}
@@ -75,30 +84,78 @@ func TestSchemaE2E(t *testing.T) {
 		if records[model] == nil {
 			records[model] = []int64{}
 		}
-		records[model] = append(records[model], parentId)
+		records[model] = append(records[model], recordId)
 
-		if len(data) > 0 {
-			for _, value := range data {
-				models := []string{}
-
-				if val, ok := value.([]any); ok {
-					for _, v := range val {
-						models = append(models, fmt.Sprintf("%v", v))
-					}
-				} else if val, ok := value.([]string); ok {
-					models = append(models, val...)
+		if graphVal, ok := graphData[model].(map[string]any); ok {
+			var childModels []string
+			if singleChildren, ok := graphVal["singleChildren"].([]any); ok {
+				for _, v := range singleChildren {
+					childModels = append(childModels, fmt.Sprintf("%v", v))
 				}
+			} else if singleChildren, ok := graphVal["singleChildren"].([]string); ok {
+				childModels = append(childModels, singleChildren...)
+			}
+			if arrayChildren, ok := graphVal["arrayChildren"].([]any); ok {
+				for _, v := range arrayChildren {
+					childModels = append(childModels, fmt.Sprintf("%v", v))
+				}
+			} else if arrayChildren, ok := graphVal["arrayChildren"].([]string); ok {
+				childModels = append(childModels, arrayChildren...)
+			}
 
-				for _, key := range models {
-					_, err = addRecord(key, map[string]any{})
-					if err != nil {
-						return nil, err
+			for _, key := range childModels {
+				childData := map[string]any{}
+				if modelData, ok := modelsData[key].(map[string]any); ok {
+					if fields, ok := modelData["fields"].(map[string]any); ok {
+						for fieldName, fieldDef := range fields {
+							if field, ok := fieldDef.(map[string]any); ok {
+								if refTable, ok := field["referenceTable"].(string); ok && refTable == model {
+									childData[fieldName] = recordId
+								} else if field["autoIncrement"] == nil && field["optional"] == nil && field["default"] == nil && field["dynamicDefault"] == nil {
+									if options, ok := field["options"].([]any); ok && len(options) > 0 {
+										childData[fieldName] = fmt.Sprintf("%v", options[0])
+									} else if options, ok := field["options"].([]string); ok && len(options) > 0 {
+										childData[fieldName] = options[0]
+									} else if fieldType, ok := field["type"].(string); ok {
+										if fieldType == "text" {
+											childData[fieldName] = "test"
+										} else if fieldType == "int" || fieldType == "integer" {
+											childData[fieldName] = 10
+										} else if fieldType == "real" || fieldType == "float" {
+											childData[fieldName] = 10.0
+										} else {
+											childData[fieldName] = "test"
+										}
+									}
+								} else if field["dynamicDefault"] != nil && field["optional"] == nil {
+									if fieldType, ok := field["type"].(string); ok {
+										if fieldType == "text" {
+											if strings.Contains(strings.ToLower(fieldName), "number") {
+												childData[fieldName] = fmt.Sprintf("LOAN-%d", recordId)
+											} else {
+												childData[fieldName] = fmt.Sprintf("test-%d", recordId)
+											}
+										} else if fieldType == "int" || fieldType == "integer" {
+											childData[fieldName] = int(recordId)
+										} else if fieldType == "real" || fieldType == "float" {
+											childData[fieldName] = float64(recordId)
+										} else {
+											childData[fieldName] = fmt.Sprintf("test-%d", recordId)
+										}
+									}
+								}
+							}
+						}
 					}
+				}
+				_, err = addRecord(key, childData, model, recordId)
+				if err != nil {
+					return nil, err
 				}
 			}
 		}
 
-		return &parentId, nil
+		return &recordId, nil
 	}
 
 	for model, value := range graphData {
@@ -106,8 +163,8 @@ func TestSchemaE2E(t *testing.T) {
 			continue
 		}
 
-		if val, ok := value.(map[string]any); ok {
-			_, err := addRecord(model, val)
+		if _, ok := value.(map[string]any); ok {
+			_, err := addRecord(model, map[string]any{}, "", 0)
 			if err != nil {
 				t.Fatal(err)
 			}
