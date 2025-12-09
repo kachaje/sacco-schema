@@ -48,4 +48,19 @@ elif [[ "$1" == "-t" ]]; then
 
   popd  2>&1 >/dev/null
 
+elif [[ "$1" == "-l" ]]; then
+
+  echo "Running go vet..."
+  go vet ./...
+
+  if command -v golangci-lint &> /dev/null; then
+    echo ""
+    echo "Running golangci-lint..."
+    golangci-lint run
+  else
+    echo ""
+    echo "golangci-lint not found. Install it with:"
+    echo "  go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest"
+  fi
+
 fi
