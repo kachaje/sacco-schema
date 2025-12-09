@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to check if gotestsum is installed
+check_gotestsum() {
+    if command -v gotestsum > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 if [[ "$1" == "-b" ]]; then
 
   rm -rf convert
@@ -34,19 +50,24 @@ elif [[ "$1" == "-rename" ]]; then
 
 elif [[ "$1" == "-t" ]]; then
 
-  pushd tests 2>&1 >/dev/null
-
-  rm -rf tests.log
-
-  for t in $(ls *.go); do
-    echo $t 
-    go test $t 2>&1 > tests.log
-    if [[ $? -ne 0 ]]; then 
-      break
-    fi
-  done
-
-  popd  2>&1 >/dev/null
+  echo -e "${GREEN}Running tests...${NC}"
+  
+  # Use gotestsum if available for pytest-like progress output
+  if check_gotestsum; then
+    # gotestsum provides progress output similar to pytest
+    # --format testname shows test names as they run (like pytest)
+    # Use TEST_FORMAT env var to override: dots, testname, standard-verbose, etc.
+    TEST_FORMAT="${TEST_FORMAT:-testname}"
+    # Use script to preserve colors, then filter EMPTY lines
+    script -q /dev/null bash -c "gotestsum --format \"$TEST_FORMAT\" -- --count=1 ./tests/..." 2>&1 | grep -v --color=always 'EMPTY' 
+  else
+    # Fallback to go test with verbose output
+    echo -e "${YELLOW}Note: Install gotestsum for better progress output:${NC}"
+    echo -e "${YELLOW}  go install gotest.tools/gotestsum@latest${NC}"
+    echo ""
+    # Use script to preserve colors, then filter EMPTY lines
+    script -q /dev/null bash -c "go test -v ./tests/..." 2>&1 | grep -v --color=always 'EMPTY' 
+  fi
 
 elif [[ "$1" == "-l" ]]; then
 
